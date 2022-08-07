@@ -32,7 +32,7 @@ f.close()
 
 # initialising indicators
 __i = Indicators(data)
-__i.ichimoku_kinko_hyo(column_name_kijun_sen="K Line")
+# __i.ichimoku_kinko_hyo(column_name_kijun_sen="K Line")
 __dataCloud = __i.df
 __dataCloud.to_csv('data/AAPL_cloud.csv')
 
