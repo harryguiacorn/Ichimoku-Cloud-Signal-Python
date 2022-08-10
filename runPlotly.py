@@ -95,7 +95,7 @@ class dataPlotly:
         fig3.update_yaxes(visible=False, secondary_y=True)
         fig3.update_layout(xaxis={'type': 'category'},
                            xaxis_rangeslider_visible=True)  # hide range slider
-        fig3.update_layout(title={'text': 'TSLA', 'x': 0.5})
+        fig3.update_layout(title={'text': self.stockSymbol, 'x': 0.5})
         fig3.update_xaxes(rangebreaks=[
             dict(bounds=['sat', 'sun']),  # hide weekends
             # dict(bounds=[16, 9.5], pattern='hour'), # for hourly chart, hide non-trading hours (24hr format)
@@ -106,6 +106,12 @@ class dataPlotly:
 
 
 stock1 = dataPlotly('AAPL')
+stock1.setFromToToday(240)
+stock1.saveData()
+stock1.runIndicator()
+stock1.show()
+
+stock1 = dataPlotly('MSFT')
 stock1.setFromToToday(240)
 stock1.saveData()
 stock1.runIndicator()
