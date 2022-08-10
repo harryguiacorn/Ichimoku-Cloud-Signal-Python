@@ -105,7 +105,7 @@ class dataPlotly:
         fig3.show()
 
 
-stock1 = dataPlotly('TSLA')
+stock1 = dataPlotly('AAPL')
 stock1.setFromToToday(240)
 stock1.saveData()
 stock1.runIndicator()
