@@ -67,5 +67,5 @@ class KijunSignal:
 
 stock = KijunSignal("AAPL")
 stock.setupPd()
-stock = KijunSignal("MSFT")
-stock.setupPd()
+# stock = KijunSignal("MSFT")
+# stock.setupPd()
