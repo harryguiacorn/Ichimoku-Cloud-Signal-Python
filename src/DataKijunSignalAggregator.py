@@ -63,6 +63,6 @@ class DataKijunSignalAggregator:
         df_result.sort_values(by=['Count'], inplace=True)
         self.__createDataFolder(self.csvPath + 'result/')
         df_result.to_csv(self.csvPath + 'result/' +
-                         self.assetClassName.replace(" ", "") + '. csv',
+                         self.assetClassName.replace(" ", "") + '.csv',
                          index=False)
         return df_result
