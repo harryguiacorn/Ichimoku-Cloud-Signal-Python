@@ -1,5 +1,3 @@
-from dis import findlinestarts
-import yfinance
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from tapy import Indicators
@@ -7,9 +5,10 @@ from pandas_datareader import data as pdr
 from datetime import datetime
 import pandas as pd
 import plotly.graph_objects as go
+from DataOHLC import DataOHLC
 
-
-class dataPlotly:
+class DataPlotly(DataOHLC): # deprecated, use DataPandas
+    csvPath='data/'
     def __init__(self, stockSymbol):
         self.stockSymbol = stockSymbol
         # self.lookbackPeriod = lookbackPeriod
@@ -23,7 +22,7 @@ class dataPlotly:
             self.stockSymbol, today - delta, today)
 
     def saveData(self):
-        self.history.to_csv('data/' + self.stockSymbol + '.csv')
+        self.history.to_csv(DataPlotly.csvPath + self.stockSymbol + '.csv')
 
     def midPoint(self, __data, __lookbackPeriod=26):
         __max = __data['Close'].rolling(window=__lookbackPeriod).max()
@@ -32,7 +31,7 @@ class dataPlotly:
 
     def runIndicator(self):
         # initialising indicators
-        __data = pd.read_csv('data/' + self.stockSymbol + '.csv')
+        __data = pd.read_csv(DataPlotly.csvPath + self.stockSymbol + '.csv')
         # __data.index = __data.Date
         # __data = self.history
         __i = Indicators(__data)
@@ -40,7 +39,7 @@ class dataPlotly:
         __dataCloud = __i.df
         self.history = __dataCloud
         # print(self.history.tail())
-        __dataCloud.to_csv('data/' + self.stockSymbol + '_cloud.csv')
+        __dataCloud.to_csv(DataPlotly.csvPath + self.stockSymbol + '_ichimokuPlotly.csv')
 
     # custom function to set fill color
     def fillcol(self, lineA, lineB):
@@ -103,16 +102,26 @@ class dataPlotly:
         ])
 
         fig3.show()
+    
+    def readLocalCsvData(self, symbols, __csvPath):
+        __dict_df = {}
+        for __symbol in symbols:
+            __df = pd.read_csv(__csvPath + __symbol + '.csv')
+            __dict_df[__symbol] = __df
+        return __dict_df
 
+def main():
+    stock1 = DataPlotly('AAPL')
+    stock1.setFromToToday(240)
+    stock1.saveData()
+    stock1.runIndicator()
+    # stock1.show()
 
-stock1 = dataPlotly('AAPL')
-stock1.setFromToToday(240)
-stock1.saveData()
-stock1.runIndicator()
-# stock1.show()
+    stock1 = DataPlotly('MSFT')
+    stock1.setFromToToday(240)
+    stock1.saveData()
+    stock1.runIndicator()
+    stock1.show()
 
-stock1 = dataPlotly('MSFT')
-stock1.setFromToToday(240)
-stock1.saveData()
-stock1.runIndicator()
-# stock1.show()
+if __name__ == "__main__":
+    main()
