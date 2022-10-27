@@ -44,10 +44,12 @@ class DataPandas(DataOHLC):
                 data = pdr.get_data_yahoo(__symbol, startDate, endData)
 
                 __dict_df[__symbol] = data
-
-                data.to_csv(self.csvPath + __symbol + '.csv')
+                __path = self.csvPath + __symbol + '.csv'
+                data.to_csv(__path)
+                print(__symbol, " -> ",__path)
             except Exception as e:
-                raise Exception("Error getting: " + e.args)
+                raise Exception("Error getting: ", __symbol, " e.args: ", e.args)
+                print("Error getting: ", __symbol,  " e.args: ", e.args)
         return __dict_df
 
     def createIchimokuDataTapy(self,
@@ -74,9 +76,10 @@ class DataPandas(DataOHLC):
         else:
             # method 2. grab data from local raw csv files to prevent IP getting blocked by Yahoo servers
             DictData = self.readLocalCsvData(symbols, self.csvPath)
-
+        print("csv files are downloaded")
         # method 1. create Ichimoku data using tapy
         DictDataIchinokuTapy = self.createIchimokuDataTapy(DictData)
+        print("csv files added Ichimoku columns")
         # method 2. alternative method to add ichimoku columns to csv using finta
         # self.createIchimokuDataFinta(DictData)
 

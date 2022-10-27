@@ -110,3 +110,4 @@ class GetBatchDataKijunSignal(DataKijunSignal):
             # print(__symbol, self.csvPath)
             dataP = DataKijunSignal(__symbol, self.csvPath)
             dataP.main()
+        print("Kijun count csv files are created")
