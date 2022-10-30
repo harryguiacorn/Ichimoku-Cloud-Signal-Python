@@ -7,32 +7,101 @@ from pandas_datareader import data as pdr
 from tapy import Indicators
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-from DataOHLC import DataOHLC
 
 
-class DataPandas(DataOHLC):
+class Model(object):
 
     def __init__(self,
                  __csvPath='data/',
                  __assetListPath='',
-                 __getLatestDataFromYahoo=False):
+                 __interval='',
+                 __lookbackPeriod=1,
+                 __bGetLatestDataFromYahoo=False):
         '''__csvPath points to csv files for asset class
         __assetListPath points to the path for asset list'''
         self.csvPath = __csvPath
         self.assetListPath = __assetListPath
-        # self.interval = __interval,
-        self.getLatestDataFromYahoo = __getLatestDataFromYahoo
+        self.interval = __interval
+        self.bGetLatestDataFromYahoo = __bGetLatestDataFromYahoo
+        self.symbols = None
+        self.dataOHLC = None
+        self.interval = __interval
+        self.lookbackPeriod = __lookbackPeriod
+
+    @property
+    def lookbackPeriod(self):
+        return self.__lookbackPeriod
+
+    @lookbackPeriod.setter
+    def lookbackPeriod(self, __lookbackPeriod):
+        self.__lookbackPeriod = __lookbackPeriod
+
+    @property
+    def interval(self):
+        return self.__interval
+
+    @interval.setter
+    def interval(self, __interval):
+        self.__interval = __interval
+
+    @property
+    def dataOHLC(self):
+        return self.__dataOHLC
+
+    @dataOHLC.setter
+    def dataOHLC(self, __dictData):
+        self.__dataOHLC = __dictData
+
+    @property
+    def csvPath(self):
+        return self.__csvPath
+
+    @csvPath.setter
+    def csvPath(self, __path):
+        self.__csvPath = __path
+
+    @property
+    def assetListPath(self):
+        return self.__assetListPath
+
+    @assetListPath.setter
+    def assetListPath(self, __path):
+        self.__assetListPath = __path
+
+    @property
+    def bGetLatestDataFromYahoo(self):
+        return self.__bGetLatestDataFromYahoo
+
+    @bGetLatestDataFromYahoo.setter
+    def bGetLatestDataFromYahoo(self, __b):
+        self.__bGetLatestDataFromYahoo = __b
 
     def readAssetList(self, __csvPath, __colName='symbol'):
         df = pd.read_csv(__csvPath)
         print(df.to_string())
         l_symbol = df[__colName].tolist()
+        self.symbols = l_symbol
         return l_symbol
 
-    def getLastestData(self,
-                       symbols,
-                       __lookbackDays=3 * 365,
-                       __toDate='today'):
+    def getDataOHLC(self):
+        __dict_lookbackPeriodConvertInt = {'d':1, 'w':7, 'm':31}
+        if self.bGetLatestDataFromYahoo:
+            print("*************************************************")
+            print(self.symbols)
+            # method 1. grab latest data from yahoo finance
+            self.dataOHLC = self.getLatestDataFromYahoo(
+                self.symbols, __dict_lookbackPeriodConvertInt[self.interval] * self.lookbackPeriod, 'today')
+            return self.dataOHLC
+        else:
+            # method 2. grab data from local raw csv files to prevent IP getting blocked by Yahoo servers
+            self.dataOHLC = self.readLocalCsvData(self.symbols, self.csvPath)
+            return self.dataOHLC
+        print("csv files are downloaded")
+
+    def getLatestDataFromYahoo(self,
+                               symbols,
+                               __lookbackDays=3 * 365,
+                               __toDate='today'):
 
         startDate = (
             datetime.datetime.now() -
@@ -42,17 +111,37 @@ class DataPandas(DataOHLC):
         __dict_df = {}
         for __symbol in symbols:
             try:
-                data = pdr.get_data_yahoo(__symbol, startDate, endData)
+                data = pdr.get_data_yahoo(__symbol,
+                                          startDate,
+                                          endData,
+                                          interval=self.interval)
 
                 __dict_df[__symbol] = data
                 __path = self.csvPath + __symbol + '.csv'
                 data.to_csv(__path)
-                print(__symbol, " -> ",__path)
+                print(__symbol, " -> ", __path)
             except Exception as e:
-                raise Exception("Error getting: ", __symbol, " e.args: ", e.args)
-                print("Error getting: ", __symbol,  " e.args: ", e.args)
+                raise Exception("Error getting: ", __symbol, " e.args: ",
+                                e.args)
+                print("Error getting: ", __symbol, " e.args: ", e.args)
         return __dict_df
 
+    def readLocalCsvData(self, symbols, __csvPath):
+        __dict_df = {}
+        for __symbol in symbols:
+            __df = pd.read_csv(__csvPath + __symbol + '.csv')
+            __dict_df[__symbol] = __df
+        return __dict_df
+
+    def createIchimokuData(self):
+        print("++++++++++++++++++++++++++++++++++++")
+        # method 1. create Ichimoku data using tapy
+        DictDataIchinokuTapy = self.createIchimokuDataTapy(self.dataOHLC)
+        print("csv files added Ichimoku columns")
+        # method 2. alternative method to add ichimoku columns to csv using finta
+        # self.createIchimokuDataFinta(DictData)
+
+        # self.displayCharts(DictDataIchinokuTapy)
     def createIchimokuDataTapy(self,
                                __dict_df):  # create Ichimoku data using tapy
         __dict_df_ichimoku = {}
@@ -65,27 +154,6 @@ class DataPandas(DataOHLC):
             __dataCloud.to_csv(self.csvPath + __key + '_ichimokuTapy.csv')
         return __dict_df_ichimoku
 
-    def main(self):
-        # initializing Parameters
-        self.__createDataFolder(self.csvPath)
-
-        symbols = self.readAssetList(self.assetListPath)
-        if self.getLatestDataFromYahoo:
-            print("*************************************************")
-            # method 1. grab latest data from yahoo finance
-            DictData = self.getLastestData(symbols, 1 * 365, 'today')
-        else:
-            # method 2. grab data from local raw csv files to prevent IP getting blocked by Yahoo servers
-            DictData = self.readLocalCsvData(symbols, self.csvPath)
-        print("csv files are downloaded")
-        # method 1. create Ichimoku data using tapy
-        DictDataIchinokuTapy = self.createIchimokuDataTapy(DictData)
-        print("csv files added Ichimoku columns")
-        # method 2. alternative method to add ichimoku columns to csv using finta
-        # self.createIchimokuDataFinta(DictData)
-
-        # self.displayCharts(DictDataIchinokuTapy)
-
     # create Ichimoku data using finta, this is the alternative option
     def createIchimokuDataFinta(self, __dict_df):
         for __symbol, __df in __dict_df.items():
@@ -93,12 +161,41 @@ class DataPandas(DataOHLC):
             TA.ICHIMOKU(df).to_csv(self.csvPath + __symbol +
                                    '_ichimokuFinta.csv')
 
-    def readLocalCsvData(self, symbols, __csvPath):
-        __dict_df = {}
-        for __symbol in symbols:
-            __df = pd.read_csv(__csvPath + __symbol + '.csv')
-            __dict_df[__symbol] = __df
-        return __dict_df
+
+class View(object):
+    
+    @staticmethod
+    def showAssetList(__dict_symbols):
+        print("---------------VIEW-showAssetList---------------------")
+        print(__dict_symbols)
+    @staticmethod
+    def showDataOHLC(__dict_symbols):
+        print("---------------VIEW-showAssetList---------------------")
+        print(__dict_symbols)
+
+class Control(object):
+
+    def __init__(self, model, view):
+        self.model = model
+        self.view = view
+
+    def getAssetList(self):
+        self.model.readAssetList(self.model.assetListPath)
+
+    def showAssetList(self):
+        __dict_symbols = self.model.readAssetList(self.model.assetListPath)
+        self.view.showAssetList(__dict_symbols)
+
+    def main(self):
+        # initializing Parameters
+        self.createDataFolder(self.model.csvPath)
+
+        # symbols = self.readAssetList(self.assetListPath)
+        self.getAssetList()
+
+        self.model.getDataOHLC()
+
+        self.model.createIchimokuData()
 
     def displayCharts(self, __data):
         for __key, __df in __data.items():
@@ -173,7 +270,7 @@ class DataPandas(DataOHLC):
 
         fig3.show()
 
-    def __createDataFolder(self, __name="data"):
+    def createDataFolder(self, __name="data"):
         # create data folder
         try:
             if isdir(__name) == False:
@@ -184,5 +281,13 @@ class DataPandas(DataOHLC):
 
 if __name__ == "__main__":
     print("----------------------------------------------")
-    dataP = DataPandas('data/futurescurrency/', 'asset_list/FuturesCurrency.csv', True)
-    dataP.main()
+    # _model = Model('data/futurescurrency/d/', 'asset_list/FuturesCurrency.csv',
+    #                'd', 365, True)
+    # _control = Control(_model, View())
+    # _control.main()
+    
+    _model = Model('data/futurescurrency/w/', 'asset_list/FuturesCurrency.csv',
+                   'w', 52, True)
+    _control = Control(_model, View())
+    _control.main()
+    _control.showAssetList()
