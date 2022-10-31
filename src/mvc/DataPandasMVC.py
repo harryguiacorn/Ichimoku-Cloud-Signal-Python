@@ -84,13 +84,14 @@ class Model(object):
         return l_symbol
 
     def getDataOHLC(self):
-        __dict_lookbackPeriodConvertInt = {'d':1, 'w':7, 'm':31}
+        __dict_lookbackPeriodConvertInt = {'d': 1, 'w': 7, 'm': 31}
         if self.bGetLatestDataFromYahoo:
             print("*************************************************")
             print(self.symbols)
             # method 1. grab latest data from yahoo finance
             self.dataOHLC = self.getLatestDataFromYahoo(
-                self.symbols, __dict_lookbackPeriodConvertInt[self.interval] * self.lookbackPeriod, 'today')
+                self.symbols, __dict_lookbackPeriodConvertInt[self.interval] *
+                self.lookbackPeriod, 'today')
             return self.dataOHLC
         else:
             # method 2. grab data from local raw csv files to prevent IP getting blocked by Yahoo servers
@@ -121,16 +122,21 @@ class Model(object):
                 data.to_csv(__path)
                 print(__symbol, " -> ", __path)
             except Exception as e:
-                raise Exception("Error getting: ", __symbol, " e.args: ",
-                                e.args)
-                print("Error getting: ", __symbol, " e.args: ", e.args)
+                # raise Exception("Error: ", __symbol, " e.args: ",e.args)
+                print(f"Error: {__symbol}: {e.args}")
+                continue
         return __dict_df
 
     def readLocalCsvData(self, symbols, __csvPath):
         __dict_df = {}
         for __symbol in symbols:
-            __df = pd.read_csv(__csvPath + __symbol + '.csv')
-            __dict_df[__symbol] = __df
+            try:
+                __filePath = __csvPath + __symbol + '.csv'
+                __df = pd.read_csv(__filePath)
+                __dict_df[__symbol] = __df
+            except FileNotFoundError:
+                print(f"Error: {__filePath} not found")
+                continue
         return __dict_df
 
     def createIchimokuData(self):
@@ -163,15 +169,12 @@ class Model(object):
 
 
 class View(object):
-    
+
     @staticmethod
     def showAssetList(__dict_symbols):
         print("---------------VIEW-showAssetList---------------------")
         print(__dict_symbols)
-    @staticmethod
-    def showDataOHLC(__dict_symbols):
-        print("---------------VIEW-showAssetList---------------------")
-        print(__dict_symbols)
+
 
 class Control(object):
 
@@ -274,7 +277,7 @@ class Control(object):
         # create data folder
         try:
             if isdir(__name) == False:
-                os.mkdir(__name)
+                os.makedirs(__name)
         except FileExistsError as __errFile:
             print("data folder exists")
 
@@ -285,7 +288,7 @@ if __name__ == "__main__":
     #                'd', 365, True)
     # _control = Control(_model, View())
     # _control.main()
-    
+
     _model = Model('data/futurescurrency/w/', 'asset_list/FuturesCurrency.csv',
                    'w', 52, True)
     _control = Control(_model, View())
