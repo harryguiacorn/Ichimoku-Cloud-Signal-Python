@@ -20,16 +20,20 @@ class DataKijunSignal(DataOHLC):
         pd.set_option('display.max_rows', None)  # print every row for debug
         pd.set_option('display.max_columns',
                       None)  # print every column for debug
-        __data = pd.read_csv(self.csvPath + self.symbol + csvSuffix)
-        __data.index = __data.Date
-        __data['Returns'] = self.getReturn(__data['Close'],
-                                           __data['Close'].shift(1))
-        __data['Kijun Direction'] = self.getKijunDirection(
-            __data['kijun_sen'], __data['kijun_sen'].shift(1))
-        __data['Kijun Signal Count'] = self.getKijunSignalCount(
-            __data['Kijun Direction'])
-        self.setColumnsSaveCsv(__data)
-
+        try:
+            __path = self.csvPath + self.symbol + csvSuffix
+            __data = pd.read_csv(__path)
+            __data.index = __data.Date
+            __data['Returns'] = self.getReturn(__data['Close'],
+                                            __data['Close'].shift(1))
+            __data['Kijun Direction'] = self.getKijunDirection(
+                __data['kijun_sen'], __data['kijun_sen'].shift(1))
+            __data['Kijun Signal Count'] = self.getKijunSignalCount(
+                __data['Kijun Direction'])
+            self.setColumnsSaveCsv(__data)
+        except FileNotFoundError:
+            print(f'Error: {__path} not found')
+            
     def getKijunSignalCount(self, __kijunDirectionList):
         __newList = []
         __kijunDirectionCount = None

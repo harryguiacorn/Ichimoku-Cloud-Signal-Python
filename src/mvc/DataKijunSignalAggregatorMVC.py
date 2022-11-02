@@ -8,10 +8,12 @@ class Model(object):
     def __init__(self,
                  __csvPath='data/',
                  __assetListPath='',
+                 __outputPath="",
                  __assetClassName=""):
         self.csvPath = __csvPath
         self.assetListPath = __assetListPath
         self.assetClassName = __assetClassName
+        self.outputPath = __outputPath
         self.resultList = None
         self.resultDataFrame = None
 
@@ -68,16 +70,17 @@ class Model(object):
                                         '_kijunCount')
         list_result = []
         for __symbol, __value in dict_df.items():
-            try: 
+            try:
                 # get latest direction sits at the bottom of dataframe
                 __kijunDirection = __value['Kijun Direction'].iloc[-1]
-                __kijunConsecutiveCount = __value['Kijun Signal Count'].iloc[-1]
+                __kijunConsecutiveCount = __value['Kijun Signal Count'].iloc[
+                    -1]
                 __index = symbols['symbol'].index(__symbol)
                 __symbolName = symbols['name'][__index]
                 __date = __value['Date'].iloc[-1]
 
             except KeyError as e:
-                print("--------------KeyError------------------", e.args) 
+                print("--------------KeyError------------------", e.args)
                 continue
             else:
                 list_temp = []
@@ -95,8 +98,8 @@ class Model(object):
             list_result,
             columns=['Date', 'Symbol', 'Name', 'Direction', 'Count'])
         df_result.sort_values(by=['Count'], inplace=True)
-        self.__createDataFolder(self.csvPath + 'result/')
-        df_result.to_csv(self.csvPath + 'result/' +
+        self.__createDataFolder(self.outputPath)
+        df_result.to_csv(self.outputPath +
                          self.assetClassName.replace(" ", "") + '.csv',
                          index=False)
         self.resultDataFrame = df_result
