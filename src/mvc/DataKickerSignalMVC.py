@@ -9,13 +9,17 @@ class DataOHLC(ABC):
         pass
 
 
-class DataKijunSignal(DataOHLC):
+class DataKickerSignal(DataOHLC):
 
     def __init__(self, __symbol, __csvPath):
         self.symbol = __symbol
         self.csvPath = __csvPath
 
-    def setupPd(self, csvSuffix='_cloud.csv', folderPath='data/'):
+    def setupPd(self, csvSuffix='.csv', minBodyPerc1=0, minBodyPerc2=0):
+        '''
+        param minBodyPerc1: Minimum body to candle range percentage for left candle formation, default is 0
+        param minBodyPerc2: Minimum body to candle range percentage for right candle formation, default is 0
+        '''
         pd.set_option('display.max_rows', None)  # print every row for debug
         pd.set_option('display.max_columns',
                       None)  # print every column for debug
@@ -24,57 +28,46 @@ class DataKijunSignal(DataOHLC):
             __data = pd.read_csv(__path)
             __data.index = __data.Date
             __data['Returns'] = self.getReturn(__data['Close'],
-                                            __data['Close'].shift(1))
-            __data['Kijun Direction'] = self.getKijunDirection(
-                __data['kijun_sen'], __data['kijun_sen'].shift(1))
-            __data['Kijun Signal Count'] = self.getKijunSignalCount(
-                __data['Kijun Direction'])
+                                               __data['Close'].shift(1))
+            __data['Kicker'] = self.getKickerSignal(__data, minBodyPerc1,
+                                                    minBodyPerc2)
+            # print(__data)
             self.setColumnsSaveCsv(__data)
         except FileNotFoundError:
             print(f'Error: {__path} not found')
-            
-    def getKijunSignalCount(self, __kijunDirectionList):
-        __newList = []
-        __kijunDirectionCount = None
-        __curKijunDirection = None
-        for __i in range(len(__kijunDirectionList)):
-            if pd.isna(__kijunDirectionList[__i]):
-                __kijunDirectionCount = __kijunDirectionList[__i]
-            elif __curKijunDirection == None:
-                __curKijunDirection = __kijunDirectionList[__i]
-                __kijunDirectionCount = 1
-            elif not __kijunDirectionList[__i] == __curKijunDirection:
-                __curKijunDirection = -__curKijunDirection
-                __kijunDirectionCount = 1
-            else:
-                __kijunDirectionCount += 1
 
-            __newList.append(__kijunDirectionCount)
-        return __newList
+    def getKickerSignal(self, __data, minBodyPerc1=0, minBodyPerc2=0):
+        __lKicker = []
+        for i in range(len(__data)):
+            __signal = 0
+            if i > 0:
+                __preClose = __data['Close'][i - 1]
+                __preOpen = __data['Open'][i - 1]
+                __preHigh = __data['High'][i - 1]
+                __preLow = __data['Low'][i - 1]
+                __curClose = __data['Close'][i]
+                __curOpen = __data['Open'][i]
+                __curHigh = __data['High'][i]
+                __curLow = __data['Low'][i]
+                __preBodyPerc = abs(
+                    (__preClose - __preOpen) / (__preHigh - __preLow))
+                __curBodyPerc = abs(
+                    (__curClose - __curOpen) / (__curHigh - __curLow))
+                # print(__preBodyPerc, __curBodyPerc)
+                if __preClose < __preOpen and __curClose > __curOpen and __preOpen < __curOpen and __preBodyPerc > minBodyPerc1 and __curBodyPerc > minBodyPerc2:
+                    __signal = 1
+                elif __preClose > __preOpen and __curClose < __curOpen and __preOpen > __curOpen and __preBodyPerc > minBodyPerc1 and __curBodyPerc > minBodyPerc2:
+                    __signal = -1
+            __lKicker.append(__signal)
+        # print(__lKicker)
+        return __lKicker
 
-    def getKijunDirection(self, __curKijun, __preKijun):
-        __data = []
-        __curDirection = None
-        for __i in range(len(__preKijun)):
-            if pd.isna(__preKijun[__i]):
-                __data.append(__preKijun[__i])
-            elif pd.isna(__curKijun[__i]):
-                __data.append(__curKijun[__i])
-            elif __curKijun[__i] > __preKijun[__i]:
-                __curDirection = 1
-                __data.append(1)
-            elif __curKijun[__i] < __preKijun[__i]:
-                __curDirection = -1
-                __data.append(-1)
-            else:
-                __data.append(__curDirection)
-        return __data
+    def getReturn(self, __curClose, __nxtClose):
+        # print(__curClose, __nxtClose)
+        return __curClose / __nxtClose - 1
 
-    def getReturn(self, __curClose, __preClose):
-        return __curClose / __preClose - 1
-
-    def setColumnsSaveCsv(self, __data, csvSuffix='_kijunCount.csv'):
-        header = ["Date", "Kijun Direction", "Kijun Signal Count"]
+    def setColumnsSaveCsv(self, __data, csvSuffix='_kicker.csv'):
+        header = ["Date", "Kicker"]
         __data.to_csv(self.csvPath + self.symbol + csvSuffix,
                       columns=header,
                       index=False)
@@ -83,8 +76,7 @@ class DataKijunSignal(DataOHLC):
         pass
 
     def main(self):
-        self.setupPd('_ichimokuTapy.csv'
-                     )  # _ichimokuPlotly _ichimokuTapy _ichimokuFinta
+        self.setupPd('.csv', 0, 0)
 
 
 class Model(object):
@@ -143,10 +135,10 @@ class Model(object):
 
     def getIndividualSymbolData(self):
         for __symbol, __value in self.dataOHLC.items():
-            print(__symbol, self.csvPath)
-            dataP = DataKijunSignal(__symbol, self.csvPath)
+            # print(__symbol, self.csvPath)
+            dataP = DataKickerSignal(__symbol, self.csvPath)
             dataP.main()
-        print("Kijun count csv files are created")
+        print("TODO: finish populating kicker to csv files")
 
 
 class Control(object):
