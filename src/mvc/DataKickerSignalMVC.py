@@ -31,10 +31,17 @@ class DataKickerSignal(DataOHLC):
                                                __data['Close'].shift(1))
             __data['Kicker'] = self.getKickerSignal(__data, minBodyPerc1,
                                                     minBodyPerc2)
+            self.cleanupDF(__data)
+
             # print(__data)
             self.setColumnsSaveCsv(__data)
         except FileNotFoundError:
             print(f'Error: {__path} not found')
+
+    def cleanupDF(self, __data): #keep date which kicker signal is either -1 or 1
+        for x in range(len(__data)):
+            if __data['Kicker'][x] == 1:
+                print(__data['Date'][x])
 
     def getKickerSignal(self, __data, minBodyPerc1=0, minBodyPerc2=0):
         __lKicker = []
@@ -177,6 +184,6 @@ class View(object):
 
 
 if __name__ == "__main__":
-    _model = Model('data/futurescurrency/w/', 'asset_list/FuturesCurrency.csv')
+    _model = Model('data/dowjones30/d/', 'asset_list/DowJones30.csv')
     _control = Control(_model, View())
-    _control.main()
+    _control.main()   
