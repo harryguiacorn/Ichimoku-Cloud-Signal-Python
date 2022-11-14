@@ -1,4 +1,4 @@
-from DataKijunSignalAggregatorMVC import Control, Model, View
+from DataKickerSignalAggregatorMVC import Control, Model, View
 
 _model = Model('data/dowjones30/d/', 'asset_list/DowJones30.csv', 'output/', 
                'Dow Jones 30-D')

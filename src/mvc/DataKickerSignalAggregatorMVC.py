@@ -38,12 +38,14 @@ class Model(object):
         for __symbol in symbols:
             try:
                 __filePath = __csvPath + __symbol + __suffix + '.csv'
+                # print(__filePath)
                 __df = pd.read_csv(__filePath)
             except FileNotFoundError:
                 print(f"Error: {__filePath} not found")
                 continue
             else:
-                __dict_df[__symbol] = __df
+                if not __df.empty:
+                    __dict_df[__symbol] = __df
         # print(__dict_df)
         return __dict_df
 
@@ -67,17 +69,17 @@ class Model(object):
         symbols = self.readAssetList(self.assetListPath)
         # print("------------------",symbols)
         dict_df = self.readLocalCsvData(symbols['symbol'], self.csvPath,
-                                        '_kijunCount')
+                                        '_kicker')
+        # print(len(dict_df))
         list_result = []
         for __symbol, __value in dict_df.items():
             try:
                 # get latest direction sits at the bottom of dataframe
-                __kijunDirection = __value['Kijun Direction'].iloc[-1]
-                __kijunConsecutiveCount = __value['Kijun Signal Count'].iloc[
-                    -1]
+                __kickerDirection = __value['Kicker'].iloc[-1]
                 __index = symbols['symbol'].index(__symbol)
                 __symbolName = symbols['name'][__index]
                 __date = __value['Date'].iloc[-1]
+                # print(__date, __symbolName, __kickerDirection)
 
             except KeyError as e:
                 print("--------------KeyError------------------", e.args)
@@ -87,20 +89,19 @@ class Model(object):
                 list_temp.append(__date)
                 list_temp.append(__symbol)
                 list_temp.append(__symbolName)
-                list_temp.append(__kijunDirection)
-                list_temp.append(__kijunConsecutiveCount)
+                list_temp.append(__kickerDirection)
                 list_result.append(list_temp)
-        self.resultList = list_result
+                self.resultList = list_result
         return list_result
 
     def exportResult(self, list_result):
         df_result = pd.DataFrame(
             list_result,
-            columns=['Date', 'Symbol', 'Name', 'Direction', 'Count'])
-        df_result.sort_values(by=['Count'], inplace=True)
+            columns=['Date', 'Symbol', 'Name', 'Kicker'])
+        df_result.sort_values(by=['Date'], inplace=True)
         self.__createDataFolder(self.outputPath)
         df_result.to_csv(self.outputPath +
-                         self.assetClassName.replace(" ", "") + '.csv',
+                         self.assetClassName.replace(" ", "") + '-kicker.csv',
                          index=False)
         self.resultDataFrame = df_result
         return df_result
@@ -121,6 +122,7 @@ class Control(object):
     def main(self):
         print("*************************************************")
         list_result = self.getData()
+
         # print(list_result)
         df_result = self.exportResult(list_result)
 
@@ -139,7 +141,12 @@ class View(object):
 
 
 if __name__ == "__main__":
-    _model = Model('data/futurescurrency/d/', 'asset_list/FuturesCurrency.csv',
-                   'Futures-D')
+    # _model = Model('data/dowjones30/d/', 'asset_list/DowJones30.csv', 'output/', 
+    #             'Dow Jones 30-D')
+    # _control = Control(_model, View())
+    # _control.main()
+
+    _model = Model('data/dowjones30/w/', 'asset_list/DowJones30.csv', 'output/', 
+               'Dow Jones 30-W')
     _control = Control(_model, View())
     _control.main()

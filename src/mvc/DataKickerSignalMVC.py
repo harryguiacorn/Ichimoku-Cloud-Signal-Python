@@ -27,8 +27,8 @@ class DataKickerSignal(DataOHLC):
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
             __data.index = __data.Date
-            __data['Returns'] = self.getReturn(__data['Close'],
-                                               __data['Close'].shift(1))
+            # __data['Returns'] = self.getReturn(__data['Close'],
+            #                                    __data['Close'].shift(1))
             __data['Kicker'] = self.getKickerSignal(__data, minBodyPerc1,
                                                     minBodyPerc2)
             self.cleanupDF(__data)
@@ -42,6 +42,8 @@ class DataKickerSignal(DataOHLC):
         for x in range(len(__data)):
             if __data['Kicker'][x] == 1:
                 print(__data['Date'][x])
+        __data.drop(__data[(__data['Kicker'] == 0)].index, inplace=True)
+
 
     def getKickerSignal(self, __data, minBodyPerc1=0, minBodyPerc2=0):
         __lKicker = []
@@ -145,7 +147,7 @@ class Model(object):
             # print(__symbol, self.csvPath)
             dataP = DataKickerSignal(__symbol, self.csvPath)
             dataP.main()
-        print("TODO: finish populating kicker to csv files")
+        print("Populated kicker csv files")
 
 
 class Control(object):
