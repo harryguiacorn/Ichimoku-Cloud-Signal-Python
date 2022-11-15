@@ -102,17 +102,17 @@ from src.mvc import GetKickerDataFuturesCurrencyAggregator
 # _getKickerDataFTSE250Aggregator.main()
 
 # ---------------- S&P 500 ----------------
-# _getDataSPX500 = GetDataSPX500
-# _getDataSPX500.main()
+_getDataSPX500 = GetDataSPX500
+_getDataSPX500.main()
 
-# _getIchimokuDataSPX500 = GetIchimokuDataSPX500
-# _getIchimokuDataSPX500.main()
+_getIchimokuDataSPX500 = GetIchimokuDataSPX500
+_getIchimokuDataSPX500.main()
 
-# _getIchimokuDataSPX500Aggregator = GetIchimokuDataSPX500Aggregator
-# _getIchimokuDataSPX500Aggregator.main()
+_getIchimokuDataSPX500Aggregator = GetIchimokuDataSPX500Aggregator
+_getIchimokuDataSPX500Aggregator.main()
 
-# _getKickerDataSPX500 = GetKickerDataSPX500
-# _getKickerDataSPX500.main()
+_getKickerDataSPX500 = GetKickerDataSPX500
+_getKickerDataSPX500.main()
 
 # _getKickerDataSPX500Aggregator = GetKickerDataSPX500Aggregator
 # _getKickerDataSPX500Aggregator.main()
