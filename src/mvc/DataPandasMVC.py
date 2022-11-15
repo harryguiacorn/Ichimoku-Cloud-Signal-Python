@@ -78,6 +78,7 @@ class Model(object):
 
     def readAssetList(self, __csvPath, __colName='symbol'):
         df = pd.read_csv(__csvPath)
+        print("******************* Reading symbols *******************")
         print(df.to_string())
         l_symbol = df[__colName].tolist()
         self.symbols = l_symbol
@@ -86,8 +87,8 @@ class Model(object):
     def getDataOHLC(self):
         __dict_lookbackPeriodConvertInt = {'d': 1, 'w': 7, 'm': 31}
         if self.bGetLatestDataFromYahoo:
-            print("*************************************************")
-            print(self.symbols)
+            print("******************* Downloading from Yahoo *******************")
+            # print(self.symbols)
             # method 1. grab latest data from yahoo finance
             self.dataOHLC = self.getLatestDataFromYahoo(
                 self.symbols, __dict_lookbackPeriodConvertInt[self.interval] *
@@ -140,10 +141,10 @@ class Model(object):
         return __dict_df
 
     def createIchimokuData(self):
-        print("++++++++++++++++++++++++++++++++++++")
+        print("++++++++++++++++++++ Creating Ichimoku Data ++++++++++++++++++++")
         # method 1. create Ichimoku data using tapy
         DictDataIchinokuTapy = self.createIchimokuDataTapy(self.dataOHLC)
-        print("csv files added Ichimoku columns")
+        print("Ichimoku columns added to csv")
         # method 2. alternative method to add ichimoku columns to csv using finta
         # self.createIchimokuDataFinta(DictData)
 
@@ -172,8 +173,9 @@ class View(object):
 
     @staticmethod
     def showAssetList(__dict_symbols):
-        print("---------------VIEW-showAssetList---------------------")
-        print(__dict_symbols)
+        # print("---------------VIEW-showAssetList---------------------")
+        # print(__dict_symbols)
+        pass
 
 
 class Control(object):

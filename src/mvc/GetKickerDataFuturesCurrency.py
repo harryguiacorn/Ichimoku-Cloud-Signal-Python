@@ -1,4 +1,5 @@
-from src.mvc.DataKijunSignalMVC import Control, Model, View
+# from DataKickerSignalMVC import Control, Model, View
+from src.mvc.DataKickerSignalMVC import Control, Model, View
 
 def main():
     _model = Model('data/futurescurrency/d/', 'asset_list/FuturesCurrency.csv')

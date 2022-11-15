@@ -46,7 +46,7 @@ class DataKijunSignalAggregator:
         list_result = self.getLatestResultFromEachDataFrame()
         df_result = self.exportResult(list_result)
         print(df_result)
-        print("aggregator csv file is created")
+        print("Aggregator csv file is created")
         return df_result
 
     def getLatestResultFromEachDataFrame(self):

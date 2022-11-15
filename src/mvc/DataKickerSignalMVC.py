@@ -39,9 +39,6 @@ class DataKickerSignal(DataOHLC):
             print(f'Error: {__path} not found')
 
     def cleanupDF(self, __data): #keep date which kicker signal is either -1 or 1
-        for x in range(len(__data)):
-            if __data['Kicker'][x] == 1:
-                print(__data['Date'][x])
         __data.drop(__data[(__data['Kicker'] == 0)].index, inplace=True)
 
 
@@ -147,7 +144,6 @@ class Model(object):
             # print(__symbol, self.csvPath)
             dataP = DataKickerSignal(__symbol, self.csvPath)
             dataP.main()
-        print("Populated kicker csv files")
 
 
 class Control(object):
@@ -173,10 +169,11 @@ class Control(object):
         self.model.getIndividualSymbolData()
 
     def main(self):
-        print("---------------------------------")
+        print("***************** Creating Kicker Signals *****************")
         self.getAssetList()
         self.getBatchLocalData()
         self.getIndividualSymbolData()
+        print(f"Populated kicker csv {self.model.csvPath}")
 
 
 class View(object):

@@ -119,7 +119,7 @@ class Control(object):
         return self.model.exportResult(__list_result)
 
     def main(self):
-        print("*************************************************")
+        print("********************Creating Kijun Signal Aggregator ********************")
         list_result = self.getData()
         # print(list_result)
         df_result = self.exportResult(list_result)
@@ -128,7 +128,7 @@ class Control(object):
         # return df_result
 
         self.view.showResultKCount(self.model.resultDataFrame)
-        print(f"aggregator {self.model.assetClassName}.csv is created")
+        print(f"Aggregator {self.model.assetClassName}.csv is created")
 
 
 class View(object):

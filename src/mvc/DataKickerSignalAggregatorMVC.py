@@ -130,7 +130,7 @@ class Control(object):
         # return df_result
 
         self.view.showResultKCount(self.model.resultDataFrame)
-        print(f"aggregator {self.model.assetClassName}.csv is created")
+        print(f"Aggregator {self.model.assetClassName}.csv is created")
 
 
 class View(object):

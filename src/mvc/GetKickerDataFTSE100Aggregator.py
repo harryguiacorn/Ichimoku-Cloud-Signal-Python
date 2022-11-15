@@ -1,4 +1,4 @@
-from src.mvc.DataKijunSignalAggregatorMVC import Control, Model, View
+from src.mvc.DataKickerSignalAggregatorMVC import Control, Model, View
 
 def main():
     _model = Model('data/ftse100/d/', 'asset_list/FTSE100.csv', 'output/', 

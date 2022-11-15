@@ -143,7 +143,7 @@ class Model(object):
 
     def getIndividualSymbolData(self):
         for __symbol, __value in self.dataOHLC.items():
-            print(__symbol, self.csvPath)
+            # print(__symbol, self.csvPath)
             dataP = DataKijunSignal(__symbol, self.csvPath)
             dataP.main()
         print("Kijun count csv files are created")
@@ -172,7 +172,7 @@ class Control(object):
         self.model.getIndividualSymbolData()
 
     def main(self):
-        print("---------------------------------")
+        print("-------------------- Generating Kijun Signals --------------------")
         self.getAssetList()
         self.getBatchLocalData()
         self.getIndividualSymbolData()
