@@ -115,6 +115,17 @@ class Model(object):
                          self.assetClassName.replace(" ", "") + '.xml',
                          index=False)
         return df_result
+        
+    def exportResultJSON(self, list_result):
+        df_result = pd.DataFrame(
+            list_result,
+            columns=['Date', 'Symbol', 'Name', 'Direction', 'Count'])
+        df_result.sort_values(by=['Count'], inplace=True)
+        self.__createDataFolder(self.outputPath)
+        df_result_xml = df_result.to_json(self.outputPath +
+                         self.assetClassName.replace(" ", "") + '.json',
+                         index=False, orient= 'table')
+        return df_result
 
 
 class Control(object):
@@ -132,13 +143,17 @@ class Control(object):
     def exportResultXML(self, __list_result):
         return self.model.exportResultXML(__list_result)
 
+    def exportResultJSON(self, __list_result):
+        return self.model.exportResultJSON(__list_result)
+
     def main(self):
         print("********************Creating Kijun Signal Aggregator ********************")
         list_result = self.getData()
         # print(list_result)
         df_result = self.exportResult(list_result)
         
-        self.exportResultXML(list_result)
+        # self.exportResultXML(list_result)
+        self.exportResultJSON(list_result)
 
         # print(df_result)
         # return df_result

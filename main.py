@@ -42,22 +42,22 @@ from src.mvc import GetKickerDataFuturesCurrencyAggregator
 
 
 # ---------------- Dow Jones 30 ----------------
-_getDataDJ30 = GetDataDJ30
-_getDataDJ30.main()
+# _getDataDJ30 = GetDataDJ30
+# _getDataDJ30.main()
 
-_getIchimokuDataDJ30 = GetIchimokuDataDJ30
-_getIchimokuDataDJ30.main()
+# _getIchimokuDataDJ30 = GetIchimokuDataDJ30
+# _getIchimokuDataDJ30.main()
 
 _getIchimokuDataDJ30Aggregator = GetIchimokuDataDJ30Aggregator
 _getIchimokuDataDJ30Aggregator.main()
 
-_getKickerDataDJ30 = GetKickerDataDJ30
-_getKickerDataDJ30.main()
+# _getKickerDataDJ30 = GetKickerDataDJ30
+# _getKickerDataDJ30.main()
 
-_getKickerDataDJ30Aggregator = GetKickerDataDJ30Aggregator
-_getKickerDataDJ30Aggregator.main()
+# _getKickerDataDJ30Aggregator = GetKickerDataDJ30Aggregator
+# _getKickerDataDJ30Aggregator.main()
 
-# ---------------- Nasdaq 100 ----------------
+""" # ---------------- Nasdaq 100 ----------------
 _getDataNas100 = GetDataNas100
 _getDataNas100.main()
 
@@ -151,5 +151,5 @@ _getKickerDataFuturesCurrency = GetKickerDataFuturesCurrency
 _getKickerDataFuturesCurrency.main()
 
 _getKickerDataFuturesCurrencyAggregator = GetKickerDataFuturesCurrencyAggregator
-_getKickerDataFuturesCurrencyAggregator.main()
+_getKickerDataFuturesCurrencyAggregator.main() """
 
