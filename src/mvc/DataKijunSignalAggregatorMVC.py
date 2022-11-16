@@ -104,6 +104,17 @@ class Model(object):
                          index=False)
         self.resultDataFrame = df_result
         return df_result
+        
+    def exportResultXML(self, list_result):
+        df_result = pd.DataFrame(
+            list_result,
+            columns=['Date', 'Symbol', 'Name', 'Direction', 'Count'])
+        df_result.sort_values(by=['Count'], inplace=True)
+        self.__createDataFolder(self.outputPath)
+        df_result_xml = df_result.to_xml(self.outputPath +
+                         self.assetClassName.replace(" ", "") + '.xml',
+                         index=False)
+        return df_result
 
 
 class Control(object):
@@ -118,17 +129,22 @@ class Control(object):
     def exportResult(self, __list_result):
         return self.model.exportResult(__list_result)
 
+    def exportResultXML(self, __list_result):
+        return self.model.exportResultXML(__list_result)
+
     def main(self):
         print("********************Creating Kijun Signal Aggregator ********************")
         list_result = self.getData()
         # print(list_result)
         df_result = self.exportResult(list_result)
+        
+        self.exportResultXML(list_result)
 
         # print(df_result)
         # return df_result
 
         self.view.showResultKCount(self.model.resultDataFrame)
-        print(f"Aggregator {self.model.assetClassName}.csv is created")
+        print(f"Aggregator {self.model.assetClassName}.csv and .xml are created")
 
 
 class View(object):
