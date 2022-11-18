@@ -120,7 +120,7 @@ class Control(object):
         return self.model.exportResult(__list_result)
 
     def main(self):
-        print("*************************************************")
+        print("******************* Begin Kick Signal Aggregator *******************")
         list_result = self.getData()
 
         # print(list_result)

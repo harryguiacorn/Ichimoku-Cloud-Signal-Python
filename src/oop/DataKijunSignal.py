@@ -108,7 +108,7 @@ class GetBatchDataKijunSignal(DataKijunSignal):
         return l_symbol
 
     def main(self):
-        print("*************************************************")
+        print("******************** Begin Creating Kijun Signal ********************")
         symbols = self.readAssetList(self.assetListPath)
         dict_df = self.readLocalCsvData(symbols, self.csvPath)
         for __symbol, __value in dict_df.items():
