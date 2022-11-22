@@ -51,7 +51,7 @@ fetchCurrencyFutures = False
 # ---------------- Dow Jones 30 ----------------
 if fetchDJ30:
     _getDataDJ30 = GetDataDJ30
-    # _getDataDJ30.main()
+    _getDataDJ30.main()
 
     _getIchimokuDataDJ30 = GetIchimokuDataDJ30
     _getIchimokuDataDJ30.main()
@@ -68,7 +68,7 @@ if fetchDJ30:
 # ---------------- Nasdaq 100 ----------------
 if fetchNas100:
     _getDataNas100 = GetDataNas100
-    # _getDataNas100.main()
+    _getDataNas100.main()
 
     _getIchimokuDataNas100 = GetIchimokuDataNas100
     _getIchimokuDataNas100.main()
@@ -85,7 +85,7 @@ if fetchNas100:
 # ---------------- FTSE 100 ----------------
 if fetchFTSE100:
     _getDataFTSE100 = GetDataFTSE100
-    # _getDataFTSE100.main()
+    _getDataFTSE100.main()
 
     _getIchimokuDataFTSE100 = GetIchimokuDataFTSE100
     _getIchimokuDataFTSE100.main()
@@ -102,7 +102,7 @@ if fetchFTSE100:
 # ---------------- FTSE 250 ----------------
 if fetchFTSE250:
     _getDataFTSE250 = GetDataFTSE250
-    # _getDataFTSE250.main()
+    _getDataFTSE250.main()
 
     _getIchimokuDataFTSE250 = GetIchimokuDataFTSE250
     _getIchimokuDataFTSE250.main()
@@ -119,7 +119,7 @@ if fetchFTSE250:
 # ---------------- S&P 500 ----------------
 if fetchSPX500:
     _getDataSPX500 = GetDataSPX500
-    # _getDataSPX500.main()
+    _getDataSPX500.main()
 
     _getIchimokuDataSPX500 = GetIchimokuDataSPX500
     _getIchimokuDataSPX500.main()
