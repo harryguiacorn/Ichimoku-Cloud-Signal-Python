@@ -121,7 +121,7 @@ class Model(object):
                 __dict_df[__symbol] = data
                 __path = self.csvPath + __symbol + '.csv'
                 data.to_csv(__path)
-                print(__symbol, " -> ", __path)
+                print(f'{symbols.index(__symbol)} {__symbol} -> {__path}')
             except Exception as e:
                 # raise Exception("Error: ", __symbol, " e.args: ",e.args)
                 print(f"Error: {__symbol}: {e.args}")

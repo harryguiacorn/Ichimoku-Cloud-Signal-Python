@@ -40,130 +40,138 @@ from src.mvc import GetIchimokuDataFuturesCurrencyAggregator
 from src.mvc import GetKickerDataFuturesCurrency
 from src.mvc import GetKickerDataFuturesCurrencyAggregator
 
-fetchDJ30 = True
-fetchSPX500 = True
-fetchNas100 = True
-fetchFTSE100 = True
-fetchFTSE250 = False
-fetchFutures = False
-fetchCurrencyFutures = False
+fetchDJ30_D               = False
+fetchSPX500_D             = False
+fetchNas100_D             = False
+fetchFTSE100_D            = False
+fetchFTSE250_D            = False
+fetchFutures_D            = False
+fetchCurrencyFutures_D    = False
+
+fetchDJ30_W               = False
+fetchSPX500_W             = False
+fetchNas100_W             = False
+fetchFTSE100_W            = False
+fetchFTSE250_W            = False
+fetchFutures_W            = False
+fetchCurrencyFutures_W    = True
 
 # ---------------- Dow Jones 30 ----------------
-if fetchDJ30:
-    _getDataDJ30 = GetDataDJ30
-    # _getDataDJ30.main()
 
-    _getIchimokuDataDJ30 = GetIchimokuDataDJ30
-    _getIchimokuDataDJ30.main()
+_getDataDJ30 = GetDataDJ30
+_getDataDJ30.main(fetchDJ30_D, fetchDJ30_W)
 
-    _getIchimokuDataDJ30Aggregator = GetIchimokuDataDJ30Aggregator
-    _getIchimokuDataDJ30Aggregator.main()
+_getIchimokuDataDJ30 = GetIchimokuDataDJ30
+_getIchimokuDataDJ30.main(fetchDJ30_D, fetchDJ30_W)
 
-    _getKickerDataDJ30 = GetKickerDataDJ30
-    _getKickerDataDJ30.main()
+_getIchimokuDataDJ30Aggregator = GetIchimokuDataDJ30Aggregator
+_getIchimokuDataDJ30Aggregator.main(fetchDJ30_D, fetchDJ30_W)
 
-    _getKickerDataDJ30Aggregator = GetKickerDataDJ30Aggregator
-    _getKickerDataDJ30Aggregator.main()
+_getKickerDataDJ30 = GetKickerDataDJ30
+_getKickerDataDJ30.main(fetchDJ30_D, fetchDJ30_W)
+
+_getKickerDataDJ30Aggregator = GetKickerDataDJ30Aggregator
+_getKickerDataDJ30Aggregator.main(fetchDJ30_D, fetchDJ30_W)
 
 # ---------------- Nasdaq 100 ----------------
-if fetchNas100:
-    _getDataNas100 = GetDataNas100
-    # _getDataNas100.main()
 
-    _getIchimokuDataNas100 = GetIchimokuDataNas100
-    _getIchimokuDataNas100.main()
+_getDataNas100 = GetDataNas100
+_getDataNas100.main(fetchNas100_D, fetchNas100_W)
 
-    _getIchimokuDataNas100Aggregator = GetIchimokuDataNas100Aggregator
-    _getIchimokuDataNas100Aggregator.main()
+_getIchimokuDataNas100 = GetIchimokuDataNas100
+_getIchimokuDataNas100.main(fetchNas100_D, fetchNas100_W)
 
-    _getKickerDataNas100 = GetKickerDataNas100
-    _getKickerDataNas100.main()
+_getIchimokuDataNas100Aggregator = GetIchimokuDataNas100Aggregator
+_getIchimokuDataNas100Aggregator.main(fetchNas100_D, fetchNas100_W)
 
-    _getKickerDataNas100Aggregator = GetKickerDataNas100Aggregator
-    _getKickerDataNas100Aggregator.main()
+_getKickerDataNas100 = GetKickerDataNas100
+_getKickerDataNas100.main(fetchNas100_D, fetchNas100_W)
+
+_getKickerDataNas100Aggregator = GetKickerDataNas100Aggregator
+_getKickerDataNas100Aggregator.main(fetchNas100_D, fetchNas100_W)
 
 # ---------------- FTSE 100 ----------------
-if fetchFTSE100:
-    _getDataFTSE100 = GetDataFTSE100
-    # _getDataFTSE100.main()
 
-    _getIchimokuDataFTSE100 = GetIchimokuDataFTSE100
-    _getIchimokuDataFTSE100.main()
+_getDataFTSE100 = GetDataFTSE100
+_getDataFTSE100.main(fetchFTSE100_D, fetchFTSE100_W)
 
-    _getIchimokuDataFTSE100Aggregator = GetIchimokuDataFTSE100Aggregator
-    _getIchimokuDataFTSE100Aggregator.main()
+_getIchimokuDataFTSE100 = GetIchimokuDataFTSE100
+_getIchimokuDataFTSE100.main(fetchFTSE100_D, fetchFTSE100_W)
 
-    _getKickerDataFTSE100 = GetKickerDataFTSE100
-    _getKickerDataFTSE100.main()
+_getIchimokuDataFTSE100Aggregator = GetIchimokuDataFTSE100Aggregator
+_getIchimokuDataFTSE100Aggregator.main(fetchFTSE100_D, fetchFTSE100_W)
 
-    _getKickerDataFTSE100Aggregator = GetKickerDataFTSE100Aggregator
-    _getKickerDataFTSE100Aggregator.main()
+_getKickerDataFTSE100 = GetKickerDataFTSE100
+_getKickerDataFTSE100.main(fetchFTSE100_D, fetchFTSE100_W)
+
+_getKickerDataFTSE100Aggregator = GetKickerDataFTSE100Aggregator
+_getKickerDataFTSE100Aggregator.main(fetchFTSE100_D, fetchFTSE100_W)
 
 # ---------------- FTSE 250 ----------------
-if fetchFTSE250:
-    _getDataFTSE250 = GetDataFTSE250
-    # _getDataFTSE250.main()
 
-    _getIchimokuDataFTSE250 = GetIchimokuDataFTSE250
-    _getIchimokuDataFTSE250.main()
+_getDataFTSE250 = GetDataFTSE250
+_getDataFTSE250.main(fetchFTSE250_D, fetchFTSE250_W)
 
-    _getIchimokuDataFTSE250Aggregator = GetIchimokuDataFTSE250Aggregator
-    _getIchimokuDataFTSE250Aggregator.main()
+_getIchimokuDataFTSE250 = GetIchimokuDataFTSE250
+_getIchimokuDataFTSE250.main(fetchFTSE250_D, fetchFTSE250_W)
 
-    _getKickerDataFTSE250 = GetKickerDataFTSE250
-    _getKickerDataFTSE250.main()
+_getIchimokuDataFTSE250Aggregator = GetIchimokuDataFTSE250Aggregator
+_getIchimokuDataFTSE250Aggregator.main(fetchFTSE250_D, fetchFTSE250_W)
 
-    _getKickerDataFTSE250Aggregator = GetKickerDataFTSE250Aggregator
-    _getKickerDataFTSE250Aggregator.main()
+_getKickerDataFTSE250 = GetKickerDataFTSE250
+_getKickerDataFTSE250.main(fetchFTSE250_D, fetchFTSE250_W)
+
+_getKickerDataFTSE250Aggregator = GetKickerDataFTSE250Aggregator
+_getKickerDataFTSE250Aggregator.main(fetchFTSE250_D, fetchFTSE250_W)
 
 # ---------------- S&P 500 ----------------
-if fetchSPX500:
-    _getDataSPX500 = GetDataSPX500
-    # _getDataSPX500.main()
 
-    _getIchimokuDataSPX500 = GetIchimokuDataSPX500
-    _getIchimokuDataSPX500.main()
+_getDataSPX500 = GetDataSPX500
+_getDataSPX500.main(fetchSPX500_D, fetchSPX500_W)
 
-    _getIchimokuDataSPX500Aggregator = GetIchimokuDataSPX500Aggregator
-    _getIchimokuDataSPX500Aggregator.main()
+_getIchimokuDataSPX500 = GetIchimokuDataSPX500
+_getIchimokuDataSPX500.main(fetchSPX500_D, fetchSPX500_W)
 
-    _getKickerDataSPX500 = GetKickerDataSPX500
-    _getKickerDataSPX500.main()
+_getIchimokuDataSPX500Aggregator = GetIchimokuDataSPX500Aggregator
+_getIchimokuDataSPX500Aggregator.main(fetchSPX500_D, fetchSPX500_W)
 
-    _getKickerDataSPX500Aggregator = GetKickerDataSPX500Aggregator
-    _getKickerDataSPX500Aggregator.main()
+_getKickerDataSPX500 = GetKickerDataSPX500
+_getKickerDataSPX500.main(fetchSPX500_D, fetchSPX500_W)
+
+_getKickerDataSPX500Aggregator = GetKickerDataSPX500Aggregator
+_getKickerDataSPX500Aggregator.main(fetchSPX500_D, fetchSPX500_W)
 
 # ---------------- Futures ----------------
-if fetchFutures:
-    _getDataFutures = GetDataFutures
-    _getDataFutures.main()
 
-    _getIchimokuDataFutures = GetIchimokuDataFutures
-    _getIchimokuDataFutures.main()
+_getDataFutures = GetDataFutures
+_getDataFutures.main(fetchFutures_D, fetchFutures_W)
 
-    _getIchimokuDataFuturesAggregator = GetIchimokuDataFuturesAggregator
-    _getIchimokuDataFuturesAggregator.main()
+_getIchimokuDataFutures = GetIchimokuDataFutures
+_getIchimokuDataFutures.main(fetchFutures_D, fetchFutures_W)
 
-    _getKickerDataFutures = GetKickerDataFutures
-    _getKickerDataFutures.main()
+_getIchimokuDataFuturesAggregator = GetIchimokuDataFuturesAggregator
+_getIchimokuDataFuturesAggregator.main(fetchFutures_D, fetchFutures_W)
 
-    _getKickerDataFuturesAggregator = GetKickerDataFuturesAggregator
-    _getKickerDataFuturesAggregator.main()
+_getKickerDataFutures = GetKickerDataFutures
+_getKickerDataFutures.main(fetchFutures_D, fetchFutures_W)
+
+_getKickerDataFuturesAggregator = GetKickerDataFuturesAggregator
+_getKickerDataFuturesAggregator.main(fetchFutures_D, fetchFutures_W)
 
 # ---------------- Futures Currency ----------------
-if fetchCurrencyFutures:
-    _getDataFuturesCurrency = GetDataFuturesCurrency
-    _getDataFuturesCurrency.main()
 
-    _getIchimokuDataFuturesCurrency = GetIchimokuDataFuturesCurrency
-    _getIchimokuDataFuturesCurrency.main()
+_getDataFuturesCurrency = GetDataFuturesCurrency
+_getDataFuturesCurrency.main(fetchCurrencyFutures_D, fetchCurrencyFutures_W)
 
-    _getIchimokuDataFuturesCurrencyAggregator = GetIchimokuDataFuturesCurrencyAggregator
-    _getIchimokuDataFuturesCurrencyAggregator.main()
+_getIchimokuDataFuturesCurrency = GetIchimokuDataFuturesCurrency
+_getIchimokuDataFuturesCurrency.main(fetchCurrencyFutures_D, fetchCurrencyFutures_W)
 
-    _getKickerDataFuturesCurrency = GetKickerDataFuturesCurrency
-    _getKickerDataFuturesCurrency.main()
+_getIchimokuDataFuturesCurrencyAggregator = GetIchimokuDataFuturesCurrencyAggregator
+_getIchimokuDataFuturesCurrencyAggregator.main(fetchCurrencyFutures_D, fetchCurrencyFutures_W)
 
-    _getKickerDataFuturesCurrencyAggregator = GetKickerDataFuturesCurrencyAggregator
-    _getKickerDataFuturesCurrencyAggregator.main()
+_getKickerDataFuturesCurrency = GetKickerDataFuturesCurrency
+_getKickerDataFuturesCurrency.main(fetchCurrencyFutures_D, fetchCurrencyFutures_W)
+
+_getKickerDataFuturesCurrencyAggregator = GetKickerDataFuturesCurrencyAggregator
+_getKickerDataFuturesCurrencyAggregator.main(fetchCurrencyFutures_D, fetchCurrencyFutures_W)
 
