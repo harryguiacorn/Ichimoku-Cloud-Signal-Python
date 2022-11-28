@@ -43,16 +43,16 @@ from src.mvc import GetKickerDataFuturesCurrencyAggregator
 fetchDJ30_D               = False
 fetchSPX500_D             = False
 fetchNas100_D             = False
-fetchFTSE100_D            = False
-fetchFTSE250_D            = False
+fetchFTSE100_D            = True
+fetchFTSE250_D            = True
 fetchFutures_D            = False
 fetchCurrencyFutures_D    = False
 
 fetchDJ30_W               = False
 fetchSPX500_W             = False
 fetchNas100_W             = False
-fetchFTSE100_W            = False
-fetchFTSE250_W            = False
+fetchFTSE100_W            = True
+fetchFTSE250_W            = True
 fetchFutures_W            = False
 fetchCurrencyFutures_W    = False
 
