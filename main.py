@@ -40,23 +40,27 @@ from src.mvc import GetIchimokuDataFuturesCurrencyAggregator
 from src.mvc import GetKickerDataFuturesCurrency
 from src.mvc import GetKickerDataFuturesCurrencyAggregator
 
-fetchDJ30_D               = False
-fetchSPX500_D             = False
-fetchNas100_D             = False
-fetchFTSE100_D            = True
-fetchFTSE250_D            = True
+fetchDJ30_D               = True
+fetchSPX500_D             = True
+fetchNas100_D             = True
+fetchFTSE100_D            = False
+fetchFTSE250_D            = False
 fetchFutures_D            = False
 fetchCurrencyFutures_D    = False
 
 fetchDJ30_W               = False
 fetchSPX500_W             = False
 fetchNas100_W             = False
-fetchFTSE100_W            = True
-fetchFTSE250_W            = True
+fetchFTSE100_W            = False
+fetchFTSE250_W            = False
 fetchFutures_W            = False
 fetchCurrencyFutures_W    = False
 
 def main():
+
+    # Stop script being auto-run by Replit or Gitpod
+    return
+
     # ---------------- Dow Jones 30 ----------------
 
     _getDataDJ30 = GetDataDJ30
