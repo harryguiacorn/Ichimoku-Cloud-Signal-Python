@@ -41,8 +41,8 @@ from src.mvc import GetKickerDataFuturesCurrency
 from src.mvc import GetKickerDataFuturesCurrencyAggregator
 
 fetchDJ30_D               = True
-fetchSPX500_D             = True
-fetchNas100_D             = True
+fetchSPX500_D             = False
+fetchNas100_D             = False
 fetchFTSE100_D            = False
 fetchFTSE250_D            = False
 fetchFutures_D            = False
@@ -59,7 +59,7 @@ fetchCurrencyFutures_W    = False
 def main():
 
     # Stop script being auto-run by Replit or Gitpod
-    return
+    # return
 
     # ---------------- Dow Jones 30 ----------------
 

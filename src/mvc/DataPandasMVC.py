@@ -7,7 +7,7 @@ from pandas_datareader import data as pdr
 from tapy import Indicators
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-
+import yfinance as yf
 
 class Model(object):
 
@@ -15,7 +15,7 @@ class Model(object):
                  __csvPath='data/',
                  __assetListPath='',
                  __interval='',
-                 __lookbackPeriod=1,
+                 __lookbackPeriod='',
                  __bGetLatestDataFromYahoo=False):
         '''__csvPath points to csv files for asset class
         __assetListPath points to the path for asset list'''
@@ -85,21 +85,40 @@ class Model(object):
         return l_symbol
 
     def getDataOHLC(self):
-        __dict_lookbackPeriodConvertInt = {'d': 1, 'w': 7, 'm': 31}
+        # __dict_lookbackPeriodConvertInt = {'h': 1, 'd': 1, 'w': 7, 'm': 31}
         if self.bGetLatestDataFromYahoo:
             print("******************* Downloading from Yahoo *******************")
             # print(self.symbols)
-            # method 1. grab latest data from yahoo finance
-            self.dataOHLC = self.getLatestDataFromYahoo(
-                self.symbols, __dict_lookbackPeriodConvertInt[self.interval] *
-                self.lookbackPeriod, 'today')
+            # method 1. grab latest data from yahoo finance using Pandas Datareader (now defunct)
+            self.dataOHLC = self.getLatestDataFromYahooByYFinance(
+                self.symbols, self.lookbackPeriod, self.interval)
             return self.dataOHLC
         else:
             # method 2. grab data from local raw csv files to prevent IP getting blocked by Yahoo servers
             self.dataOHLC = self.readLocalCsvData(self.symbols, self.csvPath)
             return self.dataOHLC
         print("csv files are downloaded")
+    def getLatestDataFromYahooByYFinance(self,
+                               symbols,
+                               __lookbackPeriods, __interval):
 
+        # __dict_intervalConvertForYFinance = {'h': '1h', 'd': '1d', 'w': '1wk', 'm': '1mo'}
+        __dict_df = {}
+        for __symbol in symbols:
+            try:
+                data = yf.download(tickers=__symbol, period=__lookbackPeriods,
+                                          interval=__interval)
+                __dict_df[__symbol] = data
+                __path = self.csvPath + __symbol + '.csv'
+                data.to_csv(__path)
+                print(f'{symbols.index(__symbol)} {__symbol} -> {__path}')
+            except Exception as e:
+                # raise Exception("Error: ", __symbol, " e.args: ",e.args)
+                print(f"Error: {__symbol}: {e.args}")
+                continue
+        return __dict_df
+
+    # Using Pandas Datareader until Yahoo finance blocked it
     def getLatestDataFromYahoo(self,
                                symbols,
                                __lookbackDays=3 * 365,
@@ -109,7 +128,7 @@ class Model(object):
             datetime.datetime.now() -
             datetime.timedelta(days=__lookbackDays)).strftime("%Y-%m-%d")
         endData = __toDate
-
+        
         __dict_df = {}
         for __symbol in symbols:
             try:
@@ -290,9 +309,11 @@ if __name__ == "__main__":
     #                'd', 365, True)
     # _control = Control(_model, View())
     # _control.main()
-
-    _model = Model('data/futurescurrency/w/', 'asset_list/FuturesCurrency.csv',
-                   'w', 52, True)
+    
+    # _model = Model('data/dowjones30/d/', 'asset_list/DowJones30.csv',
+    #             '1w', '3mo', True)
+    _model = Model('data/dowjones30/w/', 'asset_list/DowJones30.csv',
+            '1wk', '1y', True)            
     _control = Control(_model, View())
     _control.main()
     _control.showAssetList()
