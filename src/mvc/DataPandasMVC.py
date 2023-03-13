@@ -9,16 +9,18 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import yfinance as yf
 
-class Model(object):
 
-    def __init__(self,
-                 __csvPath='data/',
-                 __assetListPath='',
-                 __interval='',
-                 __lookbackPeriod='',
-                 __bGetLatestDataFromYahoo=False):
-        '''__csvPath points to csv files for asset class
-        __assetListPath points to the path for asset list'''
+class Model(object):
+    def __init__(
+        self,
+        __csvPath="data/",
+        __assetListPath="",
+        __interval="",
+        __lookbackPeriod="",
+        __bGetLatestDataFromYahoo=False,
+    ):
+        """__csvPath points to csv files for asset class
+        __assetListPath points to the path for asset list"""
         self.csvPath = __csvPath
         self.assetListPath = __assetListPath
         self.interval = __interval
@@ -76,7 +78,7 @@ class Model(object):
     def bGetLatestDataFromYahoo(self, __b):
         self.__bGetLatestDataFromYahoo = __b
 
-    def readAssetList(self, __csvPath, __colName='symbol'):
+    def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
         print("******************* Reading symbols *******************")
         print(df.to_string())
@@ -91,27 +93,28 @@ class Model(object):
             # print(self.symbols)
             # method 1. grab latest data from yahoo finance using Pandas Datareader (now defunct)
             self.dataOHLC = self.getLatestDataFromYahooByYFinance(
-                self.symbols, self.lookbackPeriod, self.interval)
+                self.symbols, self.lookbackPeriod, self.interval
+            )
             return self.dataOHLC
         else:
             # method 2. grab data from local raw csv files to prevent IP getting blocked by Yahoo servers
             self.dataOHLC = self.readLocalCsvData(self.symbols, self.csvPath)
             return self.dataOHLC
         print("csv files are downloaded")
-    def getLatestDataFromYahooByYFinance(self,
-                               symbols,
-                               __lookbackPeriods, __interval):
+
+    def getLatestDataFromYahooByYFinance(self, symbols, __lookbackPeriods, __interval):
 
         # __dict_intervalConvertForYFinance = {'h': '1h', 'd': '1d', 'w': '1wk', 'm': '1mo'}
         __dict_df = {}
         for __symbol in symbols:
             try:
-                data = yf.download(tickers=__symbol, period=__lookbackPeriods,
-                                          interval=__interval)
+                data = yf.download(
+                    tickers=__symbol, period=__lookbackPeriods, interval=__interval
+                )
                 __dict_df[__symbol] = data
-                __path = self.csvPath + __symbol + '.csv'
+                __path = self.csvPath + __symbol + ".csv"
                 data.to_csv(__path)
-                print(f'{symbols.index(__symbol)} {__symbol} -> {__path}')
+                print(f"{symbols.index(__symbol)} {__symbol} -> {__path}")
             except Exception as e:
                 # raise Exception("Error: ", __symbol, " e.args: ",e.args)
                 print(f"Error: {__symbol}: {e.args}")
@@ -119,28 +122,24 @@ class Model(object):
         return __dict_df
 
     # Using Pandas Datareader until Yahoo finance blocked it
-    def getLatestDataFromYahoo(self,
-                               symbols,
-                               __lookbackDays=3 * 365,
-                               __toDate='today'):
+    def getLatestDataFromYahoo(self, symbols, __lookbackDays=3 * 365, __toDate="today"):
 
         startDate = (
-            datetime.datetime.now() -
-            datetime.timedelta(days=__lookbackDays)).strftime("%Y-%m-%d")
+            datetime.datetime.now() - datetime.timedelta(days=__lookbackDays)
+        ).strftime("%Y-%m-%d")
         endData = __toDate
-        
+
         __dict_df = {}
         for __symbol in symbols:
             try:
-                data = pdr.get_data_yahoo(__symbol,
-                                          startDate,
-                                          endData,
-                                          interval=self.interval)
+                data = pdr.get_data_yahoo(
+                    __symbol, startDate, endData, interval=self.interval
+                )
 
                 __dict_df[__symbol] = data
-                __path = self.csvPath + __symbol + '.csv'
+                __path = self.csvPath + __symbol + ".csv"
                 data.to_csv(__path)
-                print(f'{symbols.index(__symbol)} {__symbol} -> {__path}')
+                print(f"{symbols.index(__symbol)} {__symbol} -> {__path}")
             except Exception as e:
                 # raise Exception("Error: ", __symbol, " e.args: ",e.args)
                 print(f"Error: {__symbol}: {e.args}")
@@ -151,7 +150,7 @@ class Model(object):
         __dict_df = {}
         for __symbol in symbols:
             try:
-                __filePath = __csvPath + __symbol + '.csv'
+                __filePath = __csvPath + __symbol + ".csv"
                 __df = pd.read_csv(__filePath)
                 __dict_df[__symbol] = __df
             except FileNotFoundError:
@@ -168,28 +167,26 @@ class Model(object):
         # self.createIchimokuDataFinta(DictData)
 
         # self.displayCharts(DictDataIchinokuTapy)
-    def createIchimokuDataTapy(self,
-                               __dict_df):  # create Ichimoku data using tapy
+
+    def createIchimokuDataTapy(self, __dict_df):  # create Ichimoku data using tapy
         __dict_df_ichimoku = {}
         for __key, __df in __dict_df.items():
             # initialising indicators
             __i = Indicators(__df)
-            __i.ichimoku_kinko_hyo()  #column_name_kijun_sen="K Line"
+            __i.ichimoku_kinko_hyo()  # column_name_kijun_sen="K Line"
             __dataCloud = __i.df
             __dict_df_ichimoku[__key] = __dataCloud
-            __dataCloud.to_csv(self.csvPath + __key + '_ichimokuTapy.csv')
+            __dataCloud.to_csv(self.csvPath + __key + "_ichimokuTapy.csv")
         return __dict_df_ichimoku
 
     # create Ichimoku data using finta, this is the alternative option
     def createIchimokuDataFinta(self, __dict_df):
         for __symbol, __df in __dict_df.items():
-            df = pd.read_csv(self.csvPath + __symbol + '.csv')
-            TA.ICHIMOKU(df).to_csv(self.csvPath + __symbol +
-                                   '_ichimokuFinta.csv')
+            df = pd.read_csv(self.csvPath + __symbol + ".csv")
+            TA.ICHIMOKU(df).to_csv(self.csvPath + __symbol + "_ichimokuFinta.csv")
 
 
 class View(object):
-
     @staticmethod
     def showAssetList(__dict_symbols):
         # print("---------------VIEW-showAssetList---------------------")
@@ -198,7 +195,6 @@ class View(object):
 
 
 class Control(object):
-
     def __init__(self, model, view):
         self.model = model
         self.view = view
@@ -226,71 +222,93 @@ class Control(object):
             self.displayChart(__key, __df)
 
     def displayChart(self, __symbol, __df):
-        __df['diff'] = __df['Close'] - __df['Open']
-        __df.loc[__df['diff'] >= 0, 'color'] = 'green'
-        __df.loc[__df['diff'] < 0, 'color'] = 'red'
+        __df["diff"] = __df["Close"] - __df["Open"]
+        __df.loc[__df["diff"] >= 0, "color"] = "green"
+        __df.loc[__df["diff"] < 0, "color"] = "red"
         # print(__df.head())
 
-        pd.set_option('display.max_rows', None)  # print every row for debug
+        pd.set_option("display.max_rows", None)  # print every row for debug
 
         fig3 = make_subplots(specs=[[{"secondary_y": True}]])
 
         # __Tenkan_sen = self.midPoint(__df, 9)
         # __Kijun_sen = self.midPoint(__df, 26)
         fig3.add_trace(
-            go.Scatter(x=__df.index,
-                       y=__df['tenkan_sen'],
-                       marker_color='#e377c2',
-                       name='Tenkan'))
+            go.Scatter(
+                x=__df.index,
+                y=__df["tenkan_sen"],
+                marker_color="#e377c2",
+                name="Tenkan",
+            )
+        )
         fig3.add_trace(
-            go.Scatter(x=__df.index,
-                       y=__df['kijun_sen'],
-                       marker_color='blue',
-                       name='Kijun'))
+            go.Scatter(
+                x=__df.index, y=__df["kijun_sen"], marker_color="blue", name="Kijun"
+            )
+        )
 
         fig3.add_trace(
-            go.Scatter(x=__df.index,
-                       y=__df['senkou_span_a'],
-                       line_color='#e377c2',
-                       name='senkou_span_a'))
+            go.Scatter(
+                x=__df.index,
+                y=__df["senkou_span_a"],
+                line_color="#e377c2",
+                name="senkou_span_a",
+            )
+        )
 
         # print(__df['senkou_span_a'].iloc[__df.index])
         fig3.add_trace(
-            go.Scatter(x=__df.index,
-                       y=__df['senkou_span_b'],
-                       line_color='#fee440',
-                       name='senkou_span_b',
-                       fill='tonexty'))
+            go.Scatter(
+                x=__df.index,
+                y=__df["senkou_span_b"],
+                line_color="#fee440",
+                name="senkou_span_b",
+                fill="tonexty",
+            )
+        )
 
         fig3.add_trace(
-            go.Scatter(x=__df.index,
-                       y=__df['chikou_span'],
-                       marker_color='#8c564b',
-                       name='chikou_span',
-                       mode='markers'))
-        fig3.add_trace(go.Bar(x=__df.index,
-                              y=__df['Volume'],
-                              name='Volume',
-                              marker={'color': __df['color']}),
-                       secondary_y=True)
+            go.Scatter(
+                x=__df.index,
+                y=__df["chikou_span"],
+                marker_color="#8c564b",
+                name="chikou_span",
+                mode="markers",
+            )
+        )
         fig3.add_trace(
-            go.Candlestick(x=__df.index,
-                           open=__df['Open'],
-                           high=__df['High'],
-                           low=__df['Low'],
-                           close=__df['Close'],
-                           name='Price'))
+            go.Bar(
+                x=__df.index,
+                y=__df["Volume"],
+                name="Volume",
+                marker={"color": __df["color"]},
+            ),
+            secondary_y=True,
+        )
+        fig3.add_trace(
+            go.Candlestick(
+                x=__df.index,
+                open=__df["Open"],
+                high=__df["High"],
+                low=__df["Low"],
+                close=__df["Close"],
+                name="Price",
+            )
+        )
 
         fig3.update_yaxes(range=[0, 700000000], secondary_y=True)
         fig3.update_yaxes(visible=False, secondary_y=True)
-        fig3.update_layout(xaxis={'type': 'category'},
-                           xaxis_rangeslider_visible=True)  # hide range slider
-        fig3.update_layout(title={'text': __symbol, 'x': 0.5})
-        fig3.update_xaxes(rangebreaks=[
-            dict(bounds=['sat', 'sun']),  # hide weekends
-            # dict(bounds=[16, 9.5], pattern='hour'), # for hourly chart, hide non-trading hours (24hr format)
-            dict(values=["2021-12-25", "2022-01-01"])  # hide Xmas and New Year
-        ])
+        fig3.update_layout(
+            xaxis={"type": "category"}, xaxis_rangeslider_visible=True
+        )  # hide range slider
+        fig3.update_layout(title={"text": __symbol, "x": 0.5})
+        fig3.update_xaxes(
+            rangebreaks=[
+                dict(bounds=["sat", "sun"]),  # hide weekends
+                # dict(bounds=[16, 9.5], pattern='hour'), # for hourly chart, hide non-trading hours (24hr format)
+                dict(values=["2021-12-25", "2022-01-01"]),  # hide Xmas and New Year
+            ]
+        )
 
         fig3.show()
 
@@ -309,11 +327,10 @@ if __name__ == "__main__":
     #                'd', 365, True)
     # _control = Control(_model, View())
     # _control.main()
-    
+
     # _model = Model('data/dowjones30/d/', 'asset_list/DowJones30.csv',
     #             '1w', '3mo', True)
-    _model = Model('data/dowjones30/w/', 'asset_list/DowJones30.csv',
-            '1wk', '1y', True)            
+    _model = Model("data/dowjones30/w/", "asset_list/DowJones30.csv", "1wk", "1y", True)
     _control = Control(_model, View())
     _control.main()
     _control.showAssetList()

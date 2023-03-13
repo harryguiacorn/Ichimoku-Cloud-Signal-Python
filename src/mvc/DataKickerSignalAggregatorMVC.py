@@ -4,12 +4,13 @@ import pandas as pd
 
 
 class Model(object):
-
-    def __init__(self,
-                 __csvPath='data/',
-                 __assetListPath='',
-                 __outputPath="",
-                 __assetClassName=""):
+    def __init__(
+        self,
+        __csvPath="data/",
+        __assetListPath="",
+        __outputPath="",
+        __assetClassName="",
+    ):
         self.csvPath = __csvPath
         self.assetListPath = __assetListPath
         self.assetClassName = __assetClassName
@@ -37,7 +38,7 @@ class Model(object):
         __dict_df = {}
         for __symbol in symbols:
             try:
-                __filePath = __csvPath + __symbol + __suffix + '.csv'
+                __filePath = __csvPath + __symbol + __suffix + ".csv"
                 # print(__filePath)
                 __df = pd.read_csv(__filePath)
             except FileNotFoundError:
@@ -49,7 +50,7 @@ class Model(object):
         # print(__dict_df)
         return __dict_df
 
-    def readAssetList(self, __csvPath, __colName='symbol'):
+    def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
         # print(df.to_string())
         # l_symbol = df[__colName].tolist()
@@ -68,17 +69,16 @@ class Model(object):
     def getLatestResultFromEachDataFrame(self):
         symbols = self.readAssetList(self.assetListPath)
         # print("------------------",symbols)
-        dict_df = self.readLocalCsvData(symbols['symbol'], self.csvPath,
-                                        '_kicker')
+        dict_df = self.readLocalCsvData(symbols["symbol"], self.csvPath, "_kicker")
         # print(len(dict_df))
         list_result = []
         for __symbol, __value in dict_df.items():
             try:
                 # get latest direction sits at the bottom of dataframe
-                __kickerDirection = __value['Kicker'].iloc[-1]
-                __index = symbols['symbol'].index(__symbol)
-                __symbolName = symbols['name'][__index]
-                __date = __value['Date'].iloc[-1]
+                __kickerDirection = __value["Kicker"].iloc[-1]
+                __index = symbols["symbol"].index(__symbol)
+                __symbolName = symbols["name"][__index]
+                __date = __value["Date"].iloc[-1]
                 # print(__date, __symbolName, __kickerDirection)
 
             except KeyError as e:
@@ -96,19 +96,19 @@ class Model(object):
 
     def exportResult(self, list_result):
         df_result = pd.DataFrame(
-            list_result,
-            columns=['Date', 'Symbol', 'Name', 'Kicker'])
-        df_result.sort_values(by=['Date'], inplace=True)
+            list_result, columns=["Date", "Symbol", "Name", "Kicker"]
+        )
+        df_result.sort_values(by=["Date"], inplace=True)
         self.__createDataFolder(self.outputPath)
-        df_result.to_csv(self.outputPath +
-                         self.assetClassName.replace(" ", "") + '-kicker.csv',
-                         index=False)
+        df_result.to_csv(
+            self.outputPath + self.assetClassName.replace(" ", "") + "-kicker.csv",
+            index=False,
+        )
         self.resultDataFrame = df_result
         return df_result
 
 
 class Control(object):
-
     def __init__(self, model, view):
         self.model = model
         self.view = view
@@ -134,19 +134,19 @@ class Control(object):
 
 
 class View(object):
-
     @staticmethod
     def showResultKCount(__df):
         print(__df)
 
 
 if __name__ == "__main__":
-    # _model = Model('data/dowjones30/d/', 'asset_list/DowJones30.csv', 'output/', 
+    # _model = Model('data/dowjones30/d/', 'asset_list/DowJones30.csv', 'output/',
     #             'Dow Jones 30-D')
     # _control = Control(_model, View())
     # _control.main()
 
-    _model = Model('data/dowjones30/w/', 'asset_list/DowJones30.csv', 'output/', 
-               'Dow Jones 30-W')
+    _model = Model(
+        "data/dowjones30/w/", "asset_list/DowJones30.csv", "output/", "Dow Jones 30-W"
+    )
     _control = Control(_model, View())
     _control.main()

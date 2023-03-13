@@ -3,36 +3,62 @@ from abc import abstractclassmethod, ABC
 
 
 class DataOHLC(ABC):
-
     @abstractclassmethod
     def readLocalCsvData(self, symbols, __csvPath):
         pass
 
 
 class DataKijunSignal(DataOHLC):
-
-    def __init__(self, __symbol, __csvPath):
+    def __init__(self, __symbol, __csvPath, __isIntraday=False):
         self.symbol = __symbol
         self.csvPath = __csvPath
+        self.isIntraday = __isIntraday
 
-    def setupPd(self, csvSuffix='_cloud.csv', folderPath='data/'):
-        pd.set_option('display.max_rows', None)  # print every row for debug
-        pd.set_option('display.max_columns',
-                      None)  # print every column for debug
+    def setupPd_intraday(self, csvSuffix="_cloud.csv", folderPath="data/"):
+        pd.set_option("display.max_rows", None)  # print every row for debug
+        pd.set_option("display.max_columns", None)  # print every column for debug
+
         try:
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
+            # print(__path)
+            # print(__data.Datetime)
+            __data.index = __data.Datetime
+            __data["Returns"] = self.getReturn(
+                __data["Close"], __data["Close"].shift(1)
+            )
+            __data["Kijun Direction"] = self.getKijunDirection(
+                __data["kijun_sen"], __data["kijun_sen"].shift(1)
+            )
+            __data["Kijun Signal Count"] = self.getKijunSignalCount(
+                __data["Kijun Direction"]
+            )
+            self.setColumnsSaveCsv_intraday(__data)
+            # print(__data)
+        except FileNotFoundError:
+            print(f"Error: {__path} not found")
+
+    def setupPd(self, csvSuffix="_cloud.csv", folderPath="data/"):
+        pd.set_option("display.max_rows", None)  # print every row for debug
+        pd.set_option("display.max_columns", None)  # print every column for debug
+        try:
+            __path = self.csvPath + self.symbol + csvSuffix
+            __data = pd.read_csv(__path)
+            print(__data.Date)
             __data.index = __data.Date
-            __data['Returns'] = self.getReturn(__data['Close'],
-                                            __data['Close'].shift(1))
-            __data['Kijun Direction'] = self.getKijunDirection(
-                __data['kijun_sen'], __data['kijun_sen'].shift(1))
-            __data['Kijun Signal Count'] = self.getKijunSignalCount(
-                __data['Kijun Direction'])
+            __data["Returns"] = self.getReturn(
+                __data["Close"], __data["Close"].shift(1)
+            )
+            __data["Kijun Direction"] = self.getKijunDirection(
+                __data["kijun_sen"], __data["kijun_sen"].shift(1)
+            )
+            __data["Kijun Signal Count"] = self.getKijunSignalCount(
+                __data["Kijun Direction"]
+            )
             self.setColumnsSaveCsv(__data)
         except FileNotFoundError:
-            print(f'Error: {__path} not found')
-            
+            print(f"Error: {__path} not found")
+
     def getKijunSignalCount(self, __kijunDirectionList):
         __newList = []
         __kijunDirectionCount = None
@@ -73,27 +99,47 @@ class DataKijunSignal(DataOHLC):
     def getReturn(self, __curClose, __preClose):
         return __curClose / __preClose - 1
 
-    def setColumnsSaveCsv(self, __data, csvSuffix='_kijunCount.csv'):
+    def setColumnsSaveCsv(self, __data, csvSuffix="_kijunCount.csv"):
         header = ["Date", "Kijun Direction", "Kijun Signal Count"]
-        __data.to_csv(self.csvPath + self.symbol + csvSuffix,
-                      columns=header,
-                      index=False)
+        __data.to_csv(
+            self.csvPath + self.symbol + csvSuffix, columns=header, index=False
+        )
+
+    def setColumnsSaveCsv_intraday(self, __data, csvSuffix="_kijunCount.csv"):
+        header = ["Datetime", "Kijun Direction", "Kijun Signal Count"]
+        __data.to_csv(
+            self.csvPath + self.symbol + csvSuffix, columns=header, index=False
+        )
 
     def readLocalCsvData(self, symbols, __csvPath):
         pass
 
     def main(self):
-        self.setupPd('_ichimokuTapy.csv'
-                     )  # _ichimokuPlotly _ichimokuTapy _ichimokuFinta
+        if self.isIntraday == False:
+            self.setupPd(
+                "_ichimokuTapy.csv"
+            )  # _ichimokuPlotly _ichimokuTapy _ichimokuFinta
+        else:
+            self.setupPd_intraday(
+                "_ichimokuTapy.csv"
+            )  # _ichimokuPlotly _ichimokuTapy _ichimokuFinta
 
 
 class Model(object):
-
-    def __init__(self, __csvPath, __assetListPath):
+    def __init__(self, __csvPath, __assetListPath, __isIntraday=False):
         self.csvPath = __csvPath
         self.assetListPath = __assetListPath
+        self.isIntraday = __isIntraday
         self.symbols = None
         self.dataOHLC = None
+
+    @property
+    def isIntraday(self):
+        return self.__isIntraday
+
+    @isIntraday.setter
+    def isIntraday(self, __isIntraday):
+        self.__isIntraday = __isIntraday
 
     @property
     def symbol(self):
@@ -119,7 +165,7 @@ class Model(object):
     def assetListPath(self, __assetListPath):
         self.__assetListPath = __assetListPath
 
-    def readAssetList(self, __csvPath, __colName='symbol'):
+    def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
         # print(df.to_string())
         l_symbol = df[__colName].tolist()
@@ -130,7 +176,7 @@ class Model(object):
         __dict_df = {}
         for __symbol in symbols:
             try:
-                __filePath = __csvPath + __symbol + '.csv'
+                __filePath = __csvPath + __symbol + ".csv"
                 __df = pd.read_csv(__filePath)
                 __dict_df[__symbol] = __df
             except FileNotFoundError:
@@ -144,13 +190,12 @@ class Model(object):
     def getIndividualSymbolData(self):
         for __symbol, __value in self.dataOHLC.items():
             # print(__symbol, self.csvPath)
-            dataP = DataKijunSignal(__symbol, self.csvPath)
+            dataP = DataKijunSignal(__symbol, self.csvPath, self.isIntraday)
             dataP.main()
         print("Kijun count csv files are created")
 
 
 class Control(object):
-
     def __init__(self, model, view):
         self.model = model
         self.view = view
@@ -179,12 +224,11 @@ class Control(object):
 
 
 class View(object):
-
     def __init__(self):
         pass
 
 
 if __name__ == "__main__":
-    _model = Model('data/futurescurrency/w/', 'asset_list/FuturesCurrency.csv')
+    _model = Model("data/futurescurrency/w/", "asset_list/FuturesCurrency.csv")
     _control = Control(_model, View())
     _control.main()
