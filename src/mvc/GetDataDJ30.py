@@ -14,7 +14,7 @@ def main(fetch1HData=False, fetchDailyData=False, fetchWeeklyData=True):
         _control.main()
     if fetchDailyData:
         _model = Model(
-            "data/dowjones30/d/", "asset_list/DowJones30.csv", "1d", "3mo", True
+            "data/dowjones30/d/", "asset_list/DowJones30.csv", "1d", "6mo", True
         )
         _control = Control(_model, View())
         _control.main()

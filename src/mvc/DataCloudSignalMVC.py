@@ -8,13 +8,13 @@ class DataOHLC(ABC):
         pass
 
 
-class DataKijunSignal(DataOHLC):
+class DataCloudSignal(DataOHLC):
     def __init__(self, __symbol, __csvPath, __isIntraday=False):
         self.symbol = __symbol
         self.csvPath = __csvPath
         self.isIntraday = __isIntraday
 
-    def setupPd_intraday(self, csvSuffix="_kijun.csv", folderPath="data/"):
+    def setupPd_intraday(self, csvSuffix="_cloud.csv", folderPath="data/"):
         pd.set_option("display.max_rows", None)  # print every row for debug
         pd.set_option("display.max_columns", None)  # print every column for debug
 
@@ -27,86 +27,114 @@ class DataKijunSignal(DataOHLC):
             __data["Returns"] = self.getReturn(
                 __data["Close"], __data["Close"].shift(1)
             )
-            __data["Kijun Direction"] = self.getKijunDirection(
-                __data["kijun_sen"], __data["kijun_sen"].shift(1)
+            __data["Cloud Signal"] = self.getCloudDirection(
+                __data["Close"], __data["Senkou_span_a"], __data["Senkou_span_b"]
             )
-            __data["Kijun Signal Count"] = self.getKijunSignalCount(
-                __data["Kijun Direction"]
+            __data["Cloud Signal Count"] = self.getCloudSignalCount(
+                __data["Cloud Signal"]
             )
             self.setColumnsSaveCsv_intraday(__data)
             # print(__data)
         except FileNotFoundError:
             print(f"Error: {__path} not found")
 
-    def setupPd(self, csvSuffix="_kijun.csv", folderPath="data/"):
+    def setupPd(self, csvSuffix="_cloud.csv", folderPath="data/"):
         pd.set_option("display.max_rows", None)  # print every row for debug
         pd.set_option("display.max_columns", None)  # print every column for debug
         try:
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
-            print(__data.Date)
+            # print(__data.Date)
             __data.index = __data.Date
             __data["Returns"] = self.getReturn(
                 __data["Close"], __data["Close"].shift(1)
             )
-            __data["Kijun Direction"] = self.getKijunDirection(
-                __data["kijun_sen"], __data["kijun_sen"].shift(1)
+            __data["Cloud Signal"] = self.getCloudDirection(
+                __data["Close"], __data["senkou_span_a"], __data["senkou_span_b"]
             )
-            __data["Kijun Signal Count"] = self.getKijunSignalCount(
-                __data["Kijun Direction"]
+            __data["Cloud Signal Count"] = self.getCloudSignalCount(
+                __data["Cloud Signal"]
             )
+            print(__data)
             self.setColumnsSaveCsv(__data)
         except FileNotFoundError:
             print(f"Error: {__path} not found")
 
-    def getKijunSignalCount(self, __kijunDirectionList):
+    def getCloudSignalCount(self, __cloudDirectionList):
         __newList = []
-        __kijunDirectionCount = None
-        __curKijunDirection = None
-        for __i in range(len(__kijunDirectionList)):
-            if pd.isna(__kijunDirectionList[__i]):
-                __kijunDirectionCount = __kijunDirectionList[__i]
-            elif __curKijunDirection == None:
-                __curKijunDirection = __kijunDirectionList[__i]
-                __kijunDirectionCount = 1
-            elif not __kijunDirectionList[__i] == __curKijunDirection:
-                __curKijunDirection = -__curKijunDirection
-                __kijunDirectionCount = 1
+        __cloudDirectionCount = None
+        __curCloudDirection = None
+        for __i in range(len(__cloudDirectionList)):
+            if pd.isna(__cloudDirectionList[__i]):
+                __cloudDirectionCount = __cloudDirectionList[__i]
+            elif __curCloudDirection == None:
+                __curCloudDirection = __cloudDirectionList[__i]
+                __cloudDirectionCount = 1
+            elif not __cloudDirectionList[__i] == __curCloudDirection:
+                __curCloudDirection = __cloudDirectionList[__i]
+                __cloudDirectionCount = 1
             else:
-                __kijunDirectionCount += 1
+                __cloudDirectionCount += 1
 
-            __newList.append(__kijunDirectionCount)
+            __newList.append(__cloudDirectionCount)
         return __newList
 
-    def getKijunDirection(self, __curKijun, __preKijun):
+    def getCloudDirection(self, __close, __senkou_span_a, __senkou_span_b):
         __data = []
         __curDirection = None
-        for __i in range(len(__preKijun)):
-            if pd.isna(__preKijun[__i]):
-                __data.append(__preKijun[__i])
-            elif pd.isna(__curKijun[__i]):
-                __data.append(__curKijun[__i])
-            elif __curKijun[__i] > __preKijun[__i]:
+        # print(__senkou_span_a)
+        for __i in range(len(__senkou_span_b)):
+            if pd.isna(__senkou_span_b[__i]):
+                # pass alone senkou span b NaN back to column
+                __data.append(__senkou_span_b[__i])
+            elif pd.isna(__senkou_span_a[__i]):
+                __data.append(__senkou_span_b[__i])
+            elif (
+                # Close is above the cloud
+                __close[__i] > __senkou_span_a[__i]
+                and __close[__i] > __senkou_span_b[__i]
+            ):
                 __curDirection = 1
-                __data.append(1)
-            elif __curKijun[__i] < __preKijun[__i]:
-                __curDirection = -1
-                __data.append(-1)
-            else:
                 __data.append(__curDirection)
+            elif (
+                # Close is below the cloud
+                __close[__i] < __senkou_span_a[__i]
+                and __close[__i] < __senkou_span_b[__i]
+            ):
+                __curDirection = -1
+                __data.append(__curDirection)
+            # elif (
+            #     __close[__i] < __senkou_span_a[__i]
+            #     and __close[__i] > __senkou_span_b[__i]
+            # ):
+            #     # Close is within cloud
+            #     __curDirection = 0
+            #     __data.append(__curDirection)
+            # elif (
+            #     # Close is within cloud
+            #     __close[__i] > __senkou_span_a[__i]
+            #     and __close[__i] < __senkou_span_b[__i]
+            # ):
+            #     __curDirection = 0
+            #     __data.append(__curDirection)
+            else:
+                # Close is within cloud
+                __curDirection = 0
+                __data.append(__curDirection)
+        # print(__data)
         return __data
 
     def getReturn(self, __curClose, __preClose):
         return __curClose / __preClose - 1
 
-    def setColumnsSaveCsv(self, __data, csvSuffix="_kijunCount.csv"):
-        header = ["Date", "Kijun Direction", "Kijun Signal Count"]
+    def setColumnsSaveCsv(self, __data, csvSuffix="_cloudCount.csv"):
+        header = ["Date", "Cloud Signal", "Cloud Signal Count"]
         __data.to_csv(
             self.csvPath + self.symbol + csvSuffix, columns=header, index=False
         )
 
-    def setColumnsSaveCsv_intraday(self, __data, csvSuffix="_kijunCount.csv"):
-        header = ["Datetime", "Kijun Direction", "Kijun Signal Count"]
+    def setColumnsSaveCsv_intraday(self, __data, csvSuffix="_cloudCount.csv"):
+        header = ["Datetime", "Cloud Signal", "Cloud Signal Count"]
         __data.to_csv(
             self.csvPath + self.symbol + csvSuffix, columns=header, index=False
         )
@@ -190,9 +218,9 @@ class Model(object):
     def getIndividualSymbolData(self):
         for __symbol, __value in self.dataOHLC.items():
             # print(__symbol, self.csvPath)
-            dataP = DataKijunSignal(__symbol, self.csvPath, self.isIntraday)
+            dataP = DataCloudSignal(__symbol, self.csvPath, self.isIntraday)
             dataP.main()
-        print("Kijun count csv files are created")
+        print("Cloud signal count csv files are created")
 
 
 class Control(object):
@@ -217,7 +245,7 @@ class Control(object):
         self.model.getIndividualSymbolData()
 
     def main(self):
-        print("-------------------- Generating Kijun Signals --------------------")
+        print("-------------------- Generating Cloud Signals --------------------")
         self.getAssetList()
         self.getBatchLocalData()
         self.getIndividualSymbolData()

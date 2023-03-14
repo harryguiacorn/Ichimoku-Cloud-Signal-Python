@@ -1,5 +1,6 @@
 from src.mvc import GetDataDJ30
 from src.mvc import GetIchimokuDataDJ30
+from src.mvc import GetIchimokuCloudDataDJ30
 from src.mvc import GetIchimokuDataDJ30Aggregator
 from src.mvc import GetKickerDataDJ30
 from src.mvc import GetKickerDataDJ30Aggregator
@@ -40,7 +41,7 @@ from src.mvc import GetIchimokuDataFuturesCurrencyAggregator
 from src.mvc import GetKickerDataFuturesCurrency
 from src.mvc import GetKickerDataFuturesCurrencyAggregator
 
-fetchDJ30_1H = True
+fetchDJ30_1H = False
 fetchSPX500_1H = False
 fetchNas100_1H = False
 fetchFTSE100_1H = False
@@ -48,7 +49,7 @@ fetchFTSE250_1H = False
 fetchFutures_1H = False
 fetchCurrencyFutures_1H = False
 
-fetchDJ30_D = False
+fetchDJ30_D = True
 fetchSPX500_D = False
 fetchNas100_D = False
 fetchFTSE100_D = False
@@ -74,14 +75,17 @@ def main():
 
     # ---------------- Dow Jones 30 ----------------
 
-    _getDataDJ30 = GetDataDJ30
-    _getDataDJ30.main(fetchDJ30_1H, fetchDJ30_D, fetchDJ30_W)
+    # _getDataDJ30 = GetDataDJ30
+    # _getDataDJ30.main(fetchDJ30_1H, fetchDJ30_D, fetchDJ30_W)
 
-    _getIchimokuDataDJ30 = GetIchimokuDataDJ30
-    _getIchimokuDataDJ30.main(fetchDJ30_1H, fetchDJ30_D, fetchDJ30_W)
+    _getIchimokuCloudDataDJ30 = GetIchimokuCloudDataDJ30
+    _getIchimokuCloudDataDJ30.main(fetchDJ30_1H, fetchDJ30_D, fetchDJ30_W)
 
-    _getIchimokuDataDJ30Aggregator = GetIchimokuDataDJ30Aggregator
-    _getIchimokuDataDJ30Aggregator.main(fetchDJ30_1H, fetchDJ30_D, fetchDJ30_W)
+    # _getIchimokuDataDJ30 = GetIchimokuDataDJ30
+    # _getIchimokuDataDJ30.main(fetchDJ30_1H, fetchDJ30_D, fetchDJ30_W)
+
+    # _getIchimokuDataDJ30Aggregator = GetIchimokuDataDJ30Aggregator
+    # _getIchimokuDataDJ30Aggregator.main(fetchDJ30_1H, fetchDJ30_D, fetchDJ30_W)
 
     # _getKickerDataDJ30 = GetKickerDataDJ30
     # _getKickerDataDJ30.main(fetchKicker_intraday, fetchDJ30_D, fetchDJ30_W)
