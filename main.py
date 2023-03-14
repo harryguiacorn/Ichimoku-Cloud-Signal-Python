@@ -1,4 +1,4 @@
-from src.mvc import GetDataDJ30
+from src.mvc import GetDataDJ30, GetIchimokuCloudDataDJ30Aggregator, GetSymbolDowJones30
 from src.mvc import GetIchimokuDataDJ30
 from src.mvc import GetIchimokuCloudDataDJ30
 from src.mvc import GetIchimokuDataDJ30Aggregator
@@ -41,7 +41,7 @@ from src.mvc import GetIchimokuDataFuturesCurrencyAggregator
 from src.mvc import GetKickerDataFuturesCurrency
 from src.mvc import GetKickerDataFuturesCurrencyAggregator
 
-fetchDJ30_1H = False
+fetchDJ30_1H = True
 fetchSPX500_1H = False
 fetchNas100_1H = False
 fetchFTSE100_1H = False
@@ -49,7 +49,7 @@ fetchFTSE250_1H = False
 fetchFutures_1H = False
 fetchCurrencyFutures_1H = False
 
-fetchDJ30_D = True
+fetchDJ30_D = False
 fetchSPX500_D = False
 fetchNas100_D = False
 fetchFTSE100_D = False
@@ -74,6 +74,8 @@ def main():
     # return
 
     # ---------------- Dow Jones 30 ----------------
+    _getSymbolDowJones30 = GetSymbolDowJones30
+    _getSymbolDowJones30.main()
 
     # _getDataDJ30 = GetDataDJ30
     # _getDataDJ30.main(fetchDJ30_1H, fetchDJ30_D, fetchDJ30_W)
@@ -81,11 +83,14 @@ def main():
     _getIchimokuCloudDataDJ30 = GetIchimokuCloudDataDJ30
     _getIchimokuCloudDataDJ30.main(fetchDJ30_1H, fetchDJ30_D, fetchDJ30_W)
 
-    # _getIchimokuDataDJ30 = GetIchimokuDataDJ30
-    # _getIchimokuDataDJ30.main(fetchDJ30_1H, fetchDJ30_D, fetchDJ30_W)
+    _getIchimokuCloudDataDJ30Aggregator = GetIchimokuCloudDataDJ30Aggregator
+    _getIchimokuCloudDataDJ30Aggregator.main(fetchDJ30_1H, fetchDJ30_D, fetchDJ30_W)
 
-    # _getIchimokuDataDJ30Aggregator = GetIchimokuDataDJ30Aggregator
-    # _getIchimokuDataDJ30Aggregator.main(fetchDJ30_1H, fetchDJ30_D, fetchDJ30_W)
+    _getIchimokuDataDJ30 = GetIchimokuDataDJ30
+    _getIchimokuDataDJ30.main(fetchDJ30_1H, fetchDJ30_D, fetchDJ30_W)
+
+    _getIchimokuDataDJ30Aggregator = GetIchimokuDataDJ30Aggregator
+    _getIchimokuDataDJ30Aggregator.main(fetchDJ30_1H, fetchDJ30_D, fetchDJ30_W)
 
     # _getKickerDataDJ30 = GetKickerDataDJ30
     # _getKickerDataDJ30.main(fetchKicker_intraday, fetchDJ30_D, fetchDJ30_W)

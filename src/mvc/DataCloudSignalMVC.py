@@ -28,7 +28,7 @@ class DataCloudSignal(DataOHLC):
                 __data["Close"], __data["Close"].shift(1)
             )
             __data["Cloud Signal"] = self.getCloudDirection(
-                __data["Close"], __data["Senkou_span_a"], __data["Senkou_span_b"]
+                __data["Close"], __data["senkou_span_a"], __data["senkou_span_b"]
             )
             __data["Cloud Signal Count"] = self.getCloudSignalCount(
                 __data["Cloud Signal"]
