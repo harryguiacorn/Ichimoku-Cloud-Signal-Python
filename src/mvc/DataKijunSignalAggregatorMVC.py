@@ -122,10 +122,14 @@ class Model(object):
         self.resultList = list_result
         return list_result
 
+    def getColumns(self):
+        if self.isIntraday:
+            return ["Datetime", "Symbol", "Name", "Direction", "Count"]
+        else:
+            return ["Date", "Symbol", "Name", "Direction", "Count"]
+
     def exportResult(self, list_result):
-        df_result = pd.DataFrame(
-            list_result, columns=["Date", "Symbol", "Name", "Direction", "Count"]
-        )
+        df_result = pd.DataFrame(list_result, columns=self.getColumns())
         df_result.sort_values(by=["Count"], inplace=True)
         self.__createDataFolder(self.outputPath)
         df_result.to_csv(
@@ -135,9 +139,7 @@ class Model(object):
         return df_result
 
     def exportResultXML(self, list_result):
-        df_result = pd.DataFrame(
-            list_result, columns=["Date", "Symbol", "Name", "Direction", "Count"]
-        )
+        df_result = pd.DataFrame(list_result, columns=self.getColumns())
         df_result.sort_values(by=["Count"], inplace=True)
         self.__createDataFolder(self.outputPath)
         df_result_xml = df_result.to_xml(
@@ -146,9 +148,7 @@ class Model(object):
         return df_result
 
     def exportResultJSON(self, list_result):
-        df_result = pd.DataFrame(
-            list_result, columns=["Date", "Symbol", "Name", "Direction", "Count"]
-        )
+        df_result = pd.DataFrame(list_result, columns=self.getColumns())
         df_result.sort_values(by=["Count"], inplace=True)
         self.__createDataFolder(self.outputPath)
         df_result_xml = df_result.to_json(

@@ -65,7 +65,7 @@ class Control(object):
         self.model.saveData()
 
 
-if __name__ == "__main__":
+def main():
     _model = Model(
         "https://en.wikipedia.org/wiki/Nasdaq-100#Components",
         "asset_list/Nasdaq100.csv",
@@ -74,3 +74,7 @@ if __name__ == "__main__":
 
     _control = Control(_model, View())
     _control.main()
+
+
+if __name__ == "__main__":
+    main()
