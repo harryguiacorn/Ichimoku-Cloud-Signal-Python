@@ -1,17 +1,17 @@
-from src.mvc.DataKijunSignalMVC import Control, Model, View
+from src.mvc.DataCloudSignalMVC import Control, Model, View
 
 
 def main(fetch1HData=False, fetchDailyData=True, fetchWeeklyData=False):
     if fetch1HData:
-        _model = Model("data/ftse100/1h/", "asset_list/FTSE100.csv", True)
+        _model = Model("data/spx500/1h/", "asset_list/SPX500.csv", True)
         _control = Control(_model, View())
         _control.main()
     if fetchDailyData:
-        _model = Model("data/ftse100/d/", "asset_list/FTSE100.csv")
+        _model = Model("data/spx500/d/", "asset_list/SPX500.csv")
         _control = Control(_model, View())
         _control.main()
     if fetchWeeklyData:
-        _model = Model("data/ftse100/w/", "asset_list/FTSE100.csv")
+        _model = Model("data/spx500/w/", "asset_list/SPX500.csv")
         _control = Control(_model, View())
         _control.main()
 

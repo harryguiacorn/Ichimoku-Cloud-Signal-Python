@@ -55,7 +55,7 @@ class DataCloudSignal(DataOHLC):
             __data["Cloud Signal Count"] = self.getCloudSignalCount(
                 __data["Cloud Signal"]
             )
-            print(__data)
+            # print(__data)
             self.setColumnsSaveCsv(__data)
         except FileNotFoundError:
             print(f"Error: {__path} not found")

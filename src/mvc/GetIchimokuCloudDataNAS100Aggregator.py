@@ -1,4 +1,4 @@
-from src.mvc.DataKijunSignalAggregatorMVC import Control, Model, View
+from src.mvc.DataCloudSignalAggregatorMVC import Control, Model, View
 
 
 def main(fetch1HData=False, fetchDailyData=True, fetchWeeklyData=False):

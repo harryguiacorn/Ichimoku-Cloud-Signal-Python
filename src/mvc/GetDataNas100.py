@@ -14,13 +14,13 @@ def main(fetch1HData=False, fetchDailyData=False, fetchWeeklyData=True):
         _control.main()
     if fetchDailyData:
         _model = Model(
-            "data/nasdaq100/d/", "asset_list/Nasdaq100.csv", "1d", "3mo", True
+            "data/nasdaq100/d/", "asset_list/Nasdaq100.csv", "1d", "6mo", True
         )
         _control = Control(_model, View())
         _control.main()
     if fetchWeeklyData:
         _model = Model(
-            "data/nasdaq100/w/", "asset_list/Nasdaq100.csv", "1wk", "1y", True
+            "data/nasdaq100/w/", "asset_list/Nasdaq100.csv", "1wk", "5y", True
         )
         _control = Control(_model, View())
         _control.main()

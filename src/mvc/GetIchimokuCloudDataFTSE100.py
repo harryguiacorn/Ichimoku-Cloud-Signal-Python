@@ -1,4 +1,4 @@
-from src.mvc.DataKijunSignalMVC import Control, Model, View
+from src.mvc.DataCloudSignalMVC import Control, Model, View
 
 
 def main(fetch1HData=False, fetchDailyData=True, fetchWeeklyData=False):

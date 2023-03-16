@@ -136,7 +136,8 @@ class Control(object):
 class View(object):
     @staticmethod
     def showResultKCount(__df):
-        print(__df)
+        # print(__df)
+        pass
 
 
 if __name__ == "__main__":

@@ -44,7 +44,7 @@ class DataKijunSignal(DataOHLC):
         try:
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
-            print(__data.Date)
+            # print(__data.Date)
             __data.index = __data.Date
             __data["Returns"] = self.getReturn(
                 __data["Close"], __data["Close"].shift(1)

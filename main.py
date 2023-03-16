@@ -1,10 +1,15 @@
 from src.mvc import (
     GetDataDJ30,
     GetIchimokuCloudDataDJ30Aggregator,
+    GetIchimokuCloudDataFTSE100,
+    GetIchimokuCloudDataFTSE250Aggregator,
     GetIchimokuCloudDataNAS100,
     GetIchimokuCloudDataNAS100Aggregator,
+    GetIchimokuCloudDataSPX500,
+    GetIchimokuCloudDataSPX500Aggregator,
     GetSymbolDowJones30,
     GetSymbolNAS100,
+    GetIchimokuCloudDataFTSE100Aggregator,
 )
 from src.mvc import GetIchimokuKijunDataDJ30
 from src.mvc import GetIchimokuCloudDataDJ30
@@ -48,19 +53,19 @@ from src.mvc import GetIchimokuKijunDataFuturesCurrencyAggregator
 from src.mvc import GetKickerDataFuturesCurrency
 from src.mvc import GetKickerDataFuturesCurrencyAggregator
 
-fetch_DJ30_1H = True
+fetch_DJ30_1H = False
 fetch_SPX500_1H = False
-fetch_Nas100_1H = True
+fetch_Nas100_1H = False
 fetch_FTSE100_1H = False
 fetch_FTSE250_1H = False
 fetch_Futures_1H = False
 fetch_CurrencyFutures_1H = False
 
 fetch_DJ30_D = True
-fetch_SPX500_D = False
+fetch_SPX500_D = True
 fetch_Nas100_D = True
-fetch_FTSE100_D = False
-fetch_FTSE250_D = False
+fetch_FTSE100_D = True
+fetch_FTSE250_D = True
 fetch_Futures_D = False
 fetch_CurrencyFutures_D = False
 
@@ -76,7 +81,6 @@ fetch_Kicker_intraday = False
 
 
 def main():
-
     # Stop script being auto-run by Replit or Gitpod
     # return
 
@@ -106,17 +110,19 @@ def main():
     # _getKickerDataDJ30Aggregator.main(fetch_Kicker_intraday, fetch_DJ30_D, fetch_DJ30_W)
 
     # ---------------- Nasdaq 100 ----------------
-    _getSymbolNAS100 = GetSymbolNAS100
-    _getSymbolNAS100.main()
+    # _getSymbolNAS100 = GetSymbolNAS100
+    # _getSymbolNAS100.main()
 
-    _getDataNas100 = GetDataNas100
-    _getDataNas100.main(fetch_Nas100_1H, fetch_Nas100_D, fetch_Nas100_W)
+    # _getDataNas100 = GetDataNas100
+    # _getDataNas100.main(fetch_Nas100_1H, fetch_Nas100_D, fetch_Nas100_W)
 
     # _getIchimokuCloudDataNas100 = GetIchimokuCloudDataNAS100
-    # _getIchimokuCloudDataNas100.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
+    # _getIchimokuCloudDataNas100.main(fetch_Nas100_1H, fetch_Nas100_D, fetch_Nas100_W)
 
-    # _getIchimokuCloudDataDJ30Aggregator = GetIchimokuCloudDataNAS100Aggregator
-    # _getIchimokuCloudDataDJ30Aggregator.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
+    # _getIchimokuCloudDataNas100Aggregator = GetIchimokuCloudDataNAS100Aggregator
+    # _getIchimokuCloudDataNas100Aggregator.main(
+    #     fetch_Nas100_1H, fetch_Nas100_D, fetch_Nas100_W
+    # )
 
     # _getIchimokuKijunDataNas100 = GetIchimokuKijunDataNas100
     # _getIchimokuKijunDataNas100.main(fetch_Nas100_1H, fetch_Nas100_D, fetch_Nas100_W)
@@ -136,16 +142,28 @@ def main():
 
     # ---------------- FTSE 100 ----------------
 
-    # _getDataFTSE100 = GetDataFTSE100
-    # _getDataFTSE100.main(fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W)
+    _getDataFTSE100 = GetDataFTSE100
+    _getDataFTSE100.main(fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W)
 
-    # _getIchimokuDataFTSE100 = GetIchimokuKijunDataFTSE100
-    # _getIchimokuDataFTSE100.main(fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W)
+    _getIchimokuCloudDataFTSE100 = GetIchimokuCloudDataFTSE100
+    _getIchimokuCloudDataFTSE100.main(
+        fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W
+    )
 
-    # _getIchimokuDataFTSE100Aggregator = GetIchimokuKijunDataFTSE100Aggregator
-    # _getIchimokuDataFTSE100Aggregator.main(
-    #     fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W
-    # )
+    _getIchimokuCloudDataFTSE100Aggregator = GetIchimokuCloudDataFTSE100Aggregator
+    _getIchimokuCloudDataFTSE100Aggregator.main(
+        fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W
+    )
+
+    _getIchimokuKijunDataFTSE100 = GetIchimokuKijunDataFTSE100
+    _getIchimokuKijunDataFTSE100.main(
+        fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W
+    )
+
+    _getIchimokuKijunDataFTSE100Aggregator = GetIchimokuKijunDataFTSE100Aggregator
+    _getIchimokuKijunDataFTSE100Aggregator.main(
+        fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W
+    )
 
     # _getKickerDataFTSE100 = GetKickerDataFTSE100
     # _getKickerDataFTSE100.main(fetch_Kicker_intraday, fetch_FTSE100_D, fetch_FTSE100_W)
@@ -159,6 +177,13 @@ def main():
 
     # _getDataFTSE250 = GetDataFTSE250
     # _getDataFTSE250.main(fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W)
+
+    # _getIchimokuCloudDataFTSE250 = GetIchimokuCloudDataFTSE250Aggregator
+    # _getIchimokuCloudDataFTSE250.main(fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W)
+
+    # _getIchimokuCloudDataFTSE250Aggregator = GetIchimokuCloudDataFTSE250Aggregator
+    # _getIchimokuCloudDataFTSE250Aggregator.main(
+    #     fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W)
 
     # _getIchimokuDataFTSE250 = GetIchimokuKijunDataFTSE250
     # _getIchimokuDataFTSE250.main(fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W)
@@ -231,11 +256,17 @@ def main():
     # _getDataSPX500 = GetDataSPX500
     # _getDataSPX500.main(fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W)
 
-    # _getIchimokuDataSPX500 = GetIchimokuKijunDataSPX500
-    # _getIchimokuDataSPX500.main(fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W)
+    # _getIchimokuCloudDataSPX500 = GetIchimokuCloudDataSPX500
+    # _getIchimokuCloudDataSPX500.main(fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W)
 
-    # _getIchimokuDataSPX500Aggregator = GetIchimokuKijunDataSPX500Aggregator
-    # _getIchimokuDataSPX500Aggregator.main(
+    # _getIchimokuCloudDataSPX500Aggregator = GetIchimokuCloudDataSPX500Aggregator
+    # _getIchimokuCloudDataSPX500Aggregator.main(fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W)
+
+    # _getIchimokuKijunDataSPX500 = GetIchimokuKijunDataSPX500
+    # _getIchimokuKijunDataSPX500.main(fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W)
+
+    # _getIchimokuKijunDataSPX500Aggregator = GetIchimokuKijunDataSPX500Aggregator
+    # _getIchimokuKijunDataSPX500Aggregator.main(
     #     fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W
     # )
 
@@ -246,6 +277,7 @@ def main():
     # _getKickerDataSPX500Aggregator.main(
     #     fetch_Kicker_intraday, fetch_SPX500_D, fetch_SPX500_W
     # )
+    pass
 
 
 if __name__ == "__main__":
