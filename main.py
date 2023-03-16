@@ -2,12 +2,15 @@ from src.mvc import (
     GetDataDJ30,
     GetIchimokuCloudDataDJ30Aggregator,
     GetIchimokuCloudDataFTSE100,
+    GetIchimokuCloudDataFTSE250,
     GetIchimokuCloudDataFTSE250Aggregator,
     GetIchimokuCloudDataNAS100,
     GetIchimokuCloudDataNAS100Aggregator,
     GetIchimokuCloudDataSPX500,
     GetIchimokuCloudDataSPX500Aggregator,
     GetSymbolDowJones30,
+    GetSymbolFTSE100,
+    GetSymbolFTSE250,
     GetSymbolNAS100,
     GetIchimokuCloudDataFTSE100Aggregator,
 )
@@ -85,27 +88,36 @@ def main():
     # return
 
     # ---------------- Dow Jones 30 ----------------
+
+    # # Grab latest symbols
     # _getSymbolDowJones30 = GetSymbolDowJones30
     # _getSymbolDowJones30.main()
 
+    # # Download latest OHLC data
     # _getDataDJ30 = GetDataDJ30
     # _getDataDJ30.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
 
+    # # Produce Ichimoku Cloud data
     # _getIchimokuCloudDataDJ30 = GetIchimokuCloudDataDJ30
     # _getIchimokuCloudDataDJ30.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
 
+    # # Combine latest cloud signals from all symbols into one spreadsheet
     # _getIchimokuCloudDataDJ30Aggregator = GetIchimokuCloudDataDJ30Aggregator
     # _getIchimokuCloudDataDJ30Aggregator.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
 
+    # # Produce Kijun data
     # _getIchimokuKijunDataDJ30 = GetIchimokuKijunDataDJ30
     # _getIchimokuKijunDataDJ30.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
 
+    # # Combine latest Kijun signals from all symbols into one spreadsheet
     # _getIchimokuKijunDataDJ30Aggregator = GetIchimokuKijunDataDJ30Aggregator
     # _getIchimokuKijunDataDJ30Aggregator.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
 
+    # # Produce Kicker data
     # _getKickerDataDJ30 = GetKickerDataDJ30
     # _getKickerDataDJ30.main(fetch_Kicker_intraday, fetch_DJ30_D, fetch_DJ30_W)
 
+    # # Combine latest Kicker signals from all symbols into one spreadsheet
     # _getKickerDataDJ30Aggregator = GetKickerDataDJ30Aggregator
     # _getKickerDataDJ30Aggregator.main(fetch_Kicker_intraday, fetch_DJ30_D, fetch_DJ30_W)
 
@@ -142,28 +154,31 @@ def main():
 
     # ---------------- FTSE 100 ----------------
 
-    _getDataFTSE100 = GetDataFTSE100
-    _getDataFTSE100.main(fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W)
+    # _getSymbolFTSE100 = GetSymbolFTSE100
+    # _getSymbolFTSE100.main()
 
-    _getIchimokuCloudDataFTSE100 = GetIchimokuCloudDataFTSE100
-    _getIchimokuCloudDataFTSE100.main(
-        fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W
-    )
+    # _getDataFTSE100 = GetDataFTSE100
+    # _getDataFTSE100.main(fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W)
 
-    _getIchimokuCloudDataFTSE100Aggregator = GetIchimokuCloudDataFTSE100Aggregator
-    _getIchimokuCloudDataFTSE100Aggregator.main(
-        fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W
-    )
+    # _getIchimokuCloudDataFTSE100 = GetIchimokuCloudDataFTSE100
+    # _getIchimokuCloudDataFTSE100.main(
+    #     fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W
+    # )
 
-    _getIchimokuKijunDataFTSE100 = GetIchimokuKijunDataFTSE100
-    _getIchimokuKijunDataFTSE100.main(
-        fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W
-    )
+    # _getIchimokuCloudDataFTSE100Aggregator = GetIchimokuCloudDataFTSE100Aggregator
+    # _getIchimokuCloudDataFTSE100Aggregator.main(
+    #     fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W
+    # )
 
-    _getIchimokuKijunDataFTSE100Aggregator = GetIchimokuKijunDataFTSE100Aggregator
-    _getIchimokuKijunDataFTSE100Aggregator.main(
-        fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W
-    )
+    # _getIchimokuKijunDataFTSE100 = GetIchimokuKijunDataFTSE100
+    # _getIchimokuKijunDataFTSE100.main(
+    #     fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W
+    # )
+
+    # _getIchimokuKijunDataFTSE100Aggregator = GetIchimokuKijunDataFTSE100Aggregator
+    # _getIchimokuKijunDataFTSE100Aggregator.main(
+    #     fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W
+    # )
 
     # _getKickerDataFTSE100 = GetKickerDataFTSE100
     # _getKickerDataFTSE100.main(fetch_Kicker_intraday, fetch_FTSE100_D, fetch_FTSE100_W)
@@ -175,23 +190,29 @@ def main():
 
     # ---------------- FTSE 250 ----------------
 
-    # _getDataFTSE250 = GetDataFTSE250
-    # _getDataFTSE250.main(fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W)
+    _getSymbolFTSE250 = GetSymbolFTSE250
+    _getSymbolFTSE250.main()
 
-    # _getIchimokuCloudDataFTSE250 = GetIchimokuCloudDataFTSE250Aggregator
-    # _getIchimokuCloudDataFTSE250.main(fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W)
+    _getDataFTSE250 = GetDataFTSE250
+    _getDataFTSE250.main(fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W)
 
-    # _getIchimokuCloudDataFTSE250Aggregator = GetIchimokuCloudDataFTSE250Aggregator
-    # _getIchimokuCloudDataFTSE250Aggregator.main(
-    #     fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W)
+    _getIchimokuCloudDataFTSE250 = GetIchimokuCloudDataFTSE250
+    _getIchimokuCloudDataFTSE250.main(
+        fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W
+    )
 
-    # _getIchimokuDataFTSE250 = GetIchimokuKijunDataFTSE250
-    # _getIchimokuDataFTSE250.main(fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W)
+    _getIchimokuCloudDataFTSE250Aggregator = GetIchimokuCloudDataFTSE250Aggregator
+    _getIchimokuCloudDataFTSE250Aggregator.main(
+        fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W
+    )
 
-    # _getIchimokuDataFTSE250Aggregator = GetIchimokuKijunDataFTSE250Aggregator
-    # _getIchimokuDataFTSE250Aggregator.main(
-    #     fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W
-    # )
+    _gtIchimokuKijunDataFTSE250 = GetIchimokuKijunDataFTSE250
+    _gtIchimokuKijunDataFTSE250.main(fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W)
+
+    _getIchimokuKijunDataFTSE250Aggregator = GetIchimokuKijunDataFTSE250Aggregator
+    _getIchimokuKijunDataFTSE250Aggregator.main(
+        fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W
+    )
 
     # _getKickerDataFTSE250 = GetKickerDataFTSE250
     # _getKickerDataFTSE250.main(fetch_Kicker_intraday, fetch_FTSE250_D, fetch_FTSE250_W)
