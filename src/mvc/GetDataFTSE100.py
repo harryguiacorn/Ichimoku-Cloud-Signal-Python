@@ -11,11 +11,11 @@ def main(fetch1HData=False, fetchDailyData=False, fetchWeeklyData=True):
         _control = Control(_model, View())
         _control.main()
     if fetchDailyData:
-        _model = Model("data/ftse100/d/", "asset_list/FTSE100.csv", "1d", "6mo", True)
+        _model = Model("data/ftse100/d/", "asset_list/FTSE100.csv", "1d", "1y", True)
         _control = Control(_model, View())
         _control.main()
     if fetchWeeklyData:
-        _model = Model("data/ftse100/w/", "asset_list/FTSE100.csv", "1wk", "1y", True)
+        _model = Model("data/ftse100/w/", "asset_list/FTSE100.csv", "1wk", "5y", True)
         _control = Control(_model, View())
         _control.main()
         _control.showAssetList()

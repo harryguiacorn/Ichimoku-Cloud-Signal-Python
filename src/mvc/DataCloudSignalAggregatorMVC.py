@@ -74,6 +74,7 @@ class Model(object):
         for __symbol, __value in dict_df.items():
             try:
                 # get latest direction sits at the bottom of dataframe
+                print("__symbol::", __symbol)
                 __cloudDirection = __value["Cloud Signal"].iloc[-1]
                 __cloudConsecutiveCount = __value["Cloud Signal Count"].iloc[-1]
                 __index = symbols["symbol"].index(__symbol)

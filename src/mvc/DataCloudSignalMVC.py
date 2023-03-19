@@ -103,20 +103,6 @@ class DataCloudSignal(DataOHLC):
             ):
                 __curDirection = -1
                 __data.append(__curDirection)
-            # elif (
-            #     __close[__i] < __senkou_span_a[__i]
-            #     and __close[__i] > __senkou_span_b[__i]
-            # ):
-            #     # Close is within cloud
-            #     __curDirection = 0
-            #     __data.append(__curDirection)
-            # elif (
-            #     # Close is within cloud
-            #     __close[__i] > __senkou_span_a[__i]
-            #     and __close[__i] < __senkou_span_b[__i]
-            # ):
-            #     __curDirection = 0
-            #     __data.append(__curDirection)
             else:
                 # Close is within cloud
                 __curDirection = 0

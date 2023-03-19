@@ -27,8 +27,10 @@ class Model(object):
     def cleanData(self):
         __df_list = self.df_list
         self.df = __df_list
+        print(self.df)
         self.df.rename(columns={"Security": "name", "Symbol": "symbol"}, inplace=True)
-        self.df["symbol"] = self.df["symbol"].replace(["-", "."])
+        self.df["symbol"] = self.df["symbol"].str.replace(".", "-", regex=False)
+        # print(*self.df["symbol"], sep=",")
 
     def saveData(self):
         __columns = ["symbol", "name"]
@@ -65,7 +67,7 @@ class Control(object):
         self.model.saveData()
 
 
-if __name__ == "__main__":
+def main():
     _model = Model(
         "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies#S&P_500_component_stocks",
         "asset_list/SPX500.csv",
@@ -73,3 +75,7 @@ if __name__ == "__main__":
 
     _control = Control(_model, View())
     _control.main()
+
+
+if __name__ == "__main__":
+    main()

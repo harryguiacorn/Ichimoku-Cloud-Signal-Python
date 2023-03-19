@@ -1,13 +1,19 @@
 from src.mvc.DataKijunSignalAggregatorMVC import Control, Model, View
 
 
-def main(fetchDailyData=True, fetchWeeklyData=False):
+def main(fetch1HData=False, fetchDailyData=True, fetchWeeklyData=False):
+    if fetch1HData:
+        _model = Model(
+            "data/futurescurrency/d/", "asset_list/FuturesCurrency-kijun-1H.csv", True
+        )
+        _control = Control(_model, View())
+        _control.main()
     if fetchDailyData:
         _model = Model(
             "data/futurescurrency/d/",
             "asset_list/FuturesCurrency.csv",
             "output/",
-            "FuturesCurrency-D",
+            "FuturesCurrency-kijun-D",
         )
         _control = Control(_model, View())
         _control.main()
@@ -16,7 +22,7 @@ def main(fetchDailyData=True, fetchWeeklyData=False):
             "data/futurescurrency/w/",
             "asset_list/FuturesCurrency.csv",
             "output/",
-            "FuturesCurrency-W",
+            "FuturesCurrency-kijun-W",
         )
         _control = Control(_model, View())
         _control.main()

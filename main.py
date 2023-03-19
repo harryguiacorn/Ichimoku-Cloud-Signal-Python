@@ -4,6 +4,8 @@ from src.mvc import (
     GetIchimokuCloudDataFTSE100,
     GetIchimokuCloudDataFTSE250,
     GetIchimokuCloudDataFTSE250Aggregator,
+    GetIchimokuCloudDataFuturesCurrency,
+    GetIchimokuCloudDataFuturesCurrencyAggregator,
     GetIchimokuCloudDataNAS100,
     GetIchimokuCloudDataNAS100Aggregator,
     GetIchimokuCloudDataSPX500,
@@ -13,48 +15,43 @@ from src.mvc import (
     GetSymbolFTSE250,
     GetSymbolNAS100,
     GetIchimokuCloudDataFTSE100Aggregator,
+    GetSymbolSPX500,
+    GetIchimokuKijunDataDJ30,
+    GetIchimokuCloudDataDJ30,
+    GetIchimokuKijunDataDJ30Aggregator,
+    GetKickerDataDJ30,
+    GetKickerDataDJ30Aggregator,
+    GetDataNas100,
+    GetIchimokuKijunDataNas100,
+    GetIchimokuKijunDataNas100Aggregator,
+    GetKickerDataNas100,
+    GetKickerDataNas100Aggregator,
+    GetDataFTSE100,
+    GetIchimokuKijunDataFTSE100,
+    GetIchimokuKijunDataFTSE100Aggregator,
+    GetKickerDataFTSE100,
+    GetKickerDataFTSE100Aggregator,
+    GetDataFTSE250,
+    GetIchimokuKijunDataFTSE250,
+    GetIchimokuKijunDataFTSE250Aggregator,
+    GetKickerDataFTSE250,
+    GetKickerDataFTSE250Aggregator,
+    GetDataSPX500,
+    GetIchimokuKijunDataSPX500,
+    GetIchimokuKijunDataSPX500Aggregator,
+    GetKickerDataSPX500,
+    GetKickerDataSPX500Aggregator,
+    GetDataFutures,
+    GetIchimokuKijunDataFutures,
+    GetIchimokuKijunDataFuturesAggregator,
+    GetKickerDataFutures,
+    GetKickerDataFuturesAggregator,
+    GetDataFuturesCurrency,
+    GetIchimokuKijunDataFuturesCurrency,
+    GetIchimokuKijunDataFuturesCurrencyAggregator,
+    GetKickerDataFuturesCurrency,
+    GetKickerDataFuturesCurrencyAggregator,
 )
-from src.mvc import GetIchimokuKijunDataDJ30
-from src.mvc import GetIchimokuCloudDataDJ30
-from src.mvc import GetIchimokuKijunDataDJ30Aggregator
-from src.mvc import GetKickerDataDJ30
-from src.mvc import GetKickerDataDJ30Aggregator
-
-from src.mvc import GetDataNas100
-from src.mvc import GetIchimokuKijunDataNas100
-from src.mvc import GetIchimokuKijunDataNas100Aggregator
-from src.mvc import GetKickerDataNas100
-from src.mvc import GetKickerDataNas100Aggregator
-
-from src.mvc import GetDataFTSE100
-from src.mvc import GetIchimokuKijunDataFTSE100
-from src.mvc import GetIchimokuKijunDataFTSE100Aggregator
-from src.mvc import GetKickerDataFTSE100
-from src.mvc import GetKickerDataFTSE100Aggregator
-
-from src.mvc import GetDataFTSE250
-from src.mvc import GetIchimokuKijunDataFTSE250
-from src.mvc import GetIchimokuKijunDataFTSE250Aggregator
-from src.mvc import GetKickerDataFTSE250
-from src.mvc import GetKickerDataFTSE250Aggregator
-
-from src.mvc import GetDataSPX500
-from src.mvc import GetIchimokuKijunDataSPX500
-from src.mvc import GetIchimokuKijunDataSPX500Aggregator
-from src.mvc import GetKickerDataSPX500
-from src.mvc import GetKickerDataSPX500Aggregator
-
-from src.mvc import GetDataFutures
-from src.mvc import GetIchimokuKijunDataFutures
-from src.mvc import GetIchimokuKijunDataFuturesAggregator
-from src.mvc import GetKickerDataFutures
-from src.mvc import GetKickerDataFuturesAggregator
-
-from src.mvc import GetDataFuturesCurrency
-from src.mvc import GetIchimokuKijunDataFuturesCurrency
-from src.mvc import GetIchimokuKijunDataFuturesCurrencyAggregator
-from src.mvc import GetKickerDataFuturesCurrency
-from src.mvc import GetKickerDataFuturesCurrencyAggregator
 
 fetch_DJ30_1H = False
 fetch_SPX500_1H = False
@@ -69,8 +66,8 @@ fetch_SPX500_D = True
 fetch_Nas100_D = True
 fetch_FTSE100_D = True
 fetch_FTSE250_D = True
-fetch_Futures_D = False
-fetch_CurrencyFutures_D = False
+fetch_Futures_D = True
+fetch_CurrencyFutures_D = True
 
 fetch_DJ30_W = False
 fetch_SPX500_W = False
@@ -190,29 +187,29 @@ def main():
 
     # ---------------- FTSE 250 ----------------
 
-    _getSymbolFTSE250 = GetSymbolFTSE250
-    _getSymbolFTSE250.main()
+    # _getSymbolFTSE250 = GetSymbolFTSE250
+    # _getSymbolFTSE250.main()
 
-    _getDataFTSE250 = GetDataFTSE250
-    _getDataFTSE250.main(fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W)
+    # _getDataFTSE250 = GetDataFTSE250
+    # _getDataFTSE250.main(fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W)
 
-    _getIchimokuCloudDataFTSE250 = GetIchimokuCloudDataFTSE250
-    _getIchimokuCloudDataFTSE250.main(
-        fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W
-    )
+    # _getIchimokuCloudDataFTSE250 = GetIchimokuCloudDataFTSE250
+    # _getIchimokuCloudDataFTSE250.main(
+    #     fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W
+    # )
 
-    _getIchimokuCloudDataFTSE250Aggregator = GetIchimokuCloudDataFTSE250Aggregator
-    _getIchimokuCloudDataFTSE250Aggregator.main(
-        fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W
-    )
+    # _getIchimokuCloudDataFTSE250Aggregator = GetIchimokuCloudDataFTSE250Aggregator
+    # _getIchimokuCloudDataFTSE250Aggregator.main(
+    #     fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W
+    # )
 
-    _gtIchimokuKijunDataFTSE250 = GetIchimokuKijunDataFTSE250
-    _gtIchimokuKijunDataFTSE250.main(fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W)
+    # _gtIchimokuKijunDataFTSE250 = GetIchimokuKijunDataFTSE250
+    # _gtIchimokuKijunDataFTSE250.main(fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W)
 
-    _getIchimokuKijunDataFTSE250Aggregator = GetIchimokuKijunDataFTSE250Aggregator
-    _getIchimokuKijunDataFTSE250Aggregator.main(
-        fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W
-    )
+    # _getIchimokuKijunDataFTSE250Aggregator = GetIchimokuKijunDataFTSE250Aggregator
+    # _getIchimokuKijunDataFTSE250Aggregator.main(
+    #     fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W
+    # )
 
     # _getKickerDataFTSE250 = GetKickerDataFTSE250
     # _getKickerDataFTSE250.main(fetch_Kicker_intraday, fetch_FTSE250_D, fetch_FTSE250_W)
@@ -250,15 +247,27 @@ def main():
     #     fetch_CurrencyFutures_1H, fetch_CurrencyFutures_D, fetch_CurrencyFutures_W
     # )
 
-    # _getIchimokuDataFuturesCurrency = GetIchimokuKijunDataFuturesCurrency
-    # _getIchimokuDataFuturesCurrency.main(
+    # _getIchimokuCloudDataFuturesCurrency = GetIchimokuCloudDataFuturesCurrency
+    # _getIchimokuCloudDataFuturesCurrency.main(
     #     fetch_CurrencyFutures_1H, fetch_CurrencyFutures_D, fetch_CurrencyFutures_W
     # )
 
-    # _getIchimokuDataFuturesCurrencyAggregator = (
+    # _getIchimokuCloudDataFuturesCurrencyAggregator = (
+    #     GetIchimokuCloudDataFuturesCurrencyAggregator
+    # )
+    # _getIchimokuCloudDataFuturesCurrencyAggregator.main(
+    #     fetch_CurrencyFutures_1H, fetch_CurrencyFutures_D, fetch_CurrencyFutures_W
+    # )
+
+    # _getIchimokuKijunDataFuturesCurrency = GetIchimokuKijunDataFuturesCurrency
+    # _getIchimokuKijunDataFuturesCurrency.main(
+    #     fetch_CurrencyFutures_1H, fetch_CurrencyFutures_D, fetch_CurrencyFutures_W
+    # )
+
+    # _getIchimokuKijunDataFuturesCurrencyAggregator = (
     #     GetIchimokuKijunDataFuturesCurrencyAggregator
     # )
-    # _getIchimokuDataFuturesCurrencyAggregator.main(
+    # _getIchimokuKijunDataFuturesCurrencyAggregator.main(
     #     fetch_CurrencyFutures_1H, fetch_CurrencyFutures_D, fetch_CurrencyFutures_W
     # )
 
@@ -274,6 +283,9 @@ def main():
 
     # ---------------- S&P 500 ----------------
 
+    # _getSymbolSPX500 = GetSymbolSPX500
+    # _getSymbolSPX500.main()
+
     # _getDataSPX500 = GetDataSPX500
     # _getDataSPX500.main(fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W)
 
@@ -281,7 +293,9 @@ def main():
     # _getIchimokuCloudDataSPX500.main(fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W)
 
     # _getIchimokuCloudDataSPX500Aggregator = GetIchimokuCloudDataSPX500Aggregator
-    # _getIchimokuCloudDataSPX500Aggregator.main(fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W)
+    # _getIchimokuCloudDataSPX500Aggregator.main(
+    #     fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W
+    # )
 
     # _getIchimokuKijunDataSPX500 = GetIchimokuKijunDataSPX500
     # _getIchimokuKijunDataSPX500.main(fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W)

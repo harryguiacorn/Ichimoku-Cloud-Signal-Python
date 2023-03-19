@@ -14,13 +14,13 @@ def main(fetch1HData=False, fetchDailyData=True, fetchWeeklyData=False):
         _control.main()
     if fetchDailyData:
         _model = Model(
-            "data/ftse100/d/", "asset_list/FTSE100.csv", "output/", "FTSE100-D"
+            "data/ftse100/d/", "asset_list/FTSE100.csv", "output/", "FTSE100-kijun-D"
         )
         _control = Control(_model, View())
         _control.main()
     if fetchWeeklyData:
         _model = Model(
-            "data/ftse100/w/", "asset_list/FTSE100.csv", "output/", "FTSE100-W"
+            "data/ftse100/w/", "asset_list/FTSE100.csv", "output/", "FTSE100-kijun-W"
         )
         _control = Control(_model, View())
         _control.main()
