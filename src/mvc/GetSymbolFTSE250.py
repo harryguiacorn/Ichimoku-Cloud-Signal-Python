@@ -68,7 +68,9 @@ class Control(object):
         self.model.saveData()
 
 
-def main():
+def main(__fetch_symbols_latest=True):
+    if __fetch_symbols_latest == False:
+        return
     _model = Model(
         "https://en.wikipedia.org/wiki/FTSE_250_Index",
         "asset_list/FTSE250.csv",

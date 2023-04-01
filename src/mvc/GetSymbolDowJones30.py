@@ -65,7 +65,9 @@ class Control(object):
         self.model.saveData()
 
 
-def main():
+def main(__fetch_symbols_latest=True):
+    if __fetch_symbols_latest == False:
+        return
     _model = Model(
         "https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average#Components",
         "asset_list/DowJones30.csv",

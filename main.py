@@ -10,6 +10,8 @@ from src.mvc import (
     GetIchimokuCloudDataNAS100Aggregator,
     GetIchimokuCloudDataSPX500,
     GetIchimokuCloudDataSPX500Aggregator,
+    GetIchimokuTKxDataDJ30,
+    GetIchimokuTKxDataDJ30Aggregator,
     GetSymbolDowJones30,
     GetSymbolFTSE100,
     GetSymbolFTSE250,
@@ -53,17 +55,17 @@ from src.mvc import (
     GetKickerDataFuturesCurrencyAggregator,
 )
 
-fetch_DJ30_1H = True
-fetch_SPX500_1H = True
-fetch_Nas100_1H = True
+fetch_DJ30_1H = False
+fetch_SPX500_1H = False
+fetch_Nas100_1H = False
 fetch_FTSE100_1H = False
 fetch_FTSE250_1H = False
 fetch_Futures_1H = False
 fetch_CurrencyFutures_1H = False
 
 fetch_DJ30_D = True
-fetch_SPX500_D = True
-fetch_Nas100_D = True
+fetch_SPX500_D = False
+fetch_Nas100_D = False
 fetch_FTSE100_D = False
 fetch_FTSE250_D = False
 fetch_Futures_D = False
@@ -78,6 +80,7 @@ fetch_Futures_W = False
 fetch_CurrencyFutures_W = False
 
 fetch_Kicker_intraday = False
+fetch_symbols_latest = False
 
 
 def main():
@@ -86,41 +89,49 @@ def main():
 
     # ---------------- Dow Jones 30 ----------------
 
-    # Grab latest symbols
-    _getSymbolDowJones30 = GetSymbolDowJones30
-    _getSymbolDowJones30.main()
+    # # # Grab latest symbols
+    # _getSymbolDowJones30 = GetSymbolDowJones30
+    # _getSymbolDowJones30.main(fetch_symbols_latest)
 
-    # Download latest OHLC data
-    _getDataDJ30 = GetDataDJ30
-    _getDataDJ30.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
+    # # Download latest OHLC data
+    # _getDataDJ30 = GetDataDJ30
+    # _getDataDJ30.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
 
-    # Produce Ichimoku Cloud data
-    _getIchimokuCloudDataDJ30 = GetIchimokuCloudDataDJ30
-    _getIchimokuCloudDataDJ30.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
+    # # Produce Ichimoku Cloud data
+    # _getIchimokuCloudDataDJ30 = GetIchimokuCloudDataDJ30
+    # _getIchimokuCloudDataDJ30.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
 
-    # Combine latest cloud signals from all symbols into one spreadsheet
-    _getIchimokuCloudDataDJ30Aggregator = GetIchimokuCloudDataDJ30Aggregator
-    _getIchimokuCloudDataDJ30Aggregator.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
+    # # Combine latest cloud signals from all symbols into one spreadsheet
+    # _getIchimokuCloudDataDJ30Aggregator = GetIchimokuCloudDataDJ30Aggregator
+    # _getIchimokuCloudDataDJ30Aggregator.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
 
-    # Produce Kijun data
-    _getIchimokuKijunDataDJ30 = GetIchimokuKijunDataDJ30
-    _getIchimokuKijunDataDJ30.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
+    # Produce Ichimoku TK Cross data
+    _getIchimokuTKxDataDJ30 = GetIchimokuTKxDataDJ30
+    _getIchimokuTKxDataDJ30.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
 
-    # Combine latest Kijun signals from all symbols into one spreadsheet
-    _getIchimokuKijunDataDJ30Aggregator = GetIchimokuKijunDataDJ30Aggregator
-    _getIchimokuKijunDataDJ30Aggregator.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
+    # Combine latest TK Cross signals from all symbols into one spreadsheet
+    _getIchimokuTKxDataDJ30Aggregator = GetIchimokuTKxDataDJ30Aggregator
+    _getIchimokuTKxDataDJ30Aggregator.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
 
-    # Produce Kicker data
-    _getKickerDataDJ30 = GetKickerDataDJ30
-    _getKickerDataDJ30.main(fetch_Kicker_intraday, fetch_DJ30_D, fetch_DJ30_W)
+    # # Produce Kijun data
+    # _getIchimokuKijunDataDJ30 = GetIchimokuKijunDataDJ30
+    # _getIchimokuKijunDataDJ30.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
 
-    # Combine latest Kicker signals from all symbols into one spreadsheet
-    _getKickerDataDJ30Aggregator = GetKickerDataDJ30Aggregator
-    _getKickerDataDJ30Aggregator.main(fetch_Kicker_intraday, fetch_DJ30_D, fetch_DJ30_W)
+    # # Combine latest Kijun signals from all symbols into one spreadsheet
+    # _getIchimokuKijunDataDJ30Aggregator = GetIchimokuKijunDataDJ30Aggregator
+    # _getIchimokuKijunDataDJ30Aggregator.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
+
+    # # Produce Kicker data
+    # _getKickerDataDJ30 = GetKickerDataDJ30
+    # _getKickerDataDJ30.main(fetch_Kicker_intraday, fetch_DJ30_D, fetch_DJ30_W)
+
+    # # Combine latest Kicker signals from all symbols into one spreadsheet
+    # _getKickerDataDJ30Aggregator = GetKickerDataDJ30Aggregator
+    # _getKickerDataDJ30Aggregator.main(fetch_Kicker_intraday, fetch_DJ30_D, fetch_DJ30_W)
 
     # ---------------- Nasdaq 100 ----------------
     _getSymbolNAS100 = GetSymbolNAS100
-    _getSymbolNAS100.main()
+    _getSymbolNAS100.main(fetch_symbols_latest)
 
     _getDataNas100 = GetDataNas100
     _getDataNas100.main(fetch_Nas100_1H, fetch_Nas100_D, fetch_Nas100_W)
@@ -152,7 +163,7 @@ def main():
     # ---------------- FTSE 100 ----------------
 
     _getSymbolFTSE100 = GetSymbolFTSE100
-    _getSymbolFTSE100.main()
+    _getSymbolFTSE100.main(fetch_symbols_latest)
 
     _getDataFTSE100 = GetDataFTSE100
     _getDataFTSE100.main(fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W)
@@ -188,7 +199,7 @@ def main():
     # ---------------- FTSE 250 ----------------
 
     _getSymbolFTSE250 = GetSymbolFTSE250
-    _getSymbolFTSE250.main()
+    _getSymbolFTSE250.main(fetch_symbols_latest)
 
     _getDataFTSE250 = GetDataFTSE250
     _getDataFTSE250.main(fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W)
@@ -284,7 +295,7 @@ def main():
     # ---------------- S&P 500 ----------------
 
     _getSymbolSPX500 = GetSymbolSPX500
-    _getSymbolSPX500.main()
+    _getSymbolSPX500.main(fetch_symbols_latest)
 
     _getDataSPX500 = GetDataSPX500
     _getDataSPX500.main(fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W)

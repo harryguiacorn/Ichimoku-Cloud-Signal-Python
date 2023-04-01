@@ -67,7 +67,9 @@ class Control(object):
         self.model.saveData()
 
 
-def main():
+def main(__fetch_symbols_latest=True):
+    if __fetch_symbols_latest == False:
+        return
     _model = Model(
         "https://en.wikipedia.org/wiki/List_of_S%26P_500_companies#S&P_500_component_stocks",
         "asset_list/SPX500.csv",
