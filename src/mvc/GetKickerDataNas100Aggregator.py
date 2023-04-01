@@ -1,7 +1,16 @@
 from src.mvc.DataKickerSignalAggregatorMVC import Control, Model, View
 
 
-def main(fetchDailyData=True, fetchWeeklyData=False):
+def main(fetch1HData=True, fetchDailyData=True, fetchWeeklyData=False):
+    if fetch1HData:
+        _model = Model(
+            "data/nasdaq100/1h/",
+            "asset_list/Nasdaq100.csv",
+            "output/",
+            "Nasdaq100-1H",
+        )
+        _control = Control(_model, View())
+        _control.main()
     if fetchDailyData:
         _model = Model(
             "data/nasdaq100/d/", "asset_list/Nasdaq100.csv", "output/", "Nasdaq100-D"

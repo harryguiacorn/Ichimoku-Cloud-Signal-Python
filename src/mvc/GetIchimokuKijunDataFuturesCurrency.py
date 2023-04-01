@@ -4,7 +4,7 @@ from src.mvc.DataKijunSignalMVC import Control, Model, View
 def main(fetch1HData=False, fetchDailyData=True, fetchWeeklyData=False):
     if fetch1HData:
         _model = Model(
-            "data/futurescurrency/d/", "asset_list/FuturesCurrency.csv", True
+            "data/futurescurrency/1h/", "asset_list/FuturesCurrency.csv", True
         )
         _control = Control(_model, View())
         _control.main()

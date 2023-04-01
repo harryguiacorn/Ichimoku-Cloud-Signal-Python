@@ -2,7 +2,11 @@
 from src.mvc.DataKickerSignalMVC import Control, Model, View
 
 
-def main(fetchDailyData=True, fetchWeeklyData=False):
+def main(fetch1HData=False, fetchDailyData=True, fetchWeeklyData=False):
+    if fetch1HData:
+        _model = Model("data/nasdaq100/1h/", "asset_list/Nasdaq100.csv")
+        _control = Control(_model, View())
+        _control.main()
     if fetchDailyData:
         _model = Model("data/nasdaq100/d/", "asset_list/Nasdaq100.csv")
         _control = Control(_model, View())

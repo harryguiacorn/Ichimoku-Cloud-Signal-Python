@@ -1,7 +1,11 @@
 from src.mvc.DataKijunSignalMVC import Control, Model, View
 
 
-def main(fetchDailyData=True, fetchWeeklyData=False):
+def main(fetch1HData=False, fetchDailyData=True, fetchWeeklyData=False):
+    if fetch1HData:
+        _model = Model("data/spx500/1h/", "asset_list/SPX500.csv", True)
+        _control = Control(_model, View())
+        _control.main()
     if fetchDailyData:
         _model = Model("data/spx500/d/", "asset_list/SPX500.csv")
         _control = Control(_model, View())
