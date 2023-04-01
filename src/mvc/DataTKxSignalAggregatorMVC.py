@@ -74,6 +74,11 @@ class Model(object):
         for __symbol, __value in dict_df.items():
             try:
                 # get latest direction sits at the bottom of dataframe
+                __colSize = __value["TKx Signal"].size
+                print("__symbol::", __symbol, ", entries: ", __colSize)
+                #  check if column for signals is empty when yahoo receives empty data
+                if __colSize == 0:
+                    continue
                 __tkxDirection = __value["TKx Signal"].iloc[-1]
                 __tkxConsecutiveCount = __value["TKx Signal Count"].iloc[-1]
                 __index = symbols["symbol"].index(__symbol)
@@ -181,9 +186,7 @@ class Control(object):
         return self.model.exportResultJSON(__list_result)
 
     def main(self):
-        print(
-            "********************Creating TKx Signal Aggregator ********************"
-        )
+        print("********************Creating TKx Signal Aggregator ********************")
         list_result = self.getData()
         # print(list_result)
         df_result = self.exportResult(list_result)

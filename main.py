@@ -12,6 +12,12 @@ from src.mvc import (
     GetIchimokuCloudDataSPX500Aggregator,
     GetIchimokuTKxDataDJ30,
     GetIchimokuTKxDataDJ30Aggregator,
+    GetIchimokuTKxDataFTSE100,
+    GetIchimokuTKxDataFTSE100Aggregator,
+    GetIchimokuTKxDataNas100,
+    GetIchimokuTKxDataNas100Aggregator,
+    GetIchimokuTKxDataSPX500,
+    GetIchimokuTKxDataSPX500Aggregator,
     GetSymbolDowJones30,
     GetSymbolFTSE100,
     GetSymbolFTSE250,
@@ -63,8 +69,8 @@ fetch_FTSE250_1H = False
 fetch_Futures_1H = False
 fetch_CurrencyFutures_1H = False
 
-fetch_DJ30_D = True
-fetch_SPX500_D = False
+fetch_DJ30_D = False
+fetch_SPX500_D = True
 fetch_Nas100_D = False
 fetch_FTSE100_D = False
 fetch_FTSE250_D = False
@@ -89,21 +95,21 @@ def main():
 
     # ---------------- Dow Jones 30 ----------------
 
-    # # # Grab latest symbols
-    # _getSymbolDowJones30 = GetSymbolDowJones30
-    # _getSymbolDowJones30.main(fetch_symbols_latest)
+    # Grab latest symbols
+    _getSymbolDowJones30 = GetSymbolDowJones30
+    _getSymbolDowJones30.main(fetch_symbols_latest)
 
-    # # Download latest OHLC data
-    # _getDataDJ30 = GetDataDJ30
-    # _getDataDJ30.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
+    # Download latest OHLC data
+    _getDataDJ30 = GetDataDJ30
+    _getDataDJ30.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
 
-    # # Produce Ichimoku Cloud data
-    # _getIchimokuCloudDataDJ30 = GetIchimokuCloudDataDJ30
-    # _getIchimokuCloudDataDJ30.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
+    # Produce Ichimoku Cloud data
+    _getIchimokuCloudDataDJ30 = GetIchimokuCloudDataDJ30
+    _getIchimokuCloudDataDJ30.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
 
-    # # Combine latest cloud signals from all symbols into one spreadsheet
-    # _getIchimokuCloudDataDJ30Aggregator = GetIchimokuCloudDataDJ30Aggregator
-    # _getIchimokuCloudDataDJ30Aggregator.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
+    # Combine latest cloud signals from all symbols into one spreadsheet
+    _getIchimokuCloudDataDJ30Aggregator = GetIchimokuCloudDataDJ30Aggregator
+    _getIchimokuCloudDataDJ30Aggregator.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
 
     # Produce Ichimoku TK Cross data
     _getIchimokuTKxDataDJ30 = GetIchimokuTKxDataDJ30
@@ -133,24 +139,34 @@ def main():
     _getSymbolNAS100 = GetSymbolNAS100
     _getSymbolNAS100.main(fetch_symbols_latest)
 
-    _getDataNas100 = GetDataNas100
-    _getDataNas100.main(fetch_Nas100_1H, fetch_Nas100_D, fetch_Nas100_W)
+    # _getDataNas100 = GetDataNas100
+    # _getDataNas100.main(fetch_Nas100_1H, fetch_Nas100_D, fetch_Nas100_W)
 
-    _getIchimokuCloudDataNas100 = GetIchimokuCloudDataNAS100
-    _getIchimokuCloudDataNas100.main(fetch_Nas100_1H, fetch_Nas100_D, fetch_Nas100_W)
+    # _getIchimokuCloudDataNas100 = GetIchimokuCloudDataNAS100
+    # _getIchimokuCloudDataNas100.main(fetch_Nas100_1H, fetch_Nas100_D, fetch_Nas100_W)
 
-    _getIchimokuCloudDataNas100Aggregator = GetIchimokuCloudDataNAS100Aggregator
-    _getIchimokuCloudDataNas100Aggregator.main(
+    # _getIchimokuCloudDataNas100Aggregator = GetIchimokuCloudDataNAS100Aggregator
+    # _getIchimokuCloudDataNas100Aggregator.main(
+    #     fetch_Nas100_1H, fetch_Nas100_D, fetch_Nas100_W
+    # )
+
+    # Produce Ichimoku TK Cross data
+    _getIchimokuTKxDataNas100 = GetIchimokuTKxDataNas100
+    _getIchimokuTKxDataNas100.main(fetch_Nas100_1H, fetch_Nas100_D, fetch_Nas100_W)
+
+    # Combine latest TK Cross signals from all symbols into one spreadsheet
+    _getIchimokuTKxDataNas100Aggregator = GetIchimokuTKxDataNas100Aggregator
+    _getIchimokuTKxDataNas100Aggregator.main(
         fetch_Nas100_1H, fetch_Nas100_D, fetch_Nas100_W
     )
 
-    _getIchimokuKijunDataNas100 = GetIchimokuKijunDataNas100
-    _getIchimokuKijunDataNas100.main(fetch_Nas100_1H, fetch_Nas100_D, fetch_Nas100_W)
+    # _getIchimokuKijunDataNas100 = GetIchimokuKijunDataNas100
+    # _getIchimokuKijunDataNas100.main(fetch_Nas100_1H, fetch_Nas100_D, fetch_Nas100_W)
 
-    _getIchimokuKijunDataNas100Aggregator = GetIchimokuKijunDataNas100Aggregator
-    _getIchimokuKijunDataNas100Aggregator.main(
-        fetch_Nas100_1H, fetch_Nas100_D, fetch_Nas100_W
-    )
+    # _getIchimokuKijunDataNas100Aggregator = GetIchimokuKijunDataNas100Aggregator
+    # _getIchimokuKijunDataNas100Aggregator.main(
+    #     fetch_Nas100_1H, fetch_Nas100_D, fetch_Nas100_W
+    # )
 
     _getKickerDataNas100 = GetKickerDataNas100
     _getKickerDataNas100.main(fetch_Kicker_intraday, fetch_Nas100_D, fetch_Nas100_W)
@@ -175,6 +191,16 @@ def main():
 
     _getIchimokuCloudDataFTSE100Aggregator = GetIchimokuCloudDataFTSE100Aggregator
     _getIchimokuCloudDataFTSE100Aggregator.main(
+        fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W
+    )
+
+    # Produce Ichimoku TK Cross data
+    _getIchimokuTKxDataFTSE100 = GetIchimokuTKxDataFTSE100
+    _getIchimokuTKxDataFTSE100.main(fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W)
+
+    # Combine latest TK Cross signals from all symbols into one spreadsheet
+    _getIchimokuTKxDataFTSE100Aggregator = GetIchimokuTKxDataFTSE100Aggregator
+    _getIchimokuTKxDataFTSE100Aggregator.main(
         fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W
     )
 
@@ -294,11 +320,11 @@ def main():
 
     # ---------------- S&P 500 ----------------
 
-    _getSymbolSPX500 = GetSymbolSPX500
-    _getSymbolSPX500.main(fetch_symbols_latest)
+    # _getSymbolSPX500 = GetSymbolSPX500
+    # _getSymbolSPX500.main(fetch_symbols_latest)
 
-    _getDataSPX500 = GetDataSPX500
-    _getDataSPX500.main(fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W)
+    # _getDataSPX500 = GetDataSPX500
+    # _getDataSPX500.main(fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W)
 
     _getIchimokuCloudDataSPX500 = GetIchimokuCloudDataSPX500
     _getIchimokuCloudDataSPX500.main(fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W)
@@ -308,13 +334,23 @@ def main():
         fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W
     )
 
-    _getIchimokuKijunDataSPX500 = GetIchimokuKijunDataSPX500
-    _getIchimokuKijunDataSPX500.main(fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W)
+    # Produce Ichimoku TK Cross data
+    _getIchimokuTKxDataSPX500 = GetIchimokuTKxDataSPX500
+    _getIchimokuTKxDataSPX500.main(fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W)
 
-    _getIchimokuKijunDataSPX500Aggregator = GetIchimokuKijunDataSPX500Aggregator
-    _getIchimokuKijunDataSPX500Aggregator.main(
+    # Combine latest TK Cross signals from all symbols into one spreadsheet
+    _getIchimokuTKxDataSPX500Aggregator = GetIchimokuTKxDataSPX500Aggregator
+    _getIchimokuTKxDataSPX500Aggregator.main(
         fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W
     )
+
+    # _getIchimokuKijunDataSPX500 = GetIchimokuKijunDataSPX500
+    # _getIchimokuKijunDataSPX500.main(fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W)
+
+    # _getIchimokuKijunDataSPX500Aggregator = GetIchimokuKijunDataSPX500Aggregator
+    # _getIchimokuKijunDataSPX500Aggregator.main(
+    #     fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W
+    # )
 
     _getKickerDataSPX500 = GetKickerDataSPX500
     _getKickerDataSPX500.main(fetch_Kicker_intraday, fetch_SPX500_D, fetch_SPX500_W)

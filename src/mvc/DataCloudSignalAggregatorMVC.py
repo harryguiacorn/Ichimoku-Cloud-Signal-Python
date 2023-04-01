@@ -74,7 +74,11 @@ class Model(object):
         for __symbol, __value in dict_df.items():
             try:
                 # get latest direction sits at the bottom of dataframe
-                print("__symbol::", __symbol, sep=", ")
+                __colSize = __value["Cloud Signal"].size
+                print("__symbol::", __symbol, ", entries: ", __colSize)
+                #  check if column for signals is empty when yahoo receives empty data
+                if __colSize == 0:
+                    continue
                 __cloudDirection = __value["Cloud Signal"].iloc[-1]
                 __cloudConsecutiveCount = __value["Cloud Signal Count"].iloc[-1]
                 __index = symbols["symbol"].index(__symbol)
