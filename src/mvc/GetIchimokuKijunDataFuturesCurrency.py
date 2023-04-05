@@ -9,11 +9,15 @@ def main(fetch1HData=False, fetchDailyData=True, fetchWeeklyData=False):
         _control = Control(_model, View())
         _control.main()
     if fetchDailyData:
-        _model = Model("data/futurescurrency/d/", "asset_list/FuturesCurrency.csv")
+        _model = Model(
+            "data/futurescurrency/d/", "asset_list/FuturesCurrency.csv"
+        )
         _control = Control(_model, View())
         _control.main()
     if fetchWeeklyData:
-        _model = Model("data/futurescurrency/w/", "asset_list/FuturesCurrency.csv")
+        _model = Model(
+            "data/futurescurrency/w/", "asset_list/FuturesCurrency.csv"
+        )
         _control = Control(_model, View())
         _control.main()
 

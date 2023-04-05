@@ -16,7 +16,9 @@ class DataCloudSignal(DataOHLC):
 
     def setupPd_intraday(self, csvSuffix="_cloud.csv", folderPath="data/"):
         pd.set_option("display.max_rows", None)  # print every row for debug
-        pd.set_option("display.max_columns", None)  # print every column for debug
+        pd.set_option(
+            "display.max_columns", None
+        )  # print every column for debug
 
         try:
             __path = self.csvPath + self.symbol + csvSuffix
@@ -28,7 +30,9 @@ class DataCloudSignal(DataOHLC):
                 __data["Close"], __data["Close"].shift(1)
             )
             __data["Cloud Signal"] = self.getCloudDirection(
-                __data["Close"], __data["senkou_span_a"], __data["senkou_span_b"]
+                __data["Close"],
+                __data["senkou_span_a"],
+                __data["senkou_span_b"],
             )
             __data["Cloud Signal Count"] = self.getCloudSignalCount(
                 __data["Cloud Signal"]
@@ -40,7 +44,9 @@ class DataCloudSignal(DataOHLC):
 
     def setupPd(self, csvSuffix="_cloud.csv", folderPath="data/"):
         pd.set_option("display.max_rows", None)  # print every row for debug
-        pd.set_option("display.max_columns", None)  # print every column for debug
+        pd.set_option(
+            "display.max_columns", None
+        )  # print every column for debug
         try:
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
@@ -50,7 +56,9 @@ class DataCloudSignal(DataOHLC):
                 __data["Close"], __data["Close"].shift(1)
             )
             __data["Cloud Signal"] = self.getCloudDirection(
-                __data["Close"], __data["senkou_span_a"], __data["senkou_span_b"]
+                __data["Close"],
+                __data["senkou_span_a"],
+                __data["senkou_span_b"],
             )
             __data["Cloud Signal Count"] = self.getCloudSignalCount(
                 __data["Cloud Signal"]
@@ -67,7 +75,7 @@ class DataCloudSignal(DataOHLC):
         for __i in range(len(__cloudDirectionList)):
             if pd.isna(__cloudDirectionList[__i]):
                 __cloudDirectionCount = __cloudDirectionList[__i]
-            elif __curCloudDirection == None:
+            elif __curCloudDirection is None:
                 __curCloudDirection = __cloudDirectionList[__i]
                 __cloudDirectionCount = 1
             elif not __cloudDirectionList[__i] == __curCloudDirection:
@@ -129,7 +137,7 @@ class DataCloudSignal(DataOHLC):
         pass
 
     def main(self):
-        if self.isIntraday == False:
+        if self.isIntraday is False:
             self.setupPd(
                 "_ichimokuTapy.csv"
             )  # _ichimokuPlotly _ichimokuTapy _ichimokuFinta
@@ -231,7 +239,7 @@ class Control(object):
         self.model.getIndividualSymbolData()
 
     def main(self):
-        print("-------------------- Generating Cloud Signals --------------------")
+        print("----------- Generating Cloud Signals -----------")
         self.getAssetList()
         self.getBatchLocalData()
         self.getIndividualSymbolData()

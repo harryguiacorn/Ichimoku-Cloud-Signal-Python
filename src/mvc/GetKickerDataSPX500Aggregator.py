@@ -12,11 +12,15 @@ def main(fetch1HData=True, fetchDailyData=True, fetchWeeklyData=False):
         _control = Control(_model, View())
         _control.main()
     if fetchDailyData:
-        _model = Model("data/spx500/d/", "asset_list/SPX500.csv", "output/", "SPX500-D")
+        _model = Model(
+            "data/spx500/d/", "asset_list/SPX500.csv", "output/", "SPX500-D"
+        )
         _control = Control(_model, View())
         _control.main()
     if fetchWeeklyData:
-        _model = Model("data/spx500/w/", "asset_list/SPX500.csv", "output/", "SPX500-W")
+        _model = Model(
+            "data/spx500/w/", "asset_list/SPX500.csv", "output/", "SPX500-W"
+        )
         _control = Control(_model, View())
         _control.main()
 

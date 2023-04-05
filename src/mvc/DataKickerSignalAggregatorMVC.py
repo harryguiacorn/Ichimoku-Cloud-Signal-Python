@@ -61,15 +61,17 @@ class Model(object):
     def __createDataFolder(self, __name="data"):
         # create data folder
         try:
-            if isdir(__name) == False:
+            if isdir(__name) is False:
                 os.mkdir(__name)
         except FileExistsError as __errFile:
-            print("data folder exists")
+            print("data folder exists", __errFile)
 
     def getLatestResultFromEachDataFrame(self):
         symbols = self.readAssetList(self.assetListPath)
         # print("------------------",symbols)
-        dict_df = self.readLocalCsvData(symbols["symbol"], self.csvPath, "_kicker")
+        dict_df = self.readLocalCsvData(
+            symbols["symbol"], self.csvPath, "_kicker"
+        )
         # print(len(dict_df))
         list_result = []
         for __symbol, __value in dict_df.items():
@@ -101,7 +103,9 @@ class Model(object):
         df_result.sort_values(by=["Date"], inplace=True)
         self.__createDataFolder(self.outputPath)
         df_result.to_csv(
-            self.outputPath + self.assetClassName.replace(" ", "") + "-kicker.csv",
+            self.outputPath
+            + self.assetClassName.replace(" ", "")
+            + "-kicker.csv",
             index=False,
         )
         self.resultDataFrame = df_result
@@ -120,7 +124,7 @@ class Control(object):
         return self.model.exportResult(__list_result)
 
     def main(self):
-        print("******************* Begin Kick Signal Aggregator *******************")
+        print("********** Begin Kick Signal Aggregator **********")
         list_result = self.getData()
 
         # print(list_result)
@@ -141,13 +145,20 @@ class View(object):
 
 
 if __name__ == "__main__":
-    # _model = Model('data/dowjones30/d/', 'asset_list/DowJones30.csv', 'output/',
-    #             'Dow Jones 30-D')
+    # _model = Model(
+    #     "data/dowjones30/d/",
+    #     "asset_list/DowJones30.csv",
+    #     "output/",
+    #     "Dow Jones 30-D",
+    # )
     # _control = Control(_model, View())
     # _control.main()
 
     _model = Model(
-        "data/dowjones30/w/", "asset_list/DowJones30.csv", "output/", "Dow Jones 30-W"
+        "data/dowjones30/w/",
+        "asset_list/DowJones30.csv",
+        "output/",
+        "Dow Jones 30-W",
     )
     _control = Control(_model, View())
     _control.main()

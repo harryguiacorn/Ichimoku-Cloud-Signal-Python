@@ -89,27 +89,34 @@ class Model(object):
     def getDataOHLC(self):
         # __dict_lookbackPeriodConvertInt = {'h': 1, 'd': 1, 'w': 7, 'm': 31}
         if self.bGetLatestDataFromYahoo:
-            print("******************* Downloading from Yahoo *******************")
+            print(
+                "****************** Downloading from Yahoo ******************"
+            )
             # print(self.symbols)
-            # method 1. grab latest data from yahoo finance using Pandas Datareader (now defunct)
+            # method 1. grab latest data from yahoo finance
+            # using Pandas Datareader (now defunct)
             self.dataOHLC = self.getLatestDataFromYahooByYFinance(
                 self.symbols, self.lookbackPeriod, self.interval
             )
             return self.dataOHLC
         else:
-            # method 2. grab data from local raw csv files to prevent IP getting blocked by Yahoo servers
+            # method 2. grab data from local raw csv files to
+            # prevent IP getting blocked by Yahoo servers
             self.dataOHLC = self.readLocalCsvData(self.symbols, self.csvPath)
             return self.dataOHLC
         print("csv files are downloaded")
 
-    def getLatestDataFromYahooByYFinance(self, symbols, __lookbackPeriods, __interval):
+    def getLatestDataFromYahooByYFinance(
+        self, symbols, __lookbackPeriods, __interval
+    ):
 
-        # __dict_intervalConvertForYFinance = {'h': '1h', 'd': '1d', 'w': '1wk', 'm': '1mo'}
         __dict_df = {}
         for __symbol in symbols:
             try:
                 data = yf.download(
-                    tickers=__symbol, period=__lookbackPeriods, interval=__interval
+                    tickers=__symbol,
+                    period=__lookbackPeriods,
+                    interval=__interval,
                 )
                 __dict_df[__symbol] = data
                 __path = self.csvPath + __symbol + ".csv"
@@ -122,7 +129,9 @@ class Model(object):
         return __dict_df
 
     # Using Pandas Datareader until Yahoo finance blocked it
-    def getLatestDataFromYahoo(self, symbols, __lookbackDays=3 * 365, __toDate="today"):
+    def getLatestDataFromYahoo(
+        self, symbols, __lookbackDays=3 * 365, __toDate="today"
+    ):
 
         startDate = (
             datetime.datetime.now() - datetime.timedelta(days=__lookbackDays)
@@ -159,16 +168,21 @@ class Model(object):
         return __dict_df
 
     def createIchimokuData(self):
-        print("++++++++++++++++++++ Creating Ichimoku Data ++++++++++++++++++++")
+        print(
+            "++++++++++++++++++++ Creating Ichimoku Data ++++++++++++++++++++"
+        )
         # method 1. create Ichimoku data using tapy
         DictDataIchinokuTapy = self.createIchimokuDataTapy(self.dataOHLC)
         print("Ichimoku columns added to csv")
-        # method 2. alternative method to add ichimoku columns to csv using finta
+        # method 2. alternative method to
+        # add ichimoku columns to csv using finta
         # self.createIchimokuDataFinta(DictData)
 
         # self.displayCharts(DictDataIchinokuTapy)
 
-    def createIchimokuDataTapy(self, __dict_df):  # create Ichimoku data using tapy
+    def createIchimokuDataTapy(
+        self, __dict_df
+    ):  # create Ichimoku data using tapy
         __dict_df_ichimoku = {}
         for __key, __df in __dict_df.items():
             # initialising indicators
@@ -183,7 +197,9 @@ class Model(object):
     def createIchimokuDataFinta(self, __dict_df):
         for __symbol, __df in __dict_df.items():
             df = pd.read_csv(self.csvPath + __symbol + ".csv")
-            TA.ICHIMOKU(df).to_csv(self.csvPath + __symbol + "_ichimokuFinta.csv")
+            TA.ICHIMOKU(df).to_csv(
+                self.csvPath + __symbol + "_ichimokuFinta.csv"
+            )
 
 
 class View(object):
@@ -243,7 +259,10 @@ class Control(object):
         )
         fig3.add_trace(
             go.Scatter(
-                x=__df.index, y=__df["kijun_sen"], marker_color="blue", name="Kijun"
+                x=__df.index,
+                y=__df["kijun_sen"],
+                marker_color="blue",
+                name="Kijun",
             )
         )
 
@@ -305,8 +324,11 @@ class Control(object):
         fig3.update_xaxes(
             rangebreaks=[
                 dict(bounds=["sat", "sun"]),  # hide weekends
-                # dict(bounds=[16, 9.5], pattern='hour'), # for hourly chart, hide non-trading hours (24hr format)
-                dict(values=["2021-12-25", "2022-01-01"]),  # hide Xmas and New Year
+                # for hourly chart, hide non-trading hours (24hr format)
+                # dict(bounds=[16, 9.5], pattern='hour'),
+                dict(
+                    values=["2021-12-25", "2022-01-01"]
+                ),  # hide Xmas and New Year
             ]
         )
 
@@ -315,22 +337,30 @@ class Control(object):
     def createDataFolder(self, __name="data"):
         # create data folder
         try:
-            if isdir(__name) == False:
+            if isdir(__name) is False:
                 os.makedirs(__name)
         except FileExistsError as __errFile:
-            print("data folder exists")
+            print("data folder exists", __errFile)
 
 
 if __name__ == "__main__":
-    print("----------------------------------------------")
-    # _model = Model('data/futurescurrency/d/', 'asset_list/FuturesCurrency.csv',
-    #                'd', 365, True)
+    print("------ __main__ -----")
+    # _model = Model(
+    #     "data/futurescurrency/d/",
+    #     "asset_list/FuturesCurrency.csv",
+    #     "d",
+    #     365,
+    #     True,
+    # )
     # _control = Control(_model, View())
     # _control.main()
 
-    # _model = Model('data/dowjones30/d/', 'asset_list/DowJones30.csv',
-    #             '1w', '3mo', True)
-    _model = Model("data/dowjones30/w/", "asset_list/DowJones30.csv", "1wk", "1y", True)
+    _model = Model(
+        "data/dowjones30/d/", "asset_list/DowJones30.csv", "1w", "3mo", True
+    )
+    _model = Model(
+        "data/dowjones30/w/", "asset_list/DowJones30.csv", "1wk", "1y", True
+    )
     _control = Control(_model, View())
     _control.main()
     _control.showAssetList()

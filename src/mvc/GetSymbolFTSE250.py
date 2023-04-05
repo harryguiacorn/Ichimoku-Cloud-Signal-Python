@@ -31,7 +31,9 @@ class Model(object):
         __df_list = self.df_list
         self.df = __df_list
         # print(self.df)
-        self.df.rename(columns={"Company": "name", "Ticker": "symbol"}, inplace=True)
+        self.df.rename(
+            columns={"Company": "name", "Ticker": "symbol"}, inplace=True
+        )
         self.df["symbol"] = (
             self.df["symbol"].astype(str) + ".L"
         )  # add .L to symbol for Yahoo Finance
@@ -69,7 +71,7 @@ class Control(object):
 
 
 def main(__fetch_symbols_latest=True):
-    if __fetch_symbols_latest == False:
+    if __fetch_symbols_latest is False:
         return
     _model = Model(
         "https://en.wikipedia.org/wiki/FTSE_250_Index",

@@ -3,7 +3,9 @@ from src.mvc.DataTKxSignalMVC import Control, Model, View
 
 def main(fetch1HData=False, fetchDailyData=True, fetchWeeklyData=False):
     if fetch1HData:
-        _model = Model("data/dowjones30/1h/", "asset_list/DowJones30.csv", True)
+        _model = Model(
+            "data/dowjones30/1h/", "asset_list/DowJones30.csv", True
+        )
         _control = Control(_model, View())
         _control.main()
     if fetchDailyData:

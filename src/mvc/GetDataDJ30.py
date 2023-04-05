@@ -8,19 +8,31 @@ def main(fetch1HData=False, fetchDailyData=False, fetchWeeklyData=True):
 
     if fetch1HData:
         _model = Model(
-            "data/dowjones30/1h/", "asset_list/DowJones30.csv", "1h", "3mo", True
+            "data/dowjones30/1h/",
+            "asset_list/DowJones30.csv",
+            "1h",
+            "3mo",
+            True,
         )
         _control = Control(_model, View())
         _control.main()
     if fetchDailyData:
         _model = Model(
-            "data/dowjones30/d/", "asset_list/DowJones30.csv", "1d", "6mo", True
+            "data/dowjones30/d/",
+            "asset_list/DowJones30.csv",
+            "1d",
+            "6mo",
+            True,
         )
         _control = Control(_model, View())
         _control.main()
     if fetchWeeklyData:
         _model = Model(
-            "data/dowjones30/w/", "asset_list/DowJones30.csv", "1wk", "1y", True
+            "data/dowjones30/w/",
+            "asset_list/DowJones30.csv",
+            "1wk",
+            "1y",
+            True,
         )
         _control = Control(_model, View())
         _control.main()

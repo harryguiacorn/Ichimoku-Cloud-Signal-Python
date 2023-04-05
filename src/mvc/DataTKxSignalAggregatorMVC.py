@@ -61,22 +61,25 @@ class Model(object):
     def __createDataFolder(self, __name="data"):
         # create data folder
         try:
-            if isdir(__name) == False:
+            if isdir(__name) is False:
                 os.mkdir(__name)
         except FileExistsError as __errFile:
-            print("data folder exists")
+            print("data folder exists", __errFile)
 
     def getLatestResultFromEachDataFrame(self):
         symbols = self.readAssetList(self.assetListPath)
         # print("------------------",symbols)
-        dict_df = self.readLocalCsvData(symbols["symbol"], self.csvPath, "_tkxCount")
+        dict_df = self.readLocalCsvData(
+            symbols["symbol"], self.csvPath, "_tkxCount"
+        )
         list_result = []
         for __symbol, __value in dict_df.items():
             try:
                 # get latest direction sits at the bottom of dataframe
                 __colSize = __value["TKx Signal"].size
                 print("__symbol::", __symbol, ", entries: ", __colSize)
-                #  check if column for signals is empty when yahoo receives empty data
+                #  check if column for signals is empty
+                # when yahoo receives empty data
                 if __colSize == 0:
                     continue
                 __tkxDirection = __value["TKx Signal"].iloc[-1]
@@ -102,7 +105,9 @@ class Model(object):
     def getLatestResultFromEachDataFrame_intraday(self):
         symbols = self.readAssetList(self.assetListPath)
         # print("------------------",symbols)
-        dict_df = self.readLocalCsvData(symbols["symbol"], self.csvPath, "_tkxCount")
+        dict_df = self.readLocalCsvData(
+            symbols["symbol"], self.csvPath, "_tkxCount"
+        )
         list_result = []
         for __symbol, __value in dict_df.items():
             try:
@@ -138,7 +143,8 @@ class Model(object):
         df_result.sort_values(by=["Count"], inplace=True)
         self.__createDataFolder(self.outputPath)
         df_result.to_csv(
-            self.outputPath + self.assetClassName.replace(" ", "") + ".csv", index=False
+            self.outputPath + self.assetClassName.replace(" ", "") + ".csv",
+            index=False,
         )
         self.resultDataFrame = df_result
         return df_result
@@ -148,7 +154,8 @@ class Model(object):
         df_result.sort_values(by=["Count"], inplace=True)
         self.__createDataFolder(self.outputPath)
         df_result_xml = df_result.to_xml(
-            self.outputPath + self.assetClassName.replace(" ", "") + ".xml", index=False
+            self.outputPath + self.assetClassName.replace(" ", "") + ".xml",
+            index=False,
         )
         return df_result
 
@@ -171,7 +178,7 @@ class Control(object):
 
     def getData(self):
         print("self.model.isIntraday::", self.model.isIntraday)
-        if self.model.isIntraday == False:
+        if self.model.isIntraday is False:
             return self.model.getLatestResultFromEachDataFrame()
         else:
             return self.model.getLatestResultFromEachDataFrame_intraday()
@@ -186,7 +193,7 @@ class Control(object):
         return self.model.exportResultJSON(__list_result)
 
     def main(self):
-        print("********************Creating TKx Signal Aggregator ********************")
+        print("********* Creating TKx Signal Aggregator *********")
         list_result = self.getData()
         # print(list_result)
         df_result = self.exportResult(list_result)
@@ -198,7 +205,9 @@ class Control(object):
         # return df_result
 
         self.view.showResultKCount(self.model.resultDataFrame)
-        print(f"Aggregator {self.model.assetClassName}.csv and .xml are created")
+        print(
+            f"Aggregator {self.model.assetClassName}.csv and .xml are created"
+        )
 
 
 class View(object):
@@ -210,7 +219,9 @@ class View(object):
 
 if __name__ == "__main__":
     _model = Model(
-        "data/futurescurrency/d/", "asset_list/FuturesCurrency.csv", "Futures-D"
+        "data/futurescurrency/d/",
+        "asset_list/FuturesCurrency.csv",
+        "Futures-D",
     )
     _control = Control(_model, View())
     _control.main()

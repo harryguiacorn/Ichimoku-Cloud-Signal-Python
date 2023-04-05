@@ -16,7 +16,9 @@ class DataTKxSignal(DataOHLC):
 
     def setupPd_intraday(self, csvSuffix="_tkx.csv", folderPath="data/"):
         pd.set_option("display.max_rows", None)  # print every row for debug
-        pd.set_option("display.max_columns", None)  # print every column for debug
+        pd.set_option(
+            "display.max_columns", None
+        )  # print every column for debug
 
         try:
             __path = self.csvPath + self.symbol + csvSuffix
@@ -30,7 +32,9 @@ class DataTKxSignal(DataOHLC):
             __data["TKx Signal"] = self.getTKxDirection(
                 __data["tenkan_sen"], __data["kijun_sen"]
             )
-            __data["TKx Signal Count"] = self.getTKxSignalCount(__data["TKx Signal"])
+            __data["TKx Signal Count"] = self.getTKxSignalCount(
+                __data["TKx Signal"]
+            )
             self.setColumnsSaveCsv_intraday(__data)
             # print(__data)
         except FileNotFoundError:
@@ -38,7 +42,9 @@ class DataTKxSignal(DataOHLC):
 
     def setupPd(self, csvSuffix="_tkx.csv", folderPath="data/"):
         pd.set_option("display.max_rows", None)  # print every row for debug
-        pd.set_option("display.max_columns", None)  # print every column for debug
+        pd.set_option(
+            "display.max_columns", None
+        )  # print every column for debug
         try:
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
@@ -50,7 +56,9 @@ class DataTKxSignal(DataOHLC):
             __data["TKx Signal"] = self.getTKxDirection(
                 __data["tenkan_sen"], __data["kijun_sen"]
             )
-            __data["TKx Signal Count"] = self.getTKxSignalCount(__data["TKx Signal"])
+            __data["TKx Signal Count"] = self.getTKxSignalCount(
+                __data["TKx Signal"]
+            )
             self.setColumnsSaveCsv(__data)
         except FileNotFoundError:
             print(f"Error: {__path} not found")
@@ -62,7 +70,7 @@ class DataTKxSignal(DataOHLC):
         for __i in range(len(__tkxDirectionList)):
             if pd.isna(__tkxDirectionList[__i]):
                 __tkxDirectionCount = __tkxDirectionList[__i]
-            elif __curKijunDirection == None:
+            elif __curKijunDirection is None:
                 __curKijunDirection = __tkxDirectionList[__i]
                 __tkxDirectionCount = 1
             elif not __tkxDirectionList[__i] == __curKijunDirection:
@@ -111,7 +119,7 @@ class DataTKxSignal(DataOHLC):
         pass
 
     def main(self):
-        if self.isIntraday == False:
+        if self.isIntraday is False:
             self.setupPd(
                 "_ichimokuTapy.csv"
             )  # _ichimokuPlotly _ichimokuTapy _ichimokuFinta
@@ -213,7 +221,9 @@ class Control(object):
         self.model.getIndividualSymbolData()
 
     def main(self):
-        print("-------------------- Generating TKx Signals --------------------")
+        print(
+            "-------------------- Generating TKx Signals --------------------"
+        )
         self.getAssetList()
         self.getBatchLocalData()
         self.getIndividualSymbolData()

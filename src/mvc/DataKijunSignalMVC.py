@@ -16,7 +16,9 @@ class DataKijunSignal(DataOHLC):
 
     def setupPd_intraday(self, csvSuffix="_kijun.csv", folderPath="data/"):
         pd.set_option("display.max_rows", None)  # print every row for debug
-        pd.set_option("display.max_columns", None)  # print every column for debug
+        pd.set_option(
+            "display.max_columns", None
+        )  # print every column for debug
 
         try:
             __path = self.csvPath + self.symbol + csvSuffix
@@ -40,7 +42,9 @@ class DataKijunSignal(DataOHLC):
 
     def setupPd(self, csvSuffix="_kijun.csv", folderPath="data/"):
         pd.set_option("display.max_rows", None)  # print every row for debug
-        pd.set_option("display.max_columns", None)  # print every column for debug
+        pd.set_option(
+            "display.max_columns", None
+        )  # print every column for debug
         try:
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
@@ -66,7 +70,7 @@ class DataKijunSignal(DataOHLC):
         for __i in range(len(__kijunDirectionList)):
             if pd.isna(__kijunDirectionList[__i]):
                 __kijunDirectionCount = __kijunDirectionList[__i]
-            elif __curKijunDirection == None:
+            elif __curKijunDirection is None:
                 __curKijunDirection = __kijunDirectionList[__i]
                 __kijunDirectionCount = 1
             elif not __kijunDirectionList[__i] == __curKijunDirection:
@@ -115,7 +119,7 @@ class DataKijunSignal(DataOHLC):
         pass
 
     def main(self):
-        if self.isIntraday == False:
+        if self.isIntraday is False:
             self.setupPd(
                 "_ichimokuTapy.csv"
             )  # _ichimokuPlotly _ichimokuTapy _ichimokuFinta
@@ -217,7 +221,9 @@ class Control(object):
         self.model.getIndividualSymbolData()
 
     def main(self):
-        print("-------------------- Generating Kijun Signals --------------------")
+        print(
+            "-------- Generating Kijun Signals --------"
+        )
         self.getAssetList()
         self.getBatchLocalData()
         self.getIndividualSymbolData()

@@ -15,18 +15,24 @@ class DataKickerSignal(DataOHLC):
 
     def setupPd(self, csvSuffix=".csv", minBodyPerc1=0, minBodyPerc2=0):
         """
-        param minBodyPerc1: Minimum body to candle range percentage for left candle formation, default is 0
-        param minBodyPerc2: Minimum body to candle range percentage for right candle formation, default is 0
+        param minBodyPerc1: Minimum body to candle range percentage
+        for left candle formation, default is 0
+        param minBodyPerc2: Minimum body to candle range percentage
+        for right candle formation, default is 0
         """
         pd.set_option("display.max_rows", None)  # print every row for debug
-        pd.set_option("display.max_columns", None)  # print every column for debug
+        pd.set_option(
+            "display.max_columns", None
+        )  # print every column for debug
         try:
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
             __data.index = __data.Date
             # __data['Returns'] = self.getReturn(__data['Close'],
             #                                    __data['Close'].shift(1))
-            __data["Kicker"] = self.getKickerSignal(__data, minBodyPerc1, minBodyPerc2)
+            __data["Kicker"] = self.getKickerSignal(
+                __data, minBodyPerc1, minBodyPerc2
+            )
             self.cleanupDF(__data)
 
             # print(__data)
@@ -34,7 +40,9 @@ class DataKickerSignal(DataOHLC):
         except FileNotFoundError:
             print(f"Error: {__path} not found")
 
-    def cleanupDF(self, __data):  # keep date which kicker signal is either -1 or 1
+    def cleanupDF(
+        self, __data
+    ):  # keep date which kicker signal is either -1 or 1
         __data.drop(__data[(__data["Kicker"] == 0)].index, inplace=True)
 
     def getKickerSignal(self, __data, minBodyPerc1=0, minBodyPerc2=0):
@@ -50,8 +58,12 @@ class DataKickerSignal(DataOHLC):
                 __curOpen = __data["Open"][i]
                 __curHigh = __data["High"][i]
                 __curLow = __data["Low"][i]
-                __preBodyPerc = abs((__preClose - __preOpen) / (__preHigh - __preLow))
-                __curBodyPerc = abs((__curClose - __curOpen) / (__curHigh - __curLow))
+                __preBodyPerc = abs(
+                    (__preClose - __preOpen) / (__preHigh - __preLow)
+                )
+                __curBodyPerc = abs(
+                    (__curClose - __curOpen) / (__curHigh - __curLow)
+                )
                 # print(__preBodyPerc, __curBodyPerc)
                 if (
                     __preClose < __preOpen

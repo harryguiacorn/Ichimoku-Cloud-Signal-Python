@@ -14,13 +14,19 @@ def main(fetch1HData=False, fetchDailyData=True, fetchWeeklyData=False):
         _control.main()
     if fetchDailyData:
         _model = Model(
-            "data/futures/d/", "asset_list/Futures.csv", "output/", "Futures-kijun-D"
+            "data/futures/d/",
+            "asset_list/Futures.csv",
+            "output/",
+            "Futures-kijun-D",
         )
         _control = Control(_model, View())
         _control.main()
     if fetchWeeklyData:
         _model = Model(
-            "data/futures/w/", "asset_list/Futures.csv", "output/", "Futures-kijun-W"
+            "data/futures/w/",
+            "asset_list/Futures.csv",
+            "output/",
+            "Futures-kijun-W",
         )
         _control = Control(_model, View())
         _control.main()

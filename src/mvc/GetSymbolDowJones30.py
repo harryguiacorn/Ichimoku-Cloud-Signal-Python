@@ -2,7 +2,12 @@ import pandas as pd
 
 
 class Model(object):
-    def __init__(self, __url, __fileNameCSV, __readHtmlMatch="") -> None:
+    def __init__(
+        self,
+        __url,
+        __fileNameCSV,
+        __readHtmlMatch="",
+    ) -> None:
         self.url = __url
         self.fileNameCSV = __fileNameCSV
         self.readHtmlMatch = __readHtmlMatch
@@ -18,7 +23,10 @@ class Model(object):
         self.__df_list = __df_list
 
     def readHtml(self):
-        self.df_list = pd.read_html(self.url, match=self.readHtmlMatch)[0]
+        self.df_list = pd.read_html(
+            self.url,
+            match=self.readHtmlMatch,
+        )[0]
 
         # return type is list[DataFrame]
         print(f"Total tables: {len(self.df_list)}")
@@ -27,15 +35,27 @@ class Model(object):
     def cleanData(self):
         __df_list = self.df_list
         self.df = __df_list
-        self.df.rename(columns={"Company": "name", "Symbol": "symbol"}, inplace=True)
-        self.df["symbol"] = self.df["symbol"].str.replace(".", "-", regex=False)
+        self.df.rename(
+            columns={
+                "Company": "name",
+                "Symbol": "symbol",
+            },
+            inplace=True,
+        )
+        self.df["symbol"] = self.df["symbol"].str.replace(
+            ".", "-", regex=False
+        )
 
     def saveData(self):
         __columns = ["symbol", "name"]
         # print(type(self.df))
         # print(self.df)
         # print(self.df[__columns])
-        self.df.to_csv(self.fileNameCSV, columns=__columns, index=False)
+        self.df.to_csv(
+            self.fileNameCSV,
+            columns=__columns,
+            index=False,
+        )
         return self.df[__columns]
 
 
@@ -66,7 +86,7 @@ class Control(object):
 
 
 def main(__fetch_symbols_latest=True):
-    if __fetch_symbols_latest == False:
+    if __fetch_symbols_latest is False:
         return
     _model = Model(
         "https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average#Components",

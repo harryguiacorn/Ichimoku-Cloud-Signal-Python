@@ -27,8 +27,12 @@ class Model(object):
     def cleanData(self):
         __df_list = self.df_list
         self.df = __df_list
-        self.df.rename(columns={"Company": "name", "Ticker": "symbol"}, inplace=True)
-        self.df["symbol"] = self.df["symbol"].str.replace(".", "-", regex=False)
+        self.df.rename(
+            columns={"Company": "name", "Ticker": "symbol"}, inplace=True
+        )
+        self.df["symbol"] = self.df["symbol"].str.replace(
+            ".", "-", regex=False
+        )
 
     def saveData(self):
         __columns = ["symbol", "name"]
@@ -66,7 +70,7 @@ class Control(object):
 
 
 def main(__fetch_symbols_latest=True):
-    if __fetch_symbols_latest == False:
+    if __fetch_symbols_latest is False:
         return
     _model = Model(
         "https://en.wikipedia.org/wiki/Nasdaq-100#Components",
