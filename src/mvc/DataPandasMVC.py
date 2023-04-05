@@ -359,7 +359,7 @@ if __name__ == "__main__":
         "data/dowjones30/d/", "asset_list/DowJones30.csv", "1w", "3mo", True
     )
     _model = Model(
-        "data/dowjones30/w/", "asset_list/DowJones30.csv", "1wk", "1y", True
+        "data/dowjones30/w/", "asset_list/DowJones30.csv", "1wk", "5y", True
     )
     _control = Control(_model, View())
     _control.main()

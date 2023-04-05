@@ -31,7 +31,7 @@ def main(fetch1HData=False, fetchDailyData=False, fetchWeeklyData=True):
             "data/dowjones30/w/",
             "asset_list/DowJones30.csv",
             "1wk",
-            "1y",
+            "5y",
             True,
         )
         _control = Control(_model, View())
