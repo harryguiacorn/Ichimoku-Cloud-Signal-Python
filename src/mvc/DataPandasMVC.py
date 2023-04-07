@@ -80,7 +80,7 @@ class Model(object):
 
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
-        print("******************* Reading symbols *******************")
+        print("********* Reading symbols *********")
         print(df.to_string(), sep=",")
         l_symbol = df[__colName].tolist()
         self.symbols = l_symbol
@@ -89,9 +89,7 @@ class Model(object):
     def getDataOHLC(self):
         # __dict_lookbackPeriodConvertInt = {'h': 1, 'd': 1, 'w': 7, 'm': 31}
         if self.bGetLatestDataFromYahoo:
-            print(
-                "****************** Downloading from Yahoo ******************"
-            )
+            print("********* Downloading from Yahoo *********")
             # print(self.symbols)
             # method 1. grab latest data from yahoo finance
             # using Pandas Datareader (now defunct)

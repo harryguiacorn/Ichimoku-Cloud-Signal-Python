@@ -84,7 +84,7 @@ class Model(object):
                 # print(__date, __symbolName, __kickerDirection)
 
             except KeyError as e:
-                print("--------------KeyError------------------", e.args)
+                print("------ KeyError ------", e.args)
                 continue
             else:
                 list_temp = []
@@ -103,9 +103,7 @@ class Model(object):
         df_result.sort_values(by=["Date"], inplace=True)
         self.__createDataFolder(self.outputPath)
         df_result.to_csv(
-            self.outputPath
-            + self.assetClassName.replace(" ", "")
-            + "-kicker.csv",
+            self.outputPath + self.assetClassName.replace(" ", "") + ".csv",
             index=False,
         )
         self.resultDataFrame = df_result
@@ -124,7 +122,7 @@ class Control(object):
         return self.model.exportResult(__list_result)
 
     def main(self):
-        print("********** Begin Kick Signal Aggregator **********")
+        print("********* Begin Kick Signal Aggregator *********")
         list_result = self.getData()
 
         # print(list_result)

@@ -85,6 +85,8 @@ fetch_FTSE250_W = False
 fetch_Futures_W = False
 fetch_CurrencyFutures_W = False
 
+fetch_DJ30_M = False
+
 fetch_Kicker_intraday = False
 fetch_symbols_latest = False
 
@@ -101,46 +103,54 @@ def main():
 
     # Download latest OHLC data
     _getDataDJ30 = GetDataDJ30
-    _getDataDJ30.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
+    _getDataDJ30.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W, fetch_DJ30_M)
 
     # Produce Ichimoku Cloud data
     _getIchimokuCloudDataDJ30 = GetIchimokuCloudDataDJ30
-    _getIchimokuCloudDataDJ30.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
+    _getIchimokuCloudDataDJ30.main(
+        fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W, fetch_DJ30_M
+    )
 
     # Combine latest cloud signals from all symbols into one spreadsheet
     _getIchimokuCloudDataDJ30Aggregator = GetIchimokuCloudDataDJ30Aggregator
     _getIchimokuCloudDataDJ30Aggregator.main(
-        fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W
+        fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W, fetch_DJ30_M
     )
 
     # Produce Ichimoku TK Cross data
     _getIchimokuTKxDataDJ30 = GetIchimokuTKxDataDJ30
-    _getIchimokuTKxDataDJ30.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
+    _getIchimokuTKxDataDJ30.main(
+        fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W, fetch_DJ30_M
+    )
 
     # Combine latest TK Cross signals from all symbols into one spreadsheet
     _getIchimokuTKxDataDJ30Aggregator = GetIchimokuTKxDataDJ30Aggregator
     _getIchimokuTKxDataDJ30Aggregator.main(
-        fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W
+        fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W, fetch_DJ30_M
     )
 
     # Produce Kijun data
     _getIchimokuKijunDataDJ30 = GetIchimokuKijunDataDJ30
-    _getIchimokuKijunDataDJ30.main(fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W)
+    _getIchimokuKijunDataDJ30.main(
+        fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W, fetch_DJ30_M
+    )
 
     # Combine latest Kijun signals from all symbols into one spreadsheet
     _getIchimokuKijunDataDJ30Aggregator = GetIchimokuKijunDataDJ30Aggregator
     _getIchimokuKijunDataDJ30Aggregator.main(
-        fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W
+        fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W, fetch_DJ30_M
     )
 
     # Produce Kicker data
     _getKickerDataDJ30 = GetKickerDataDJ30
-    _getKickerDataDJ30.main(fetch_Kicker_intraday, fetch_DJ30_D, fetch_DJ30_W)
+    _getKickerDataDJ30.main(
+        fetch_Kicker_intraday, fetch_DJ30_D, fetch_DJ30_W, fetch_DJ30_M
+    )
 
     # Combine latest Kicker signals from all symbols into one spreadsheet
     _getKickerDataDJ30Aggregator = GetKickerDataDJ30Aggregator
     _getKickerDataDJ30Aggregator.main(
-        fetch_Kicker_intraday, fetch_DJ30_D, fetch_DJ30_W
+        fetch_Kicker_intraday, fetch_DJ30_D, fetch_DJ30_W, fetch_DJ30_M
     )
 
     # ---------------- Nasdaq 100 ----------------

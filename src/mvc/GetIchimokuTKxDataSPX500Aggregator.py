@@ -1,7 +1,12 @@
 from src.mvc.DataTKxSignalAggregatorMVC import Control, Model, View
 
 
-def main(fetch1HData=False, fetchDailyData=True, fetchWeeklyData=False):
+def main(
+    fetch1HData=False,
+    fetchDailyData=True,
+    fetchWeeklyData=False,
+    fetchMonthlyData=False,
+):
     if fetch1HData:
         _model = Model(
             "data/spx500/1h/",

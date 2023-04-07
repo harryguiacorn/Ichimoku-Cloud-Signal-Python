@@ -77,7 +77,7 @@ class Model(object):
             try:
                 # get latest direction sits at the bottom of dataframe
                 __colSize = __value["TKx Signal"].size
-                print("__symbol::", __symbol, ", entries: ", __colSize)
+                print("symbol::", __symbol, ", entries: ", __colSize)
                 #  check if column for signals is empty
                 # when yahoo receives empty data
                 if __colSize == 0:
@@ -89,7 +89,7 @@ class Model(object):
                 __date = __value["Date"].iloc[-1]
 
             except KeyError as e:
-                print("--------------KeyError------------------", e.args)
+                print("------ KeyError ------", e.args)
                 continue
             else:
                 list_temp = []
@@ -119,7 +119,7 @@ class Model(object):
                 __date = __value["Datetime"].iloc[-1]
 
             except KeyError as e:
-                print("--------------KeyError------------------", e.args)
+                print("------ KeyError ------", e.args)
                 continue
             else:
                 list_temp = []
@@ -199,7 +199,7 @@ class Control(object):
         df_result = self.exportResult(list_result)
 
         # self.exportResultXML(list_result)
-        self.exportResultJSON(list_result)
+        # self.exportResultJSON(list_result)
 
         # print(df_result)
         # return df_result

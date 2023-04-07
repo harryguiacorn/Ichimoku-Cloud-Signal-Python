@@ -68,7 +68,7 @@ class Model(object):
 
     def getLatestResultFromEachDataFrame(self):
         symbols = self.readAssetList(self.assetListPath)
-        # print("------------------",symbols)
+        # print("symbols::",symbols)
         dict_df = self.readLocalCsvData(
             symbols["symbol"], self.csvPath, "_cloudCount"
         )
@@ -77,8 +77,9 @@ class Model(object):
             try:
                 # get latest direction sits at the bottom of dataframe
                 __colSize = __value["Cloud Signal"].size
-                print("__symbol::", __symbol, ", entries: ", __colSize)
-                #  check if column for signals is empty when yahoo receives empty data
+                print("symbol::", __symbol, ", entries: ", __colSize)
+                #  check if column for signals is empty
+                # when yahoo receives empty data
                 if __colSize == 0:
                     continue
                 __cloudDirection = __value["Cloud Signal"].iloc[-1]
@@ -90,7 +91,7 @@ class Model(object):
                 __date = __value["Date"].iloc[-1]
 
             except KeyError as e:
-                print("--------------KeyError------------------", e.args)
+                print("------ KeyError ------", e.args)
                 continue
             else:
                 list_temp = []
@@ -122,7 +123,7 @@ class Model(object):
                 __date = __value["Datetime"].iloc[-1]
 
             except KeyError as e:
-                print("--------------KeyError------------------", e.args)
+                print("------ KeyError ------", e.args)
                 continue
             else:
                 list_temp = []
@@ -195,13 +196,13 @@ class Control(object):
         return self.model.exportResultJSON(__list_result)
 
     def main(self):
-        print("*********** Creating Cloud Signal Aggregator ***********")
+        print("********* Creating Cloud Signal Aggregator *********")
         list_result = self.getData()
         # print(list_result)
         df_result = self.exportResult(list_result)
 
         # self.exportResultXML(list_result)
-        self.exportResultJSON(list_result)
+        # self.exportResultJSON(list_result)
 
         # print(df_result)
         # return df_result

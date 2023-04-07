@@ -1,7 +1,12 @@
 from src.mvc.DataKijunSignalAggregatorMVC import Control, Model, View
 
 
-def main(fetch1HData=False, fetchDailyData=True, fetchWeeklyData=False):
+def main(
+    fetch1HData=False,
+    fetchDailyData=True,
+    fetchWeeklyData=False,
+    fetchMonthlyData=False,
+):
     if fetch1HData:
         _model = Model(
             "data/ftse100/1h/",
@@ -14,13 +19,19 @@ def main(fetch1HData=False, fetchDailyData=True, fetchWeeklyData=False):
         _control.main()
     if fetchDailyData:
         _model = Model(
-            "data/ftse100/d/", "asset_list/FTSE100.csv", "output/", "FTSE100-kijun-D"
+            "data/ftse100/d/",
+            "asset_list/FTSE100.csv",
+            "output/",
+            "FTSE100-kijun-D",
         )
         _control = Control(_model, View())
         _control.main()
     if fetchWeeklyData:
         _model = Model(
-            "data/ftse100/w/", "asset_list/FTSE100.csv", "output/", "FTSE100-kijun-W"
+            "data/ftse100/w/",
+            "asset_list/FTSE100.csv",
+            "output/",
+            "FTSE100-kijun-W",
         )
         _control = Control(_model, View())
         _control.main()

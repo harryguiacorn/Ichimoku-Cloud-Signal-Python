@@ -184,7 +184,7 @@ class Control(object):
         self.model.getIndividualSymbolData()
 
     def main(self):
-        print("***************** Creating Kicker Signals *****************")
+        print("********* Creating Kicker Signals *********")
         self.getAssetList()
         self.getBatchLocalData()
         self.getIndividualSymbolData()

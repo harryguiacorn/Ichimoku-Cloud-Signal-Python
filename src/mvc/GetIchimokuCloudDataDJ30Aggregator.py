@@ -1,7 +1,12 @@
 from src.mvc.DataCloudSignalAggregatorMVC import Control, Model, View
 
 
-def main(fetch1HData=False, fetchDailyData=True, fetchWeeklyData=False):
+def main(
+    fetch1HData=False,
+    fetchDailyData=True,
+    fetchWeeklyData=False,
+    fetchMonthlyData=False,
+):
     if fetch1HData:
         _model = Model(
             "data/dowjones30/1h/",
@@ -27,6 +32,15 @@ def main(fetch1HData=False, fetchDailyData=True, fetchWeeklyData=False):
             "asset_list/DowJones30.csv",
             "output/",
             "DowJones30-cloud-W",
+        )
+        _control = Control(_model, View())
+        _control.main()
+    if fetchMonthlyData:
+        _model = Model(
+            "data/dowjones30/m/",
+            "asset_list/DowJones30.csv",
+            "output/",
+            "DowJones30-cloud-M",
         )
         _control = Control(_model, View())
         _control.main()

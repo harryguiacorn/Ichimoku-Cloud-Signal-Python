@@ -2,7 +2,7 @@
 from src.mvc.DataKickerSignalMVC import Control, Model, View
 
 
-def main(fetch1HData=False, fetchDailyData=True, fetchWeeklyData=False):
+def main(fetch1HData=False, fetchDailyData=True, fetchWeeklyData=False, fetchMonthlyData=False):
     if fetch1HData:
         _model = Model("data/ftse100/1h/", "asset_list/FTSE100.csv")
         _control = Control(_model, View())

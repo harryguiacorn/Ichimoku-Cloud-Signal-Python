@@ -85,7 +85,7 @@ class Model(object):
                 __date = __value["Date"].iloc[-1]
 
             except KeyError as e:
-                print("--------------KeyError------------------", e.args)
+                print("------ KeyError ------", e.args)
                 continue
             else:
                 list_temp = []
@@ -117,7 +117,7 @@ class Model(object):
                 __date = __value["Datetime"].iloc[-1]
 
             except KeyError as e:
-                print("--------------KeyError------------------", e.args)
+                print("------ KeyError ------", e.args)
                 continue
             else:
                 list_temp = []
@@ -191,13 +191,13 @@ class Control(object):
         return self.model.exportResultJSON(__list_result)
 
     def main(self):
-        print("*********** Creating Kijun Signal Aggregator ***********")
+        print("********* Creating Kijun Signal Aggregator *********")
         list_result = self.getData()
         # print(list_result)
         df_result = self.exportResult(list_result)
 
         # self.exportResultXML(list_result)
-        self.exportResultJSON(list_result)
+        # self.exportResultJSON(list_result)
 
         # print(df_result)
         # return df_result
