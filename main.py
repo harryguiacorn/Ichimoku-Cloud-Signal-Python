@@ -100,7 +100,7 @@ fetch_Kicker_intraday = False
 
 def main():
     # Stop script being auto-run by Replit or Gitpod
-    # return
+    return
 
     # ---------------- Dow Jones 30 ----------------
 
