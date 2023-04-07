@@ -77,6 +77,12 @@ class Model(object):
         for __symbol, __value in dict_df.items():
             try:
                 # get latest direction sits at the bottom of dataframe
+                __colSize = __value["Kicker"].size
+                print("symbol::", __symbol, ", entries: ", __colSize)
+                #  check if column for signals is empty
+                # when yahoo receives empty data
+                if __colSize == 0:
+                    continue
                 __kickerDirection = __value["Kicker"].iloc[-1]
                 __index = symbols["symbol"].index(__symbol)
                 __symbolName = symbols["name"][__index]

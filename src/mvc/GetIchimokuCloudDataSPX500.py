@@ -19,6 +19,10 @@ def main(
         _model = Model("data/spx500/w/", "asset_list/SPX500.csv")
         _control = Control(_model, View())
         _control.main()
+    if fetchMonthlyData:
+        _model = Model("data/spx500/m/", "asset_list/SPX500.csv")
+        _control = Control(_model, View())
+        _control.main()
 
 
 if __name__ == "__main__":

@@ -35,6 +35,15 @@ def main(
         )
         _control = Control(_model, View())
         _control.main()
+    if fetchMonthlyData:
+        _model = Model(
+            "data/ftse250/m/",
+            "asset_list/FTSE250.csv",
+            "output/",
+            "FTSE250-kijun-M",
+        )
+        _control = Control(_model, View())
+        _control.main()
 
 
 if __name__ == "__main__":

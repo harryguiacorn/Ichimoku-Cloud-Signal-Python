@@ -76,6 +76,12 @@ class Model(object):
         for __symbol, __value in dict_df.items():
             try:
                 # get latest direction sits at the bottom of dataframe
+                __colSize = __value["Kijun Direction"].size
+                print("symbol::", __symbol, ", entries: ", __colSize)
+                #  check if column for signals is empty
+                # when yahoo receives empty data
+                if __colSize == 0:
+                    continue
                 __kijunDirection = __value["Kijun Direction"].iloc[-1]
                 __kijunConsecutiveCount = __value["Kijun Signal Count"].iloc[
                     -1

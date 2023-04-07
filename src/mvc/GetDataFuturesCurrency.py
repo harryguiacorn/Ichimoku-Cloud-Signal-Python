@@ -31,13 +31,23 @@ def main(
         )
         _control = Control(_model, View())
         _control.main()
-
     if fetchWeeklyData:
         _model = Model(
             "data/futurescurrency/w/",
             "asset_list/FuturesCurrency.csv",
             "1wk",
             "5y",
+            True,
+        )
+        _control = Control(_model, View())
+        _control.main()
+        _control.showAssetList()
+    if fetchMonthlyData:
+        _model = Model(
+            "data/futurescurrency/m/",
+            "asset_list/FuturesCurrency.csv",
+            "1mo",
+            "10y",
             True,
         )
         _control = Control(_model, View())

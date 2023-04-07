@@ -12,7 +12,7 @@ def main(
             "data/nasdaq100/1h/",
             "asset_list/Nasdaq100.csv",
             "output/",
-            "Nasdaq100-1H",
+            "Nasdaq100-kicker-1H",
         )
         _control = Control(_model, View())
         _control.main()
@@ -21,7 +21,7 @@ def main(
             "data/nasdaq100/d/",
             "asset_list/Nasdaq100.csv",
             "output/",
-            "Nasdaq100-D",
+            "Nasdaq100-kicker-D",
         )
         _control = Control(_model, View())
         _control.main()
@@ -30,7 +30,16 @@ def main(
             "data/nasdaq100/w/",
             "asset_list/Nasdaq100.csv",
             "output/",
-            "Nasdaq100-W",
+            "Nasdaq100-kicker-W",
+        )
+        _control = Control(_model, View())
+        _control.main()
+    if fetchMonthlyData:
+        _model = Model(
+            "data/nasdaq100/m/",
+            "asset_list/Nasdaq100.csv",
+            "output/",
+            "Nasdaq100-kicker-M",
         )
         _control = Control(_model, View())
         _control.main()

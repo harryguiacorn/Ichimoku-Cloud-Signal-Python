@@ -20,6 +20,10 @@ def main(
         _model = Model("data/futures/w/", "asset_list/Futures.csv")
         _control = Control(_model, View())
         _control.main()
+    if fetchMonthlyData:
+        _model = Model("data/futures/m/", "asset_list/Futures.csv")
+        _control = Control(_model, View())
+        _control.main()
 
 
 if __name__ == "__main__":

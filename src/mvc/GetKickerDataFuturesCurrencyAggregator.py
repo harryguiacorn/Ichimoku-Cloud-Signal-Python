@@ -12,7 +12,7 @@ def main(
             "data/futurescurrency/1h/",
             "asset_list/FuturesCurrency.csv",
             "output/",
-            "FuturesCurrency-1H",
+            "FuturesCurrency-kicker-1H",
         )
         _control = Control(_model, View())
         _control.main()
@@ -21,7 +21,7 @@ def main(
             "data/futurescurrency/d/",
             "asset_list/FuturesCurrency.csv",
             "output/",
-            "FuturesCurrency-D",
+            "FuturesCurrency-kicker-D",
         )
         _control = Control(_model, View())
         _control.main()
@@ -30,7 +30,16 @@ def main(
             "data/futurescurrency/w/",
             "asset_list/FuturesCurrency.csv",
             "output/",
-            "FuturesCurrency-W",
+            "FuturesCurrency-kicker-W",
+        )
+        _control = Control(_model, View())
+        _control.main()
+    if fetchMonthlyData:
+        _model = Model(
+            "data/futurescurrency/m/",
+            "asset_list/FuturesCurrency.csv",
+            "output/",
+            "FuturesCurrency-kicker-M",
         )
         _control = Control(_model, View())
         _control.main()

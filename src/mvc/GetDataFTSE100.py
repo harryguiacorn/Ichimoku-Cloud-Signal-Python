@@ -30,6 +30,13 @@ def main(
         _control = Control(_model, View())
         _control.main()
         _control.showAssetList()
+    if fetchMonthlyData:
+        _model = Model(
+            "data/ftse100/m/", "asset_list/FTSE100.csv", "1mo", "10y", True
+        )
+        _control = Control(_model, View())
+        _control.main()
+        _control.showAssetList()
 
 
 if __name__ == "__main__":
