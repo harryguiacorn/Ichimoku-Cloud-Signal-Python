@@ -1,3 +1,4 @@
+import math
 import pandas as pd
 from abc import abstractclassmethod, ABC
 
@@ -26,9 +27,6 @@ class DataCloudSignal(DataOHLC):
             # print(__path)
             # print(__data.Datetime)
             __data.index = __data.Datetime
-            __data["Returns"] = self.getReturn(
-                __data["Close"], __data["Close"].shift(1)
-            )
             __data["Cloud Signal"] = self.getCloudDirection(
                 __data["Close"],
                 __data["senkou_span_a"],
@@ -37,6 +35,12 @@ class DataCloudSignal(DataOHLC):
             __data["Cloud Signal Count"] = self.getCloudSignalCount(
                 __data["Cloud Signal"]
             )
+
+            __data["Return"] = self.getReturn(
+                __data["Close"].pct_change(), __data["Cloud Signal"].shift(1)
+            )
+
+            __data["Cumulative Return"] = (1 + __data["Return"]).cumprod()
             self.setColumnsSaveCsv_intraday(__data)
             # print(__data)
         except FileNotFoundError:
@@ -52,9 +56,6 @@ class DataCloudSignal(DataOHLC):
             __data = pd.read_csv(__path)
             # print(__data.Date)
             __data.index = __data.Date
-            __data["Returns"] = self.getReturn(
-                __data["Close"], __data["Close"].shift(1)
-            )
             __data["Cloud Signal"] = self.getCloudDirection(
                 __data["Close"],
                 __data["senkou_span_a"],
@@ -63,10 +64,37 @@ class DataCloudSignal(DataOHLC):
             __data["Cloud Signal Count"] = self.getCloudSignalCount(
                 __data["Cloud Signal"]
             )
+
+            __data["Return"] = self.getReturn(
+                __data["Close"], __data["Cloud Signal"]
+            )
+            __data["Cumulative Return"] = (1 + __data["Return"]).cumprod() - 1
+
+            # reset current return to 0 when signal changes
+            # __data.loc[__data["Cloud Signal Count"] == 1, "Current Return"] = 0
+
+            __data["Current Return"].fillna(0.0, inplace=True)
+            __data["Current Return"] = (
+                1 + __data["Current Return"].shift(1)
+            ) * __data["Return"]
+            # __data["Return"] = self.addPercentageSuffix(__data["Return"])
+            # __data["Cumulative Return"] = self.addPercentageSuffix(
+            #     __data["Cumulative Return"]
+            # )
+            # __data["Current Return"] = self.addPercentageSuffix(
+            #     __data["Current Return"]
+            # )
+
             # print(__data)
             self.setColumnsSaveCsv(__data)
         except FileNotFoundError:
             print(f"Error: {__path} not found")
+
+    def addPercentageSuffix(self, __series):
+        return (__series * 100).round(2).astype(str) + "%"
+
+    def getReturn(self, __curClose, __signal):
+        return __curClose.pct_change() * __signal.shift(1)
 
     def getCloudSignalCount(self, __cloudDirectionList):
         __newList = []
@@ -118,17 +146,29 @@ class DataCloudSignal(DataOHLC):
         # print(__data)
         return __data
 
-    def getReturn(self, __curClose, __preClose):
-        return __curClose / __preClose - 1
-
     def setColumnsSaveCsv(self, __data, csvSuffix="_cloudCount.csv"):
-        header = ["Date", "Cloud Signal", "Cloud Signal Count"]
+        header = [
+            "Date",
+            "Close",
+            "Cloud Signal",
+            "Cloud Signal Count",
+            "Return",
+            "Cumulative Return",
+            "Current Return",
+        ]
         __data.to_csv(
             self.csvPath + self.symbol + csvSuffix, columns=header, index=False
         )
 
     def setColumnsSaveCsv_intraday(self, __data, csvSuffix="_cloudCount.csv"):
-        header = ["Datetime", "Cloud Signal", "Cloud Signal Count"]
+        header = [
+            "Datetime",
+            "Cloud Signal",
+            "Cloud Signal Count",
+            "Return",
+            "Cumulative Return",
+            "Current Return",
+        ]
         __data.to_csv(
             self.csvPath + self.symbol + csvSuffix, columns=header, index=False
         )

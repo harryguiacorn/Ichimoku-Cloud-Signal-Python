@@ -142,6 +142,11 @@ class Model(object):
         self.resultList = list_result
         return list_result
 
+    def getReturn(self, __curClose, __preClose, __decimal=2):
+        __result = __curClose / __preClose - 1
+        __resultStr = (__result * 100).round(__decimal).astype(str) + "%"
+        return __resultStr
+
     def getColumns(self):
         if self.isIntraday:
             return ["Datetime", "Symbol", "Name", "Direction", "Count"]
