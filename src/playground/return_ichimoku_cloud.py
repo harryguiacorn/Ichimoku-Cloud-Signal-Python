@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Download AAPL stock data using yfinance
-aapl = yf.download("AAPL", period="1y")
+aapl = yf.download("GBPJPY=X", period="1y", interval="60m")
 
 # Calculate the Ichimoku cloud components
 high_9 = aapl["High"].rolling(window=9).max()
@@ -69,7 +69,7 @@ aapl.drop(
 )
 
 # Save the data to a CSV file
-aapl.to_csv("output/AAPL_Ichimoku_Cloud_Signal.csv")
+aapl.to_csv("output/Playground_Ichimoku_Cloud_Signal.csv")
 
 # Plot the cumulative returns
 fig = plt.figure()

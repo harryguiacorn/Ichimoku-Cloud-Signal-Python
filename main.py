@@ -61,19 +61,19 @@ from src.mvc import (
     GetKickerDataFuturesCurrencyAggregator,
 )
 
-fetch_symbols_latest = False
+fetch_symbols_latest = True
 
-fetch_DJ30_1H = False
-fetch_SPX500_1H = False
-fetch_Nas100_1H = False
+fetch_DJ30_1H = True
+fetch_SPX500_1H = True
+fetch_Nas100_1H = True
 fetch_FTSE100_1H = False
 fetch_FTSE250_1H = False
 fetch_Futures_1H = False
 fetch_CurrencyFutures_1H = False
 
 fetch_DJ30_D = True
-fetch_SPX500_D = False
-fetch_Nas100_D = False
+fetch_SPX500_D = True
+fetch_Nas100_D = True
 fetch_FTSE100_D = False
 fetch_FTSE250_D = False
 fetch_Futures_D = False

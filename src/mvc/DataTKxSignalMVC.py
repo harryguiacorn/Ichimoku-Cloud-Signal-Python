@@ -110,7 +110,7 @@ class DataTKxSignal(DataOHLC):
         )
 
     def setColumnsSaveCsv_intraday(self, __data, csvSuffix="_tkxCount.csv"):
-        header = ["Datetime", "Kijun Direction", "Kijun Signal Count"]
+        header = ["Datetime", "TKx Signal", "TKx Signal Count"]
         __data.to_csv(
             self.csvPath + self.symbol + csvSuffix, columns=header, index=False
         )

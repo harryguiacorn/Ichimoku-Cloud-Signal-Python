@@ -41,6 +41,7 @@ class DataCloudSignal(DataOHLC):
             )
 
             __data["Cumulative Return"] = (1 + __data["Return"]).cumprod()
+
             self.setColumnsSaveCsv_intraday(__data)
             # print(__data)
         except FileNotFoundError:
@@ -73,10 +74,10 @@ class DataCloudSignal(DataOHLC):
             # reset current return to 0 when signal changes
             # __data.loc[__data["Cloud Signal Count"] == 1, "Current Return"] = 0
 
-            __data["Current Return"].fillna(0.0, inplace=True)
-            __data["Current Return"] = (
-                1 + __data["Current Return"].shift(1)
-            ) * __data["Return"]
+            # __data["Current Return"].fillna(0.0, inplace=True)
+            # __data["Current Return"] = (
+            #     1 + __data["Current Return"].shift(1)
+            # ) * __data["Return"]
             # __data["Return"] = self.addPercentageSuffix(__data["Return"])
             # __data["Cumulative Return"] = self.addPercentageSuffix(
             #     __data["Cumulative Return"]
@@ -154,7 +155,7 @@ class DataCloudSignal(DataOHLC):
             "Cloud Signal Count",
             "Return",
             "Cumulative Return",
-            "Current Return",
+            # "Current Return",
         ]
         __data.to_csv(
             self.csvPath + self.symbol + csvSuffix, columns=header, index=False
@@ -167,7 +168,7 @@ class DataCloudSignal(DataOHLC):
             "Cloud Signal Count",
             "Return",
             "Cumulative Return",
-            "Current Return",
+            # "Current Return",
         ]
         __data.to_csv(
             self.csvPath + self.symbol + csvSuffix, columns=header, index=False
