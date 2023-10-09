@@ -63,9 +63,9 @@ from src.mvc import (
 
 fetch_symbols_latest = True
 
-fetch_DJ30_1H = True
-fetch_SPX500_1H = True
-fetch_Nas100_1H = True
+fetch_DJ30_1H = False
+fetch_SPX500_1H = False
+fetch_Nas100_1H = False
 fetch_FTSE100_1H = False
 fetch_FTSE250_1H = False
 fetch_Futures_1H = False
