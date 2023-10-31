@@ -107,7 +107,6 @@ class Model(object):
     def getLatestDataFromYahooByYFinance(
         self, symbols, __lookbackPeriods, __interval
     ):
-
         __dict_df = {}
         for __symbol in symbols:
             try:
@@ -130,7 +129,6 @@ class Model(object):
     def getLatestDataFromYahoo(
         self, symbols, __lookbackDays=3 * 365, __toDate="today"
     ):
-
         startDate = (
             datetime.datetime.now() - datetime.timedelta(days=__lookbackDays)
         ).strftime("%Y-%m-%d")
@@ -175,8 +173,8 @@ class Model(object):
         # method 2. alternative method to
         # add ichimoku columns to csv using finta
         # self.createIchimokuDataFinta(DictData)
-
         # self.displayCharts(DictDataIchinokuTapy)
+        return DictDataIchinokuTapy
 
     def createIchimokuDataTapy(
         self, __dict_df
@@ -229,7 +227,9 @@ class Control(object):
 
         self.model.getDataOHLC()
 
-        self.model.createIchimokuData()
+        __df_ichimoku = self.model.createIchimokuData()
+
+        self.displayCharts(__df_ichimoku)
 
     def displayCharts(self, __data):
         for __key, __df in __data.items():
@@ -330,7 +330,9 @@ class Control(object):
             ]
         )
 
-        fig3.show()
+        # Save the chart as an HTML file
+        # fig3.write_html(f"data/charts/{__symbol}_ichimoku_cloud_chart.html")
+        # fig3.show()
 
     def createDataFolder(self, __name="data"):
         # create data folder
