@@ -10,6 +10,7 @@ class Model(object):
         __assetListPath="",
         __outputPath="",
         __assetClassName="",
+        __csvColumnPrefix="",
         __isIntraday=False,
     ):
         self.csvPath = __csvPath
@@ -18,6 +19,7 @@ class Model(object):
         self.outputPath = __outputPath
         self.resultList = None
         self.resultDataFrame = None
+        self.csvColumnPrefix = __csvColumnPrefix
         self.isIntraday = __isIntraday
 
     @property
@@ -149,12 +151,26 @@ class Model(object):
 
     def getColumns(self):
         if self.isIntraday:
-            return ["Datetime", "Symbol", "Name", "Direction", "Count"]
-        return ["Date", "Symbol", "Name", "Direction", "Count"]
+            return [
+                "Datetime",
+                "Symbol",
+                "Name",
+                f"{self.csvColumnPrefix} Direction",
+                f"{self.csvColumnPrefix} Count",
+            ]
+        return [
+            "Date",
+            "Symbol",
+            "Name",
+            f"{self.csvColumnPrefix} Direction",
+            f"{self.csvColumnPrefix} Count",
+        ]
 
     def exportResult(self, list_result):
         df_result = pd.DataFrame(list_result, columns=self.getColumns())
-        df_result.sort_values(by=["Count"], inplace=True)
+        df_result.sort_values(
+            by=[f"{self.csvColumnPrefix} Count"], inplace=True
+        )
         self.__createDataFolder(self.outputPath)
         df_result.to_csv(
             self.outputPath + self.assetClassName.replace(" ", "") + ".csv",
@@ -165,7 +181,9 @@ class Model(object):
 
     def exportResultXML(self, list_result):
         df_result = pd.DataFrame(list_result, columns=self.getColumns())
-        df_result.sort_values(by=["Count"], inplace=True)
+        df_result.sort_values(
+            by=[f"{self.csvColumnPrefix} Count"], inplace=True
+        )
         self.__createDataFolder(self.outputPath)
         df_result_xml = df_result.to_xml(
             self.outputPath + self.assetClassName.replace(" ", "") + ".xml",
@@ -175,7 +193,9 @@ class Model(object):
 
     def exportResultJSON(self, list_result):
         df_result = pd.DataFrame(list_result, columns=self.getColumns())
-        df_result.sort_values(by=["Count"], inplace=True)
+        df_result.sort_values(
+            by=[f"{self.csvColumnPrefix} Count"], inplace=True
+        )
         self.__createDataFolder(self.outputPath)
         df_result_xml = df_result.to_json(
             self.outputPath + self.assetClassName.replace(" ", "") + ".json",

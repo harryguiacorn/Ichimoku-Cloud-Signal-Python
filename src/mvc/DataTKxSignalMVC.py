@@ -130,9 +130,16 @@ class DataTKxSignal(DataOHLC):
 
 
 class Model(object):
-    def __init__(self, __csvPath, __assetListPath, __isIntraday=False):
+    def __init__(
+        self,
+        __csvPath,
+        __assetListPath,
+        __csvColumnPrefix="",
+        __isIntraday=False,
+    ):
         self.csvPath = __csvPath
         self.assetListPath = __assetListPath
+        self.csvColumnPrefix = __csvColumnPrefix
         self.isIntraday = __isIntraday
         self.symbols = None
         self.dataOHLC = None
