@@ -1,6 +1,7 @@
 from src.mvc import (
     GetDataDJ30,
     GetIchimokuCloudDataDJ30Aggregator,
+    GetIchimokuCloudDataDJ30Merger,
     GetIchimokuCloudDataFTSE100,
     GetIchimokuCloudDataFTSE250,
     GetIchimokuCloudDataFTSE250Aggregator,
@@ -61,7 +62,7 @@ from src.mvc import (
     GetKickerDataFuturesCurrencyAggregator,
 )
 
-fetch_symbols_latest = True
+fetch_symbols_latest = False
 
 fetch_DJ30_1H = False
 fetch_SPX500_1H = False
@@ -72,8 +73,8 @@ fetch_Futures_1H = False
 fetch_CurrencyFutures_1H = False
 
 fetch_DJ30_D = True
-fetch_SPX500_D = True
-fetch_Nas100_D = True
+fetch_SPX500_D = False
+fetch_Nas100_D = False
 fetch_FTSE100_D = False
 fetch_FTSE250_D = False
 fetch_Futures_D = False
@@ -159,6 +160,10 @@ def main():
     _getKickerDataDJ30Aggregator.main(
         fetch_Kicker_intraday, fetch_DJ30_D, fetch_DJ30_W, fetch_DJ30_M
     )
+
+    # Merge Multi Time Frame signals
+    _getIchimokuCloudDataDJ30Merger = GetIchimokuCloudDataDJ30Merger
+    _getIchimokuCloudDataDJ30Merger.main()
 
     # ---------------- Nasdaq 100 ----------------
     _getSymbolNAS100 = GetSymbolNAS100
