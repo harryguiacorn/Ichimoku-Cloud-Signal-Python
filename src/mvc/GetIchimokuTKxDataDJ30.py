@@ -9,7 +9,7 @@ def main(
 ):
     if fetch1HData:
         _model = Model(
-            "data/dowjones30/1h/", "asset_list/DowJones30.csv", True
+            "data/dowjones30/1h/", "asset_list/DowJones30.csv", "", True
         )
         _control = Control(_model, View())
         _control.main()
