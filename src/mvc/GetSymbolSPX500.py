@@ -27,7 +27,7 @@ class Model(object):
     def cleanData(self):
         __df_list = self.df_list
         self.df = __df_list
-        print(self.df)
+        # print(self.df)
         self.df.rename(
             columns={"Security": "name", "Symbol": "symbol"}, inplace=True
         )
@@ -46,7 +46,6 @@ class Model(object):
 
 
 class View(object):
-
     pass
 
 

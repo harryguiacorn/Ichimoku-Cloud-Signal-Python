@@ -8,7 +8,7 @@ def main(
     fetchMonthlyData=False,
 ):
     if fetch1HData:
-        _model = Model("data/ftse100/1h/", "asset_list/FTSE100.csv", "", True)
+        _model = Model("data/ftse100/1h/", "asset_list/FTSE100.csv", True)
         _control = Control(_model, View())
         _control.main()
     if fetchDailyData:

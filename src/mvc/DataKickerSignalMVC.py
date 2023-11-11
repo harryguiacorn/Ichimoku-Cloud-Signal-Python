@@ -27,16 +27,21 @@ class DataKickerSignal(DataOHLC):
         try:
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
-            __data.index = __data.Date
-            # __data['Returns'] = self.getReturn(__data['Close'],
-            #                                    __data['Close'].shift(1))
-            __data["Kicker"] = self.getKickerSignal(
-                __data, minBodyPerc1, minBodyPerc2
-            )
-            self.cleanupDF(__data)
+            if __data.empty:  # Check if the DataFrame is empty
+                print("CSV file is empty", __path)
+            else:
+                __data.index = __data.Date
+                # __data['Returns'] = self.getReturn(__data['Close'],
+                #                                    __data['Close'].shift(1))
+                __data["Kicker"] = self.getKickerSignal(
+                    __data, minBodyPerc1, minBodyPerc2
+                )
+                self.cleanupDF(__data)
 
-            # print(__data)
-            self.setColumnsSaveCsv(__data)
+                # print(__data)
+                self.setColumnsSaveCsv(__data)
+        except pd.errors.EmptyDataError:
+            print("CSV file is empty", __path)
         except FileNotFoundError:
             print(f"Error: {__path} not found")
 
@@ -50,19 +55,24 @@ class DataKickerSignal(DataOHLC):
         for i in range(len(__data)):
             __signal = 0
             if i > 0:
-                __preClose = __data["Close"][i - 1]
-                __preOpen = __data["Open"][i - 1]
-                __preHigh = __data["High"][i - 1]
-                __preLow = __data["Low"][i - 1]
-                __curClose = __data["Close"][i]
-                __curOpen = __data["Open"][i]
-                __curHigh = __data["High"][i]
-                __curLow = __data["Low"][i]
-                __preBodyPerc = abs(
-                    (__preClose - __preOpen) / (__preHigh - __preLow)
+                __preClose = __data["Close"].iloc[i - 1]
+                __preOpen = __data["Open"].iloc[i - 1]
+                __preHigh = __data["High"].iloc[i - 1]
+                __preLow = __data["Low"].iloc[i - 1]
+                __curClose = __data["Close"].iloc[i]
+                __curOpen = __data["Open"].iloc[i]
+                __curHigh = __data["High"].iloc[i]
+                __curLow = __data["Low"].iloc[i]
+                # print("----------", __preClose, __preOpen, __preHigh, __preLow)
+                __preBodyPerc = (
+                    abs((__preClose - __preOpen) / (__preHigh - __preLow))
+                    if (__preHigh - __preLow) != 0
+                    else 0
                 )
                 __curBodyPerc = abs(
                     (__curClose - __curOpen) / (__curHigh - __curLow)
+                    if (__curHigh - __curLow) != 0
+                    else 0
                 )
                 # print(__preBodyPerc, __curBodyPerc)
                 if (

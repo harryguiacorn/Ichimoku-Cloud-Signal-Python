@@ -24,26 +24,32 @@ class DataCloudSignal(DataOHLC):
         try:
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
-            # print(__path)
-            # print(__data.Datetime)
-            __data.index = __data.Datetime
-            __data["Cloud Signal"] = self.getCloudDirection(
-                __data["Close"],
-                __data["senkou_span_a"],
-                __data["senkou_span_b"],
-            )
-            __data["Cloud Signal Count"] = self.getCloudSignalCount(
-                __data["Cloud Signal"]
-            )
+            if __data.empty:  # Check if the DataFrame is empty
+                print("CSV file is empty", __path)
+            else:
+                # print(__path)
+                # print(__data.Datetime)
+                __data.index = __data.Datetime
+                __data["Cloud Signal"] = self.getCloudDirection(
+                    __data["Close"],
+                    __data["senkou_span_a"],
+                    __data["senkou_span_b"],
+                )
+                __data["Cloud Signal Count"] = self.getCloudSignalCount(
+                    __data["Cloud Signal"]
+                )
+                __data["Return"] = self.getReturn(
+                    __data["Close"], __data["Cloud Signal"]
+                ).round(4)
+                # __data["Return"] = __data["Close"] / __data["Close"].shift(1) - 1
+                __data["Cumulative Return"] = (
+                    (1 + __data["Return"]).cumprod() - 1
+                ).round(4)
 
-            __data["Return"] = self.getReturn(
-                __data["Close"].pct_change(), __data["Cloud Signal"].shift(1)
-            )
-
-            __data["Cumulative Return"] = (1 + __data["Return"]).cumprod()
-
-            self.setColumnsSaveCsv_intraday(__data)
-            # print(__data)
+                self.setColumnsSaveCsv_intraday(__data)
+                # print(__data)
+        except pd.errors.EmptyDataError:
+            print("CSV file is empty", __path)
         except FileNotFoundError:
             print(f"Error: {__path} not found")
 
@@ -55,39 +61,44 @@ class DataCloudSignal(DataOHLC):
         try:
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
-            # print(__data.Date)
-            __data.index = __data.Date
-            __data["Cloud Signal"] = self.getCloudDirection(
-                __data["Close"],
-                __data["senkou_span_a"],
-                __data["senkou_span_b"],
-            )
-            __data["Cloud Signal Count"] = self.getCloudSignalCount(
-                __data["Cloud Signal"]
-            )
+            if __data.empty:  # Check if the DataFrame is empty
+                print("CSV file is empty", __path)
+            else:
+                # print(__data.Date)
+                __data.index = __data.Date
+                __data["Cloud Signal"] = self.getCloudDirection(
+                    __data["Close"],
+                    __data["senkou_span_a"],
+                    __data["senkou_span_b"],
+                )
+                __data["Cloud Signal Count"] = self.getCloudSignalCount(
+                    __data["Cloud Signal"]
+                )
 
-            __data["Return"] = self.getReturn(
-                __data["Close"], __data["Cloud Signal"]
-            )
-            __data["Cumulative Return"] = (1 + __data["Return"]).cumprod() - 1
+                __data["Return"] = self.getReturn(
+                    __data["Close"], __data["Cloud Signal"]
+                )
+                __data["Cumulative Return"] = (1 + __data["Return"]).cumprod() - 1
 
-            # reset current return to 0 when signal changes
-            # __data.loc[__data["Cloud Signal Count"] == 1, "Current Return"] = 0
+                # reset current return to 0 when signal changes
+                # __data.loc[__data["Cloud Signal Count"] == 1, "Current Return"] = 0
 
-            # __data["Current Return"].fillna(0.0, inplace=True)
-            # __data["Current Return"] = (
-            #     1 + __data["Current Return"].shift(1)
-            # ) * __data["Return"]
-            # __data["Return"] = self.addPercentageSuffix(__data["Return"])
-            # __data["Cumulative Return"] = self.addPercentageSuffix(
-            #     __data["Cumulative Return"]
-            # )
-            # __data["Current Return"] = self.addPercentageSuffix(
-            #     __data["Current Return"]
-            # )
+                # __data["Current Return"].fillna(0.0, inplace=True)
+                # __data["Current Return"] = (
+                #     1 + __data["Current Return"].shift(1)
+                # ) * __data["Return"]
+                # __data["Return"] = self.addPercentageSuffix(__data["Return"])
+                # __data["Cumulative Return"] = self.addPercentageSuffix(
+                #     __data["Cumulative Return"]
+                # )
+                # __data["Current Return"] = self.addPercentageSuffix(
+                #     __data["Current Return"]
+                # )
 
-            # print(__data)
-            self.setColumnsSaveCsv(__data)
+                # print(__data)
+                self.setColumnsSaveCsv(__data)
+        except pd.errors.EmptyDataError:
+            print("CSV file is empty", __path)
         except FileNotFoundError:
             print(f"Error: {__path} not found")
 
@@ -95,20 +106,22 @@ class DataCloudSignal(DataOHLC):
         return (__series * 100).round(2).astype(str) + "%"
 
     def getReturn(self, __curClose, __signal):
-        return __curClose.pct_change() * __signal.shift(1)
+        pct_change = __curClose.pct_change() * __signal.shift(1)
+        # print(__curClose.pct_change())
+        return pct_change
 
     def getCloudSignalCount(self, __cloudDirectionList):
         __newList = []
         __cloudDirectionCount = None
         __curCloudDirection = None
         for __i in range(len(__cloudDirectionList)):
-            if pd.isna(__cloudDirectionList[__i]):
-                __cloudDirectionCount = __cloudDirectionList[__i]
+            if pd.isna(__cloudDirectionList.iloc[__i]):
+                __cloudDirectionCount = __cloudDirectionList.iloc[__i]
             elif __curCloudDirection is None:
-                __curCloudDirection = __cloudDirectionList[__i]
+                __curCloudDirection = __cloudDirectionList.iloc[__i]
                 __cloudDirectionCount = 1
-            elif not __cloudDirectionList[__i] == __curCloudDirection:
-                __curCloudDirection = __cloudDirectionList[__i]
+            elif not __cloudDirectionList.iloc[__i] == __curCloudDirection:
+                __curCloudDirection = __cloudDirectionList.iloc[__i]
                 __cloudDirectionCount = 1
             else:
                 __cloudDirectionCount += 1
@@ -121,22 +134,22 @@ class DataCloudSignal(DataOHLC):
         __curDirection = None
         # print(__senkou_span_a)
         for __i in range(len(__senkou_span_b)):
-            if pd.isna(__senkou_span_b[__i]):
+            if pd.isna(__senkou_span_b.iloc[__i]):
                 # pass alone senkou span b NaN back to column
-                __data.append(__senkou_span_b[__i])
-            elif pd.isna(__senkou_span_a[__i]):
-                __data.append(__senkou_span_b[__i])
+                __data.append(__senkou_span_b.iloc[__i])
+            elif pd.isna(__senkou_span_a.iloc[__i]):
+                __data.append(__senkou_span_b.iloc[__i])
             elif (
                 # Close is above the cloud
-                __close[__i] > __senkou_span_a[__i]
-                and __close[__i] > __senkou_span_b[__i]
+                __close.iloc[__i] > __senkou_span_a.iloc[__i]
+                and __close.iloc[__i] > __senkou_span_b.iloc[__i]
             ):
                 __curDirection = 1
                 __data.append(__curDirection)
             elif (
                 # Close is below the cloud
-                __close[__i] < __senkou_span_a[__i]
-                and __close[__i] < __senkou_span_b[__i]
+                __close.iloc[__i] < __senkou_span_a.iloc[__i]
+                and __close.iloc[__i] < __senkou_span_b.iloc[__i]
             ):
                 __curDirection = -1
                 __data.append(__curDirection)
@@ -252,7 +265,7 @@ class Model(object):
 
     def getIndividualSymbolData(self):
         for __symbol, __value in self.dataOHLC.items():
-            # print(__symbol, self.csvPath)
+            print(__symbol, self.csvPath)
             dataP = DataCloudSignal(__symbol, self.csvPath, self.isIntraday)
             dataP.main()
         print("Cloud signal count csv files are created")
@@ -282,7 +295,9 @@ class Control(object):
     def main(self):
         print("----------- Generating Cloud Signals -----------")
         self.getAssetList()
+        # print("----------- Generating Cloud Signals getBatchLocalData-----------")
         self.getBatchLocalData()
+        # print("----------- Generating Cloud Signals getIndividualSymbolData-----------")
         self.getIndividualSymbolData()
 
 

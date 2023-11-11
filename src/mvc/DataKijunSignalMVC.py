@@ -23,20 +23,26 @@ class DataKijunSignal(DataOHLC):
         try:
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
-            # print(__path)
-            # print(__data.Datetime)
-            __data.index = __data.Datetime
-            __data["Returns"] = self.getReturn(
-                __data["Close"], __data["Close"].shift(1)
-            )
-            __data["Kijun Direction"] = self.getKijunDirection(
-                __data["kijun_sen"], __data["kijun_sen"].shift(1)
-            )
-            __data["Kijun Signal Count"] = self.getKijunSignalCount(
-                __data["Kijun Direction"]
-            )
-            self.setColumnsSaveCsv_intraday(__data)
-            # print(__data)
+            if __data.empty:  # Check if the DataFrame is empty
+                print("CSV file is empty", __path)
+            else:
+                print(__path)
+                # print(__data.Datetime)
+                __data.index = __data.Datetime
+                __data["Returns"] = self.getReturn(
+                    __data["Close"], __data["Close"].shift(1)
+                ).round(4)
+                # print(__data["Returns"])
+                __data["Kijun Direction"] = self.getKijunDirection(
+                    __data["kijun_sen"], __data["kijun_sen"].shift(1)
+                )
+                __data["Kijun Signal Count"] = self.getKijunSignalCount(
+                    __data["Kijun Direction"]
+                )
+                self.setColumnsSaveCsv_intraday(__data)
+                # print(__data)
+        except pd.errors.EmptyDataError:
+            print("CSV file is empty", __path)
         except FileNotFoundError:
             print(f"Error: {__path} not found")
 
@@ -48,18 +54,23 @@ class DataKijunSignal(DataOHLC):
         try:
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
-            # print(__data.Date)
-            __data.index = __data.Date
-            __data["Returns"] = self.getReturn(
-                __data["Close"], __data["Close"].shift(1)
-            )
-            __data["Kijun Direction"] = self.getKijunDirection(
-                __data["kijun_sen"], __data["kijun_sen"].shift(1)
-            )
-            __data["Kijun Signal Count"] = self.getKijunSignalCount(
-                __data["Kijun Direction"]
-            )
-            self.setColumnsSaveCsv(__data)
+            if __data.empty:  # Check if the DataFrame is empty
+                print("CSV file is empty", __path)
+            else:
+                # print(__data.Date)
+                __data.index = __data.Date
+                __data["Returns"] = self.getReturn(
+                    __data["Close"], __data["Close"].shift(1)
+                ).round(4)
+                __data["Kijun Direction"] = self.getKijunDirection(
+                    __data["kijun_sen"], __data["kijun_sen"].shift(1)
+                )
+                __data["Kijun Signal Count"] = self.getKijunSignalCount(
+                    __data["Kijun Direction"]
+                )
+                self.setColumnsSaveCsv(__data)
+        except pd.errors.EmptyDataError:
+            print("CSV file is empty", __path)
         except FileNotFoundError:
             print(f"Error: {__path} not found")
 
@@ -68,12 +79,12 @@ class DataKijunSignal(DataOHLC):
         __kijunDirectionCount = None
         __curKijunDirection = None
         for __i in range(len(__kijunDirectionList)):
-            if pd.isna(__kijunDirectionList[__i]):
-                __kijunDirectionCount = __kijunDirectionList[__i]
+            if pd.isna(__kijunDirectionList.iloc[__i]):
+                __kijunDirectionCount = __kijunDirectionList.iloc[__i]
             elif __curKijunDirection is None:
-                __curKijunDirection = __kijunDirectionList[__i]
+                __curKijunDirection = __kijunDirectionList.iloc[__i]
                 __kijunDirectionCount = 1
-            elif not __kijunDirectionList[__i] == __curKijunDirection:
+            elif not __kijunDirectionList.iloc[__i] == __curKijunDirection:
                 __curKijunDirection = -__curKijunDirection
                 __kijunDirectionCount = 1
             else:
@@ -86,14 +97,14 @@ class DataKijunSignal(DataOHLC):
         __data = []
         __curDirection = None
         for __i in range(len(__preKijun)):
-            if pd.isna(__preKijun[__i]):
-                __data.append(__preKijun[__i])
-            elif pd.isna(__curKijun[__i]):
-                __data.append(__curKijun[__i])
-            elif __curKijun[__i] > __preKijun[__i]:
+            if pd.isna(__preKijun.iloc[__i]):
+                __data.append(__preKijun.iloc[__i])
+            elif pd.isna(__curKijun.iloc[__i]):
+                __data.append(__curKijun.iloc[__i])
+            elif __curKijun.iloc[__i] > __preKijun.iloc[__i]:
                 __curDirection = 1
                 __data.append(1)
-            elif __curKijun[__i] < __preKijun[__i]:
+            elif __curKijun.iloc[__i] < __preKijun.iloc[__i]:
                 __curDirection = -1
                 __data.append(-1)
             else:
@@ -221,9 +232,7 @@ class Control(object):
         self.model.getIndividualSymbolData()
 
     def main(self):
-        print(
-            "-------- Generating Kijun Signals --------"
-        )
+        print("-------- Generating Kijun Signals --------")
         self.getAssetList()
         self.getBatchLocalData()
         self.getIndividualSymbolData()

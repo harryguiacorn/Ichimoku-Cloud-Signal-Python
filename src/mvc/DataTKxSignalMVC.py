@@ -23,20 +23,25 @@ class DataTKxSignal(DataOHLC):
         try:
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
-            # print(__path)
-            # print(__data.Datetime)
-            __data.index = __data.Datetime
-            __data["Returns"] = self.getReturn(
-                __data["Close"], __data["Close"].shift(1)
-            )
-            __data["TKx Signal"] = self.getTKxDirection(
-                __data["tenkan_sen"], __data["kijun_sen"]
-            )
-            __data["TKx Signal Count"] = self.getTKxSignalCount(
-                __data["TKx Signal"]
-            )
-            self.setColumnsSaveCsv_intraday(__data)
-            # print(__data)
+            if __data.empty:  # Check if the DataFrame is empty
+                print("CSV file is empty", __path)
+            else:
+                # print(__path)
+                # print(__data.Datetime)
+                __data.index = __data.Datetime
+                __data["Returns"] = self.getReturn(
+                    __data["Close"], __data["Close"].shift(1)
+                )
+                __data["TKx Signal"] = self.getTKxDirection(
+                    __data["tenkan_sen"], __data["kijun_sen"]
+                )
+                __data["TKx Signal Count"] = self.getTKxSignalCount(
+                    __data["TKx Signal"]
+                )
+                self.setColumnsSaveCsv_intraday(__data)
+                # print(__data)
+        except pd.errors.EmptyDataError:
+            print("CSV file is empty", __path)
         except FileNotFoundError:
             print(f"Error: {__path} not found")
 
@@ -48,18 +53,23 @@ class DataTKxSignal(DataOHLC):
         try:
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
-            # print(__data.Date)
-            __data.index = __data.Date
-            __data["Returns"] = self.getReturn(
-                __data["Close"], __data["Close"].shift(1)
-            )
-            __data["TKx Signal"] = self.getTKxDirection(
-                __data["tenkan_sen"], __data["kijun_sen"]
-            )
-            __data["TKx Signal Count"] = self.getTKxSignalCount(
-                __data["TKx Signal"]
-            )
-            self.setColumnsSaveCsv(__data)
+            if __data.empty:  # Check if the DataFrame is empty
+                print("CSV file is empty", __path)
+            else:
+                # print(__data.Date)
+                __data.index = __data.Date
+                __data["Returns"] = self.getReturn(
+                    __data["Close"], __data["Close"].shift(1)
+                )
+                __data["TKx Signal"] = self.getTKxDirection(
+                    __data["tenkan_sen"], __data["kijun_sen"]
+                )
+                __data["TKx Signal Count"] = self.getTKxSignalCount(
+                    __data["TKx Signal"]
+                )
+                self.setColumnsSaveCsv(__data)
+        except pd.errors.EmptyDataError:
+            print("CSV file is empty", __path)
         except FileNotFoundError:
             print(f"Error: {__path} not found")
 
@@ -68,12 +78,12 @@ class DataTKxSignal(DataOHLC):
         __tkxDirectionCount = None
         __curKijunDirection = None
         for __i in range(len(__tkxDirectionList)):
-            if pd.isna(__tkxDirectionList[__i]):
-                __tkxDirectionCount = __tkxDirectionList[__i]
+            if pd.isna(__tkxDirectionList.iloc[__i]):
+                __tkxDirectionCount = __tkxDirectionList.iloc[__i]
             elif __curKijunDirection is None:
-                __curKijunDirection = __tkxDirectionList[__i]
+                __curKijunDirection = __tkxDirectionList.iloc[__i]
                 __tkxDirectionCount = 1
-            elif not __tkxDirectionList[__i] == __curKijunDirection:
+            elif not __tkxDirectionList.iloc[__i] == __curKijunDirection:
                 __curKijunDirection = -__curKijunDirection
                 __tkxDirectionCount = 1
             else:
@@ -86,14 +96,14 @@ class DataTKxSignal(DataOHLC):
         __data = []
         __curDirection = None
         for __i in range(len(__preKijun)):
-            if pd.isna(__preKijun[__i]):
-                __data.append(__preKijun[__i])
-            elif pd.isna(__curKijun[__i]):
-                __data.append(__curKijun[__i])
-            elif __curKijun[__i] > __preKijun[__i]:
+            if pd.isna(__preKijun.iloc[__i]):
+                __data.append(__preKijun.iloc[__i])
+            elif pd.isna(__curKijun.iloc[__i]):
+                __data.append(__curKijun.iloc[__i])
+            elif __curKijun.iloc[__i] > __preKijun.iloc[__i]:
                 __curDirection = 1
                 __data.append(1)
-            elif __curKijun[__i] < __preKijun[__i]:
+            elif __curKijun.iloc[__i] < __preKijun.iloc[__i]:
                 __curDirection = -1
                 __data.append(-1)
             else:
@@ -120,10 +130,12 @@ class DataTKxSignal(DataOHLC):
 
     def main(self):
         if self.isIntraday is False:
+            # print(self.symbol, "N-------------", self.isIntraday)
             self.setupPd(
                 "_ichimokuTapy.csv"
             )  # _ichimokuPlotly _ichimokuTapy _ichimokuFinta
         else:
+            # print(self.symbol, "Y-------------", self.isIntraday)
             self.setupPd_intraday(
                 "_ichimokuTapy.csv"
             )  # _ichimokuPlotly _ichimokuTapy _ichimokuFinta
@@ -134,12 +146,12 @@ class Model(object):
         self,
         __csvPath,
         __assetListPath,
-        __csvColumnPrefix="",
+        # __csvColumnPrefix="",
         __isIntraday=False,
     ):
         self.csvPath = __csvPath
         self.assetListPath = __assetListPath
-        self.csvColumnPrefix = __csvColumnPrefix
+        # self.csvColumnPrefix = __csvColumnPrefix
         self.isIntraday = __isIntraday
         self.symbols = None
         self.dataOHLC = None
@@ -202,6 +214,7 @@ class Model(object):
         for __symbol, __value in self.dataOHLC.items():
             # print(__symbol, self.csvPath)
             dataP = DataTKxSignal(__symbol, self.csvPath, self.isIntraday)
+            # print("*************", self.isIntraday)
             dataP.main()
         print("TKx count csv files are created")
 
