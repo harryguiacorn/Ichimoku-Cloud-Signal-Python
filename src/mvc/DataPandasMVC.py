@@ -229,7 +229,7 @@ class Control(object):
 
         __df_ichimoku = self.model.createIchimokuData()
 
-        self.displayCharts(__df_ichimoku)
+        # self.displayCharts(__df_ichimoku)
 
     def displayCharts(self, __data):
         for __key, __df in __data.items():
