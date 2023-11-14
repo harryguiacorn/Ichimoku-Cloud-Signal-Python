@@ -22,16 +22,43 @@ class Model(object):
     def df_list(self, __df_list):
         self.__df_list = __df_list
 
+    def readHtml(self):
+        self.scrape_symbols_name()
+
     def scrape_symbols_name(self):
         response = requests.get(self.url)
         df = pd.read_html(response.content)
         df_symbols = df[0][["Symbol", "Name"]]
+        self.df_list = df_symbols
         print(df_symbols)
         return df_symbols
 
+    def cleanData(self):
+        __df_list = self.df_list
+        self.df = __df_list
+        self.df.rename(
+            columns={
+                "Symbol": "symbol",
+                "Name": "name",
+            },
+            inplace=True,
+        )
+        self.df["symbol"] = self.df["symbol"].str.replace(
+            ".", "-", regex=False
+        )
+
     def saveData(self):
-        df_symbol = self.scrape_symbols_name()
-        df_symbol.to_csv(self.fileNameCSV)
+        # print(type(self.df))
+        print(self.df)
+        # print(self.df[__columns])
+        # df_symbol.to_csv(self.fileNameCSV, index=False)
+        __columns = ["symbol", "name"]
+        self.df.to_csv(
+            self.fileNameCSV,
+            columns=__columns,
+            index=False,
+        )
+        return self.df[__columns]
 
 
 class View(object):
@@ -44,8 +71,15 @@ class Control(object):
         self.view = view
 
     def main(self):
-        # self.scrape_symbols_name()
+        self.readHtml()
+        self.cleanData()
         self.saveData()
+
+    def readHtml(self):
+        self.model.readHtml()
+
+    def cleanData(self):
+        self.model.cleanData()
 
     def saveData(self):
         self.model.saveData()

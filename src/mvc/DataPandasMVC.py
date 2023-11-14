@@ -82,6 +82,7 @@ class Model(object):
         df = pd.read_csv(__csvPath)
         print("********* Reading symbols *********")
         print(df.to_string(), sep=",")
+        print(df[__colName])
         l_symbol = df[__colName].tolist()
         self.symbols = l_symbol
         return l_symbol
@@ -212,6 +213,7 @@ class Control(object):
         self.view = view
 
     def getAssetList(self):
+        print("readAssetList path:", self.model.assetListPath)
         self.model.readAssetList(self.model.assetListPath)
 
     def showAssetList(self):
