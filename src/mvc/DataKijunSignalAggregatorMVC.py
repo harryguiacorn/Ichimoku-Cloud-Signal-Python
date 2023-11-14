@@ -52,7 +52,7 @@ class Model(object):
 
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
-        # print(df.to_string())
+        # print("-------readAssetList------", df.to_string())
         # l_symbol = df[__colName].tolist()
         d_symbol = df.to_dict(orient="list")
         # print(d_symbol)

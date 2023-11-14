@@ -10,7 +10,9 @@ def main(
     if fetch1HData:
         _model = Model(
             "data/futurescurrency/d/",
-            "asset_list/FuturesCurrency-kijun-1H.csv",
+            "asset_list/FuturesCurrency.csv",
+            "output/",
+            "FuturesCurrency-kijun-1h",
             True,
         )
         _control = Control(_model, View())
