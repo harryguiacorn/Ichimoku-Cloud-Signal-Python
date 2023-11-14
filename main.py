@@ -27,6 +27,7 @@ from src.mvc import (
     GetSymbolDowJones30,
     GetSymbolFTSE100,
     GetSymbolFTSE250,
+    GetSymbolFutures,
     GetSymbolNAS100,
     GetIchimokuCloudDataFTSE100Aggregator,
     GetSymbolSPX500,
@@ -67,39 +68,39 @@ from src.mvc import (
     GetKickerDataFuturesCurrencyAggregator,
 )
 
-fetch_symbols_latest = True
+fetch_symbols_latest = False
 
-fetch_DJ30_1H = True
-fetch_SPX500_1H = True
-fetch_Nas100_1H = True
-fetch_FTSE100_1H = True
-fetch_FTSE250_1H = True
-fetch_Futures_1H = True
-fetch_CurrencyFutures_1H = True
+fetch_DJ30_1H = False
+fetch_SPX500_1H = False
+fetch_Nas100_1H = False
+fetch_FTSE100_1H = False
+fetch_FTSE250_1H = False
+fetch_Futures_1H = False
+fetch_CurrencyFutures_1H = False
 
-fetch_DJ30_D = True
-fetch_SPX500_D = True
+fetch_DJ30_D = False
+fetch_SPX500_D = False
 fetch_Nas100_D = True
-fetch_FTSE100_D = True
-fetch_FTSE250_D = True
-fetch_Futures_D = True
-fetch_CurrencyFutures_D = True
+fetch_FTSE100_D = False
+fetch_FTSE250_D = False
+fetch_Futures_D = False
+fetch_CurrencyFutures_D = False
 
-fetch_DJ30_W = True
-fetch_SPX500_W = True
+fetch_DJ30_W = False
+fetch_SPX500_W = False
 fetch_Nas100_W = True
-fetch_FTSE100_W = True
-fetch_FTSE250_W = True
-fetch_Futures_W = True
-fetch_CurrencyFutures_W = True
+fetch_FTSE100_W = False
+fetch_FTSE250_W = False
+fetch_Futures_W = False
+fetch_CurrencyFutures_W = False
 
-fetch_DJ30_M = True
-fetch_SPX500_M = True
+fetch_DJ30_M = False
+fetch_SPX500_M = False
 fetch_Nas100_M = True
-fetch_FTSE100_M = True
-fetch_FTSE250_M = True
-fetch_Futures_M = True
-fetch_CurrencyFutures_M = True
+fetch_FTSE100_M = False
+fetch_FTSE250_M = False
+fetch_Futures_M = False
+fetch_CurrencyFutures_M = False
 
 fetch_Kicker_intraday = False
 
@@ -347,6 +348,10 @@ def main():
     )
 
     # ---------------- Futures ----------------
+
+    # Grab latest symbols
+    _getSymbolFutures = GetSymbolFutures
+    _getSymbolFutures.main(fetch_symbols_latest)
 
     _getDataFutures = GetDataFutures
     _getDataFutures.main(
