@@ -1,5 +1,6 @@
 import pandas as pd
-import Util
+
+from src.mvc import Util
 
 
 class Model(object):
@@ -10,6 +11,8 @@ class Model(object):
 
     def merge(self):
         list_pd = self.outputPathList
+
+        print(list_pd)
 
         list_pd_read = iter([x for x in list_pd if Util.file_exists(x)])
 
