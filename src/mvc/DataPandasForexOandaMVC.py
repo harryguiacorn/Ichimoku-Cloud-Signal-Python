@@ -95,7 +95,7 @@ class Model(object):
 
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
-        print(f"********* Reading symbols *********")
+        print(f"********* Reading symbols for {self.interval} *********")
         print(df.to_string(), sep=",")
         # print(df[__colName])
         l_symbol = df[__colName].tolist()

@@ -1,5 +1,5 @@
 import pandas as pd
-import os
+import Util
 
 
 class Model(object):
@@ -8,14 +8,10 @@ class Model(object):
         self.outputMergePath = __outputMergePath
         pass
 
-    def file_exists(self, filename):
-        print(f"{filename}: Exist: {os.path.isfile(filename)}")
-        return os.path.isfile(filename)
-
     def merge(self):
         list_pd = self.outputPathList
 
-        list_pd_read = iter([x for x in list_pd if self.file_exists(x)])
+        list_pd_read = iter([x for x in list_pd if Util.file_exists(x)])
 
         # print(list_pd_read)
         combined_csv = pd.DataFrame()
@@ -32,7 +28,8 @@ class Model(object):
                 combined_csv = pd.merge(
                     combined_csv, df_csv1, on=["Symbol", "Name"]
                 )
-        combined_csv.to_csv(f"{self.outputMergePath}")
+        if Util.file_exists(self.outputMergePath):
+            combined_csv.to_csv(f"{self.outputMergePath}")
         # print(combined_csv)
 
 
