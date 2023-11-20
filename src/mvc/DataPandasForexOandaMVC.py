@@ -7,6 +7,7 @@ from tapy import Indicators
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import yfinance as yf
+from src.mvc import Util
 
 from src.mvc.DataOandaAPI import DataOandaAPI
 
@@ -217,7 +218,7 @@ class Control(object):
 
     def main(self, resample=False):
         # initializing Parameters
-        self.createDataFolder(self.model.csvPath)
+        Util.createDataFolder(self.model.csvPath)
 
         # symbols = self.readAssetList(self.assetListPath)
         self.getAssetList()
@@ -330,15 +331,6 @@ class Control(object):
         # Save the chart as an HTML file
         # fig3.write_html(f"data/charts/{__symbol}_ichimoku_cloud_chart.html")
         # fig3.show()
-
-    def createDataFolder(self, __name="data"):
-        # create data folder
-        try:
-            if isdir(__name) is False:
-                os.makedirs(__name)
-        except FileExistsError as __errFile:
-            print("data folder exists", __errFile)
-
 
 if __name__ == "__main__":
     print("------ __main__ -----")

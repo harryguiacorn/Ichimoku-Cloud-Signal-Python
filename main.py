@@ -6,11 +6,12 @@ from src.mvc import (
     GetIchimokuCloudDataFTSE100MultiTFMerger,
     GetIchimokuCloudDataFTSE250,
     GetIchimokuCloudDataFTSE250Aggregator,
-    GetIchimokuCloudDataFTSE250Merger,
+    GetIchimokuCloudDataFTSE250MultiTFMerger,
+    GetIchimokuCloudDataFutures,
+    GetIchimokuCloudDataFuturesAggregator,
     GetIchimokuCloudDataFuturesCurrency,
     GetIchimokuCloudDataFuturesCurrencyAggregator,
-    GetIchimokuCloudDataFuturesCurrencyMerger,
-    GetIchimokuCloudDataFuturesMerger,
+    GetIchimokuCloudDataFuturesMultiTFMerger,
     GetIchimokuCloudDataNAS100,
     GetIchimokuCloudDataNAS100Aggregator,
     GetIchimokuCloudDataNAS100MultiTFMerger,
@@ -22,6 +23,10 @@ from src.mvc import (
     GetIchimokuTKxDataFTSE100Aggregator,
     GetIchimokuTKxDataFTSE250,
     GetIchimokuTKxDataFTSE250Aggregator,
+    GetIchimokuTKxDataFutures,
+    GetIchimokuTKxDataFuturesAggregator,
+    GetIchimokuTKxDataFuturesCurrency,
+    GetIchimokuTKxDataFuturesCurrencyAggregator,
     GetIchimokuTKxDataNas100,
     GetIchimokuTKxDataNas100Aggregator,
     GetIchimokuTKxDataSPX500,
@@ -68,6 +73,8 @@ from src.mvc import (
     GetIchimokuKijunDataFuturesCurrencyAggregator,
     GetKickerDataFuturesCurrency,
     GetKickerDataFuturesCurrencyAggregator,
+    GetIchimokuCloudDataFuturesCurrencyMultiTFMerger,
+    GetIchimokuCloudDataSPX500MultiTFMerger,
 )
 
 
@@ -82,34 +89,34 @@ fetch_Futures_1H = False
 fetch_CurrencyFutures_1H = False
 
 fetch_DJ30_D = False
-fetch_SPX500_D = False
+fetch_SPX500_D = True
 fetch_Nas100_D = False
 fetch_FTSE100_D = False
-fetch_FTSE250_D = True
+fetch_FTSE250_D = False
 fetch_Futures_D = False
 fetch_CurrencyFutures_D = False
 
 fetch_DJ30_W = False
-fetch_SPX500_W = False
+fetch_SPX500_W = True
 fetch_Nas100_W = False
 fetch_FTSE100_W = False
-fetch_FTSE250_W = True
+fetch_FTSE250_W = False
 fetch_Futures_W = False
 fetch_CurrencyFutures_W = False
 
 fetch_DJ30_M = False
-fetch_SPX500_M = False
+fetch_SPX500_M = True
 fetch_Nas100_M = False
 fetch_FTSE100_M = False
-fetch_FTSE250_M = True
+fetch_FTSE250_M = False
 fetch_Futures_M = False
 fetch_CurrencyFutures_M = False
 
 run_Multi_TimeFrame_Merger_DJ30 = False
-run_Multi_TimeFrame_Merger_SPX500 = False
+run_Multi_TimeFrame_Merger_SPX500 = True
 run_Multi_TimeFrame_Merger_Nas100 = False
 run_Multi_TimeFrame_Merger_FTSE100 = False
-run_Multi_TimeFrame_Merger_FTSE250 = True
+run_Multi_TimeFrame_Merger_FTSE250 = False
 run_Multi_TimeFrame_Merger_Futures = False
 run_Multi_TimeFrame_Merger_CurrencyFutures = False
 
@@ -363,8 +370,12 @@ def main():
     )
 
     # 3.2 Merge Multi Time Frame Cloud signals
-    _getIchimokuCloudDataFTSE250Merger = GetIchimokuCloudDataFTSE250Merger
-    _getIchimokuCloudDataFTSE250Merger.main(run_Multi_TimeFrame_Merger_FTSE250)
+    _getIchimokuCloudDataFTSE250MultiTFMerger = (
+        GetIchimokuCloudDataFTSE250MultiTFMerger
+    )
+    _getIchimokuCloudDataFTSE250MultiTFMerger.main(
+        run_Multi_TimeFrame_Merger_FTSE250
+    )
 
     # 3.3 Produce Ichimoku TK Cross data
     _gtIchimokuKijunDataFTSE250 = GetIchimokuTKxDataFTSE250
@@ -379,8 +390,8 @@ def main():
     )
 
     # 4. Produce Kijun data
-    _getKickerDataFTSE250 = GetKickerDataFTSE250
-    _getKickerDataFTSE250.main(
+    _getIchimokuKijunDataFTSE250 = GetIchimokuKijunDataFTSE250
+    _getIchimokuKijunDataFTSE250.main(
         fetch_Kicker_intraday,
         fetch_FTSE250_D,
         fetch_FTSE250_W,
@@ -388,8 +399,10 @@ def main():
     )
 
     # 4.1 Combine latest Kijun signals from all symbols into one spreadsheet
-    _getKickerDataFTSE250Aggregator = GetKickerDataFTSE250Aggregator
-    _getKickerDataFTSE250Aggregator.main(
+    _getIchimokuKijunDataFTSE250Aggregator = (
+        GetIchimokuKijunDataFTSE250Aggregator
+    )
+    _getIchimokuKijunDataFTSE250Aggregator.main(
         fetch_Kicker_intraday,
         fetch_FTSE250_D,
         fetch_FTSE250_W,
@@ -426,26 +439,49 @@ def main():
     )
 
     # 3. Produce Ichimoku Cloud data for each symbol
-    _getIchimokuDataFutures = GetIchimokuKijunDataFutures
-    _getIchimokuDataFutures.main(
+    _getIchimokuCloudDataFutures = GetIchimokuCloudDataFutures
+    _getIchimokuCloudDataFutures.main(
         fetch_Futures_1H, fetch_Futures_D, fetch_Futures_W, fetch_Futures_M
     )
 
     # 3.1 Combine latest cloud signals of all symbols into one spreadsheet
-    _getIchimokuDataFuturesAggregator = GetIchimokuKijunDataFuturesAggregator
+    _getIchimokuDataFuturesAggregator = GetIchimokuCloudDataFuturesAggregator
     _getIchimokuDataFuturesAggregator.main(
         fetch_Futures_1H, fetch_Futures_D, fetch_Futures_W, fetch_Futures_M
     )
 
     # 3.2 Merge Multi Time Frame Cloud signals
-    _getIchimokuCloudDataFuturesMerger = GetIchimokuCloudDataFuturesMerger
-    _getIchimokuCloudDataFuturesMerger.main(run_Multi_TimeFrame_Merger_Futures)
+    _getIchimokuCloudDataFuturesMultiTFMerger = (
+        GetIchimokuCloudDataFuturesMultiTFMerger
+    )
+    _getIchimokuCloudDataFuturesMultiTFMerger.main(
+        run_Multi_TimeFrame_Merger_Futures
+    )
 
     # 3.3 Produce Ichimoku TK Cross data
-    # 3.4 Combine latest TK Cross signals from all symbols into one spreadsheet
+    _getIchimokuTKxDataFutures = GetIchimokuTKxDataFutures
+    _getIchimokuTKxDataFutures.main(
+        fetch_Futures_1H, fetch_Futures_D, fetch_Futures_W, fetch_Futures_M
+    )
 
+    # 3.4 Combine latest TK Cross signals from all symbols into one spreadsheet
+    _getIchimokuTKxDataFuturesAggregator = GetIchimokuTKxDataFuturesAggregator
+    _getIchimokuTKxDataFuturesAggregator.main(
+        fetch_Futures_1H, fetch_Futures_D, fetch_Futures_W, fetch_Futures_M
+    )
     # 4. Produce Kijun data
+    _getIchimokuKijunDataFutures = GetIchimokuKijunDataFutures
+    _getIchimokuKijunDataFutures.main(
+        fetch_Futures_1H, fetch_Futures_D, fetch_Futures_W, fetch_Futures_M
+    )
+
     # 4.1 Combine latest Kijun signals from all symbols into one spreadsheet
+    _getIchimokuKijunDataFuturesAggregator = (
+        GetIchimokuKijunDataFuturesAggregator
+    )
+    _getIchimokuKijunDataFuturesAggregator.main(
+        fetch_Futures_1H, fetch_Futures_D, fetch_Futures_W, fetch_Futures_M
+    )
 
     # 5. Produce Kicker data
     _getKickerDataFutures = GetKickerDataFutures
@@ -467,6 +503,9 @@ def main():
 
     # ---------------- Futures Currency ----------------
 
+    # 1. Currency Futures list is hard coded to only include the majors.
+
+    # 2. Download latest OHLC data for each symbol
     _getDataFuturesCurrency = GetDataFuturesCurrency
     _getDataFuturesCurrency.main(
         fetch_CurrencyFutures_1H,
@@ -475,6 +514,7 @@ def main():
         fetch_CurrencyFutures_M,
     )
 
+    # 3. Produce Ichimoku Cloud data for each symbol
     _getIchimokuCloudDataFuturesCurrency = GetIchimokuCloudDataFuturesCurrency
     _getIchimokuCloudDataFuturesCurrency.main(
         fetch_CurrencyFutures_1H,
@@ -483,6 +523,7 @@ def main():
         fetch_CurrencyFutures_M,
     )
 
+    # 3.1 Combine latest cloud signals of all symbols into one spreadsheet
     _getIchimokuCloudDataFuturesCurrencyAggregator = (
         GetIchimokuCloudDataFuturesCurrencyAggregator
     )
@@ -493,13 +534,35 @@ def main():
         fetch_CurrencyFutures_M,
     )
 
-    _getIchimokuCloudDataFuturesCurrencyMerger = (
-        GetIchimokuCloudDataFuturesCurrencyMerger
+    # 3.2 Merge Multi Time Frame Cloud signals
+    _getIchimokuCloudDataFuturesCurrencyMultiTFMerger = (
+        GetIchimokuCloudDataFuturesCurrencyMultiTFMerger
     )
-    _getIchimokuCloudDataFuturesCurrencyMerger.main(
+    _getIchimokuCloudDataFuturesCurrencyMultiTFMerger.main(
         run_Multi_TimeFrame_Merger_CurrencyFutures
     )
 
+    # 3.3 Produce Ichimoku TK Cross data
+    _getIchimokuTKxDataFuturesCurrency = GetIchimokuTKxDataFuturesCurrency
+    _getIchimokuTKxDataFuturesCurrency.main(
+        fetch_CurrencyFutures_1H,
+        fetch_CurrencyFutures_D,
+        fetch_CurrencyFutures_W,
+        fetch_CurrencyFutures_M,
+    )
+
+    # 3.4 Combine latest TK Cross signals from all symbols into one spreadsheet
+    _getIchimokuTKxDataFuturesCurrencyAggregator = (
+        GetIchimokuTKxDataFuturesCurrencyAggregator
+    )
+    _getIchimokuTKxDataFuturesCurrencyAggregator.main(
+        fetch_CurrencyFutures_1H,
+        fetch_CurrencyFutures_D,
+        fetch_CurrencyFutures_W,
+        fetch_CurrencyFutures_M,
+    )
+
+    # 4. Produce Kijun data
     _getIchimokuKijunDataFuturesCurrency = GetIchimokuKijunDataFuturesCurrency
     _getIchimokuKijunDataFuturesCurrency.main(
         fetch_CurrencyFutures_1H,
@@ -508,6 +571,7 @@ def main():
         fetch_CurrencyFutures_M,
     )
 
+    # 4.1 Combine latest Kijun signals from all symbols into one spreadsheet
     _getIchimokuKijunDataFuturesCurrencyAggregator = (
         GetIchimokuKijunDataFuturesCurrencyAggregator
     )
@@ -518,6 +582,7 @@ def main():
         fetch_CurrencyFutures_M,
     )
 
+    # 5. Produce Kicker data
     _getKickerDataFuturesCurrency = GetKickerDataFuturesCurrency
     _getKickerDataFuturesCurrency.main(
         fetch_Kicker_intraday,
@@ -526,10 +591,10 @@ def main():
         fetch_CurrencyFutures_M,
     )
 
+    # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
     _getKickerDataFuturesCurrencyAggregator = (
         GetKickerDataFuturesCurrencyAggregator
     )
-
     _getKickerDataFuturesCurrencyAggregator.main(
         fetch_Kicker_intraday,
         fetch_CurrencyFutures_D,
@@ -539,24 +604,36 @@ def main():
 
     # ---------------- S&P 500 ----------------
 
+    # 1. Grab latest symbols
     _getSymbolSPX500 = GetSymbolSPX500
     _getSymbolSPX500.main(fetch_symbols_latest)
 
+    # 2. Download latest OHLC data for each symbol
     _getDataSPX500 = GetDataSPX500
     _getDataSPX500.main(
         fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W, fetch_SPX500_M
     )
 
+    # 3. Produce Ichimoku Cloud data for each symbol
     _getIchimokuCloudDataSPX500 = GetIchimokuCloudDataSPX500
     _getIchimokuCloudDataSPX500.main(
         fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W, fetch_SPX500_M
     )
 
+    # 3.1 Combine latest cloud signals of all symbols into one spreadsheet
     _getIchimokuCloudDataSPX500Aggregator = (
         GetIchimokuCloudDataSPX500Aggregator
     )
     _getIchimokuCloudDataSPX500Aggregator.main(
         fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W, fetch_SPX500_M
+    )
+
+    # 3.2 Merge Multi Time Frame Cloud signals
+    _getIchimokuCloudDataSPX500MultiTFMerger = (
+        GetIchimokuCloudDataSPX500MultiTFMerger
+    )
+    _getIchimokuCloudDataSPX500MultiTFMerger.main(
+        run_Multi_TimeFrame_Merger_SPX500
     )
 
     # 3.3 Produce Ichimoku TK Cross data
@@ -571,11 +648,13 @@ def main():
         fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W, fetch_SPX500_M
     )
 
+    # 4. Produce Kijun data
     _getIchimokuKijunDataSPX500 = GetIchimokuKijunDataSPX500
     _getIchimokuKijunDataSPX500.main(
         fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W, fetch_SPX500_M
     )
 
+    # 4.1 Combine latest Kijun signals from all symbols into one spreadsheet
     _getIchimokuKijunDataSPX500Aggregator = (
         GetIchimokuKijunDataSPX500Aggregator
     )
@@ -583,11 +662,13 @@ def main():
         fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W, fetch_SPX500_M
     )
 
+    # 5. Produce Kicker data
     _getKickerDataSPX500 = GetKickerDataSPX500
     _getKickerDataSPX500.main(
         fetch_Kicker_intraday, fetch_SPX500_D, fetch_SPX500_W, fetch_SPX500_M
     )
 
+    # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
     _getKickerDataSPX500Aggregator = GetKickerDataSPX500Aggregator
     _getKickerDataSPX500Aggregator.main(
         fetch_Kicker_intraday, fetch_SPX500_D, fetch_SPX500_W, fetch_SPX500_M

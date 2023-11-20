@@ -2,6 +2,8 @@ from genericpath import isdir
 import os
 import pandas as pd
 
+from src.mvc import Util
+
 
 class Model(object):
     def __init__(
@@ -57,14 +59,6 @@ class Model(object):
         d_symbol = df.to_dict(orient="list")
         # print(d_symbol)
         return d_symbol
-
-    def __createDataFolder(self, __name="data"):
-        # create data folder
-        try:
-            if isdir(__name) is False:
-                os.mkdir(__name)
-        except FileExistsError as __errFile:
-            print("data folder exists", __errFile)
 
     def getLatestResultFromEachDataFrame(self):
         symbols = self.readAssetList(self.assetListPath)
@@ -151,7 +145,7 @@ class Model(object):
     def exportResult(self, list_result):
         df_result = pd.DataFrame(list_result, columns=self.getColumns())
         df_result.sort_values(by=["Count"], inplace=True)
-        self.__createDataFolder(self.outputPath)
+        Util.createDataFolder(self.outputPath)
         df_result.to_csv(
             self.outputPath + self.assetClassName.replace(" ", "") + ".csv",
             index=False,
@@ -162,7 +156,7 @@ class Model(object):
     def exportResultXML(self, list_result):
         df_result = pd.DataFrame(list_result, columns=self.getColumns())
         df_result.sort_values(by=["Count"], inplace=True)
-        self.__createDataFolder(self.outputPath)
+        Util.createDataFolder(self.outputPath)
         df_result_xml = df_result.to_xml(
             self.outputPath + self.assetClassName.replace(" ", "") + ".xml",
             index=False,
@@ -172,7 +166,7 @@ class Model(object):
     def exportResultJSON(self, list_result):
         df_result = pd.DataFrame(list_result, columns=self.getColumns())
         df_result.sort_values(by=["Count"], inplace=True)
-        self.__createDataFolder(self.outputPath)
+        Util.createDataFolder(self.outputPath)
         df_result_xml = df_result.to_json(
             self.outputPath + self.assetClassName.replace(" ", "") + ".json",
             index=False,

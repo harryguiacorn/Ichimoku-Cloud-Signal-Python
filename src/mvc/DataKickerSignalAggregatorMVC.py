@@ -2,6 +2,8 @@ from genericpath import isdir
 import os
 import pandas as pd
 
+from src.mvc import Util
+
 
 class Model(object):
     def __init__(
@@ -58,14 +60,6 @@ class Model(object):
         # print(d_symbol)
         return d_symbol
 
-    def __createDataFolder(self, __name="data"):
-        # create data folder
-        try:
-            if isdir(__name) is False:
-                os.mkdir(__name)
-        except FileExistsError as __errFile:
-            print("data folder exists", __errFile)
-
     def getLatestResultFromEachDataFrame(self):
         symbols = self.readAssetList(self.assetListPath)
         # print("------------------",symbols)
@@ -113,7 +107,7 @@ class Model(object):
             list_result, columns=["Date", "Symbol", "Name", "Kicker"]
         )
         df_result.sort_values(by=["Date"], inplace=True)
-        self.__createDataFolder(self.outputPath)
+        Util.createDataFolder(self.outputPath)
         df_result.to_csv(
             self.outputPath + self.assetClassName.replace(" ", "") + ".csv",
             index=False,
