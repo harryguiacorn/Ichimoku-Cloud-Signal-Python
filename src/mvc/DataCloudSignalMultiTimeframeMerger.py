@@ -12,14 +12,15 @@ class Model(object):
     def merge(self):
         list_pd = self.outputPathList
 
-        print(list_pd)
+        print("Check files for merging: ", list_pd)
 
-        list_pd_read = iter([x for x in list_pd if Util.file_exists(x)])
+        # check to see if files exist before parsing to Pandas
+        list_pd_exist = iter([x for x in list_pd if Util.file_exists(x)])
 
-        # print(list_pd_read)
+        # print(list_pd_exist)
         combined_csv = pd.DataFrame()
 
-        for x in list_pd_read:
+        for x in list_pd_exist:
             # print("path", x)
             df_csv1 = pd.read_csv(x)
             # Drop the "Date" column
@@ -31,8 +32,8 @@ class Model(object):
                 combined_csv = pd.merge(
                     combined_csv, df_csv1, on=["Symbol", "Name"]
                 )
-        if Util.file_exists(self.outputMergePath):
-            combined_csv.to_csv(f"{self.outputMergePath}")
+        # if Util.file_exists(self.outputMergePath):
+        combined_csv.to_csv(f"{self.outputMergePath}")
         # print(combined_csv)
 
 
@@ -43,6 +44,7 @@ class Control(object):
 
     def main(self):
         self.merge()
+        print("Multi Timeframe Cloud Signals Merged.")
 
     def merge(self):
         self.model.merge()

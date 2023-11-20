@@ -16,10 +16,10 @@ class DataCloudSignal(DataOHLC):
         self.isIntraday = __isIntraday
 
     def setupPd_intraday(self, csvSuffix="_cloud.csv", folderPath="data/"):
-        pd.set_option("display.max_rows", None)  # print every row for debug
-        pd.set_option(
-            "display.max_columns", None
-        )  # print every column for debug
+        # pd.set_option("display.max_rows", None)  # print every row for debug
+        # pd.set_option(
+        #     "display.max_columns", None
+        # )  # print every column for debug
 
         try:
             __path = self.csvPath + self.symbol + csvSuffix
@@ -27,8 +27,7 @@ class DataCloudSignal(DataOHLC):
             if __data.empty:  # Check if the DataFrame is empty
                 print("CSV file is empty", __path)
             else:
-                # print(__path)
-                # print(__data.Datetime)
+                # print(__path, __data.Datetime)
                 __data.index = __data.Datetime
                 __data["Cloud Signal"] = self.getCloudDirection(
                     __data["Close"],
@@ -54,15 +53,15 @@ class DataCloudSignal(DataOHLC):
             print(f"Error: {__path} not found")
 
     def setupPd(self, csvSuffix="_cloud.csv", folderPath="data/"):
-        pd.set_option("display.max_rows", None)  # print every row for debug
-        pd.set_option(
-            "display.max_columns", None
-        )  # print every column for debug
+        # pd.set_option("display.max_rows", None)  # print every row for debug
+        # pd.set_option(
+        #     "display.max_columns", None
+        # )  # print every column for debug
         try:
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
             if __data.empty:  # Check if the DataFrame is empty
-                print("CSV file is empty", __path)
+                print("CSV file is empty: ", __path)
             else:
                 # print(__data.Date)
                 __data.index = __data.Date
@@ -78,7 +77,9 @@ class DataCloudSignal(DataOHLC):
                 __data["Return"] = self.getReturn(
                     __data["Close"], __data["Cloud Signal"]
                 )
-                __data["Cumulative Return"] = (1 + __data["Return"]).cumprod() - 1
+                __data["Cumulative Return"] = (
+                    1 + __data["Return"]
+                ).cumprod() - 1
 
                 # reset current return to 0 when signal changes
                 # __data.loc[__data["Cloud Signal Count"] == 1, "Current Return"] = 0
@@ -98,7 +99,7 @@ class DataCloudSignal(DataOHLC):
                 # print(__data)
                 self.setColumnsSaveCsv(__data)
         except pd.errors.EmptyDataError:
-            print("CSV file is empty", __path)
+            print("CSV file is empty: ", __path)
         except FileNotFoundError:
             print(f"Error: {__path} not found")
 
@@ -265,7 +266,9 @@ class Model(object):
 
     def getIndividualSymbolData(self):
         for __symbol, __value in self.dataOHLC.items():
-            print(__symbol, self.csvPath)
+            # print(
+            #     "getIndividualSymbolData: ", __symbol, self.csvPath, end=", "
+            # )
             dataP = DataCloudSignal(__symbol, self.csvPath, self.isIntraday)
             dataP.main()
         print("Cloud signal count csv files are created")

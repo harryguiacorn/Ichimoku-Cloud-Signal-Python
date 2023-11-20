@@ -18,7 +18,7 @@ class Model(object):
         self.__df_list = __df_list
 
     def readHtml(self):
-        print("self.url:", self.url)
+        print("Reading symbols from source: ", self.url)
         # print("self.readHtmlMatch", self.readHtmlMatch)
         self.df_list = pd.read_html(self.url, match=self.readHtmlMatch)[0]
         # self.df_list = pd.read_html(self.url)[4]
@@ -40,7 +40,7 @@ class Model(object):
 
     def saveData(self):
         __columns = ["symbol", "name"]
-        print(self.df[__columns])
+        print("Symbols:", self.df[__columns])
         self.df.to_csv(self.fileNameCSV, columns=__columns, index=False)
         return self.df[__columns]
 

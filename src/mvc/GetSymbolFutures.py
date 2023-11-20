@@ -26,6 +26,7 @@ class Model(object):
         self.scrape_symbols_name()
 
     def scrape_symbols_name(self):
+        print("Reading symbols from source: ", self.url)
         response = requests.get(self.url)
         df = pd.read_html(response.content)
         df_symbols = df[0][["Symbol", "Name"]]
@@ -49,7 +50,7 @@ class Model(object):
 
     def saveData(self):
         # print(type(self.df))
-        print(self.df)
+        print("Symbols:", self.df)
         # print(self.df[__columns])
         # df_symbol.to_csv(self.fileNameCSV, index=False)
         __columns = ["symbol", "name"]

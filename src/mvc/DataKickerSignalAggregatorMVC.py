@@ -78,7 +78,13 @@ class Model(object):
             try:
                 # get latest direction sits at the bottom of dataframe
                 __colSize = __value["Kicker"].size
-                print("symbol::", __symbol, ", entries: ", __colSize)
+                print(
+                    "[symbol:",
+                    __symbol,
+                    ", entries:",
+                    __colSize,
+                    end="]",
+                )
                 #  check if column for signals is empty
                 # when yahoo receives empty data
                 if __colSize == 0:
@@ -128,7 +134,7 @@ class Control(object):
         return self.model.exportResult(__list_result)
 
     def main(self):
-        print("********* Begin Kick Signal Aggregator *********")
+        print("----------- Begin Kick Signal Aggregator -----------")
         list_result = self.getData()
 
         # print(list_result)
@@ -138,7 +144,7 @@ class Control(object):
         # return df_result
 
         self.view.showResultKCount(self.model.resultDataFrame)
-        print(f"Aggregator {self.model.assetClassName}.csv is created")
+        print(f"\nAggregator {self.model.assetClassName}.csv is created")
 
 
 class View(object):

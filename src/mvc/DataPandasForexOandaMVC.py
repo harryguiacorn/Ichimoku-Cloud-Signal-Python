@@ -95,7 +95,7 @@ class Model(object):
 
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
-        print(f"********* Reading symbols for {self.interval} *********")
+        print(f"----------- Reading symbols for {self.interval} -----------")
         print(df.to_string(), sep=",")
         # print(df[__colName])
         l_symbol = df[__colName].tolist()
@@ -105,7 +105,7 @@ class Model(object):
     def getDataOHLC(self):
         # __dict_lookbackPeriodConvertInt = {'h': 1, 'd': 1, 'w': 7, 'm': 31}
         if self.bGetLatestDataFromOanda:
-            print("********* Downloading from Oanda API *********")
+            print("----------- Downloading from Oanda API -----------")
             # print(
             #     "getDataOHLC: ",
             #     self.symbols,
@@ -161,7 +161,7 @@ class Model(object):
 
     def createIchimokuData(self):
         print(
-            "++++++++++++++++++++ Creating Ichimoku Data ++++++++++++++++++++"
+            "----------- Creating Ichimoku Data -----------"
         )
         # method 1. create Ichimoku data using tapy
         DictDataIchinokuTapy = self.createIchimokuDataTapy(self.dataOHLC)
@@ -238,7 +238,7 @@ class Control(object):
         __df.loc[__df["diff"] < 0, "color"] = "red"
         # print(__df.head())
 
-        pd.set_option("display.max_rows", None)  # print every row for debug
+        # pd.set_option("display.max_rows", None)  # print every row for debug
 
         fig3 = make_subplots(specs=[[{"secondary_y": True}]])
 

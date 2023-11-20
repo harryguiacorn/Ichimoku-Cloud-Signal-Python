@@ -20,10 +20,10 @@ class DataKickerSignal(DataOHLC):
         param minBodyPerc2: Minimum body to candle range percentage
         for right candle formation, default is 0
         """
-        pd.set_option("display.max_rows", None)  # print every row for debug
-        pd.set_option(
-            "display.max_columns", None
-        )  # print every column for debug
+        # pd.set_option("display.max_rows", None)  # print every row for debug
+        # pd.set_option(
+        #     "display.max_columns", None
+        # )  # print every column for debug
         try:
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
@@ -194,7 +194,7 @@ class Control(object):
         self.model.getIndividualSymbolData()
 
     def main(self):
-        print("********* Creating Kicker Signals *********")
+        print("----------- Creating Kicker Signals -----------")
         self.getAssetList()
         self.getBatchLocalData()
         self.getIndividualSymbolData()

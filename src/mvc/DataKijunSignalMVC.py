@@ -15,10 +15,10 @@ class DataKijunSignal(DataOHLC):
         self.isIntraday = __isIntraday
 
     def setupPd_intraday(self, csvSuffix="_kijun.csv", folderPath="data/"):
-        pd.set_option("display.max_rows", None)  # print every row for debug
-        pd.set_option(
-            "display.max_columns", None
-        )  # print every column for debug
+        # pd.set_option("display.max_rows", None)  # print every row for debug
+        # pd.set_option(
+        #     "display.max_columns", None
+        # )  # print every column for debug
 
         try:
             __path = self.csvPath + self.symbol + csvSuffix
@@ -47,10 +47,10 @@ class DataKijunSignal(DataOHLC):
             print(f"Error: {__path} not found")
 
     def setupPd(self, csvSuffix="_kijun.csv", folderPath="data/"):
-        pd.set_option("display.max_rows", None)  # print every row for debug
-        pd.set_option(
-            "display.max_columns", None
-        )  # print every column for debug
+        # pd.set_option("display.max_rows", None)  # print every row for debug
+        # pd.set_option(
+        #     "display.max_columns", None
+        # )  # print every column for debug
         try:
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)

@@ -79,7 +79,13 @@ class Model(object):
             try:
                 # get latest direction sits at the bottom of dataframe
                 __colSize = __value["Cloud Signal"].size
-                print("symbol::", __symbol, ", entries: ", __colSize)
+                print(
+                    "[symbol:",
+                    __symbol,
+                    ", entries:",
+                    __colSize,
+                    end="]",
+                )
                 #  check if column for signals is empty
                 # when yahoo receives empty data
                 if __colSize == 0:
@@ -117,7 +123,13 @@ class Model(object):
             try:
                 # get latest direction sits at the bottom of dataframe
                 __colSize = __value["Cloud Signal"].size
-                print("symbol::", __symbol, ", entries: ", __colSize)
+                print(
+                    "[symbol:",
+                    __symbol,
+                    ", entries:",
+                    __colSize,
+                    end="]",
+                )
                 #  check if column for signals is empty
                 # when yahoo receives empty data
                 if __colSize == 0:
@@ -227,7 +239,7 @@ class Control(object):
         return self.model.exportResultJSON(__list_result)
 
     def main(self):
-        print("********* Creating Cloud Signal Aggregator *********")
+        print("----------- Creating Cloud Signal Aggregator -----------")
         list_result = self.getData()
         # print(list_result)
         df_result = self.exportResult(list_result)
@@ -240,7 +252,7 @@ class Control(object):
 
         self.view.showResultKCount(self.model.resultDataFrame)
         print(
-            f"Aggregator {self.model.assetClassName}.csv and .xml are created"
+            f"\nAggregator {self.model.assetClassName}.csv and .xml are created"
         )
 
 

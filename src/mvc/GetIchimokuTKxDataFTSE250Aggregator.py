@@ -1,8 +1,8 @@
-from src.mvc.DataKickerSignalAggregatorMVC import Control, Model, View
+from src.mvc.DataTKxSignalAggregatorMVC import Control, Model, View
 
 
 def main(
-    fetch1HData=True,
+    fetch1HData=False,
     fetchDailyData=True,
     fetchWeeklyData=False,
     fetchMonthlyData=False,
@@ -12,7 +12,8 @@ def main(
             "data/ftse250/1h/",
             "asset_list/FTSE250.csv",
             "output/",
-            "FTSE250-kicker-1H",
+            "FTSE250-tkx-1H",
+            True,
         )
         _control = Control(_model, View())
         _control.main()
@@ -21,7 +22,7 @@ def main(
             "data/ftse250/d/",
             "asset_list/FTSE250.csv",
             "output/",
-            "FTSE250-kicker-D",
+            "FTSE250-tkx-D",
         )
         _control = Control(_model, View())
         _control.main()
@@ -30,7 +31,7 @@ def main(
             "data/ftse250/w/",
             "asset_list/FTSE250.csv",
             "output/",
-            "FTSE250-kicker-W",
+            "FTSE250-tkx-W",
         )
         _control = Control(_model, View())
         _control.main()
@@ -39,7 +40,7 @@ def main(
             "data/ftse250/m/",
             "asset_list/FTSE250.csv",
             "output/",
-            "FTSE250-kicker-M",
+            "FTSE250-tkx-M",
         )
         _control = Control(_model, View())
         _control.main()
