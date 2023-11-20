@@ -1,5 +1,3 @@
-from genericpath import isdir
-import os
 import pandas as pd
 
 from src.mvc import Util
@@ -161,21 +159,21 @@ class Model(object):
                 "Datetime",
                 "Symbol",
                 "Name",
-                f"{self.csvColumnPrefix} Direction",
-                f"{self.csvColumnPrefix} Count",
+                f"{self.csvColumnPrefix} Cloud Direction",
+                f"{self.csvColumnPrefix} Cloud Count",
             ]
         return [
             "Date",
             "Symbol",
             "Name",
-            f"{self.csvColumnPrefix} Direction",
-            f"{self.csvColumnPrefix} Count",
+            f"{self.csvColumnPrefix} Cloud Direction",
+            f"{self.csvColumnPrefix} Cloud Count",
         ]
 
     def exportResult(self, list_result):
         df_result = pd.DataFrame(list_result, columns=self.getColumns())
         df_result.sort_values(
-            by=[f"{self.csvColumnPrefix} Count"], inplace=True
+            by=[f"{self.csvColumnPrefix} Cloud Count"], inplace=True
         )
         Util.createDataFolder(self.outputPath)
         df_result.to_csv(
@@ -188,7 +186,7 @@ class Model(object):
     def exportResultXML(self, list_result):
         df_result = pd.DataFrame(list_result, columns=self.getColumns())
         df_result.sort_values(
-            by=[f"{self.csvColumnPrefix} Count"], inplace=True
+            by=[f"{self.csvColumnPrefix} Cloud Count"], inplace=True
         )
         Util.createDataFolder(self.outputPath)
         df_result_xml = df_result.to_xml(
@@ -200,7 +198,7 @@ class Model(object):
     def exportResultJSON(self, list_result):
         df_result = pd.DataFrame(list_result, columns=self.getColumns())
         df_result.sort_values(
-            by=[f"{self.csvColumnPrefix} Count"], inplace=True
+            by=[f"{self.csvColumnPrefix} Cloud Count"], inplace=True
         )
         Util.createDataFolder(self.outputPath)
         df_result_xml = df_result.to_json(

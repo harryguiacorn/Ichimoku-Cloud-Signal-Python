@@ -1,4 +1,3 @@
-import math
 import pandas as pd
 from abc import abstractclassmethod, ABC
 
@@ -40,10 +39,20 @@ class DataCloudSignal(DataOHLC):
                 __data["Return"] = self.getReturn(
                     __data["Close"], __data["Cloud Signal"]
                 ).round(4)
-                # __data["Return"] = __data["Close"] / __data["Close"].shift(1) - 1
                 __data["Cumulative Return"] = (
                     (1 + __data["Return"]).cumprod() - 1
                 ).round(4)
+
+                # drop chikou_span because it creates na values
+                # for 26 periods from last date
+                __data.drop("chikou_span", axis=1, inplace=True)
+                __data = __data.dropna()
+
+                # convert float64 to int64
+                __data["Cloud Signal"] = __data["Cloud Signal"].astype("int64")
+                __data["Cloud Signal Count"] = __data[
+                    "Cloud Signal Count"
+                ].astype("int64")
 
                 self.setColumnsSaveCsv_intraday(__data)
                 # print(__data)
@@ -74,40 +83,38 @@ class DataCloudSignal(DataOHLC):
                     __data["Cloud Signal"]
                 )
 
-                __data["Return"] = self.getReturn(
-                    __data["Close"], __data["Cloud Signal"]
-                )
-                __data["Cumulative Return"] = (
-                    1 + __data["Return"]
-                ).cumprod() - 1
-
-                # reset current return to 0 when signal changes
-                # __data.loc[__data["Cloud Signal Count"] == 1, "Current Return"] = 0
-
-                # __data["Current Return"].fillna(0.0, inplace=True)
-                # __data["Current Return"] = (
-                #     1 + __data["Current Return"].shift(1)
-                # ) * __data["Return"]
-                # __data["Return"] = self.addPercentageSuffix(__data["Return"])
-                # __data["Cumulative Return"] = self.addPercentageSuffix(
-                #     __data["Cumulative Return"]
+                # __data["Return"] = self.getReturn(
+                #     __data["Close"], __data["Cloud Signal"]
                 # )
-                # __data["Current Return"] = self.addPercentageSuffix(
-                #     __data["Current Return"]
-                # )
+                # __data["Cumulative Return"] = (
+                #     1 + __data["Return"]
+                # ).cumprod() - 1
 
-                # print(__data)
+                # drop chikou_span because it creates na values for
+                # 26 periods from last date
+                __data.drop("chikou_span", axis=1, inplace=True)
+                __data = __data.dropna()
+
+                # convert float64 to int64
+                __data["Cloud Signal"] = __data["Cloud Signal"].astype("int64")
+                __data["Cloud Signal Count"] = __data[
+                    "Cloud Signal Count"
+                ].astype("int64")
+
                 self.setColumnsSaveCsv(__data)
         except pd.errors.EmptyDataError:
             print("CSV file is empty: ", __path)
         except FileNotFoundError:
             print(f"Error: {__path} not found")
 
-    def addPercentageSuffix(self, __series):
+    def addPercentageSuffix(self, __series: pd.DataFrame):
         return (__series * 100).round(2).astype(str) + "%"
 
-    def getReturn(self, __curClose, __signal):
-        pct_change = __curClose.pct_change() * __signal.shift(1)
+    def getReturn(
+        self, __curClose: pd.DataFrame, __signal: int
+    ) -> pd.DataFrame:
+        pct_change = __curClose.pct_change().round(4) * __signal.shift(1)
+        pct_change = pct_change
         # print(__curClose.pct_change())
         return pct_change
 
@@ -161,14 +168,16 @@ class DataCloudSignal(DataOHLC):
         # print(__data)
         return __data
 
-    def setColumnsSaveCsv(self, __data, csvSuffix="_cloudCount.csv"):
+    def setColumnsSaveCsv(
+        self, __data: pd.DataFrame, csvSuffix="_cloudCount.csv"
+    ):
         header = [
             "Date",
             "Close",
             "Cloud Signal",
             "Cloud Signal Count",
-            "Return",
-            "Cumulative Return",
+            # "Return",
+            # "Cumulative Return",
             # "Current Return",
         ]
         __data.to_csv(
@@ -180,8 +189,8 @@ class DataCloudSignal(DataOHLC):
             "Datetime",
             "Cloud Signal",
             "Cloud Signal Count",
-            "Return",
-            "Cumulative Return",
+            # "Return",
+            # "Cumulative Return",
             # "Current Return",
         ]
         __data.to_csv(

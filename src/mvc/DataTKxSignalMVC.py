@@ -38,6 +38,16 @@ class DataTKxSignal(DataOHLC):
                 __data["TKx Signal Count"] = self.getTKxSignalCount(
                     __data["TKx Signal"]
                 )
+
+                # remove na rows
+                __data = __data.dropna()
+
+                # convert float64 to int64
+                __data["TKx Signal"] = __data["TKx Signal"].astype("int64")
+                __data["TKx Signal Count"] = __data["TKx Signal Count"].astype(
+                    "int64"
+                )
+
                 self.setColumnsSaveCsv_intraday(__data)
                 # print(__data)
         except pd.errors.EmptyDataError:
@@ -67,6 +77,16 @@ class DataTKxSignal(DataOHLC):
                 __data["TKx Signal Count"] = self.getTKxSignalCount(
                     __data["TKx Signal"]
                 )
+
+                # remove na rows
+                __data = __data.dropna()
+
+                # convert float64 to int64
+                __data["TKx Signal"] = __data["TKx Signal"].astype("int64")
+                __data["TKx Signal Count"] = __data["TKx Signal Count"].astype(
+                    "int64"
+                )
+
                 self.setColumnsSaveCsv(__data)
         except pd.errors.EmptyDataError:
             print("CSV file is empty", __path)

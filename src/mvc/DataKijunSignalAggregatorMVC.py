@@ -146,6 +146,12 @@ class Model(object):
         df_result = pd.DataFrame(list_result, columns=self.getColumns())
         df_result.sort_values(by=["Count"], inplace=True)
         Util.createDataFolder(self.outputPath)
+        # print(
+        #     "csv path: ",
+        #     self.outputPath + self.assetClassName.replace(" ", "") + ".csv",
+        #     "df_result: ",
+        #     df_result,
+        # )
         df_result.to_csv(
             self.outputPath + self.assetClassName.replace(" ", "") + ".csv",
             index=False,

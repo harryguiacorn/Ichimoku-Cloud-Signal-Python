@@ -88,32 +88,32 @@ fetch_FTSE250_1H = False
 fetch_Futures_1H = False
 fetch_CurrencyFutures_1H = False
 
-fetch_DJ30_D = False
-fetch_SPX500_D = True
+fetch_DJ30_D = True
+fetch_SPX500_D = False
 fetch_Nas100_D = False
 fetch_FTSE100_D = False
 fetch_FTSE250_D = False
 fetch_Futures_D = False
 fetch_CurrencyFutures_D = False
 
-fetch_DJ30_W = False
-fetch_SPX500_W = True
+fetch_DJ30_W = True
+fetch_SPX500_W = False
 fetch_Nas100_W = False
 fetch_FTSE100_W = False
 fetch_FTSE250_W = False
 fetch_Futures_W = False
 fetch_CurrencyFutures_W = False
 
-fetch_DJ30_M = False
-fetch_SPX500_M = True
+fetch_DJ30_M = True
+fetch_SPX500_M = False
 fetch_Nas100_M = False
 fetch_FTSE100_M = False
 fetch_FTSE250_M = False
 fetch_Futures_M = False
 fetch_CurrencyFutures_M = False
 
-run_Multi_TimeFrame_Merger_DJ30 = False
-run_Multi_TimeFrame_Merger_SPX500 = True
+run_Multi_TimeFrame_Merger_DJ30 = True
+run_Multi_TimeFrame_Merger_SPX500 = False
 run_Multi_TimeFrame_Merger_Nas100 = False
 run_Multi_TimeFrame_Merger_FTSE100 = False
 run_Multi_TimeFrame_Merger_FTSE250 = False
@@ -674,7 +674,7 @@ def main():
         fetch_Kicker_intraday, fetch_SPX500_D, fetch_SPX500_W, fetch_SPX500_M
     )
 
-    print(f"Tasks completed.")
+    print("Tasks completed.")
 
 
 if __name__ == "__main__":

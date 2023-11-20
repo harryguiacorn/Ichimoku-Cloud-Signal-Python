@@ -1,5 +1,4 @@
 import yfinance as yf
-import pandas as pd
 
 # Define the stock symbol and date range
 stock_symbol = "WMT"  # Apple Inc.

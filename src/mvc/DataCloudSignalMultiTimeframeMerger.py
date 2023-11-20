@@ -9,7 +9,7 @@ class Model(object):
         self.outputMergePath = __outputMergePath
         pass
 
-    def merge(self):
+    def merge(self) -> pd.DataFrame:
         list_pd = self.outputPathList
 
         print("Check files for merging: ", list_pd)
@@ -32,9 +32,43 @@ class Model(object):
                 combined_csv = pd.merge(
                     combined_csv, df_csv1, on=["Symbol", "Name"]
                 )
-        # if Util.file_exists(self.outputMergePath):
-        combined_csv.to_csv(f"{self.outputMergePath}")
-        # print(combined_csv)
+
+        print("Multi Timeframe Cloud Signals Merged: ", self.outputMergePath)
+
+        print(combined_csv)
+
+        return combined_csv
+
+    def exportResult(self, list_result):
+        df_result = pd.DataFrame(list_result, columns=self.getColumns())
+
+        Util.createDataFolder(self.outputPath)
+        df_result.to_csv(
+            self.outputPath + self.assetClassName.replace(" ", "") + ".csv",
+            index=False,
+        )
+        self.resultDataFrame = df_result
+        return df_result
+
+    def saveData(self, __df: pd.DataFrame) -> pd.DataFrame:
+        __df.sort_values(by=["Cloud Score Sum"], ascending=False, inplace=True)
+
+        __df.to_csv(f"{self.outputMergePath}", index=False)
+
+        __df.to_html(f"{self.outputMergePath}.html", index=False)
+
+        # print("__df:", __df)
+
+        return __df
+
+    def create_sum_column(self, df: pd.DataFrame):
+        # Add the three columns and create a new column 'Sum_Columns'
+        print("-------------------- Cloud Score --------------------")
+        df["Cloud Score Sum"] = (
+            df["1D Cloud Direction"] * df["1D Cloud Count"]
+            + df["1W Cloud Direction"] * df["1W Cloud Count"]
+            + df["1M Cloud Direction"] * df["1M Cloud Count"]
+        )
 
 
 class Control(object):
@@ -43,11 +77,18 @@ class Control(object):
         self.view = view
 
     def main(self):
-        self.merge()
-        print("Multi Timeframe Cloud Signals Merged.")
+        df = self.merge()
+        self.create_sum_column(df)
+        self.saveData(df)
 
     def merge(self):
-        self.model.merge()
+        return self.model.merge()
+
+    def create_sum_column(self, df):
+        self.model.create_sum_column(df)
+
+    def saveData(self, df):
+        self.model.saveData(df)
 
 
 class View(object):

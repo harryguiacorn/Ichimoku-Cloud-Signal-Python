@@ -39,6 +39,18 @@ class DataKijunSignal(DataOHLC):
                 __data["Kijun Signal Count"] = self.getKijunSignalCount(
                     __data["Kijun Direction"]
                 )
+
+                # remove na rows
+                __data = __data.dropna()
+
+                # convert float64 to int64
+                __data["Kijun Direction"] = __data["Kijun Direction"].astype(
+                    "int64"
+                )
+                __data["Kijun Signal Count"] = __data[
+                    "Kijun Signal Count"
+                ].astype("int64")
+
                 self.setColumnsSaveCsv_intraday(__data)
                 # print(__data)
         except pd.errors.EmptyDataError:
@@ -68,6 +80,18 @@ class DataKijunSignal(DataOHLC):
                 __data["Kijun Signal Count"] = self.getKijunSignalCount(
                     __data["Kijun Direction"]
                 )
+
+                # remove na rows
+                __data = __data.dropna()
+
+                # convert float64 to int64
+                __data["Kijun Direction"] = __data["Kijun Direction"].astype(
+                    "int64"
+                )
+                __data["Kijun Signal Count"] = __data[
+                    "Kijun Signal Count"
+                ].astype("int64")
+
                 self.setColumnsSaveCsv(__data)
         except pd.errors.EmptyDataError:
             print("CSV file is empty", __path)
