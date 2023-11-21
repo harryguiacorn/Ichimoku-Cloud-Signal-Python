@@ -10,7 +10,7 @@ class Model(object):
         pass
 
     def merge(self) -> pd.DataFrame:
-        print("------------- Merging Multi Timeframe Cloud -------------")
+        print("------------- Merging Multi Timeframe TKx -------------")
 
         list_pd = self.outputPathList
 
@@ -36,7 +36,7 @@ class Model(object):
                 )
 
         print(
-            "Multi Timeframe Cloud Signals Merged: ",
+            "Multi Timeframe TKx Signals Merged: ",
             self.outputMergePath,
             end="\n\n",
         )
@@ -57,7 +57,7 @@ class Model(object):
         return df_result
 
     def saveData(self, __df: pd.DataFrame) -> pd.DataFrame:
-        __df.sort_values(by=["Cloud Score Sum"], ascending=False, inplace=True)
+        __df.sort_values(by=["TKx Score Sum"], ascending=False, inplace=True)
 
         __df.to_csv(f"{self.outputMergePath}", index=False)
 
@@ -69,14 +69,14 @@ class Model(object):
 
     def create_sum_column(self, df: pd.DataFrame):
         # Add the three columns and create a new column 'Sum_Columns'
-        df["Cloud Score Sum"] = (
-            df["1D Cloud Direction"] * df["1D Cloud Count"]
-            + df["1W Cloud Direction"] * df["1W Cloud Count"]
-            + df["1M Cloud Direction"] * df["1M Cloud Count"]
+        df["TKx Score Sum"] = (
+            df["1D TKx Direction"] * df["1D TKx Count"]
+            + df["1W TKx Direction"] * df["1W TKx Count"]
+            + df["1M TKx Direction"] * df["1M TKx Count"]
         )
 
         print(
-            "-------------------- Cloud Score --------------------\n",
+            "-------------------- TKx Score --------------------\n",
             df,
             end="\n\n",
         )
@@ -112,11 +112,11 @@ class View(object):
 if __name__ == "__main__":
     __model = Model(
         [
-            "output/DowJones30-cloud-D.csv",
-            "output/DowJones30-cloud-W.csv",
-            "output/DowJones30-cloud-M.csv",
+            "output/DowJones30-tkx-D.csv",
+            "output/DowJones30-tkx-W.csv",
+            "output/DowJones30-tkx-M.csv",
         ],
-        "output/DowJones30-cloud-Multi-Timeframe.csv",
+        "output/DowJones30-tkx-Multi-Timeframe.csv",
     )
 
     __control = Control(__model, View())

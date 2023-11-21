@@ -198,7 +198,7 @@ class Control(object):
         self.getAssetList()
         self.getBatchLocalData()
         self.getIndividualSymbolData()
-        print(f"Populated kicker csv {self.model.csvPath}")
+        print(f"Populated kicker csv {self.model.csvPath}", end="\n\n")
 
 
 class View(object):

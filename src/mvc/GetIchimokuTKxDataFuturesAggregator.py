@@ -13,6 +13,7 @@ def main(
             "asset_list/Futures.csv",
             "output/",
             "Futures-tkx-1H",
+            "1H",
             True,
         )
         _control = Control(_model, View())
@@ -23,6 +24,7 @@ def main(
             "asset_list/Futures.csv",
             "output/",
             "Futures-tkx-D",
+            "1D",
         )
         _control = Control(_model, View())
         _control.main()
@@ -32,6 +34,7 @@ def main(
             "asset_list/Futures.csv",
             "output/",
             "Futures-tkx-W",
+            "1W",
         )
         _control = Control(_model, View())
         _control.main()
@@ -41,6 +44,7 @@ def main(
             "asset_list/Futures.csv",
             "output/",
             "Futures-tkx-M",
+            "1M",
         )
         _control = Control(_model, View())
         _control.main()

@@ -280,7 +280,7 @@ class Model(object):
             # )
             dataP = DataCloudSignal(__symbol, self.csvPath, self.isIntraday)
             dataP.main()
-        print("Cloud signal count csv files are created")
+        print("Cloud signal count csv files are created\n")
 
 
 class Control(object):

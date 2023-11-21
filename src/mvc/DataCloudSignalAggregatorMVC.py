@@ -244,7 +244,7 @@ class Control(object):
 
         self.view.showResultKCount(self.model.resultDataFrame)
         print(
-            f"\nAggregator {self.model.assetClassName}.csv and .xml are created"
+            f"\nAggregator {self.model.assetClassName}.csv and .xml are created\n"
         )
 
 

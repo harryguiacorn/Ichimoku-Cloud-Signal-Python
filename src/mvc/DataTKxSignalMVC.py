@@ -39,7 +39,9 @@ class DataTKxSignal(DataOHLC):
                     __data["TKx Signal"]
                 )
 
-                # remove na rows
+                # drop chikou_span because it creates na values
+                # for 26 periods from last date
+                __data.drop("chikou_span", axis=1, inplace=True)
                 __data = __data.dropna()
 
                 # convert float64 to int64
@@ -78,7 +80,9 @@ class DataTKxSignal(DataOHLC):
                     __data["TKx Signal"]
                 )
 
-                # remove na rows
+                # drop chikou_span because it creates na values
+                # for 26 periods from last date
+                __data.drop("chikou_span", axis=1, inplace=True)
                 __data = __data.dropna()
 
                 # convert float64 to int64
@@ -236,7 +240,7 @@ class Model(object):
             dataP = DataTKxSignal(__symbol, self.csvPath, self.isIntraday)
             # print("*************", self.isIntraday)
             dataP.main()
-        print("TKx count csv files are created")
+        print("TKx count csv files are created\n")
 
 
 class Control(object):

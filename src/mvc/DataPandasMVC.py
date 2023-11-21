@@ -80,7 +80,8 @@ class Model(object):
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
         print("----------- Reading symbols -----------")
-        print(df.to_string())
+        print("readAssetList path:", __csvPath, end="\n")
+        print(df.values.ravel().tolist(), end="\n\n")
         # print(df[__colName])
         l_symbol = df[__colName].tolist()
         self.symbols = l_symbol
@@ -164,10 +165,10 @@ class Model(object):
         return __dict_df
 
     def createIchimokuData(self):
-        print("----------- Creating Ichimoku Data -----------")
+        print("\n----------- Creating Ichimoku Data -----------")
         # method 1. create Ichimoku data using tapy
         DictDataIchinokuTapy = self.createIchimokuDataTapy(self.dataOHLC)
-        print("Ichimoku columns added to csv")
+        print("Ichimoku columns added to csv\n")
         # method 2. alternative method to
         # add ichimoku columns to csv using finta
         # self.createIchimokuDataFinta(DictData)
@@ -210,7 +211,6 @@ class Control(object):
         self.view = view
 
     def getAssetList(self):
-        print("readAssetList path:", self.model.assetListPath)
         self.model.readAssetList(self.model.assetListPath)
 
     def showAssetList(self):

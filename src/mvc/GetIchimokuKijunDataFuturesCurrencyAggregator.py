@@ -9,7 +9,7 @@ def main(
 ):
     if fetch1HData:
         _model = Model(
-            "data/futurescurrency/d/",
+            "data/futurescurrency/1h/",
             "asset_list/FuturesCurrency.csv",
             "output/",
             "FuturesCurrency-kijun-1h",

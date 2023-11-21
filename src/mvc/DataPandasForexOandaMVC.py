@@ -162,11 +162,11 @@ class Model(object):
 
     def createIchimokuData(self):
         print(
-            "----------- Creating Ichimoku Data -----------"
+            "\n----------- Creating Ichimoku Data -----------"
         )
         # method 1. create Ichimoku data using tapy
         DictDataIchinokuTapy = self.createIchimokuDataTapy(self.dataOHLC)
-        print("Ichimoku columns added to csv")
+        print("Ichimoku columns added to csv\n")
         # method 2. alternative method to
         # add ichimoku columns to csv using finta
         # self.createIchimokuDataFinta(DictData)
@@ -209,7 +209,7 @@ class Control(object):
         self.view = view
 
     def getAssetList(self):
-        print("readAssetList path:", self.model.assetListPath)
+        print("readAssetList path:", self.model.assetListPath, end="\n")
         self.model.readAssetList(self.model.assetListPath)
 
     def showAssetList(self):

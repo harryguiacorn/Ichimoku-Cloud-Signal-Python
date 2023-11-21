@@ -40,7 +40,9 @@ class DataKijunSignal(DataOHLC):
                     __data["Kijun Direction"]
                 )
 
-                # remove na rows
+                # drop chikou_span because it creates na values
+                # for 26 periods from last date
+                __data.drop("chikou_span", axis=1, inplace=True)
                 __data = __data.dropna()
 
                 # convert float64 to int64
@@ -81,7 +83,9 @@ class DataKijunSignal(DataOHLC):
                     __data["Kijun Direction"]
                 )
 
-                # remove na rows
+                # drop chikou_span because it creates na values
+                # for 26 periods from last date
+                __data.drop("chikou_span", axis=1, inplace=True)
                 __data = __data.dropna()
 
                 # convert float64 to int64
@@ -231,7 +235,7 @@ class Model(object):
             # print(__symbol, self.csvPath)
             dataP = DataKijunSignal(__symbol, self.csvPath, self.isIntraday)
             dataP.main()
-        print("Kijun count csv files are created")
+        print("Kijun count csv files are created\n")
 
 
 class Control(object):

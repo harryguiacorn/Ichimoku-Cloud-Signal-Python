@@ -21,12 +21,16 @@ from src.mvc import (
     GetIchimokuTKxDataDJ30Aggregator,
     GetIchimokuTKxDataFTSE100,
     GetIchimokuTKxDataFTSE100Aggregator,
+    GetIchimokuTKxDataFTSE100MultiTFMerger,
     GetIchimokuTKxDataFTSE250,
     GetIchimokuTKxDataFTSE250Aggregator,
+    GetIchimokuTKxDataFTSE250MultiTFMerger,
     GetIchimokuTKxDataFutures,
     GetIchimokuTKxDataFuturesAggregator,
     GetIchimokuTKxDataFuturesCurrency,
     GetIchimokuTKxDataFuturesCurrencyAggregator,
+    GetIchimokuTKxDataFuturesCurrencyMultiTFMerger,
+    GetIchimokuTKxDataFuturesMultiTFMerger,
     GetIchimokuTKxDataNas100,
     GetIchimokuTKxDataNas100Aggregator,
     GetIchimokuTKxDataSPX500,
@@ -75,6 +79,9 @@ from src.mvc import (
     GetKickerDataFuturesCurrencyAggregator,
     GetIchimokuCloudDataFuturesCurrencyMultiTFMerger,
     GetIchimokuCloudDataSPX500MultiTFMerger,
+    GetIchimokuTKxDataDJ30MultiTFMerger,
+    GetIchimokuTKxDataNas100MultiTFMerger,
+    GetIchimokuTKxDataSPX500MultiTFMerger,
 )
 
 
@@ -86,9 +93,9 @@ fetch_Nas100_1H = False
 fetch_FTSE100_1H = False
 fetch_FTSE250_1H = False
 fetch_Futures_1H = False
-fetch_CurrencyFutures_1H = False
+fetch_CurrencyFutures_1H = True
 
-fetch_DJ30_D = True
+fetch_DJ30_D = False
 fetch_SPX500_D = False
 fetch_Nas100_D = False
 fetch_FTSE100_D = False
@@ -96,7 +103,7 @@ fetch_FTSE250_D = False
 fetch_Futures_D = False
 fetch_CurrencyFutures_D = False
 
-fetch_DJ30_W = True
+fetch_DJ30_W = False
 fetch_SPX500_W = False
 fetch_Nas100_W = False
 fetch_FTSE100_W = False
@@ -104,7 +111,7 @@ fetch_FTSE250_W = False
 fetch_Futures_W = False
 fetch_CurrencyFutures_W = False
 
-fetch_DJ30_M = True
+fetch_DJ30_M = False
 fetch_SPX500_M = False
 fetch_Nas100_M = False
 fetch_FTSE100_M = False
@@ -112,13 +119,13 @@ fetch_FTSE250_M = False
 fetch_Futures_M = False
 fetch_CurrencyFutures_M = False
 
-run_Multi_TimeFrame_Merger_DJ30 = True
+run_Multi_TimeFrame_Merger_DJ30 = False
 run_Multi_TimeFrame_Merger_SPX500 = False
 run_Multi_TimeFrame_Merger_Nas100 = False
 run_Multi_TimeFrame_Merger_FTSE100 = False
 run_Multi_TimeFrame_Merger_FTSE250 = False
 run_Multi_TimeFrame_Merger_Futures = False
-run_Multi_TimeFrame_Merger_CurrencyFutures = False
+run_Multi_TimeFrame_Merger_CurrencyFutures = True
 
 fetch_Kicker_intraday = False
 
@@ -168,6 +175,10 @@ def main():
     _getIchimokuTKxDataDJ30Aggregator.main(
         fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W, fetch_DJ30_M
     )
+
+    # 3.5 Merge Multi Time Frame TKx signals
+    _getIchimokuTKxDataDJ30MultiTFMerger = GetIchimokuTKxDataDJ30MultiTFMerger
+    _getIchimokuTKxDataDJ30MultiTFMerger.main(run_Multi_TimeFrame_Merger_DJ30)
 
     # 4. Produce Kijun data
     _getIchimokuKijunDataDJ30 = GetIchimokuKijunDataDJ30
@@ -237,6 +248,20 @@ def main():
     _getIchimokuTKxDataNas100Aggregator = GetIchimokuTKxDataNas100Aggregator
     _getIchimokuTKxDataNas100Aggregator.main(
         fetch_Nas100_1H, fetch_Nas100_D, fetch_Nas100_W, fetch_Nas100_M
+    )
+
+    # 3.5 Merge Multi Time Frame TKx signals
+    _getIchimokuTKxDataNas100MultiTFMerger = (
+        GetIchimokuTKxDataNas100MultiTFMerger
+    )
+    _getIchimokuTKxDataNas100MultiTFMerger.main(
+        run_Multi_TimeFrame_Merger_Nas100
+    )
+
+    # 4. Produce Kijun data
+    _getIchimokuKijunDataDJ30 = GetIchimokuKijunDataDJ30
+    _getIchimokuKijunDataDJ30.main(
+        fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W, fetch_DJ30_M
     )
 
     # 4. Produce Kijun data
@@ -309,6 +334,14 @@ def main():
     _getIchimokuTKxDataFTSE100Aggregator = GetIchimokuTKxDataFTSE100Aggregator
     _getIchimokuTKxDataFTSE100Aggregator.main(
         fetch_FTSE100_1H, fetch_FTSE100_D, fetch_FTSE100_W, fetch_FTSE100_M
+    )
+
+    # 3.5 Merge Multi Time Frame TKx signals
+    _getIchimokuTKxDataFTSE100MultiTFMerger = (
+        GetIchimokuTKxDataFTSE100MultiTFMerger
+    )
+    _getIchimokuTKxDataFTSE100MultiTFMerger.main(
+        run_Multi_TimeFrame_Merger_FTSE100
     )
 
     # 4. Produce Kijun data
@@ -387,6 +420,14 @@ def main():
     _getIchimokuTKxDataFTSE250Aggregator = GetIchimokuTKxDataFTSE250Aggregator
     _getIchimokuTKxDataFTSE250Aggregator.main(
         fetch_FTSE250_1H, fetch_FTSE250_D, fetch_FTSE250_W, fetch_FTSE250_M
+    )
+
+    # 3.5 Merge Multi Time Frame TKx signals
+    _getIchimokuTKxDataFTSE250MultiTFMerger = (
+        GetIchimokuTKxDataFTSE250MultiTFMerger
+    )
+    _getIchimokuTKxDataFTSE250MultiTFMerger.main(
+        run_Multi_TimeFrame_Merger_FTSE250
     )
 
     # 4. Produce Kijun data
@@ -469,6 +510,15 @@ def main():
     _getIchimokuTKxDataFuturesAggregator.main(
         fetch_Futures_1H, fetch_Futures_D, fetch_Futures_W, fetch_Futures_M
     )
+
+    # 3.5 Merge Multi Time Frame TKx signals
+    _getIchimokuTKxDataFuturesMultiTFMerger = (
+        GetIchimokuTKxDataFuturesMultiTFMerger
+    )
+    _getIchimokuTKxDataFuturesMultiTFMerger.main(
+        run_Multi_TimeFrame_Merger_Futures
+    )
+
     # 4. Produce Kijun data
     _getIchimokuKijunDataFutures = GetIchimokuKijunDataFutures
     _getIchimokuKijunDataFutures.main(
@@ -562,6 +612,14 @@ def main():
         fetch_CurrencyFutures_M,
     )
 
+    # 3.5 Merge Multi Time Frame TKx signals
+    _getIchimokuTKxDataFuturesCurrencyMultiTFMerger = (
+        GetIchimokuTKxDataFuturesCurrencyMultiTFMerger
+    )
+    _getIchimokuTKxDataFuturesCurrencyMultiTFMerger.main(
+        run_Multi_TimeFrame_Merger_CurrencyFutures
+    )
+
     # 4. Produce Kijun data
     _getIchimokuKijunDataFuturesCurrency = GetIchimokuKijunDataFuturesCurrency
     _getIchimokuKijunDataFuturesCurrency.main(
@@ -646,6 +704,14 @@ def main():
     _getIchimokuTKxDataSPX500Aggregator = GetIchimokuTKxDataSPX500Aggregator
     _getIchimokuTKxDataSPX500Aggregator.main(
         fetch_SPX500_1H, fetch_SPX500_D, fetch_SPX500_W, fetch_SPX500_M
+    )
+
+    # 3.5 Merge Multi Time Frame TKx signals
+    _getIchimokuTKxDataSPX500MultiTFMerger = (
+        GetIchimokuTKxDataSPX500MultiTFMerger
+    )
+    _getIchimokuTKxDataSPX500MultiTFMerger.main(
+        run_Multi_TimeFrame_Merger_SPX500
     )
 
     # 4. Produce Kijun data
