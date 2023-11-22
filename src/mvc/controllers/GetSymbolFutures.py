@@ -12,7 +12,7 @@ class Model(object):
         self.url = __url
         self.fileNameCSV = __fileNameCSV
         self.df_list = None
-        self.df = None
+        self.df = pd.DataFrame
 
     @property
     def df_list(self):
@@ -31,7 +31,8 @@ class Model(object):
         df = pd.read_html(response.content)
         df_symbols = df[0][["Symbol", "Name"]]
         self.df_list = df_symbols
-        print(df_symbols)
+        # print(df_symbols.values.ravel())
+        print(f"Total symbols: {len(self.df_list)}")
         return df_symbols
 
     def cleanData(self):
@@ -50,10 +51,10 @@ class Model(object):
 
     def saveData(self):
         # print(type(self.df))
-        print("Symbols:", self.df)
         # print(self.df[__columns])
         # df_symbol.to_csv(self.fileNameCSV, index=False)
         __columns = ["symbol", "name"]
+        print("Table:\n", self.df[__columns])
         self.df.to_csv(
             self.fileNameCSV,
             columns=__columns,

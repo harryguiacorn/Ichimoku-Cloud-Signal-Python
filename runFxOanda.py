@@ -1,4 +1,4 @@
-from src.mvc import (
+from src.mvc.controllers import (
     GetDataForexOanda,
     # GetIchimokuCloudDataForexOanda,
     # GetIchimokuCloudDataForexOandaAggregator,

@@ -12,19 +12,6 @@ from src.mvc import Util
 from src.mvc.core.DataOandaAPI import DataOandaAPI
 
 
-class Resampler:
-    def __init__(self, ticker_symbol, data):
-        self.ticker_symbol = ticker_symbol
-        self.ticker = yf.Ticker(ticker_symbol)
-        self.data = data
-        self.resampled_data = None
-
-    def fetch_data(self, interval="1h", period="1mo"):
-        self.data = self.ticker.history(interval=interval, period=period)
-        self.data.sort_index(inplace=True)
-        self.data.to_csv(f"{self.ticker_symbol}-{interval}.csv")
-
-
 class Model(object):
     def __init__(
         self,

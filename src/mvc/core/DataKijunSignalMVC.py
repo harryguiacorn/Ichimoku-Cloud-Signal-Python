@@ -26,7 +26,7 @@ class DataKijunSignal(DataOHLC):
             if __data.empty:  # Check if the DataFrame is empty
                 print("CSV file is empty", __path)
             else:
-                print(__path)
+                # print(__path)
                 # print(__data.Datetime)
                 __data.index = __data.Datetime
                 __data["Returns"] = self.getReturn(

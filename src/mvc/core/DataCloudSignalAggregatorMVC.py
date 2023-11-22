@@ -62,7 +62,7 @@ class Model(object):
 
     def getLatestResultFromEachDataFrame(self):
         symbols = self.readAssetList(self.assetListPath)
-        # print("symbols::",symbols)
+        # print("Table:\n:",symbols)
         dict_df = self.readLocalCsvData(
             symbols["symbol"], self.csvPath, "_cloudCount"
         )

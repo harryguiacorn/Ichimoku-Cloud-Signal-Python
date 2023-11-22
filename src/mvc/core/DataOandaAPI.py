@@ -2,6 +2,7 @@ import requests
 import time
 import json
 import pandas as pd
+from src.mvc import Util
 
 
 class DataOandaAPI:
@@ -65,6 +66,8 @@ class DataOandaAPI:
         # Add a column for 'Datetime' and set the index values
         df.insert(0, "Datetime", df.index)
 
+        Util.createDataFolder(filePath)
+
         # Export the DataFrame to a CSV file
         df.to_csv(filePath, index=False)
 
@@ -76,7 +79,7 @@ if __name__ == "__main__":
     # poll_api()
     data = api.get_oanda_data()
     # data = get_oanda_data()
-    api.save_json(data=data)
+    api.save_json(data=data, filePath="data/oanda/")
     print(data)
 
     api.json_to_csv(data)

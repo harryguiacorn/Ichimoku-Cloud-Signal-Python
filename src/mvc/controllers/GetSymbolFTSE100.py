@@ -7,7 +7,7 @@ class Model(object):
         self.fileNameCSV = __fileNameCSV
         self.readHtmlMatch = __readHtmlMatch
         self.df_list = None
-        self.df = None
+        self.df = pd.DataFrame
 
     @property
     def df_list(self):
@@ -24,7 +24,7 @@ class Model(object):
         # self.df_list = pd.read_html(self.url)[4]
 
         # return type is list[DataFrame]
-        print(f"Total tables: {len(self.df_list)}")
+        print(f"Total symbols: {len(self.df_list)}")
         return self.df_list
 
     def cleanData(self):
@@ -41,7 +41,7 @@ class Model(object):
     def saveData(self):
         # print(type(self.df))
         __columns = ["symbol", "name"]
-        print("Symbols:", self.df[__columns])
+        print("Table:\n", self.df[__columns])
         self.df.to_csv(self.fileNameCSV, columns=__columns, index=False)
         return self.df[__columns]
 
