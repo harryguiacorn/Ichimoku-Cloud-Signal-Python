@@ -1,5 +1,5 @@
 from src.mvc.controllers import (
-    GetDataForexOanda,
+    GetDataOanda,
     # GetIchimokuCloudDataForexOanda,
     # GetIchimokuCloudDataForexOandaAggregator,
     # GetIchimokuCloudDataForexOandaMerger,
@@ -12,11 +12,11 @@ from src.mvc.controllers import (
 
 fetch_symbols_latest = True
 
-fetch_ForexOanda_1H = True
+fetch_ForexOanda_1H = False
 
 fetch_ForexOanda_4H = True
 
-fetch_ForexOanda_D = True
+fetch_ForexOanda_D = False
 
 fetch_ForexOanda_W = False
 
@@ -31,7 +31,7 @@ def main():
 
     # ---------------- Forex Oanda ----------------
 
-    _getDataForexOanda = GetDataForexOanda
+    _getDataForexOanda = GetDataOanda
     _getDataForexOanda.main(
         fetch_ForexOanda_1H,
         fetch_ForexOanda_4H,

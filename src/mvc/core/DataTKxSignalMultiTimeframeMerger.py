@@ -48,7 +48,7 @@ class Model(object):
     def exportResult(self, list_result):
         df_result = pd.DataFrame(list_result, columns=self.getColumns())
 
-        Util.createDataFolder(self.outputPath)
+        Util.create_folder(self.outputPath)
         df_result.to_csv(
             self.outputPath + self.assetClassName.replace(" ", "") + ".csv",
             index=False,

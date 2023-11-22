@@ -10,10 +10,16 @@ def file_exists(filename):
         return False
 
 
-def createDataFolder(__name="data"):
+def create_folder(__name="data", __printError: bool = True):
     # create data folder
     try:
         if isdir(__name) is False:
             os.makedirs(__name)
     except FileExistsError as __errFile:
-        print("data folder exists", __errFile)
+        if __printError:
+            print("WARNING: folder exists", __errFile)
+
+
+# def save_file_to_folder(__path="/path", __filename="data.csv"):
+#     create_folder(__path, False)
+#     output_file_path = os.path.join(__path, __filename)

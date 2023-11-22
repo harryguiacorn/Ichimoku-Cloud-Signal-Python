@@ -31,7 +31,7 @@ class DataOandaAPI:
         else:
             return None
 
-    def save_json(self, filePath="data.json", data=None):
+    def save_json(self, filePath="data.json", data: json = None):
         # Save data to a JSON file
         with open(filePath, "w") as f:
             json.dump(data, f)
@@ -65,8 +65,6 @@ class DataOandaAPI:
 
         # Add a column for 'Datetime' and set the index values
         df.insert(0, "Datetime", df.index)
-
-        Util.createDataFolder(filePath)
 
         # Export the DataFrame to a CSV file
         df.to_csv(filePath, index=False)

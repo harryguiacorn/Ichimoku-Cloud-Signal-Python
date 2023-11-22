@@ -128,6 +128,7 @@ class Model(object):
                 api.save_json(__path, data)
                 __path = self.csvPath + __symbol + ".csv"
                 api.json_to_csv(data, __path)
+
                 # print(f"{symbols.index(__symbol)} {__symbol} -> {__path}")
             except Exception as e:
                 # raise Exception("Error: ", __symbol, " e.args: ",e.args)
@@ -203,7 +204,7 @@ class Control(object):
 
     def main(self, resample=False):
         # initializing Parameters
-        Util.createDataFolder(self.model.csvPath)
+        Util.create_folder(self.model.csvPath)
 
         # symbols = self.readAssetList(self.assetListPath)
         self.getAssetList()

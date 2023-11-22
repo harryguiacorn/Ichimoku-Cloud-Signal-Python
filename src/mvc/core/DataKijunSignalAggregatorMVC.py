@@ -142,7 +142,7 @@ class Model(object):
     def exportResult(self, list_result):
         df_result = pd.DataFrame(list_result, columns=self.getColumns())
         df_result.sort_values(by=["Count"], inplace=True)
-        Util.createDataFolder(self.outputPath)
+        Util.create_folder(self.outputPath)
         # print(
         #     "csv path: ",
         #     self.outputPath + self.assetClassName.replace(" ", "") + ".csv",
@@ -159,7 +159,7 @@ class Model(object):
     def exportResultXML(self, list_result):
         df_result = pd.DataFrame(list_result, columns=self.getColumns())
         df_result.sort_values(by=["Count"], inplace=True)
-        Util.createDataFolder(self.outputPath)
+        Util.create_folder(self.outputPath)
         df_result_xml = df_result.to_xml(
             self.outputPath + self.assetClassName.replace(" ", "") + ".xml",
             index=False,
@@ -169,7 +169,7 @@ class Model(object):
     def exportResultJSON(self, list_result):
         df_result = pd.DataFrame(list_result, columns=self.getColumns())
         df_result.sort_values(by=["Count"], inplace=True)
-        Util.createDataFolder(self.outputPath)
+        Util.create_folder(self.outputPath)
         df_result_xml = df_result.to_json(
             self.outputPath + self.assetClassName.replace(" ", "") + ".json",
             index=False,

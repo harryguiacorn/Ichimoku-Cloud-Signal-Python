@@ -175,7 +175,7 @@ class Model(object):
         df_result.sort_values(
             by=[f"{self.csvColumnPrefix} Cloud Count"], inplace=True
         )
-        Util.createDataFolder(self.outputPath)
+        Util.create_folder(self.outputPath)
         df_result.to_csv(
             self.outputPath + self.assetClassName.replace(" ", "") + ".csv",
             index=False,
@@ -188,7 +188,7 @@ class Model(object):
         df_result.sort_values(
             by=[f"{self.csvColumnPrefix} Cloud Count"], inplace=True
         )
-        Util.createDataFolder(self.outputPath)
+        Util.create_folder(self.outputPath)
         df_result_xml = df_result.to_xml(
             self.outputPath + self.assetClassName.replace(" ", "") + ".xml",
             index=False,
@@ -200,7 +200,7 @@ class Model(object):
         df_result.sort_values(
             by=[f"{self.csvColumnPrefix} Cloud Count"], inplace=True
         )
-        Util.createDataFolder(self.outputPath)
+        Util.create_folder(self.outputPath)
         df_result_xml = df_result.to_json(
             self.outputPath + self.assetClassName.replace(" ", "") + ".json",
             index=False,

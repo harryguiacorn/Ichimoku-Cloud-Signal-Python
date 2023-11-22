@@ -219,7 +219,7 @@ class Control(object):
 
     def main(self):
         # initializing Parameters
-        Util.createDataFolder(self.model.csvPath)
+        Util.create_folder(self.model.csvPath)
 
         # symbols = self.readAssetList(self.assetListPath)
         self.getAssetList()

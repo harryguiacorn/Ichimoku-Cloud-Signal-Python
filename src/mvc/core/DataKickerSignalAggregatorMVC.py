@@ -107,7 +107,7 @@ class Model(object):
             list_result, columns=["Date", "Symbol", "Name", "Kicker"]
         )
         df_result.sort_values(by=["Date"], inplace=True)
-        Util.createDataFolder(self.outputPath)
+        Util.create_folder(self.outputPath)
         df_result.to_csv(
             self.outputPath + self.assetClassName.replace(" ", "") + ".csv",
             index=False,
