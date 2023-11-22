@@ -1,7 +1,8 @@
 from src.mvc.controllers import (
     GetDataOanda,
-    # GetIchimokuCloudDataForexOanda,
-    # GetIchimokuCloudDataForexOandaAggregator,
+    GetIchimokuCloudDataOanda,
+    GetIchimokuCloudDataOandaAggregator,
+    GetIchimokuCloudDataOandaMultiTFMerger,
     # GetIchimokuCloudDataForexOandaMerger,
     # GetIchimokuKijunDataForexOanda,
     # GetIchimokuKijunDataForexOandaAggregator,
@@ -12,17 +13,17 @@ from src.mvc.controllers import (
 
 fetch_symbols_latest = True
 
-fetch_ForexOanda_1H = False
+fetch_ForexOanda_1H = True
 
 fetch_ForexOanda_4H = True
 
-fetch_ForexOanda_D = False
+fetch_ForexOanda_D = True
 
-fetch_ForexOanda_W = False
+fetch_ForexOanda_W = True
 
-fetch_ForexOanda_M = False
+fetch_ForexOanda_M = True
 
-fetch_Kicker_intraday = False
+fetch_Kicker_use_datetime_format = False
 
 
 def main():
@@ -31,6 +32,8 @@ def main():
 
     # ---------------- Forex Oanda ----------------
 
+    # 1. Grab latest symbols - NA
+    # 2. Download latest OHLC data for each symbol
     _getDataForexOanda = GetDataOanda
     _getDataForexOanda.main(
         fetch_ForexOanda_1H,
@@ -39,30 +42,34 @@ def main():
         fetch_ForexOanda_W,
         fetch_ForexOanda_M,
     )
+
+    # 3. Produce Ichimoku Cloud data for each symbol
+    _getIchimokuCloudDataOanda = GetIchimokuCloudDataOanda
+    _getIchimokuCloudDataOanda.main(
+        fetch_ForexOanda_1H,
+        fetch_ForexOanda_4H,
+        fetch_ForexOanda_D,
+        fetch_ForexOanda_W,
+        fetch_ForexOanda_M,
+    )
+
+    # 3.1 Combine latest cloud signals of all symbols into one spreadsheet
+    _getIchimokuCloudDataOandaAggregator = GetIchimokuCloudDataOandaAggregator
+    _getIchimokuCloudDataOandaAggregator.main(
+        fetch_ForexOanda_1H,
+        fetch_ForexOanda_4H,
+        fetch_ForexOanda_D,
+        fetch_ForexOanda_W,
+        fetch_ForexOanda_M,
+    )
+
+    # 3.2 Merge Multi Time Frame Cloud signals
+    _getIchimokuCloudDataOandaMultiTFMerger = (
+        GetIchimokuCloudDataOandaMultiTFMerger
+    )
+    _getIchimokuCloudDataOandaMultiTFMerger.main()
+
     return
-    _getIchimokuCloudDataForexOanda = GetIchimokuCloudDataForexOanda
-    _getIchimokuCloudDataForexOanda.main(
-        fetch_ForexOanda_1H,
-        fetch_ForexOanda_D,
-        fetch_ForexOanda_W,
-        fetch_ForexOanda_M,
-    )
-
-    _getIchimokuCloudDataForexOandaAggregator = (
-        GetIchimokuCloudDataForexOandaAggregator
-    )
-    _getIchimokuCloudDataForexOandaAggregator.main(
-        fetch_ForexOanda_1H,
-        fetch_ForexOanda_D,
-        fetch_ForexOanda_W,
-        fetch_ForexOanda_M,
-    )
-
-    _getIchimokuCloudDataForexOandaMerger = (
-        GetIchimokuCloudDataForexOandaMerger
-    )
-    _getIchimokuCloudDataForexOandaMerger.main()
-
     _getIchimokuKijunDataForexOanda = GetIchimokuKijunDataForexOanda
     _getIchimokuKijunDataForexOanda.main(
         fetch_ForexOanda_1H,
@@ -83,7 +90,7 @@ def main():
 
     _getKickerDataForexOanda = GetKickerDataForexOanda
     _getKickerDataForexOanda.main(
-        fetch_Kicker_intraday,
+        fetch_Kicker_use_datetime_format,
         fetch_ForexOanda_D,
         fetch_ForexOanda_W,
         fetch_ForexOanda_M,
@@ -91,7 +98,7 @@ def main():
 
     _getKickerDataForexOandaAggregator = GetKickerDataForexOandaAggregator
     _getKickerDataForexOandaAggregator.main(
-        fetch_Kicker_intraday,
+        fetch_Kicker_use_datetime_format,
         fetch_ForexOanda_D,
         fetch_ForexOanda_W,
         fetch_ForexOanda_M,

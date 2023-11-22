@@ -1,15 +1,10 @@
-import datetime
-from genericpath import isdir
-import os
 import pandas as pd
 from finta import TA
 from tapy import Indicators
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-import yfinance as yf
 from src.mvc import Util
-
-from src.mvc.core.DataOandaAPI import DataOandaAPI
+from src.mvc.core.oanda.DataOandaAPI import DataOandaAPI
 
 
 class Model(object):
@@ -29,7 +24,7 @@ class Model(object):
         self.interval = __interval
         self.bGetLatestDataFromOanda = __bGetLatestDataFromOanda
         self.symbols = None
-        self.dataOHLC = pd.DataFrame
+        self.dataOHLC = None
         self.lookbackPeriod = __lookbackPeriod
         self.pricingComponent = __pricingComponent
 
@@ -84,7 +79,8 @@ class Model(object):
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
         print(f"----------- Reading symbols for {self.interval} -----------")
-        print(df.to_string(), sep=",")
+        print("readAssetList path:", __csvPath)
+        print(df.to_string(), sep=",", end="\n")
         # print(df[__colName])
         l_symbol = df[__colName].tolist()
         self.symbols = l_symbol
@@ -101,7 +97,6 @@ class Model(object):
             #     self.lookbackPeriod,
             # )
             # method 1. grab latest data from Oanda API
-
             self.dataOHLC = self.getLatestDataFromOandaAPI(
                 self.symbols, self.lookbackPeriod, self.interval
             )
@@ -114,29 +109,31 @@ class Model(object):
 
     def getLatestDataFromOandaAPI(
         self, symbols, __lookbackPeriods, __interval
-    ) -> pd.DataFrame:
+    ) -> dict:
         __dict_df = {}
         for __symbol in symbols:
             try:
                 api = DataOandaAPI()
-                data = api.get_oanda_data(
+                data_json = api.get_oanda_data(
                     __symbol, __lookbackPeriods, __interval
                 )
 
-                __dict_df[__symbol] = data
-                __path = self.csvPath + __symbol + ".json"
-                api.save_json(__path, data)
-                __path = self.csvPath + __symbol + ".csv"
-                api.json_to_csv(data, __path)
-
+                __path_csv = self.csvPath + __symbol + ".json"
+                api.save_json(__path_csv, data_json)
+                __path_json = self.csvPath + __symbol + ".csv"
+                data_df = api.json_to_csv(data_json, __path_json)
+                __dict_df[__symbol] = data_df
                 # print(f"{symbols.index(__symbol)} {__symbol} -> {__path}")
             except Exception as e:
                 # raise Exception("Error: ", __symbol, " e.args: ",e.args)
                 print(f"Error getLatestDataFromOandaAPI: {__symbol}: {e.args}")
                 continue
+        print(
+            "Download completed. Saved in:", __path_csv, __path_json, end="\n"
+        )
         return __dict_df
 
-    def readLocalCsvData(self, symbols, __csvPath) -> pd.DataFrame:
+    def readLocalCsvData(self, symbols, __csvPath) -> dict:
         __dict_df = {}
         for __symbol in symbols:
             try:
@@ -165,6 +162,7 @@ class Model(object):
         __dict_df_ichimoku = {}
         for __key, __df in __dict_df.items():
             # initialising indicators
+            print(__df)
             __i = Indicators(__df)
             __i.ichimoku_kinko_hyo()  # column_name_kijun_sen="K Line"
             __dataCloud = __i.df
@@ -195,7 +193,6 @@ class Control(object):
         self.view = view
 
     def getAssetList(self):
-        print("readAssetList path:", self.model.assetListPath, end="\n")
         self.model.readAssetList(self.model.assetListPath)
 
     def showAssetList(self):
@@ -209,7 +206,6 @@ class Control(object):
         # symbols = self.readAssetList(self.assetListPath)
         self.getAssetList()
         self.model.getDataOHLC()
-        return
 
         __df_ichimoku = self.model.createIchimokuData()
 

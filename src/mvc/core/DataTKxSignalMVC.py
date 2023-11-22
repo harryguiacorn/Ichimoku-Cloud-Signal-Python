@@ -9,12 +9,14 @@ class DataOHLC(ABC):
 
 
 class DataTKxSignal(DataOHLC):
-    def __init__(self, __symbol, __csvPath, __isIntraday=False):
+    def __init__(self, __symbol, __csvPath, __use_datetime_format=False):
         self.symbol = __symbol
         self.csvPath = __csvPath
-        self.isIntraday = __isIntraday
+        self.use_datetime_format = __use_datetime_format
 
-    def setupPd_intraday(self, csvSuffix="_tkx.csv", folderPath="data/"):
+    def setupPd_use_datetime_format(
+        self, csvSuffix="_tkx.csv", folderPath="data/"
+    ):
         # pd.set_option("display.max_rows", None)  # print every row for debug
         # pd.set_option(
         #     "display.max_columns", None
@@ -50,7 +52,7 @@ class DataTKxSignal(DataOHLC):
                     "int64"
                 )
 
-                self.setColumnsSaveCsv_intraday(__data)
+                self.setColumnsSaveCsv_use_datetime_format(__data)
                 # print(__data)
         except pd.errors.EmptyDataError:
             print("CSV file is empty", __path)
@@ -143,7 +145,9 @@ class DataTKxSignal(DataOHLC):
             self.csvPath + self.symbol + csvSuffix, columns=header, index=False
         )
 
-    def setColumnsSaveCsv_intraday(self, __data, csvSuffix="_tkxCount.csv"):
+    def setColumnsSaveCsv_use_datetime_format(
+        self, __data, csvSuffix="_tkxCount.csv"
+    ):
         header = ["Datetime", "TKx Signal", "TKx Signal Count"]
         __data.to_csv(
             self.csvPath + self.symbol + csvSuffix, columns=header, index=False
@@ -153,14 +157,14 @@ class DataTKxSignal(DataOHLC):
         pass
 
     def main(self):
-        if self.isIntraday is False:
-            # print(self.symbol, "N-------------", self.isIntraday)
+        if self.use_datetime_format is False:
+            # print(self.symbol, "N-------------", self.use_datetime_format)
             self.setupPd(
                 "_ichimokuTapy.csv"
             )  # _ichimokuPlotly _ichimokuTapy _ichimokuFinta
         else:
-            # print(self.symbol, "Y-------------", self.isIntraday)
-            self.setupPd_intraday(
+            # print(self.symbol, "Y-------------", self.use_datetime_format)
+            self.setupPd_use_datetime_format(
                 "_ichimokuTapy.csv"
             )  # _ichimokuPlotly _ichimokuTapy _ichimokuFinta
 
@@ -171,22 +175,22 @@ class Model(object):
         __csvPath,
         __assetListPath,
         # __csvColumnPrefix="",
-        __isIntraday=False,
+        __use_datetime_format=False,
     ):
         self.csvPath = __csvPath
         self.assetListPath = __assetListPath
         # self.csvColumnPrefix = __csvColumnPrefix
-        self.isIntraday = __isIntraday
+        self.use_datetime_format = __use_datetime_format
         self.symbols = None
         self.dataOHLC = None
 
     @property
-    def isIntraday(self):
-        return self.__isIntraday
+    def use_datetime_format(self):
+        return self.__use_datetime_format
 
-    @isIntraday.setter
-    def isIntraday(self, __isIntraday):
-        self.__isIntraday = __isIntraday
+    @use_datetime_format.setter
+    def use_datetime_format(self, __use_datetime_format):
+        self.__use_datetime_format = __use_datetime_format
 
     @property
     def symbol(self):
@@ -237,8 +241,10 @@ class Model(object):
     def getIndividualSymbolData(self):
         for __symbol, __value in self.dataOHLC.items():
             # print(__symbol, self.csvPath)
-            dataP = DataTKxSignal(__symbol, self.csvPath, self.isIntraday)
-            # print("*************", self.isIntraday)
+            dataP = DataTKxSignal(
+                __symbol, self.csvPath, self.use_datetime_format
+            )
+            # print("*************", self.use_datetime_format)
             dataP.main()
         print("TKx count csv files are created\n")
 

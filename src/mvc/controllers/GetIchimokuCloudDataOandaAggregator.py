@@ -1,33 +1,31 @@
-from src.mvc.core.oanda.DataPandasOandaMVC import Control, Model, View
+from src.mvc.core.DataCloudSignalAggregatorMVC import Control, Model, View
 
 
 def main(
     fetch1HData=False,
     fetch4HData=False,
-    fetchDailyData=False,
+    fetchDailyData=True,
     fetchWeeklyData=False,
     fetchMonthlyData=False,
 ):
-    # period: 1d, 5d, 1mo, 3mo, 6mo, 1y, 2y, 5y, 10y, ytd, max
-    # interval: 1m,2m,5m,15m,30m,60m,90m,1h,1d,5d,1wk,1mo,3mo
-
     if fetch1HData:
         _model = Model(
             "data/oanda/1h/",
             "asset_list/Oanda.csv",
-            "H1",
-            "300",
+            "output/",
+            "Oanda-cloud-1H",
+            "1H",
             True,
         )
         _control = Control(_model, View())
         _control.main()
     if fetch4HData:
-        # print("fetch 4h")
         _model = Model(
             "data/oanda/4h/",
             "asset_list/Oanda.csv",
-            "H4",
-            "10",  # "300",
+            "output/",
+            "Oanda-cloud-4H",
+            "4H",
             True,
         )
         _control = Control(_model, View())
@@ -36,8 +34,9 @@ def main(
         _model = Model(
             "data/oanda/d/",
             "asset_list/Oanda.csv",
-            "D",
-            "300",
+            "output/",
+            "Oanda-cloud-D",
+            "1D",
             True,
         )
         _control = Control(_model, View())
@@ -46,24 +45,24 @@ def main(
         _model = Model(
             "data/oanda/w/",
             "asset_list/Oanda.csv",
-            "W",
-            "300",
+            "output/",
+            "Oanda-cloud-W",
+            "1W",
             True,
         )
         _control = Control(_model, View())
         _control.main()
-        _control.showAssetList()
     if fetchMonthlyData:
         _model = Model(
             "data/oanda/m/",
             "asset_list/Oanda.csv",
-            "M",
-            "300",
+            "output/",
+            "Oanda-cloud-M",
+            "1M",
             True,
         )
         _control = Control(_model, View())
         _control.main()
-        _control.showAssetList()
 
 
 if __name__ == "__main__":

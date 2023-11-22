@@ -15,7 +15,7 @@ class DataOandaAPI:
         count=60,
         granularity="H4",
         pricingComponent="M",
-    ):
+    ) -> json:
         url = "https://api-fxpractice.oanda.com/v3/instruments/USD_JPY/candles?count=10&price=A&from=2016-01-01T00%3A00%3A00.000000000Z&granularity=D"
         url = (
             "https://api-fxpractice.oanda.com/v3/accounts/101-004-21686905-001"
@@ -43,7 +43,7 @@ class DataOandaAPI:
             print(self.data)
             time.sleep(5)  # Poll every 5 seconds
 
-    def json_to_csv(self, data, filePath="data.csv"):
+    def json_to_csv(self, data: json, filePath="data.csv") -> pd.DataFrame:
         # Assuming json_string is your JSON data
         # print(data)
         json_data = data.copy()
@@ -58,7 +58,6 @@ class DataOandaAPI:
                 [candle["time"] for candle in candles], utc=True
             ),
         )
-        # print(df)
 
         # Rename the columns
         df.columns = ["Open", "High", "Low", "Close"]
@@ -69,7 +68,8 @@ class DataOandaAPI:
         # Export the DataFrame to a CSV file
         df.to_csv(filePath, index=False)
 
-        # print(df)
+        # print("json_to_csv:", df)
+        return df
 
 
 if __name__ == "__main__":

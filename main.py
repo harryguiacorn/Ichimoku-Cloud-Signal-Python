@@ -127,7 +127,11 @@ run_Multi_TimeFrame_Merger_FTSE250 = False
 run_Multi_TimeFrame_Merger_Futures = False
 run_Multi_TimeFrame_Merger_CurrencyFutures = True
 
-fetch_Kicker_intraday = False
+
+# Use "Datetime" for Yahoo intraday data,
+# "Date" for D, W, M data.
+# Use "Datetime" for all Oanda data.
+fetch_Kicker_use_datetime_format = False
 
 
 def main():
@@ -195,13 +199,19 @@ def main():
     # 5. Produce Kicker data
     _getKickerDataDJ30 = GetKickerDataDJ30
     _getKickerDataDJ30.main(
-        fetch_Kicker_intraday, fetch_DJ30_D, fetch_DJ30_W, fetch_DJ30_M
+        fetch_Kicker_use_datetime_format,
+        fetch_DJ30_D,
+        fetch_DJ30_W,
+        fetch_DJ30_M,
     )
 
     # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
     _getKickerDataDJ30Aggregator = GetKickerDataDJ30Aggregator
     _getKickerDataDJ30Aggregator.main(
-        fetch_Kicker_intraday, fetch_DJ30_D, fetch_DJ30_W, fetch_DJ30_M
+        fetch_Kicker_use_datetime_format,
+        fetch_DJ30_D,
+        fetch_DJ30_W,
+        fetch_DJ30_M,
     )
 
     # ---------------- Nasdaq 100 ----------------
@@ -281,13 +291,19 @@ def main():
     # 5. Produce Kicker data
     _getKickerDataNas100 = GetKickerDataNas100
     _getKickerDataNas100.main(
-        fetch_Kicker_intraday, fetch_Nas100_D, fetch_Nas100_W, fetch_Nas100_M
+        fetch_Kicker_use_datetime_format,
+        fetch_Nas100_D,
+        fetch_Nas100_W,
+        fetch_Nas100_M,
     )
 
     # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
     _getKickerDataNas100Aggregator = GetKickerDataNas100Aggregator
     _getKickerDataNas100Aggregator.main(
-        fetch_Kicker_intraday, fetch_Nas100_D, fetch_Nas100_W, fetch_Nas100_M
+        fetch_Kicker_use_datetime_format,
+        fetch_Nas100_D,
+        fetch_Nas100_W,
+        fetch_Nas100_M,
     )
 
     # ---------------- FTSE 100 ----------------
@@ -361,7 +377,7 @@ def main():
     # 5. Produce Kicker data
     _getKickerDataFTSE100 = GetKickerDataFTSE100
     _getKickerDataFTSE100.main(
-        fetch_Kicker_intraday,
+        fetch_Kicker_use_datetime_format,
         fetch_FTSE100_D,
         fetch_FTSE100_W,
         fetch_FTSE100_M,
@@ -370,7 +386,7 @@ def main():
     # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
     _getKickerDataFTSE100Aggregator = GetKickerDataFTSE100Aggregator
     _getKickerDataFTSE100Aggregator.main(
-        fetch_Kicker_intraday,
+        fetch_Kicker_use_datetime_format,
         fetch_FTSE100_D,
         fetch_FTSE100_W,
         fetch_FTSE100_M,
@@ -433,7 +449,7 @@ def main():
     # 4. Produce Kijun data
     _getIchimokuKijunDataFTSE250 = GetIchimokuKijunDataFTSE250
     _getIchimokuKijunDataFTSE250.main(
-        fetch_Kicker_intraday,
+        fetch_Kicker_use_datetime_format,
         fetch_FTSE250_D,
         fetch_FTSE250_W,
         fetch_FTSE250_M,
@@ -444,7 +460,7 @@ def main():
         GetIchimokuKijunDataFTSE250Aggregator
     )
     _getIchimokuKijunDataFTSE250Aggregator.main(
-        fetch_Kicker_intraday,
+        fetch_Kicker_use_datetime_format,
         fetch_FTSE250_D,
         fetch_FTSE250_W,
         fetch_FTSE250_M,
@@ -453,7 +469,7 @@ def main():
     # 5. Produce Kicker data
     _getKickerDataFTSE250 = GetKickerDataFTSE250
     _getKickerDataFTSE250.main(
-        fetch_Kicker_intraday,
+        fetch_Kicker_use_datetime_format,
         fetch_FTSE250_D,
         fetch_FTSE250_W,
         fetch_FTSE250_M,
@@ -462,7 +478,7 @@ def main():
     # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
     _getKickerDataFTSE250Aggregator = GetKickerDataFTSE250Aggregator
     _getKickerDataFTSE250Aggregator.main(
-        fetch_Kicker_intraday,
+        fetch_Kicker_use_datetime_format,
         fetch_FTSE250_D,
         fetch_FTSE250_W,
         fetch_FTSE250_M,
@@ -536,7 +552,7 @@ def main():
     # 5. Produce Kicker data
     _getKickerDataFutures = GetKickerDataFutures
     _getKickerDataFutures.main(
-        fetch_Kicker_intraday,
+        fetch_Kicker_use_datetime_format,
         fetch_Futures_D,
         fetch_Futures_W,
         fetch_Futures_M,
@@ -545,7 +561,7 @@ def main():
     # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
     _getKickerDataFuturesAggregator = GetKickerDataFuturesAggregator
     _getKickerDataFuturesAggregator.main(
-        fetch_Kicker_intraday,
+        fetch_Kicker_use_datetime_format,
         fetch_Futures_D,
         fetch_Futures_W,
         fetch_Futures_M,
@@ -643,7 +659,7 @@ def main():
     # 5. Produce Kicker data
     _getKickerDataFuturesCurrency = GetKickerDataFuturesCurrency
     _getKickerDataFuturesCurrency.main(
-        fetch_Kicker_intraday,
+        fetch_Kicker_use_datetime_format,
         fetch_CurrencyFutures_D,
         fetch_CurrencyFutures_W,
         fetch_CurrencyFutures_M,
@@ -654,7 +670,7 @@ def main():
         GetKickerDataFuturesCurrencyAggregator
     )
     _getKickerDataFuturesCurrencyAggregator.main(
-        fetch_Kicker_intraday,
+        fetch_Kicker_use_datetime_format,
         fetch_CurrencyFutures_D,
         fetch_CurrencyFutures_W,
         fetch_CurrencyFutures_M,
@@ -731,13 +747,19 @@ def main():
     # 5. Produce Kicker data
     _getKickerDataSPX500 = GetKickerDataSPX500
     _getKickerDataSPX500.main(
-        fetch_Kicker_intraday, fetch_SPX500_D, fetch_SPX500_W, fetch_SPX500_M
+        fetch_Kicker_use_datetime_format,
+        fetch_SPX500_D,
+        fetch_SPX500_W,
+        fetch_SPX500_M,
     )
 
     # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
     _getKickerDataSPX500Aggregator = GetKickerDataSPX500Aggregator
     _getKickerDataSPX500Aggregator.main(
-        fetch_Kicker_intraday, fetch_SPX500_D, fetch_SPX500_W, fetch_SPX500_M
+        fetch_Kicker_use_datetime_format,
+        fetch_SPX500_D,
+        fetch_SPX500_W,
+        fetch_SPX500_M,
     )
 
     print("Tasks completed.")

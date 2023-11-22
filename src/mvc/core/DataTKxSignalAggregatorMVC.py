@@ -13,7 +13,7 @@ class Model(object):
         __outputPath="",
         __assetClassName="",
         __csvColumnPrefix="",
-        __isIntraday=False,
+        __use_datetime_format=False,
     ):
         self.csvPath = __csvPath
         self.assetListPath = __assetListPath
@@ -22,7 +22,7 @@ class Model(object):
         self.resultList = None
         self.resultDataFrame = None
         self.csvColumnPrefix = __csvColumnPrefix
-        self.isIntraday = __isIntraday
+        self.use_datetime_format = __use_datetime_format
 
     @property
     def resultList(self):
@@ -104,7 +104,7 @@ class Model(object):
         self.resultList = list_result
         return list_result
 
-    def getLatestResultFromEachDataFrame_intraday(self):
+    def getLatestResultFromEachDataFrame_use_datetime_format(self):
         symbols = self.readAssetList(self.assetListPath)
         # print("------------------",symbols)
         dict_df = self.readLocalCsvData(
@@ -135,7 +135,7 @@ class Model(object):
         return list_result
 
     def getColumns(self):
-        if self.isIntraday:
+        if self.use_datetime_format:
             return [
                 "Datetime",
                 "Symbol",
@@ -197,11 +197,15 @@ class Control(object):
         self.view = view
 
     def getData(self):
-        print("self.model.isIntraday::", self.model.isIntraday)
-        if self.model.isIntraday is False:
+        print(
+            "self.model.use_datetime_format::", self.model.use_datetime_format
+        )
+        if self.model.use_datetime_format is False:
             return self.model.getLatestResultFromEachDataFrame()
         else:
-            return self.model.getLatestResultFromEachDataFrame_intraday()
+            return (
+                self.model.getLatestResultFromEachDataFrame_use_datetime_format()
+            )
 
     def exportResult(self, __list_result):
         return self.model.exportResult(__list_result)

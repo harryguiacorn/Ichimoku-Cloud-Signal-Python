@@ -9,12 +9,14 @@ class DataOHLC(ABC):
 
 
 class DataCloudSignal(DataOHLC):
-    def __init__(self, __symbol, __csvPath, __isIntraday=False):
+    def __init__(self, __symbol, __csvPath, __use_datetime_format=False):
         self.symbol = __symbol
         self.csvPath = __csvPath
-        self.isIntraday = __isIntraday
+        self.use_datetime_format = __use_datetime_format
 
-    def setupPd_intraday(self, csvSuffix="_cloud.csv", folderPath="data/"):
+    def setupPd_use_datetime_format(
+        self, csvSuffix="_cloud.csv", folderPath="data/"
+    ):
         # pd.set_option("display.max_rows", None)  # print every row for debug
         # pd.set_option(
         #     "display.max_columns", None
@@ -54,7 +56,7 @@ class DataCloudSignal(DataOHLC):
                     "Cloud Signal Count"
                 ].astype("int64")
 
-                self.setColumnsSaveCsv_intraday(__data)
+                self.setColumnsSaveCsv_use_datetime_format(__data)
                 # print(__data)
         except pd.errors.EmptyDataError:
             print("CSV file is empty", __path)
@@ -184,7 +186,9 @@ class DataCloudSignal(DataOHLC):
             self.csvPath + self.symbol + csvSuffix, columns=header, index=False
         )
 
-    def setColumnsSaveCsv_intraday(self, __data, csvSuffix="_cloudCount.csv"):
+    def setColumnsSaveCsv_use_datetime_format(
+        self, __data, csvSuffix="_cloudCount.csv"
+    ):
         header = [
             "Datetime",
             "Cloud Signal",
@@ -201,31 +205,31 @@ class DataCloudSignal(DataOHLC):
         pass
 
     def main(self):
-        if self.isIntraday is False:
+        if self.use_datetime_format is False:
             self.setupPd(
                 "_ichimokuTapy.csv"
             )  # _ichimokuPlotly _ichimokuTapy _ichimokuFinta
         else:
-            self.setupPd_intraday(
+            self.setupPd_use_datetime_format(
                 "_ichimokuTapy.csv"
             )  # _ichimokuPlotly _ichimokuTapy _ichimokuFinta
 
 
 class Model(object):
-    def __init__(self, __csvPath, __assetListPath, __isIntraday=False):
+    def __init__(self, __csvPath, __assetListPath, __use_datetime_format=False):
         self.csvPath = __csvPath
         self.assetListPath = __assetListPath
-        self.isIntraday = __isIntraday
+        self.use_datetime_format = __use_datetime_format
         self.symbols = None
         self.dataOHLC = None
 
     @property
-    def isIntraday(self):
-        return self.__isIntraday
+    def use_datetime_format(self):
+        return self.__use_datetime_format
 
-    @isIntraday.setter
-    def isIntraday(self, __isIntraday):
-        self.__isIntraday = __isIntraday
+    @use_datetime_format.setter
+    def use_datetime_format(self, __use_datetime_format):
+        self.__use_datetime_format = __use_datetime_format
 
     @property
     def symbol(self):
@@ -278,7 +282,7 @@ class Model(object):
             # print(
             #     "getIndividualSymbolData: ", __symbol, self.csvPath, end=", "
             # )
-            dataP = DataCloudSignal(__symbol, self.csvPath, self.isIntraday)
+            dataP = DataCloudSignal(__symbol, self.csvPath, self.use_datetime_format)
             dataP.main()
         print("Cloud signal count csv files are created\n")
 

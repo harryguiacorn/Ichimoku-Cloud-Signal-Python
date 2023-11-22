@@ -9,19 +9,23 @@ def main(
     fetchMonthlyData=False,
 ):
     if fetch1HData:
-        _model = Model("data/futures/1h/", "asset_list/Futures.csv", True)
+        _model = Model("data/oanda/1h/", "asset_list/Oanda.csv", True)
+        _control = Control(_model, View())
+        _control.main()
+    if fetch4HData:
+        _model = Model("data/oanda/4h/", "asset_list/Oanda.csv", True)
         _control = Control(_model, View())
         _control.main()
     if fetchDailyData:
-        _model = Model("data/futures/d/", "asset_list/Futures.csv")
+        _model = Model("data/oanda/d/", "asset_list/Oanda.csv", True)
         _control = Control(_model, View())
         _control.main()
     if fetchWeeklyData:
-        _model = Model("data/futures/w/", "asset_list/Futures.csv")
+        _model = Model("data/oanda/w/", "asset_list/Oanda.csv", True)
         _control = Control(_model, View())
         _control.main()
     if fetchMonthlyData:
-        _model = Model("data/futures/m/", "asset_list/Futures.csv")
+        _model = Model("data/oanda/m/", "asset_list/Oanda.csv", True)
         _control = Control(_model, View())
         _control.main()
 

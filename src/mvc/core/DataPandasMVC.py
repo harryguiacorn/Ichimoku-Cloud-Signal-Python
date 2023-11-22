@@ -5,7 +5,6 @@ from tapy import Indicators
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import yfinance as yf
-
 from src.mvc import Util
 
 

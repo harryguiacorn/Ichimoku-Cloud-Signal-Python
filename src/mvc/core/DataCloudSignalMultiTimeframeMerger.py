@@ -7,7 +7,6 @@ class Model(object):
     def __init__(self, __outputPathList="", __outputMergePath="") -> None:
         self.outputPathList = __outputPathList
         self.outputMergePath = __outputMergePath
-        pass
 
     def merge(self) -> pd.DataFrame:
         print("------------- Merging Multi Timeframe Cloud -------------")
@@ -26,7 +25,11 @@ class Model(object):
             # print("path", x)
             df_csv1 = pd.read_csv(x)
             # Drop the "Date" column
-            df_csv1 = df_csv1.drop(columns=["Date"])
+            if "Date" in df_csv1.columns:
+                df_csv1 = df_csv1.drop(columns=["Date"])
+            elif "Datetime" in df_csv1.columns:
+                df_csv1 = df_csv1.drop(columns=["Datetime"])
+
             if combined_csv.empty:
                 combined_csv = df_csv1
             else:
