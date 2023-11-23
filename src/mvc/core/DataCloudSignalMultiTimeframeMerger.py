@@ -1,12 +1,20 @@
 import pandas as pd
-
+import itertools
 from src.mvc import Util
 
 
 class Model(object):
-    def __init__(self, __outputPathList="", __outputMergePath="") -> None:
+    def __init__(
+        self,
+        __outputPathList: str = "",
+        __outputMergePath: str = "",
+        __list_direction_count_names: list = [],
+        __list_score_names: list = [],
+    ) -> None:
         self.outputPathList = __outputPathList
         self.outputMergePath = __outputMergePath
+        self.list_direction_count_names = __list_direction_count_names
+        self.list_score_names = __list_score_names
 
     def merge(self) -> pd.DataFrame:
         print("------------- Merging Multi Timeframe Cloud -------------")
@@ -60,26 +68,65 @@ class Model(object):
         return df_result
 
     def saveData(self, __df: pd.DataFrame) -> pd.DataFrame:
-        __df.sort_values(by=["Cloud Score Sum"], ascending=False, inplace=True)
+        if "Cloud Score Sum" in __df:
+            __df.sort_values(
+                by=["Cloud Score Sum"], ascending=False, inplace=True
+            )
+        print("------ Cleaning columns ------")
+        # filter through columns in df and output Score columns
+        __filter_list_column = [
+            x for x in __df.columns if x in self.list_score_names
+        ]
 
-        __df.to_csv(f"{self.outputMergePath}", index=False)
+        # add Symbol and Name columns in the front
+        __filter_list_column.insert(0, "Symbol")
+        __filter_list_column.insert(1, "Name")
+        print("Available columns: ", __filter_list_column)
+
+        # Filter columns based on the list of column names
+        __df = __df[__filter_list_column]
+
+        __df.to_csv(
+            f"{self.outputMergePath}",
+            columns=__filter_list_column,
+            index=False,
+        )
 
         __df.to_html(f"{self.outputMergePath}.html", index=False)
 
-        # print("__df:", __df)
-
+        print(
+            f"Saved data to: {self.outputMergePath} {self.outputMergePath}.html\n"
+        )
+        print(
+            "----------- Cloud Score Multi Timeframe Final View -----------\n",
+            __df,
+        )
         return __df
 
-    def create_sum_column(self, df: pd.DataFrame):
-        # Add the three columns and create a new column 'Sum_Columns'
-        df["Cloud Score Sum"] = (
-            df["1D Cloud Direction"] * df["1D Cloud Count"]
-            + df["1W Cloud Direction"] * df["1W Cloud Count"]
-            + df["1M Cloud Direction"] * df["1M Cloud Count"]
-        )
+    def create_sum_column(
+        self, df: pd.DataFrame, list_for_merge: list, name_sum="Sum"
+    ):
+        # check if a list of columns for Cloud direction or Count exists in df.
+        if set(list_for_merge).issubset(df.columns):
+            df[name_sum] = df[list_for_merge[0]] * df[list_for_merge[1]]
+            print(
+                "All specified columns exist.",
+                # df[name_sum],
+                # df[list_for_merge[0]],
+                # df[list_for_merge[1]],
+                # sep=", ",
+                # end="\n",
+            )
+        else:
+            print("At least one column is missing.", end="\n\n")
+            # df[name_sum] = 0
+        return df
 
+    def create_sum_columns(self, df: pd.DataFrame):
+        for i, __list in enumerate(self.list_direction_count_names):
+            df = self.create_sum_column(df, __list, self.list_score_names[i])
         print(
-            "-------------------- Cloud Score --------------------\n",
+            "-------------------- Cloud Score Multi Timeframe Raw --------------------\n",
             df,
             end="\n\n",
         )
@@ -92,14 +139,14 @@ class Control(object):
 
     def main(self):
         df = self.merge()
-        self.create_sum_column(df)
+        self.create_sum_columns(df)
         self.saveData(df)
 
     def merge(self):
         return self.model.merge()
 
-    def create_sum_column(self, df):
-        self.model.create_sum_column(df)
+    def create_sum_columns(self, df):
+        self.model.create_sum_columns(df)
 
     def saveData(self, df):
         self.model.saveData(df)

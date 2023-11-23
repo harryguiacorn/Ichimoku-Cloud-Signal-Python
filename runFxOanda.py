@@ -11,17 +11,17 @@ from src.mvc.controllers import (
 )
 
 
-fetch_symbols_latest = True
+fetch_symbols_latest = False
 
-fetch_ForexOanda_1H = True
+fetch_ForexOanda_1H = False
 
 fetch_ForexOanda_4H = True
 
 fetch_ForexOanda_D = True
 
-fetch_ForexOanda_W = True
+fetch_ForexOanda_W = False
 
-fetch_ForexOanda_M = True
+fetch_ForexOanda_M = False
 
 fetch_Kicker_use_datetime_format = False
 
