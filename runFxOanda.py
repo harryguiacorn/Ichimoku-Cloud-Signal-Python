@@ -9,15 +9,13 @@ from src.mvc.controllers import (
 )
 
 
-fetch_symbols_latest = False
-
-fetch_ForexOanda_1H = False
+fetch_ForexOanda_1H = True
 
 fetch_ForexOanda_4H = True
 
 fetch_ForexOanda_D = True
 
-fetch_ForexOanda_W = False
+fetch_ForexOanda_W = True
 
 fetch_ForexOanda_M = False
 
