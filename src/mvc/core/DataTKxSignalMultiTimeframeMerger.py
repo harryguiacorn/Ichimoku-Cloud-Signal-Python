@@ -1,13 +1,19 @@
 import pandas as pd
-
 from src.mvc import Util
 
 
 class Model(object):
-    def __init__(self, __outputPathList="", __outputMergePath="") -> None:
+    def __init__(
+        self,
+        __outputPathList: str = "",
+        __outputMergePath: str = "",
+        __list_direction_count_names: list = [],
+        __list_score_names: list = [],
+    ) -> None:
         self.outputPathList = __outputPathList
         self.outputMergePath = __outputMergePath
-        pass
+        self.list_direction_count_names = __list_direction_count_names
+        self.list_score_names = __list_score_names
 
     def merge(self) -> pd.DataFrame:
         print("------------- Merging Multi Timeframe TKx -------------")
@@ -26,7 +32,11 @@ class Model(object):
             # print("path", x)
             df_csv1 = pd.read_csv(x)
             # Drop the "Date" column
-            df_csv1 = df_csv1.drop(columns=["Date"])
+            if "Date" in df_csv1.columns:
+                df_csv1 = df_csv1.drop(columns=["Date"])
+            elif "Datetime" in df_csv1.columns:
+                df_csv1 = df_csv1.drop(columns=["Datetime"])
+
             if combined_csv.empty:
                 combined_csv = df_csv1
             else:
@@ -57,29 +67,82 @@ class Model(object):
         return df_result
 
     def saveData(self, __df: pd.DataFrame) -> pd.DataFrame:
-        __df.sort_values(by=["TKx Score Sum"], ascending=False, inplace=True)
+        if "TKx Score Sum" in __df:
+            __df.sort_values(
+                by=["TKx Score Sum"], ascending=False, inplace=True
+            )
+        print("------ Cleaning columns ------")
+        # filter through columns in df and output Score columns
+        __filter_list_column = [
+            x for x in __df.columns if x in self.list_score_names
+        ]
 
-        __df.to_csv(f"{self.outputMergePath}", index=False)
+        # add Symbol and Name columns in the front of the list
+        __filter_list_column.insert(0, "Symbol")
+        __filter_list_column.insert(1, "Name")
+        print("Available columns: ", __filter_list_column)
+
+        # Filter columns based on the list of column names
+        print(__df)
+        __df = __df[__filter_list_column]
+
+        __df.to_csv(
+            f"{self.outputMergePath}",
+            columns=__filter_list_column,
+            index=False,
+        )
 
         __df.to_html(f"{self.outputMergePath}.html", index=False)
 
-        # print("__df:", __df)
-
+        print(
+            f"Saved data to: {self.outputMergePath} {self.outputMergePath}.html\n"
+        )
+        print(
+            "----------- TKx Score Multi Timeframe Final View -----------\n",
+            __df,
+        )
         return __df
 
-    def create_sum_column(self, df: pd.DataFrame):
-        # Add the three columns and create a new column 'Sum_Columns'
-        df["TKx Score Sum"] = (
-            df["1D TKx Direction"] * df["1D TKx Count"]
-            + df["1W TKx Direction"] * df["1W TKx Count"]
-            + df["1M TKx Direction"] * df["1M TKx Count"]
-        )
+    def create_score_column(
+        self, df: pd.DataFrame, list_for_merge: list, name_sum="Sum"
+    ):
+        # check if a list of columns for TKx direction or Count exists in df.
+        if set(list_for_merge).issubset(df.columns):
+            df[name_sum] = df[list_for_merge[0]] * df[list_for_merge[1]]
+            print(
+                "All specified columns exist.",
+                # df[name_sum],
+                # df[list_for_merge[0]],
+                # df[list_for_merge[1]],
+                # sep=", ",
+                # end="\n",
+            )
+        else:
+            print("At least one column is missing.", end="\n\n")
+            # df[name_sum] = 0
+        return df
 
+    def create_score_columns(self, df: pd.DataFrame):
+        for i, __list in enumerate(self.list_direction_count_names):
+            df = self.create_score_column(df, __list, self.list_score_names[i])
         print(
-            "-------------------- TKx Score --------------------\n",
+            "-------------------- TKx Score Multi Timeframe Raw --------------------\n",
             df,
             end="\n\n",
         )
+
+    def create_sum_column(self, df: pd.DataFrame):
+        print(
+            "create_sum_column self.list_score_names: ", self.list_score_names
+        )
+        print("create_sum_column df.columns", df.columns)
+        __sum = 0
+        for __name in self.list_score_names:
+            if __name in df.columns:
+                __sum += df[__name]
+                print(__name, __sum)
+        df["TKx Score Sum"] = __sum
+        return df
 
 
 class Control(object):
@@ -89,14 +152,19 @@ class Control(object):
 
     def main(self):
         df = self.merge()
+        self.create_score_columns(df)
         self.create_sum_column(df)
+
         self.saveData(df)
 
     def merge(self):
         return self.model.merge()
 
+    def create_score_columns(self, df):
+        self.model.create_score_columns(df)
+
     def create_sum_column(self, df):
-        self.model.create_sum_column(df)
+        return self.model.create_sum_column(df)
 
     def saveData(self, df):
         self.model.saveData(df)

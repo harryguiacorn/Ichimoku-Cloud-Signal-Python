@@ -1,5 +1,4 @@
 import pandas as pd
-import itertools
 from src.mvc import Util
 
 
@@ -78,12 +77,13 @@ class Model(object):
             x for x in __df.columns if x in self.list_score_names
         ]
 
-        # add Symbol and Name columns in the front
+        # add Symbol and Name columns in the front of the list
         __filter_list_column.insert(0, "Symbol")
         __filter_list_column.insert(1, "Name")
         print("Available columns: ", __filter_list_column)
 
         # Filter columns based on the list of column names
+        print(__df)
         __df = __df[__filter_list_column]
 
         __df.to_csv(
@@ -103,7 +103,7 @@ class Model(object):
         )
         return __df
 
-    def create_sum_column(
+    def create_score_column(
         self, df: pd.DataFrame, list_for_merge: list, name_sum="Sum"
     ):
         # check if a list of columns for Cloud direction or Count exists in df.
@@ -122,14 +122,27 @@ class Model(object):
             # df[name_sum] = 0
         return df
 
-    def create_sum_columns(self, df: pd.DataFrame):
+    def create_score_columns(self, df: pd.DataFrame):
         for i, __list in enumerate(self.list_direction_count_names):
-            df = self.create_sum_column(df, __list, self.list_score_names[i])
+            df = self.create_score_column(df, __list, self.list_score_names[i])
         print(
             "-------------------- Cloud Score Multi Timeframe Raw --------------------\n",
             df,
             end="\n\n",
         )
+
+    def create_sum_column(self, df: pd.DataFrame):
+        print(
+            "create_sum_column self.list_score_names: ", self.list_score_names
+        )
+        print("create_sum_column df.columns", df.columns)
+        __sum = 0
+        for __name in self.list_score_names:
+            if __name in df.columns:
+                __sum += df[__name]
+                print(__name, __sum)
+        df["Cloud Score Sum"] = __sum
+        return df
 
 
 class Control(object):
@@ -139,14 +152,19 @@ class Control(object):
 
     def main(self):
         df = self.merge()
-        self.create_sum_columns(df)
+        self.create_score_columns(df)
+        self.create_sum_column(df)
+
         self.saveData(df)
 
     def merge(self):
         return self.model.merge()
 
-    def create_sum_columns(self, df):
-        self.model.create_sum_columns(df)
+    def create_score_columns(self, df):
+        self.model.create_score_columns(df)
+
+    def create_sum_column(self, df):
+        return self.model.create_sum_column(df)
 
     def saveData(self, df):
         self.model.saveData(df)

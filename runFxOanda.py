@@ -3,11 +3,9 @@ from src.mvc.controllers import (
     GetIchimokuCloudDataOanda,
     GetIchimokuCloudDataOandaAggregator,
     GetIchimokuCloudDataOandaMultiTFMerger,
-    # GetIchimokuCloudDataForexOandaMerger,
-    # GetIchimokuKijunDataForexOanda,
-    # GetIchimokuKijunDataForexOandaAggregator,
-    # GetKickerDataForexOanda,
-    # GetKickerDataForexOandaAggregator,
+    GetIchimokuTKxDataOanda,
+    GetIchimokuTKxDataOandaAggregator,
+    GetIchimokuTKxDataOandaMultiTFMerger,
 )
 
 
@@ -24,6 +22,8 @@ fetch_ForexOanda_W = False
 fetch_ForexOanda_M = False
 
 fetch_Kicker_use_datetime_format = False
+
+run_Multi_TimeFrame_Merger_Oanda = True
 
 
 def main():
@@ -69,39 +69,32 @@ def main():
     )
     _getIchimokuCloudDataOandaMultiTFMerger.main()
 
-    return
-    _getIchimokuKijunDataForexOanda = GetIchimokuKijunDataForexOanda
-    _getIchimokuKijunDataForexOanda.main(
+    # 3.3 Produce Ichimoku TK Cross data
+    _getIchimokuTKxDataOanda = GetIchimokuTKxDataOanda
+    _getIchimokuTKxDataOanda.main(
         fetch_ForexOanda_1H,
+        fetch_ForexOanda_4H,
         fetch_ForexOanda_D,
         fetch_ForexOanda_W,
         fetch_ForexOanda_M,
     )
 
-    _getIchimokuKijunDataForexOandaAggregator = (
-        GetIchimokuKijunDataForexOandaAggregator
-    )
-    _getIchimokuKijunDataForexOandaAggregator.main(
+    # 3.4 Combine latest TK Cross signals from all symbols into one spreadsheet
+    _getIchimokuTKxDataOandaAggregator = GetIchimokuTKxDataOandaAggregator
+    _getIchimokuTKxDataOandaAggregator.main(
         fetch_ForexOanda_1H,
+        fetch_ForexOanda_4H,
         fetch_ForexOanda_D,
         fetch_ForexOanda_W,
         fetch_ForexOanda_M,
     )
 
-    _getKickerDataForexOanda = GetKickerDataForexOanda
-    _getKickerDataForexOanda.main(
-        fetch_Kicker_use_datetime_format,
-        fetch_ForexOanda_D,
-        fetch_ForexOanda_W,
-        fetch_ForexOanda_M,
+    # 3.5 Merge Multi Time Frame TKx signals
+    _getIchimokuTKxDataOandaMultiTFMerger = (
+        GetIchimokuTKxDataOandaMultiTFMerger
     )
-
-    _getKickerDataForexOandaAggregator = GetKickerDataForexOandaAggregator
-    _getKickerDataForexOandaAggregator.main(
-        fetch_Kicker_use_datetime_format,
-        fetch_ForexOanda_D,
-        fetch_ForexOanda_W,
-        fetch_ForexOanda_M,
+    _getIchimokuTKxDataOandaMultiTFMerger.main(
+        run_Multi_TimeFrame_Merger_Oanda
     )
 
     print(f"Tasks completed.")

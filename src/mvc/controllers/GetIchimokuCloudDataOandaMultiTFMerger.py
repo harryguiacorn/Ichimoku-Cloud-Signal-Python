@@ -29,6 +29,7 @@ def main(run_merger=True):
                 "1D Cloud Score",
                 "1W Cloud Score",
                 "1M Cloud Score",
+                "Cloud Score Sum",
             ],
         )
         _control = Control(_model, View())
