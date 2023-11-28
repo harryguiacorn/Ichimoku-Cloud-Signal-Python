@@ -83,7 +83,7 @@ class Model(object):
         print("Available columns: ", __filter_list_column)
 
         # Filter columns based on the list of column names
-        print(__df)
+        # print(__df)
         __df = __df[__filter_list_column]
 
         __df.to_csv(
@@ -140,7 +140,7 @@ class Model(object):
         for __name in self.list_score_names:
             if __name in df.columns:
                 __sum += df[__name]
-                print(__name, __sum)
+                # print(__name, __sum)
         df["TKx Score Sum"] = __sum
         return df
 

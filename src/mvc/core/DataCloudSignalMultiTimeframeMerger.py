@@ -83,7 +83,7 @@ class Model(object):
         print("Available columns: ", __filter_list_column)
 
         # Filter columns based on the list of column names
-        print(__df)
+        # print(__df)
         __df = __df[__filter_list_column]
 
         __df.to_csv(
