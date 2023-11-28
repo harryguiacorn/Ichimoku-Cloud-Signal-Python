@@ -217,6 +217,9 @@ class Model(object):
         self.__assetListPath = __assetListPath
 
     def readAssetList(self, __csvPath, __colName="symbol"):
+        print(
+            f"-------------------- Generating TKx Signals from {__csvPath} --------------------"
+        )
         df = pd.read_csv(__csvPath)
         # print(df.to_string())
         l_symbol = df[__colName].tolist()
@@ -271,9 +274,6 @@ class Control(object):
         self.model.getIndividualSymbolData()
 
     def main(self):
-        print(
-            "-------------------- Generating TKx Signals --------------------"
-        )
         self.getAssetList()
         self.getBatchLocalData()
         self.getIndividualSymbolData()

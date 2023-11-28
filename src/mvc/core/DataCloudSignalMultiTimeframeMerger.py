@@ -140,7 +140,7 @@ class Model(object):
         for __name in self.list_score_names:
             if __name in df.columns:
                 __sum += df[__name]
-                print(__name, __sum)
+                # print(__name, __sum)
         df["Cloud Score Sum"] = __sum
         return df
 
