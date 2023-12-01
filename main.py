@@ -92,7 +92,13 @@ from src.mvc.controllers import (
 )
 
 
-fetch_symbols_latest = True
+fetch_symbols_latest_DJ30 = True
+fetch_symbols_latest_SPX500 = True
+fetch_symbols_latest_Nas100 = True
+fetch_symbols_latest_FTSE100 = True
+fetch_symbols_latest_FTSE250 = True
+fetch_symbols_latest_Futures = True
+fetch_symbols_latest_CurrencyFutures = True
 
 fetch_DJ30_1H = True
 fetch_SPX500_1H = True
@@ -150,7 +156,7 @@ def main():
 
     # 1. Grab latest symbols
     _getSymbolDowJones30 = GetSymbolDowJones30
-    _getSymbolDowJones30.main(fetch_symbols_latest)
+    _getSymbolDowJones30.main(fetch_symbols_latest_DJ30)
 
     # 2. Download latest OHLC data for each symbol
     _getDataDJ30 = GetDataDJ30
@@ -240,7 +246,7 @@ def main():
 
     # 1. Grab latest symbols
     _getSymbolNAS100 = GetSymbolNAS100
-    _getSymbolNAS100.main(fetch_symbols_latest)
+    _getSymbolNAS100.main(fetch_symbols_latest_Nas100)
 
     # 2. Download latest OHLC data for each symbol
     _getDataNas100 = GetDataNas100
@@ -340,7 +346,7 @@ def main():
 
     # 1. Grab latest symbols
     _getSymbolFTSE100 = GetSymbolFTSE100
-    _getSymbolFTSE100.main(fetch_symbols_latest)
+    _getSymbolFTSE100.main(fetch_symbols_latest_FTSE100)
 
     # 2. Download latest OHLC data for each symbol
     _getDataFTSE100 = GetDataFTSE100
@@ -395,7 +401,7 @@ def main():
         GetIchimokuSumCloudTKxDataFTSE100MultiTFMerger
     )
     _getIchimokuSumCloudTKxDataFTSE100MultiTFMerger.main(
-        run_Multi_TimeFrame_Merger_Nas100
+        run_Multi_TimeFrame_Merger_FTSE100
     )
 
     # 4. Produce Kijun data
@@ -440,7 +446,7 @@ def main():
 
     # 1. Grab latest symbols
     _getSymbolFTSE250 = GetSymbolFTSE250
-    _getSymbolFTSE250.main(fetch_symbols_latest)
+    _getSymbolFTSE250.main(fetch_symbols_latest_FTSE250)
 
     # 2. Download latest OHLC data for each symbol
     _getDataFTSE250 = GetDataFTSE250
@@ -495,7 +501,7 @@ def main():
         GetIchimokuSumCloudTKxDataFTSE250MultiTFMerger
     )
     _getIchimokuSumCloudTKxDataFTSE250MultiTFMerger.main(
-        run_Multi_TimeFrame_Merger_Nas100
+        run_Multi_TimeFrame_Merger_FTSE250
     )
 
     # 4. Produce Kijun data
@@ -539,7 +545,7 @@ def main():
 
     # 1. Grab latest symbols
     _getSymbolFutures = GetSymbolFutures
-    _getSymbolFutures.main(fetch_symbols_latest)
+    _getSymbolFutures.main(fetch_symbols_latest_Futures)
 
     # 2. Download latest OHLC data for each symbol
     _getDataFutures = GetDataFutures
@@ -592,7 +598,7 @@ def main():
         GetIchimokuSumCloudTKxDataFuturesMultiTFMerger
     )
     _getIchimokuSumCloudTKxDataFuturesMultiTFMerger.main(
-        run_Multi_TimeFrame_Merger_Nas100
+        run_Multi_TimeFrame_Merger_Futures
     )
 
     # 4. Produce Kijun data
@@ -707,7 +713,7 @@ def main():
         GetIchimokuSumCloudTKxDataFuturesCurrencyMultiTFMerger
     )
     _getIchimokuSumCloudTKxDataFuturesCurrencyMultiTFMerger.main(
-        run_Multi_TimeFrame_Merger_Nas100
+        run_Multi_TimeFrame_Merger_CurrencyFutures
     )
 
     # 4. Produce Kijun data
@@ -754,7 +760,7 @@ def main():
 
     # 1. Grab latest symbols
     _getSymbolSPX500 = GetSymbolSPX500
-    _getSymbolSPX500.main(fetch_symbols_latest)
+    _getSymbolSPX500.main(fetch_symbols_latest_SPX500)
 
     # 2. Download latest OHLC data for each symbol
     _getDataSPX500 = GetDataSPX500
@@ -809,7 +815,7 @@ def main():
         GetIchimokuSumCloudTKxDataSPX500MultiTFMerger
     )
     _getIchimokuSumCloudTKxDataSPX500MultiTFMerger.main(
-        run_Multi_TimeFrame_Merger_Nas100
+        run_Multi_TimeFrame_Merger_SPX500
     )
 
     # 4. Produce Kijun data

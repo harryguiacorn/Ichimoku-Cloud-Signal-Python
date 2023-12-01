@@ -1,7 +1,7 @@
 from genericpath import isdir
 import os
 import pandas as pd
-
+from typing import Dict
 from src.mvc import Util
 
 
@@ -37,7 +37,8 @@ class Model(object):
         self.__resultDataFrame = __df
 
     def readLocalCsvData(self, symbols, __csvPath, __suffix):
-        __dict_df = {}
+        __dict_df: Dict[str, pd.DataFrame] = {}
+
         for __symbol in symbols:
             try:
                 __filePath = __csvPath + __symbol + __suffix + ".csv"
@@ -62,7 +63,7 @@ class Model(object):
 
     def getLatestResultFromEachDataFrame(self):
         symbols = self.readAssetList(self.assetListPath)
-        # print("------------------",symbols)
+        # print(f"Reading")
         dict_df = self.readLocalCsvData(
             symbols["symbol"], self.csvPath, "_kicker"
         )
@@ -70,6 +71,14 @@ class Model(object):
         list_result = []
         for __symbol, __value in dict_df.items():
             try:
+                # check if yahoo finance gives empty data
+                if __value.empty:
+                    print(
+                        f"------------{__symbol} TKx value empty --------------",
+                        __value.empty,
+                    )
+                    continue
+
                 # get latest direction sits at the bottom of dataframe
                 __colSize = __value["Kicker"].size
                 print(
