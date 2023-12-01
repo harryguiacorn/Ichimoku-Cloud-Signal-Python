@@ -6,6 +6,7 @@ from src.mvc.controllers import (
     GetIchimokuTKxDataOanda,
     GetIchimokuTKxDataOandaAggregator,
     GetIchimokuTKxDataOandaMultiTFMerger,
+    GetIchimokuSumCloudTKxDataOandaMultiTFMerger,
 )
 
 
@@ -95,7 +96,15 @@ def main():
         run_Multi_TimeFrame_Merger_Oanda
     )
 
-    print(f"Tasks completed.")
+    # 3.6 Merge Multi Time Frame Cloud and TKx Sum signals
+    _getIchimokuSumCloudTKxDataOandaMultiTFMerger = (
+        GetIchimokuSumCloudTKxDataOandaMultiTFMerger
+    )
+    _getIchimokuSumCloudTKxDataOandaMultiTFMerger.main(
+        run_Multi_TimeFrame_Merger_Oanda
+    )
+
+    print(f"\nTasks completed.")
 
 
 if __name__ == "__main__":

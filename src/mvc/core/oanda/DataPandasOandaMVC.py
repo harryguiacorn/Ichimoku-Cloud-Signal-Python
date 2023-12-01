@@ -162,7 +162,7 @@ class Model(object):
         __dict_df_ichimoku = {}
         for __key, __df in __dict_df.items():
             # initialising indicators
-            print(__df)
+            # print(__df)
             __i = Indicators(__df)
             __i.ichimoku_kinko_hyo()  # column_name_kijun_sen="K Line"
             __dataCloud = __i.df

@@ -133,9 +133,11 @@ class Model(object):
 
     def create_sum_column(self, df: pd.DataFrame):
         print(
-            "create_sum_column self.list_score_names: ", self.list_score_names
+            "create_sum_column self.list_score_names: ",
+            self.list_score_names,
+            "\ncreate_sum_column df.columns",
+            df.columns,
         )
-        print("create_sum_column df.columns", df.columns)
         __sum = 0
         for __name in self.list_score_names:
             if __name in df.columns:

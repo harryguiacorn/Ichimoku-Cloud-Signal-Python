@@ -217,7 +217,9 @@ class Control(object):
         return self.model.exportResultJSON(__list_result)
 
     def main(self):
-        print("----------- Creating TKx Signal Aggregator -----------")
+        print(
+            f"----------- Creating TKx Signal Aggregator {self.model.csvPath} -----------"
+        )
         list_result = self.getData()
         # print(list_result)
         df_result = self.exportResult(list_result)

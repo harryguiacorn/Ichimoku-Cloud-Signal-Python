@@ -216,7 +216,9 @@ class DataCloudSignal(DataOHLC):
 
 
 class Model(object):
-    def __init__(self, __csvPath, __assetListPath, __use_datetime_format=False):
+    def __init__(
+        self, __csvPath, __assetListPath, __use_datetime_format=False
+    ):
         self.csvPath = __csvPath
         self.assetListPath = __assetListPath
         self.use_datetime_format = __use_datetime_format
@@ -282,7 +284,9 @@ class Model(object):
             # print(
             #     "getIndividualSymbolData: ", __symbol, self.csvPath, end=", "
             # )
-            dataP = DataCloudSignal(__symbol, self.csvPath, self.use_datetime_format)
+            dataP = DataCloudSignal(
+                __symbol, self.csvPath, self.use_datetime_format
+            )
             dataP.main()
         print("Cloud signal count csv files are created\n")
 
@@ -309,7 +313,9 @@ class Control(object):
         self.model.getIndividualSymbolData()
 
     def main(self):
-        print("----------- Generating Cloud Signals -----------")
+        print(
+            f"----------- Generating Cloud Signals {self.model.csvPath} -----------"
+        )
         self.getAssetList()
         # print("----------- Generating Cloud Signals getBatchLocalData-----------")
         self.getBatchLocalData()

@@ -218,7 +218,7 @@ class Model(object):
 
     def readAssetList(self, __csvPath, __colName="symbol"):
         print(
-            f"-------------------- Generating TKx Signals from {__csvPath} --------------------"
+            f"\n-------------------- Generating TKx Signals from {self.csvPath} {__csvPath} --------------------"
         )
         df = pd.read_csv(__csvPath)
         # print(df.to_string())

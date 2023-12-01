@@ -762,7 +762,7 @@ def main():
         fetch_SPX500_M,
     )
 
-    print("Tasks completed.")
+    print("\nTasks completed.")
 
 
 if __name__ == "__main__":
