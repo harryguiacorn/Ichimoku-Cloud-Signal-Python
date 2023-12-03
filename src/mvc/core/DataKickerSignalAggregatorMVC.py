@@ -74,7 +74,7 @@ class Model(object):
                 # check if yahoo finance gives empty data
                 if __value.empty:
                     print(
-                        f"------------{__symbol} TKx value empty --------------",
+                        f"\n------------ {__symbol} TKx value empty --------------",
                         __value.empty,
                     )
                     continue
@@ -147,7 +147,7 @@ class Control(object):
         # return df_result
 
         self.view.showResultKCount(self.model.resultDataFrame)
-        print(f"\nAggregator {self.model.assetClassName}.csv is created\n")
+        print(f"Aggregator {self.model.assetClassName}.csv is created\n")
 
 
 class View(object):
@@ -161,7 +161,7 @@ if __name__ == "__main__":
     # _model = Model(
     #     "data/dowjones30/d/",
     #     "asset_list/DowJones30.csv",
-    #     "output/",
+    #     "output/kicker/",
     #     "Dow Jones 30-D",
     # )
     # _control = Control(_model, View())
@@ -170,7 +170,7 @@ if __name__ == "__main__":
     _model = Model(
         "data/dowjones30/w/",
         "asset_list/DowJones30.csv",
-        "output/",
+        "output/kicker/",
         "Dow Jones 30-W",
     )
     _control = Control(_model, View())

@@ -2,6 +2,13 @@ from genericpath import isdir
 import os
 
 
+def split_filepath(filepath):
+    filepath_without_filename, filename_with_extension = os.path.split(
+        filepath
+    )
+    return filepath_without_filename, filename_with_extension
+
+
 def file_exists(filename):
     if os.path.exists(filename) and os.path.isfile(filename):
         return True

@@ -66,7 +66,12 @@ class Model(object):
         self.resultDataFrame = df_result
         return df_result
 
-    def saveData(self, __df: pd.DataFrame) -> pd.DataFrame:
+    def saveData(
+        self,
+        __df: pd.DataFrame,
+        save_to_csv: bool = True,
+        save_to_html: bool = False,
+    ) -> pd.DataFrame:
         if "TKx Score Sum" in __df:
             __df.sort_values(
                 by=["TKx Score Sum"], ascending=False, inplace=True
@@ -86,13 +91,15 @@ class Model(object):
         # print(__df)
         __df = __df[__filter_list_column]
 
-        __df.to_csv(
-            f"{self.outputMergePath}",
-            columns=__filter_list_column,
-            index=False,
-        )
+        if save_to_csv:
+            __df.to_csv(
+                f"{self.outputMergePath}",
+                columns=__filter_list_column,
+                index=False,
+            )
 
-        __df.to_html(f"{self.outputMergePath}.html", index=False)
+        if save_to_html:
+            __df.to_html(f"{self.outputMergePath}.html", index=False)
 
         print(
             f"Saved data to: {self.outputMergePath} {self.outputMergePath}.html\n"

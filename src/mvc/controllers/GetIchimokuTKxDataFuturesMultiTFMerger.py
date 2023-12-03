@@ -5,12 +5,12 @@ def main(run_merger=True):
     if run_merger:
         _model = Model(
             [
-                "output/Futures-tkx-1H.csv",
-                "output/Futures-tkx-D.csv",
-                "output/Futures-tkx-W.csv",
-                "output/Futures-tkx-M.csv",
+                "output/tkx/Futures-tkx-1H.csv",
+                "output/tkx/Futures-tkx-D.csv",
+                "output/tkx/Futures-tkx-W.csv",
+                "output/tkx/Futures-tkx-M.csv",
             ],
-            "output/Futures-tkx-merged.csv",
+            "output/tkx/Futures-tkx-merged.csv",
             [
                 ["1H TKx Direction", "1H TKx Count"],
                 ["1D TKx Direction", "1D TKx Count"],

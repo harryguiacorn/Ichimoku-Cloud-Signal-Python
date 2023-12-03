@@ -11,7 +11,7 @@ def main(
         _model = Model(
             "data/ftse250/1h/",
             "asset_list/FTSE250.csv",
-            "output/",
+            "output/cloud/",
             "FTSE250-cloud-1H",
             "1H",
             True,
@@ -22,7 +22,7 @@ def main(
         _model = Model(
             "data/ftse250/d/",
             "asset_list/FTSE250.csv",
-            "output/",
+            "output/cloud/",
             "FTSE250-cloud-D",
             "1D",
         )
@@ -32,7 +32,7 @@ def main(
         _model = Model(
             "data/ftse250/w/",
             "asset_list/FTSE250.csv",
-            "output/",
+            "output/cloud/",
             "FTSE250-cloud-W",
             "1W",
         )
@@ -42,7 +42,7 @@ def main(
         _model = Model(
             "data/ftse250/m/",
             "asset_list/FTSE250.csv",
-            "output/",
+            "output/cloud/",
             "FTSE250-cloud-M",
             "1M",
         )

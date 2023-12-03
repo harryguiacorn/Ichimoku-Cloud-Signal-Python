@@ -9,12 +9,12 @@ def main(run_merger=True):
     if run_merger:
         _model = Model(
             [
-                "output/SPX500-cloud-1H.csv",
-                "output/SPX500-cloud-D.csv",
-                "output/SPX500-cloud-W.csv",
-                "output/SPX500-cloud-M.csv",
+                "output/cloud/SPX500-cloud-1H.csv",
+                "output/cloud/SPX500-cloud-D.csv",
+                "output/cloud/SPX500-cloud-W.csv",
+                "output/cloud/SPX500-cloud-M.csv",
             ],
-            "output/SPX500-cloud-merged.csv",
+            "output/cloud/SPX500-cloud-merged.csv",
             [
                 ["1H Cloud Direction", "1H Cloud Count"],
                 ["1D Cloud Direction", "1D Cloud Count"],

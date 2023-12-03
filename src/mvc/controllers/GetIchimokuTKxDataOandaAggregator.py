@@ -12,7 +12,7 @@ def main(
         _model = Model(
             "data/oanda/1h/",
             "asset_list/Oanda.csv",
-            "output/",
+            "output/tkx/",
             "Oanda-tkx-1H",
             "1H",
             True,
@@ -23,7 +23,7 @@ def main(
         _model = Model(
             "data/oanda/4h/",
             "asset_list/Oanda.csv",
-            "output/",
+            "output/tkx/",
             "Oanda-tkx-4H",
             "4H",
             True,
@@ -34,7 +34,7 @@ def main(
         _model = Model(
             "data/oanda/d/",
             "asset_list/Oanda.csv",
-            "output/",
+            "output/tkx/",
             "Oanda-tkx-D",
             "1D",
             True,
@@ -45,7 +45,7 @@ def main(
         _model = Model(
             "data/oanda/w/",
             "asset_list/Oanda.csv",
-            "output/",
+            "output/tkx/",
             "Oanda-tkx-W",
             "1W",
             True,
@@ -56,7 +56,7 @@ def main(
         _model = Model(
             "data/oanda/m/",
             "asset_list/Oanda.csv",
-            "output/",
+            "output/tkx/",
             "Oanda-tkx-M",
             "1M",
             True,

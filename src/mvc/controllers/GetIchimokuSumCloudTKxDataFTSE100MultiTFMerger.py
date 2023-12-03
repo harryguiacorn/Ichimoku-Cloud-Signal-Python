@@ -9,10 +9,10 @@ def main(run_merger=True):
     if run_merger:
         _model = Model(
             [
-                "output/FTSE100-cloud-merged.csv",
-                "output/FTSE100-tkx-merged.csv",
+                "output/cloud/FTSE100-cloud-merged.csv",
+                "output/tkx/FTSE100-tkx-merged.csv",
             ],
-            "output/FTSE100-sum-cloud-tkx-merged.csv",
+            "output/sum/FTSE100-sum-cloud-tkx-merged.csv",
             [
                 "Cloud Score Sum",
                 "TKx Score Sum",

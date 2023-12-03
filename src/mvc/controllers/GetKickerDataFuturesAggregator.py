@@ -11,7 +11,7 @@ def main(
         _model = Model(
             "data/futures/1h/",
             "asset_list/Futures.csv",
-            "output/",
+            "output/kicker/",
             "Futures-1H",
         )
         _control = Control(_model, View())
@@ -20,7 +20,7 @@ def main(
         _model = Model(
             "data/futures/d/",
             "asset_list/Futures.csv",
-            "output/",
+            "output/kicker/",
             "Futures-kicker-D",
         )
         _control = Control(_model, View())
@@ -29,7 +29,7 @@ def main(
         _model = Model(
             "data/futures/w/",
             "asset_list/Futures.csv",
-            "output/",
+            "output/kicker/",
             "Futures-kicker-W",
         )
         _control = Control(_model, View())
@@ -38,7 +38,7 @@ def main(
         _model = Model(
             "data/futures/m/",
             "asset_list/Futures.csv",
-            "output/",
+            "output/kicker/",
             "Futures-kicker-M",
         )
         _control = Control(_model, View())

@@ -11,7 +11,7 @@ def main(
         _model = Model(
             "data/futurescurrency/1h/",
             "asset_list/FuturesCurrency.csv",
-            "output/",
+            "output/tkx/",
             "FuturesCurrency-tkx-1H",
             "1H",
             True,
@@ -22,7 +22,7 @@ def main(
         _model = Model(
             "data/futurescurrency/d/",
             "asset_list/FuturesCurrency.csv",
-            "output/",
+            "output/tkx/",
             "FuturesCurrency-tkx-D",
             "1D",
         )
@@ -32,7 +32,7 @@ def main(
         _model = Model(
             "data/futurescurrency/w/",
             "asset_list/FuturesCurrency.csv",
-            "output/",
+            "output/tkx/",
             "FuturesCurrency-tkx-W",
             "1W",
         )
@@ -42,7 +42,7 @@ def main(
         _model = Model(
             "data/futurescurrency/m/",
             "asset_list/FuturesCurrency.csv",
-            "output/",
+            "output/tkx/",
             "FuturesCurrency-tkx-M",
             "1M",
         )

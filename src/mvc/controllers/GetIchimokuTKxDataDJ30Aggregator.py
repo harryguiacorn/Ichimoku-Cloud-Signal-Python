@@ -11,7 +11,7 @@ def main(
         _model = Model(
             "data/dowjones30/1h/",
             "asset_list/DowJones30.csv",
-            "output/",
+            "output/tkx/",
             "DowJones30-tkx-1H",
             "1H",
             True,
@@ -22,7 +22,7 @@ def main(
         _model = Model(
             "data/dowjones30/d/",
             "asset_list/DowJones30.csv",
-            "output/",
+            "output/tkx/",
             "DowJones30-tkx-D",
             "1D",
         )
@@ -32,7 +32,7 @@ def main(
         _model = Model(
             "data/dowjones30/w/",
             "asset_list/DowJones30.csv",
-            "output/",
+            "output/tkx/",
             "DowJones30-tkx-W",
             "1W",
         )
@@ -42,7 +42,7 @@ def main(
         _model = Model(
             "data/dowjones30/m/",
             "asset_list/DowJones30.csv",
-            "output/",
+            "output/tkx/",
             "DowJones30-tkx-M",
             "1M",
         )

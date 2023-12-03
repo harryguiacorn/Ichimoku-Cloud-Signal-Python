@@ -11,7 +11,7 @@ def main(
         _model = Model(
             "data/futures/1h/",
             "asset_list/Futures.csv",
-            "output/",
+            "output/tkx/",
             "Futures-tkx-1H",
             "1H",
             True,
@@ -22,7 +22,7 @@ def main(
         _model = Model(
             "data/futures/d/",
             "asset_list/Futures.csv",
-            "output/",
+            "output/tkx/",
             "Futures-tkx-D",
             "1D",
         )
@@ -32,7 +32,7 @@ def main(
         _model = Model(
             "data/futures/w/",
             "asset_list/Futures.csv",
-            "output/",
+            "output/tkx/",
             "Futures-tkx-W",
             "1W",
         )
@@ -42,7 +42,7 @@ def main(
         _model = Model(
             "data/futures/m/",
             "asset_list/Futures.csv",
-            "output/",
+            "output/tkx/",
             "Futures-tkx-M",
             "1M",
         )

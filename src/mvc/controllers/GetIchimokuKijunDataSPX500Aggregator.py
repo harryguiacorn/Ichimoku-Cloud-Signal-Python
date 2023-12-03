@@ -11,7 +11,7 @@ def main(
         _model = Model(
             "data/spx500/1h/",
             "asset_list/SPX500.csv",
-            "output/",
+            "output/kijun/",
             "SPX500-kijun-1H",
             True,
         )
@@ -21,7 +21,7 @@ def main(
         _model = Model(
             "data/spx500/d/",
             "asset_list/SPX500.csv",
-            "output/",
+            "output/kijun/",
             "SPX500-kijun-D",
         )
         _control = Control(_model, View())
@@ -30,7 +30,7 @@ def main(
         _model = Model(
             "data/spx500/w/",
             "asset_list/SPX500.csv",
-            "output/",
+            "output/kijun/",
             "SPX500-kijun-W",
         )
         _control = Control(_model, View())
@@ -39,7 +39,7 @@ def main(
         _model = Model(
             "data/spx500/m/",
             "asset_list/SPX500.csv",
-            "output/",
+            "output/kijun/",
             "SPX500-kijun-M",
         )
         _control = Control(_model, View())

@@ -5,13 +5,13 @@ def main(run_merger=True):
     if run_merger:
         _model = Model(
             [
-                "output/Oanda-tkx-1H.csv",
-                "output/Oanda-tkx-4H.csv",
-                "output/Oanda-tkx-D.csv",
-                "output/Oanda-tkx-W.csv",
-                "output/Oanda-tkx-M.csv",
+                "output/tkx/Oanda-tkx-1H.csv",
+                "output/tkx/Oanda-tkx-4H.csv",
+                "output/tkx/Oanda-tkx-D.csv",
+                "output/tkx/Oanda-tkx-W.csv",
+                "output/tkx/Oanda-tkx-M.csv",
             ],
-            "output/Oanda-tkx-merged.csv",
+            "output/tkx/Oanda-tkx-merged.csv",
             [
                 ["1H TKx Direction", "1H TKx Count"],
                 ["4H TKx Direction", "4H TKx Count"],

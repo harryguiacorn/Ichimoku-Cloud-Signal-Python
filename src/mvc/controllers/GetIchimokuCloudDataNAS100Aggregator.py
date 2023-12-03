@@ -11,7 +11,7 @@ def main(
         _model = Model(
             "data/nasdaq100/1h/",
             "asset_list/Nasdaq100.csv",
-            "output/",
+            "output/cloud/",
             "Nasdaq100-cloud-1H",
             "1H",
             True,
@@ -22,7 +22,7 @@ def main(
         _model = Model(
             "data/nasdaq100/d/",
             "asset_list/Nasdaq100.csv",
-            "output/",
+            "output/cloud/",
             "Nasdaq100-cloud-D",
             "1D",
         )
@@ -32,7 +32,7 @@ def main(
         _model = Model(
             "data/nasdaq100/w/",
             "asset_list/Nasdaq100.csv",
-            "output/",
+            "output/cloud/",
             "Nasdaq100-cloud-W",
             "1W",
         )
@@ -42,7 +42,7 @@ def main(
         _model = Model(
             "data/nasdaq100/m/",
             "asset_list/Nasdaq100.csv",
-            "output/",
+            "output/cloud/",
             "Nasdaq100-cloud-M",
             "1M",
         )

@@ -9,13 +9,13 @@ def main(run_merger=True):
     if run_merger:
         _model = Model(
             [
-                "output/Oanda-cloud-1H.csv",
-                "output/Oanda-cloud-4H.csv",
-                "output/Oanda-cloud-D.csv",
-                "output/Oanda-cloud-W.csv",
-                "output/Oanda-cloud-M.csv",
+                "output/cloud/Oanda-cloud-1H.csv",
+                "output/cloud/Oanda-cloud-4H.csv",
+                "output/cloud/Oanda-cloud-D.csv",
+                "output/cloud/Oanda-cloud-W.csv",
+                "output/cloud/Oanda-cloud-M.csv",
             ],
-            "output/Oanda-cloud-merged.csv",
+            "output/cloud/Oanda-cloud-merged.csv",
             [
                 ["1H Cloud Direction", "1H Cloud Count"],
                 ["4H Cloud Direction", "4H Cloud Count"],

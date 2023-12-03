@@ -1,5 +1,6 @@
 import pandas as pd
 from src.mvc import Util
+from src.mvc.html_creator import TableGenerator
 
 
 class Model(object):
@@ -67,20 +68,35 @@ class Model(object):
         self.resultDataFrame = df_result
         return df_result
 
-    def saveData(self, __df: pd.DataFrame) -> pd.DataFrame:
+    def saveData(
+        self,
+        __df: pd.DataFrame,
+        save_to_csv: bool = True,
+        save_to_html: bool = False,
+    ) -> pd.DataFrame:
         if self.list_score_names[0] in __df:
             __df.sort_values(
                 by=[self.list_score_names[0]], ascending=False, inplace=True
             )
         # print("------ Cleaning columns ------")
 
-        __df.to_csv(
-            f"{self.outputMergePath}",
-            # columns=__filter_list_column,
-            index=False,
-        )
+        (
+            filepath_without_filename,
+            filename_with_extension,
+        ) = Util.split_filepath(self.outputMergePath)
+        print("File path without filename:", filepath_without_filename)
+        print("File name with extension:", filename_with_extension)
 
-        __df.to_html(f"{self.outputMergePath}.html", index=False)
+        Util.create_folder(filepath_without_filename)
+
+        if save_to_csv:
+            __df.to_csv(
+                f"{self.outputMergePath}",
+                # columns=__filter_list_column,
+                index=False,
+            )
+        if save_to_html:
+            __df.to_html(f"{self.outputMergePath}.html", index=False)
 
         print(
             f"Saved data to: {self.outputMergePath} {self.outputMergePath}.html\n"
@@ -122,6 +138,7 @@ class Control(object):
         self.create_sum_column(df)
 
         self.saveData(df)
+        self.generate_html()
 
     def merge(self):
         return self.model.merge()
@@ -132,21 +149,28 @@ class Control(object):
     def saveData(self, df):
         self.model.saveData(df)
 
+    def generate_html(self):
+        self.view.generate_html(self.model.outputMergePath)
+
 
 class View(object):
     def __init__(self) -> None:
         pass
 
-    pass
+    def generate_html(self, csv_file_path: str):
+        table_generator = TableGenerator(csv_file_path)
+        html_table = table_generator.generate_html_table()
+        print("generate_html", csv_file_path)
+        table_generator.save_html_table(html_table, csv_file_path + ".html")
 
 
 if __name__ == "__main__":
     _model = Model(
         [
-            "output/Oanda-cloud-merged.csv",
-            "output/Oanda-tkx-merged.csv",
+            "output/sum/Oanda-cloud-merged.csv",
+            "output/sum/Oanda-tkx-merged.csv",
         ],
-        "output/Oanda-sum-cloud-tkx-merged.csv",
+        "output/sum/Oanda-sum-cloud-tkx-merged.csv",
         [
             "Cloud Score Sum",
             "TKx Score Sum",

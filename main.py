@@ -91,7 +91,6 @@ from src.mvc.controllers import (
     GetIchimokuSumCloudTKxDataSPX500MultiTFMerger,
 )
 
-
 fetch_symbols_latest_DJ30 = True
 fetch_symbols_latest_SPX500 = True
 fetch_symbols_latest_Nas100 = True

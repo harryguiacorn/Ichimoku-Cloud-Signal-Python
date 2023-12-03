@@ -9,12 +9,12 @@ def main(run_merger=True):
     if run_merger:
         _model = Model(
             [
-                "output/Nasdaq100-cloud-1H.csv",
-                "output/Nasdaq100-cloud-D.csv",
-                "output/Nasdaq100-cloud-W.csv",
-                "output/Nasdaq100-cloud-M.csv",
+                "output/cloud/Nasdaq100-cloud-1H.csv",
+                "output/cloud/Nasdaq100-cloud-D.csv",
+                "output/cloud/Nasdaq100-cloud-W.csv",
+                "output/cloud/Nasdaq100-cloud-M.csv",
             ],
-            "output/Nasdaq100-cloud-merged.csv",
+            "output/cloud/Nasdaq100-cloud-merged.csv",
             [
                 ["1H Cloud Direction", "1H Cloud Count"],
                 ["1D Cloud Direction", "1D Cloud Count"],

@@ -11,7 +11,7 @@ def main(
         _model = Model(
             "data/ftse250/1h/",
             "asset_list/FTSE250.csv",
-            "output/",
+            "output/kicker/",
             "FTSE250-kicker-1H",
         )
         _control = Control(_model, View())
@@ -20,7 +20,7 @@ def main(
         _model = Model(
             "data/ftse250/d/",
             "asset_list/FTSE250.csv",
-            "output/",
+            "output/kicker/",
             "FTSE250-kicker-D",
         )
         _control = Control(_model, View())
@@ -29,7 +29,7 @@ def main(
         _model = Model(
             "data/ftse250/w/",
             "asset_list/FTSE250.csv",
-            "output/",
+            "output/kicker/",
             "FTSE250-kicker-W",
         )
         _control = Control(_model, View())
@@ -38,7 +38,7 @@ def main(
         _model = Model(
             "data/ftse250/m/",
             "asset_list/FTSE250.csv",
-            "output/",
+            "output/kicker/",
             "FTSE250-kicker-M",
         )
         _control = Control(_model, View())

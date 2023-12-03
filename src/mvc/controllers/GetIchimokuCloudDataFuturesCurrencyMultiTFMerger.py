@@ -9,10 +9,10 @@ def main(run_merger=True):
     if run_merger:
         _model = Model(
             [
-                "output/FuturesCurrency-cloud-1H.csv",
-                "output/FuturesCurrency-cloud-D.csv",
-                "output/FuturesCurrency-cloud-W.csv",
-                "output/FuturesCurrency-cloud-M.csv",
+                "output/cloud/FuturesCurrency-cloud-1H.csv",
+                "output/cloud/FuturesCurrency-cloud-D.csv",
+                "output/cloud/FuturesCurrency-cloud-W.csv",
+                "output/cloud/FuturesCurrency-cloud-M.csv",
             ],
             "output/FuturesCurrency-cloud-merged.csv",
             [

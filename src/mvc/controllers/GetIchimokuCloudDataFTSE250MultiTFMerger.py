@@ -9,12 +9,12 @@ def main(run_merger=True):
     if run_merger:
         _model = Model(
             [
-                "output/FTSE250-cloud-1H.csv",
-                "output/FTSE250-cloud-D.csv",
-                "output/FTSE250-cloud-W.csv",
-                "output/FTSE250-cloud-M.csv",
+                "output/cloud/FTSE250-cloud-1H.csv",
+                "output/cloud/FTSE250-cloud-D.csv",
+                "output/cloud/FTSE250-cloud-W.csv",
+                "output/cloud/FTSE250-cloud-M.csv",
             ],
-            "output/FTSE250-cloud-merged.csv",
+            "output/cloud/FTSE250-cloud-merged.csv",
             [
                 ["1H Cloud Direction", "1H Cloud Count"],
                 ["1D Cloud Direction", "1D Cloud Count"],

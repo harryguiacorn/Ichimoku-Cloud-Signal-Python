@@ -5,12 +5,12 @@ def main(run_merger=True):
     if run_merger:
         _model = Model(
             [
-                "output/FTSE250-tkx-1H.csv",
-                "output/FTSE250-tkx-D.csv",
-                "output/FTSE250-tkx-W.csv",
-                "output/FTSE250-tkx-M.csv",
+                "output/tkx/FTSE250-tkx-1H.csv",
+                "output/tkx/FTSE250-tkx-D.csv",
+                "output/tkx/FTSE250-tkx-W.csv",
+                "output/tkx/FTSE250-tkx-M.csv",
             ],
-            "output/FTSE250-tkx-merged.csv",
+            "output/tkx/FTSE250-tkx-merged.csv",
             [
                 ["1H TKx Direction", "1H TKx Count"],
                 ["1D TKx Direction", "1D TKx Count"],

@@ -11,17 +11,12 @@ from src.mvc.controllers import (
 
 
 fetch_ForexOanda_1H = True
-
 fetch_ForexOanda_4H = True
-
 fetch_ForexOanda_D = True
-
 fetch_ForexOanda_W = True
-
 fetch_ForexOanda_M = False
 
 fetch_Kicker_use_datetime_format = False
-
 run_Multi_TimeFrame_Merger_Oanda = True
 
 
@@ -61,7 +56,6 @@ def main():
         fetch_ForexOanda_W,
         fetch_ForexOanda_M,
     )
-
     # 3.2 Merge Multi Time Frame Cloud signals
     _getIchimokuCloudDataOandaMultiTFMerger = (
         GetIchimokuCloudDataOandaMultiTFMerger

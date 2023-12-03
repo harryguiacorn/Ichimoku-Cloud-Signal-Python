@@ -11,7 +11,7 @@ def main(
         _model = Model(
             "data/dowjones30/1h/",
             "asset_list/DowJones30.csv",
-            "output/",
+            "output/kicker/",
             "Dow Jones 30-kicker-1H",
         )
         _control = Control(_model, View())
@@ -20,7 +20,7 @@ def main(
         _model = Model(
             "data/dowjones30/d/",
             "asset_list/DowJones30.csv",
-            "output/",
+            "output/kicker/",
             "Dow Jones 30-kicker-D",
         )
         _control = Control(_model, View())
@@ -29,7 +29,7 @@ def main(
         _model = Model(
             "data/dowjones30/w/",
             "asset_list/DowJones30.csv",
-            "output/",
+            "output/kicker/",
             "Dow Jones 30-kicker-W",
         )
         _control = Control(_model, View())
@@ -38,7 +38,7 @@ def main(
         _model = Model(
             "data/dowjones30/m/",
             "asset_list/DowJones30.csv",
-            "output/",
+            "output/kicker/",
             "Dow Jones 30-kicker-M",
         )
         _control = Control(_model, View())

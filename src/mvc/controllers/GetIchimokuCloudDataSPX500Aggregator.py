@@ -11,7 +11,7 @@ def main(
         _model = Model(
             "data/spx500/1h/",
             "asset_list/SPX500.csv",
-            "output/",
+            "output/cloud/",
             "SPX500-cloud-1H",
             "1H",
             True,
@@ -22,7 +22,7 @@ def main(
         _model = Model(
             "data/spx500/d/",
             "asset_list/SPX500.csv",
-            "output/",
+            "output/cloud/",
             "SPX500-cloud-D",
             "1D",
         )
@@ -32,7 +32,7 @@ def main(
         _model = Model(
             "data/spx500/w/",
             "asset_list/SPX500.csv",
-            "output/",
+            "output/cloud/",
             "SPX500-cloud-W",
             "1W",
         )
@@ -42,7 +42,7 @@ def main(
         _model = Model(
             "data/spx500/m/",
             "asset_list/SPX500.csv",
-            "output/",
+            "output/cloud/",
             "SPX500-cloud-M",
             "1M",
         )

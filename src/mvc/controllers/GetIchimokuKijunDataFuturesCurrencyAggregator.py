@@ -11,7 +11,7 @@ def main(
         _model = Model(
             "data/futurescurrency/1h/",
             "asset_list/FuturesCurrency.csv",
-            "output/",
+            "output/kijun/",
             "FuturesCurrency-kijun-1h",
             True,
         )
@@ -21,7 +21,7 @@ def main(
         _model = Model(
             "data/futurescurrency/d/",
             "asset_list/FuturesCurrency.csv",
-            "output/",
+            "output/kijun/",
             "FuturesCurrency-kijun-D",
         )
         _control = Control(_model, View())
@@ -30,7 +30,7 @@ def main(
         _model = Model(
             "data/futurescurrency/w/",
             "asset_list/FuturesCurrency.csv",
-            "output/",
+            "output/kijun/",
             "FuturesCurrency-kijun-W",
         )
         _control = Control(_model, View())
@@ -39,7 +39,7 @@ def main(
         _model = Model(
             "data/futurescurrency/m/",
             "asset_list/FuturesCurrency.csv",
-            "output/",
+            "output/kijun/",
             "FuturesCurrency-kijun-M",
         )
         _control = Control(_model, View())

@@ -73,7 +73,7 @@ class Model(object):
                 # check if yahoo finance gives empty data
                 if __value.empty:
                     print(
-                        f"------------{__symbol} TKx value empty --------------",
+                        f"\n------------ {__symbol} TKx value empty --------------",
                         __value.empty,
                     )
                     continue
@@ -125,7 +125,7 @@ class Model(object):
                 # check if yahoo finance gives empty data
                 if __value.empty:
                     print(
-                        f"------------{__symbol} TKx value empty --------------",
+                        f"\n------------ {__symbol} TKx value empty --------------",
                         __value.empty,
                     )
                     continue
@@ -265,7 +265,7 @@ class Control(object):
 
         self.view.showResultKCount(self.model.resultDataFrame)
         print(
-            f"\nAggregator {self.model.assetClassName}.csv and .xml are created\n"
+            f"Aggregator {self.model.assetClassName}.csv and .xml are created\n"
         )
 
 

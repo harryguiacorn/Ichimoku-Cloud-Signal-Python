@@ -11,7 +11,7 @@ def main(
         _model = Model(
             "data/ftse100/1h/",
             "asset_list/FTSE100.csv",
-            "output/",
+            "output/kijun/",
             "FTSE100-kijun-1H",
             True,
         )
@@ -21,7 +21,7 @@ def main(
         _model = Model(
             "data/ftse100/d/",
             "asset_list/FTSE100.csv",
-            "output/",
+            "output/kijun/",
             "FTSE100-kijun-D",
         )
         _control = Control(_model, View())
@@ -30,7 +30,7 @@ def main(
         _model = Model(
             "data/ftse100/w/",
             "asset_list/FTSE100.csv",
-            "output/",
+            "output/kijun/",
             "FTSE100-kijun-W",
         )
         _control = Control(_model, View())
@@ -39,7 +39,7 @@ def main(
         _model = Model(
             "data/ftse100/m/",
             "asset_list/FTSE100.csv",
-            "output/",
+            "output/kijun/",
             "FTSE100-kijun-M",
         )
         _control = Control(_model, View())

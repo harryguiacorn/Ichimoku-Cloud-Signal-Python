@@ -9,10 +9,10 @@ def main(run_merger=True):
     if run_merger:
         _model = Model(
             [
-                "output/Oanda-cloud-merged.csv",
-                "output/Oanda-tkx-merged.csv",
+                "output/cloud/Oanda-cloud-merged.csv",
+                "output/tkx/Oanda-tkx-merged.csv",
             ],
-            "output/Oanda-sum-cloud-tkx-merged.csv",
+            "output/sum/Oanda-sum-cloud-tkx-merged.csv",
             [
                 "Cloud Score Sum",
                 "TKx Score Sum",
