@@ -14,7 +14,7 @@ def main(run_merger=True):
                 "output/cloud/FuturesCurrency-cloud-W.csv",
                 "output/cloud/FuturesCurrency-cloud-M.csv",
             ],
-            "output/FuturesCurrency-cloud-merged.csv",
+            "output/cloud/FuturesCurrency-cloud-merged.csv",
             [
                 ["1H Cloud Direction", "1H Cloud Count"],
                 ["1D Cloud Direction", "1D Cloud Count"],
