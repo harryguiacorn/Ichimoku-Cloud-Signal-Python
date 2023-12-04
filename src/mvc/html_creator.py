@@ -8,22 +8,24 @@ class TableGenerator:
     def __init__(self, csv_file_path):
         self.csv_file_path = csv_file_path
 
-    def generate_html_table(self) -> str:
+    def generate_html_table(
+        self, str_title: str = "Cloud and TKx score page"
+    ) -> str:
         print("\n------------- Generating Html table -------------")
         if Util.file_exists(self.csv_file_path) is False:
             return
 
         # Read the CSV file
         df = pd.read_csv(self.csv_file_path)
-
+        print("str_title:::::::::::::::::", str_title)
         # added !important in css to overwrite cell colours
-        html_table = """
+        html_table_head = f"""
       <!DOCTYPE html>
       <html lang="en">
       <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Bootstrap 5 Example</title>
+          <title>{str_title}</title>
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
           <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
 
@@ -32,19 +34,14 @@ class TableGenerator:
           <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
 
           <style>
-              .highlight-positive {
-                  background-color: #c6efce !important;
-              }
-              .highlight-negative {
-                  background-color: #f8d7da !important;
-              }
-              .highlight-neutral {
-                  background-color: #d3d3d3 !important;
-              }
+              .highlight-positive {{background-color: #c6efce !important;}}
+              .highlight-negative {{background-color: #f8d7da !important;}}
+              .highlight-neutral {{background-color: #d3d3d3 !important;}}
           </style>
       </head>
       <body>
       """
+        html_table = html_table_head
 
         # Convert the CSV file to an HTML table
         html_table += df.to_html(index=False)

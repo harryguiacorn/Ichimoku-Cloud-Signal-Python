@@ -10,11 +10,13 @@ class Model(object):
         __outputMergePath: str = "",
         __list_direction_count_names: list = [],
         __list_score_names: list = [],
+        __html_title: str = "Cloud and TKx score page",
     ) -> None:
         self.outputPathList = __outputPathList
         self.outputMergePath = __outputMergePath
         self.list_direction_count_names = __list_direction_count_names
         self.list_score_names = __list_score_names
+        self.html_title = __html_title
 
     def merge(self) -> pd.DataFrame:
         print(
@@ -150,16 +152,18 @@ class Control(object):
         self.model.saveData(df)
 
     def generate_html(self):
-        self.view.generate_html(self.model.outputMergePath)
+        self.view.generate_html(
+            self.model.outputMergePath, self.model.html_title
+        )
 
 
 class View(object):
     def __init__(self) -> None:
         pass
 
-    def generate_html(self, csv_file_path: str):
+    def generate_html(self, csv_file_path: str, html_title: str):
         table_generator = TableGenerator(csv_file_path)
-        html_table = table_generator.generate_html_table()
+        html_table = table_generator.generate_html_table(html_title)
         print("generate_html", csv_file_path)
         table_generator.save_html_table(html_table, csv_file_path + ".html")
 
