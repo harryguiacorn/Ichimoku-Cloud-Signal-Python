@@ -166,6 +166,7 @@ class View(object):
         html_table = table_generator.generate_html_table(html_title)
         print("generate_html", csv_file_path)
         table_generator.save_html_table(html_table, csv_file_path + ".html")
+        table_generator.display_html_table_jupyter(csv_file_path + ".html")
 
 
 if __name__ == "__main__":

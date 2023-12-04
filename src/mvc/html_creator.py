@@ -17,7 +17,7 @@ class TableGenerator:
 
         # Read the CSV file
         df = pd.read_csv(self.csv_file_path)
-        print("str_title:::::::::::::::::", str_title)
+        print("HTML title:", str_title)
         # added !important in css to overwrite cell colours
         html_table_head = f"""
       <!DOCTYPE html>
