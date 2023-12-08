@@ -14,10 +14,11 @@ fetch_ForexOanda_1H = True
 fetch_ForexOanda_4H = True
 fetch_ForexOanda_D = True
 fetch_ForexOanda_W = True
-fetch_ForexOanda_M = False
+fetch_ForexOanda_M = True
+
+run_Multi_TimeFrame_Merger_Oanda = True
 
 fetch_Kicker_use_datetime_format = False
-run_Multi_TimeFrame_Merger_Oanda = True
 
 
 def main():
