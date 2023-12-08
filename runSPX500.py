@@ -146,4 +146,11 @@ def main(
 
 
 if __name__ == "__main__":
-    main()
+    main(
+        fetch_SPX500_1H,
+        fetch_SPX500_D,
+        fetch_SPX500_W,
+        fetch_SPX500_M,
+        fetch_Kicker_use_datetime_format,
+        run_Multi_TimeFrame_Merger_SPX500,
+    )

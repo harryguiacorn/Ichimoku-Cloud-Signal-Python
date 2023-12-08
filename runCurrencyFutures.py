@@ -163,4 +163,12 @@ def main(
 
 
 if __name__ == "__main__":
-    main()
+    main(
+        fetch_symbols_latest_CurrencyFutures,
+        fetch_CurrencyFutures_1H,
+        fetch_CurrencyFutures_D,
+        fetch_CurrencyFutures_W,
+        fetch_CurrencyFutures_M,
+        fetch_Kicker_use_datetime_format,
+        run_Multi_TimeFrame_Merger_CurrencyFutures,
+    )

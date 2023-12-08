@@ -146,4 +146,12 @@ def main(
 
 
 if __name__ == "__main__":
-    main()
+    main(
+        fetch_symbols_latest_FTSE250,
+        fetch_FTSE250_1H,
+        fetch_FTSE250_D,
+        fetch_FTSE250_W,
+        fetch_FTSE250_M,
+        fetch_Kicker_use_datetime_format,
+        run_Multi_TimeFrame_Merger_FTSE250,
+    )

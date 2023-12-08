@@ -143,4 +143,12 @@ def main(
 
 
 if __name__ == "__main__":
-    main()
+    main(
+        fetch_symbols_latest_Futures,
+        fetch_Futures_1H,
+        fetch_Futures_D,
+        fetch_Futures_W,
+        fetch_Futures_M,
+        fetch_Kicker_use_datetime_format,
+        run_Multi_TimeFrame_Merger_Futures,
+    )

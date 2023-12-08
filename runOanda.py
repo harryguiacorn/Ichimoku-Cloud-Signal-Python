@@ -10,52 +10,60 @@ from src.mvc.controllers import (
 )
 
 
-fetch_ForexOanda_1H = True
-fetch_ForexOanda_4H = True
-fetch_ForexOanda_D = True
-fetch_ForexOanda_W = True
-fetch_ForexOanda_M = True
+fetch_Oanda_1H = True
+fetch_Oanda_4H = True
+fetch_Oanda_D = True
+fetch_Oanda_W = True
+fetch_Oanda_M = True
 
 run_Multi_TimeFrame_Merger_Oanda = True
 
 fetch_Kicker_use_datetime_format = False
 
 
-def main():
+def main(
+    fetch_Oanda_1H,
+    fetch_Oanda_4H,
+    fetch_Oanda_D,
+    fetch_Oanda_W,
+    fetch_Oanda_M,
+    fetch_Kicker_use_datetime_format,
+    run_Multi_TimeFrame_Merger_Oanda,
+):
     # Stop script being auto-run by Replit or Gitpod
     # return
 
-    # ---------------- Forex Oanda ----------------
+    # ----------------  Oanda ----------------
 
     # 1. Grab latest symbols - NA
     # 2. Download latest OHLC data for each symbol
-    _getDataForexOanda = GetDataOanda
-    _getDataForexOanda.main(
-        fetch_ForexOanda_1H,
-        fetch_ForexOanda_4H,
-        fetch_ForexOanda_D,
-        fetch_ForexOanda_W,
-        fetch_ForexOanda_M,
+    _getDataOanda = GetDataOanda
+    _getDataOanda.main(
+        fetch_Oanda_1H,
+        fetch_Oanda_4H,
+        fetch_Oanda_D,
+        fetch_Oanda_W,
+        fetch_Oanda_M,
     )
 
     # 3. Produce Ichimoku Cloud data for each symbol
     _getIchimokuCloudDataOanda = GetIchimokuCloudDataOanda
     _getIchimokuCloudDataOanda.main(
-        fetch_ForexOanda_1H,
-        fetch_ForexOanda_4H,
-        fetch_ForexOanda_D,
-        fetch_ForexOanda_W,
-        fetch_ForexOanda_M,
+        fetch_Oanda_1H,
+        fetch_Oanda_4H,
+        fetch_Oanda_D,
+        fetch_Oanda_W,
+        fetch_Oanda_M,
     )
 
     # 3.1 Combine latest cloud signals of all symbols into one spreadsheet
     _getIchimokuCloudDataOandaAggregator = GetIchimokuCloudDataOandaAggregator
     _getIchimokuCloudDataOandaAggregator.main(
-        fetch_ForexOanda_1H,
-        fetch_ForexOanda_4H,
-        fetch_ForexOanda_D,
-        fetch_ForexOanda_W,
-        fetch_ForexOanda_M,
+        fetch_Oanda_1H,
+        fetch_Oanda_4H,
+        fetch_Oanda_D,
+        fetch_Oanda_W,
+        fetch_Oanda_M,
     )
     # 3.2 Merge Multi Time Frame Cloud signals
     _getIchimokuCloudDataOandaMultiTFMerger = (
@@ -66,21 +74,21 @@ def main():
     # 3.3 Produce Ichimoku TK Cross data
     _getIchimokuTKxDataOanda = GetIchimokuTKxDataOanda
     _getIchimokuTKxDataOanda.main(
-        fetch_ForexOanda_1H,
-        fetch_ForexOanda_4H,
-        fetch_ForexOanda_D,
-        fetch_ForexOanda_W,
-        fetch_ForexOanda_M,
+        fetch_Oanda_1H,
+        fetch_Oanda_4H,
+        fetch_Oanda_D,
+        fetch_Oanda_W,
+        fetch_Oanda_M,
     )
 
     # 3.4 Combine latest TK Cross signals from all symbols into one spreadsheet
     _getIchimokuTKxDataOandaAggregator = GetIchimokuTKxDataOandaAggregator
     _getIchimokuTKxDataOandaAggregator.main(
-        fetch_ForexOanda_1H,
-        fetch_ForexOanda_4H,
-        fetch_ForexOanda_D,
-        fetch_ForexOanda_W,
-        fetch_ForexOanda_M,
+        fetch_Oanda_1H,
+        fetch_Oanda_4H,
+        fetch_Oanda_D,
+        fetch_Oanda_W,
+        fetch_Oanda_M,
     )
 
     # 3.5 Merge Multi Time Frame TKx signals
@@ -103,4 +111,12 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main(
+        fetch_Oanda_1H,
+        fetch_Oanda_4H,
+        fetch_Oanda_D,
+        fetch_Oanda_W,
+        fetch_Oanda_M,
+        fetch_Kicker_use_datetime_format,
+        run_Multi_TimeFrame_Merger_Oanda,
+    )

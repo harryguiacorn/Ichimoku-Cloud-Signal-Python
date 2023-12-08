@@ -139,4 +139,13 @@ def main(
 
 
 if __name__ == "__main__":
-    main()
+    main(
+        fetch_symbols_latest_DJ30,
+        fetch_DJ30_1H,
+        fetch_DJ30_D,
+        fetch_DJ30_W,
+        fetch_DJ30_M,
+        fetch_kijun_analysis,
+        fetch_Kicker_use_datetime_format,
+        run_Multi_TimeFrame_Merger_DJ30,
+    )

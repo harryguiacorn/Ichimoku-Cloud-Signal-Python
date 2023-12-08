@@ -1,4 +1,4 @@
-import runDJ30, runNas100, runFTSE100, runFTSE250, runFutures, runCurrencyFutures, runSPX500
+import runDJ30, runNas100, runFTSE100, runFTSE250, runFutures, runCurrencyFutures, runSPX500, runOanda
 
 fetch_symbols_latest_DJ30 = True
 fetch_symbols_latest_SPX500 = True
@@ -15,6 +15,9 @@ fetch_FTSE100_1H = True
 fetch_FTSE250_1H = True
 fetch_Futures_1H = True
 fetch_CurrencyFutures_1H = True
+fetch_Oanda_1H = True
+
+fetch_Oanda_4H = True
 
 fetch_DJ30_D = True
 fetch_SPX500_D = True
@@ -23,6 +26,7 @@ fetch_FTSE100_D = True
 fetch_FTSE250_D = True
 fetch_Futures_D = True
 fetch_CurrencyFutures_D = True
+fetch_Oanda_D = True
 
 fetch_DJ30_W = True
 fetch_SPX500_W = True
@@ -31,6 +35,7 @@ fetch_FTSE100_W = True
 fetch_FTSE250_W = True
 fetch_Futures_W = True
 fetch_CurrencyFutures_W = True
+fetch_Oanda_W = True
 
 fetch_DJ30_M = True
 fetch_SPX500_M = True
@@ -39,6 +44,7 @@ fetch_FTSE100_M = True
 fetch_FTSE250_M = True
 fetch_Futures_M = True
 fetch_CurrencyFutures_M = True
+fetch_Oanda_M = True
 
 run_Multi_TimeFrame_Merger_DJ30 = True
 run_Multi_TimeFrame_Merger_SPX500 = True
@@ -47,6 +53,7 @@ run_Multi_TimeFrame_Merger_FTSE100 = True
 run_Multi_TimeFrame_Merger_FTSE250 = True
 run_Multi_TimeFrame_Merger_Futures = True
 run_Multi_TimeFrame_Merger_CurrencyFutures = True
+run_Multi_TimeFrame_Merger_Oanda = True
 
 fetch_kijun_analysis = False
 
@@ -152,6 +159,18 @@ def main():
         run_Multi_TimeFrame_Merger_SPX500,
     )
 
+    # ---------------- Oanda ----------------
+
+    _runOanda = runOanda
+    _runOanda.main(
+        fetch_Oanda_1H,
+        fetch_Oanda_4H,
+        fetch_Oanda_D,
+        fetch_Oanda_W,
+        fetch_Oanda_M,
+        fetch_Kicker_use_datetime_format,
+        run_Multi_TimeFrame_Merger_Oanda,
+    )
     print("\nTasks completed.")
 
 
