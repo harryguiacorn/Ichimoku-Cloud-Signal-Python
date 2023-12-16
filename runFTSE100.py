@@ -13,6 +13,7 @@ from src.mvc.controllers import (
     GetKickerDataFTSE100Aggregator,
     GetIchimokuSumCloudTKxDataFTSE100MultiTFMerger,
 )
+from datetime import datetime
 
 fetch_symbols_latest_FTSE100 = True
 fetch_FTSE100_1H = True
@@ -40,6 +41,9 @@ def main(
 ):
     # Stop script being auto-run by Replit or Gitpod
     # return
+
+    time_start = datetime.now()
+    print("Task begins at:", time_start.strftime("%Y-%m-%d %H:%M:%S"))
 
     # ---------------- FTSE 100 ----------------
 
@@ -141,7 +145,13 @@ def main(
         fetch_FTSE100_M,
     )
 
-    print("\nTasks completed.")
+    # calculate time elapsed
+    time_finish = datetime.now()
+    time_elapsed = time_finish - time_start
+    time_finish_formatted = time_finish.strftime("%Y-%m-%d %H:%M:%S")
+    print(
+        f"\nTasks completed at {time_finish_formatted} (Time elapsed: {time_elapsed})",
+    )
 
 
 if __name__ == "__main__":

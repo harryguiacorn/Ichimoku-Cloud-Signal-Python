@@ -20,7 +20,7 @@ def main(run_merger=True):
             [
                 "Total Score Sum",
             ],
-            "Oanda instruments Cloud and TKx score page",
+            "Cloud and TKx Scanner Dashboard - Oanda Instruments ",
         )
         _control = Control(_model, View())
         _control.main()

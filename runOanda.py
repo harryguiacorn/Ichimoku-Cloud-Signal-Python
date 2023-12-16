@@ -8,7 +8,7 @@ from src.mvc.controllers import (
     GetIchimokuTKxDataOandaMultiTFMerger,
     GetIchimokuSumCloudTKxDataOandaMultiTFMerger,
 )
-
+from datetime import datetime
 
 fetch_Oanda_1H = True
 fetch_Oanda_4H = True
@@ -32,6 +32,9 @@ def main(
 ):
     # Stop script being auto-run by Replit or Gitpod
     # return
+
+    time_start = datetime.now()
+    print("Task begins at:", time_start.strftime("%Y-%m-%d %H:%M:%S"))
 
     # ----------------  Oanda ----------------
 
@@ -107,7 +110,13 @@ def main(
         run_Multi_TimeFrame_Merger_Oanda
     )
 
-    print(f"\nTasks completed.")
+    # calculate time elapsed
+    time_finish = datetime.now()
+    time_elapsed = time_finish - time_start
+    time_finish_formatted = time_finish.strftime("%Y-%m-%d %H:%M:%S")
+    print(
+        f"\nTasks completed at {time_finish_formatted} (Time elapsed: {time_elapsed})",
+    )
 
 
 if __name__ == "__main__":

@@ -13,6 +13,7 @@ from src.mvc.controllers import (
     GetIchimokuTKxDataDJ30MultiTFMerger,
     GetIchimokuSumCloudTKxDataDJ30MultiTFMerger,
 )
+from datetime import datetime
 
 fetch_symbols_latest_DJ30 = True
 
@@ -46,6 +47,9 @@ def main(
     run_Multi_TimeFrame_Merger_DJ30,
 ):
     # ---------------- Dow Jones 30 ----------------
+
+    time_start = datetime.now()
+    print("Task begins at:", time_start.strftime("%Y-%m-%d %H:%M:%S"))
 
     # 1. Grab latest symbols
     _getSymbolDowJones30 = GetSymbolDowJones30
@@ -135,7 +139,13 @@ def main(
         fetch_DJ30_M,
     )
 
-    print("\nTasks completed.")
+    # calculate time elapsed
+    time_finish = datetime.now()
+    time_elapsed = time_finish - time_start
+    time_finish_formatted = time_finish.strftime("%Y-%m-%d %H:%M:%S")
+    print(
+        f"\nTasks completed at {time_finish_formatted} (Time elapsed: {time_elapsed})",
+    )
 
 
 if __name__ == "__main__":

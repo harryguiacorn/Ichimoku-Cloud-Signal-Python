@@ -1,6 +1,5 @@
 import pandas as pd
 from IPython.display import HTML
-
 from src.mvc import Util
 
 
@@ -40,6 +39,7 @@ class TableGenerator:
           </style>
       </head>
       <body>
+        <h3>{str_title}</h3>
       """
         html_table = html_table_head
 
