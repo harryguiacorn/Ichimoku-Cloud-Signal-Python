@@ -24,6 +24,7 @@ class TableGenerator:
       <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="html_creator.css">
           <title>{str_title}</title>
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
           <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
@@ -39,7 +40,7 @@ class TableGenerator:
           </style>
       </head>
       <body>
-        <h3>{str_title}</h3>
+        <h1>{str_title}</h1>
       """
         html_table = html_table_head
 

@@ -19,10 +19,12 @@ class Model(object):
 
     def readHtml(self):
         print("Reading symbols from source: ", self.url)
-        self.df_list = pd.read_html(self.url, match=self.readHtmlMatch)[0]
+        # self.df_list = pd.read_html(self.url, match=self.readHtmlMatch)[0]
+        self.df_list = pd.read_html(self.url)[4]
 
         # return type is list[DataFrame]
         print(f"Total symbols: {len(self.df_list)}")
+        # print("------List------", self.df_list)
         return self.df_list
 
     def cleanData(self):
