@@ -7,9 +7,7 @@ class TableGenerator:
     def __init__(self, csv_file_path):
         self.csv_file_path = csv_file_path
 
-    def generate_html_table(
-        self, str_title: str = "Cloud and TKx score page"
-    ) -> str:
+    def generate_html_table(self, str_title: str = "Cloud Scan") -> str:
         print("\n------------- Generating Html table -------------")
         if Util.file_exists(self.csv_file_path) is False:
             return

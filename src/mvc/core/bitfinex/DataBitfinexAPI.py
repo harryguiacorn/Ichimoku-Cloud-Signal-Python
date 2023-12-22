@@ -1,7 +1,6 @@
 import pandas as pd
 import requests
 import json
-
 from src.mvc import Util
 
 
@@ -34,6 +33,9 @@ class Model:
 
         self.response = None
 
+        # Initialize an empty DataFrame to store the data
+        self.df = pd.DataFrame()
+
     def get_data(self):
         # Return the data list
         return self.data
@@ -59,18 +61,18 @@ class Model:
 
     def save_json(self, filePath="data.json"):
         # initializing Parameters
-        Util.create_folder(filePath)
+        # Util.create_folder(filePath)
+
+        print("----------filePath---------", filePath)
+        print("---------- get data ", self.get_data())
+        print("---------- df ", self.df)
 
         # Save data to a JSON file
         with open(filePath, "w") as f:
             json.dump(self.get_data(), f)
 
-
-# Define the View class
-class View:
-    def __init__(self):
-        # Initialize an empty DataFrame to store the data
-        self.df = pd.DataFrame()
+    def save_csv(self, filePath="data.csv"):
+        self.df.to_csv(filePath)
 
     def set_data(self, data):
         # Convert the data list to a pandas DataFrame
@@ -84,9 +86,15 @@ class View:
         # Set the timestamp column as the index
         self.df = self.df.set_index("Datetime")
 
-    def show_data(self):
+
+# Define the View class
+class View:
+    def __init__(self):
+        pass
+
+    def show_data(self, df):
         # Print the DataFrame
-        print(self.df)
+        print("--------- show_data ---------", df)
 
 
 # Define the Controller class
@@ -102,9 +110,9 @@ class Controller:
         # Check if the result is True
         if result:
             # Set the data to the view
-            self.view.set_data(self.model.get_data())
+            self.model.set_data(self.model.get_data())
             # Show the data from the view
-            self.view.show_data()
+            self.view.show_data(self.model.df)
         else:
             # Print the error message and break the loop
             print(f"Error: {self.model.response.status_code}")
@@ -112,13 +120,18 @@ class Controller:
     def save_json(self, filePath="data.json"):
         self.model.save_json(filePath)
 
+    def save_csv(self, filePath="data.csv"):
+        self.model.save_csv(filePath)
 
-# Create an instance of the Model class
-model = Model()
-# Create an instance of the View class
-view = View()
-# Create an instance of the Controller class
-controller = Controller(model, view)
-# Run the controller
-controller.run()
-controller.save_json(filePath="data/bitfinex/")
+
+if __name__ == "__main__":
+    # Create an instance of the Model class
+    model = Model()
+    # Create an instance of the View class
+    view = View()
+    # Create an instance of the Controller class
+    controller = Controller(model, view)
+    # Run the controller
+    controller.run()
+    controller.save_json(filePath="data/bitfinex/")
+    controller.save_csv(filePath="data/bitfinex/")

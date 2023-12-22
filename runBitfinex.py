@@ -11,10 +11,10 @@ from src.mvc.controllers import (
 from datetime import datetime
 
 fetch_Bitfinex_1H = True
-fetch_Bitfinex_4H = True
-fetch_Bitfinex_D = True
-fetch_Bitfinex_W = True
-fetch_Bitfinex_M = True
+fetch_Bitfinex_4H = False
+fetch_Bitfinex_D = False
+fetch_Bitfinex_W = False
+fetch_Bitfinex_M = False
 
 run_Multi_TimeFrame_Merger_Bitfinex = True
 

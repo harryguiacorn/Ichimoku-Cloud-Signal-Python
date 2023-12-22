@@ -4,7 +4,13 @@ from tapy import Indicators
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from src.mvc import Util
-from src.mvc.core.bitfinex.DataBitfinexAPI import Model, View, Controller
+from src.mvc.core.bitfinex.DataBitfinexAPI import (
+    Model as DataBitfinexAPI_Model,
+)
+from src.mvc.core.bitfinex.DataBitfinexAPI import View as DataBitfinexAPI_View
+from src.mvc.core.bitfinex.DataBitfinexAPI import (
+    Controller as DataBitfinexAPI_Controller,
+)
 
 
 class Model(object):
@@ -113,16 +119,34 @@ class Model(object):
         __dict_df = {}
         for __symbol in symbols:
             try:
-                api = DataBitfinexAPI()
-                data_json = api.get_bitfinex_data(
-                    __symbol, __lookbackPeriods, __interval
-                )
+                # Create an instance of the Model class
+                model = DataBitfinexAPI_Model()
+                # Create an instance of the View class
+                view = DataBitfinexAPI_View()
+                # Create an instance of the Controller class
+                controller = DataBitfinexAPI_Controller(model, view)
+                # Run the controller
+                controller.run()
+                __path_json = self.csvPath + __symbol + ".json"
+                __path_csv = self.csvPath + __symbol + ".csv"
+                # print("__path_json::", __path_json)
+                controller.save_json(filePath=__path_json)
+                controller.save_csv(filePath=__path_csv)
 
-                __path_csv = self.csvPath + __symbol + ".json"
-                api.save_json(__path_csv, data_json)
-                __path_json = self.csvPath + __symbol + ".csv"
-                data_df = api.json_to_csv(data_json, __path_json)
-                __dict_df[__symbol] = data_df
+                print(
+                    "Download completed. Saved in:",
+                    __path_csv,
+                    __path_json,
+                    end="\n",
+                )
+                # api = DataBitfinexAPI()
+                # data_json = api.get_bitfinex_data(
+                #     __symbol, __lookbackPeriods, __interval
+                # )
+
+                # api.save_json(__path_csv, data_json)
+                # data_df = api.json_to_csv(data_json, __path_json)
+                # __dict_df[__symbol] = data_df
                 # print(f"{symbols.index(__symbol)} {__symbol} -> {__path}")
             except Exception as e:
                 # raise Exception("Error: ", __symbol, " e.args: ",e.args)
@@ -130,9 +154,6 @@ class Model(object):
                     f"Error getLatestDataFromBitfinexAPI: {__symbol}: {e.args}"
                 )
                 continue
-        print(
-            "Download completed. Saved in:", __path_csv, __path_json, end="\n"
-        )
         return __dict_df
 
     def readLocalCsvData(self, symbols, __csvPath) -> dict:

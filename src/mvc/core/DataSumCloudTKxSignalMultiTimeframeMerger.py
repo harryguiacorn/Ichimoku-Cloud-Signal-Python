@@ -10,7 +10,7 @@ class Model(object):
         __outputMergePath: str = "",
         __list_direction_count_names: list = [],
         __list_score_names: list = [],
-        __html_title: str = "Cloud and TKx score page",
+        __html_title: str = "Cloud Scan",
     ) -> None:
         self.outputPathList = __outputPathList
         self.outputMergePath = __outputMergePath

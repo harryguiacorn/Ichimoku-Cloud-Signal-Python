@@ -20,7 +20,7 @@ def main(run_merger=True):
             [
                 "Total Score Sum",
             ],
-            "Nasdaq100 Cloud and TKx score page",
+            "Nasdaq100 Cloud Scan",
         )
         _control = Control(_model, View())
         _control.main()
