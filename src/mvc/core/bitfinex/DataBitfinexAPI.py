@@ -11,6 +11,7 @@ class Model:
         base_url: str = "https://api-pub.bitfinex.com/v2/",
         time_frame: str = "1h",
         instrument: str = "tBTCUSD",
+        lookbackPeriod: int = 25,
     ):
         # Initialize an empty list to store the data
         self.data = []
@@ -21,6 +22,7 @@ class Model:
         # Define the time frame and the instrument for the candles
         self.time_frame = time_frame
         self.instrument = instrument
+        self.lookbackPeriod = lookbackPeriod
 
         # Define the endpoint for the BTC USD hourly candles
         self.endpoint: str = f"candles/trade:{time_frame}:{instrument}/hist"
@@ -29,18 +31,30 @@ class Model:
         # limit: the number of candles to return, max 10000
         # end: the end timestamp of the query range
         # sort: the sorting direction of the results, 1 for ascending, -1 for descending
-        self.params = {"limit": 10000, "end": None, "sort": -1}
+        self.params = {"limit": self.lookbackPeriod, "end": None, "sort": -1}
 
         self.response = None
 
         # Initialize an empty DataFrame to store the data
         self.df = pd.DataFrame()
 
-    def get_data(self):
+    def get_data_list(self) -> list:
         # Return the data list
+        # print("------- get_data_list --------", self.data)
         return self.data
 
+    def get_data(self) -> pd.DataFrame:
+        # Return the data list
+        # print("------- get_data --------", self.data)
+        return self.df
+
     def fetch_data(self):
+        print(
+            "\n--------- fetch_data ---------",
+            self.instrument,
+            self.time_frame,
+            self.lookbackPeriod,
+        )
         # Make a GET request to the API with the parameters
         self.response = requests.get(
             self.base_url + self.endpoint, params=self.params
@@ -50,9 +64,13 @@ class Model:
             # Convert the response JSON to a list of lists
             candles = self.response.json()
             # Extend the data list with the candles
-            self.data.extend(candles)
+            # self.data.extend(candles)
+            self.data = candles
             # Update the end parameter to the timestamp of the last candle
             self.params["end"] = candles[-1][0]
+
+            # print("---- fetch data ----", self.data)
+
             # Return True if the data is fetched successfully
             return True
         else:
@@ -63,9 +81,9 @@ class Model:
         # initializing Parameters
         # Util.create_folder(filePath)
 
-        print("----------filePath---------", filePath)
-        print("---------- get data ", self.get_data())
-        print("---------- df ", self.df)
+        # print(f"---------- filePath: {filePath} ---------")
+        # print("---------- get data ", self.get_data())
+        # print("---------- df ", self.df)
 
         # Save data to a JSON file
         with open(filePath, "w") as f:
@@ -78,7 +96,7 @@ class Model:
         # Convert the data list to a pandas DataFrame
         self.df = pd.DataFrame(
             data,
-            columns=["Timestamp", "Open", "Close", "High", "Low", "Volume"],
+            columns=["Timestamp", "Open", "High", "Low", "Close", "Volume"],
         )
         # Convert the timestamp column to datetime format
         self.df["Datetime"] = pd.to_datetime(self.df["Timestamp"], unit="ms")
@@ -92,9 +110,9 @@ class View:
     def __init__(self):
         pass
 
-    def show_data(self, df):
+    def show_data(self, df: pd.DataFrame):
         # Print the DataFrame
-        print("--------- show_data ---------", df)
+        print("--------- show_data head ---------\n", df.head(2))
 
 
 # Define the Controller class
@@ -110,7 +128,7 @@ class Controller:
         # Check if the result is True
         if result:
             # Set the data to the view
-            self.model.set_data(self.model.get_data())
+            self.model.set_data(self.model.get_data_list())
             # Show the data from the view
             self.view.show_data(self.model.df)
         else:

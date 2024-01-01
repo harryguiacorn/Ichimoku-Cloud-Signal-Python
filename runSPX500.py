@@ -44,7 +44,7 @@ def main(
     # return
 
     time_start = datetime.now()
-    print("Task begins at:", time_start.strftime("%Y-%m-%d %H:%M:%S"))
+    print("Task begins at:", time_start.strftime("%Y-%m-%d %H:%M:%S"), "\n")
 
     # ---------------- S&P 500 ----------------
 

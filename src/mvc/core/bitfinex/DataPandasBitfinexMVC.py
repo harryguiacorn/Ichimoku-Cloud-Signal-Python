@@ -85,8 +85,8 @@ class Model(object):
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
         print(f"----------- Reading symbols for {self.interval} -----------")
-        print("readAssetList path:", __csvPath)
-        print(df.to_string(), sep=",", end="\n")
+        print("readAssetList path:", __csvPath, end="\n")
+        print(df.to_string(), sep=",", end="\n\n")
         # print(df[__colName])
         l_symbol = df[__colName].tolist()
         self.symbols = l_symbol
@@ -106,6 +106,7 @@ class Model(object):
             self.dataOHLC = self.getLatestDataFromBitfinexAPI(
                 self.symbols, self.lookbackPeriod, self.interval
             )
+            # print("---------- self.dataOHLC ----------", self.dataOHLC)
             return self.dataOHLC
         else:
             # method 2. grab data from local raw csv files to
@@ -120,7 +121,11 @@ class Model(object):
         for __symbol in symbols:
             try:
                 # Create an instance of the Model class
-                model = DataBitfinexAPI_Model()
+                model = DataBitfinexAPI_Model(
+                    time_frame=__interval,
+                    instrument=__symbol,
+                    lookbackPeriod=__lookbackPeriods,
+                )
                 # Create an instance of the View class
                 view = DataBitfinexAPI_View()
                 # Create an instance of the Controller class
@@ -130,8 +135,11 @@ class Model(object):
                 __path_json = self.csvPath + __symbol + ".json"
                 __path_csv = self.csvPath + __symbol + ".csv"
                 # print("__path_json::", __path_json)
-                controller.save_json(filePath=__path_json)
+                # controller.save_json(filePath=__path_json)
                 controller.save_csv(filePath=__path_csv)
+
+                data_df = model.get_data()
+                __dict_df[__symbol] = data_df
 
                 print(
                     "Download completed. Saved in:",
@@ -139,15 +147,6 @@ class Model(object):
                     __path_json,
                     end="\n",
                 )
-                # api = DataBitfinexAPI()
-                # data_json = api.get_bitfinex_data(
-                #     __symbol, __lookbackPeriods, __interval
-                # )
-
-                # api.save_json(__path_csv, data_json)
-                # data_df = api.json_to_csv(data_json, __path_json)
-                # __dict_df[__symbol] = data_df
-                # print(f"{symbols.index(__symbol)} {__symbol} -> {__path}")
             except Exception as e:
                 # raise Exception("Error: ", __symbol, " e.args: ",e.args)
                 print(
@@ -169,7 +168,10 @@ class Model(object):
         return __dict_df
 
     def createIchimokuData(self):
-        print("\n----------- Creating Ichimoku Data -----------")
+        print(
+            "\n----------- Creating Ichimoku Data (Bitfinex) -----------",
+            # self.dataOHLC,
+        )
         # method 1. create Ichimoku data using tapy
         DictDataIchinokuTapy = self.createIchimokuDataTapy(self.dataOHLC)
         print("Ichimoku columns added to csv\n")
@@ -180,12 +182,15 @@ class Model(object):
         return DictDataIchinokuTapy
 
     def createIchimokuDataTapy(
-        self, __dict_df
+        self, __dict_df: dict
     ):  # create Ichimoku data using tapy
         __dict_df_ichimoku = {}
+
+        # print("------- createIchimokuDataTapy ---------\n", __dict_df)
+
         for __key, __df in __dict_df.items():
             # initialising indicators
-            # print(__df)
+            # print("-------- createIchimokuDataTapy --------\n", __df)
             __i = Indicators(__df)
             __i.ichimoku_kinko_hyo()  # column_name_kijun_sen="K Line"
             __dataCloud = __i.df
@@ -340,22 +345,3 @@ class Control(object):
 
 if __name__ == "__main__":
     print("------ __main__ -----")
-    # _model = Model(
-    #     "data/futurescurrency/d/",
-    #     "asset_list/FuturesCurrency.csv",
-    #     "d",
-    #     365,
-    #     True,
-    # )
-    # _control = Control(_model, View())
-    # _control.main()
-
-    _model = Model(
-        "data/dowjones30/d/", "asset_list/DowJones30.csv", "1w", "3mo", True
-    )
-    _model = Model(
-        "data/dowjones30/w/", "asset_list/DowJones30.csv", "1wk", "5y", True
-    )
-    _control = Control(_model, View())
-    _control.main()
-    _control.showAssetList()

@@ -51,6 +51,8 @@ class DataOandaAPI:
         # Extracting the 'candles' data
         candles = json_data["candles"]
 
+        # print("------- json_to_csv -------", candles)
+
         # Convert the candle data to a DataFrame
         df = pd.DataFrame(
             [candle["mid"] for candle in candles],

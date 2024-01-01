@@ -79,8 +79,8 @@ class Model(object):
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
         print(f"----------- Reading symbols for {self.interval} -----------")
-        print("readAssetList path:", __csvPath)
-        print(df.to_string(), sep=",", end="\n")
+        print("readAssetList path:", __csvPath, end="\n")
+        print(df.to_string(), sep=",", end="\n\n")
         # print(df[__colName])
         l_symbol = df[__colName].tolist()
         self.symbols = l_symbol
@@ -146,7 +146,7 @@ class Model(object):
         return __dict_df
 
     def createIchimokuData(self):
-        print("\n----------- Creating Ichimoku Data -----------")
+        print("\n----------- Creating Ichimoku Data (Oanda) -----------")
         # method 1. create Ichimoku data using tapy
         DictDataIchinokuTapy = self.createIchimokuDataTapy(self.dataOHLC)
         print("Ichimoku columns added to csv\n")
@@ -162,7 +162,7 @@ class Model(object):
         __dict_df_ichimoku = {}
         for __key, __df in __dict_df.items():
             # initialising indicators
-            # print(__df)
+            # print("-------- createIchimokuDataTapy --------", __df)
             __i = Indicators(__df)
             __i.ichimoku_kinko_hyo()  # column_name_kijun_sen="K Line"
             __dataCloud = __i.df

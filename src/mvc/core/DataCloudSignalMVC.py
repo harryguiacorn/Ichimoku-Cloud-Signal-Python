@@ -22,9 +22,18 @@ class DataCloudSignal(DataOHLC):
         #     "display.max_columns", None
         # )  # print every column for debug
 
+        # print(
+        #     "------- setupPd_use_datetime_format csvSuffix -------", csvSuffix
+        # )
+
         try:
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
+
+            # print(
+            #     "---------- setupPd_use_datetime_format -------------", __path
+            # )
+
             if __data.empty:  # Check if the DataFrame is empty
                 print("CSV file is empty", __path)
             else:
@@ -68,9 +77,13 @@ class DataCloudSignal(DataOHLC):
         # pd.set_option(
         #     "display.max_columns", None
         # )  # print every column for debug
+
+        print("------- setupPd csvSuffix -------", csvSuffix)
+
         try:
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
+            print("---------- setupPd -------------", __path)
             if __data.empty:  # Check if the DataFrame is empty
                 print("CSV file is empty: ", __path)
             else:
@@ -205,6 +218,10 @@ class DataCloudSignal(DataOHLC):
         pass
 
     def main(self):
+        # print(
+        #     "----------- main::use_datetime_format------------",
+        #     self.use_datetime_format,
+        # )
         if self.use_datetime_format is False:
             self.setupPd(
                 "_ichimokuTapy.csv"
@@ -259,7 +276,7 @@ class Model(object):
 
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
-        # print(df.to_string())
+        # print("------ readAssetList --------", df.to_string())
         l_symbol = df[__colName].tolist()
         self.symbols = l_symbol
         return l_symbol
@@ -274,6 +291,7 @@ class Model(object):
             except FileNotFoundError:
                 print(f"Error: {__filePath} not found")
                 continue
+        # print("------------ readLocalCsvData ----------", __dict_df)
         return __dict_df
 
     def getBatchLocalData(self):
@@ -281,9 +299,7 @@ class Model(object):
 
     def getIndividualSymbolData(self):
         for __symbol, __value in self.dataOHLC.items():
-            # print(
-            #     "getIndividualSymbolData: ", __symbol, self.csvPath, end=", "
-            # )
+            # print("getIndividualSymbolData:", __symbol, self.csvPath, end=", ")
             dataP = DataCloudSignal(
                 __symbol, self.csvPath, self.use_datetime_format
             )
@@ -314,7 +330,7 @@ class Control(object):
 
     def main(self):
         print(
-            f"----------- Generating Cloud Signals {self.model.csvPath} -----------"
+            f"----------- Generating Cloud Signals: {self.model.csvPath} -----------"
         )
         self.getAssetList()
         # print("----------- Generating Cloud Signals getBatchLocalData-----------")

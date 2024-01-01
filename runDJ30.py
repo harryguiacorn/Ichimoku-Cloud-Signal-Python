@@ -49,7 +49,7 @@ def main(
     # ---------------- Dow Jones 30 ----------------
 
     time_start = datetime.now()
-    print("Task begins at:", time_start.strftime("%Y-%m-%d %H:%M:%S"))
+    print("Task begins at:", time_start.strftime("%Y-%m-%d %H:%M:%S"), "\n")
 
     # 1. Grab latest symbols
     _getSymbolDowJones30 = GetSymbolDowJones30

@@ -1,8 +1,8 @@
 from src.mvc.controllers import (
     GetDataBitfinex,
-    # GetIchimokuCloudDataBitfinex,
-    # GetIchimokuCloudDataBitfinexAggregator,
-    # GetIchimokuCloudDataBitfinexMultiTFMerger,
+    GetIchimokuCloudDataBitfinex,
+    GetIchimokuCloudDataBitfinexAggregator,
+    GetIchimokuCloudDataBitfinexMultiTFMerger,
     # GetIchimokuTKxDataBitfinex,
     # GetIchimokuTKxDataBitfinexAggregator,
     # GetIchimokuTKxDataBitfinexMultiTFMerger,
@@ -11,10 +11,10 @@ from src.mvc.controllers import (
 from datetime import datetime
 
 fetch_Bitfinex_1H = True
-fetch_Bitfinex_4H = False
-fetch_Bitfinex_D = False
-fetch_Bitfinex_W = False
-fetch_Bitfinex_M = False
+fetch_Bitfinex_4H = True
+fetch_Bitfinex_D = True
+fetch_Bitfinex_W = True
+fetch_Bitfinex_M = True
 
 run_Multi_TimeFrame_Merger_Bitfinex = True
 
@@ -34,7 +34,7 @@ def main(
     # return
 
     time_start = datetime.now()
-    print("Task begins at:", time_start.strftime("%Y-%m-%d %H:%M:%S"))
+    print("Task begins at:", time_start.strftime("%Y-%m-%d %H:%M:%S"), "\n")
 
     # ----------------  Bitfinex ----------------
 
@@ -49,27 +49,28 @@ def main(
         fetch_Bitfinex_M,
     )
 
-    # # 3. Produce Ichimoku Cloud data for each symbol
-    # _getIchimokuCloudDataBitfinex = GetIchimokuCloudDataBitfinex
-    # _getIchimokuCloudDataBitfinex.main(
-    #     fetch_Bitfinex_1H,
-    #     fetch_Bitfinex_4H,
-    #     fetch_Bitfinex_D,
-    #     fetch_Bitfinex_W,
-    #     fetch_Bitfinex_M,
-    # )
+    # 3. Produce Ichimoku Cloud data for each symbol
+    _getIchimokuCloudDataBitfinex = GetIchimokuCloudDataBitfinex
+    _getIchimokuCloudDataBitfinex.main(
+        fetch_Bitfinex_1H,
+        fetch_Bitfinex_4H,
+        fetch_Bitfinex_D,
+        fetch_Bitfinex_W,
+        fetch_Bitfinex_M,
+    )
+    return
+    # 3.1 Combine latest cloud signals of all symbols into one spreadsheet
+    _getIchimokuCloudDataBitfinexAggregator = (
+        GetIchimokuCloudDataBitfinexAggregator
+    )
+    _getIchimokuCloudDataBitfinexAggregator.main(
+        fetch_Bitfinex_1H,
+        fetch_Bitfinex_4H,
+        fetch_Bitfinex_D,
+        fetch_Bitfinex_W,
+        fetch_Bitfinex_M,
+    )
 
-    # # 3.1 Combine latest cloud signals of all symbols into one spreadsheet
-    # _getIchimokuCloudDataBitfinexAggregator = (
-    #     GetIchimokuCloudDataBitfinexAggregator
-    # )
-    # _getIchimokuCloudDataBitfinexAggregator.main(
-    #     fetch_Bitfinex_1H,
-    #     fetch_Bitfinex_4H,
-    #     fetch_Bitfinex_D,
-    #     fetch_Bitfinex_W,
-    #     fetch_Bitfinex_M,
-    # )
     # # 3.2 Merge Multi Time Frame Cloud signals
     # _getIchimokuCloudDataBitfinexMultiTFMerger = (
     #     GetIchimokuCloudDataBitfinexMultiTFMerger
