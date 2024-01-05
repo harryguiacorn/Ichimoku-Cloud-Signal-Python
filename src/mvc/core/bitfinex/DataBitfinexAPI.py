@@ -66,8 +66,9 @@ class Model:
             # Extend the data list with the candles
             # self.data.extend(candles)
             self.data = candles
-            # Update the end parameter to the timestamp of the last candle
-            self.params["end"] = candles[-1][0]
+
+            # # Update the end parameter to the timestamp of the last candle
+            # self.params["end"] = candles[-1][0]
 
             # print("---- fetch data ----", self.data)
 
@@ -96,8 +97,11 @@ class Model:
         # Convert the data list to a pandas DataFrame
         self.df = pd.DataFrame(
             data,
-            columns=["Timestamp", "Open", "High", "Low", "Close", "Volume"],
+            columns=["Timestamp", "Open", "Close", "High", "Low", "Volume"],
         )
+
+        self.df = self.df.iloc[::-1]
+
         # Convert the timestamp column to datetime format
         self.df["Datetime"] = pd.to_datetime(self.df["Timestamp"], unit="ms")
         self.df = self.df.drop("Timestamp", axis=1)

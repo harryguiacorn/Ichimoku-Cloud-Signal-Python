@@ -11,12 +11,12 @@ from src.mvc.controllers import (
 from datetime import datetime
 
 fetch_Oanda_1H = True
-fetch_Oanda_4H = False
-fetch_Oanda_D = False
-fetch_Oanda_W = False
-fetch_Oanda_M = False
+fetch_Oanda_4H = True
+fetch_Oanda_D = True
+fetch_Oanda_W = True
+fetch_Oanda_M = True
 
-run_Multi_TimeFrame_Merger_Oanda = False
+run_Multi_TimeFrame_Merger_Oanda = True
 
 fetch_Kicker_use_datetime_format = False
 
@@ -58,7 +58,7 @@ def main(
         fetch_Oanda_W,
         fetch_Oanda_M,
     )
-    return
+
     # 3.1 Combine latest cloud signals of all symbols into one spreadsheet
     _getIchimokuCloudDataOandaAggregator = GetIchimokuCloudDataOandaAggregator
     _getIchimokuCloudDataOandaAggregator.main(

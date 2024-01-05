@@ -3,10 +3,10 @@ from src.mvc.controllers import (
     GetIchimokuCloudDataBitfinex,
     GetIchimokuCloudDataBitfinexAggregator,
     GetIchimokuCloudDataBitfinexMultiTFMerger,
-    # GetIchimokuTKxDataBitfinex,
-    # GetIchimokuTKxDataBitfinexAggregator,
-    # GetIchimokuTKxDataBitfinexMultiTFMerger,
-    # GetIchimokuSumCloudTKxDataBitfinexMultiTFMerger,
+    GetIchimokuTKxDataBitfinex,
+    GetIchimokuTKxDataBitfinexAggregator,
+    GetIchimokuTKxDataBitfinexMultiTFMerger,
+    GetIchimokuSumCloudTKxDataBitfinexMultiTFMerger,
 )
 from datetime import datetime
 
@@ -58,7 +58,7 @@ def main(
         fetch_Bitfinex_W,
         fetch_Bitfinex_M,
     )
-    return
+
     # 3.1 Combine latest cloud signals of all symbols into one spreadsheet
     _getIchimokuCloudDataBitfinexAggregator = (
         GetIchimokuCloudDataBitfinexAggregator
@@ -71,49 +71,49 @@ def main(
         fetch_Bitfinex_M,
     )
 
-    # # 3.2 Merge Multi Time Frame Cloud signals
-    # _getIchimokuCloudDataBitfinexMultiTFMerger = (
-    #     GetIchimokuCloudDataBitfinexMultiTFMerger
-    # )
-    # _getIchimokuCloudDataBitfinexMultiTFMerger.main()
+    # 3.2 Merge Multi Time Frame Cloud signals
+    _getIchimokuCloudDataBitfinexMultiTFMerger = (
+        GetIchimokuCloudDataBitfinexMultiTFMerger
+    )
+    _getIchimokuCloudDataBitfinexMultiTFMerger.main()
 
-    # # 3.3 Produce Ichimoku TK Cross data
-    # _getIchimokuTKxDataBitfinex = GetIchimokuTKxDataBitfinex
-    # _getIchimokuTKxDataBitfinex.main(
-    #     fetch_Bitfinex_1H,
-    #     fetch_Bitfinex_4H,
-    #     fetch_Bitfinex_D,
-    #     fetch_Bitfinex_W,
-    #     fetch_Bitfinex_M,
-    # )
+    # 3.3 Produce Ichimoku TK Cross data
+    _getIchimokuTKxDataBitfinex = GetIchimokuTKxDataBitfinex
+    _getIchimokuTKxDataBitfinex.main(
+        fetch_Bitfinex_1H,
+        fetch_Bitfinex_4H,
+        fetch_Bitfinex_D,
+        fetch_Bitfinex_W,
+        fetch_Bitfinex_M,
+    )
 
-    # # 3.4 Combine latest TK Cross signals from all symbols into one spreadsheet
-    # _getIchimokuTKxDataBitfinexAggregator = (
-    #     GetIchimokuTKxDataBitfinexAggregator
-    # )
-    # _getIchimokuTKxDataBitfinexAggregator.main(
-    #     fetch_Bitfinex_1H,
-    #     fetch_Bitfinex_4H,
-    #     fetch_Bitfinex_D,
-    #     fetch_Bitfinex_W,
-    #     fetch_Bitfinex_M,
-    # )
+    # 3.4 Combine latest TK Cross signals from all symbols into one spreadsheet
+    _getIchimokuTKxDataBitfinexAggregator = (
+        GetIchimokuTKxDataBitfinexAggregator
+    )
+    _getIchimokuTKxDataBitfinexAggregator.main(
+        fetch_Bitfinex_1H,
+        fetch_Bitfinex_4H,
+        fetch_Bitfinex_D,
+        fetch_Bitfinex_W,
+        fetch_Bitfinex_M,
+    )
 
-    # # 3.5 Merge Multi Time Frame TKx signals
-    # _getIchimokuTKxDataBitfinexMultiTFMerger = (
-    #     GetIchimokuTKxDataBitfinexMultiTFMerger
-    # )
-    # _getIchimokuTKxDataBitfinexMultiTFMerger.main(
-    #     run_Multi_TimeFrame_Merger_Bitfinex
-    # )
+    # 3.5 Merge Multi Time Frame TKx signals
+    _getIchimokuTKxDataBitfinexMultiTFMerger = (
+        GetIchimokuTKxDataBitfinexMultiTFMerger
+    )
+    _getIchimokuTKxDataBitfinexMultiTFMerger.main(
+        run_Multi_TimeFrame_Merger_Bitfinex
+    )
 
-    # # 3.6 Merge Multi Time Frame Cloud and TKx Sum signals
-    # _getIchimokuSumCloudTKxDataBitfinexMultiTFMerger = (
-    #     GetIchimokuSumCloudTKxDataBitfinexMultiTFMerger
-    # )
-    # _getIchimokuSumCloudTKxDataBitfinexMultiTFMerger.main(
-    #     run_Multi_TimeFrame_Merger_Bitfinex
-    # )
+    # 3.6 Merge Multi Time Frame Cloud and TKx Sum signals
+    _getIchimokuSumCloudTKxDataBitfinexMultiTFMerger = (
+        GetIchimokuSumCloudTKxDataBitfinexMultiTFMerger
+    )
+    _getIchimokuSumCloudTKxDataBitfinexMultiTFMerger.main(
+        run_Multi_TimeFrame_Merger_Bitfinex
+    )
 
     # calculate time elapsed
     time_finish = datetime.now()
