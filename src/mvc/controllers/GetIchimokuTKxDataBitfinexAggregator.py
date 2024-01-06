@@ -13,7 +13,7 @@ def main(
             "data/bitfinex/1h/",
             "asset_list/Bitfinex.csv",
             "output/tkx/",
-            "bitfinex-tkx-1H",
+            "Bitfinex-tkx-1H",
             "1H",
             True,
         )
@@ -24,7 +24,7 @@ def main(
             "data/bitfinex/4h/",
             "asset_list/Bitfinex.csv",
             "output/tkx/",
-            "bitfinex-tkx-4H",
+            "Bitfinex-tkx-4H",
             "4H",
             True,
         )
@@ -35,7 +35,7 @@ def main(
             "data/bitfinex/d/",
             "asset_list/Bitfinex.csv",
             "output/tkx/",
-            "bitfinex-tkx-D",
+            "Bitfinex-tkx-D",
             "1D",
             True,
         )
@@ -46,7 +46,7 @@ def main(
             "data/bitfinex/w/",
             "asset_list/Bitfinex.csv",
             "output/tkx/",
-            "bitfinex-tkx-W",
+            "Bitfinex-tkx-W",
             "1W",
             True,
         )
@@ -57,7 +57,7 @@ def main(
             "data/bitfinex/m/",
             "asset_list/Bitfinex.csv",
             "output/tkx/",
-            "bitfinex-tkx-M",
+            "Bitfinex-tkx-M",
             "1M",
             True,
         )

@@ -5,13 +5,13 @@ def main(run_merger=True):
     if run_merger:
         _model = Model(
             [
-                "output/tkx/bitfinex-tkx-1H.csv",
-                "output/tkx/bitfinex-tkx-4H.csv",
-                "output/tkx/bitfinex-tkx-D.csv",
-                "output/tkx/bitfinex-tkx-W.csv",
-                "output/tkx/bitfinex-tkx-M.csv",
+                "output/tkx/Bitfinex-tkx-1H.csv",
+                "output/tkx/Bitfinex-tkx-4H.csv",
+                "output/tkx/Bitfinex-tkx-D.csv",
+                "output/tkx/Bitfinex-tkx-W.csv",
+                "output/tkx/Bitfinex-tkx-M.csv",
             ],
-            "output/tkx/bitfinex-tkx-merged.csv",
+            "output/tkx/Bitfinex-tkx-merged.csv",
             [
                 ["1H TKx Direction", "1H TKx Count"],
                 ["4H TKx Direction", "4H TKx Count"],
