@@ -37,7 +37,6 @@ class Model(object):
         self.__resultDataFrame = __df
 
     def readLocalCsvData(self, symbols, __csvPath, __suffix):
-        
         __dict_df: Dict[str, pd.DataFrame] = {}
 
         for __symbol in symbols:
@@ -124,6 +123,7 @@ class Model(object):
                 if __value.empty:
                     print(
                         f"\n------------ {__symbol} TKx value empty --------------"
+                    )
                     continue
 
                 # get latest direction sits at the bottom of dataframe
