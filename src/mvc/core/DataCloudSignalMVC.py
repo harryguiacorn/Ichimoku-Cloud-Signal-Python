@@ -78,12 +78,12 @@ class DataCloudSignal(DataOHLC):
         #     "display.max_columns", None
         # )  # print every column for debug
 
-        print("------- setupPd csvSuffix -------", csvSuffix)
+        # print("------- setupPd csvSuffix -------", csvSuffix)
 
         try:
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
-            print("---------- setupPd -------------", __path)
+            # print("---------- setupPd -------------", __path)
             if __data.empty:  # Check if the DataFrame is empty
                 print("CSV file is empty: ", __path)
             else:

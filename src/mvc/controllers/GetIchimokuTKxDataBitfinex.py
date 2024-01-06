@@ -9,23 +9,23 @@ def main(
     fetchMonthlyData=False,
 ):
     if fetch1HData:
-        _model = Model("data/bitfinex/1h/", "asset_list/bitfinex.csv", True)
+        _model = Model("data/bitfinex/1h/", "asset_list/Bitfinex.csv", True)
         _control = Control(_model, View())
         _control.main()
     if fetch4HData:
-        _model = Model("data/bitfinex/4h/", "asset_list/bitfinex.csv", True)
+        _model = Model("data/bitfinex/4h/", "asset_list/Bitfinex.csv", True)
         _control = Control(_model, View())
         _control.main()
     if fetchDailyData:
-        _model = Model("data/bitfinex/d/", "asset_list/bitfinex.csv", True)
+        _model = Model("data/bitfinex/d/", "asset_list/Bitfinex.csv", True)
         _control = Control(_model, View())
         _control.main()
     if fetchWeeklyData:
-        _model = Model("data/bitfinex/w/", "asset_list/bitfinex.csv", True)
+        _model = Model("data/bitfinex/w/", "asset_list/Bitfinex.csv", True)
         _control = Control(_model, View())
         _control.main()
     if fetchMonthlyData:
-        _model = Model("data/bitfinex/m/", "asset_list/bitfinex.csv", True)
+        _model = Model("data/bitfinex/m/", "asset_list/Bitfinex.csv", True)
         _control = Control(_model, View())
         _control.main()
 

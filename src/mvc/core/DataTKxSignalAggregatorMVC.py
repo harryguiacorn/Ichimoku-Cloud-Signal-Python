@@ -75,8 +75,7 @@ class Model(object):
                 # check if yahoo finance gives empty data
                 if __value.empty:
                     print(
-                        f"\n------------ {__symbol} TKx value empty --------------",
-                        __value.empty,
+                        f"\n------------ {__symbol} TKx value empty --------------"
                     )
                     continue
 
@@ -125,8 +124,7 @@ class Model(object):
                 # check if yahoo finance gives empty data
                 if __value.empty:
                     print(
-                        f"\n------------ {__symbol} TKx value empty --------------",
-                        __value.empty,
+                        f"\n------------ {__symbol} TKx value empty --------------"
                     )
                     continue
 
