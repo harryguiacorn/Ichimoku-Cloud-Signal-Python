@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Download AAPL stock data using yfinance
-aapl = yf.download("GBPJPY=X", period="1y", interval="60m")
+aapl = yf.download("GBPJPY=X", period="max", interval="60m")
 
 # Calculate the Ichimoku cloud components
 high_9 = aapl["High"].rolling(window=9).max()

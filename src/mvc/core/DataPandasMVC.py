@@ -346,10 +346,10 @@ if __name__ == "__main__":
     # _control.main()
 
     _model = Model(
-        "data/dowjones30/d/", "asset_list/DowJones30.csv", "1w", "3mo", True
+        "data/dowjones30/d/", "asset_list/DowJones30.csv", "1w", "2y", True
     )
     _model = Model(
-        "data/dowjones30/w/", "asset_list/DowJones30.csv", "1wk", "5y", True
+        "data/dowjones30/w/", "asset_list/DowJones30.csv", "1wk", "max", True
     )
     _control = Control(_model, View())
     _control.main()

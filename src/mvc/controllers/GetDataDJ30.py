@@ -15,7 +15,7 @@ def main(
             "data/dowjones30/1h/",
             "asset_list/DowJones30.csv",
             "1h",
-            "3mo",
+            "2y",
             True,
         )
         _control = Control(_model, View())
@@ -25,7 +25,7 @@ def main(
             "data/dowjones30/d/",
             "asset_list/DowJones30.csv",
             "1d",
-            "6mo",
+            "max",
             True,
         )
         _control = Control(_model, View())
@@ -35,7 +35,7 @@ def main(
             "data/dowjones30/w/",
             "asset_list/DowJones30.csv",
             "1wk",
-            "5y",
+            "max",
             True,
         )
         _control = Control(_model, View())
@@ -46,7 +46,7 @@ def main(
             "data/dowjones30/m/",
             "asset_list/DowJones30.csv",
             "1mo",
-            "10y",
+            "max",
             True,
         )
         _control = Control(_model, View())

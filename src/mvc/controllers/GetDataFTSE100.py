@@ -12,26 +12,26 @@ def main(
 
     if fetch1HData:
         _model = Model(
-            "data/ftse100/1h/", "asset_list/FTSE100.csv", "1h", "3mo", True
+            "data/ftse100/1h/", "asset_list/FTSE100.csv", "1h", "2y", True
         )
         _control = Control(_model, View())
         _control.main()
     if fetchDailyData:
         _model = Model(
-            "data/ftse100/d/", "asset_list/FTSE100.csv", "1d", "1y", True
+            "data/ftse100/d/", "asset_list/FTSE100.csv", "1d", "max", True
         )
         _control = Control(_model, View())
         _control.main()
     if fetchWeeklyData:
         _model = Model(
-            "data/ftse100/w/", "asset_list/FTSE100.csv", "1wk", "5y", True
+            "data/ftse100/w/", "asset_list/FTSE100.csv", "1wk", "max", True
         )
         _control = Control(_model, View())
         _control.main()
         _control.showAssetList()
     if fetchMonthlyData:
         _model = Model(
-            "data/ftse100/m/", "asset_list/FTSE100.csv", "1mo", "10y", True
+            "data/ftse100/m/", "asset_list/FTSE100.csv", "1mo", "max", True
         )
         _control = Control(_model, View())
         _control.main()

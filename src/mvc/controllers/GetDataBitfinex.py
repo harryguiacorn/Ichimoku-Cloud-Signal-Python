@@ -16,7 +16,7 @@ def main(
             "data/bitfinex/1h/",
             "asset_list/Bitfinex.csv",
             "1h",
-            "300",
+            "10000",
             True,
         )
         _control = Control(_model, View())
@@ -27,7 +27,7 @@ def main(
             "data/bitfinex/4h/",
             "asset_list/Bitfinex.csv",
             "4h",
-            "300",
+            "10000",
             True,
         )
         _control = Control(_model, View())
@@ -37,7 +37,7 @@ def main(
             "data/bitfinex/d/",
             "asset_list/Bitfinex.csv",
             "1D",
-            "300",
+            "10000",
             True,
         )
         _control = Control(_model, View())
@@ -47,7 +47,7 @@ def main(
             "data/bitfinex/w/",
             "asset_list/Bitfinex.csv",
             "1W",
-            "300",
+            "10000",
             True,
         )
         _control = Control(_model, View())
@@ -58,7 +58,7 @@ def main(
             "data/bitfinex/m/",
             "asset_list/Bitfinex.csv",
             "1M",
-            "300",
+            "10000",
             True,
         )
         _control = Control(_model, View())

@@ -12,20 +12,20 @@ def main(
 
     if fetch1HData:
         _model = Model(
-            "data/spx500/1h/", "asset_list/SPX500.csv", "1h", "3mo", True
+            "data/spx500/1h/", "asset_list/SPX500.csv", "1h", "2y", True
         )
         _control = Control(_model, View())
         _control.main()
     if fetchDailyData:
         _model = Model(
-            "data/spx500/d/", "asset_list/SPX500.csv", "1d", "1y", True
+            "data/spx500/d/", "asset_list/SPX500.csv", "1d", "max", True
         )
         _control = Control(_model, View())
         _control.main()
 
     if fetchWeeklyData:
         _model = Model(
-            "data/spx500/w/", "asset_list/SPX500.csv", "1wk", "5y", True
+            "data/spx500/w/", "asset_list/SPX500.csv", "1wk", "max", True
         )
         _control = Control(_model, View())
         _control.main()
@@ -33,7 +33,7 @@ def main(
 
     if fetchMonthlyData:
         _model = Model(
-            "data/spx500/m/", "asset_list/SPX500.csv", "1mo", "10y", True
+            "data/spx500/m/", "asset_list/SPX500.csv", "1mo", "max", True
         )
         _control = Control(_model, View())
         _control.main()

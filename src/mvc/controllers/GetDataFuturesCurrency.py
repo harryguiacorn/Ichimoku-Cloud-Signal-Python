@@ -15,7 +15,7 @@ def main(
             "data/futurescurrency/1h/",
             "asset_list/FuturesCurrency.csv",
             "1h",
-            "3mo",
+            "2y",
             True,
         )
         _control = Control(_model, View())
@@ -25,7 +25,7 @@ def main(
             "data/futurescurrency/d/",
             "asset_list/FuturesCurrency.csv",
             "1d",
-            "1y",
+            "max",
             True,
         )
         _control = Control(_model, View())
@@ -35,7 +35,7 @@ def main(
             "data/futurescurrency/w/",
             "asset_list/FuturesCurrency.csv",
             "1wk",
-            "5y",
+            "max",
             True,
         )
         _control = Control(_model, View())
@@ -46,7 +46,7 @@ def main(
             "data/futurescurrency/m/",
             "asset_list/FuturesCurrency.csv",
             "1mo",
-            "10y",
+            "max",
             True,
         )
         _control = Control(_model, View())
