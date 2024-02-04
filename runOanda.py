@@ -20,6 +20,10 @@ run_Multi_TimeFrame_Merger_Oanda = True
 
 fetch_Kicker_use_datetime_format = False
 
+fetch_kijun_analysis = False
+
+fetch_kicker = False
+
 
 def main(
     fetch_Oanda_1H,
@@ -27,8 +31,10 @@ def main(
     fetch_Oanda_D,
     fetch_Oanda_W,
     fetch_Oanda_M,
+    fetch_kijun_analysis,
     fetch_Kicker_use_datetime_format,
     run_Multi_TimeFrame_Merger_Oanda,
+    fetch_kicker,
 ):
     # Stop script being auto-run by Replit or Gitpod
     # return
@@ -126,6 +132,8 @@ if __name__ == "__main__":
         fetch_Oanda_D,
         fetch_Oanda_W,
         fetch_Oanda_M,
+        fetch_kijun_analysis,
         fetch_Kicker_use_datetime_format,
         run_Multi_TimeFrame_Merger_Oanda,
+        fetch_kicker,
     )

@@ -29,6 +29,8 @@ fetch_kijun_analysis = False
 # Use "Datetime" for all Oanda data.
 fetch_Kicker_use_datetime_format = False
 
+fetch_kicker = False
+
 
 def main(
     fetch_symbols_latest_FTSE100,
@@ -36,8 +38,10 @@ def main(
     fetch_FTSE100_D,
     fetch_FTSE100_W,
     fetch_FTSE100_M,
+    fetch_kijun_analysis,
     fetch_Kicker_use_datetime_format,
     run_Multi_TimeFrame_Merger_FTSE100,
+    fetch_kicker,
 ):
     # Stop script being auto-run by Replit or Gitpod
     # return
@@ -127,23 +131,24 @@ def main(
         fetch_kijun_analysis,
     )
 
-    # 5. Produce Kicker data
-    _getKickerDataFTSE100 = GetKickerDataFTSE100
-    _getKickerDataFTSE100.main(
-        fetch_Kicker_use_datetime_format,
-        fetch_FTSE100_D,
-        fetch_FTSE100_W,
-        fetch_FTSE100_M,
-    )
+    if fetch_kicker:
+        # 5. Produce Kicker data
+        _getKickerDataFTSE100 = GetKickerDataFTSE100
+        _getKickerDataFTSE100.main(
+            fetch_Kicker_use_datetime_format,
+            fetch_FTSE100_D,
+            fetch_FTSE100_W,
+            fetch_FTSE100_M,
+        )
 
-    # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
-    _getKickerDataFTSE100Aggregator = GetKickerDataFTSE100Aggregator
-    _getKickerDataFTSE100Aggregator.main(
-        fetch_Kicker_use_datetime_format,
-        fetch_FTSE100_D,
-        fetch_FTSE100_W,
-        fetch_FTSE100_M,
-    )
+        # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
+        _getKickerDataFTSE100Aggregator = GetKickerDataFTSE100Aggregator
+        _getKickerDataFTSE100Aggregator.main(
+            fetch_Kicker_use_datetime_format,
+            fetch_FTSE100_D,
+            fetch_FTSE100_W,
+            fetch_FTSE100_M,
+        )
 
     # calculate time elapsed
     time_finish = datetime.now()
@@ -161,6 +166,8 @@ if __name__ == "__main__":
         fetch_FTSE100_D,
         fetch_FTSE100_W,
         fetch_FTSE100_M,
+        fetch_kijun_analysis,
         fetch_Kicker_use_datetime_format,
         run_Multi_TimeFrame_Merger_FTSE100,
+        fetch_kicker,
     )

@@ -3,9 +3,10 @@ from src.mvc import Util
 
 
 class Model(object):
+
     def __init__(
         self,
-        __outputPathList: str = "",
+        __outputPathList: list = [],
         __outputMergePath: str = "",
         __list_direction_count_names: list = [],
         __list_score_names: list = [],

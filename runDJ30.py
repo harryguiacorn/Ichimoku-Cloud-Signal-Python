@@ -31,6 +31,8 @@ fetch_kijun_analysis = False
 # Use "Datetime" for all Oanda data.
 fetch_Kicker_use_datetime_format = False
 
+fetch_kicker = False
+
 
 def __init__(self):
     pass
@@ -45,6 +47,7 @@ def main(
     fetch_kijun_analysis,
     fetch_Kicker_use_datetime_format,
     run_Multi_TimeFrame_Merger_DJ30,
+    fetch_kicker,
 ):
     # ---------------- Dow Jones 30 ----------------
 
@@ -121,23 +124,24 @@ def main(
         fetch_kijun_analysis,
     )
 
-    # 5. Produce Kicker data
-    _getKickerDataDJ30 = GetKickerDataDJ30
-    _getKickerDataDJ30.main(
-        fetch_Kicker_use_datetime_format,
-        fetch_DJ30_D,
-        fetch_DJ30_W,
-        fetch_DJ30_M,
-    )
+    if fetch_kicker:
+        # 5. Produce Kicker data
+        _getKickerDataDJ30 = GetKickerDataDJ30
+        _getKickerDataDJ30.main(
+            fetch_Kicker_use_datetime_format,
+            fetch_DJ30_D,
+            fetch_DJ30_W,
+            fetch_DJ30_M,
+        )
 
-    # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
-    _getKickerDataDJ30Aggregator = GetKickerDataDJ30Aggregator
-    _getKickerDataDJ30Aggregator.main(
-        fetch_Kicker_use_datetime_format,
-        fetch_DJ30_D,
-        fetch_DJ30_W,
-        fetch_DJ30_M,
-    )
+        # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
+        _getKickerDataDJ30Aggregator = GetKickerDataDJ30Aggregator
+        _getKickerDataDJ30Aggregator.main(
+            fetch_Kicker_use_datetime_format,
+            fetch_DJ30_D,
+            fetch_DJ30_W,
+            fetch_DJ30_M,
+        )
 
     # calculate time elapsed
     time_finish = datetime.now()
@@ -158,4 +162,5 @@ if __name__ == "__main__":
         fetch_kijun_analysis,
         fetch_Kicker_use_datetime_format,
         run_Multi_TimeFrame_Merger_DJ30,
+        fetch_kicker,
     )

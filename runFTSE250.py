@@ -26,6 +26,8 @@ run_Multi_TimeFrame_Merger_FTSE250 = True
 
 fetch_kijun_analysis = False
 
+fetch_kicker = False
+
 # Use "Datetime" for Yahoo intraday data,
 # "Date" for D, W, M data.
 # Use "Datetime" for all Oanda data.
@@ -38,8 +40,10 @@ def main(
     fetch_FTSE250_D,
     fetch_FTSE250_W,
     fetch_FTSE250_M,
+    fetch_kijun_analysis,
     fetch_Kicker_use_datetime_format,
     run_Multi_TimeFrame_Merger_FTSE250,
+    fetch_kicker,
 ):
     # Stop script being auto-run by Replit or Gitpod
     # return
@@ -128,24 +132,25 @@ def main(
         fetch_kijun_analysis,
         fetch_kijun_analysis,
     )
+    if fetch_kicker:
+        # 5. Produce Kicker data
+        _getKickerDataFTSE250 = GetKickerDataFTSE250
+        _getKickerDataFTSE250.main(
+            fetch_Kicker_use_datetime_format,
+            fetch_FTSE250_D,
+            fetch_FTSE250_W,
+            fetch_FTSE250_M,
+        )
 
-    # 5. Produce Kicker data
-    _getKickerDataFTSE250 = GetKickerDataFTSE250
-    _getKickerDataFTSE250.main(
-        fetch_Kicker_use_datetime_format,
-        fetch_FTSE250_D,
-        fetch_FTSE250_W,
-        fetch_FTSE250_M,
-    )
+        # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
+        _getKickerDataFTSE250Aggregator = GetKickerDataFTSE250Aggregator
+        _getKickerDataFTSE250Aggregator.main(
+            fetch_Kicker_use_datetime_format,
+            fetch_FTSE250_D,
+            fetch_FTSE250_W,
+            fetch_FTSE250_M,
+        )
 
-    # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
-    _getKickerDataFTSE250Aggregator = GetKickerDataFTSE250Aggregator
-    _getKickerDataFTSE250Aggregator.main(
-        fetch_Kicker_use_datetime_format,
-        fetch_FTSE250_D,
-        fetch_FTSE250_W,
-        fetch_FTSE250_M,
-    )
     # calculate time elapsed
     time_finish = datetime.now()
     time_elapsed = time_finish - time_start
@@ -162,6 +167,8 @@ if __name__ == "__main__":
         fetch_FTSE250_D,
         fetch_FTSE250_W,
         fetch_FTSE250_M,
+        fetch_kijun_analysis,
         fetch_Kicker_use_datetime_format,
         run_Multi_TimeFrame_Merger_FTSE250,
+        fetch_kicker,
     )

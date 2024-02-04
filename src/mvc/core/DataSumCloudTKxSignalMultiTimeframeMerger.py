@@ -6,7 +6,7 @@ from src.mvc.html_creator import TableGenerator
 class Model(object):
     def __init__(
         self,
-        __outputPathList: str = "",
+        __outputPathList: list = [],
         __outputMergePath: str = "",
         __list_direction_count_names: list = [],
         __list_score_names: list = [],
@@ -78,7 +78,9 @@ class Model(object):
     ) -> pd.DataFrame:
         if self.list_score_names[0] in __df:
             __df.sort_values(
-                by=[self.list_score_names[0]], ascending=False, inplace=True
+                by=[self.list_score_names[0]],
+                ascending=False,
+                inplace=True,
             )
         # print("------ Cleaning columns ------")
 

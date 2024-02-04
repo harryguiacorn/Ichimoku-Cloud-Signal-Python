@@ -1,6 +1,7 @@
 import pandas as pd
 from IPython.display import HTML
 from src.mvc import Util
+from datetime import datetime
 
 
 class TableGenerator:
@@ -51,40 +52,59 @@ class TableGenerator:
             '<table class="table table-striped table-bordered" id="myTable"',
         )
         html_table += """
-<script>
-$(document).ready(function() {
-  $('#myTable').DataTable();
+        <script>
+        $(document).ready(function() {
+          // Get the number of columns in the table
+          //var columnCount = $('#myTable').DataTable().columns().count();
 
-  // Get all table rows
-  var rows = $('#myTable').DataTable().rows().nodes();
+          // Get the index of the last column
+          //var lastIndex = columnCount - 1;
 
-  // Iterate over all table rows and add classes
-  for (var i = 0; i < rows.length; i++) {
-    var row = rows[i];
-    var cells = row.querySelectorAll('td');
+          // Initialize the DataTable with the order option set to sort by the last column in descending order
+          //$('#myTable').DataTable({order: [[$('#myTable').DataTable().columns().count()-1, 'desc']]});
+          $('#myTable').DataTable({order: [[0, 'desc']]});
 
-    for (var j = 0; j < cells.length; j++) {
-      var cell = cells[j];
-      var value = parseFloat(cell.textContent);
+          // Get all table rows
+          var rows = $('#myTable').DataTable().rows().nodes();
 
-      if (!isNaN(value)) {
-        if (value > 0) {
-          cell.classList.add('highlight-positive');
-        } else if (value < 0) {
-          cell.classList.add('highlight-negative');
-        } else {
-          cell.classList.add('highlight-neutral');
-        }
-      }
-    }
-  }
-});
-</script>
+          // Iterate over all table rows and add classes
+          for (var i = 0; i < rows.length; i++) {
+            var row = rows[i];
+            var cells = row.querySelectorAll('td');
+
+            for (var j = 0; j < cells.length; j++) {
+              var cell = cells[j];
+              var value = parseFloat(cell.textContent);
+
+              if (!isNaN(value)) {
+                if (value > 0) {
+                  cell.classList.add('highlight-positive');
+                } else if (value < 0) {
+                  cell.classList.add('highlight-negative');
+                } else {
+                  cell.classList.add('highlight-neutral');
+                }
+              }
+            }
+          }
+        });     
+        </script>
+        </table>
+        """
+        # calculate time elapsed
+        time_finish = datetime.now()
+        time_finish_formatted = time_finish.strftime("%Y-%m-%d %H:%M:%S")
+        print(f"\nTable generated at {time_finish_formatted}")
+        html_table += f"""
+        <footer>
+          <p>Table generated at {time_finish_formatted}<br></p>
+        </footer>
         </body>
 
         </html>
-            """
+        """
         # print(html_table)
+
         print("html data table generated.")
         return html_table
 

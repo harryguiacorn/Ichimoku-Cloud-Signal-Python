@@ -19,6 +19,7 @@ fetch_Bitfinex_M = True
 run_Multi_TimeFrame_Merger_Bitfinex = True
 
 fetch_Kicker_use_datetime_format = False
+fetch_kicker = False
 
 
 def main(
@@ -29,6 +30,7 @@ def main(
     fetch_Bitfinex_M,
     fetch_Kicker_use_datetime_format,
     run_Multi_TimeFrame_Merger_Bitfinex,
+    fetch_kicker,
 ):
     # Stop script being auto-run by Replit or Gitpod
     # return
@@ -133,4 +135,5 @@ if __name__ == "__main__":
         fetch_Bitfinex_M,
         fetch_Kicker_use_datetime_format,
         run_Multi_TimeFrame_Merger_Bitfinex,
+        fetch_kicker,
     )

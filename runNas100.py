@@ -26,6 +26,8 @@ run_Multi_TimeFrame_Merger_Nas100 = True
 
 fetch_kijun_analysis = False
 
+fetch_kicker = False
+
 # Use "Datetime" for Yahoo intraday data,
 # "Date" for D, W, M data.
 # Use "Datetime" for all Oanda data.
@@ -41,6 +43,7 @@ def main(
     fetch_kijun_analysis,
     fetch_Kicker_use_datetime_format,
     run_Multi_TimeFrame_Merger_Nas100,
+    fetch_kicker,
 ):
     # Stop script being auto-run by Replit or Gitpod
     # return
@@ -129,24 +132,24 @@ def main(
         fetch_kijun_analysis,
         fetch_kijun_analysis,
     )
+    if fetch_kicker:
+        # 5. Produce Kicker data
+        _getKickerDataNas100 = GetKickerDataNas100
+        _getKickerDataNas100.main(
+            fetch_Kicker_use_datetime_format,
+            fetch_Nas100_D,
+            fetch_Nas100_W,
+            fetch_Nas100_M,
+        )
 
-    # 5. Produce Kicker data
-    _getKickerDataNas100 = GetKickerDataNas100
-    _getKickerDataNas100.main(
-        fetch_Kicker_use_datetime_format,
-        fetch_Nas100_D,
-        fetch_Nas100_W,
-        fetch_Nas100_M,
-    )
-
-    # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
-    _getKickerDataNas100Aggregator = GetKickerDataNas100Aggregator
-    _getKickerDataNas100Aggregator.main(
-        fetch_Kicker_use_datetime_format,
-        fetch_Nas100_D,
-        fetch_Nas100_W,
-        fetch_Nas100_M,
-    )
+        # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
+        _getKickerDataNas100Aggregator = GetKickerDataNas100Aggregator
+        _getKickerDataNas100Aggregator.main(
+            fetch_Kicker_use_datetime_format,
+            fetch_Nas100_D,
+            fetch_Nas100_W,
+            fetch_Nas100_M,
+        )
 
     # calculate time elapsed
     time_finish = datetime.now()
@@ -167,4 +170,5 @@ if __name__ == "__main__":
         fetch_kijun_analysis,
         fetch_Kicker_use_datetime_format,
         run_Multi_TimeFrame_Merger_Nas100,
+        fetch_kicker,
     )

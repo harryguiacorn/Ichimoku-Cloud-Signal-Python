@@ -26,6 +26,8 @@ run_Multi_TimeFrame_Merger_SPX500 = True
 
 fetch_kijun_analysis = False
 
+fetch_kicker = False
+
 # Use "Datetime" for Yahoo intraday data,
 # "Date" for D, W, M data.
 # Use "Datetime" for all Oanda data.
@@ -37,8 +39,10 @@ def main(
     fetch_SPX500_D,
     fetch_SPX500_W,
     fetch_SPX500_M,
+    fetch_kijun_analysis,
     fetch_Kicker_use_datetime_format,
     run_Multi_TimeFrame_Merger_SPX500,
+    fetch_kicker,
 ):
     # Stop script being auto-run by Replit or Gitpod
     # return
@@ -128,23 +132,24 @@ def main(
         fetch_kijun_analysis,
     )
 
-    # 5. Produce Kicker data
-    _getKickerDataSPX500 = GetKickerDataSPX500
-    _getKickerDataSPX500.main(
-        fetch_Kicker_use_datetime_format,
-        fetch_SPX500_D,
-        fetch_SPX500_W,
-        fetch_SPX500_M,
-    )
+    if fetch_kicker:
+        # 5. Produce Kicker data
+        _getKickerDataSPX500 = GetKickerDataSPX500
+        _getKickerDataSPX500.main(
+            fetch_Kicker_use_datetime_format,
+            fetch_SPX500_D,
+            fetch_SPX500_W,
+            fetch_SPX500_M,
+        )
 
-    # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
-    _getKickerDataSPX500Aggregator = GetKickerDataSPX500Aggregator
-    _getKickerDataSPX500Aggregator.main(
-        fetch_Kicker_use_datetime_format,
-        fetch_SPX500_D,
-        fetch_SPX500_W,
-        fetch_SPX500_M,
-    )
+        # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
+        _getKickerDataSPX500Aggregator = GetKickerDataSPX500Aggregator
+        _getKickerDataSPX500Aggregator.main(
+            fetch_Kicker_use_datetime_format,
+            fetch_SPX500_D,
+            fetch_SPX500_W,
+            fetch_SPX500_M,
+        )
 
     # calculate time elapsed
     time_finish = datetime.now()
@@ -161,6 +166,8 @@ if __name__ == "__main__":
         fetch_SPX500_D,
         fetch_SPX500_W,
         fetch_SPX500_M,
+        fetch_kijun_analysis,
         fetch_Kicker_use_datetime_format,
         run_Multi_TimeFrame_Merger_SPX500,
+        fetch_kicker,
     )

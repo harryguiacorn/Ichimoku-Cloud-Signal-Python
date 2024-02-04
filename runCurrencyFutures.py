@@ -25,6 +25,8 @@ run_Multi_TimeFrame_Merger_CurrencyFutures = True
 
 fetch_kijun_analysis = False
 
+fetch_kicker = False
+
 # Use "Datetime" for Yahoo intraday data,
 # "Date" for D, W, M data.
 # Use "Datetime" for all Oanda data.
@@ -37,8 +39,10 @@ def main(
     fetch_CurrencyFutures_D,
     fetch_CurrencyFutures_W,
     fetch_CurrencyFutures_M,
+    fetch_kijun_analysis,
     fetch_Kicker_use_datetime_format,
     run_Multi_TimeFrame_Merger_CurrencyFutures,
+    fetch_kicker,
 ):
     # Stop script being auto-run by Replit or Gitpod
     # return
@@ -143,25 +147,26 @@ def main(
         fetch_kijun_analysis,
     )
 
-    # 5. Produce Kicker data
-    _getKickerDataFuturesCurrency = GetKickerDataFuturesCurrency
-    _getKickerDataFuturesCurrency.main(
-        fetch_Kicker_use_datetime_format,
-        fetch_CurrencyFutures_D,
-        fetch_CurrencyFutures_W,
-        fetch_CurrencyFutures_M,
-    )
+    if fetch_kicker:
+        # 5. Produce Kicker data
+        _getKickerDataFuturesCurrency = GetKickerDataFuturesCurrency
+        _getKickerDataFuturesCurrency.main(
+            fetch_Kicker_use_datetime_format,
+            fetch_CurrencyFutures_D,
+            fetch_CurrencyFutures_W,
+            fetch_CurrencyFutures_M,
+        )
 
-    # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
-    _getKickerDataFuturesCurrencyAggregator = (
-        GetKickerDataFuturesCurrencyAggregator
-    )
-    _getKickerDataFuturesCurrencyAggregator.main(
-        fetch_Kicker_use_datetime_format,
-        fetch_CurrencyFutures_D,
-        fetch_CurrencyFutures_W,
-        fetch_CurrencyFutures_M,
-    )
+        # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
+        _getKickerDataFuturesCurrencyAggregator = (
+            GetKickerDataFuturesCurrencyAggregator
+        )
+        _getKickerDataFuturesCurrencyAggregator.main(
+            fetch_Kicker_use_datetime_format,
+            fetch_CurrencyFutures_D,
+            fetch_CurrencyFutures_W,
+            fetch_CurrencyFutures_M,
+        )
 
     # calculate time elapsed
     time_finish = datetime.now()
@@ -179,6 +184,8 @@ if __name__ == "__main__":
         fetch_CurrencyFutures_D,
         fetch_CurrencyFutures_W,
         fetch_CurrencyFutures_M,
+        fetch_kijun_analysis,
         fetch_Kicker_use_datetime_format,
         run_Multi_TimeFrame_Merger_CurrencyFutures,
+        fetch_kicker,
     )

@@ -24,6 +24,8 @@ run_Multi_TimeFrame_Merger_Futures = True
 
 fetch_kijun_analysis = False
 
+fetch_kicker = False
+
 # Use "Datetime" for Yahoo intraday data,
 # "Date" for D, W, M data.
 # Use "Datetime" for all Oanda data.
@@ -36,8 +38,10 @@ def main(
     fetch_Futures_D,
     fetch_Futures_W,
     fetch_Futures_M,
+    fetch_kijun_analysis,
     fetch_Kicker_use_datetime_format,
     run_Multi_TimeFrame_Merger_Futures,
+    fetch_kicker,
 ):
     # Stop script being auto-run by Replit or Gitpod
     # return
@@ -124,24 +128,24 @@ def main(
         fetch_kijun_analysis,
         fetch_kijun_analysis,
     )
+    if fetch_kicker:
+        # 5. Produce Kicker data
+        _getKickerDataFutures = GetKickerDataFutures
+        _getKickerDataFutures.main(
+            fetch_Kicker_use_datetime_format,
+            fetch_Futures_D,
+            fetch_Futures_W,
+            fetch_Futures_M,
+        )
 
-    # 5. Produce Kicker data
-    _getKickerDataFutures = GetKickerDataFutures
-    _getKickerDataFutures.main(
-        fetch_Kicker_use_datetime_format,
-        fetch_Futures_D,
-        fetch_Futures_W,
-        fetch_Futures_M,
-    )
-
-    # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
-    _getKickerDataFuturesAggregator = GetKickerDataFuturesAggregator
-    _getKickerDataFuturesAggregator.main(
-        fetch_Kicker_use_datetime_format,
-        fetch_Futures_D,
-        fetch_Futures_W,
-        fetch_Futures_M,
-    )
+        # 5.1 Combine latest Kicker signals from all symbols into one spreadsheet
+        _getKickerDataFuturesAggregator = GetKickerDataFuturesAggregator
+        _getKickerDataFuturesAggregator.main(
+            fetch_Kicker_use_datetime_format,
+            fetch_Futures_D,
+            fetch_Futures_W,
+            fetch_Futures_M,
+        )
 
     # calculate time elapsed
     time_finish = datetime.now()
@@ -159,6 +163,8 @@ if __name__ == "__main__":
         fetch_Futures_D,
         fetch_Futures_W,
         fetch_Futures_M,
+        fetch_kijun_analysis,
         fetch_Kicker_use_datetime_format,
         run_Multi_TimeFrame_Merger_Futures,
+        fetch_kicker,
     )
