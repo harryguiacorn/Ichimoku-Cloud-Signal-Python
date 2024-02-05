@@ -1,4 +1,4 @@
-import runDJ30, runNas100, runFTSE100, runFTSE250, runFutures, runCurrencyFutures, runSPX500, runOanda
+import runDJ30, runNas100, runFTSE100, runFTSE250, runFutures, runCurrencyFutures, runSPX500, runOanda, runBitfinex
 
 fetch_symbols_latest_DJ30 = True
 fetch_symbols_latest_SPX500 = True
@@ -16,8 +16,10 @@ fetch_FTSE250_1H = True
 fetch_Futures_1H = True
 fetch_CurrencyFutures_1H = True
 fetch_Oanda_1H = True
+fetch_Bitfinex_1H = True
 
 fetch_Oanda_4H = True
+fetch_Bitfinex_4H = True
 
 fetch_DJ30_D = True
 fetch_SPX500_D = True
@@ -27,6 +29,7 @@ fetch_FTSE250_D = True
 fetch_Futures_D = True
 fetch_CurrencyFutures_D = True
 fetch_Oanda_D = True
+fetch_Bitfinex_D = True
 
 fetch_DJ30_W = True
 fetch_SPX500_W = True
@@ -36,6 +39,8 @@ fetch_FTSE250_W = True
 fetch_Futures_W = True
 fetch_CurrencyFutures_W = True
 fetch_Oanda_W = True
+fetch_Bitfinex_W = True
+
 
 fetch_DJ30_M = True
 fetch_SPX500_M = True
@@ -45,6 +50,7 @@ fetch_FTSE250_M = True
 fetch_Futures_M = True
 fetch_CurrencyFutures_M = True
 fetch_Oanda_M = True
+fetch_Bitfinex_M = True
 
 run_Multi_TimeFrame_Merger_DJ30 = True
 run_Multi_TimeFrame_Merger_SPX500 = True
@@ -54,8 +60,11 @@ run_Multi_TimeFrame_Merger_FTSE250 = True
 run_Multi_TimeFrame_Merger_Futures = True
 run_Multi_TimeFrame_Merger_CurrencyFutures = True
 run_Multi_TimeFrame_Merger_Oanda = True
+run_Multi_TimeFrame_Merger_Bitfinex = True
 
 fetch_kijun_analysis = False
+
+fetch_kicker = False
 
 # Use "Datetime" for Yahoo intraday data,
 # "Date" for D, W, M data.
@@ -66,6 +75,22 @@ fetch_Kicker_use_datetime_format = False
 def main():
     # Stop script being auto-run by Replit or Gitpod
     # return
+
+    # ---------------- Oanda ----------------
+
+    _runOanda = runOanda
+    _runOanda.main(
+        fetch_Oanda_1H,
+        fetch_Oanda_4H,
+        fetch_Oanda_D,
+        fetch_Oanda_W,
+        fetch_Oanda_M,
+        fetch_kijun_analysis,
+        fetch_Kicker_use_datetime_format,
+        run_Multi_TimeFrame_Merger_Oanda,
+        fetch_kicker,
+    )
+    print("\nTasks completed.")
 
     # ---------------- Dow Jones 30 ----------------
 
@@ -79,6 +104,7 @@ def main():
         fetch_kijun_analysis,
         fetch_Kicker_use_datetime_format,
         run_Multi_TimeFrame_Merger_DJ30,
+        fetch_kicker,
     )
 
     # ---------------- Nasdaq 100 ----------------
@@ -93,6 +119,20 @@ def main():
         fetch_kijun_analysis,
         fetch_Kicker_use_datetime_format,
         run_Multi_TimeFrame_Merger_Nas100,
+        fetch_kicker,
+    )
+
+    # ---------------- S&P 500 ----------------
+
+    _runSPX500 = runSPX500
+    _runSPX500.main(
+        fetch_SPX500_1H,
+        fetch_SPX500_D,
+        fetch_SPX500_W,
+        fetch_SPX500_M,
+        fetch_Kicker_use_datetime_format,
+        run_Multi_TimeFrame_Merger_SPX500,
+        fetch_kicker,
     )
 
     # ---------------- FTSE 100 ----------------
@@ -106,6 +146,7 @@ def main():
         fetch_FTSE100_M,
         fetch_Kicker_use_datetime_format,
         run_Multi_TimeFrame_Merger_FTSE100,
+        fetch_kicker,
     )
 
     # ---------------- FTSE 250 ----------------
@@ -119,6 +160,7 @@ def main():
         fetch_FTSE250_M,
         fetch_Kicker_use_datetime_format,
         run_Multi_TimeFrame_Merger_FTSE250,
+        fetch_kicker,
     )
 
     # ---------------- Futures ----------------
@@ -132,6 +174,7 @@ def main():
         fetch_Futures_M,
         fetch_Kicker_use_datetime_format,
         run_Multi_TimeFrame_Merger_Futures,
+        fetch_kicker,
     )
 
     # ---------------- Futures Currency ----------------
@@ -145,33 +188,22 @@ def main():
         fetch_CurrencyFutures_M,
         fetch_Kicker_use_datetime_format,
         run_Multi_TimeFrame_Merger_CurrencyFutures,
+        fetch_kicker,
     )
 
-    # ---------------- S&P 500 ----------------
+    # ---------------- Bitfinex ----------------
 
-    _runSPX500 = runSPX500
-    _runSPX500.main(
-        fetch_SPX500_1H,
-        fetch_SPX500_D,
-        fetch_SPX500_W,
-        fetch_SPX500_M,
+    _runBitfinex = runBitfinex
+    _runBitfinex.main(
+        fetch_Bitfinex_1H,
+        fetch_Bitfinex_4H,
+        fetch_Bitfinex_D,
+        fetch_Bitfinex_W,
+        fetch_Bitfinex_M,
         fetch_Kicker_use_datetime_format,
-        run_Multi_TimeFrame_Merger_SPX500,
+        run_Multi_TimeFrame_Merger_Bitfinex,
+        fetch_kicker,
     )
-
-    # ---------------- Oanda ----------------
-
-    _runOanda = runOanda
-    _runOanda.main(
-        fetch_Oanda_1H,
-        fetch_Oanda_4H,
-        fetch_Oanda_D,
-        fetch_Oanda_W,
-        fetch_Oanda_M,
-        fetch_Kicker_use_datetime_format,
-        run_Multi_TimeFrame_Merger_Oanda,
-    )
-    print("\nTasks completed.")
 
 
 if __name__ == "__main__":
