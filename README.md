@@ -6,6 +6,29 @@
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
+## Status Update [2024.02.06] ## 
+
+Uncover market movers with ease! This application analyses data silently and generates web pages displaying strength scores for every stock in major indices. Dive deeper into each stock's cloud and TKx strength, calculated using powerful multi-timeframe Ichimoku analysis. Finally, see the ultimate verdict: a clear total score for each stock. Dominate the market by sorting through this scorecard, instantly identifying the champions and laggards primed for your trading moves.
+
+![image](https://github.com/harryguiacorn/Ichimoku-Cloud-Signal-Python/assets/1398153/a03a112b-c7fb-43d8-b931-dd26e57c4ab5)
+
+![image](https://github.com/harryguiacorn/Ichimoku-Cloud-Signal-Python/assets/1398153/861cfde8-851b-4beb-80ec-c6e6625bbfc2)
+
+![image](https://github.com/harryguiacorn/Ichimoku-Cloud-Signal-Python/assets/1398153/cb903cdf-f2f0-414e-85f0-f6576f826deb)
+
+![image](https://github.com/harryguiacorn/Ichimoku-Cloud-Signal-Python/assets/1398153/ba8a2fde-33c2-40c2-ad7f-0a1e612e65fa)
+
+![image](https://github.com/harryguiacorn/Ichimoku-Cloud-Signal-Python/assets/1398153/312d3ea9-c5ea-451b-8b97-31c49ffa8c87)
+
+![image](https://github.com/harryguiacorn/Ichimoku-Cloud-Signal-Python/assets/1398153/ac38ff46-8025-4031-a94b-9daf60c69ad9)
+
+![image](https://github.com/harryguiacorn/Ichimoku-Cloud-Signal-Python/assets/1398153/46f66f48-7f16-4434-adda-24493831d434)
+
+![image](https://github.com/harryguiacorn/Ichimoku-Cloud-Signal-Python/assets/1398153/70c626d8-3d2f-44e6-9d84-4375035c7495)
+
+![image](https://github.com/harryguiacorn/Ichimoku-Cloud-Signal-Python/assets/1398153/254b69e2-3caa-4030-bb09-d3de1abbef8c)
+
+
 ## Status Update ## 
 - This project is work in progress, the intention is to produce Ichimoku Cloud signals like in the author's [Cloud Service](https://github.com/harryguiacorn/cloudservice) which is written in PHP. The back end of the coding is taking shape, see below screenshots from one of output files:
 ### Ichimoku Kijun-sen Signal ###
