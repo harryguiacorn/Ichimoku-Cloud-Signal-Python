@@ -2,7 +2,6 @@ import requests
 import time
 import json
 import pandas as pd
-from src.mvc import Util
 
 
 class DataOandaAPI:
@@ -16,12 +15,24 @@ class DataOandaAPI:
         granularity="H4",
         pricingComponent="M",
     ) -> json:
-        url = "https://api-fxpractice.oanda.com/v3/instruments/USD_JPY/candles?count=10&price=A&from=2016-01-01T00%3A00%3A00.000000000Z&granularity=D"
-        url = (
-            "https://api-fxpractice.oanda.com/v3/accounts/101-004-21686905-001"
-        )
-        url = "https://api-fxpractice.oanda.com/v3/accounts/101-004-21686905-001/instruments"
+        # url = "https://api-fxpractice.oanda.com/v3/instruments/USD_JPY/candles?count=10&price=A&from=2016-01-01T00%3A00%3A00.000000000Z&granularity=D"
+        # url = (
+        #     "https://api-fxpractice.oanda.com/v3/accounts/101-004-21686905-001"
+        # )
+
         url = f"https://api-fxpractice.oanda.com/v3/instruments/{instrument}/candles?{count}&price={pricingComponent}&granularity={granularity}"
+        headers = {
+            "Authorization": "Bearer 3b627083d16f29d1e31994bffbe3f229-5b8b7091a8fe4eeaac8223daebd30a94"
+        }
+        response = requests.get(url, headers=headers)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            return None
+
+    def get_instruments(self):
+        url = "https://api-fxpractice.oanda.com/v3/accounts/101-004-21686905-001/instruments"
+
         headers = {
             "Authorization": "Bearer 3b627083d16f29d1e31994bffbe3f229-5b8b7091a8fe4eeaac8223daebd30a94"
         }
@@ -79,7 +90,10 @@ if __name__ == "__main__":
     # poll_api()
     data = api.get_oanda_data()
     # data = get_oanda_data()
-    api.save_json(data=data, filePath="data/oanda/")
-    print(data)
+    instruments = api.get_instruments()
+    api.save_json("data/oanda/instruments.json", instruments)
+    print(instruments)
 
-    api.json_to_csv(data)
+    # api.save_json(data=data, filePath="data/oanda/")
+    # print(data)
+    # api.json_to_csv(data)
