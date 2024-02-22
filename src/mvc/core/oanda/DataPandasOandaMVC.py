@@ -128,9 +128,9 @@ class Model(object):
                 # raise Exception("Error: ", __symbol, " e.args: ",e.args)
                 print(f"Error getLatestDataFromOandaAPI: {__symbol}: {e.args}")
                 continue
-        print(
-            "Download completed. Saved in:", __path_csv, __path_json, end="\n"
-        )
+            print(
+                "Download completed. Saved in:", __path_csv, __path_json, end="\n"
+            )
         return __dict_df
 
     def readLocalCsvData(self, symbols, __csvPath) -> dict:
