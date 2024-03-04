@@ -10,7 +10,7 @@
 
 Uncover market movers with ease! This application analyses data silently and generates web pages displaying strength scores for every stock in major indices. Dive deeper into each stock's cloud and TKx strength, calculated using powerful multi-timeframe Ichimoku analysis. Finally, see the ultimate verdict: a clear total score for each stock. Dominate the market by sorting through this scorecard, instantly identifying the champions and laggards primed for your trading moves.
 
-![image](https://github.com/harryguiacorn/Ichimoku-Cloud-Signal-Python/assets/1398153/a03a112b-c7fb-43d8-b931-dd26e57c4ab5)
+![image](https://github.com/harryguiacorn/Ichimoku-Cloud-Signal-Python/assets/1398153/f6b655be-a4a3-489a-94e3-71f8ce627f5b)
 
 ![image](https://github.com/harryguiacorn/Ichimoku-Cloud-Signal-Python/assets/1398153/861cfde8-851b-4beb-80ec-c6e6625bbfc2)
 
@@ -27,6 +27,8 @@ Uncover market movers with ease! This application analyses data silently and gen
 ![image](https://github.com/harryguiacorn/Ichimoku-Cloud-Signal-Python/assets/1398153/70c626d8-3d2f-44e6-9d84-4375035c7495)
 
 ![image](https://github.com/harryguiacorn/Ichimoku-Cloud-Signal-Python/assets/1398153/254b69e2-3caa-4030-bb09-d3de1abbef8c)
+
+![image](https://github.com/harryguiacorn/Ichimoku-Cloud-Signal-Python/assets/1398153/c471fa6d-cd46-407c-9b0b-0f561e12dca9)
 
 
 ## Status Update ## 
