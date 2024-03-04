@@ -4,7 +4,6 @@ from src.mvc.controllers import (
     GetIchimokuCloudDataSPDR_ETFSMultiTFMerger,
     GetIchimokuTKxDataSPDR_ETFS,
     GetIchimokuTKxDataSPDR_ETFSAggregator,
-    GetSymbolDowJones30,
     # GetIchimokuKijunDataSPDR_ETFS,
     # GetIchimokuKijunDataSPDR_ETFSAggregator,
     GetIchimokuCloudDataSPDR_ETFS,
@@ -54,9 +53,7 @@ def main(
     time_start = datetime.now()
     print("Task begins at:", time_start.strftime("%Y-%m-%d %H:%M:%S"), "\n")
 
-    # 1. Grab latest symbols
-    _getSymbolDowJones30 = GetSymbolDowJones30
-    _getSymbolDowJones30.main(fetch_symbols_latest_SPDR_ETFS)
+    # # 1. Grab latest symbols
 
     # 2. Download latest OHLC data for each symbol
     _getDataSPDR_ETFS = GetDataSPDR_ETFS
