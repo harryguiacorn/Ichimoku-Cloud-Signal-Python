@@ -23,7 +23,7 @@ def main(
     if fetchDailyData:
         _model = Model(
             "data/spdr_etfs/d/",
-            "asset_list/spdr_etfs.csv",
+            "asset_list/SPDR_ETFS.csv",
             "1d",
             "max",
             True,
@@ -33,7 +33,7 @@ def main(
     if fetchWeeklyData:
         _model = Model(
             "data/spdr_etfs/w/",
-            "asset_list/spdr_etfs.csv",
+            "asset_list/SPDR_ETFS.csv",
             "1wk",
             "max",
             True,
@@ -44,7 +44,7 @@ def main(
     if fetchMonthlyData:
         _model = Model(
             "data/spdr_etfs/m/",
-            "asset_list/spdr_etfs.csv",
+            "asset_list/SPDR_ETFS.csv",
             "1mo",
             "max",
             True,
