@@ -31,7 +31,7 @@ Uncover market movers with ease! This application analyses data silently and gen
 ![image](https://github.com/harryguiacorn/Ichimoku-Cloud-Signal-Python/assets/1398153/c471fa6d-cd46-407c-9b0b-0f561e12dca9)
 
 
-## Status Update ## 
+## Status Update [2023.11.14] ## 
 - This project is work in progress, the intention is to produce Ichimoku Cloud signals like in the author's [Cloud Service](https://github.com/harryguiacorn/cloudservice) which is written in PHP. The back end of the coding is taking shape, see below screenshots from one of output files:
 ### Ichimoku Kijun-sen Signal ###
 <img width="498" alt="Screenshot 2022-11-15 at 18 07 50" src="https://user-images.githubusercontent.com/1398153/201997990-165cd688-8f86-47c1-bb34-2b334a26a77a.png">
