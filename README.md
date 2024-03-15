@@ -3,7 +3,7 @@
 [View demo here](https://harryguiacorn.github.io/Ichimoku-Cloud-Signal-Python/ "S&P500 Cloud Scan")
 
 <a target="_blank" href="https://colab.research.google.com/github/harryguiacorn/Cloud-Signal-Python">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open Live In Colab"/>
 </a>
 
 ## Status Update [2024.02.06] ## 
