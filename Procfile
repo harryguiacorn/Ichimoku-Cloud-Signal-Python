@@ -1,1 +1,1 @@
-web: python script.py
+web: python runDJ30.py
