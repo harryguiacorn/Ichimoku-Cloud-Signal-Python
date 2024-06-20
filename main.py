@@ -1,4 +1,4 @@
-import runDJ30, runNas100, runFTSE100, runFTSE250, runFutures, runCurrencyFutures, runSPX500, runOanda, runBitfinex
+import runDJ30, runNas100, runFTSE100, runFTSE250, runFutures, runCurrencyFutures, runSPX500, runOanda, runBitfinex, runSPDR_ETFs
 
 fetch_symbols_latest_DJ30 = True
 fetch_symbols_latest_SPX500 = True
@@ -17,6 +17,7 @@ fetch_Futures_1H = True
 fetch_CurrencyFutures_1H = True
 fetch_Oanda_1H = True
 fetch_Bitfinex_1H = True
+fetch_SPDR_ETFs_1H = True
 
 fetch_Oanda_4H = True
 fetch_Bitfinex_4H = True
@@ -30,6 +31,7 @@ fetch_Futures_D = True
 fetch_CurrencyFutures_D = True
 fetch_Oanda_D = True
 fetch_Bitfinex_D = True
+fetch_SPDR_ETFs_D = True
 
 fetch_DJ30_W = True
 fetch_SPX500_W = True
@@ -40,7 +42,7 @@ fetch_Futures_W = True
 fetch_CurrencyFutures_W = True
 fetch_Oanda_W = True
 fetch_Bitfinex_W = True
-
+fetch_SPDR_ETFs_W = True
 
 fetch_DJ30_M = True
 fetch_SPX500_M = True
@@ -51,6 +53,7 @@ fetch_Futures_M = True
 fetch_CurrencyFutures_M = True
 fetch_Oanda_M = True
 fetch_Bitfinex_M = True
+fetch_SPDR_ETFs_M = True
 
 run_Multi_TimeFrame_Merger_DJ30 = True
 run_Multi_TimeFrame_Merger_SPX500 = True
@@ -61,6 +64,7 @@ run_Multi_TimeFrame_Merger_Futures = True
 run_Multi_TimeFrame_Merger_CurrencyFutures = True
 run_Multi_TimeFrame_Merger_Oanda = True
 run_Multi_TimeFrame_Merger_Bitfinex = True
+run_Multi_TimeFrame_Merger_SPDR_ETFs = True
 
 fetch_kijun_analysis = False
 
@@ -207,6 +211,21 @@ def main():
         fetch_Bitfinex_M,
         fetch_Kicker_use_datetime_format,
         run_Multi_TimeFrame_Merger_Bitfinex,
+        fetch_kicker,
+    )
+
+    # ---------------- SPDR ETFs ----------------
+
+    _runSPDR_ETFs = runSPDR_ETFs
+    _runSPDR_ETFs.main(
+        False,
+        fetch_SPDR_ETFs_1H,
+        fetch_SPDR_ETFs_D,
+        fetch_SPDR_ETFs_W,
+        fetch_SPDR_ETFs_M,
+        fetch_kijun_analysis,
+        fetch_Kicker_use_datetime_format,
+        run_Multi_TimeFrame_Merger_SPDR_ETFs,
         fetch_kicker,
     )
 
