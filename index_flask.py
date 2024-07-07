@@ -11,7 +11,7 @@ def index():
 
 @app.route("/bitfinex")
 def bitfinex():
-    return send_file("output\sum\Bitfinex-sum-cloud-tkx-merged.csv.html")
+    return send_file("output/sum/Bitfinex-sum-cloud-tkx-merged.csv.html")
 
 
 @app.route("/sector")
