@@ -61,7 +61,26 @@ def sector():
 def update():
     # subprocess.call([".\env\Scripts\python", "runBitfinex.py"])
 
-    return runBitfinex.main()
+    fetch_Bitfinex_1H = True
+    fetch_Bitfinex_4H = True
+    fetch_Bitfinex_D = True
+    fetch_Bitfinex_W = True
+    fetch_Bitfinex_M = True
+    fetch_Kicker_use_datetime_format = False
+    run_Multi_TimeFrame_Merger_Bitfinex = True
+    fetch_kicker = False
+
+    _runBitfinex = runBitfinex
+    return _runBitfinex.main(
+        fetch_Bitfinex_1H,
+        fetch_Bitfinex_4H,
+        fetch_Bitfinex_D,
+        fetch_Bitfinex_W,
+        fetch_Bitfinex_M,
+        fetch_Kicker_use_datetime_format,
+        run_Multi_TimeFrame_Merger_Bitfinex,
+        fetch_kicker,
+    )
 
 
 if __name__ == "__main__":
