@@ -1,5 +1,5 @@
 import pandas as pd
-from IPython.display import HTML
+# from IPython.display import HTML
 from src.mvc import Util
 from datetime import datetime
 
@@ -126,8 +126,9 @@ class TableGenerator:
         with open(filename, "r") as f:
             html_content = f.read()
 
-        # Display the HTML content in the Colab notebook
-        HTML(html_content)
+        # Commented out because of deployment error in Koyeb and Render 
+        # # Display the HTML content in the Colab notebook
+        # HTML(html_content)
 
 
 if __name__ == "__main__":
