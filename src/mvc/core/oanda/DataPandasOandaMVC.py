@@ -1,5 +1,6 @@
 import pandas as pd
-from finta import TA
+
+# from finta import TA
 from tapy import Indicators
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -129,7 +130,10 @@ class Model(object):
                 print(f"Error getLatestDataFromOandaAPI: {__symbol}: {e.args}")
                 continue
             print(
-                "Download completed. Saved in:", __path_csv, __path_json, end="\n"
+                "Download completed. Saved in:",
+                __path_csv,
+                __path_json,
+                end="\n",
             )
         return __dict_df
 

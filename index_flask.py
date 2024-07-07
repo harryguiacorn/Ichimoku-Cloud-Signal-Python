@@ -14,6 +14,11 @@ def bitfinex():
     return send_file("output\sum\Bitfinex-sum-cloud-tkx-merged.csv.html")
 
 
+@app.route("/sector")
+def sector():
+    return send_file("output\sum\SPDR_ETFS-sum-cloud-tkx-merged.csv.html")
+
+
 @app.route("/update")
 def update():
     subprocess.call([".\env\Scripts\python", "runBitfinex.py"])
