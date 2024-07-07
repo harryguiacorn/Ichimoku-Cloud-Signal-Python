@@ -1,4 +1,5 @@
 from flask import Flask, send_file
+import runBitfinex
 import subprocess
 
 app = Flask(__name__)
@@ -16,13 +17,14 @@ def bitfinex():
 
 @app.route("/sector")
 def sector():
-    return send_file("output\sum\SPDR_ETFS-sum-cloud-tkx-merged.csv.html")
+    return send_file("output/sum/SPDR_ETFS-sum-cloud-tkx-merged.csv.html")
 
 
 @app.route("/update")
 def update():
-    subprocess.call([".\env\Scripts\python", "runBitfinex.py"])
-    return "Updated"
+    # subprocess.call([".\env\Scripts\python", "runBitfinex.py"])
+
+    return runBitfinex.main()
 
 
 if __name__ == "__main__":
