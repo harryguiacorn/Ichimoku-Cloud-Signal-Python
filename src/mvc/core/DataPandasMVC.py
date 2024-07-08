@@ -1,6 +1,6 @@
 import datetime
 import pandas as pd
-# from finta import TA
+from finta import TA
 from tapy import Indicators
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
