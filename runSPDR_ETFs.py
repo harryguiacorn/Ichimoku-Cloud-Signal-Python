@@ -14,7 +14,7 @@ from src.mvc.controllers import (
 )
 from datetime import datetime
 
-fetch_symbols_latest_SPDR_ETFS = True
+fetch_symbols_latest_SPDR_ETFS = False
 
 fetch_SPDR_ETFS_1H = True
 fetch_SPDR_ETFS_D = True
@@ -38,15 +38,15 @@ def __init__(self):
 
 
 def main(
-    fetch_symbols_latest_SPDR_ETFS,
-    fetch_SPDR_ETFS_1H,
-    fetch_SPDR_ETFS_D,
-    fetch_SPDR_ETFS_W,
-    fetch_SPDR_ETFS_M,
-    fetch_kijun_analysis,
-    fetch_Kicker_use_datetime_format,
-    run_Multi_TimeFrame_Merger_SPDR_ETFS,
-    fetch_kicker,
+    fetch_symbols_latest_SPDR_ETFS=fetch_symbols_latest_SPDR_ETFS,
+    fetch_SPDR_ETFS_1H=fetch_SPDR_ETFS_1H,
+    fetch_SPDR_ETFS_D=fetch_SPDR_ETFS_D,
+    fetch_SPDR_ETFS_W=fetch_SPDR_ETFS_W,
+    fetch_SPDR_ETFS_M=fetch_SPDR_ETFS_M,
+    fetch_kijun_analysis=fetch_kijun_analysis,
+    fetch_Kicker_use_datetime_format=fetch_Kicker_use_datetime_format,
+    run_Multi_TimeFrame_Merger_SPDR_ETFS=run_Multi_TimeFrame_Merger_SPDR_ETFS,
+    fetch_kicker=fetch_kicker,
 ):
     # ---------------- Dow Jones 30 ----------------
 

@@ -34,15 +34,15 @@ fetch_Kicker_use_datetime_format = False
 
 
 def main(
-    fetch_symbols_latest_CurrencyFutures,
-    fetch_CurrencyFutures_1H,
-    fetch_CurrencyFutures_D,
-    fetch_CurrencyFutures_W,
-    fetch_CurrencyFutures_M,
-    fetch_kijun_analysis,
-    fetch_Kicker_use_datetime_format,
-    run_Multi_TimeFrame_Merger_CurrencyFutures,
-    fetch_kicker,
+    fetch_symbols_latest_CurrencyFutures=fetch_symbols_latest_CurrencyFutures,
+    fetch_CurrencyFutures_1H=fetch_CurrencyFutures_1H,
+    fetch_CurrencyFutures_D=fetch_CurrencyFutures_D,
+    fetch_CurrencyFutures_W=fetch_CurrencyFutures_W,
+    fetch_CurrencyFutures_M=fetch_CurrencyFutures_M,
+    fetch_kijun_analysis=fetch_kijun_analysis,
+    fetch_Kicker_use_datetime_format=fetch_Kicker_use_datetime_format,
+    run_Multi_TimeFrame_Merger_CurrencyFutures=run_Multi_TimeFrame_Merger_CurrencyFutures,
+    fetch_kicker=fetch_kicker,
 ):
     # Stop script being auto-run by Replit or Gitpod
     # return

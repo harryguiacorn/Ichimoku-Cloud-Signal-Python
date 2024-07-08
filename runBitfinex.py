@@ -23,14 +23,14 @@ fetch_kicker = False
 
 
 def main(
-    fetch_Bitfinex_1H,
-    fetch_Bitfinex_4H,
-    fetch_Bitfinex_D,
-    fetch_Bitfinex_W,
-    fetch_Bitfinex_M,
-    fetch_Kicker_use_datetime_format,
-    run_Multi_TimeFrame_Merger_Bitfinex,
-    fetch_kicker,
+    fetch_Bitfinex_1H=fetch_Bitfinex_1H,
+    fetch_Bitfinex_4H=fetch_Bitfinex_4H,
+    fetch_Bitfinex_D=fetch_Bitfinex_D,
+    fetch_Bitfinex_W=fetch_Bitfinex_W,
+    fetch_Bitfinex_M=fetch_Bitfinex_M,
+    fetch_Kicker_use_datetime_format=fetch_Kicker_use_datetime_format,
+    run_Multi_TimeFrame_Merger_Bitfinex=run_Multi_TimeFrame_Merger_Bitfinex,
+    fetch_kicker=fetch_kicker,
 ):
     # Stop script being auto-run by Replit or Gitpod
     # return

@@ -33,15 +33,15 @@ fetch_kicker = False
 
 
 def main(
-    fetch_symbols_latest_FTSE100,
-    fetch_FTSE100_1H,
-    fetch_FTSE100_D,
-    fetch_FTSE100_W,
-    fetch_FTSE100_M,
-    fetch_kijun_analysis,
-    fetch_Kicker_use_datetime_format,
-    run_Multi_TimeFrame_Merger_FTSE100,
-    fetch_kicker,
+    fetch_symbols_latest_FTSE100=fetch_symbols_latest_FTSE100,
+    fetch_FTSE100_1H=fetch_FTSE100_1H,
+    fetch_FTSE100_D=fetch_FTSE100_D,
+    fetch_FTSE100_W=fetch_FTSE100_W,
+    fetch_FTSE100_M=fetch_FTSE100_M,
+    fetch_kijun_analysis=fetch_kijun_analysis,
+    fetch_Kicker_use_datetime_format=fetch_Kicker_use_datetime_format,
+    run_Multi_TimeFrame_Merger_FTSE100=run_Multi_TimeFrame_Merger_FTSE100,
+    fetch_kicker=fetch_kicker,
 ):
     # Stop script being auto-run by Replit or Gitpod
     # return

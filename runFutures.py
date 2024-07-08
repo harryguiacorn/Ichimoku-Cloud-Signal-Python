@@ -33,15 +33,15 @@ fetch_Kicker_use_datetime_format = False
 
 
 def main(
-    fetch_symbols_latest_Futures,
-    fetch_Futures_1H,
-    fetch_Futures_D,
-    fetch_Futures_W,
-    fetch_Futures_M,
-    fetch_kijun_analysis,
-    fetch_Kicker_use_datetime_format,
-    run_Multi_TimeFrame_Merger_Futures,
-    fetch_kicker,
+    fetch_symbols_latest_Futures=fetch_symbols_latest_Futures,
+    fetch_Futures_1H=fetch_Futures_1H,
+    fetch_Futures_D=fetch_Futures_D,
+    fetch_Futures_W=fetch_Futures_W,
+    fetch_Futures_M=fetch_Futures_M,
+    fetch_kijun_analysis=fetch_kijun_analysis,
+    fetch_Kicker_use_datetime_format=fetch_Kicker_use_datetime_format,
+    run_Multi_TimeFrame_Merger_Futures=run_Multi_TimeFrame_Merger_Futures,
+    fetch_kicker=fetch_kicker,
 ):
     # Stop script being auto-run by Replit or Gitpod
     # return

@@ -26,15 +26,15 @@ fetch_kicker = False
 
 
 def main(
-    fetch_Oanda_1H,
-    fetch_Oanda_4H,
-    fetch_Oanda_D,
-    fetch_Oanda_W,
-    fetch_Oanda_M,
-    fetch_kijun_analysis,
-    fetch_Kicker_use_datetime_format,
-    run_Multi_TimeFrame_Merger_Oanda,
-    fetch_kicker,
+    fetch_Oanda_1H=fetch_Oanda_1H,
+    fetch_Oanda_4H=fetch_Oanda_4H,
+    fetch_Oanda_D=fetch_Oanda_D,
+    fetch_Oanda_W=fetch_Oanda_W,
+    fetch_Oanda_M=fetch_Oanda_M,
+    fetch_kijun_analysis=fetch_kijun_analysis,
+    fetch_Kicker_use_datetime_format=fetch_Kicker_use_datetime_format,
+    run_Multi_TimeFrame_Merger_Oanda=run_Multi_TimeFrame_Merger_Oanda,
+    fetch_kicker=fetch_kicker,
 ):
     # Stop script being auto-run by Replit or Gitpod
     # return
