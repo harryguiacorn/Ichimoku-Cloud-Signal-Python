@@ -204,6 +204,7 @@ class DataCloudSignal(DataOHLC):
     ):
         header = [
             "Datetime",
+            "Close",
             "Cloud Signal",
             "Cloud Signal Count",
             # "Return",

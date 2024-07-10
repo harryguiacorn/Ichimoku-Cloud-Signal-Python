@@ -74,7 +74,7 @@ class Model(object):
                 # check if yahoo finance gives empty data
                 if __value.empty:
                     print(
-                        f"\n------------ {__symbol} TKx value empty --------------"
+                        f"\n------------ {__symbol} value empty --------------"
                     )
                     continue
 
@@ -95,6 +95,7 @@ class Model(object):
                 __index = symbols["symbol"].index(__symbol)
                 __symbolName = symbols["name"][__index]
                 __date = __value["Date"].iloc[-1]
+                __close = __value["Close"].iloc[-1]
                 # print(__date, __symbolName, __kickerDirection)
 
             except KeyError as e:
@@ -105,6 +106,7 @@ class Model(object):
                 list_temp.append(__date)
                 list_temp.append(__symbol)
                 list_temp.append(__symbolName)
+                list_temp.append(__close)
                 list_temp.append(__kickerDirection)
                 list_result.append(list_temp)
                 self.resultList = list_result

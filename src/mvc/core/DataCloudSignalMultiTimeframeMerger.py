@@ -43,7 +43,7 @@ class Model(object):
             else:
                 # Combine the two dataframes
                 combined_csv = pd.merge(
-                    combined_csv, df_csv1, on=["Symbol", "Name"]
+                    combined_csv, df_csv1, on=["Symbol", "Name", "Close"]
                 )
 
         print(
@@ -86,6 +86,7 @@ class Model(object):
         # add Symbol and Name columns in the front of the list
         __filter_list_column.insert(0, "Symbol")
         __filter_list_column.insert(1, "Name")
+        __filter_list_column.insert(2, "Close")
         print("Available columns: ", __filter_list_column)
 
         # Filter columns based on the list of column names

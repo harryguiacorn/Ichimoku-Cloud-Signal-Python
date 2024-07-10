@@ -73,7 +73,7 @@ class Model(object):
                 # check if yahoo finance gives empty data
                 if __value.empty:
                     print(
-                        f"\n------------ {__symbol} TKx value empty --------------"
+                        f"\n------------ {__symbol} cloud value empty --------------"
                     )
                     continue
 
@@ -86,7 +86,7 @@ class Model(object):
                     __colSize,
                     end="]",
                 )
-                #  check if column for signals is empty
+                # check if column for signals is empty
                 # when yahoo receives empty data
                 if __colSize == 0:
                     continue
@@ -97,6 +97,7 @@ class Model(object):
                 __index = symbols["symbol"].index(__symbol)
                 __symbolName = symbols["name"][__index]
                 __date = __value["Date"].iloc[-1]
+                __close = __value["Close"].iloc[-1]
 
             except KeyError as e:
                 print("------ KeyError ------", e.args)
@@ -106,6 +107,7 @@ class Model(object):
                 list_temp.append(__date)
                 list_temp.append(__symbol)
                 list_temp.append(__symbolName)
+                list_temp.append(__close)
                 list_temp.append(__cloudDirection)
                 list_temp.append(__cloudConsecutiveCount)
                 list_result.append(list_temp)
@@ -124,7 +126,7 @@ class Model(object):
                 # check if yahoo finance gives empty data
                 if __value.empty:
                     print(
-                        f"\n------------ {__symbol} TKx value empty --------------"
+                        f"\n------------ {__symbol} cloud value empty --------------"
                     )
                     continue
 
@@ -137,7 +139,7 @@ class Model(object):
                     __colSize,
                     end="]",
                 )
-                #  check if column for signals is empty
+                # check if column for signals is empty
                 # when yahoo receives empty data
                 if __colSize == 0:
                     continue
@@ -148,6 +150,7 @@ class Model(object):
                 __index = symbols["symbol"].index(__symbol)
                 __symbolName = symbols["name"][__index]
                 __date = __value["Datetime"].iloc[-1]
+                __close = __value["Close"].iloc[-1]
 
             except KeyError as e:
                 print("------ KeyError ------", e.args)
@@ -157,6 +160,7 @@ class Model(object):
                 list_temp.append(__date)
                 list_temp.append(__symbol)
                 list_temp.append(__symbolName)
+                list_temp.append(__close)
                 list_temp.append(__cloudDirection)
                 list_temp.append(__cloudConsecutiveCount)
                 list_result.append(list_temp)
@@ -174,6 +178,7 @@ class Model(object):
                 "Datetime",
                 "Symbol",
                 "Name",
+                "Close",
                 f"{self.csvColumnPrefix} Cloud Direction",
                 f"{self.csvColumnPrefix} Cloud Count",
             ]
@@ -181,6 +186,7 @@ class Model(object):
             "Date",
             "Symbol",
             "Name",
+            "Close",
             f"{self.csvColumnPrefix} Cloud Direction",
             f"{self.csvColumnPrefix} Cloud Count",
         ]
