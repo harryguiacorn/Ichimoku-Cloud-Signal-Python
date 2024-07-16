@@ -12,7 +12,7 @@ def main(
 
     if fetch1HData:
         _model = Model(
-            "data/futures/1h/", "asset_list/Futures.csv", "1h", "2y", True
+            "data/futures/1h/", "asset_list/Futures.csv", "1h", "1y", True
         )
         _control = Control(_model, View())
         _control.main()

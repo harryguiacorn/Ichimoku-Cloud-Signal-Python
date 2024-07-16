@@ -15,7 +15,7 @@ def main(
             "data/spdr_etfs/1h/",
             "asset_list/SPDR_ETFs.csv",
             "1h",
-            "2y",
+            "1y",
             True,
         )
         _control = Control(_model, View())

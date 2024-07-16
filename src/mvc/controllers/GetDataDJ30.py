@@ -15,7 +15,7 @@ def main(
             "data/dowjones30/1h/",
             "asset_list/DowJones30.csv",
             "1h",
-            "2y",
+            "1y",
             True,
         )
         _control = Control(_model, View())

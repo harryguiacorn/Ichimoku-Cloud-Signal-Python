@@ -346,7 +346,7 @@ if __name__ == "__main__":
     # _control.main()
 
     _model = Model(
-        "data/dowjones30/d/", "asset_list/DowJones30.csv", "1w", "2y", True
+        "data/dowjones30/d/", "asset_list/DowJones30.csv", "1w", "max", True
     )
     _model = Model(
         "data/dowjones30/w/", "asset_list/DowJones30.csv", "1wk", "max", True

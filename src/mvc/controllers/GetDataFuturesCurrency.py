@@ -15,7 +15,7 @@ def main(
             "data/futurescurrency/1h/",
             "asset_list/FuturesCurrency.csv",
             "1h",
-            "2y",
+            "1y",
             True,
         )
         _control = Control(_model, View())

@@ -13,7 +13,7 @@ symbol = "AAPL"  # Replace with your desired stock symbol
 #     Either Use period parameter or use start and end
 stock_data = yf.download(
     symbol,
-    period="2y",
+    period="max",
 )
 
 stock_returns = stock_data["Close"].pct_change()
