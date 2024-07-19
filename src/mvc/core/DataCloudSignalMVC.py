@@ -44,6 +44,10 @@ class DataCloudSignal(DataOHLC):
                     __data["senkou_span_a"],
                     __data["senkou_span_b"],
                 )
+
+                # rounded to 2 decimal places
+                __data["Close"] = __data["Close"].round(2)
+
                 __data["Cloud Signal Count"] = self.getCloudSignalCount(
                     __data["Cloud Signal"]
                 )
@@ -94,6 +98,10 @@ class DataCloudSignal(DataOHLC):
                     __data["senkou_span_a"],
                     __data["senkou_span_b"],
                 )
+
+                # rounded to 2 decimal places
+                __data["Close"] = __data["Close"].round(2)
+
                 __data["Cloud Signal Count"] = self.getCloudSignalCount(
                     __data["Cloud Signal"]
                 )
