@@ -1,4 +1,4 @@
-Task begins at: 2024-07-19 20:07:15 
+Task begins at: 2024-07-19 21:07:33 
 
 ----------- Reading symbols for H1 -----------
 readAssetList path: asset_list/Oanda.csv
@@ -952,32 +952,20 @@ All specified columns exist.
 All specified columns exist.
 All specified columns exist.
 -------------------- Cloud Score Multi Timeframe Raw --------------------
-         Symbol            Name  ...  1W Cloud Score  1M Cloud Score
-0    ESPIX_EUR        Spain 35  ...              81              14
-1     CORN_USD            Corn  ...             -56             -12
-2   NATGAS_USD     Natural Gas  ...              -5              -9
-3   UK10YB_GBP     UK 10Y Gilt  ...              -4             -32
-4   DE10YB_EUR            Bund  ...              -5             -29
-5    WHEAT_USD           Wheat  ...              -6              -7
-6      ZAR_JPY         ZAR/JPY  ...              30              14
-7   USB30Y_USD       US T-Bond  ...               0             -29
-8    UK100_GBP          UK 100  ...              26              32
-9     FR40_EUR       France 40  ...              37              45
-10    CN50_USD       China A50  ...               0             -18
-11    CH20_CHF  Switzerland 20  ...              32               3
-12   SOYBN_USD        Soybeans  ...             -51              -7
-13  USB10Y_USD   US 10Y T-Note  ...               0             -29
-14  USB05Y_USD    US 5Y T-Note  ...               0             -29
-15    HK33_HKD    Hong Kong 33  ...               0             -35
-16  USB02Y_USD    US 2Y T-Note  ...               0             -29
-17    NL25_EUR  Netherlands 25  ...              38              52
-18    DE30_EUR      Germany 30  ...              38              45
-19    EU50_EUR       Europe 50  ...              38              45
-20   SUGAR_USD           Sugar  ...             -22              40
-21    SG30_SGD    Singapore 30  ...              16             -33
-22     NZD_CHF         NZD/CHF  ...              -1             -26
+         Symbol          Name  ...  1W Cloud Score  1M Cloud Score
+0      AUD_JPY       AUD/JPY  ...              58              32
+1    ESPIX_EUR      Spain 35  ...              81              14
+2     CORN_USD          Corn  ...             -56             -12
+3   NATGAS_USD   Natural Gas  ...              -5              -9
+4   UK10YB_GBP   UK 10Y Gilt  ...              -4             -32
+..         ...           ...  ...             ...             ...
+65   SUGAR_USD         Sugar  ...             -22              40
+66    SG30_SGD  Singapore 30  ...              16             -33
+67     XCU_USD        Copper  ...              20               5
+68     AUD_CHF       AUD/CHF  ...               0             -18
+69     NZD_CHF       NZD/CHF  ...              -1             -26
 
-[23 rows x 18 columns]
+[70 rows x 18 columns]
 
 create_sum_column self.list_score_names:  ['1H Cloud Score', '4H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score', 'Cloud Score Sum'] 
 create_sum_column df.columns Index(['Symbol', 'Name', 'Close', '1H Cloud Direction', '1H Cloud Count',
@@ -991,32 +979,20 @@ Available columns:  ['Symbol', 'Name', 'Close', '1H Cloud Score', '4H Cloud Scor
 Saved data to: output/cloud/Oanda-cloud-merged.csv output/cloud/Oanda-cloud-merged.csv.html
 
 ----------- Cloud Score Multi Timeframe Final View -----------
-         Symbol            Name  ...  1M Cloud Score  Cloud Score Sum
-0    ESPIX_EUR        Spain 35  ...              14              125
-11    CH20_CHF  Switzerland 20  ...               3               96
-6      ZAR_JPY         ZAR/JPY  ...              14               43
-14  USB05Y_USD    US 5Y T-Note  ...             -29               38
-8    UK100_GBP          UK 100  ...              32               37
-16  USB02Y_USD    US 2Y T-Note  ...             -29               36
-9     FR40_EUR       France 40  ...              45               27
-17    NL25_EUR  Netherlands 25  ...              52               17
-4   DE10YB_EUR            Bund  ...             -29                3
-10    CN50_USD       China A50  ...             -18                1
-18    DE30_EUR      Germany 30  ...              45                1
-21    SG30_SGD    Singapore 30  ...             -33               -9
-3   UK10YB_GBP     UK 10Y Gilt  ...             -32              -10
-19    EU50_EUR       Europe 50  ...              45              -14
-13  USB10Y_USD   US 10Y T-Note  ...             -29              -25
-7   USB30Y_USD       US T-Bond  ...             -29              -30
-5    WHEAT_USD           Wheat  ...              -7              -62
-15    HK33_HKD    Hong Kong 33  ...             -35              -74
-20   SUGAR_USD           Sugar  ...              40              -84
-1     CORN_USD            Corn  ...             -12             -104
-12   SOYBN_USD        Soybeans  ...              -7             -111
-2   NATGAS_USD     Natural Gas  ...              -9             -125
-22     NZD_CHF         NZD/CHF  ...             -26             -190
+         Symbol         Name  ...  1M Cloud Score  Cloud Score Sum
+31     EUR_TRY      EUR/TRY  ...             132              447
+15     USD_TRY      USD/TRY  ...             132              421
+5      SGD_JPY      SGD/JPY  ...              34              326
+54     CHF_JPY      CHF/JPY  ...              37              308
+10     EUR_JPY      EUR/JPY  ...              41              266
+..         ...          ...  ...             ...              ...
+28   SOYBN_USD     Soybeans  ...              -7             -111
+3   NATGAS_USD  Natural Gas  ...              -9             -125
+68     AUD_CHF      AUD/CHF  ...             -18             -135
+52     XPD_USD    Palladium  ...             -19             -189
+69     NZD_CHF      NZD/CHF  ...             -26             -190
 
-[23 rows x 9 columns]
+[70 rows x 9 columns]
 
 -------------------- Generating TKx Signals from data/oanda/1h/ asset_list/Oanda.csv --------------------
 TKx count csv files are created
@@ -1071,10 +1047,10 @@ All specified columns exist.
 -------------------- TKx Score Multi Timeframe Raw --------------------
          Symbol             Name  ...  1W TKx Score  1M TKx Score
 0      CAD_CHF          CAD/CHF  ...            17           -18
-1      AUD_CAD          AUD/CAD  ...            12           -10
-2      USD_ZAR          USD/ZAR  ...            -9            25
-3      GBP_CAD          GBP/CAD  ...            34            14
-4      GBP_AUD          GBP/AUD  ...            -3            14
+1      USD_ZAR          USD/ZAR  ...            -9            25
+2      GBP_AUD          GBP/AUD  ...            -3            14
+3      ZAR_JPY          ZAR/JPY  ...            16             5
+4      GBP_CAD          GBP/CAD  ...            34            14
 ..         ...              ...  ...           ...           ...
 65  JP225Y_JPY  Japan 225 (JPY)  ...            32            15
 66  SPX500_USD       US SPX 500  ...            30            12
@@ -1097,15 +1073,15 @@ Saved data to: output/tkx/Oanda-tkx-merged.csv output/tkx/Oanda-tkx-merged.csv.h
 
 ----------- TKx Score Multi Timeframe Final View -----------
          Symbol          Name  ...  1M TKx Score  TKx Score Sum
-15     USD_TRY       USD/TRY  ...           156            368
-46     EUR_TRY       EUR/TRY  ...           134            233
-18     CHF_JPY       CHF/JPY  ...            49            161
-17     GBP_JPY       GBP/JPY  ...            43            117
-32     GBP_NZD       GBP/NZD  ...            14            103
+16     USD_TRY       USD/TRY  ...           156            368
+47     EUR_TRY       EUR/TRY  ...           134            233
+15     CHF_JPY       CHF/JPY  ...            49            161
+14     GBP_JPY       GBP/JPY  ...            43            117
+29     GBP_NZD       GBP/NZD  ...            14            103
 ..         ...           ...  ...           ...            ...
 52  USB30Y_USD     US T-Bond  ...           -39            -82
-30    HK33_HKD  Hong Kong 33  ...           -30            -84
-62     NZD_CHF       NZD/CHF  ...           -25           -119
+31    HK33_HKD  Hong Kong 33  ...           -30            -84
+61     NZD_CHF       NZD/CHF  ...           -25           -119
 69     XCU_USD        Copper  ...             4           -119
 59     XPD_USD     Palladium  ...           -20           -161
 
@@ -1120,45 +1096,33 @@ File name with extension: Oanda-sum-cloud-tkx-merged.csv
 Saved data to: output/sum/Oanda-sum-cloud-tkx-merged.csv output/sum/Oanda-sum-cloud-tkx-merged.csv.html
 
 ----------- Cloud and TKx Sum Score Multi Timeframe Final View -----------
-         Symbol            Name  ...  TKx Score Sum  Total Score Sum
-0    ESPIX_EUR        Spain 35  ...             41              166
-1     CH20_CHF  Switzerland 20  ...             14              110
-6     FR40_EUR       France 40  ...             52               79
-4    UK100_GBP          UK 100  ...             39               76
-2      ZAR_JPY         ZAR/JPY  ...             16               59
-11    SG30_SGD    Singapore 30  ...             62               53
-7     NL25_EUR  Netherlands 25  ...             30               47
-10    DE30_EUR      Germany 30  ...             18               19
-8   DE10YB_EUR            Bund  ...             -2                1
-9     CN50_USD       China A50  ...             -3               -2
-3   USB05Y_USD    US 5Y T-Note  ...            -40               -2
-5   USB02Y_USD    US 2Y T-Note  ...            -44               -8
-12  UK10YB_GBP     UK 10Y Gilt  ...            -21              -31
-13    EU50_EUR       Europe 50  ...            -53              -67
-16   WHEAT_USD           Wheat  ...            -28              -90
-14  USB10Y_USD   US 10Y T-Note  ...            -70              -95
-15  USB30Y_USD       US T-Bond  ...            -82             -112
-18   SUGAR_USD           Sugar  ...            -36             -120
-20   SOYBN_USD        Soybeans  ...            -14             -125
-19    CORN_USD            Corn  ...            -49             -153
-17    HK33_HKD    Hong Kong 33  ...            -84             -158
-21  NATGAS_USD     Natural Gas  ...            -75             -200
-22     NZD_CHF         NZD/CHF  ...           -119             -309
+         Symbol         Name  ...  TKx Score Sum  Total Score Sum
+1      USD_TRY      USD/TRY  ...            368              789
+0      EUR_TRY      EUR/TRY  ...            233              680
+3      CHF_JPY      CHF/JPY  ...            161              469
+2      SGD_JPY      SGD/JPY  ...             75              401
+6      GBP_JPY      GBP/JPY  ...            117              332
+..         ...          ...  ...            ...              ...
+67     AUD_CHF      AUD/CHF  ...            -36             -171
+66  NATGAS_USD  Natural Gas  ...            -75             -200
+63     XCU_USD       Copper  ...           -119             -218
+69     NZD_CHF      NZD/CHF  ...           -119             -309
+68     XPD_USD    Palladium  ...           -161             -350
 
-[23 rows x 16 columns]
+[70 rows x 16 columns]
 
 ------------- Generating Html table -------------
 HTML title: Oanda Cloud Scan
 
-Table generated at 2024-07-19 20:08:45
+Table generated at 2024-07-19 21:09:04
 html data table generated.
 generate_html output/sum/Oanda-sum-cloud-tkx-merged.csv
 html data table saved at output/sum/Oanda-sum-cloud-tkx-merged.csv.html
 
-Tasks completed at 2024-07-19 20:08:45 (Time elapsed: 0:01:30.650077)
+Tasks completed at 2024-07-19 21:09:04 (Time elapsed: 0:01:30.832769)
 
 Tasks completed.
-Task begins at: 2024-07-19 20:08:45 
+Task begins at: 2024-07-19 21:09:04 
 
 Reading symbols from source:  https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average#Components
 Total symbols: 30
@@ -1638,13 +1602,13 @@ Saved data to: output/sum/DowJones30-sum-cloud-tkx-merged.csv output/sum/DowJone
 ------------- Generating Html table -------------
 HTML title: Dow Jones 30 Cloud Scan
 
-Table generated at 2024-07-19 20:10:11
+Table generated at 2024-07-19 21:10:28
 html data table generated.
 generate_html output/sum/DowJones30-sum-cloud-tkx-merged.csv
 html data table saved at output/sum/DowJones30-sum-cloud-tkx-merged.csv.html
 
-Tasks completed at 2024-07-19 20:10:11 (Time elapsed: 0:01:25.674231)
-Task begins at: 2024-07-19 20:10:11 
+Tasks completed at 2024-07-19 21:10:28 (Time elapsed: 0:01:24.138760)
+Task begins at: 2024-07-19 21:10:28 
 
 Reading symbols from source:  https://en.wikipedia.org/wiki/Nasdaq-100#Components
 Total symbols: 101
@@ -2345,13 +2309,13 @@ Saved data to: output/sum/Nasdaq100-sum-cloud-tkx-merged.csv output/sum/Nasdaq10
 ------------- Generating Html table -------------
 HTML title: Nasdaq 100 Cloud Scan
 
-Table generated at 2024-07-19 20:13:26
+Table generated at 2024-07-19 21:13:38
 html data table generated.
 generate_html output/sum/Nasdaq100-sum-cloud-tkx-merged.csv
 html data table saved at output/sum/Nasdaq100-sum-cloud-tkx-merged.csv.html
 
-Tasks completed at 2024-07-19 20:13:26 (Time elapsed: 0:03:15.166247)
-Task begins at: 2024-07-19 20:13:26 
+Tasks completed at 2024-07-19 21:13:38 (Time elapsed: 0:03:09.717835)
+Task begins at: 2024-07-19 21:13:38 
 
 Reading symbols from source:  https://en.wikipedia.org/wiki/List_of_S%26P_500_companies#S&P_500_component_stocks
 Total symbols: 503
@@ -4521,20 +4485,20 @@ All specified columns exist.
 All specified columns exist.
 All specified columns exist.
 -------------------- Cloud Score Multi Timeframe Raw --------------------
-     Symbol                     Name  ...  1W Cloud Score  1M Cloud Score
-0      HST    Host Hotels & Resorts  ...               0              29
-1     JKHY  Jack Henry & Associates  ...              11               0
-2     SWKS       Skyworks Solutions  ...               5             -17
-3     VRSK                   Verisk  ...              12             100
-4     FANG       Diamondback Energy  ...              53              34
-..     ...                      ...  ...             ...             ...
-183    LNT           Alliant Energy  ...               5               0
-184    FRT           Federal Realty  ...               8               0
-185   TMUS              T-Mobile US  ...              38             124
-186    PNC   PNC Financial Services  ...              32               1
-187   HOLX                  Hologic  ...               2              52
+     Symbol                 Name  ...  1W Cloud Score  1M Cloud Score
+0      CAH      Cardinal Health  ...               0              24
+1      ITW  Illinois Tool Works  ...               0              52
+2        F   Ford Motor Company  ...               4              -7
+3      AXP     American Express  ...              36              86
+4      NKE           Nike, Inc.  ...             -29             -12
+..     ...                  ...  ...             ...             ...
+480    IRM        Iron Mountain  ...              69              42
+481   JNPR     Juniper Networks  ...              28              37
+482   SPGI           S&P Global  ...              38             146
+483   FICO           Fair Isaac  ...              89             153
+484   TRGP      Targa Resources  ...              70              31
 
-[188 rows x 15 columns]
+[485 rows x 15 columns]
 
 create_sum_column self.list_score_names:  ['1H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score', 'Cloud Score Sum'] 
 create_sum_column df.columns Index(['Symbol', 'Name', 'Close', '1H Cloud Direction', '1H Cloud Count',
@@ -4547,20 +4511,20 @@ Available columns:  ['Symbol', 'Name', 'Close', '1H Cloud Score', '1D Cloud Scor
 Saved data to: output/cloud/SPX500-cloud-merged.csv output/cloud/SPX500-cloud-merged.csv.html
 
 ----------- Cloud Score Multi Timeframe Final View -----------
-     Symbol                     Name  ...  1M Cloud Score  Cloud Score Sum
-180   CTAS                   Cintas  ...             152              349
-45    ORLY      O'Reilly Auto Parts  ...             186              300
-185   TMUS              T-Mobile US  ...             124              299
-110    ROP       Roper Technologies  ...             169              298
-56    AAPL               Apple Inc.  ...             238              291
-..     ...                      ...  ...             ...              ...
-68    LULU      Lululemon Athletica  ...              -1             -107
-60     AAL  American Airlines Group  ...             -63             -119
-64     ALB    Albemarle Corporation  ...             -10             -125
-20    BF-B             Brown–Forman  ...             -11             -151
-16    PARA         Paramount Global  ...             -26             -205
+     Symbol                          Name  ...  1M Cloud Score  Cloud Score Sum
+483   FICO                    Fair Isaac  ...             153              469
+484   TRGP               Targa Resources  ...              31              427
+170     TT            Trane Technologies  ...             151              406
+42     BSX             Boston Scientific  ...             131              390
+197    LLY                   Lilly (Eli)  ...             144              367
+..     ...                           ...  ...             ...              ...
+167    ALB         Albemarle Corporation  ...             -10             -125
+84    BF-B                  Brown–Forman  ...             -11             -151
+53    PARA              Paramount Global  ...             -26             -205
+476     EL  Estée Lauder Companies (The)  ...             -15             -241
+137    WBA      Walgreens Boots Alliance  ...             -65             -305
 
-[188 rows x 8 columns]
+[485 rows x 8 columns]
 
 -------------------- Generating TKx Signals from data/spx500/1h/ asset_list/SPX500.csv --------------------
 CSV file is empty data/spx500/1h/GEV_ichimokuTapy.csv
@@ -4710,31 +4674,31 @@ File name with extension: SPX500-sum-cloud-tkx-merged.csv
 Saved data to: output/sum/SPX500-sum-cloud-tkx-merged.csv output/sum/SPX500-sum-cloud-tkx-merged.csv.html
 
 ----------- Cloud and TKx Sum Score Multi Timeframe Final View -----------
-     Symbol                     Name  ...  TKx Score Sum  Total Score Sum
-0     CTAS                   Cintas  ...            374              723
-13    COST                   Costco  ...            286              515
-6     VRTX   Vertex Pharmaceuticals  ...            221              486
-10    SNPS                 Synopsys  ...            233              468
-2     TMUS              T-Mobile US  ...            115              414
-..     ...                      ...  ...            ...              ...
-182   APTV                    Aptiv  ...            -96             -186
-184    AAL  American Airlines Group  ...            -80             -199
-185    ALB    Albemarle Corporation  ...           -108             -233
-187   PARA         Paramount Global  ...            -55             -260
-186   BF-B             Brown–Forman  ...           -157             -308
+     Symbol                          Name  ...  TKx Score Sum  Total Score Sum
+6     CTAS                        Cintas  ...            374              723
+3      BSX             Boston Scientific  ...            217              607
+0     FICO                    Fair Isaac  ...            137              606
+9      RSG             Republic Services  ...            271              578
+1     TRGP               Targa Resources  ...            144              571
+..     ...                           ...  ...            ...              ...
+480    ALB         Albemarle Corporation  ...           -108             -233
+482   PARA              Paramount Global  ...            -55             -260
+481   BF-B                  Brown–Forman  ...           -157             -308
+483     EL  Estée Lauder Companies (The)  ...           -162             -403
+484    WBA      Walgreens Boots Alliance  ...           -177             -482
 
-[188 rows x 14 columns]
+[485 rows x 14 columns]
 
 ------------- Generating Html table -------------
 HTML title: S&P 500 Cloud Scan
 
-Table generated at 2024-07-19 20:32:55
+Table generated at 2024-07-19 21:33:03
 html data table generated.
 generate_html output/sum/SPX500-sum-cloud-tkx-merged.csv
 html data table saved at output/sum/SPX500-sum-cloud-tkx-merged.csv.html
 
-Tasks completed at 2024-07-19 20:32:55 (Time elapsed: 0:19:28.633652)
-Task begins at: 2024-07-19 20:32:55 
+Tasks completed at 2024-07-19 21:33:03 (Time elapsed: 0:19:25.595114)
+Task begins at: 2024-07-19 21:33:03 
 
 Reading symbols from source:  https://en.wikipedia.org/wiki/FTSE_100_Index
 Total symbols: 100
@@ -5431,13 +5395,13 @@ Saved data to: output/sum/FTSE100-sum-cloud-tkx-merged.csv output/sum/FTSE100-su
 ------------- Generating Html table -------------
 HTML title: FTSE 100 Cloud Scan
 
-Table generated at 2024-07-19 20:36:24
+Table generated at 2024-07-19 21:36:30
 html data table generated.
 generate_html output/sum/FTSE100-sum-cloud-tkx-merged.csv
 html data table saved at output/sum/FTSE100-sum-cloud-tkx-merged.csv.html
 
-Tasks completed at 2024-07-19 20:36:24 (Time elapsed: 0:03:28.833766)
-Task begins at: 2024-07-19 20:36:24 
+Tasks completed at 2024-07-19 21:36:30 (Time elapsed: 0:03:26.914692)
+Task begins at: 2024-07-19 21:36:30 
 
 Reading symbols from source:  https://en.wikipedia.org/wiki/FTSE_250_Index
 Total symbols: 250
@@ -6822,13 +6786,13 @@ Saved data to: output/sum/FTSE250-sum-cloud-tkx-merged.csv output/sum/FTSE250-su
 ------------- Generating Html table -------------
 HTML title: FTSE 250 Cloud Scan
 
-Table generated at 2024-07-19 20:44:07
+Table generated at 2024-07-19 21:44:12
 html data table generated.
 generate_html output/sum/FTSE250-sum-cloud-tkx-merged.csv
 html data table saved at output/sum/FTSE250-sum-cloud-tkx-merged.csv.html
 
-Tasks completed at 2024-07-19 20:44:07 (Time elapsed: 0:07:43.334195)
-Task begins at: 2024-07-19 20:44:07 
+Tasks completed at 2024-07-19 21:44:12 (Time elapsed: 0:07:41.521935)
+Task begins at: 2024-07-19 21:44:12 
 
 Reading symbols from source:  https://finance.yahoo.com/commodities/
 Total symbols: 37
@@ -7084,7 +7048,7 @@ Cloud signal count csv files are created
 ----------- Creating Cloud Signal Aggregator -----------
 self.model.use_datetime_format:: True
 Error: data/futures/1h/B0=F_cloudCount.csv not found
-[symbol: ES=F , entries: 5674][symbol: YM=F , entries: 5670][symbol: NQ=F , entries: 5671][symbol: RTY=F , entries: 5694][symbol: ZB=F , entries: 5694][symbol: ZN=F , entries: 5695][symbol: ZF=F , entries: 5695][symbol: ZT=F , entries: 5694][symbol: GC=F , entries: 5696][symbol: MGC=F , entries: 5695][symbol: SI=F , entries: 5696][symbol: SIL=F , entries: 5696][symbol: PL=F , entries: 5695][symbol: HG=F , entries: 5696][symbol: PA=F , entries: 5674][symbol: CL=F , entries: 5558][symbol: HO=F , entries: 5454][symbol: NG=F , entries: 5567][symbol: RB=F , entries: 5406][symbol: BZ=F , entries: 5245][symbol: ZC=F , entries: 4625][symbol: ZO=F , entries: 3231][symbol: KE=F , entries: 4624][symbol: ZR=F , entries: 1797][symbol: ZM=F , entries: 4625][symbol: ZL=F , entries: 4625][symbol: ZS=F , entries: 4625][symbol: GF=F , entries: 1430][symbol: HE=F , entries: 1429][symbol: LE=F , entries: 1430][symbol: CC=F , entries: 2399][symbol: KC=F , entries: 2399][symbol: CT=F , entries: 3782][symbol: LBS=F , entries: 1172][symbol: OJ=F , entries: 1285][symbol: SB=F , entries: 2410]Aggregator Futures-cloud-1H.csv and .xml are created
+[symbol: ES=F , entries: 5673][symbol: YM=F , entries: 5669][symbol: NQ=F , entries: 5670][symbol: RTY=F , entries: 5693][symbol: ZB=F , entries: 5693][symbol: ZN=F , entries: 5694][symbol: ZF=F , entries: 5694][symbol: ZT=F , entries: 5693][symbol: GC=F , entries: 5695][symbol: MGC=F , entries: 5695][symbol: SI=F , entries: 5695][symbol: SIL=F , entries: 5695][symbol: PL=F , entries: 5694][symbol: HG=F , entries: 5695][symbol: PA=F , entries: 5673][symbol: CL=F , entries: 5557][symbol: HO=F , entries: 5453][symbol: NG=F , entries: 5566][symbol: RB=F , entries: 5405][symbol: BZ=F , entries: 5244][symbol: ZC=F , entries: 4625][symbol: ZO=F , entries: 3231][symbol: KE=F , entries: 4624][symbol: ZR=F , entries: 1797][symbol: ZM=F , entries: 4625][symbol: ZL=F , entries: 4625][symbol: ZS=F , entries: 4625][symbol: GF=F , entries: 1430][symbol: HE=F , entries: 1429][symbol: LE=F , entries: 1430][symbol: CC=F , entries: 2399][symbol: KC=F , entries: 2399][symbol: CT=F , entries: 3782][symbol: LBS=F , entries: 1172][symbol: OJ=F , entries: 1285][symbol: SB=F , entries: 2410]Aggregator Futures-cloud-1H.csv and .xml are created
 
 ----------- Creating Cloud Signal Aggregator -----------
 self.model.use_datetime_format:: False
@@ -7120,27 +7084,36 @@ All specified columns exist.
 2    CT=F                    Cotton Oct 24  ...             -14              -4
 3    ZM=F  S&P Composite 1500 ESG Tilted I  ...             -34              -7
 4    ZC=F            Corn Futures,Dec-2024  ...             -74             -10
-5    ZL=F     Soybean Oil Futures,Dec-2024  ...             -44              -8
-6    CC=F                     Cocoa Sep 24  ...              83              18
-7    HO=F               Heating Oil Aug 24  ...             -22              34
-8    BZ=F  Brent Crude Oil Last Day Financ  ...               0              34
-9    KE=F    KC HRW Wheat Futures,Sep-2024  ...              -7              -2
-10   GF=F  WisdomTree International High D  ...              14              23
-11   ZB=F  U.S. Treasury Bond Futures,Sep-  ...               0             -26
-12   KC=F                    Coffee Sep 24  ...              17              35
-13   HE=F       Lean Hogs Futures,Aug-2024  ...              16               4
-14   GC=F                             Gold  ...              36              53
-15  MGC=F      Micro Gold Futures,Dec-2024  ...              36              62
-16   ZR=F      Rough Rice Futures,Sep-2024  ...              -1              -1
-17   ZT=F   2-Year T-Note Futures,Sep-2024  ...               0             -26
-18   PL=F                  Platinum Oct 24  ...               0              -1
-19   PA=F                 Palladium Sep 24  ...             -99             -17
-20   ZO=F             Oat Futures,Dec-2024  ...             -10              -5
-21  SIL=F    Micro Silver Futures,Sep-2024  ...              20               5
-22   SI=F                           Silver  ...              20               5
-23   SB=F                 Sugar #11 Oct 24  ...             -16              36
+5    NG=F               Natural Gas Aug 24  ...             -25              -9
+6    ZL=F     Soybean Oil Futures,Dec-2024  ...             -44              -8
+7    RB=F             RBOB Gasoline Aug 24  ...               0              29
+8    CC=F                     Cocoa Sep 24  ...              83              18
+9    CL=F                        Crude Oil  ...               5              35
+10   HO=F               Heating Oil Aug 24  ...             -22              34
+11   BZ=F  Brent Crude Oil Last Day Financ  ...               0              34
+12   KE=F    KC HRW Wheat Futures,Sep-2024  ...              -7              -2
+13   GF=F  WisdomTree International High D  ...              14              23
+14   ZB=F  U.S. Treasury Bond Futures,Sep-  ...               0             -26
+15   KC=F                    Coffee Sep 24  ...              17              35
+16   YM=F  Mini Dow Jones Indus.-$5 Sep 24  ...              38             132
+17   HE=F       Lean Hogs Futures,Aug-2024  ...              16               4
+18   ZN=F  10-Year T-Note Futures,Sep-2024  ...               0             -26
+19   GC=F                             Gold  ...              36              53
+20  MGC=F      Micro Gold Futures,Dec-2024  ...              36              62
+21   ZF=F  Five-Year US Treasury Note Futu  ...               0             -26
+22   ZR=F      Rough Rice Futures,Sep-2024  ...              -1              -1
+23   ZT=F   2-Year T-Note Futures,Sep-2024  ...               0             -26
+24   PL=F                  Platinum Oct 24  ...               0              -1
+25   PA=F                 Palladium Sep 24  ...             -99             -17
+26   ZO=F             Oat Futures,Dec-2024  ...             -10              -5
+27  SIL=F    Micro Silver Futures,Sep-2024  ...              20               5
+28   SI=F                           Silver  ...              20               5
+29   ES=F            E-Mini S&P 500 Sep 24  ...              62             132
+30   NQ=F                Nasdaq 100 Sep 24  ...              62             144
+31   SB=F                 Sugar #11 Oct 24  ...             -16              36
+32   HG=F                    Copper Sep 24  ...              22               5
 
-[24 rows x 15 columns]
+[33 rows x 15 columns]
 
 create_sum_column self.list_score_names:  ['1H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score', 'Cloud Score Sum'] 
 create_sum_column df.columns Index(['Symbol', 'Name', 'Close', '1H Cloud Direction', '1H Cloud Count',
@@ -7154,32 +7127,41 @@ Saved data to: output/cloud/Futures-cloud-merged.csv output/cloud/Futures-cloud-
 
 ----------- Cloud Score Multi Timeframe Final View -----------
     Symbol                             Name  ...  1M Cloud Score  Cloud Score Sum
-15  MGC=F      Micro Gold Futures,Dec-2024  ...              62               81
-6    CC=F                     Cocoa Sep 24  ...              18               75
-14   GC=F                             Gold  ...              53               72
-10   GF=F  WisdomTree International High D  ...              23               69
+29   ES=F            E-Mini S&P 500 Sep 24  ...             132              186
+30   NQ=F                Nasdaq 100 Sep 24  ...             144              185
+16   YM=F  Mini Dow Jones Indus.-$5 Sep 24  ...             132              171
+20  MGC=F      Micro Gold Futures,Dec-2024  ...              62               81
+8    CC=F                     Cocoa Sep 24  ...              18               75
+19   GC=F                             Gold  ...              53               72
+13   GF=F  WisdomTree International High D  ...              23               69
 0    LE=F     Live Cattle Futures,Aug-2024  ...              30               68
-12   KC=F                    Coffee Sep 24  ...              35               62
-8    BZ=F  Brent Crude Oil Last Day Financ  ...              34               27
-13   HE=F       Lean Hogs Futures,Aug-2024  ...               4               25
-7    HO=F               Heating Oil Aug 24  ...              34                5
-20   ZO=F             Oat Futures,Dec-2024  ...              -5                0
-9    KE=F    KC HRW Wheat Futures,Sep-2024  ...              -2              -23
-22   SI=F                           Silver  ...               5              -28
-11   ZB=F  U.S. Treasury Bond Futures,Sep-  ...             -26              -28
-21  SIL=F    Micro Silver Futures,Sep-2024  ...               5              -28
-16   ZR=F      Rough Rice Futures,Sep-2024  ...              -1              -34
-18   PL=F                  Platinum Oct 24  ...              -1              -36
-17   ZT=F   2-Year T-Note Futures,Sep-2024  ...             -26              -39
+15   KC=F                    Coffee Sep 24  ...              35               62
+9    CL=F                        Crude Oil  ...              35               42
+11   BZ=F  Brent Crude Oil Last Day Financ  ...              34               27
+17   HE=F       Lean Hogs Futures,Aug-2024  ...               4               25
+7    RB=F             RBOB Gasoline Aug 24  ...              29               24
+10   HO=F               Heating Oil Aug 24  ...              34                5
+26   ZO=F             Oat Futures,Dec-2024  ...              -5                0
+12   KE=F    KC HRW Wheat Futures,Sep-2024  ...              -2              -23
+21   ZF=F  Five-Year US Treasury Note Futu  ...             -26              -26
+28   SI=F                           Silver  ...               5              -28
+27  SIL=F    Micro Silver Futures,Sep-2024  ...               5              -28
+14   ZB=F  U.S. Treasury Bond Futures,Sep-  ...             -26              -28
+5    NG=F               Natural Gas Aug 24  ...              -9              -34
+22   ZR=F      Rough Rice Futures,Sep-2024  ...              -1              -34
+24   PL=F                  Platinum Oct 24  ...              -1              -36
+18   ZN=F  10-Year T-Note Futures,Sep-2024  ...             -26              -37
+23   ZT=F   2-Year T-Note Futures,Sep-2024  ...             -26              -39
 3    ZM=F  S&P Composite 1500 ESG Tilted I  ...              -7              -49
-5    ZL=F     Soybean Oil Futures,Dec-2024  ...              -8              -58
-23   SB=F                 Sugar #11 Oct 24  ...              36              -69
+6    ZL=F     Soybean Oil Futures,Dec-2024  ...              -8              -58
+31   SB=F                 Sugar #11 Oct 24  ...              36              -69
+32   HG=F                    Copper Sep 24  ...               5              -75
 1    ZS=F         Soybean Futures,Nov-2024  ...              -7              -86
 2    CT=F                    Cotton Oct 24  ...              -4              -92
 4    ZC=F            Corn Futures,Dec-2024  ...             -10             -108
-19   PA=F                 Palladium Sep 24  ...             -17             -153
+25   PA=F                 Palladium Sep 24  ...             -17             -153
 
-[24 rows x 8 columns]
+[33 rows x 8 columns]
 
 -------------------- Generating TKx Signals from data/futures/1h/ asset_list/Futures.csv --------------------
 CSV file is empty data/futures/1h/B0=F_ichimokuTapy.csv
@@ -7331,43 +7313,52 @@ Saved data to: output/sum/Futures-sum-cloud-tkx-merged.csv output/sum/Futures-su
 
 ----------- Cloud and TKx Sum Score Multi Timeframe Final View -----------
     Symbol                             Name  ...  TKx Score Sum  Total Score Sum
-1    CC=F                     Cocoa Sep 24  ...            109              184
-4    LE=F     Live Cattle Futures,Aug-2024  ...             51              119
-3    GF=F  WisdomTree International High D  ...             47              116
-5    KC=F                    Coffee Sep 24  ...             52              114
-0   MGC=F      Micro Gold Futures,Dec-2024  ...             12               93
-2    GC=F                             Gold  ...             10               82
-7    HE=F       Lean Hogs Futures,Aug-2024  ...              6               31
-9    ZO=F             Oat Futures,Dec-2024  ...             -5               -5
-6    BZ=F  Brent Crude Oil Last Day Financ  ...            -38              -11
-14   ZR=F      Rough Rice Futures,Sep-2024  ...              9              -25
-18   ZL=F     Soybean Oil Futures,Dec-2024  ...             12              -46
-10   KE=F    KC HRW Wheat Futures,Sep-2024  ...            -24              -47
-11   SI=F                           Silver  ...            -19              -47
-13  SIL=F    Micro Silver Futures,Sep-2024  ...            -19              -47
-8    HO=F               Heating Oil Aug 24  ...            -53              -48
-17   ZM=F  S&P Composite 1500 ESG Tilted I  ...             -8              -57
-15   PL=F                  Platinum Oct 24  ...            -38              -74
-19   SB=F                 Sugar #11 Oct 24  ...             -7              -76
-16   ZT=F   2-Year T-Note Futures,Sep-2024  ...            -42              -81
-12   ZB=F  U.S. Treasury Bond Futures,Sep-  ...            -76             -104
-20   ZS=F         Soybean Futures,Nov-2024  ...            -20             -106
-21   CT=F                    Cotton Oct 24  ...            -31             -123
-22   ZC=F            Corn Futures,Dec-2024  ...            -41             -149
-23   PA=F                 Palladium Sep 24  ...           -150             -303
+1    NQ=F                Nasdaq 100 Sep 24  ...             42              227
+0    ES=F            E-Mini S&P 500 Sep 24  ...             31              217
+2    YM=F  Mini Dow Jones Indus.-$5 Sep 24  ...             36              207
+4    CC=F                     Cocoa Sep 24  ...            109              184
+7    LE=F     Live Cattle Futures,Aug-2024  ...             51              119
+6    GF=F  WisdomTree International High D  ...             47              116
+8    KC=F                    Coffee Sep 24  ...             52              114
+3   MGC=F      Micro Gold Futures,Dec-2024  ...             12               93
+5    GC=F                             Gold  ...             10               82
+11   HE=F       Lean Hogs Futures,Aug-2024  ...              6               31
+12   RB=F             RBOB Gasoline Aug 24  ...              2               26
+9    CL=F                        Crude Oil  ...            -24               18
+14   ZO=F             Oat Futures,Dec-2024  ...             -5               -5
+10   BZ=F  Brent Crude Oil Last Day Financ  ...            -38              -11
+21   ZR=F      Rough Rice Futures,Sep-2024  ...              9              -25
+26   ZL=F     Soybean Oil Futures,Dec-2024  ...             12              -46
+15   KE=F    KC HRW Wheat Futures,Sep-2024  ...            -24              -47
+17   SI=F                           Silver  ...            -19              -47
+18  SIL=F    Micro Silver Futures,Sep-2024  ...            -19              -47
+13   HO=F               Heating Oil Aug 24  ...            -53              -48
+25   ZM=F  S&P Composite 1500 ESG Tilted I  ...             -8              -57
+20   NG=F               Natural Gas Aug 24  ...            -31              -65
+16   ZF=F  Five-Year US Treasury Note Futu  ...            -42              -68
+23   ZN=F  10-Year T-Note Futures,Sep-2024  ...            -37              -74
+22   PL=F                  Platinum Oct 24  ...            -38              -74
+27   SB=F                 Sugar #11 Oct 24  ...             -7              -76
+24   ZT=F   2-Year T-Note Futures,Sep-2024  ...            -42              -81
+19   ZB=F  U.S. Treasury Bond Futures,Sep-  ...            -76             -104
+29   ZS=F         Soybean Futures,Nov-2024  ...            -20             -106
+30   CT=F                    Cotton Oct 24  ...            -31             -123
+28   HG=F                    Copper Sep 24  ...            -71             -146
+31   ZC=F            Corn Futures,Dec-2024  ...            -41             -149
+32   PA=F                 Palladium Sep 24  ...           -150             -303
 
-[24 rows x 14 columns]
+[33 rows x 14 columns]
 
 ------------- Generating Html table -------------
 HTML title: Futures Cloud Scan
 
-Table generated at 2024-07-19 20:45:18
+Table generated at 2024-07-19 21:45:21
 html data table generated.
 generate_html output/sum/Futures-sum-cloud-tkx-merged.csv
 html data table saved at output/sum/Futures-sum-cloud-tkx-merged.csv.html
 
-Tasks completed at 2024-07-19 20:45:18 (Time elapsed: 0:01:10.483773)
-Task begins at: 2024-07-19 20:45:18 
+Tasks completed at 2024-07-19 21:45:21 (Time elapsed: 0:01:08.998179)
+Task begins at: 2024-07-19 21:45:21 
 
 ----------- Reading symbols -----------
 readAssetList path: asset_list/FuturesCurrency.csv
@@ -7455,7 +7446,7 @@ Cloud signal count csv files are created
 
 ----------- Creating Cloud Signal Aggregator -----------
 self.model.use_datetime_format:: True
-[symbol: 6E=F , entries: 5698][symbol: 6J=F , entries: 5699][symbol: 6A=F , entries: 5698][symbol: 6B=F , entries: 5698][symbol: 6C=F , entries: 5698][symbol: 6S=F , entries: 5698][symbol: 6N=F , entries: 5698]Aggregator FuturesCurrency-cloud-1H.csv and .xml are created
+[symbol: 6E=F , entries: 5697][symbol: 6J=F , entries: 5698][symbol: 6A=F , entries: 5697][symbol: 6B=F , entries: 5697][symbol: 6C=F , entries: 5697][symbol: 6S=F , entries: 5697][symbol: 6N=F , entries: 5697]Aggregator FuturesCurrency-cloud-1H.csv and .xml are created
 
 ----------- Creating Cloud Signal Aggregator -----------
 self.model.use_datetime_format:: False
@@ -7607,13 +7598,13 @@ Saved data to: output/sum/FuturesCurrency-sum-cloud-tkx-merged.csv output/sum/Fu
 ------------- Generating Html table -------------
 HTML title: Futures Currency Cloud Scan
 
-Table generated at 2024-07-19 20:45:34
+Table generated at 2024-07-19 21:45:37
 html data table generated.
 generate_html output/sum/FuturesCurrency-sum-cloud-tkx-merged.csv
 html data table saved at output/sum/FuturesCurrency-sum-cloud-tkx-merged.csv.html
 
-Tasks completed at 2024-07-19 20:45:34 (Time elapsed: 0:00:16.177811)
-Task begins at: 2024-07-19 20:45:34 
+Tasks completed at 2024-07-19 21:45:37 (Time elapsed: 0:00:16.284039)
+Task begins at: 2024-07-19 21:45:37 
 
 ----------- Reading symbols for 1h -----------
 readAssetList path: asset_list/Bitfinex.csv
@@ -7628,24 +7619,24 @@ readAssetList path: asset_list/Bitfinex.csv
 --------- show_data head ---------
                        Open  Close   High    Low     Volume
 Datetime                                                  
-2023-05-30 03:00:00  27816  27863  27971  27807  63.009929
 2023-05-30 04:00:00  27864  27810  27892  27803   7.417131
+2023-05-30 05:00:00  27811  27784  27811  27712  32.071249
 Download completed. Saved in: data/bitfinex/1h/tBTCUSD.csv data/bitfinex/1h/tBTCUSD.json
 
 --------- fetch_data --------- tLTCUSD 1h 10000
 --------- show_data head ---------
-                        Open   Close    High     Low     Volume
-Datetime                                                      
-2023-05-30 01:00:00  91.090  91.115  91.360  91.042  13.141871
-2023-05-30 02:00:00  91.015  91.090  91.113  90.909  14.936183
+                        Open   Close    High     Low      Volume
+Datetime                                                       
+2023-05-30 02:00:00  91.015  91.090  91.113  90.909   14.936183
+2023-05-30 03:00:00  91.285  91.337  91.671  91.285  123.744579
 Download completed. Saved in: data/bitfinex/1h/tLTCUSD.csv data/bitfinex/1h/tLTCUSD.json
 
 --------- fetch_data --------- tETHUSD 1h 10000
 --------- show_data head ---------
                         Open   Close    High     Low      Volume
 Datetime                                                       
-2023-05-30 02:00:00  1900.0  1901.5  1902.9  1897.6   35.146471
 2023-05-30 03:00:00  1901.9  1904.0  1914.0  1900.5  211.504307
+2023-05-30 04:00:00  1903.5  1900.1  1904.4  1898.6   26.008844
 Download completed. Saved in: data/bitfinex/1h/tETHUSD.csv data/bitfinex/1h/tETHUSD.json
 
 ----------- Creating Ichimoku Data (Bitfinex) -----------
@@ -7854,30 +7845,26 @@ At least one column is missing.
 
 At least one column is missing.
 
-At least one column is missing.
-
+All specified columns exist.
 All specified columns exist.
 -------------------- Cloud Score Multi Timeframe Raw --------------------
-     Symbol    Name  ...  1M Cloud Count  1M Cloud Score
-0  tBTCUSD  BTCUSD  ...               6               6
-1  tETHUSD  ETHUSD  ...               6               6
-2  tLTCUSD  LTCUSD  ...              17             -17
-
-[3 rows x 6 columns]
+ Empty DataFrame
+Columns: [Symbol, Name, Close, 1W Cloud Direction, 1W Cloud Count, 1M Cloud Direction, 1M Cloud Count, 1W Cloud Score, 1M Cloud Score]
+Index: []
 
 create_sum_column self.list_score_names:  ['1H Cloud Score', '4H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score', 'Cloud Score Sum'] 
-create_sum_column df.columns Index(['Symbol', 'Name', 'Close', '1M Cloud Direction', '1M Cloud Count',
+create_sum_column df.columns Index(['Symbol', 'Name', 'Close', '1W Cloud Direction', '1W Cloud Count',
+       '1M Cloud Direction', '1M Cloud Count', '1W Cloud Score',
        '1M Cloud Score'],
       dtype='object')
 ------ Cleaning columns ------
-Available columns:  ['Symbol', 'Name', 'Close', '1M Cloud Score', 'Cloud Score Sum']
+Available columns:  ['Symbol', 'Name', 'Close', '1W Cloud Score', '1M Cloud Score', 'Cloud Score Sum']
 Saved data to: output/cloud/Bitfinex-cloud-merged.csv output/cloud/Bitfinex-cloud-merged.csv.html
 
 ----------- Cloud Score Multi Timeframe Final View -----------
-     Symbol    Name     Close  1M Cloud Score  Cloud Score Sum
-0  tBTCUSD  BTCUSD  67007.00               6                6
-1  tETHUSD  ETHUSD   3539.30               6                6
-2  tLTCUSD  LTCUSD     73.56             -17              -17
+ Empty DataFrame
+Columns: [Symbol, Name, Close, 1W Cloud Score, 1M Cloud Score, Cloud Score Sum]
+Index: []
 
 -------------------- Generating TKx Signals from data/bitfinex/1h/ asset_list/Bitfinex.csv --------------------
 TKx count csv files are created
@@ -7948,9 +7935,9 @@ Saved data to: output/tkx/Bitfinex-tkx-merged.csv output/tkx/Bitfinex-tkx-merged
 
 ----------- TKx Score Multi Timeframe Final View -----------
      Symbol    Name  1H TKx Score  ...  1W TKx Score  1M TKx Score  TKx Score Sum
-1  tETHUSD  ETHUSD             6  ...            37             6             89
-2  tBTCUSD  BTCUSD             8  ...            39             6             60
-0  tLTCUSD  LTCUSD             3  ...            -6             2             -6
+1  tETHUSD  ETHUSD             7  ...            37             6             90
+2  tBTCUSD  BTCUSD             9  ...            39             6             61
+0  tLTCUSD  LTCUSD             4  ...            -6             2             -5
 
 [3 rows x 8 columns]
 
@@ -7963,23 +7950,23 @@ File name with extension: Bitfinex-sum-cloud-tkx-merged.csv
 Saved data to: output/sum/Bitfinex-sum-cloud-tkx-merged.csv output/sum/Bitfinex-sum-cloud-tkx-merged.csv.html
 
 ----------- Cloud and TKx Sum Score Multi Timeframe Final View -----------
-     Symbol    Name     Close  ...  1M TKx Score  TKx Score Sum  Total Score Sum
-1  tETHUSD  ETHUSD   3539.30  ...             6             89               95
-0  tBTCUSD  BTCUSD  67007.00  ...             6             60               66
-2  tLTCUSD  LTCUSD     73.56  ...             2             -6              -23
+     Symbol    Name  1H TKx Score  ...  1M TKx Score  TKx Score Sum  Total Score Sum
+0  tETHUSD  ETHUSD             7  ...             6             90               90
+1  tBTCUSD  BTCUSD             9  ...             6             61               61
+2  tLTCUSD  LTCUSD             4  ...             2             -5               -5
 
-[3 rows x 12 columns]
+[3 rows x 9 columns]
 
 ------------- Generating Html table -------------
 HTML title: Bitfinex Cloud Scan
 
-Table generated at 2024-07-19 20:45:49
+Table generated at 2024-07-19 21:45:51
 html data table generated.
 generate_html output/sum/Bitfinex-sum-cloud-tkx-merged.csv
 html data table saved at output/sum/Bitfinex-sum-cloud-tkx-merged.csv.html
 
-Tasks completed at 2024-07-19 20:45:49 (Time elapsed: 0:00:15.268985)
-Task begins at: 2024-07-19 20:45:49 
+Tasks completed at 2024-07-19 21:45:51 (Time elapsed: 0:00:14.535473)
+Task begins at: 2024-07-19 21:45:51 
 
 ----------- Reading symbols -----------
 readAssetList path: asset_list/SPDR_ETFs.csv
@@ -8254,9 +8241,9 @@ Saved data to: output/sum/SPDR_ETFS-sum-cloud-tkx-merged.csv output/sum/SPDR_ETF
 ------------- Generating Html table -------------
 HTML title: All Sector SPDR ETFs Cloud Scan
 
-Table generated at 2024-07-19 20:46:06
+Table generated at 2024-07-19 21:46:09
 html data table generated.
 generate_html output/sum/SPDR_ETFS-sum-cloud-tkx-merged.csv
 html data table saved at output/sum/SPDR_ETFS-sum-cloud-tkx-merged.csv.html
 
-Tasks completed at 2024-07-19 20:46:06 (Time elapsed: 0:00:17.427305)
+Tasks completed at 2024-07-19 21:46:09 (Time elapsed: 0:00:17.551169)
