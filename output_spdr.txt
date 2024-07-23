@@ -1,4 +1,4 @@
-Task begins at: 2024-07-19 21:06:25 
+Task begins at: 2024-07-23 09:16:44 
 
 ----------- Reading symbols -----------
 readAssetList path: asset_list/SPDR_ETFs.csv
@@ -102,21 +102,21 @@ Cloud signal count csv files are created
 
 ----------- Creating Cloud Signal Aggregator -----------
 self.model.use_datetime_format:: True
-[symbol: XLC , entries: 1678][symbol: XLY , entries: 1678][symbol: XLP , entries: 1678][symbol: XLE , entries: 1678][symbol: XLF , entries: 1678][symbol: XLV , entries: 1678][symbol: XLI , entries: 1678][symbol: XLB , entries: 1678][symbol: XLRE , entries: 1678][symbol: XLK , entries: 1678][symbol: XLU , entries: 1678]Aggregator SPDR_ETFS-cloud-1H.csv and .xml are created
+[symbol: XLC , entries: 1671][symbol: XLY , entries: 1671][symbol: XLP , entries: 1671][symbol: XLE , entries: 1671][symbol: XLF , entries: 1671][symbol: XLV , entries: 1671][symbol: XLI , entries: 1671][symbol: XLB , entries: 1671][symbol: XLRE , entries: 1671][symbol: XLK , entries: 1671][symbol: XLU , entries: 1671]Aggregator SPDR_ETFS-cloud-1H.csv and .xml are created
 
 ----------- Creating Cloud Signal Aggregator -----------
 self.model.use_datetime_format:: False
-[symbol: XLC , entries: 1454][symbol: XLY , entries: 4088][symbol: XLP , entries: 4088][symbol: XLE , entries: 4088][symbol: XLF , entries: 6357][symbol: XLV , entries: 6357][symbol: XLI , entries: 4088][symbol: XLB , entries: 6357][symbol: XLRE , entries: 2132][symbol: XLK , entries: 6357][symbol: XLU , entries: 6357]Aggregator SPDR_ETFS-cloud-D.csv and .xml are created
+[symbol: XLC , entries: 1455][symbol: XLY , entries: 6358][symbol: XLP , entries: 6358][symbol: XLE , entries: 6358][symbol: XLF , entries: 6358][symbol: XLV , entries: 6358][symbol: XLI , entries: 6358][symbol: XLB , entries: 6358][symbol: XLRE , entries: 2133][symbol: XLK , entries: 6358][symbol: XLU , entries: 6358]Aggregator SPDR_ETFS-cloud-D.csv and .xml are created
 
 ----------- Creating Cloud Signal Aggregator -----------
 self.model.use_datetime_format:: False
-[symbol: XLC , entries: 241][symbol: XLY , entries: 787][symbol: XLP , entries: 787][symbol: XLE , entries: 787][symbol: XLF , entries: 1258][symbol: XLV , entries: 1258][symbol: XLI , entries: 787][symbol: XLB , entries: 1258][symbol: XLRE , entries: 382][symbol: XLK , entries: 1258][symbol: XLU , entries: 1258]Aggregator SPDR_ETFS-cloud-W.csv and .xml are created
+[symbol: XLC , entries: 242][symbol: XLY , entries: 1259][symbol: XLP , entries: 1259][symbol: XLE , entries: 1259][symbol: XLF , entries: 1259][symbol: XLV , entries: 1259][symbol: XLI , entries: 1259][symbol: XLB , entries: 1259][symbol: XLRE , entries: 383][symbol: XLK , entries: 1259][symbol: XLU , entries: 1259]Aggregator SPDR_ETFS-cloud-W.csv and .xml are created
 
 ----------- Creating Cloud Signal Aggregator -----------
 self.model.use_datetime_format:: False
 
 ------------ XLC cloud value empty --------------
-[symbol: XLY , entries: 122][symbol: XLP , entries: 122][symbol: XLE , entries: 122][symbol: XLF , entries: 230][symbol: XLV , entries: 230][symbol: XLI , entries: 122][symbol: XLB , entries: 230][symbol: XLRE , entries: 28][symbol: XLK , entries: 230][symbol: XLU , entries: 230]Aggregator SPDR_ETFS-cloud-M.csv and .xml are created
+[symbol: XLY , entries: 230][symbol: XLP , entries: 230][symbol: XLE , entries: 230][symbol: XLF , entries: 230][symbol: XLV , entries: 230][symbol: XLI , entries: 230][symbol: XLB , entries: 230][symbol: XLRE , entries: 28][symbol: XLK , entries: 230][symbol: XLU , entries: 230]Aggregator SPDR_ETFS-cloud-M.csv and .xml are created
 
 ------------- Merging Multi Timeframe Cloud -------------
 Check files for merging:  ['output/cloud/SPDR_ETFS-cloud-1H.csv', 'output/cloud/SPDR_ETFS-cloud-D.csv', 'output/cloud/SPDR_ETFS-cloud-W.csv', 'output/cloud/SPDR_ETFS-cloud-M.csv']
@@ -128,16 +128,16 @@ All specified columns exist.
 All specified columns exist.
 -------------------- Cloud Score Multi Timeframe Raw --------------------
    Symbol                    Name  ...  1W Cloud Score  1M Cloud Score
-0    XLI             Industrials  ...              38              49
-1    XLV             Health Care  ...              34             164
-2    XLU               Utilities  ...              14               5
-3    XLB               Materials  ...              36              51
-4    XLY  Consumer Discretionary  ...              56             122
-5    XLK              Technology  ...              69             166
-6    XLP        Consumer Staples  ...              22              67
-7    XLE                  Energy  ...              26              31
-8   XLRE             Real Estate  ...              11               0
-9    XLF              Financials  ...              38              45
+0    XLE                  Energy  ...              27              31
+1    XLF              Financials  ...              39              45
+2    XLV             Health Care  ...              35             164
+3    XLU               Utilities  ...              15               5
+4    XLI             Industrials  ...              39              49
+5    XLB               Materials  ...              37              51
+6    XLY  Consumer Discretionary  ...              39             167
+7    XLK              Technology  ...              70             166
+8    XLP        Consumer Staples  ...              23              67
+9   XLRE             Real Estate  ...              12               0
 
 [10 rows x 15 columns]
 
@@ -153,16 +153,16 @@ Saved data to: output/cloud/SPDR_ETFS-cloud-merged.csv output/cloud/SPDR_ETFS-cl
 
 ----------- Cloud Score Multi Timeframe Final View -----------
    Symbol                    Name  ...  1M Cloud Score  Cloud Score Sum
-5    XLK              Technology  ...             166              260
-1    XLV             Health Care  ...             164              209
-4    XLY  Consumer Discretionary  ...             122              202
-9    XLF              Financials  ...              45              179
-6    XLP        Consumer Staples  ...              67              128
-0    XLI             Industrials  ...              49               94
-7    XLE                  Energy  ...              31               94
-8   XLRE             Real Estate  ...               0               89
-3    XLB               Materials  ...              51               86
-2    XLU               Utilities  ...               5               19
+7    XLK              Technology  ...             166              255
+6    XLY  Consumer Discretionary  ...             167              224
+2    XLV             Health Care  ...             164              211
+8    XLP        Consumer Staples  ...              67              137
+9   XLRE             Real Estate  ...               0               98
+4    XLI             Industrials  ...              49               96
+1    XLF              Financials  ...              45               94
+5    XLB               Materials  ...              51               86
+0    XLE                  Energy  ...              31               58
+3    XLU               Utilities  ...               5               27
 
 [10 rows x 8 columns]
 
@@ -187,17 +187,17 @@ Aggregator SPDR_ETFS-tkx-1H.csv and .xml are created
 
 ----------- Creating TKx Signal Aggregator data/spdr_etfs/d/ -----------
 self.model.use_datetime_format:: False
-[symbol: XLC , entries: 1454][symbol: XLY , entries: 4088][symbol: XLP , entries: 4088][symbol: XLE , entries: 4088][symbol: XLF , entries: 6357][symbol: XLV , entries: 6357][symbol: XLI , entries: 4088][symbol: XLB , entries: 6357][symbol: XLRE , entries: 2132][symbol: XLK , entries: 6357][symbol: XLU , entries: 6357]Aggregator SPDR_ETFS-tkx-D.csv and .xml are created
+[symbol: XLC , entries: 1455][symbol: XLY , entries: 6358][symbol: XLP , entries: 6358][symbol: XLE , entries: 6358][symbol: XLF , entries: 6358][symbol: XLV , entries: 6358][symbol: XLI , entries: 6358][symbol: XLB , entries: 6358][symbol: XLRE , entries: 2133][symbol: XLK , entries: 6358][symbol: XLU , entries: 6358]Aggregator SPDR_ETFS-tkx-D.csv and .xml are created
 
 ----------- Creating TKx Signal Aggregator data/spdr_etfs/w/ -----------
 self.model.use_datetime_format:: False
-[symbol: XLC , entries: 241][symbol: XLY , entries: 787][symbol: XLP , entries: 787][symbol: XLE , entries: 787][symbol: XLF , entries: 1258][symbol: XLV , entries: 1258][symbol: XLI , entries: 787][symbol: XLB , entries: 1258][symbol: XLRE , entries: 382][symbol: XLK , entries: 1258][symbol: XLU , entries: 1258]Aggregator SPDR_ETFS-tkx-W.csv and .xml are created
+[symbol: XLC , entries: 242][symbol: XLY , entries: 1259][symbol: XLP , entries: 1259][symbol: XLE , entries: 1259][symbol: XLF , entries: 1259][symbol: XLV , entries: 1259][symbol: XLI , entries: 1259][symbol: XLB , entries: 1259][symbol: XLRE , entries: 383][symbol: XLK , entries: 1259][symbol: XLU , entries: 1259]Aggregator SPDR_ETFS-tkx-W.csv and .xml are created
 
 ----------- Creating TKx Signal Aggregator data/spdr_etfs/m/ -----------
 self.model.use_datetime_format:: False
 
 ------------ XLC TKx value empty --------------
-[symbol: XLY , entries: 122][symbol: XLP , entries: 122][symbol: XLE , entries: 122][symbol: XLF , entries: 230][symbol: XLV , entries: 230][symbol: XLI , entries: 122][symbol: XLB , entries: 230][symbol: XLRE , entries: 28][symbol: XLK , entries: 230][symbol: XLU , entries: 230]Aggregator SPDR_ETFS-tkx-M.csv and .xml are created
+[symbol: XLY , entries: 230][symbol: XLP , entries: 230][symbol: XLE , entries: 230][symbol: XLF , entries: 230][symbol: XLV , entries: 230][symbol: XLI , entries: 230][symbol: XLB , entries: 230][symbol: XLRE , entries: 28][symbol: XLK , entries: 230][symbol: XLU , entries: 230]Aggregator SPDR_ETFS-tkx-M.csv and .xml are created
 
 ------------- Merging Multi Timeframe TKx -------------
 Check files for merging:  ['output/tkx/SPDR_ETFS-tkx-1H.csv', 'output/tkx/SPDR_ETFS-tkx-D.csv', 'output/tkx/SPDR_ETFS-tkx-W.csv', 'output/tkx/SPDR_ETFS-tkx-M.csv']
@@ -209,16 +209,16 @@ All specified columns exist.
 All specified columns exist.
 -------------------- TKx Score Multi Timeframe Raw --------------------
    Symbol                    Name  ...  1W TKx Score  1M TKx Score
-0    XLE                  Energy  ...            18            36
-1   XLRE             Real Estate  ...             2           -22
-2    XLF              Financials  ...            30             6
-3    XLU               Utilities  ...            30           -14
-4    XLI             Industrials  ...            30            13
-5    XLB               Materials  ...            30            12
-6    XLV             Health Care  ...            30             7
-7    XLY  Consumer Discretionary  ...             4             5
-8    XLP        Consumer Staples  ...            28             1
-9    XLK              Technology  ...            77            13
+0    XLU               Utilities  ...            31           -14
+1    XLP        Consumer Staples  ...            29             1
+2    XLE                  Energy  ...            19            36
+3   XLRE             Real Estate  ...             3           -22
+4    XLF              Financials  ...            31             6
+5    XLI             Industrials  ...            31            13
+6    XLB               Materials  ...            31            12
+7    XLV             Health Care  ...            31             7
+8    XLY  Consumer Discretionary  ...             5             5
+9    XLK              Technology  ...            78            13
 
 [10 rows x 14 columns]
 
@@ -234,16 +234,16 @@ Saved data to: output/tkx/SPDR_ETFS-tkx-merged.csv output/tkx/SPDR_ETFS-tkx-merg
 
 ----------- TKx Score Multi Timeframe Final View -----------
    Symbol                    Name  ...  1M TKx Score  TKx Score Sum
-9    XLK              Technology  ...            13            109
-0    XLE                  Energy  ...            36             61
-8    XLP        Consumer Staples  ...             1             51
-2    XLF              Financials  ...             6             46
-4    XLI             Industrials  ...            13             44
-5    XLB               Materials  ...            12             39
-6    XLV             Health Care  ...             7             30
-7    XLY  Consumer Discretionary  ...             5             21
-3    XLU               Utilities  ...           -14             17
-1   XLRE             Real Estate  ...           -22            -16
+9    XLK              Technology  ...            13            104
+2    XLE                  Energy  ...            36             56
+4    XLF              Financials  ...             6             41
+5    XLI             Industrials  ...            13             39
+6    XLB               Materials  ...            12             34
+1    XLP        Consumer Staples  ...             1             29
+0    XLU               Utilities  ...           -14             25
+7    XLV             Health Care  ...             7             25
+8    XLY  Consumer Discretionary  ...             5             16
+3   XLRE             Real Estate  ...           -22            -21
 
 [10 rows x 7 columns]
 
@@ -257,25 +257,25 @@ Saved data to: output/sum/SPDR_ETFS-sum-cloud-tkx-merged.csv output/sum/SPDR_ETF
 
 ----------- Cloud and TKx Sum Score Multi Timeframe Final View -----------
    Symbol                    Name  ...  TKx Score Sum  Total Score Sum
-0    XLK              Technology  ...            109              369
-1    XLV             Health Care  ...             30              239
-3    XLF              Financials  ...             46              225
-2    XLY  Consumer Discretionary  ...             21              223
-4    XLP        Consumer Staples  ...             51              179
-6    XLE                  Energy  ...             61              155
-5    XLI             Industrials  ...             44              138
-8    XLB               Materials  ...             39              125
-7   XLRE             Real Estate  ...            -16               73
-9    XLU               Utilities  ...             17               36
+0    XLK              Technology  ...            104              359
+1    XLY  Consumer Discretionary  ...             16              240
+2    XLV             Health Care  ...             25              236
+3    XLP        Consumer Staples  ...             29              166
+5    XLI             Industrials  ...             39              135
+6    XLF              Financials  ...             41              135
+7    XLB               Materials  ...             34              120
+8    XLE                  Energy  ...             56              114
+4   XLRE             Real Estate  ...            -21               77
+9    XLU               Utilities  ...             25               52
 
 [10 rows x 14 columns]
 
 ------------- Generating Html table -------------
 HTML title: All Sector SPDR ETFs Cloud Scan
 
-Table generated at 2024-07-19 21:06:43
+Table generated at 2024-07-23 09:17:05
 html data table generated.
 generate_html output/sum/SPDR_ETFS-sum-cloud-tkx-merged.csv
 html data table saved at output/sum/SPDR_ETFS-sum-cloud-tkx-merged.csv.html
 
-Tasks completed at 2024-07-19 21:06:43 (Time elapsed: 0:00:17.929191)
+Tasks completed at 2024-07-23 09:17:05 (Time elapsed: 0:00:20.070223)
