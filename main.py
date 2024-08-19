@@ -202,7 +202,7 @@ def main():
 
     # ---------------- Bitfinex ----------------
 
-    _runBitfinex = runBitfinex
+    """ _runBitfinex = runBitfinex
     _runBitfinex.main(
         fetch_Bitfinex_1H,
         fetch_Bitfinex_4H,
@@ -212,7 +212,7 @@ def main():
         fetch_Kicker_use_datetime_format,
         run_Multi_TimeFrame_Merger_Bitfinex,
         fetch_kicker,
-    )
+    ) """
 
     # ---------------- SPDR ETFs ----------------
 

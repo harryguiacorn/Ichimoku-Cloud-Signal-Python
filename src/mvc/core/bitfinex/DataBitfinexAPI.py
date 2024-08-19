@@ -1,6 +1,7 @@
 import pandas as pd
 import requests
 import json
+import time
 from src.mvc import Util
 
 
@@ -74,6 +75,13 @@ class Model:
 
             # Return True if the data is fetched successfully
             return True
+
+        if self.response.status_code == 429:
+            print(
+                f'Error: 429 Bitfinex API Limitation, Retry after {int(self.response.headers["Retry-After"])} secs.'
+            )
+            time.sleep(int(self.response.headers["Retry-After"]))
+            self.fetch_data()
         else:
             # Return False if the data is not fetched successfully
             return False
