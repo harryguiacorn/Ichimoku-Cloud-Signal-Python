@@ -14,6 +14,7 @@ from src.mvc.controllers import (
     GetIchimokuSumCloudTKxDataFTSE100MultiTFMerger,
 )
 from datetime import datetime
+from pytz import timezone
 
 fetch_symbols_latest_FTSE100 = True
 fetch_FTSE100_1H = True
@@ -46,8 +47,10 @@ def main(
     # Stop script being auto-run by Replit or Gitpod
     # return
 
-    time_start = datetime.now()
-    print("Task begins at:", time_start.strftime("%Y-%m-%d %H:%M:%S"), "\n")
+    london_tz_start = timezone("Europe/London")
+    time_start = datetime.now(london_tz_start)
+    time_start_formatted = time_start.strftime("%Y-%m-%d %H:%M:%S")
+    print(f"Task begins at: {time_start_formatted} [UK]")
 
     # ---------------- FTSE 100 ----------------
 
@@ -151,11 +154,12 @@ def main(
         )
 
     # calculate time elapsed
-    time_finish = datetime.now()
+    london_tz_finish = timezone("Europe/London")
+    time_finish = datetime.now(london_tz_finish)
     time_elapsed = time_finish - time_start
     time_finish_formatted = time_finish.strftime("%Y-%m-%d %H:%M:%S")
     print(
-        f"\nTasks completed at {time_finish_formatted} (Time elapsed: {time_elapsed})",
+        f"\nTasks completed at {time_finish_formatted} [UK] (Time elapsed: {time_elapsed})",
     )
 
 

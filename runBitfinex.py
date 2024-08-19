@@ -9,6 +9,7 @@ from src.mvc.controllers import (
     GetIchimokuSumCloudTKxDataBitfinexMultiTFMerger,
 )
 from datetime import datetime
+from pytz import timezone
 
 fetch_Bitfinex_1H = True
 fetch_Bitfinex_4H = True
@@ -35,7 +36,8 @@ def main(
     # Stop script being auto-run by Replit or Gitpod
     # return
 
-    time_start = datetime.now()
+    london_tz_start = timezone("Europe/London")
+    time_start = datetime.now(london_tz_start)
     print("Task begins at:", time_start.strftime("%Y-%m-%d %H:%M:%S"), "\n")
 
     # ----------------  Bitfinex ----------------
