@@ -1,7 +1,9 @@
 import pandas as pd
+
 # from IPython.display import HTML
 from src.mvc import Util
 from datetime import datetime
+from pytz import timezone
 
 
 class TableGenerator:
@@ -92,12 +94,14 @@ class TableGenerator:
         </table>
         """
         # calculate time elapsed
-        time_finish = datetime.now()
+        london_tz_finish = timezone("Europe/London")
+        time_finish = datetime.now(london_tz_finish)
         time_finish_formatted = time_finish.strftime("%Y-%m-%d %H:%M:%S")
+
         print(f"\nTable generated at {time_finish_formatted}")
         html_table += f"""
         <footer>
-          <p>Table generated at {time_finish_formatted}<br></p>
+          <p>Table Generated At {time_finish_formatted} [UK]<br></p>
         </footer>
         </body>
 
@@ -126,7 +130,7 @@ class TableGenerator:
         with open(filename, "r") as f:
             html_content = f.read()
 
-        # Commented out because of deployment error in Koyeb and Render 
+        # Commented out because of deployment error in Koyeb and Render
         # # Display the HTML content in the Colab notebook
         # HTML(html_content)
 
