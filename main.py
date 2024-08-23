@@ -1,5 +1,8 @@
 import runDJ30, runNas100, runFTSE100, runFTSE250, runFutures, runCurrencyFutures, runSPX500, runOanda, runBitfinex, runSPDR_ETFs
 
+from datetime import datetime
+from pytz import timezone
+
 fetch_symbols_latest_DJ30 = True
 fetch_symbols_latest_SPX500 = True
 fetch_symbols_latest_Nas100 = True
@@ -79,6 +82,12 @@ fetch_Kicker_use_datetime_format = False
 def main():
     # Stop script being auto-run by Replit or Gitpod
     # return
+
+    # Time counter
+    london_tz_start = timezone("Europe/London")
+    time_start = datetime.now(london_tz_start)
+    time_start_formatted = time_start.strftime("%Y-%m-%d %H:%M:%S")
+    print(f"Main Task begins at: {time_start_formatted} [UK]")
 
     # ---------------- Oanda ----------------
 
@@ -227,6 +236,15 @@ def main():
         fetch_Kicker_use_datetime_format,
         run_Multi_TimeFrame_Merger_SPDR_ETFs,
         fetch_kicker,
+    )
+
+    # calculate time elapsed
+    london_tz_finish = timezone("Europe/London")
+    time_finish = datetime.now(london_tz_finish)
+    time_elapsed = time_finish - time_start
+    time_finish_formatted = time_finish.strftime("%Y-%m-%d %H:%M:%S")
+    print(
+        f"\nMain Tasks completed at {time_finish_formatted} [UK] (Time elapsed: {time_elapsed})",
     )
 
 
