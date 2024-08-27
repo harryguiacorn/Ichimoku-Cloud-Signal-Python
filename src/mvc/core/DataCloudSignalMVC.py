@@ -37,7 +37,7 @@ class DataCloudSignal(DataOHLC):
             if __data.empty:  # Check if the DataFrame is empty
                 print("CSV file is empty", __path)
             else:
-                # print(__path, __data.Datetime)
+                # print("__path, __data.Datetime ----", __path, __data.Datetime)
                 __data.index = __data.Datetime
                 __data["Cloud Signal"] = self.getCloudDirection(
                     __data["Close"],
@@ -61,7 +61,8 @@ class DataCloudSignal(DataOHLC):
                 # drop chikou_span because it creates na values
                 # for 26 periods from last date
                 __data.drop("chikou_span", axis=1, inplace=True)
-                __data = __data.dropna()
+                # commented out dropna to allow lack of monthly data to be included.
+                # __data = __data.dropna()
 
                 # convert float64 to int64
                 __data["Cloud Signal"] = __data["Cloud Signal"].astype("int64")
@@ -91,7 +92,7 @@ class DataCloudSignal(DataOHLC):
             if __data.empty:  # Check if the DataFrame is empty
                 print("CSV file is empty: ", __path)
             else:
-                # print(__data.Date)
+                # print("__path:", __path)
                 __data.index = __data.Date
                 __data["Cloud Signal"] = self.getCloudDirection(
                     __data["Close"],
@@ -116,7 +117,10 @@ class DataCloudSignal(DataOHLC):
                 # drop chikou_span because it creates na values for
                 # 26 periods from last date
                 __data.drop("chikou_span", axis=1, inplace=True)
-                __data = __data.dropna()
+                # commented out dropna to allow lack of monthly data to be included.
+                # __data = __data.dropna()
+
+                # print("setupPd::Cloud Signal::", __data["Cloud Signal"])
 
                 # convert float64 to int64
                 __data["Cloud Signal"] = __data["Cloud Signal"].astype("int64")
@@ -147,16 +151,31 @@ class DataCloudSignal(DataOHLC):
         __curCloudDirection = None
         for __i in range(len(__cloudDirectionList)):
             if pd.isna(__cloudDirectionList.iloc[__i]):
+                # print(
+                #     "--------- __cloudDirectionList.iloc[__i] ---------",
+                #     __cloudDirectionList.iloc[__i],
+                # )
                 __cloudDirectionCount = __cloudDirectionList.iloc[__i]
             elif __curCloudDirection is None:
+                # print("--------- __curCloudDirection is None ---------")
                 __curCloudDirection = __cloudDirectionList.iloc[__i]
-                __cloudDirectionCount = 1
+                __cloudDirectionCount = 0 if __curCloudDirection == 0 else 1
             elif not __cloudDirectionList.iloc[__i] == __curCloudDirection:
+                # print(
+                #     "--------- not __cloudDirectionList.iloc[__i] == __curCloudDirection ---------",
+                #     __cloudDirectionList.iloc[__i],
+                #     __curCloudDirection,
+                # )
                 __curCloudDirection = __cloudDirectionList.iloc[__i]
-                __cloudDirectionCount = 1
+                __cloudDirectionCount = 0 if __curCloudDirection == 0 else 1
+            elif __curCloudDirection == 0:
+                __cloudDirectionCount = 0
             else:
                 __cloudDirectionCount += 1
-
+            # print(
+            #     "---------------__cloudDirectionCount------------",
+            #     __cloudDirectionCount,
+            # )
             __newList.append(__cloudDirectionCount)
         return __newList
 
@@ -167,9 +186,15 @@ class DataCloudSignal(DataOHLC):
         for __i in range(len(__senkou_span_b)):
             if pd.isna(__senkou_span_b.iloc[__i]):
                 # pass alone senkou span b NaN back to column
-                __data.append(__senkou_span_b.iloc[__i])
+                # __data.append(__senkou_span_b.iloc[__i])
+
+                # pass na as 0 if lack of data, e.g. monthly data
+                __data.append(0)
             elif pd.isna(__senkou_span_a.iloc[__i]):
-                __data.append(__senkou_span_b.iloc[__i])
+                # __data.append(__senkou_span_b.iloc[__i])
+
+                # pass na as 0 if lack of data, e.g. monthly data
+                __data.append(0)
             elif (
                 # Close is above the cloud
                 __close.iloc[__i] > __senkou_span_a.iloc[__i]
@@ -188,7 +213,7 @@ class DataCloudSignal(DataOHLC):
                 # Close is within cloud
                 __curDirection = 0
                 __data.append(__curDirection)
-        # print(__data)
+        # print("getCloudDirection :: Cloud direction::", __data)
         return __data
 
     def setColumnsSaveCsv(

@@ -30,7 +30,8 @@ class Model(object):
         combined_csv = pd.DataFrame()
 
         for x in list_pd_exist:
-            # print("path", x)
+            # print("merge::path", x)
+
             df_csv1 = pd.read_csv(x)
             # Drop the "Date" column
             if "Date" in df_csv1.columns:
@@ -39,20 +40,29 @@ class Model(object):
                 df_csv1 = df_csv1.drop(columns=["Datetime"])
 
             if combined_csv.empty:
+                # parse the first df, usually the smallest time frame, e.g. 1h
                 combined_csv = df_csv1
             else:
+                # Since "Close" values are different across different time frame.
+                # The value from the lowest time frame is kept.
+                # In this case, 1h "Close" is kept.
+                # Drop the 'Close' column from all other time frames apart from 1h.
+                df_csv1 = df_csv1.drop(columns=["Close"])
+
                 # Combine the two dataframes
                 combined_csv = pd.merge(
-                    combined_csv, df_csv1, on=["Symbol", "Name", "Close"]
+                    combined_csv, df_csv1, on=["Symbol", "Name"]  # , "Close"
                 )
+            # print("merge::df_csv1::\n", df_csv1)
+            # print("merge::combined_csv::\n", combined_csv)
 
         print(
             "Multi Timeframe Cloud Signals Merged: ",
             self.outputMergePath,
             end="\n\n",
         )
-
-        # print(combined_csv)
+        print("combined_csv size::", combined_csv.shape)
+        print("combined_csv::\n", combined_csv)
 
         return combined_csv
 
@@ -135,7 +145,7 @@ class Model(object):
         for i, __list in enumerate(self.list_direction_count_names):
             df = self.create_score_column(df, __list, self.list_score_names[i])
         print(
-            "-------------------- Cloud Score Multi Timeframe Raw --------------------\n",
+            "\n-------------------- Cloud Score Multi Timeframe Raw --------------------\n",
             df,
             end="\n\n",
         )

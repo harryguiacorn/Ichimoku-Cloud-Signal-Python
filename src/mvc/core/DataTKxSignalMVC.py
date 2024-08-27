@@ -44,7 +44,13 @@ class DataTKxSignal(DataOHLC):
                 # drop chikou_span because it creates na values
                 # for 26 periods from last date
                 __data.drop("chikou_span", axis=1, inplace=True)
-                __data = __data.dropna()
+                # commented out dropna to allow lack of monthly data to be included.
+                # __data = __data.dropna()
+
+                # print(
+                #     "setupPd_use_datetime_format::TKx Signal::",
+                #     __data["TKx Signal"],
+                # )
 
                 # convert float64 to int64
                 __data["TKx Signal"] = __data["TKx Signal"].astype("int64")
@@ -85,7 +91,10 @@ class DataTKxSignal(DataOHLC):
                 # drop chikou_span because it creates na values
                 # for 26 periods from last date
                 __data.drop("chikou_span", axis=1, inplace=True)
-                __data = __data.dropna()
+                # commented out dropna to allow lack of monthly data to be included.
+                # __data = __data.dropna()
+
+                # print("setupPd::TKx Signal::", __data["TKx Signal"])
 
                 # convert float64 to int64
                 __data["TKx Signal"] = __data["TKx Signal"].astype("int64")
@@ -102,38 +111,64 @@ class DataTKxSignal(DataOHLC):
     def getTKxSignalCount(self, __tkxDirectionList):
         __newList = []
         __tkxDirectionCount = None
-        __curKijunDirection = None
+        __cur_tkxDirection = None
         for __i in range(len(__tkxDirectionList)):
+
+            # if empty data is retrived from yahoo finance
             if pd.isna(__tkxDirectionList.iloc[__i]):
-                __tkxDirectionCount = __tkxDirectionList.iloc[__i]
-            elif __curKijunDirection is None:
-                __curKijunDirection = __tkxDirectionList.iloc[__i]
-                __tkxDirectionCount = 1
-            elif not __tkxDirectionList.iloc[__i] == __curKijunDirection:
-                __curKijunDirection = -__curKijunDirection
-                __tkxDirectionCount = 1
+                # print("-----------1")
+                __tkxDirectionCount = 0
+
+            # initiate current direction
+            elif __cur_tkxDirection is None:
+                __cur_tkxDirection = __tkxDirectionList.iloc[__i]
+                __tkxDirectionCount = 0
+                # print("-----------2", __cur_tkxDirection)
+
+            # tk crosses
+            elif not __tkxDirectionList.iloc[__i] == __cur_tkxDirection:
+                __cur_tkxDirection = __tkxDirectionList.iloc[__i]
+                __tkxDirectionCount = 0 if __cur_tkxDirection == 0 else 1
+                # print("-----------3", __cur_tkxDirection)
+
+            # carries on counting
             else:
-                __tkxDirectionCount += 1
+                # print("-----------4", __tkxDirectionList.iloc[__i])
+                if __cur_tkxDirection != 0:
+                    __tkxDirectionCount += 1
 
             __newList.append(__tkxDirectionCount)
         return __newList
 
-    def getTKxDirection(self, __curKijun, __preKijun):
+    def getTKxDirection(self, __tenkan, __kijun):
         __data = []
         __curDirection = None
-        for __i in range(len(__preKijun)):
-            if pd.isna(__preKijun.iloc[__i]):
-                __data.append(__preKijun.iloc[__i])
-            elif pd.isna(__curKijun.iloc[__i]):
-                __data.append(__curKijun.iloc[__i])
-            elif __curKijun.iloc[__i] > __preKijun.iloc[__i]:
+        for __i in range(len(__kijun)):
+
+            # if either kijun or tenkan is nan, put it as 0
+            if pd.isna(__kijun.iloc[__i]) or pd.isna(__tenkan.iloc[__i]):
+                # print("-----------1")
+                __data.append(0)
+
+            # tenkan crosses above kijun
+            elif __tenkan.iloc[__i] > __kijun.iloc[__i]:
+                # print("-----------3")
                 __curDirection = 1
                 __data.append(1)
-            elif __curKijun.iloc[__i] < __preKijun.iloc[__i]:
+
+            # tenkan crosses below  kijun
+            elif __tenkan.iloc[__i] < __kijun.iloc[__i]:
+                # print("-----------4")
                 __curDirection = -1
                 __data.append(-1)
+
+            elif __curDirection == None:
+                # print("-----------5")
+                __data.append(0)
             else:
+                # print("-----------6")
                 __data.append(__curDirection)
+        # print("getTKxDirection::__data:", __data)
         return __data
 
     def getReturn(self, __curClose, __preClose):
@@ -249,7 +284,7 @@ class Model(object):
             )
             # print("*************", self.use_datetime_format)
             dataP.main()
-        print("TKx count csv files are created\n")
+        print("TKx count csv files are created")
 
 
 class Control(object):

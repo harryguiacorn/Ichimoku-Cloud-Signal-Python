@@ -87,7 +87,7 @@ def main(
     _getIchimokuCloudDataNAS100MultiTFMerger.main(
         run_Multi_TimeFrame_Merger_Nas100
     )
-
+    
     # 3.3 Produce Ichimoku TK Cross data
     _getIchimokuTKxDataNas100 = GetIchimokuTKxDataNas100
     _getIchimokuTKxDataNas100.main(
