@@ -79,6 +79,10 @@ class Model(object):
 
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
+
+        # Remove any slashes from the 'symbol' column
+        df[__colName] = df[__colName].str.replace("/", "", regex=False)
+
         print(f"----------- Reading symbols for {self.interval} -----------")
         print("readAssetList path:", __csvPath, end="\n")
         print(df.to_string(), sep=",", end="\n\n")

@@ -130,11 +130,11 @@ class Model(object):
             df[name_sum] = df[list_for_merge[0]] * df[list_for_merge[1]]
             print(
                 "All specified columns exist.",
-                # df[name_sum],
-                # df[list_for_merge[0]],
-                # df[list_for_merge[1]],
-                # sep=", ",
-                # end="\n",
+                df[name_sum],
+                df[list_for_merge[0]],
+                df[list_for_merge[1]],
+                sep=", ",
+                end="\n",
             )
         else:
             print("At least one column is missing.", end="\n\n")

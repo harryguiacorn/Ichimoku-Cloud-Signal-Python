@@ -46,7 +46,7 @@ class Model(object):
                 __filePath = __csvPath + __symbol + __suffix + ".csv"
                 __df = pd.read_csv(__filePath)
             except FileNotFoundError:
-                print(f"Error: {__filePath} not found")
+                print(f"Error: {__filePath} not found\n")
                 continue
             else:
                 __dict_df[__symbol] = __df
@@ -55,6 +55,10 @@ class Model(object):
 
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
+
+        # Remove any slashes from the 'symbol' column
+        df[__colName] = df[__colName].str.replace("/", "", regex=False)
+
         # print(df.to_string())
         # l_symbol = df[__colName].tolist()
         d_symbol = df.to_dict(orient="list")
@@ -268,9 +272,11 @@ class Control(object):
         # return df_result
 
         self.view.showResultKCount(self.model.resultDataFrame)
-        print(
-            f"Aggregator {self.model.assetClassName}.csv and .xml are created\n"
-        )
+
+        if list_result:
+            print(
+                f"Aggregator {self.model.assetClassName}.csv and .xml are created\n"
+            )
 
 
 class View(object):

@@ -145,6 +145,10 @@ class Model(object):
 
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
+
+        # Remove any slashes from the 'symbol' column
+        df[__colName] = df[__colName].str.replace("/", "", regex=False)
+
         # print(df.to_string())
         l_symbol = df[__colName].tolist()
         self.symbols = l_symbol

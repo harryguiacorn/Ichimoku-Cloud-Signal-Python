@@ -4,23 +4,24 @@ from tapy import Indicators
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from src.mvc import Util
-from src.mvc.core.bitfinex.DataBitfinexAPI import (
-    Model as DataBitfinexAPI_Model,
+from src.mvc.core.kraken.DataKrakenAPI import (
+    Model as DataKrakenAPI_Model,
 )
-from src.mvc.core.bitfinex.DataBitfinexAPI import View as DataBitfinexAPI_View
-from src.mvc.core.bitfinex.DataBitfinexAPI import (
-    Controller as DataBitfinexAPI_Controller,
+from src.mvc.core.kraken.DataKrakenAPI import View as DataKrakenAPI_View
+from src.mvc.core.kraken.DataKrakenAPI import (
+    Controller as DataKrakenAPI_Controller,
 )
 
 
 class Model(object):
+
     def __init__(
         self,
         __csvPath="data/",
         __assetListPath="",
         __interval="",
         __lookbackPeriod="",
-        __bGetLatestDataFromBitfinex=False,
+        __bGetLatestDataFromKraken=False,
         __pricingComponent="M",
     ):
         """__csvPath points to csv files for asset class
@@ -28,8 +29,8 @@ class Model(object):
         self.csvPath = __csvPath
         self.assetListPath = __assetListPath
         self.interval = __interval
-        self.bGetLatestDataFromBitfinex = __bGetLatestDataFromBitfinex
-        self.symbols = None
+        self.bGetLatestDataFromKraken = __bGetLatestDataFromKraken
+        self.symbols: list = None
         self.dataOHLC = None
         self.lookbackPeriod = __lookbackPeriod
         self.pricingComponent = __pricingComponent
@@ -75,18 +76,15 @@ class Model(object):
         self.__assetListPath = __path
 
     @property
-    def bGetLatestDataFromBitfinex(self):
-        return self.__bGetLatestDataFromBitfinex
+    def bGetLatestDataFromKraken(self):
+        return self.__bGetLatestDataFromKraken
 
-    @bGetLatestDataFromBitfinex.setter
-    def bGetLatestDataFromBitfinex(self, __b):
-        self.__bGetLatestDataFromBitfinex = __b
+    @bGetLatestDataFromKraken.setter
+    def bGetLatestDataFromKraken(self, __b):
+        self.__bGetLatestDataFromKraken = __b
 
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
-
-        # Remove any slashes from the 'symbol' column
-        df[__colName] = df[__colName].str.replace("/", "", regex=False)
 
         print(f"----------- Reading symbols for {self.interval} -----------")
         print("readAssetList path:", __csvPath, end="\n")
@@ -98,16 +96,16 @@ class Model(object):
 
     def getDataOHLC(self):
         # __dict_lookbackPeriodConvertInt = {'h': 1, 'd': 1, 'w': 7, 'm': 31}
-        if self.bGetLatestDataFromBitfinex:
-            print("----------- Downloading from Bitfinex API -----------")
+        if self.bGetLatestDataFromKraken:
+            print("----------- Downloading from Kraken API -----------")
             # print(
             #     "getDataOHLC: ",
             #     self.symbols,
             #     self.interval,
             #     self.lookbackPeriod,
             # )
-            # method 1. grab latest data from Bitfinex API
-            self.dataOHLC = self.getLatestDataFromBitfinexAPI(
+            # method 1. grab latest data from Kraken API
+            self.dataOHLC = self.getLatestDataFromKrakenAPI(
                 self.symbols, self.lookbackPeriod, self.interval
             )
             # print("---------- self.dataOHLC ----------", self.dataOHLC)
@@ -118,32 +116,39 @@ class Model(object):
             self.dataOHLC = self.readLocalCsvData(self.symbols, self.csvPath)
             return self.dataOHLC
 
-    def getLatestDataFromBitfinexAPI(
+    def getLatestDataFromKrakenAPI(
         self, symbols, __lookbackPeriods, __interval
     ) -> dict:
         __dict_df = {}
+        __symbol: str
         for __symbol in symbols:
             try:
                 # Create an instance of the Model class
-                model = DataBitfinexAPI_Model(
+                model = DataKrakenAPI_Model(
                     time_frame=__interval,
                     instrument=__symbol,
                     lookbackPeriod=__lookbackPeriods,
                 )
                 # Create an instance of the View class
-                view = DataBitfinexAPI_View()
+                view = DataKrakenAPI_View()
                 # Create an instance of the Controller class
-                controller = DataBitfinexAPI_Controller(model, view)
+                controller = DataKrakenAPI_Controller(model, view)
                 # Run the controller
                 controller.run()
-                __path_json = self.csvPath + __symbol + ".json"
-                __path_csv = self.csvPath + __symbol + ".csv"
+
+                print(type(__symbol), type(symbols))
+
+                # remove slash in symbol
+                __symbol_without_slash = __symbol.replace("/", "")
+
+                __path_json = self.csvPath + __symbol_without_slash + ".json"
+                __path_csv = self.csvPath + __symbol_without_slash + ".csv"
                 # print("__path_json::", __path_json)
                 # controller.save_json(filePath=__path_json)
                 controller.save_csv(filePath=__path_csv)
 
                 data_df = model.get_data()
-                __dict_df[__symbol] = data_df
+                __dict_df[__symbol_without_slash] = data_df
 
                 print(
                     "Download completed. Saved in:",
@@ -154,7 +159,7 @@ class Model(object):
             except Exception as e:
                 # raise Exception("Error: ", __symbol, " e.args: ",e.args)
                 print(
-                    f"Error getLatestDataFromBitfinexAPI: {__symbol}: {e.args}"
+                    f"Error getLatestDataFromKrakenAPI: {__symbol}: {e.args}"
                 )
                 continue
         return __dict_df
@@ -173,7 +178,7 @@ class Model(object):
 
     def createIchimokuData(self):
         print(
-            "\n----------- Creating Ichimoku Data (Bitfinex) -----------",
+            "\n----------- Creating Ichimoku Data (Kraken) -----------",
             # self.dataOHLC,
         )
         # method 1. create Ichimoku data using tapy

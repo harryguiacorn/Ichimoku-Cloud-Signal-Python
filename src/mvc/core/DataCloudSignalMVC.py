@@ -310,7 +310,11 @@ class Model(object):
 
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
-        # print("------ readAssetList --------", df.to_string())
+        print("------ readAssetList --------\n", df.to_string())
+
+        # Remove any slashes from the 'symbol' column
+        df[__colName] = df[__colName].str.replace("/", "", regex=False)
+
         l_symbol = df[__colName].tolist()
         self.symbols = l_symbol
         return l_symbol
@@ -323,7 +327,7 @@ class Model(object):
                 __df = pd.read_csv(__filePath)
                 __dict_df[__symbol] = __df
             except FileNotFoundError:
-                print(f"Error: {__filePath} not found")
+                print(f"Error: {__filePath} not found\n")
                 continue
         # print("------------ readLocalCsvData ----------", __dict_df)
         return __dict_df
@@ -338,7 +342,8 @@ class Model(object):
                 __symbol, self.csvPath, self.use_datetime_format
             )
             dataP.main()
-        print("Cloud signal count csv files are created\n")
+        if self.dataOHLC.items():
+            print("Cloud signal count csv files are created\n")
 
 
 class Control(object):

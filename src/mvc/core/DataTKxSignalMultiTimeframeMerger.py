@@ -119,11 +119,11 @@ class Model(object):
             df[name_sum] = df[list_for_merge[0]] * df[list_for_merge[1]]
             print(
                 "All specified columns exist.",
-                # df[name_sum],
-                # df[list_for_merge[0]],
-                # df[list_for_merge[1]],
-                # sep=", ",
-                # end="\n",
+                df[name_sum],
+                df[list_for_merge[0]],
+                df[list_for_merge[1]],
+                sep=", ",
+                end="\n",
             )
         else:
             print("At least one column is missing.", end="\n\n")
@@ -143,8 +143,9 @@ class Model(object):
         print(
             "create_sum_column self.list_score_names: ",
             self.list_score_names,
-            "\ncreate_sum_column df.columns",
+            "\ncreate_sum_column df.columns:",
             df.columns,
+            "\n",
         )
         __sum = 0
         for __name in self.list_score_names:

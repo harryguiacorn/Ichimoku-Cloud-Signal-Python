@@ -256,6 +256,10 @@ class Model(object):
             f"\n-------------------- Generating TKx Signals from {self.csvPath} {__csvPath} --------------------"
         )
         df = pd.read_csv(__csvPath)
+
+        # Remove any slashes from the 'symbol' column
+        df[__colName] = df[__colName].str.replace("/", "", regex=False)
+
         # print(df.to_string())
         l_symbol = df[__colName].tolist()
         self.symbols = l_symbol
@@ -284,7 +288,8 @@ class Model(object):
             )
             # print("*************", self.use_datetime_format)
             dataP.main()
-        print("TKx count csv files are created")
+        if self.dataOHLC.items():
+            print("TKx count csv files are created")
 
 
 class Control(object):
