@@ -310,9 +310,9 @@ class Model(object):
 
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
-        print("------ readAssetList --------\n", df.to_string())
+        # print("------ readAssetList --------\n", df.to_string())
 
-        # Remove any slashes from the 'symbol' column
+        # Remove any slashes from the 'symbol' column, specific for Kraken
         df[__colName] = df[__colName].str.replace("/", "", regex=False)
 
         l_symbol = df[__colName].tolist()

@@ -108,7 +108,12 @@ class Model:
             json.dump(self.get_data(), f)
 
     def save_csv(self, filePath="data.csv"):
-        print("save_csv path:", filePath, self.df)
+        # print(
+        #     "save_csv path:",
+        #     filePath,
+        #     "\nself.df\n",
+        #     self.df,
+        # )
         self.df.to_csv(filePath)
 
     def set_data(self, data):

@@ -31,13 +31,13 @@ def main(
             "data/kraken/1h/",
             "asset_list/Kraken.csv",
             "60",
-            "20",  # 720
+            "720",  # 720
             True,
         )
         _control = Control(_model, View())
         _control.main()
 
-    return
+    # return
 
     if fetch4HData:
         # print("fetch 4h")

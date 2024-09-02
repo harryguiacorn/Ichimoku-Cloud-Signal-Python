@@ -136,7 +136,11 @@ class Model(object):
                 # Run the controller
                 controller.run()
 
-                print(type(__symbol), type(symbols))
+                # print(
+                #     "getLatestDataFromKrakenAPI:",
+                #     type(__symbol),
+                #     type(symbols),
+                # )
 
                 # remove slash in symbol
                 __symbol_without_slash = __symbol.replace("/", "")

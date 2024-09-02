@@ -118,15 +118,16 @@ class Model(object):
         if set(list_for_merge).issubset(df.columns):
             df[name_sum] = df[list_for_merge[0]] * df[list_for_merge[1]]
             print(
-                "All specified columns exist.",
-                df[name_sum],
-                df[list_for_merge[0]],
-                df[list_for_merge[1]],
+                "Columns exist:",
+                list_for_merge,
+                # df[name_sum],
+                # df[list_for_merge[0]],
+                # df[list_for_merge[1]],
                 sep=", ",
                 end="\n",
             )
         else:
-            print("At least one column is missing.", end="\n\n")
+            print("Columns missing:", list_for_merge, end="\n")
             # df[name_sum] = 0
         return df
 

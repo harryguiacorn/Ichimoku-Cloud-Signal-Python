@@ -38,7 +38,8 @@ def main(
 
     london_tz_start = timezone("Europe/London")
     time_start = datetime.now(london_tz_start)
-    print("Task begins at:", time_start.strftime("%Y-%m-%d %H:%M:%S"), "\n")
+    time_start_formatted = time_start.strftime("%Y-%m-%d %H:%M:%S")
+    print(f"Task begins at: {time_start_formatted} [UK]")
 
     # ----------------  Kraken ----------------
 
@@ -81,7 +82,6 @@ def main(
     )
     _getIchimokuCloudDataKrakenMultiTFMerger.main()
 
-    return
     # 3.3 Produce Ichimoku TK Cross data
     _getIchimokuTKxDataKraken = GetIchimokuTKxDataKraken
     _getIchimokuTKxDataKraken.main(
@@ -119,11 +119,12 @@ def main(
     )
 
     # calculate time elapsed
-    time_finish = datetime.now()
+    london_tz_finish = timezone("Europe/London")
+    time_finish = datetime.now(london_tz_finish)
     time_elapsed = time_finish - time_start
     time_finish_formatted = time_finish.strftime("%Y-%m-%d %H:%M:%S")
     print(
-        f"\nTasks completed at {time_finish_formatted} (Time elapsed: {time_elapsed})",
+        f"\nTasks completed at {time_finish_formatted} [UK] (Time elapsed: {time_elapsed})",
     )
 
 

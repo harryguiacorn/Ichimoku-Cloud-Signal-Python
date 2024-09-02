@@ -30,31 +30,38 @@ class Model(object):
         combined_csv = pd.DataFrame()
 
         for x in list_pd_exist:
-            # print("merge::path", x)
+            print("merge path::", x)
 
-            df_csv1 = pd.read_csv(x)
+            df_csv_each = pd.read_csv(x)
+
+            # if a particular csv is missing, move onto reading the next one.
+            if df_csv_each.empty:
+                continue
+
             # Drop the "Date" column
-            if "Date" in df_csv1.columns:
-                df_csv1 = df_csv1.drop(columns=["Date"])
-            elif "Datetime" in df_csv1.columns:
-                df_csv1 = df_csv1.drop(columns=["Datetime"])
+            if "Date" in df_csv_each.columns:
+                df_csv_each = df_csv_each.drop(columns=["Date"])
+            elif "Datetime" in df_csv_each.columns:
+                df_csv_each = df_csv_each.drop(columns=["Datetime"])
 
             if combined_csv.empty:
                 # parse the first df, usually the smallest time frame, e.g. 1h
-                combined_csv = df_csv1
+                combined_csv = df_csv_each
             else:
                 # Since "Close" values are different across different time frame.
                 # The value from the lowest time frame is kept.
                 # In this case, 1h "Close" is kept.
                 # Drop the 'Close' column from all other time frames apart from 1h.
-                df_csv1 = df_csv1.drop(columns=["Close"])
+                df_csv_each = df_csv_each.drop(columns=["Close"])
 
                 # Combine the two dataframes
                 combined_csv = pd.merge(
-                    combined_csv, df_csv1, on=["Symbol", "Name"]  # , "Close"
+                    combined_csv,
+                    df_csv_each,
+                    on=["Symbol", "Name"],  # , "Close"
                 )
-            # print("merge::df_csv1::\n", df_csv1)
-            # print("merge::combined_csv::\n", combined_csv)
+            print("merge::df_csv1::\n", df_csv_each)
+            print("merge::combined_csv::\n", combined_csv, "\n")
 
         print(
             "Multi Timeframe Cloud Signals Merged: ",
@@ -129,15 +136,16 @@ class Model(object):
         if set(list_for_merge).issubset(df.columns):
             df[name_sum] = df[list_for_merge[0]] * df[list_for_merge[1]]
             print(
-                "All specified columns exist.",
-                df[name_sum],
-                df[list_for_merge[0]],
-                df[list_for_merge[1]],
-                sep=", ",
+                "Columns exist:",
+                list_for_merge,
+                # df[name_sum],
+                # df[list_for_merge[0]],
+                # df[list_for_merge[1]],
+                # sep=", ",
                 end="\n",
             )
         else:
-            print("At least one column is missing.", end="\n\n")
+            print("Columns missing:", list_for_merge, end="\n")
             # df[name_sum] = 0
         return df
 
