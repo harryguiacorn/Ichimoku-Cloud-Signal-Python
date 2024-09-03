@@ -87,7 +87,7 @@ fetch_Kicker_use_datetime_format = False
 
 def main():
     # Stop script being auto-run by Replit or Gitpod
-    return
+    # return
 
     # Time counter
     london_tz_start = timezone("Europe/London")
