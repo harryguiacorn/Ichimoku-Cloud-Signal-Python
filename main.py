@@ -86,6 +86,9 @@ fetch_Kicker_use_datetime_format = False
 
 
 def main():
+    # Run the main class and save output
+    # python main.py > output_main.txt
+
     # Stop script being auto-run by Replit or Gitpod
     # return
 
