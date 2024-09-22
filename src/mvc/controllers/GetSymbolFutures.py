@@ -29,7 +29,8 @@ class Model(object):
         print("Reading symbols from source: ", self.url)
         response = requests.get(self.url)
         df = pd.read_html(response.content)
-        df_symbols = df[0][["Symbol", "Name"]]
+        print("Web Content::\n", df)
+        df_symbols = df[0][["Symbol"]] # Yahoo Finance removed "Name", OLD CODING: df[0][["Symbol", "Name"]]
         self.df_list = df_symbols
         # print(df_symbols.values.ravel())
         print(f"Total symbols: {len(self.df_list)}")
@@ -38,16 +39,23 @@ class Model(object):
     def cleanData(self):
         __df_list = self.df_list
         self.df = __df_list
-        self.df.rename(
-            columns={
-                "Symbol": "symbol",
-                "Name": "name",
-            },
-            inplace=True,
-        )
-        self.df["symbol"] = self.df["symbol"].str.replace(
-            ".", "-", regex=False
-        )
+
+        # self.df.rename(
+        #     columns={
+        #         "Symbol": "symbol",
+        #         "Name": "name",
+        #     },
+        #     inplace=True,
+        # )
+        
+        # Split the "Symbol" column at the first space
+        self.df[['symbol', 'name']] = self.df['Symbol'].str.split(n=1, expand=True)
+
+        print("cleanData::\n", self.df)
+        
+        # self.df["symbol"] = self.df["symbol"].str.replace(
+        #     ".", "-", regex=False
+        # )
 
     def saveData(self):
         # print(type(self.df))
@@ -91,7 +99,7 @@ def main(__fetch_symbols_latest=True):
     if __fetch_symbols_latest is False:
         return
     _model = Model(
-        "https://finance.yahoo.com/commodities/",
+        "https://finance.yahoo.com/markets/commodities/",
         "asset_list/Futures.csv",
     )
 
