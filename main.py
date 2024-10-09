@@ -90,7 +90,7 @@ def main():
     # python main.py > output_main.txt
 
     # Stop script being auto-run by Replit or Gitpod
-    # return
+    return
 
     # Time counter
     london_tz_start = timezone("Europe/London")
