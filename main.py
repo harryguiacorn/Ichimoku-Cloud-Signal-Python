@@ -1,4 +1,4 @@
-import runDJ30, runNas100, runFTSE100, runFTSE250, runFutures, runCurrencyFutures, runSPX500, runOanda, runBitfinex, runSPDR_ETFs, runKraken
+import runDJ30, runNas100, runFTSE100, runFTSE250, runFutures, runCurrencyFutures, runSPX500, runOanda, runBitfinex, runSPDR_ETFs, runKraken, runHSI
 
 from datetime import datetime
 from pytz import timezone
@@ -22,6 +22,7 @@ fetch_Oanda_1H = True
 fetch_Bitfinex_1H = True
 fetch_Kraken_1H = True
 fetch_SPDR_ETFs_1H = True
+fetch_HSI_1H = True
 
 fetch_Oanda_4H = True
 fetch_Bitfinex_4H = True
@@ -38,6 +39,7 @@ fetch_Oanda_D = True
 fetch_Bitfinex_D = True
 fetch_Kraken_D = True
 fetch_SPDR_ETFs_D = True
+fetch_HSI_D = True
 
 fetch_DJ30_W = True
 fetch_SPX500_W = True
@@ -50,6 +52,7 @@ fetch_Oanda_W = True
 fetch_Bitfinex_W = True
 fetch_Kraken_W = True
 fetch_SPDR_ETFs_W = True
+fetch_HSI_W = True
 
 fetch_DJ30_M = True
 fetch_SPX500_M = True
@@ -62,6 +65,7 @@ fetch_Oanda_M = True
 fetch_Bitfinex_M = True
 fetch_Kraken_M = True
 fetch_SPDR_ETFs_M = True
+fetch_HSI_M = True
 
 run_Multi_TimeFrame_Merger_DJ30 = True
 run_Multi_TimeFrame_Merger_SPX500 = True
@@ -74,6 +78,7 @@ run_Multi_TimeFrame_Merger_Oanda = True
 run_Multi_TimeFrame_Merger_Bitfinex = True
 run_Multi_TimeFrame_Merger_Kraken = True
 run_Multi_TimeFrame_Merger_SPDR_ETFs = True
+run_Multi_TimeFrame_Merger_HSI = True
 
 fetch_kijun_analysis = False
 
@@ -90,7 +95,7 @@ def main():
     # python main.py > output_main.txt
 
     # Stop script being auto-run by Replit or Gitpod
-    return
+    # return
 
     # Time counter
     london_tz_start = timezone("Europe/London")
@@ -244,6 +249,20 @@ def main():
         fetch_kijun_analysis,
         fetch_Kicker_use_datetime_format,
         run_Multi_TimeFrame_Merger_CurrencyFutures,
+        fetch_kicker,
+    )
+
+    # ---------------- Hang Seng Index ----------------
+    _runHSI = runHSI
+    _runHSI.main(
+        fetch_symbols_latest_HSI,
+        fetch_HSI_1H,
+        fetch_HSI_D,
+        fetch_HSI_W,
+        fetch_HSI_M,
+        fetch_kijun_analysis,
+        fetch_Kicker_use_datetime_format,
+        run_Multi_TimeFrame_Merger_HSI,
         fetch_kicker,
     )
 

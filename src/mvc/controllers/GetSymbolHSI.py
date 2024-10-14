@@ -36,7 +36,7 @@ class Model(object):
         )
 
         # Extract only the digits from the ticker
-        self.df["symbol"] = self.df["symbol"].str.extract("(\d+)")
+        self.df["symbol"] = self.df["symbol"].str.extract(r"(\d+)")
 
         # Ensure tickers are 4 digits by padding with leading zeros
         self.df["symbol"] = self.df["symbol"].str.zfill(4)
