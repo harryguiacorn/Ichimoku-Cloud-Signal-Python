@@ -51,7 +51,7 @@ def main(
     london_tz_start = timezone("Europe/London")
     time_start = datetime.now(london_tz_start)
     time_start_formatted = time_start.strftime("%Y-%m-%d %H:%M:%S")
-    print(f"Task begins at: {time_start_formatted} [UK]")
+    print(f"S&P 500 task begins at: {time_start_formatted} [UK]")
 
     # ---------------- S&P 500 ----------------
 
@@ -160,7 +160,7 @@ def main(
     time_elapsed = time_finish - time_start
     time_finish_formatted = time_finish.strftime("%Y-%m-%d %H:%M:%S")
     print(
-        f"\nTasks completed at {time_finish_formatted} [UK] (Time elapsed: {time_elapsed})",
+        f"\nS&P 500 tasks completed at {time_finish_formatted} [UK] (Time elapsed: {time_elapsed})",
     )
 
 
