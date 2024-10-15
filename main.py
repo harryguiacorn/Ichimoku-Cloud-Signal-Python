@@ -10,6 +10,7 @@ fetch_symbols_latest_FTSE100 = True
 fetch_symbols_latest_FTSE250 = True
 fetch_symbols_latest_Futures = True
 fetch_symbols_latest_CurrencyFutures = True
+fetch_symbols_latest_HSI = true
 
 fetch_DJ30_1H = True
 fetch_SPX500_1H = True
