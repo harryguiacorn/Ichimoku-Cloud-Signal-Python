@@ -20,7 +20,7 @@ def main(run_merger=True):
             [
                 "Total Score Sum",
             ],
-            "HSI Cloud Scan",
+            "Hang Seng Cloud Scan",
         )
         _control = Control(_model, View())
         _control.main()
