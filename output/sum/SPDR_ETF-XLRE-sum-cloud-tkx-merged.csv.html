@@ -1,0 +1,588 @@
+
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="html_creator.css">
+          <title>XLRE - Energy</title>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+          <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+          <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
+          
+          <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+          <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+          <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+          
+          <style>
+              .highlight-positive {background-color: #c6efce !important;}
+              .highlight-negative {background-color: #f8d7da !important;}
+              .highlight-neutral {background-color: #d3d3d3 !important;}
+          </style>
+      </head>
+      <body>
+        <h1>XLRE - Energy</h1>
+      <table class="table table-striped table-bordered" id="myTable" border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Symbol</th>
+      <th>Name</th>
+      <th>Close</th>
+      <th>1H Cloud Score</th>
+      <th>1D Cloud Score</th>
+      <th>1W Cloud Score</th>
+      <th>1M Cloud Score</th>
+      <th>Cloud Score Sum</th>
+      <th>1H TKx Score</th>
+      <th>1D TKx Score</th>
+      <th>1W TKx Score</th>
+      <th>1M TKx Score</th>
+      <th>TKx Score Sum</th>
+      <th>Total Score Sum</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PLD</td>
+      <td>Prologis</td>
+      <td>117.54</td>
+      <td>-35</td>
+      <td>-5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-40</td>
+      <td>-3</td>
+      <td>-22</td>
+      <td>12</td>
+      <td>4</td>
+      <td>-9</td>
+      <td>-49</td>
+    </tr>
+    <tr>
+      <td>AMT</td>
+      <td>American Tower</td>
+      <td>222.80</td>
+      <td>-6</td>
+      <td>0</td>
+      <td>17</td>
+      <td>0</td>
+      <td>11</td>
+      <td>-1</td>
+      <td>-16</td>
+      <td>16</td>
+      <td>-25</td>
+      <td>-26</td>
+      <td>-15</td>
+    </tr>
+    <tr>
+      <td>EQIX</td>
+      <td>Equinix</td>
+      <td>914.33</td>
+      <td>55</td>
+      <td>62</td>
+      <td>7</td>
+      <td>6</td>
+      <td>130</td>
+      <td>12</td>
+      <td>77</td>
+      <td>8</td>
+      <td>15</td>
+      <td>112</td>
+      <td>242</td>
+    </tr>
+    <tr>
+      <td>WELL</td>
+      <td>Welltower</td>
+      <td>130.20</td>
+      <td>0</td>
+      <td>132</td>
+      <td>70</td>
+      <td>45</td>
+      <td>247</td>
+      <td>15</td>
+      <td>3</td>
+      <td>89</td>
+      <td>11</td>
+      <td>118</td>
+      <td>365</td>
+    </tr>
+    <tr>
+      <td>DLR</td>
+      <td>Digital Realty</td>
+      <td>181.01</td>
+      <td>74</td>
+      <td>34</td>
+      <td>53</td>
+      <td>3</td>
+      <td>164</td>
+      <td>42</td>
+      <td>6</td>
+      <td>66</td>
+      <td>8</td>
+      <td>122</td>
+      <td>286</td>
+    </tr>
+    <tr>
+      <td>O</td>
+      <td>Realty Income</td>
+      <td>61.31</td>
+      <td>-7</td>
+      <td>0</td>
+      <td>15</td>
+      <td>0</td>
+      <td>8</td>
+      <td>-10</td>
+      <td>9</td>
+      <td>15</td>
+      <td>1</td>
+      <td>15</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>PSA</td>
+      <td>Public Storage</td>
+      <td>336.34</td>
+      <td>-37</td>
+      <td>0</td>
+      <td>20</td>
+      <td>3</td>
+      <td>-14</td>
+      <td>-1</td>
+      <td>-10</td>
+      <td>17</td>
+      <td>3</td>
+      <td>9</td>
+      <td>-5</td>
+    </tr>
+    <tr>
+      <td>SPG</td>
+      <td>Simon Property Group</td>
+      <td>170.52</td>
+      <td>-6</td>
+      <td>58</td>
+      <td>52</td>
+      <td>12</td>
+      <td>116</td>
+      <td>-26</td>
+      <td>55</td>
+      <td>47</td>
+      <td>9</td>
+      <td>85</td>
+      <td>201</td>
+    </tr>
+    <tr>
+      <td>CCI</td>
+      <td>Crown Castle</td>
+      <td>108.91</td>
+      <td>-37</td>
+      <td>0</td>
+      <td>10</td>
+      <td>-19</td>
+      <td>-46</td>
+      <td>9</td>
+      <td>-16</td>
+      <td>13</td>
+      <td>-26</td>
+      <td>-20</td>
+      <td>-66</td>
+    </tr>
+    <tr>
+      <td>CBRE</td>
+      <td>CBRE Group</td>
+      <td>132.54</td>
+      <td>14</td>
+      <td>76</td>
+      <td>50</td>
+      <td>12</td>
+      <td>152</td>
+      <td>12</td>
+      <td>87</td>
+      <td>15</td>
+      <td>4</td>
+      <td>118</td>
+      <td>270</td>
+    </tr>
+    <tr>
+      <td>IRM</td>
+      <td>Iron Mountain</td>
+      <td>127.70</td>
+      <td>98</td>
+      <td>115</td>
+      <td>83</td>
+      <td>45</td>
+      <td>341</td>
+      <td>19</td>
+      <td>121</td>
+      <td>75</td>
+      <td>46</td>
+      <td>261</td>
+      <td>602</td>
+    </tr>
+    <tr>
+      <td>EXR</td>
+      <td>Extra Space Storage</td>
+      <td>166.40</td>
+      <td>-37</td>
+      <td>-1</td>
+      <td>26</td>
+      <td>0</td>
+      <td>-12</td>
+      <td>12</td>
+      <td>-16</td>
+      <td>17</td>
+      <td>1</td>
+      <td>14</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>VICI</td>
+      <td>Vici Properties</td>
+      <td>32.10</td>
+      <td>-7</td>
+      <td>0</td>
+      <td>14</td>
+      <td>5</td>
+      <td>12</td>
+      <td>-34</td>
+      <td>-1</td>
+      <td>15</td>
+      <td>-13</td>
+      <td>-33</td>
+      <td>-21</td>
+    </tr>
+    <tr>
+      <td>AVB</td>
+      <td>AvalonBay Communities</td>
+      <td>226.35</td>
+      <td>66</td>
+      <td>0</td>
+      <td>34</td>
+      <td>3</td>
+      <td>103</td>
+      <td>21</td>
+      <td>1</td>
+      <td>41</td>
+      <td>3</td>
+      <td>66</td>
+      <td>169</td>
+    </tr>
+    <tr>
+      <td>CSGP</td>
+      <td>CoStar Group</td>
+      <td>74.48</td>
+      <td>-21</td>
+      <td>-3</td>
+      <td>-21</td>
+      <td>4</td>
+      <td>-41</td>
+      <td>7</td>
+      <td>-3</td>
+      <td>-22</td>
+      <td>19</td>
+      <td>1</td>
+      <td>-40</td>
+    </tr>
+    <tr>
+      <td>VTR</td>
+      <td>Ventas</td>
+      <td>64.97</td>
+      <td>69</td>
+      <td>123</td>
+      <td>26</td>
+      <td>6</td>
+      <td>224</td>
+      <td>21</td>
+      <td>3</td>
+      <td>19</td>
+      <td>4</td>
+      <td>47</td>
+      <td>271</td>
+    </tr>
+    <tr>
+      <td>SBAC</td>
+      <td>SBA Communications</td>
+      <td>241.79</td>
+      <td>-1</td>
+      <td>76</td>
+      <td>10</td>
+      <td>-10</td>
+      <td>75</td>
+      <td>9</td>
+      <td>7</td>
+      <td>13</td>
+      <td>-25</td>
+      <td>4</td>
+      <td>79</td>
+    </tr>
+    <tr>
+      <td>EQR</td>
+      <td>Equity Residential</td>
+      <td>74.67</td>
+      <td>0</td>
+      <td>0</td>
+      <td>27</td>
+      <td>0</td>
+      <td>27</td>
+      <td>19</td>
+      <td>1</td>
+      <td>39</td>
+      <td>2</td>
+      <td>61</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>WY</td>
+      <td>Weyerhaeuser</td>
+      <td>31.80</td>
+      <td>-35</td>
+      <td>0</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>-36</td>
+      <td>-41</td>
+      <td>-5</td>
+      <td>6</td>
+      <td>-23</td>
+      <td>-63</td>
+      <td>-99</td>
+    </tr>
+    <tr>
+      <td>INVH</td>
+      <td>Invitation Homes</td>
+      <td>33.60</td>
+      <td>-3</td>
+      <td>-19</td>
+      <td>35</td>
+      <td>0</td>
+      <td>13</td>
+      <td>-4</td>
+      <td>-28</td>
+      <td>43</td>
+      <td>3</td>
+      <td>14</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <td>ESS</td>
+      <td>Essex Property Trust</td>
+      <td>295.65</td>
+      <td>21</td>
+      <td>0</td>
+      <td>34</td>
+      <td>3</td>
+      <td>58</td>
+      <td>21</td>
+      <td>-19</td>
+      <td>44</td>
+      <td>4</td>
+      <td>50</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>MAA</td>
+      <td>Mid-America Apartment Communities</td>
+      <td>153.32</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>13</td>
+      <td>-1</td>
+      <td>11</td>
+      <td>-4</td>
+      <td>-19</td>
+      <td>34</td>
+      <td>-22</td>
+      <td>-11</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>ARE</td>
+      <td>Alexandria Real Estate Equities</td>
+      <td>113.02</td>
+      <td>-13</td>
+      <td>-2</td>
+      <td>-1</td>
+      <td>-20</td>
+      <td>-36</td>
+      <td>-8</td>
+      <td>-1</td>
+      <td>-6</td>
+      <td>-26</td>
+      <td>-41</td>
+      <td>-77</td>
+    </tr>
+    <tr>
+      <td>KIM</td>
+      <td>Kimco Realty</td>
+      <td>23.55</td>
+      <td>-3</td>
+      <td>85</td>
+      <td>16</td>
+      <td>4</td>
+      <td>102</td>
+      <td>-28</td>
+      <td>7</td>
+      <td>16</td>
+      <td>4</td>
+      <td>-1</td>
+      <td>101</td>
+    </tr>
+    <tr>
+      <td>DOC</td>
+      <td>Healthpeak Properties</td>
+      <td>22.29</td>
+      <td>0</td>
+      <td>10</td>
+      <td>14</td>
+      <td>-29</td>
+      <td>-5</td>
+      <td>-2</td>
+      <td>3</td>
+      <td>24</td>
+      <td>-28</td>
+      <td>-3</td>
+      <td>-8</td>
+    </tr>
+    <tr>
+      <td>UDR</td>
+      <td>UDR, Inc.</td>
+      <td>43.87</td>
+      <td>-4</td>
+      <td>0</td>
+      <td>26</td>
+      <td>-1</td>
+      <td>21</td>
+      <td>-3</td>
+      <td>-17</td>
+      <td>39</td>
+      <td>2</td>
+      <td>21</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <td>BXP</td>
+      <td>BXP, Inc.</td>
+      <td>86.99</td>
+      <td>0</td>
+      <td>77</td>
+      <td>16</td>
+      <td>-31</td>
+      <td>62</td>
+      <td>-1</td>
+      <td>50</td>
+      <td>13</td>
+      <td>2</td>
+      <td>64</td>
+      <td>126</td>
+    </tr>
+    <tr>
+      <td>CPT</td>
+      <td>Camden Property Trust</td>
+      <td>118.29</td>
+      <td>-6</td>
+      <td>0</td>
+      <td>21</td>
+      <td>-1</td>
+      <td>14</td>
+      <td>-2</td>
+      <td>-15</td>
+      <td>35</td>
+      <td>-22</td>
+      <td>-4</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>HST</td>
+      <td>Host Hotels &amp; Resorts</td>
+      <td>17.58</td>
+      <td>-6</td>
+      <td>31</td>
+      <td>-4</td>
+      <td>32</td>
+      <td>53</td>
+      <td>10</td>
+      <td>-12</td>
+      <td>-22</td>
+      <td>8</td>
+      <td>-16</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <td>REG</td>
+      <td>Regency Centers</td>
+      <td>71.01</td>
+      <td>-1</td>
+      <td>0</td>
+      <td>16</td>
+      <td>4</td>
+      <td>19</td>
+      <td>14</td>
+      <td>1</td>
+      <td>16</td>
+      <td>4</td>
+      <td>35</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <td>FRT</td>
+      <td>Federal Realty Investment Trust</td>
+      <td>112.35</td>
+      <td>0</td>
+      <td>0</td>
+      <td>22</td>
+      <td>3</td>
+      <td>25</td>
+      <td>-5</td>
+      <td>2</td>
+      <td>16</td>
+      <td>4</td>
+      <td>17</td>
+      <td>42</td>
+    </tr>
+  </tbody>
+</table>
+        <script>
+        $(document).ready(function() {
+          // Get the number of columns in the table
+          //var columnCount = $('#myTable').DataTable().columns().count();
+
+          // Get the index of the last column
+          //var lastIndex = columnCount - 1;
+
+          // Initialize the DataTable with the order option set to sort by the last column in descending order
+          //$('#myTable').DataTable({order: [[$('#myTable').DataTable().columns().count()-1, 'desc']]});
+          $('#myTable').DataTable({order: [[0, 'desc']]});
+
+          // Get all table rows
+          var rows = $('#myTable').DataTable().rows().nodes();
+
+          // Iterate over all table rows and add classes
+          for (var i = 0; i < rows.length; i++) {
+            var row = rows[i];
+            var cells = row.querySelectorAll('td');
+
+            for (var j = 0; j < cells.length; j++) {
+              var cell = cells[j];
+              var value = parseFloat(cell.textContent);
+
+              if (!isNaN(value)) {
+                if (value > 0) {
+                  cell.classList.add('highlight-positive');
+                } else if (value < 0) {
+                  cell.classList.add('highlight-negative');
+                } else {
+                  cell.classList.add('highlight-neutral');
+                }
+              }
+            }
+          }
+        });     
+        </script>
+        </table>
+        
+        <footer>
+          <p>Table Generated At 2024-10-26 00:20:39 [UK]<br></p>
+        </footer>
+        </body>
+
+        </html>
+        
