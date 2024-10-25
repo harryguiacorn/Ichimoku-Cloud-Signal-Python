@@ -110,7 +110,7 @@ class TableGenerator:
         """
         # print(html_table)
 
-        print("html data table generated.")
+        print("HTML table generated.")
         return html_table
 
     def save_html_table(self, html_table: str, filename: str):
@@ -119,7 +119,7 @@ class TableGenerator:
 
         with open(filename, "w", encoding="utf-8") as f:
             f.write(html_table)
-        print(f"html data table saved at {filename}")
+        print(f"HTML data table saved at {filename}")
 
     def display_html_table_jupyter(
         self, filename: str = "/content/Cloud-Signal-Python/table.html"

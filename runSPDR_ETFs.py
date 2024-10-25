@@ -6,6 +6,7 @@ from src.mvc.controllers import (
     GetIchimokuTKxDataSPDR_ETFSAggregator,
     # GetIchimokuKijunDataSPDR_ETFS,
     # GetIchimokuKijunDataSPDR_ETFSAggregator,
+    GetIchimokuSumCloudTKxDataMatchSPY_SPDR_ETFSMultiTFMerger,
     GetIchimokuCloudDataSPDR_ETFS,
     GetKickerDataSPDR_ETFS,
     GetKickerDataSPDR_ETFSAggregator,
@@ -15,7 +16,7 @@ from src.mvc.controllers import (
 from datetime import datetime
 from pytz import timezone
 
-fetch_symbols_latest_SPDR_ETFS = False
+fetch_symbols_latest_SPDR_ETFS = True
 
 fetch_SPDR_ETFS_1H = True
 fetch_SPDR_ETFS_D = True
@@ -23,6 +24,7 @@ fetch_SPDR_ETFS_W = True
 fetch_SPDR_ETFS_M = True
 
 run_Multi_TimeFrame_Merger_SPDR_ETFS = True
+run_Multi_TimeFrame_Merger_Individual_SPDR_ETFS = True
 
 fetch_kijun_analysis = False
 
@@ -148,6 +150,14 @@ def main(
     #     fetch_kijun_analysis,
     #     fetch_kijun_analysis,
     # )
+
+    # 6.1 Create individual ETF constituents scan
+    _getIchimokuSumCloudTKxDataMatchSPY_SPDR_ETFSMultiTFMerger = (
+        GetIchimokuSumCloudTKxDataMatchSPY_SPDR_ETFSMultiTFMerger
+    )
+    _getIchimokuSumCloudTKxDataMatchSPY_SPDR_ETFSMultiTFMerger.main(
+        run_Multi_TimeFrame_Merger_Individual_SPDR_ETFS
+    )
 
     if fetch_kicker:
         # 5. Produce Kicker data
