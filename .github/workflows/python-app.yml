@@ -31,8 +31,13 @@ jobs:
     - name: Run script
       run: |
         python main.py
-    - name: Upload output
-      uses: actions/upload-artifact@v2
-      with:
-        name: output
-        path: output.html
+    # Add, commit, and push all new or updated files
+    - name: Commit and push all changes
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add .  # Stages all changes, including new files, modifications, and deletions
+        git commit -m "Update generated files"
+        git push origin main
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
