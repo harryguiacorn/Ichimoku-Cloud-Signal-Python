@@ -4,7 +4,7 @@
       <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <link rel="stylesheet" href="html_creator.css">
+          <link rel="stylesheet" href="../../css/html_creator.css">
           <title>FTSE 250 Cloud Scan</title>
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
           <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
@@ -14,15 +14,10 @@
           <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
           <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
           
-          <style>
-              .highlight-positive {background-color: #c6efce !important;}
-              .highlight-negative {background-color: #f8d7da !important;}
-              .highlight-neutral {background-color: #d3d3d3 !important;}
-          </style>
       </head>
       <body>
         <h1>FTSE 250 Cloud Scan</h1>
-      <table class="table table-striped table-bordered" id="myTable" border="1" class="dataframe">
+      <table class="table table-striped table-bordered" id="dataTable_1" border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th>Symbol</th>
@@ -75,22 +70,6 @@
       <td>341</td>
     </tr>
     <tr>
-      <td>JAM.L</td>
-      <td>JPMorgan American Investment Trust</td>
-      <td>1036.00</td>
-      <td>16</td>
-      <td>16</td>
-      <td>76</td>
-      <td>65</td>
-      <td>173</td>
-      <td>24</td>
-      <td>24</td>
-      <td>3</td>
-      <td>117</td>
-      <td>168</td>
-      <td>341</td>
-    </tr>
-    <tr>
       <td>BCG.L</td>
       <td>Baltic Classifieds</td>
       <td>325.50</td>
@@ -105,6 +84,22 @@
       <td>14</td>
       <td>161</td>
       <td>328</td>
+    </tr>
+    <tr>
+      <td>JAM.L</td>
+      <td>JPMorgan American Investment Trust</td>
+      <td>1036.00</td>
+      <td>16</td>
+      <td>-4</td>
+      <td>76</td>
+      <td>65</td>
+      <td>153</td>
+      <td>24</td>
+      <td>24</td>
+      <td>3</td>
+      <td>117</td>
+      <td>168</td>
+      <td>321</td>
     </tr>
     <tr>
       <td>MEGP.L</td>
@@ -331,22 +326,6 @@
       <td>185</td>
     </tr>
     <tr>
-      <td>BBY.L</td>
-      <td>Balfour Beatty</td>
-      <td>443.40</td>
-      <td>-3</td>
-      <td>35</td>
-      <td>35</td>
-      <td>30</td>
-      <td>97</td>
-      <td>-9</td>
-      <td>29</td>
-      <td>41</td>
-      <td>23</td>
-      <td>84</td>
-      <td>181</td>
-    </tr>
-    <tr>
       <td>IDS.L</td>
       <td>International Distribution Services</td>
       <td>341.00</td>
@@ -360,6 +339,22 @@
       <td>19</td>
       <td>6</td>
       <td>54</td>
+      <td>181</td>
+    </tr>
+    <tr>
+      <td>BBY.L</td>
+      <td>Balfour Beatty</td>
+      <td>443.40</td>
+      <td>-3</td>
+      <td>35</td>
+      <td>35</td>
+      <td>30</td>
+      <td>97</td>
+      <td>-9</td>
+      <td>29</td>
+      <td>41</td>
+      <td>23</td>
+      <td>84</td>
       <td>181</td>
     </tr>
     <tr>
@@ -587,22 +582,6 @@
       <td>132</td>
     </tr>
     <tr>
-      <td>ALFA.L</td>
-      <td>Alfa Financial Software</td>
-      <td>215.00</td>
-      <td>54</td>
-      <td>3</td>
-      <td>23</td>
-      <td>1</td>
-      <td>81</td>
-      <td>25</td>
-      <td>-18</td>
-      <td>33</td>
-      <td>10</td>
-      <td>50</td>
-      <td>131</td>
-    </tr>
-    <tr>
       <td>TBCG.L</td>
       <td>TBC Bank</td>
       <td>2870.00</td>
@@ -616,6 +595,22 @@
       <td>-4</td>
       <td>39</td>
       <td>36</td>
+      <td>131</td>
+    </tr>
+    <tr>
+      <td>ALFA.L</td>
+      <td>Alfa Financial Software</td>
+      <td>215.00</td>
+      <td>54</td>
+      <td>3</td>
+      <td>23</td>
+      <td>1</td>
+      <td>81</td>
+      <td>25</td>
+      <td>-18</td>
+      <td>33</td>
+      <td>10</td>
+      <td>50</td>
       <td>131</td>
     </tr>
     <tr>
@@ -633,22 +628,6 @@
       <td>9</td>
       <td>27</td>
       <td>130</td>
-    </tr>
-    <tr>
-      <td>AGT.L</td>
-      <td>AVI Global Trust</td>
-      <td>229.50</td>
-      <td>5</td>
-      <td>0</td>
-      <td>52</td>
-      <td>54</td>
-      <td>111</td>
-      <td>10</td>
-      <td>-6</td>
-      <td>3</td>
-      <td>11</td>
-      <td>18</td>
-      <td>129</td>
     </tr>
     <tr>
       <td>ALW.L</td>
@@ -681,6 +660,22 @@
       <td>16</td>
       <td>50</td>
       <td>124</td>
+    </tr>
+    <tr>
+      <td>AGT.L</td>
+      <td>AVI Global Trust</td>
+      <td>229.50</td>
+      <td>5</td>
+      <td>-7</td>
+      <td>52</td>
+      <td>54</td>
+      <td>104</td>
+      <td>10</td>
+      <td>-6</td>
+      <td>3</td>
+      <td>11</td>
+      <td>18</td>
+      <td>122</td>
     </tr>
     <tr>
       <td>MYI.L</td>
@@ -859,22 +854,6 @@
       <td>88</td>
     </tr>
     <tr>
-      <td>CMCX.L</td>
-      <td>CMC Markets</td>
-      <td>324.50</td>
-      <td>12</td>
-      <td>2</td>
-      <td>32</td>
-      <td>0</td>
-      <td>46</td>
-      <td>-1</td>
-      <td>2</td>
-      <td>38</td>
-      <td>3</td>
-      <td>42</td>
-      <td>88</td>
-    </tr>
-    <tr>
       <td>EDIN.L</td>
       <td>Edinburgh Investment Trust</td>
       <td>740.00</td>
@@ -888,6 +867,22 @@
       <td>31</td>
       <td>46</td>
       <td>41</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <td>CMCX.L</td>
+      <td>CMC Markets</td>
+      <td>324.50</td>
+      <td>12</td>
+      <td>2</td>
+      <td>32</td>
+      <td>0</td>
+      <td>46</td>
+      <td>-1</td>
+      <td>2</td>
+      <td>38</td>
+      <td>3</td>
+      <td>42</td>
       <td>88</td>
     </tr>
     <tr>
@@ -987,22 +982,6 @@
       <td>76</td>
     </tr>
     <tr>
-      <td>BOWL.L</td>
-      <td>Hollywood Bowl Group</td>
-      <td>330.00</td>
-      <td>0</td>
-      <td>6</td>
-      <td>58</td>
-      <td>20</td>
-      <td>84</td>
-      <td>-18</td>
-      <td>2</td>
-      <td>-12</td>
-      <td>17</td>
-      <td>-11</td>
-      <td>73</td>
-    </tr>
-    <tr>
       <td>FOUR.L</td>
       <td>4imprint</td>
       <td>5220.00</td>
@@ -1016,6 +995,22 @@
       <td>-12</td>
       <td>42</td>
       <td>48</td>
+      <td>73</td>
+    </tr>
+    <tr>
+      <td>BOWL.L</td>
+      <td>Hollywood Bowl Group</td>
+      <td>330.00</td>
+      <td>0</td>
+      <td>6</td>
+      <td>58</td>
+      <td>20</td>
+      <td>84</td>
+      <td>-18</td>
+      <td>2</td>
+      <td>-12</td>
+      <td>17</td>
+      <td>-11</td>
       <td>73</td>
     </tr>
     <tr>
@@ -1147,22 +1142,6 @@
       <td>64</td>
     </tr>
     <tr>
-      <td>MRC.L</td>
-      <td>Mercantile Investment Trust</td>
-      <td>239.50</td>
-      <td>5</td>
-      <td>-24</td>
-      <td>47</td>
-      <td>5</td>
-      <td>33</td>
-      <td>12</td>
-      <td>-33</td>
-      <td>44</td>
-      <td>7</td>
-      <td>30</td>
-      <td>63</td>
-    </tr>
-    <tr>
       <td>JTC.L</td>
       <td>JTC</td>
       <td>1048.00</td>
@@ -1176,6 +1155,22 @@
       <td>44</td>
       <td>8</td>
       <td>52</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <td>MRC.L</td>
+      <td>Mercantile Investment Trust</td>
+      <td>239.50</td>
+      <td>5</td>
+      <td>-24</td>
+      <td>47</td>
+      <td>5</td>
+      <td>33</td>
+      <td>12</td>
+      <td>-33</td>
+      <td>44</td>
+      <td>7</td>
+      <td>30</td>
       <td>63</td>
     </tr>
     <tr>
@@ -1208,22 +1203,6 @@
       <td>-1</td>
       <td>12</td>
       <td>-1</td>
-      <td>60</td>
-    </tr>
-    <tr>
-      <td>CCL.L</td>
-      <td>Carnival Corporation &amp; plc</td>
-      <td>1456.50</td>
-      <td>-3</td>
-      <td>16</td>
-      <td>7</td>
-      <td>0</td>
-      <td>20</td>
-      <td>-12</td>
-      <td>40</td>
-      <td>3</td>
-      <td>9</td>
-      <td>40</td>
       <td>60</td>
     </tr>
     <tr>
@@ -1307,19 +1286,19 @@
       <td>55</td>
     </tr>
     <tr>
-      <td>FEML.L</td>
-      <td>Fidelity Emerging Markets</td>
-      <td>692.00</td>
-      <td>2</td>
-      <td>1</td>
-      <td>38</td>
-      <td>-2</td>
-      <td>39</td>
-      <td>-7</td>
-      <td>16</td>
-      <td>-1</td>
+      <td>BVIC.L</td>
+      <td>Britvic</td>
+      <td>1283.00</td>
+      <td>0</td>
+      <td>10</td>
+      <td>27</td>
       <td>7</td>
-      <td>15</td>
+      <td>44</td>
+      <td>-28</td>
+      <td>5</td>
+      <td>20</td>
+      <td>13</td>
+      <td>10</td>
       <td>54</td>
     </tr>
     <tr>
@@ -1339,19 +1318,19 @@
       <td>54</td>
     </tr>
     <tr>
-      <td>BVIC.L</td>
-      <td>Britvic</td>
-      <td>1283.00</td>
-      <td>0</td>
-      <td>10</td>
-      <td>27</td>
+      <td>FEML.L</td>
+      <td>Fidelity Emerging Markets</td>
+      <td>692.00</td>
+      <td>2</td>
+      <td>1</td>
+      <td>38</td>
+      <td>-2</td>
+      <td>39</td>
+      <td>-7</td>
+      <td>16</td>
+      <td>-1</td>
       <td>7</td>
-      <td>44</td>
-      <td>-28</td>
-      <td>5</td>
-      <td>20</td>
-      <td>13</td>
-      <td>10</td>
+      <td>15</td>
       <td>54</td>
     </tr>
     <tr>
@@ -1419,22 +1398,6 @@
       <td>44</td>
     </tr>
     <tr>
-      <td>GEN.L</td>
-      <td>Genuit Group</td>
-      <td>488.00</td>
-      <td>-15</td>
-      <td>11</td>
-      <td>47</td>
-      <td>-27</td>
-      <td>16</td>
-      <td>-10</td>
-      <td>31</td>
-      <td>2</td>
-      <td>5</td>
-      <td>28</td>
-      <td>44</td>
-    </tr>
-    <tr>
       <td>HMSO.L</td>
       <td>Hammerson</td>
       <td>306.80</td>
@@ -1448,6 +1411,22 @@
       <td>44</td>
       <td>5</td>
       <td>2</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <td>GEN.L</td>
+      <td>Genuit Group</td>
+      <td>488.00</td>
+      <td>-15</td>
+      <td>11</td>
+      <td>47</td>
+      <td>-27</td>
+      <td>16</td>
+      <td>-10</td>
+      <td>31</td>
+      <td>2</td>
+      <td>5</td>
+      <td>28</td>
       <td>44</td>
     </tr>
     <tr>
@@ -1497,6 +1476,22 @@
       <td>-24</td>
       <td>5</td>
       <td>38</td>
+    </tr>
+    <tr>
+      <td>CCL.L</td>
+      <td>Carnival Corporation &amp; plc</td>
+      <td>1456.50</td>
+      <td>-3</td>
+      <td>-7</td>
+      <td>7</td>
+      <td>0</td>
+      <td>-3</td>
+      <td>-12</td>
+      <td>40</td>
+      <td>3</td>
+      <td>9</td>
+      <td>40</td>
+      <td>37</td>
     </tr>
     <tr>
       <td>GFTU.L</td>
@@ -1595,22 +1590,6 @@
       <td>27</td>
     </tr>
     <tr>
-      <td>ICGT.L</td>
-      <td>ICG Enterprise Trust</td>
-      <td>1228.00</td>
-      <td>11</td>
-      <td>-44</td>
-      <td>1</td>
-      <td>53</td>
-      <td>21</td>
-      <td>17</td>
-      <td>-18</td>
-      <td>-4</td>
-      <td>10</td>
-      <td>5</td>
-      <td>26</td>
-    </tr>
-    <tr>
       <td>PIN.L</td>
       <td>Pantheon International</td>
       <td>318.50</td>
@@ -1627,20 +1606,20 @@
       <td>26</td>
     </tr>
     <tr>
-      <td>FEV.L</td>
-      <td>Fidelity European Trust</td>
-      <td>368.00</td>
-      <td>0</td>
-      <td>-26</td>
-      <td>0</td>
-      <td>65</td>
-      <td>39</td>
-      <td>13</td>
-      <td>-35</td>
-      <td>-8</td>
-      <td>16</td>
-      <td>-14</td>
-      <td>25</td>
+      <td>ICGT.L</td>
+      <td>ICG Enterprise Trust</td>
+      <td>1228.00</td>
+      <td>11</td>
+      <td>-44</td>
+      <td>1</td>
+      <td>53</td>
+      <td>21</td>
+      <td>17</td>
+      <td>-18</td>
+      <td>-4</td>
+      <td>10</td>
+      <td>5</td>
+      <td>26</td>
     </tr>
     <tr>
       <td>IGG.L</td>
@@ -1656,6 +1635,22 @@
       <td>43</td>
       <td>3</td>
       <td>12</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td>FEV.L</td>
+      <td>Fidelity European Trust</td>
+      <td>368.00</td>
+      <td>0</td>
+      <td>-26</td>
+      <td>0</td>
+      <td>65</td>
+      <td>39</td>
+      <td>13</td>
+      <td>-35</td>
+      <td>-8</td>
+      <td>16</td>
+      <td>-14</td>
       <td>25</td>
     </tr>
     <tr>
@@ -1675,22 +1670,6 @@
       <td>24</td>
     </tr>
     <tr>
-      <td>GNS.L</td>
-      <td>Genus</td>
-      <td>2065.00</td>
-      <td>1</td>
-      <td>35</td>
-      <td>0</td>
-      <td>-22</td>
-      <td>14</td>
-      <td>-8</td>
-      <td>39</td>
-      <td>8</td>
-      <td>-29</td>
-      <td>10</td>
-      <td>24</td>
-    </tr>
-    <tr>
       <td>LRE.L</td>
       <td>Lancashire Holdings</td>
       <td>641.00</td>
@@ -1704,6 +1683,22 @@
       <td>11</td>
       <td>19</td>
       <td>11</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <td>GNS.L</td>
+      <td>Genus</td>
+      <td>2065.00</td>
+      <td>1</td>
+      <td>35</td>
+      <td>0</td>
+      <td>-22</td>
+      <td>14</td>
+      <td>-8</td>
+      <td>39</td>
+      <td>8</td>
+      <td>-29</td>
+      <td>10</td>
       <td>24</td>
     </tr>
     <tr>
@@ -1835,22 +1830,6 @@
       <td>15</td>
     </tr>
     <tr>
-      <td>VEIL.L</td>
-      <td>Vietnam Enterprise Investments</td>
-      <td>581.00</td>
-      <td>0</td>
-      <td>27</td>
-      <td>-2</td>
-      <td>0</td>
-      <td>25</td>
-      <td>9</td>
-      <td>-3</td>
-      <td>3</td>
-      <td>-22</td>
-      <td>-13</td>
-      <td>12</td>
-    </tr>
-    <tr>
       <td>ALPH.L</td>
       <td>Alpha Group International</td>
       <td>2100.00</td>
@@ -1864,6 +1843,22 @@
       <td>-3</td>
       <td>20</td>
       <td>12</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>VEIL.L</td>
+      <td>Vietnam Enterprise Investments</td>
+      <td>581.00</td>
+      <td>0</td>
+      <td>27</td>
+      <td>-2</td>
+      <td>0</td>
+      <td>25</td>
+      <td>9</td>
+      <td>-3</td>
+      <td>3</td>
+      <td>-22</td>
+      <td>-13</td>
       <td>12</td>
     </tr>
     <tr>
@@ -1883,22 +1878,6 @@
       <td>11</td>
     </tr>
     <tr>
-      <td>CHG.L</td>
-      <td>Chemring Group</td>
-      <td>358.50</td>
-      <td>-12</td>
-      <td>-36</td>
-      <td>48</td>
-      <td>17</td>
-      <td>17</td>
-      <td>-17</td>
-      <td>4</td>
-      <td>-3</td>
-      <td>8</td>
-      <td>-8</td>
-      <td>9</td>
-    </tr>
-    <tr>
       <td>HTWS.L</td>
       <td>Helios Towers</td>
       <td>112.80</td>
@@ -1912,6 +1891,22 @@
       <td>-1</td>
       <td>2</td>
       <td>-3</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>CHG.L</td>
+      <td>Chemring Group</td>
+      <td>358.50</td>
+      <td>-12</td>
+      <td>-36</td>
+      <td>48</td>
+      <td>17</td>
+      <td>17</td>
+      <td>-17</td>
+      <td>4</td>
+      <td>-3</td>
+      <td>8</td>
+      <td>-8</td>
       <td>9</td>
     </tr>
     <tr>
@@ -1947,22 +1942,6 @@
       <td>8</td>
     </tr>
     <tr>
-      <td>BRGE.L</td>
-      <td>BlackRock Greater Europe Investment Trust</td>
-      <td>571.00</td>
-      <td>0</td>
-      <td>-17</td>
-      <td>0</td>
-      <td>11</td>
-      <td>-6</td>
-      <td>17</td>
-      <td>-10</td>
-      <td>-2</td>
-      <td>8</td>
-      <td>13</td>
-      <td>7</td>
-    </tr>
-    <tr>
       <td>SMWH.L</td>
       <td>W H Smith</td>
       <td>1397.00</td>
@@ -1976,6 +1955,22 @@
       <td>13</td>
       <td>-13</td>
       <td>-25</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>BRGE.L</td>
+      <td>BlackRock Greater Europe Investment Trust</td>
+      <td>571.00</td>
+      <td>0</td>
+      <td>-17</td>
+      <td>0</td>
+      <td>11</td>
+      <td>-6</td>
+      <td>17</td>
+      <td>-10</td>
+      <td>-2</td>
+      <td>8</td>
+      <td>13</td>
       <td>7</td>
     </tr>
     <tr>
@@ -2155,22 +2150,6 @@
       <td>-10</td>
     </tr>
     <tr>
-      <td>BHMG.L</td>
-      <td>BH Macro</td>
-      <td>368.50</td>
-      <td>-2</td>
-      <td>-1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>-3</td>
-      <td>-4</td>
-      <td>-6</td>
-      <td>18</td>
-      <td>-17</td>
-      <td>-9</td>
-      <td>-12</td>
-    </tr>
-    <tr>
       <td>BWY.L</td>
       <td>Bellway</td>
       <td>3050.00</td>
@@ -2187,19 +2166,19 @@
       <td>-14</td>
     </tr>
     <tr>
-      <td>AO.L</td>
-      <td>AO World</td>
-      <td>109.80</td>
+      <td>BAB.L</td>
+      <td>Babcock International</td>
+      <td>476.60</td>
+      <td>-5</td>
+      <td>-39</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-44</td>
+      <td>9</td>
       <td>1</td>
-      <td>-19</td>
-      <td>72</td>
-      <td>-34</td>
-      <td>20</td>
-      <td>-46</td>
-      <td>2</td>
-      <td>-1</td>
-      <td>10</td>
-      <td>-35</td>
+      <td>-11</td>
+      <td>30</td>
+      <td>29</td>
       <td>-15</td>
     </tr>
     <tr>
@@ -2219,19 +2198,19 @@
       <td>-15</td>
     </tr>
     <tr>
-      <td>BAB.L</td>
-      <td>Babcock International</td>
-      <td>476.60</td>
-      <td>-5</td>
-      <td>-39</td>
-      <td>0</td>
-      <td>0</td>
-      <td>-44</td>
-      <td>9</td>
+      <td>AO.L</td>
+      <td>AO World</td>
+      <td>109.80</td>
       <td>1</td>
-      <td>-11</td>
-      <td>30</td>
-      <td>29</td>
+      <td>-19</td>
+      <td>72</td>
+      <td>-34</td>
+      <td>20</td>
+      <td>-46</td>
+      <td>2</td>
+      <td>-1</td>
+      <td>10</td>
+      <td>-35</td>
       <td>-15</td>
     </tr>
     <tr>
@@ -2249,6 +2228,22 @@
       <td>-29</td>
       <td>-14</td>
       <td>-18</td>
+    </tr>
+    <tr>
+      <td>BHMG.L</td>
+      <td>BH Macro</td>
+      <td>368.50</td>
+      <td>-2</td>
+      <td>-8</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-10</td>
+      <td>-4</td>
+      <td>-7</td>
+      <td>18</td>
+      <td>-17</td>
+      <td>-10</td>
+      <td>-20</td>
     </tr>
     <tr>
       <td>IEM.L</td>
@@ -2395,22 +2390,6 @@
       <td>-36</td>
     </tr>
     <tr>
-      <td>BRBY.L</td>
-      <td>Burberry</td>
-      <td>785.40</td>
-      <td>62</td>
-      <td>2</td>
-      <td>-58</td>
-      <td>-12</td>
-      <td>-6</td>
-      <td>27</td>
-      <td>21</td>
-      <td>-69</td>
-      <td>-10</td>
-      <td>-31</td>
-      <td>-37</td>
-    </tr>
-    <tr>
       <td>WIZZ.L</td>
       <td>Wizz Air</td>
       <td>1326.00</td>
@@ -2424,6 +2403,22 @@
       <td>-11</td>
       <td>-29</td>
       <td>-21</td>
+      <td>-37</td>
+    </tr>
+    <tr>
+      <td>BRBY.L</td>
+      <td>Burberry</td>
+      <td>785.40</td>
+      <td>62</td>
+      <td>2</td>
+      <td>-58</td>
+      <td>-12</td>
+      <td>-6</td>
+      <td>27</td>
+      <td>21</td>
+      <td>-69</td>
+      <td>-10</td>
+      <td>-31</td>
       <td>-37</td>
     </tr>
     <tr>
@@ -2459,22 +2454,6 @@
       <td>-38</td>
     </tr>
     <tr>
-      <td>BRSC.L</td>
-      <td>BlackRock Smaller Companies Trust</td>
-      <td>1448.00</td>
-      <td>10</td>
-      <td>-39</td>
-      <td>29</td>
-      <td>-2</td>
-      <td>-2</td>
-      <td>13</td>
-      <td>-53</td>
-      <td>-1</td>
-      <td>4</td>
-      <td>-37</td>
-      <td>-39</td>
-    </tr>
-    <tr>
       <td>RCP.L</td>
       <td>RIT Capital Partners</td>
       <td>1858.00</td>
@@ -2488,6 +2467,22 @@
       <td>-9</td>
       <td>-26</td>
       <td>-43</td>
+      <td>-39</td>
+    </tr>
+    <tr>
+      <td>BRSC.L</td>
+      <td>BlackRock Smaller Companies Trust</td>
+      <td>1448.00</td>
+      <td>10</td>
+      <td>-39</td>
+      <td>29</td>
+      <td>-2</td>
+      <td>-2</td>
+      <td>13</td>
+      <td>-53</td>
+      <td>-1</td>
+      <td>4</td>
+      <td>-37</td>
       <td>-39</td>
     </tr>
     <tr>
@@ -2555,22 +2550,6 @@
       <td>-47</td>
     </tr>
     <tr>
-      <td>IPO.L</td>
-      <td>IP Group</td>
-      <td>46.70</td>
-      <td>-1</td>
-      <td>32</td>
-      <td>-2</td>
-      <td>-27</td>
-      <td>2</td>
-      <td>-18</td>
-      <td>-5</td>
-      <td>1</td>
-      <td>-28</td>
-      <td>-50</td>
-      <td>-48</td>
-    </tr>
-    <tr>
       <td>SNR.L</td>
       <td>Senior</td>
       <td>133.20</td>
@@ -2587,20 +2566,20 @@
       <td>-48</td>
     </tr>
     <tr>
-      <td>FSG.L</td>
-      <td>Foresight Group</td>
-      <td>464.00</td>
-      <td>-46</td>
-      <td>-7</td>
-      <td>30</td>
-      <td>0</td>
-      <td>-23</td>
-      <td>-54</td>
-      <td>-17</td>
-      <td>40</td>
-      <td>4</td>
+      <td>IPO.L</td>
+      <td>IP Group</td>
+      <td>46.70</td>
+      <td>-1</td>
+      <td>32</td>
+      <td>-2</td>
       <td>-27</td>
+      <td>2</td>
+      <td>-18</td>
+      <td>-5</td>
+      <td>1</td>
+      <td>-28</td>
       <td>-50</td>
+      <td>-48</td>
     </tr>
     <tr>
       <td>TATE.L</td>
@@ -2616,6 +2595,22 @@
       <td>3</td>
       <td>-30</td>
       <td>-70</td>
+      <td>-50</td>
+    </tr>
+    <tr>
+      <td>FSG.L</td>
+      <td>Foresight Group</td>
+      <td>464.00</td>
+      <td>-46</td>
+      <td>-7</td>
+      <td>30</td>
+      <td>0</td>
+      <td>-23</td>
+      <td>-54</td>
+      <td>-17</td>
+      <td>40</td>
+      <td>4</td>
+      <td>-27</td>
       <td>-50</td>
     </tr>
     <tr>
@@ -2635,22 +2630,6 @@
       <td>-51</td>
     </tr>
     <tr>
-      <td>ENOG.L</td>
-      <td>Energean</td>
-      <td>951.50</td>
-      <td>0</td>
-      <td>0</td>
-      <td>-13</td>
-      <td>0</td>
-      <td>-13</td>
-      <td>-21</td>
-      <td>6</td>
-      <td>-13</td>
-      <td>-13</td>
-      <td>-41</td>
-      <td>-54</td>
-    </tr>
-    <tr>
       <td>DSCV.L</td>
       <td>discoverIE</td>
       <td>668.00</td>
@@ -2664,6 +2643,22 @@
       <td>-21</td>
       <td>-27</td>
       <td>-33</td>
+      <td>-54</td>
+    </tr>
+    <tr>
+      <td>ENOG.L</td>
+      <td>Energean</td>
+      <td>951.50</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-13</td>
+      <td>0</td>
+      <td>-13</td>
+      <td>-21</td>
+      <td>6</td>
+      <td>-13</td>
+      <td>-13</td>
+      <td>-41</td>
       <td>-54</td>
     </tr>
     <tr>
@@ -2699,22 +2694,6 @@
       <td>-55</td>
     </tr>
     <tr>
-      <td>SVS.L</td>
-      <td>Savills</td>
-      <td>1094.00</td>
-      <td>-39</td>
-      <td>-6</td>
-      <td>42</td>
-      <td>0</td>
-      <td>-3</td>
-      <td>-42</td>
-      <td>-15</td>
-      <td>-1</td>
-      <td>4</td>
-      <td>-54</td>
-      <td>-57</td>
-    </tr>
-    <tr>
       <td>VOF.L</td>
       <td>VinaCapital Vietnam Opportunity Fund</td>
       <td>456.00</td>
@@ -2728,6 +2707,22 @@
       <td>-1</td>
       <td>6</td>
       <td>7</td>
+      <td>-57</td>
+    </tr>
+    <tr>
+      <td>SVS.L</td>
+      <td>Savills</td>
+      <td>1094.00</td>
+      <td>-39</td>
+      <td>-6</td>
+      <td>42</td>
+      <td>0</td>
+      <td>-3</td>
+      <td>-42</td>
+      <td>-15</td>
+      <td>-1</td>
+      <td>4</td>
+      <td>-54</td>
       <td>-57</td>
     </tr>
     <tr>
@@ -2955,22 +2950,6 @@
       <td>-79</td>
     </tr>
     <tr>
-      <td>FUTR.L</td>
-      <td>Future</td>
-      <td>875.00</td>
-      <td>0</td>
-      <td>-26</td>
-      <td>1</td>
-      <td>-19</td>
-      <td>-44</td>
-      <td>3</td>
-      <td>-38</td>
-      <td>24</td>
-      <td>-25</td>
-      <td>-36</td>
-      <td>-80</td>
-    </tr>
-    <tr>
       <td>NAS.L</td>
       <td>North Atlantic Smaller Companies Investment Trust</td>
       <td>3830.00</td>
@@ -2984,6 +2963,22 @@
       <td>-1</td>
       <td>7</td>
       <td>3</td>
+      <td>-80</td>
+    </tr>
+    <tr>
+      <td>FUTR.L</td>
+      <td>Future</td>
+      <td>875.00</td>
+      <td>0</td>
+      <td>-26</td>
+      <td>1</td>
+      <td>-19</td>
+      <td>-44</td>
+      <td>3</td>
+      <td>-38</td>
+      <td>24</td>
+      <td>-25</td>
+      <td>-36</td>
       <td>-80</td>
     </tr>
     <tr>
@@ -3099,19 +3094,19 @@
       <td>-100</td>
     </tr>
     <tr>
-      <td>DLN.L</td>
-      <td>Derwent London</td>
-      <td>2218.00</td>
-      <td>-46</td>
-      <td>-6</td>
-      <td>13</td>
-      <td>-33</td>
-      <td>-72</td>
-      <td>-7</td>
-      <td>-17</td>
-      <td>22</td>
-      <td>-28</td>
-      <td>-30</td>
+      <td>ROR.L</td>
+      <td>Rotork</td>
+      <td>314.40</td>
+      <td>-43</td>
+      <td>-19</td>
+      <td>0</td>
+      <td>12</td>
+      <td>-50</td>
+      <td>-54</td>
+      <td>-10</td>
+      <td>-4</td>
+      <td>16</td>
+      <td>-52</td>
       <td>-102</td>
     </tr>
     <tr>
@@ -3131,19 +3126,19 @@
       <td>-102</td>
     </tr>
     <tr>
-      <td>ROR.L</td>
-      <td>Rotork</td>
-      <td>314.40</td>
-      <td>-43</td>
-      <td>-19</td>
-      <td>0</td>
-      <td>12</td>
-      <td>-50</td>
-      <td>-54</td>
-      <td>-10</td>
-      <td>-4</td>
-      <td>16</td>
-      <td>-52</td>
+      <td>DLN.L</td>
+      <td>Derwent London</td>
+      <td>2218.00</td>
+      <td>-46</td>
+      <td>-6</td>
+      <td>13</td>
+      <td>-33</td>
+      <td>-72</td>
+      <td>-7</td>
+      <td>-17</td>
+      <td>22</td>
+      <td>-28</td>
+      <td>-30</td>
       <td>-102</td>
     </tr>
     <tr>
@@ -3195,38 +3190,6 @@
       <td>-108</td>
     </tr>
     <tr>
-      <td>RS1.L</td>
-      <td>RS Group</td>
-      <td>716.50</td>
-      <td>-72</td>
-      <td>-8</td>
-      <td>-4</td>
-      <td>-10</td>
-      <td>-94</td>
-      <td>-10</td>
-      <td>-11</td>
-      <td>8</td>
-      <td>-2</td>
-      <td>-15</td>
-      <td>-109</td>
-    </tr>
-    <tr>
-      <td>HTG.L</td>
-      <td>Hunting</td>
-      <td>302.50</td>
-      <td>-36</td>
-      <td>-39</td>
-      <td>0</td>
-      <td>0</td>
-      <td>-75</td>
-      <td>-36</td>
-      <td>-29</td>
-      <td>-1</td>
-      <td>32</td>
-      <td>-34</td>
-      <td>-109</td>
-    </tr>
-    <tr>
       <td>BSIF.L</td>
       <td>Bluefield Solar Income Fund</td>
       <td>106.20</td>
@@ -3259,20 +3222,36 @@
       <td>-109</td>
     </tr>
     <tr>
-      <td>DWL.L</td>
-      <td>Dowlais Group</td>
-      <td>53.05</td>
+      <td>RS1.L</td>
+      <td>RS Group</td>
+      <td>716.50</td>
+      <td>-72</td>
+      <td>-8</td>
+      <td>-4</td>
+      <td>-10</td>
+      <td>-94</td>
+      <td>-10</td>
+      <td>-11</td>
+      <td>8</td>
+      <td>-2</td>
+      <td>-15</td>
+      <td>-109</td>
+    </tr>
+    <tr>
+      <td>HTG.L</td>
+      <td>Hunting</td>
+      <td>302.50</td>
+      <td>-36</td>
+      <td>-39</td>
+      <td>0</td>
+      <td>0</td>
+      <td>-75</td>
+      <td>-36</td>
+      <td>-29</td>
       <td>-1</td>
-      <td>-20</td>
-      <td>-3</td>
-      <td>0</td>
-      <td>-24</td>
-      <td>-5</td>
-      <td>-27</td>
-      <td>-55</td>
-      <td>0</td>
-      <td>-87</td>
-      <td>-111</td>
+      <td>32</td>
+      <td>-34</td>
+      <td>-109</td>
     </tr>
     <tr>
       <td>GPE.L</td>
@@ -3291,20 +3270,20 @@
       <td>-111</td>
     </tr>
     <tr>
-      <td>OSB.L</td>
-      <td>OneSavings Bank</td>
-      <td>372.80</td>
-      <td>-42</td>
-      <td>-51</td>
-      <td>-11</td>
+      <td>DWL.L</td>
+      <td>Dowlais Group</td>
+      <td>53.05</td>
+      <td>-1</td>
+      <td>-20</td>
+      <td>-3</td>
       <td>0</td>
-      <td>-104</td>
-      <td>-6</td>
-      <td>-4</td>
-      <td>-4</td>
-      <td>1</td>
-      <td>-13</td>
-      <td>-117</td>
+      <td>-24</td>
+      <td>-5</td>
+      <td>-27</td>
+      <td>-55</td>
+      <td>0</td>
+      <td>-87</td>
+      <td>-111</td>
     </tr>
     <tr>
       <td>GRI.L</td>
@@ -3320,6 +3299,22 @@
       <td>-26</td>
       <td>1</td>
       <td>-43</td>
+      <td>-117</td>
+    </tr>
+    <tr>
+      <td>OSB.L</td>
+      <td>OneSavings Bank</td>
+      <td>372.80</td>
+      <td>-42</td>
+      <td>-51</td>
+      <td>-11</td>
+      <td>0</td>
+      <td>-104</td>
+      <td>-6</td>
+      <td>-4</td>
+      <td>-4</td>
+      <td>1</td>
+      <td>-13</td>
       <td>-117</td>
     </tr>
     <tr>
@@ -3675,22 +3670,6 @@
       <td>-168</td>
     </tr>
     <tr>
-      <td>JLEN.L</td>
-      <td>JLEN Environmental Assets Group</td>
-      <td>85.60</td>
-      <td>-16</td>
-      <td>-16</td>
-      <td>-75</td>
-      <td>-13</td>
-      <td>-120</td>
-      <td>-19</td>
-      <td>-19</td>
-      <td>-1</td>
-      <td>-15</td>
-      <td>-54</td>
-      <td>-174</td>
-    </tr>
-    <tr>
       <td>VSVS.L</td>
       <td>Vesuvius</td>
       <td>366.50</td>
@@ -3769,6 +3748,22 @@
       <td>-29</td>
       <td>-83</td>
       <td>-177</td>
+    </tr>
+    <tr>
+      <td>JLEN.L</td>
+      <td>JLEN Environmental Assets Group</td>
+      <td>86.00</td>
+      <td>-17</td>
+      <td>-17</td>
+      <td>-75</td>
+      <td>-13</td>
+      <td>-122</td>
+      <td>-20</td>
+      <td>-20</td>
+      <td>-1</td>
+      <td>-15</td>
+      <td>-56</td>
+      <td>-178</td>
     </tr>
     <tr>
       <td>PHI.L</td>
@@ -3998,18 +3993,14 @@
 </table>
         <script>
         $(document).ready(function() {
-          // Get the number of columns in the table
-          //var columnCount = $('#myTable').DataTable().columns().count();
-
-          // Get the index of the last column
-          //var lastIndex = columnCount - 1;
+          // Calculate the last column index
+          let lastColumnIndex = $('#dataTable_1 thead th').length - 1; 
 
           // Initialize the DataTable with the order option set to sort by the last column in descending order
-          //$('#myTable').DataTable({order: [[$('#myTable').DataTable().columns().count()-1, 'desc']]});
-          $('#myTable').DataTable({order: [[0, 'desc']]});
+          $('#dataTable_1').DataTable({ order: [[lastColumnIndex, 'desc']] });
 
           // Get all table rows
-          var rows = $('#myTable').DataTable().rows().nodes();
+          var rows = $('#dataTable_1').DataTable().rows().nodes();
 
           // Iterate over all table rows and add classes
           for (var i = 0; i < rows.length; i++) {
@@ -4036,7 +4027,7 @@
         </table>
         
         <footer>
-          <p>Table Generated At 2024-10-25 23:14:35 [UK]<br></p>
+          <p>Table Generated At 2024-10-26 19:38:05 [UK]<br></p>
         </footer>
         </body>
 

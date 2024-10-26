@@ -4,7 +4,7 @@
       <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <link rel="stylesheet" href="html_creator.css">
+          <link rel="stylesheet" href="../../css/html_creator.css">
           <title>FTSE 100 Cloud Scan</title>
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
           <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
@@ -14,15 +14,10 @@
           <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
           <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
           
-          <style>
-              .highlight-positive {background-color: #c6efce !important;}
-              .highlight-negative {background-color: #f8d7da !important;}
-              .highlight-neutral {background-color: #d3d3d3 !important;}
-          </style>
       </head>
       <body>
         <h1>FTSE 100 Cloud Scan</h1>
-      <table class="table table-striped table-bordered" id="myTable" border="1" class="dataframe">
+      <table class="table table-striped table-bordered" id="dataTable_1" border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th>Symbol</th>
@@ -42,22 +37,6 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>FCIT.L</td>
-      <td>F &amp; C Investment Trust</td>
-      <td>1058.00</td>
-      <td>0</td>
-      <td>31</td>
-      <td>46</td>
-      <td>169</td>
-      <td>246</td>
-      <td>1</td>
-      <td>24</td>
-      <td>54</td>
-      <td>47</td>
-      <td>126</td>
-      <td>372</td>
-    </tr>
     <tr>
       <td>LSEG.L</td>
       <td>London Stock Exchange Group</td>
@@ -201,6 +180,22 @@
       <td>51</td>
       <td>82</td>
       <td>238</td>
+    </tr>
+    <tr>
+      <td>FCIT.L</td>
+      <td>F &amp; C Investment Trust</td>
+      <td>1058.00</td>
+      <td>0</td>
+      <td>-7</td>
+      <td>1</td>
+      <td>169</td>
+      <td>163</td>
+      <td>1</td>
+      <td>24</td>
+      <td>-2</td>
+      <td>47</td>
+      <td>70</td>
+      <td>233</td>
     </tr>
     <tr>
       <td>BA.L</td>
@@ -667,22 +662,6 @@
       <td>41</td>
     </tr>
     <tr>
-      <td>TW.L</td>
-      <td>Taylor Wimpey</td>
-      <td>154.90</td>
-      <td>-29</td>
-      <td>-3</td>
-      <td>50</td>
-      <td>4</td>
-      <td>22</td>
-      <td>-47</td>
-      <td>2</td>
-      <td>52</td>
-      <td>8</td>
-      <td>15</td>
-      <td>37</td>
-    </tr>
-    <tr>
       <td>FRAS.L</td>
       <td>Frasers Group</td>
       <td>792.50</td>
@@ -1083,6 +1062,22 @@
       <td>-32</td>
     </tr>
     <tr>
+      <td>TW.L</td>
+      <td>Taylor Wimpey</td>
+      <td>154.90</td>
+      <td>-29</td>
+      <td>-7</td>
+      <td>1</td>
+      <td>4</td>
+      <td>-31</td>
+      <td>-47</td>
+      <td>-14</td>
+      <td>52</td>
+      <td>8</td>
+      <td>-1</td>
+      <td>-32</td>
+    </tr>
+    <tr>
       <td>HLN.L</td>
       <td>Haleon</td>
       <td>374.60</td>
@@ -1147,22 +1142,6 @@
       <td>-39</td>
     </tr>
     <tr>
-      <td>AAF.L</td>
-      <td>Airtel Africa</td>
-      <td>108.60</td>
-      <td>-11</td>
-      <td>-1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>-12</td>
-      <td>-3</td>
-      <td>-12</td>
-      <td>3</td>
-      <td>-17</td>
-      <td>-29</td>
-      <td>-41</td>
-    </tr>
-    <tr>
       <td>HSX.L</td>
       <td>Hiscox</td>
       <td>1110.00</td>
@@ -1179,20 +1158,20 @@
       <td>-41</td>
     </tr>
     <tr>
-      <td>SVT.L</td>
-      <td>Severn Trent</td>
-      <td>2633.00</td>
-      <td>-12</td>
+      <td>AAF.L</td>
+      <td>Airtel Africa</td>
+      <td>108.60</td>
+      <td>-11</td>
+      <td>-1</td>
       <td>0</td>
-      <td>2</td>
-      <td>-13</td>
-      <td>-23</td>
-      <td>-9</td>
+      <td>0</td>
+      <td>-12</td>
+      <td>-3</td>
+      <td>-12</td>
       <td>3</td>
-      <td>13</td>
-      <td>-30</td>
-      <td>-23</td>
-      <td>-46</td>
+      <td>-17</td>
+      <td>-29</td>
+      <td>-41</td>
     </tr>
     <tr>
       <td>ITRK.L</td>
@@ -1307,22 +1286,6 @@
       <td>-75</td>
     </tr>
     <tr>
-      <td>ENT.L</td>
-      <td>Entain</td>
-      <td>715.40</td>
-      <td>0</td>
-      <td>35</td>
-      <td>-64</td>
-      <td>-14</td>
-      <td>-43</td>
-      <td>-1</td>
-      <td>-10</td>
-      <td>2</td>
-      <td>-28</td>
-      <td>-37</td>
-      <td>-80</td>
-    </tr>
-    <tr>
       <td>LAND.L</td>
       <td>Land Securities</td>
       <td>618.50</td>
@@ -1353,6 +1316,22 @@
       <td>22</td>
       <td>-43</td>
       <td>-86</td>
+    </tr>
+    <tr>
+      <td>SVT.L</td>
+      <td>Severn Trent</td>
+      <td>2633.00</td>
+      <td>-12</td>
+      <td>-7</td>
+      <td>1</td>
+      <td>-13</td>
+      <td>-31</td>
+      <td>-9</td>
+      <td>-16</td>
+      <td>-2</td>
+      <td>-30</td>
+      <td>-57</td>
+      <td>-88</td>
     </tr>
     <tr>
       <td>BKG.L</td>
@@ -1419,22 +1398,6 @@
       <td>-117</td>
     </tr>
     <tr>
-      <td>ADM.L</td>
-      <td>Admiral Group</td>
-      <td>2572.00</td>
-      <td>-36</td>
-      <td>-25</td>
-      <td>0</td>
-      <td>-1</td>
-      <td>-62</td>
-      <td>-38</td>
-      <td>-35</td>
-      <td>-2</td>
-      <td>8</td>
-      <td>-67</td>
-      <td>-129</td>
-    </tr>
-    <tr>
       <td>SGRO.L</td>
       <td>Segro</td>
       <td>807.40</td>
@@ -1448,6 +1411,22 @@
       <td>-4</td>
       <td>1</td>
       <td>-66</td>
+      <td>-129</td>
+    </tr>
+    <tr>
+      <td>ADM.L</td>
+      <td>Admiral Group</td>
+      <td>2572.00</td>
+      <td>-36</td>
+      <td>-25</td>
+      <td>0</td>
+      <td>-1</td>
+      <td>-62</td>
+      <td>-38</td>
+      <td>-35</td>
+      <td>-2</td>
+      <td>8</td>
+      <td>-67</td>
       <td>-129</td>
     </tr>
     <tr>
@@ -1547,6 +1526,22 @@
       <td>-151</td>
     </tr>
     <tr>
+      <td>CRDA.L</td>
+      <td>Croda International</td>
+      <td>3718.00</td>
+      <td>-16</td>
+      <td>-10</td>
+      <td>-76</td>
+      <td>-10</td>
+      <td>-112</td>
+      <td>-18</td>
+      <td>-9</td>
+      <td>-21</td>
+      <td>-26</td>
+      <td>-74</td>
+      <td>-186</td>
+    </tr>
+    <tr>
       <td>DGE.L</td>
       <td>Diageo</td>
       <td>2565.50</td>
@@ -1563,20 +1558,20 @@
       <td>-186</td>
     </tr>
     <tr>
-      <td>CRDA.L</td>
-      <td>Croda International</td>
-      <td>3718.00</td>
-      <td>-16</td>
+      <td>ENT.L</td>
+      <td>Entain</td>
+      <td>715.40</td>
+      <td>0</td>
+      <td>-7</td>
+      <td>-64</td>
+      <td>-14</td>
+      <td>-85</td>
+      <td>-1</td>
       <td>-10</td>
-      <td>-76</td>
-      <td>-10</td>
-      <td>-112</td>
-      <td>-18</td>
-      <td>-9</td>
-      <td>-21</td>
-      <td>-26</td>
-      <td>-74</td>
-      <td>-186</td>
+      <td>-72</td>
+      <td>-28</td>
+      <td>-111</td>
+      <td>-196</td>
     </tr>
     <tr>
       <td>SPX.L</td>
@@ -1646,18 +1641,14 @@
 </table>
         <script>
         $(document).ready(function() {
-          // Get the number of columns in the table
-          //var columnCount = $('#myTable').DataTable().columns().count();
-
-          // Get the index of the last column
-          //var lastIndex = columnCount - 1;
+          // Calculate the last column index
+          let lastColumnIndex = $('#dataTable_1 thead th').length - 1; 
 
           // Initialize the DataTable with the order option set to sort by the last column in descending order
-          //$('#myTable').DataTable({order: [[$('#myTable').DataTable().columns().count()-1, 'desc']]});
-          $('#myTable').DataTable({order: [[0, 'desc']]});
+          $('#dataTable_1').DataTable({ order: [[lastColumnIndex, 'desc']] });
 
           // Get all table rows
-          var rows = $('#myTable').DataTable().rows().nodes();
+          var rows = $('#dataTable_1').DataTable().rows().nodes();
 
           // Iterate over all table rows and add classes
           for (var i = 0; i < rows.length; i++) {
@@ -1684,7 +1675,7 @@
         </table>
         
         <footer>
-          <p>Table Generated At 2024-10-25 23:06:30 [UK]<br></p>
+          <p>Table Generated At 2024-10-26 19:28:40 [UK]<br></p>
         </footer>
         </body>
 
