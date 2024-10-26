@@ -92,7 +92,7 @@ def main(run_merger=True):
             "asset_list/SPDR_ETF/index-holdings-xlre.csv",
             "output/sum/SPX500-sum-cloud-tkx-merged.csv",
             "output/sum/SPDR_ETF-XLRE-sum-cloud-tkx-merged.csv",
-            "XLRE - Energy",
+            "XLRE - Real Estate",
         )
         _control = Control(_model, View())
         _control.main()
@@ -102,7 +102,7 @@ def main(run_merger=True):
             "asset_list/SPDR_ETF/index-holdings-xlk.csv",
             "output/sum/SPX500-sum-cloud-tkx-merged.csv",
             "output/sum/SPDR_ETF-XLK-sum-cloud-tkx-merged.csv",
-            "XLK - Energy",
+            "XLK - Technology",
         )
         _control = Control(_model, View())
         _control.main()
@@ -112,7 +112,7 @@ def main(run_merger=True):
             "asset_list/SPDR_ETF/index-holdings-xlu.csv",
             "output/sum/SPX500-sum-cloud-tkx-merged.csv",
             "output/sum/SPDR_ETF-XLU-sum-cloud-tkx-merged.csv",
-            "XLU - Energy",
+            "XLU - Utilities",
         )
         _control = Control(_model, View())
         _control.main()

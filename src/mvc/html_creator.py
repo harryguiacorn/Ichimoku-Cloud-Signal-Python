@@ -25,7 +25,7 @@ class TableGenerator:
       <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <link rel="stylesheet" href="html_creator.css">
+          <link rel="stylesheet" href="../../css/html_creator.css">
           <title>{str_title}</title>
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
           <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
@@ -35,11 +35,6 @@ class TableGenerator:
           <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
           <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
           
-          <style>
-              .highlight-positive {{background-color: #c6efce !important;}}
-              .highlight-negative {{background-color: #f8d7da !important;}}
-              .highlight-neutral {{background-color: #d3d3d3 !important;}}
-          </style>
       </head>
       <body>
         <h1>{str_title}</h1>
@@ -52,23 +47,19 @@ class TableGenerator:
         # Add the DataTables plugin to the HTML table
         html_table = html_table.replace(
             "<table",
-            '<table class="table table-striped table-bordered" id="myTable"',
+            '<table class="table table-striped table-bordered" id="dataTable_1"',
         )
         html_table += """
         <script>
         $(document).ready(function() {
-          // Get the number of columns in the table
-          //var columnCount = $('#myTable').DataTable().columns().count();
-
-          // Get the index of the last column
-          //var lastIndex = columnCount - 1;
+          // Calculate the last column index
+          let lastColumnIndex = $('#dataTable_1 thead th').length - 1; 
 
           // Initialize the DataTable with the order option set to sort by the last column in descending order
-          //$('#myTable').DataTable({order: [[$('#myTable').DataTable().columns().count()-1, 'desc']]});
-          $('#myTable').DataTable({order: [[0, 'desc']]});
+          $('#dataTable_1').DataTable({ order: [[lastColumnIndex, 'desc']] });
 
           // Get all table rows
-          var rows = $('#myTable').DataTable().rows().nodes();
+          var rows = $('#dataTable_1').DataTable().rows().nodes();
 
           // Iterate over all table rows and add classes
           for (var i = 0; i < rows.length; i++) {
