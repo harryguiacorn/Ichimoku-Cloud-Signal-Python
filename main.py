@@ -238,6 +238,20 @@ def main():
         fetch_kicker,
     )
 
+    # ---------------- Hang Seng Index ----------------
+    _runHSI = runHSI
+    _runHSI.main(
+        fetch_symbols_latest_HSI,
+        fetch_HSI_1H,
+        fetch_HSI_D,
+        fetch_HSI_W,
+        fetch_HSI_M,
+        fetch_kijun_analysis,
+        fetch_Kicker_use_datetime_format,
+        run_Multi_TimeFrame_Merger_HSI,
+        fetch_kicker,
+    )
+
     # ---------------- Futures Currency ----------------
 
     _runCurrencyFutures = runCurrencyFutures
@@ -250,20 +264,6 @@ def main():
         fetch_kijun_analysis,
         fetch_Kicker_use_datetime_format,
         run_Multi_TimeFrame_Merger_CurrencyFutures,
-        fetch_kicker,
-    )
-
-    # ---------------- Hang Seng Index ----------------
-    _runHSI = runHSI
-    _runHSI.main(
-        fetch_symbols_latest_HSI,
-        fetch_HSI_1H,
-        fetch_HSI_D,
-        fetch_HSI_W,
-        fetch_HSI_M,
-        fetch_kijun_analysis,
-        fetch_Kicker_use_datetime_format,
-        run_Multi_TimeFrame_Merger_HSI,
         fetch_kicker,
     )
 
