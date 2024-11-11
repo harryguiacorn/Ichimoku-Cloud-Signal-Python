@@ -14,6 +14,38 @@ class DataTKxSignal(DataOHLC):
         self.csvPath = __csvPath
         self.use_datetime_format = __use_datetime_format
 
+    def check_yfinance_format(self, __path, __string_first_column):
+
+        # print("__path, __data.Datetime ----", __path, __data.Datetime)
+
+        __data = pd.read_csv(__path, header=[0])  # Load with a single header row by default
+
+        # Check if the format is correct
+        expected_columns = [__string_first_column, 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']
+        is_correct_format = list(__data.columns) == expected_columns
+
+        if not is_correct_format:
+            # If the format is incorrect, reload with a multi-level header and apply transformations
+            __data = pd.read_csv(__path, header=[0, 1])  # Load with a multi-level header
+
+            # Drop the second row (header row with tickers)
+            __data.columns = __data.columns.droplevel(1)
+
+            # Dynamically replace the first column name with whatever is in the first cell of the third row
+            first_cell_third_row = pd.read_csv(__path, skiprows=2).columns[0]  # Read third row to get the first cell
+            __data.columns.values[0] = first_cell_third_row
+
+            # Remove the second row of data (now the first row of the DataFrame after setting index)
+            __data = __data.drop(__data.index[0])
+
+            print(f"{self.symbol} - Incorrect format detected and corrected.")
+        else:
+            print(f"{self.symbol} - File is already in the correct format.")
+
+        # Display the resulting DataFrame
+        # print(__data)
+        return __data
+    
     def setupPd_use_datetime_format(
         self, csvSuffix="_tkx.csv", folderPath="data/"
     ):
@@ -28,6 +60,8 @@ class DataTKxSignal(DataOHLC):
             if __data.empty:  # Check if the DataFrame is empty
                 print("CSV file is empty", __path)
             else:
+                __data = self.check_yfinance_format(__path, "Datetime")
+
                 # print(__path)
                 # print(__data.Datetime)
                 __data.index = __data.Datetime
@@ -76,6 +110,8 @@ class DataTKxSignal(DataOHLC):
             if __data.empty:  # Check if the DataFrame is empty
                 print("CSV file is empty", __path)
             else:
+                __data = self.check_yfinance_format(__path, "Date")
+
                 # print(__data.Date)
                 __data.index = __data.Date
                 __data["Returns"] = self.getReturn(
