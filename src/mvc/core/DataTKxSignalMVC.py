@@ -65,36 +65,39 @@ class DataTKxSignal(DataOHLC):
 
                 # print(__path)
                 # print(__data.Datetime)
-                __data.index = __data.Datetime
-                __data["Returns"] = self.getReturn(
-                    __data["Close"], __data["Close"].shift(1)
-                )
-                __data["TKx Signal"] = self.getTKxDirection(
-                    __data["tenkan_sen"], __data["kijun_sen"]
-                )
-                __data["TKx Signal Count"] = self.getTKxSignalCount(
-                    __data["TKx Signal"]
-                )
+                
+                # Check if "Datetime" column exists
+                if "Datetime" in __data.columns:
+                    __data.index = __data.Datetime
+                    __data["Returns"] = self.getReturn(
+                        __data["Close"], __data["Close"].shift(1)
+                    )
+                    __data["TKx Signal"] = self.getTKxDirection(
+                        __data["tenkan_sen"], __data["kijun_sen"]
+                    )
+                    __data["TKx Signal Count"] = self.getTKxSignalCount(
+                        __data["TKx Signal"]
+                    )
 
-                # drop chikou_span because it creates na values
-                # for 26 periods from last date
-                __data.drop("chikou_span", axis=1, inplace=True)
-                # commented out dropna to allow lack of monthly data to be included.
-                # __data = __data.dropna()
+                    # drop chikou_span because it creates na values
+                    # for 26 periods from last date
+                    __data.drop("chikou_span", axis=1, inplace=True)
+                    # commented out dropna to allow lack of monthly data to be included.
+                    # __data = __data.dropna()
 
-                # print(
-                #     "setupPd_use_datetime_format::TKx Signal::",
-                #     __data["TKx Signal"],
-                # )
+                    # print(
+                    #     "setupPd_use_datetime_format::TKx Signal::",
+                    #     __data["TKx Signal"],
+                    # )
 
-                # convert float64 to int64
-                __data["TKx Signal"] = __data["TKx Signal"].astype("int64")
-                __data["TKx Signal Count"] = __data["TKx Signal Count"].astype(
-                    "int64"
-                )
+                    # convert float64 to int64
+                    __data["TKx Signal"] = __data["TKx Signal"].astype("int64")
+                    __data["TKx Signal Count"] = __data["TKx Signal Count"].astype(
+                        "int64"
+                    )
 
-                self.setColumnsSaveCsv_use_datetime_format(__data)
-                # print(__data)
+                    self.setColumnsSaveCsv_use_datetime_format(__data)
+                    # print(__data)
         except pd.errors.EmptyDataError:
             print("CSV file is empty", __path)
         except FileNotFoundError:
@@ -113,33 +116,36 @@ class DataTKxSignal(DataOHLC):
             else:
                 __data = self.check_yfinance_format(__path, "Date")
 
-                # print(__data.Date)
-                __data.index = __data.Date
-                __data["Returns"] = self.getReturn(
-                    __data["Close"], __data["Close"].shift(1)
-                )
-                __data["TKx Signal"] = self.getTKxDirection(
-                    __data["tenkan_sen"], __data["kijun_sen"]
-                )
-                __data["TKx Signal Count"] = self.getTKxSignalCount(
-                    __data["TKx Signal"]
-                )
+                # Check if "Date" column exists
+                if "Date" in __data.columns:
 
-                # drop chikou_span because it creates na values
-                # for 26 periods from last date
-                __data.drop("chikou_span", axis=1, inplace=True)
-                # commented out dropna to allow lack of monthly data to be included.
-                # __data = __data.dropna()
+                    # print(__data.Date)
+                    __data.index = __data.Date
+                    __data["Returns"] = self.getReturn(
+                        __data["Close"], __data["Close"].shift(1)
+                    )
+                    __data["TKx Signal"] = self.getTKxDirection(
+                        __data["tenkan_sen"], __data["kijun_sen"]
+                    )
+                    __data["TKx Signal Count"] = self.getTKxSignalCount(
+                        __data["TKx Signal"]
+                    )
 
-                # print("setupPd::TKx Signal::", __data["TKx Signal"])
+                    # drop chikou_span because it creates na values
+                    # for 26 periods from last date
+                    __data.drop("chikou_span", axis=1, inplace=True)
+                    # commented out dropna to allow lack of monthly data to be included.
+                    # __data = __data.dropna()
 
-                # convert float64 to int64
-                __data["TKx Signal"] = __data["TKx Signal"].astype("int64")
-                __data["TKx Signal Count"] = __data["TKx Signal Count"].astype(
-                    "int64"
-                )
+                    # print("setupPd::TKx Signal::", __data["TKx Signal"])
 
-                self.setColumnsSaveCsv(__data)
+                    # convert float64 to int64
+                    __data["TKx Signal"] = __data["TKx Signal"].astype("int64")
+                    __data["TKx Signal Count"] = __data["TKx Signal Count"].astype(
+                        "int64"
+                    )
+
+                    self.setColumnsSaveCsv(__data)
         except pd.errors.EmptyDataError:
             print("CSV file is empty", __path)
         except FileNotFoundError:

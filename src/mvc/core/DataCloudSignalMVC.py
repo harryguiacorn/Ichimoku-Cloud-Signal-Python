@@ -26,9 +26,9 @@ class DataCloudSignal(DataOHLC):
         # expected_columns = [__string_first_column, 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']
         is_correct_format = __data.iloc[0, 0] != "Ticker"
 
-        # print("checking 1st cell: ", __data.iloc[0, 0], __data.iloc[1, 0],__data.iloc[0, 1])
+        print("checking 1st cell: ", __data.iloc[0, 0], __data.iloc[1, 0],__data.iloc[0, 1])
 
-        # print("__data\n",__data)
+        print("__data\n",__data)
 
         if not is_correct_format:
             # If the format is incorrect, reload with a multi-level header and apply transformations
@@ -79,40 +79,42 @@ class DataCloudSignal(DataOHLC):
                 
                 __data = self.check_yfinance_format(__path, "Datetime")
 
-                __data.index = __data.Datetime
-                __data["Cloud Signal"] = self.getCloudDirection(
-                    __data["Close"],
-                    __data["senkou_span_a"],
-                    __data["senkou_span_b"],
-                )
+                # Check if "Datetime" column exists
+                if "Datetime" in __data.columns:
+                    __data.index = __data.Datetime
+                    __data["Cloud Signal"] = self.getCloudDirection(
+                        __data["Close"],
+                        __data["senkou_span_a"],
+                        __data["senkou_span_b"],
+                    )
 
-                # rounded to 2 decimal places
-                __data["Close"] = __data["Close"].round(2)
+                    # rounded to 2 decimal places
+                    __data["Close"] = __data["Close"].round(2)
 
-                __data["Cloud Signal Count"] = self.getCloudSignalCount(
-                    __data["Cloud Signal"]
-                )
-                __data["Return"] = self.getReturn(
-                    __data["Close"], __data["Cloud Signal"]
-                ).round(4)
-                __data["Cumulative Return"] = (
-                    (1 + __data["Return"]).cumprod() - 1
-                ).round(4)
+                    __data["Cloud Signal Count"] = self.getCloudSignalCount(
+                        __data["Cloud Signal"]
+                    )
+                    __data["Return"] = self.getReturn(
+                        __data["Close"], __data["Cloud Signal"]
+                    ).round(4)
+                    __data["Cumulative Return"] = (
+                        (1 + __data["Return"]).cumprod() - 1
+                    ).round(4)
 
-                # drop chikou_span because it creates na values
-                # for 26 periods from last date
-                __data.drop("chikou_span", axis=1, inplace=True)
-                # commented out dropna to allow lack of monthly data to be included.
-                # __data = __data.dropna()
+                    # drop chikou_span because it creates na values
+                    # for 26 periods from last date
+                    __data.drop("chikou_span", axis=1, inplace=True)
+                    # commented out dropna to allow lack of monthly data to be included.
+                    # __data = __data.dropna()
 
-                # convert float64 to int64
-                __data["Cloud Signal"] = __data["Cloud Signal"].astype("int64")
-                __data["Cloud Signal Count"] = __data[
-                    "Cloud Signal Count"
-                ].astype("int64")
+                    # convert float64 to int64
+                    __data["Cloud Signal"] = __data["Cloud Signal"].astype("int64")
+                    __data["Cloud Signal Count"] = __data[
+                        "Cloud Signal Count"
+                    ].astype("int64")
 
-                self.setColumnsSaveCsv_use_datetime_format(__data)
-                # print(__data)
+                    self.setColumnsSaveCsv_use_datetime_format(__data)
+                    # print(__data)
         except pd.errors.EmptyDataError:
             print("CSV file is empty", __path)
         except FileNotFoundError:
@@ -134,43 +136,47 @@ class DataCloudSignal(DataOHLC):
                 print("CSV file is empty: ", __path)
             else:
                 __data = self.check_yfinance_format(__path, "Date")
-                # print("__path:", __path)
-                __data.index = __data.Date
-                __data["Cloud Signal"] = self.getCloudDirection(
-                    __data["Close"],
-                    __data["senkou_span_a"],
-                    __data["senkou_span_b"],
-                )
+                
+                # Check if "Date" column exists
+                if "Date" in __data.columns:
 
-                # rounded to 2 decimal places
-                __data["Close"] = __data["Close"].round(2)
+                    # print("__path:", __path)
+                    __data.index = __data.Date
+                    __data["Cloud Signal"] = self.getCloudDirection(
+                        __data["Close"],
+                        __data["senkou_span_a"],
+                        __data["senkou_span_b"],
+                    )
 
-                __data["Cloud Signal Count"] = self.getCloudSignalCount(
-                    __data["Cloud Signal"]
-                )
+                    # rounded to 2 decimal places
+                    __data["Close"] = __data["Close"].round(2)
 
-                # __data["Return"] = self.getReturn(
-                #     __data["Close"], __data["Cloud Signal"]
-                # )
-                # __data["Cumulative Return"] = (
-                #     1 + __data["Return"]
-                # ).cumprod() - 1
+                    __data["Cloud Signal Count"] = self.getCloudSignalCount(
+                        __data["Cloud Signal"]
+                    )
 
-                # drop chikou_span because it creates na values for
-                # 26 periods from last date
-                __data.drop("chikou_span", axis=1, inplace=True)
-                # commented out dropna to allow lack of monthly data to be included.
-                # __data = __data.dropna()
+                    # __data["Return"] = self.getReturn(
+                    #     __data["Close"], __data["Cloud Signal"]
+                    # )
+                    # __data["Cumulative Return"] = (
+                    #     1 + __data["Return"]
+                    # ).cumprod() - 1
 
-                # print("setupPd::Cloud Signal::", __data["Cloud Signal"])
+                    # drop chikou_span because it creates na values for
+                    # 26 periods from last date
+                    __data.drop("chikou_span", axis=1, inplace=True)
+                    # commented out dropna to allow lack of monthly data to be included.
+                    # __data = __data.dropna()
 
-                # convert float64 to int64
-                __data["Cloud Signal"] = __data["Cloud Signal"].astype("int64")
-                __data["Cloud Signal Count"] = __data[
-                    "Cloud Signal Count"
-                ].astype("int64")
+                    # print("setupPd::Cloud Signal::", __data["Cloud Signal"])
 
-                self.setColumnsSaveCsv(__data)
+                    # convert float64 to int64
+                    __data["Cloud Signal"] = __data["Cloud Signal"].astype("int64")
+                    __data["Cloud Signal Count"] = __data[
+                        "Cloud Signal Count"
+                    ].astype("int64")
+
+                    self.setColumnsSaveCsv(__data)
         except pd.errors.EmptyDataError:
             print("CSV file is empty: ", __path)
         except FileNotFoundError:
