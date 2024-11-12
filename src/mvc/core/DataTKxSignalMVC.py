@@ -21,8 +21,8 @@ class DataTKxSignal(DataOHLC):
         __data = pd.read_csv(__path, header=[0])  # Load with a single header row by default
 
         # Check if the format is correct
-        expected_columns = [__string_first_column, 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']
-        is_correct_format = list(__data.columns) == expected_columns
+        # expected_columns = [__string_first_column, 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']
+        is_correct_format = __data.iloc[0, 0] != "Ticker"
 
         if not is_correct_format:
             # If the format is incorrect, reload with a multi-level header and apply transformations
@@ -38,7 +38,8 @@ class DataTKxSignal(DataOHLC):
             # Remove the second row of data (now the first row of the DataFrame after setting index)
             __data = __data.drop(__data.index[0])
 
-            print(f"{self.symbol} - Incorrect format detected and corrected.")
+            # print(f"{self.symbol} - Incorrect format detected and corrected.")
+            print(self.symbol," - Incorrect format detected and corrected.", sep="....")
         else:
             print(f"{self.symbol} - File is already in the correct format.")
 
