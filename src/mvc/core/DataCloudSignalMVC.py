@@ -14,45 +14,49 @@ class DataCloudSignal(DataOHLC):
         self.csvPath = __csvPath
         self.use_datetime_format = __use_datetime_format
 
-
-
     def check_yfinance_format(self, __path, __string_first_column):
 
         # print("__path, __data.Datetime ----", __path, __data.Datetime)
 
-        __data = pd.read_csv(__path, header=[0])  # Load with a single header row by default
+        __data = pd.read_csv(
+            __path, header=[0]
+        )  # Load with a single header row by default
 
         # Check if the format is correct
         # expected_columns = [__string_first_column, 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']
-        is_correct_format = __data.iloc[0, 0] != "Ticker"
+        is_correct_format = __data.columns[0] != __string_first_column
 
-        print("checking 1st cell: ", __data.iloc[0, 0], __data.iloc[1, 0],__data.iloc[0, 1])
+        print("checking 1st cell 1st column: ", __data.columns[0])
 
-        print("__data\n",__data)
+        print("__data\n", __data.head())
 
         if not is_correct_format:
             # If the format is incorrect, reload with a multi-level header and apply transformations
-            __data = pd.read_csv(__path, header=[0, 1])  # Load with a multi-level header
+            __data = pd.read_csv(
+                __path, header=[0, 1]
+            )  # Load with a multi-level header
 
             # Drop the second row (header row with tickers)
             __data.columns = __data.columns.droplevel(1)
 
             # Dynamically replace the first column name with whatever is in the first cell of the third row
-            first_cell_third_row = pd.read_csv(__path, skiprows=2).columns[0]  # Read third row to get the first cell
+            first_cell_third_row = pd.read_csv(__path, skiprows=2).columns[
+                0
+            ]  # Read third row to get the first cell
             __data.columns.values[0] = first_cell_third_row
 
             # Remove the second row of data (now the first row of the DataFrame after setting index)
             __data = __data.drop(__data.index[0])
 
-            # print(f"{self.symbol} - Incorrect format detected and corrected.")
-            print(self.symbol," - Incorrect format detected and corrected.", sep="....")
+            print(f"{self.symbol} - Incorrect format detected and corrected.")
+
         else:
             print(f"{self.symbol} - File is already in the correct format.")
 
         # Display the resulting DataFrame
         # print(__data)
         return __data
-    
+
     def setupPd_use_datetime_format(
         self, csvSuffix="_cloud.csv", folderPath="data/"
     ):
@@ -76,7 +80,7 @@ class DataCloudSignal(DataOHLC):
             if __data.empty:  # Check if the DataFrame is empty
                 print("CSV file is empty", __path)
             else:
-                
+
                 __data = self.check_yfinance_format(__path, "Datetime")
 
                 # Check if "Datetime" column exists
@@ -108,7 +112,9 @@ class DataCloudSignal(DataOHLC):
                     # __data = __data.dropna()
 
                     # convert float64 to int64
-                    __data["Cloud Signal"] = __data["Cloud Signal"].astype("int64")
+                    __data["Cloud Signal"] = __data["Cloud Signal"].astype(
+                        "int64"
+                    )
                     __data["Cloud Signal Count"] = __data[
                         "Cloud Signal Count"
                     ].astype("int64")
@@ -136,7 +142,7 @@ class DataCloudSignal(DataOHLC):
                 print("CSV file is empty: ", __path)
             else:
                 __data = self.check_yfinance_format(__path, "Date")
-                
+
                 # Check if "Date" column exists
                 if "Date" in __data.columns:
 
@@ -171,7 +177,9 @@ class DataCloudSignal(DataOHLC):
                     # print("setupPd::Cloud Signal::", __data["Cloud Signal"])
 
                     # convert float64 to int64
-                    __data["Cloud Signal"] = __data["Cloud Signal"].astype("int64")
+                    __data["Cloud Signal"] = __data["Cloud Signal"].astype(
+                        "int64"
+                    )
                     __data["Cloud Signal Count"] = __data[
                         "Cloud Signal Count"
                     ].astype("int64")

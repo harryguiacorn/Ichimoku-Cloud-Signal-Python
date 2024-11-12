@@ -18,35 +18,40 @@ class DataTKxSignal(DataOHLC):
 
         # print("__path, __data.Datetime ----", __path, __data.Datetime)
 
-        __data = pd.read_csv(__path, header=[0])  # Load with a single header row by default
+        __data = pd.read_csv(
+            __path, header=[0]
+        )  # Load with a single header row by default
 
         # Check if the format is correct
         # expected_columns = [__string_first_column, 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']
-        is_correct_format = __data.iloc[0, 0] != "Ticker"
+        is_correct_format = __data.columns[0] != __string_first_column
 
         if not is_correct_format:
             # If the format is incorrect, reload with a multi-level header and apply transformations
-            __data = pd.read_csv(__path, header=[0, 1])  # Load with a multi-level header
+            __data = pd.read_csv(
+                __path, header=[0, 1]
+            )  # Load with a multi-level header
 
             # Drop the second row (header row with tickers)
             __data.columns = __data.columns.droplevel(1)
 
             # Dynamically replace the first column name with whatever is in the first cell of the third row
-            first_cell_third_row = pd.read_csv(__path, skiprows=2).columns[0]  # Read third row to get the first cell
+            first_cell_third_row = pd.read_csv(__path, skiprows=2).columns[
+                0
+            ]  # Read third row to get the first cell
             __data.columns.values[0] = first_cell_third_row
 
             # Remove the second row of data (now the first row of the DataFrame after setting index)
             __data = __data.drop(__data.index[0])
 
-            # print(f"{self.symbol} - Incorrect format detected and corrected.")
-            print(self.symbol," - Incorrect format detected and corrected.", sep="....")
+            print(f"{self.symbol} - Incorrect format detected and corrected.")
         else:
             print(f"{self.symbol} - File is already in the correct format.")
 
         # Display the resulting DataFrame
         # print(__data)
         return __data
-    
+
     def setupPd_use_datetime_format(
         self, csvSuffix="_tkx.csv", folderPath="data/"
     ):
@@ -65,7 +70,7 @@ class DataTKxSignal(DataOHLC):
 
                 # print(__path)
                 # print(__data.Datetime)
-                
+
                 # Check if "Datetime" column exists
                 if "Datetime" in __data.columns:
                     __data.index = __data.Datetime
@@ -92,9 +97,9 @@ class DataTKxSignal(DataOHLC):
 
                     # convert float64 to int64
                     __data["TKx Signal"] = __data["TKx Signal"].astype("int64")
-                    __data["TKx Signal Count"] = __data["TKx Signal Count"].astype(
-                        "int64"
-                    )
+                    __data["TKx Signal Count"] = __data[
+                        "TKx Signal Count"
+                    ].astype("int64")
 
                     self.setColumnsSaveCsv_use_datetime_format(__data)
                     # print(__data)
@@ -141,9 +146,9 @@ class DataTKxSignal(DataOHLC):
 
                     # convert float64 to int64
                     __data["TKx Signal"] = __data["TKx Signal"].astype("int64")
-                    __data["TKx Signal Count"] = __data["TKx Signal Count"].astype(
-                        "int64"
-                    )
+                    __data["TKx Signal Count"] = __data[
+                        "TKx Signal Count"
+                    ].astype("int64")
 
                     self.setColumnsSaveCsv(__data)
         except pd.errors.EmptyDataError:
