@@ -64,19 +64,38 @@ class DataOandaAPI:
 
         # print("------- json_to_csv -------", candles)
 
-        # Convert the candle data to a DataFrame
+        # # Convert the candle data to a DataFrame
+        # df = pd.DataFrame(
+        #     [candle["mid"] for candle in candles],
+        #     index=pd.to_datetime(
+        #         [candle["time"] for candle in candles], utc=True
+        #     ),
+        # )
+        
+        # Convert the candle data to a DataFrame with 'datetime' as a column
         df = pd.DataFrame(
-            [candle["mid"] for candle in candles],
-            index=pd.to_datetime(
-                [candle["time"] for candle in candles], utc=True
-            ),
+            [candle["mid"] for candle in candles]
         )
 
-        # Rename the columns
-        df.columns = ["Open", "High", "Low", "Close"]
+        # Add the 'datetime' column
+        df["Datetime"] = pd.to_datetime(
+            [candle["time"] for candle in candles], utc=True
+        )
 
-        # Add a column for 'Datetime' and set the index values
-        df.insert(0, "Datetime", df.index)
+
+
+        # Rename the columns
+        df.columns = ["Open", "High", "Low", "Close","Datetime"]
+
+        # Reorder the columns to make 'datetime' the first column
+        df = df[["Datetime", "Open", "High", "Low", "Close"]]
+
+        # # Add a column for 'Datetime' and set the index values
+        # df.insert(0, "Datetime", df.index)
+
+        # print("df.columns.values", df.columns.values)
+
+        # print("==============\n", df)
 
         # Export the DataFrame to a CSV file
         df.to_csv(filePath, index=False)

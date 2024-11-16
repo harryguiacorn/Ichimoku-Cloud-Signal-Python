@@ -105,6 +105,7 @@ class Model(object):
             self.dataOHLC = self.getLatestDataFromOandaAPI(
                 self.symbols, self.lookbackPeriod, self.interval
             )
+            # print("@@@@@@@@@@@@---------- getDataOHLC ---------", self.dataOHLC)
             return self.dataOHLC
         else:
             # method 2. grab data from local raw csv files to
@@ -122,11 +123,14 @@ class Model(object):
                 data_json = api.get_oanda_data(
                     __symbol, __lookbackPeriods, __interval
                 )
-
+                # print("+++++++ data_json +++++++", data_json)
                 __path_csv = self.csvPath + __symbol + ".json"
                 api.save_json(__path_csv, data_json)
                 __path_json = self.csvPath + __symbol + ".csv"
                 data_df = api.json_to_csv(data_json, __path_json)
+                
+
+                # print("+++++++ data_df +++++++", data_df)
                 __dict_df[__symbol] = data_df
                 # print(f"{symbols.index(__symbol)} {__symbol} -> {__path}")
             except Exception as e:
@@ -170,12 +174,12 @@ class Model(object):
         __dict_df_ichimoku = {}
         for __key, __df in __dict_df.items():
             # initialising indicators
-            # print("-------- createIchimokuDataTapy --------", __df)
+            print("-------- createIchimokuDataTapy --------", __df)
             __i = Indicators(__df)
             __i.ichimoku_kinko_hyo()  # column_name_kijun_sen="K Line"
-            __dataCloud = __i.df
+            __dataCloud : pd.DataFrame= __i.df
             __dict_df_ichimoku[__key] = __dataCloud
-            __dataCloud.to_csv(self.csvPath + __key + "_ichimokuTapy.csv")
+            __dataCloud.to_csv(self.csvPath + __key + "_ichimokuTapy.csv", index= False)
         return __dict_df_ichimoku
 
     # create Ichimoku data using finta, this is the alternative option

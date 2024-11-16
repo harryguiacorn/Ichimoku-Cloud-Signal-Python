@@ -1,0 +1,638 @@
+Oanda task begins at: 2024-11-16 05:04:47 [UK]
+----------- Reading symbols for H1 -----------
+readAssetList path: asset_list/Oanda.csv
+       symbol        name
+0  SPX500_USD  US SPX 500
+
+----------- Downloading from Oanda API -----------
+df.columns.values ['Datetime' 'Open' 'High' 'Low' 'Close']
+==============
+                      Datetime    Open    High     Low   Close
+0   2024-10-17 04:00:00+00:00  5839.0  5839.4  5837.0  5838.4
+1   2024-10-17 05:00:00+00:00  5838.0  5846.4  5837.6  5845.6
+2   2024-10-17 06:00:00+00:00  5845.8  5860.0  5844.6  5857.6
+3   2024-10-17 07:00:00+00:00  5857.6  5864.4  5856.0  5862.8
+4   2024-10-17 08:00:00+00:00  5862.6  5873.4  5862.0  5873.0
+..                        ...     ...     ...     ...     ...
+495 2024-11-15 17:00:00+00:00  5878.5  5880.0  5867.9  5876.0
+496 2024-11-15 18:00:00+00:00  5876.3  5877.8  5860.0  5866.3
+497 2024-11-15 19:00:00+00:00  5866.0  5879.4  5861.5  5871.3
+498 2024-11-15 20:00:00+00:00  5871.0  5884.8  5869.5  5879.8
+499 2024-11-15 21:00:00+00:00  5879.8  5888.0  5879.8  5882.6
+
+[500 rows x 5 columns]
++++++++ data_df +++++++                      Datetime    Open    High     Low   Close
+0   2024-10-17 04:00:00+00:00  5839.0  5839.4  5837.0  5838.4
+1   2024-10-17 05:00:00+00:00  5838.0  5846.4  5837.6  5845.6
+2   2024-10-17 06:00:00+00:00  5845.8  5860.0  5844.6  5857.6
+3   2024-10-17 07:00:00+00:00  5857.6  5864.4  5856.0  5862.8
+4   2024-10-17 08:00:00+00:00  5862.6  5873.4  5862.0  5873.0
+..                        ...     ...     ...     ...     ...
+495 2024-11-15 17:00:00+00:00  5878.5  5880.0  5867.9  5876.0
+496 2024-11-15 18:00:00+00:00  5876.3  5877.8  5860.0  5866.3
+497 2024-11-15 19:00:00+00:00  5866.0  5879.4  5861.5  5871.3
+498 2024-11-15 20:00:00+00:00  5871.0  5884.8  5869.5  5879.8
+499 2024-11-15 21:00:00+00:00  5879.8  5888.0  5879.8  5882.6
+
+[500 rows x 5 columns]
+Download completed. Saved in: data/oanda/1h/SPX500_USD.json data/oanda/1h/SPX500_USD.csv
+
+----------- Creating Ichimoku Data (Oanda) -----------
+-------- createIchimokuDataTapy --------                      Datetime    Open    High     Low   Close
+0   2024-10-17 04:00:00+00:00  5839.0  5839.4  5837.0  5838.4
+1   2024-10-17 05:00:00+00:00  5838.0  5846.4  5837.6  5845.6
+2   2024-10-17 06:00:00+00:00  5845.8  5860.0  5844.6  5857.6
+3   2024-10-17 07:00:00+00:00  5857.6  5864.4  5856.0  5862.8
+4   2024-10-17 08:00:00+00:00  5862.6  5873.4  5862.0  5873.0
+..                        ...     ...     ...     ...     ...
+495 2024-11-15 17:00:00+00:00  5878.5  5880.0  5867.9  5876.0
+496 2024-11-15 18:00:00+00:00  5876.3  5877.8  5860.0  5866.3
+497 2024-11-15 19:00:00+00:00  5866.0  5879.4  5861.5  5871.3
+498 2024-11-15 20:00:00+00:00  5871.0  5884.8  5869.5  5879.8
+499 2024-11-15 21:00:00+00:00  5879.8  5888.0  5879.8  5882.6
+
+[500 rows x 5 columns]
+Ichimoku columns added to csv
+
+----------- Reading symbols for H4 -----------
+readAssetList path: asset_list/Oanda.csv
+       symbol        name
+0  SPX500_USD  US SPX 500
+
+----------- Downloading from Oanda API -----------
+df.columns.values ['Datetime' 'Open' 'High' 'Low' 'Close']
+==============
+                      Datetime    Open    High     Low   Close
+0   2024-07-23 09:00:00+00:00  5563.2  5582.2  5562.8  5573.2
+1   2024-07-23 13:00:00+00:00  5572.8  5593.4  5567.6  5572.1
+2   2024-07-23 17:00:00+00:00  5571.6  5581.4  5557.8  5567.8
+3   2024-07-23 21:00:00+00:00  5543.8  5547.6  5537.2  5545.6
+4   2024-07-24 01:00:00+00:00  5545.8  5547.0  5524.0  5526.8
+..                        ...     ...     ...     ...     ...
+495 2024-11-15 02:00:00+00:00  5937.8  5944.4  5936.4  5937.8
+496 2024-11-15 06:00:00+00:00  5937.4  5937.8  5912.8  5920.8
+497 2024-11-15 10:00:00+00:00  5920.4  5934.4  5918.0  5924.8
+498 2024-11-15 14:00:00+00:00  5925.2  5926.4  5867.9  5876.0
+499 2024-11-15 18:00:00+00:00  5876.3  5888.0  5860.0  5882.6
+
+[500 rows x 5 columns]
++++++++ data_df +++++++                      Datetime    Open    High     Low   Close
+0   2024-07-23 09:00:00+00:00  5563.2  5582.2  5562.8  5573.2
+1   2024-07-23 13:00:00+00:00  5572.8  5593.4  5567.6  5572.1
+2   2024-07-23 17:00:00+00:00  5571.6  5581.4  5557.8  5567.8
+3   2024-07-23 21:00:00+00:00  5543.8  5547.6  5537.2  5545.6
+4   2024-07-24 01:00:00+00:00  5545.8  5547.0  5524.0  5526.8
+..                        ...     ...     ...     ...     ...
+495 2024-11-15 02:00:00+00:00  5937.8  5944.4  5936.4  5937.8
+496 2024-11-15 06:00:00+00:00  5937.4  5937.8  5912.8  5920.8
+497 2024-11-15 10:00:00+00:00  5920.4  5934.4  5918.0  5924.8
+498 2024-11-15 14:00:00+00:00  5925.2  5926.4  5867.9  5876.0
+499 2024-11-15 18:00:00+00:00  5876.3  5888.0  5860.0  5882.6
+
+[500 rows x 5 columns]
+Download completed. Saved in: data/oanda/4h/SPX500_USD.json data/oanda/4h/SPX500_USD.csv
+
+----------- Creating Ichimoku Data (Oanda) -----------
+-------- createIchimokuDataTapy --------                      Datetime    Open    High     Low   Close
+0   2024-07-23 09:00:00+00:00  5563.2  5582.2  5562.8  5573.2
+1   2024-07-23 13:00:00+00:00  5572.8  5593.4  5567.6  5572.1
+2   2024-07-23 17:00:00+00:00  5571.6  5581.4  5557.8  5567.8
+3   2024-07-23 21:00:00+00:00  5543.8  5547.6  5537.2  5545.6
+4   2024-07-24 01:00:00+00:00  5545.8  5547.0  5524.0  5526.8
+..                        ...     ...     ...     ...     ...
+495 2024-11-15 02:00:00+00:00  5937.8  5944.4  5936.4  5937.8
+496 2024-11-15 06:00:00+00:00  5937.4  5937.8  5912.8  5920.8
+497 2024-11-15 10:00:00+00:00  5920.4  5934.4  5918.0  5924.8
+498 2024-11-15 14:00:00+00:00  5925.2  5926.4  5867.9  5876.0
+499 2024-11-15 18:00:00+00:00  5876.3  5888.0  5860.0  5882.6
+
+[500 rows x 5 columns]
+Ichimoku columns added to csv
+
+----------- Reading symbols for D -----------
+readAssetList path: asset_list/Oanda.csv
+       symbol        name
+0  SPX500_USD  US SPX 500
+
+----------- Downloading from Oanda API -----------
+df.columns.values ['Datetime' 'Open' 'High' 'Low' 'Close']
+==============
+                      Datetime    Open    High     Low   Close
+0   2022-12-11 22:00:00+00:00  3933.0  3990.6  3922.4  3985.0
+1   2022-12-12 22:00:00+00:00  3986.5  4141.2  3982.8  4019.3
+2   2022-12-13 22:00:00+00:00  4019.7  4060.8  3968.8  4010.3
+3   2022-12-14 22:00:00+00:00  4005.5  4013.6  3879.0  3893.3
+4   2022-12-15 22:00:00+00:00  3893.9  3904.8  3825.8  3842.8
+..                        ...     ...     ...     ...     ...
+495 2024-11-10 22:00:00+00:00  6010.2  6031.4  5995.0  6010.2
+496 2024-11-11 22:00:00+00:00  6008.0  6017.4  5968.9  5995.0
+497 2024-11-12 22:00:00+00:00  5991.2  6016.4  5973.6  6000.0
+498 2024-11-13 22:00:00+00:00  5998.8  6006.4  5946.8  5956.0
+499 2024-11-14 22:00:00+00:00  5953.0  5953.2  5860.0  5882.6
+
+[500 rows x 5 columns]
++++++++ data_df +++++++                      Datetime    Open    High     Low   Close
+0   2022-12-11 22:00:00+00:00  3933.0  3990.6  3922.4  3985.0
+1   2022-12-12 22:00:00+00:00  3986.5  4141.2  3982.8  4019.3
+2   2022-12-13 22:00:00+00:00  4019.7  4060.8  3968.8  4010.3
+3   2022-12-14 22:00:00+00:00  4005.5  4013.6  3879.0  3893.3
+4   2022-12-15 22:00:00+00:00  3893.9  3904.8  3825.8  3842.8
+..                        ...     ...     ...     ...     ...
+495 2024-11-10 22:00:00+00:00  6010.2  6031.4  5995.0  6010.2
+496 2024-11-11 22:00:00+00:00  6008.0  6017.4  5968.9  5995.0
+497 2024-11-12 22:00:00+00:00  5991.2  6016.4  5973.6  6000.0
+498 2024-11-13 22:00:00+00:00  5998.8  6006.4  5946.8  5956.0
+499 2024-11-14 22:00:00+00:00  5953.0  5953.2  5860.0  5882.6
+
+[500 rows x 5 columns]
+Download completed. Saved in: data/oanda/d/SPX500_USD.json data/oanda/d/SPX500_USD.csv
+
+----------- Creating Ichimoku Data (Oanda) -----------
+-------- createIchimokuDataTapy --------                      Datetime    Open    High     Low   Close
+0   2022-12-11 22:00:00+00:00  3933.0  3990.6  3922.4  3985.0
+1   2022-12-12 22:00:00+00:00  3986.5  4141.2  3982.8  4019.3
+2   2022-12-13 22:00:00+00:00  4019.7  4060.8  3968.8  4010.3
+3   2022-12-14 22:00:00+00:00  4005.5  4013.6  3879.0  3893.3
+4   2022-12-15 22:00:00+00:00  3893.9  3904.8  3825.8  3842.8
+..                        ...     ...     ...     ...     ...
+495 2024-11-10 22:00:00+00:00  6010.2  6031.4  5995.0  6010.2
+496 2024-11-11 22:00:00+00:00  6008.0  6017.4  5968.9  5995.0
+497 2024-11-12 22:00:00+00:00  5991.2  6016.4  5973.6  6000.0
+498 2024-11-13 22:00:00+00:00  5998.8  6006.4  5946.8  5956.0
+499 2024-11-14 22:00:00+00:00  5953.0  5953.2  5860.0  5882.6
+
+[500 rows x 5 columns]
+Ichimoku columns added to csv
+
+----------- Reading symbols for W -----------
+readAssetList path: asset_list/Oanda.csv
+       symbol        name
+0  SPX500_USD  US SPX 500
+
+----------- Downloading from Oanda API -----------
+df.columns.values ['Datetime' 'Open' 'High' 'Low' 'Close']
+==============
+                      Datetime    Open    High     Low   Close
+0   2015-04-17 21:00:00+00:00  2086.0  2119.4  2084.2  2116.4
+1   2015-04-24 21:00:00+00:00  2117.6  2124.4  2074.6  2105.4
+2   2015-05-01 21:00:00+00:00  2106.4  2119.0  2061.0  2112.0
+3   2015-05-08 21:00:00+00:00  2113.4  2125.8  2082.8  2121.6
+4   2015-05-15 21:00:00+00:00  2122.6  2136.4  2115.2  2126.8
+..                        ...     ...     ...     ...     ...
+495 2024-10-11 21:00:00+00:00  5816.2  5891.6  5811.2  5872.8
+496 2024-10-18 21:00:00+00:00  5877.2  5880.8  5770.8  5812.8
+497 2024-10-25 21:00:00+00:00  5833.6  5867.2  5708.4  5736.0
+498 2024-11-01 21:00:00+00:00  5723.0  6018.7  5703.3  6003.2
+499 2024-11-08 22:00:00+00:00  6010.2  6031.4  5860.0  5882.6
+
+[500 rows x 5 columns]
++++++++ data_df +++++++                      Datetime    Open    High     Low   Close
+0   2015-04-17 21:00:00+00:00  2086.0  2119.4  2084.2  2116.4
+1   2015-04-24 21:00:00+00:00  2117.6  2124.4  2074.6  2105.4
+2   2015-05-01 21:00:00+00:00  2106.4  2119.0  2061.0  2112.0
+3   2015-05-08 21:00:00+00:00  2113.4  2125.8  2082.8  2121.6
+4   2015-05-15 21:00:00+00:00  2122.6  2136.4  2115.2  2126.8
+..                        ...     ...     ...     ...     ...
+495 2024-10-11 21:00:00+00:00  5816.2  5891.6  5811.2  5872.8
+496 2024-10-18 21:00:00+00:00  5877.2  5880.8  5770.8  5812.8
+497 2024-10-25 21:00:00+00:00  5833.6  5867.2  5708.4  5736.0
+498 2024-11-01 21:00:00+00:00  5723.0  6018.7  5703.3  6003.2
+499 2024-11-08 22:00:00+00:00  6010.2  6031.4  5860.0  5882.6
+
+[500 rows x 5 columns]
+Download completed. Saved in: data/oanda/w/SPX500_USD.json data/oanda/w/SPX500_USD.csv
+
+----------- Creating Ichimoku Data (Oanda) -----------
+-------- createIchimokuDataTapy --------                      Datetime    Open    High     Low   Close
+0   2015-04-17 21:00:00+00:00  2086.0  2119.4  2084.2  2116.4
+1   2015-04-24 21:00:00+00:00  2117.6  2124.4  2074.6  2105.4
+2   2015-05-01 21:00:00+00:00  2106.4  2119.0  2061.0  2112.0
+3   2015-05-08 21:00:00+00:00  2113.4  2125.8  2082.8  2121.6
+4   2015-05-15 21:00:00+00:00  2122.6  2136.4  2115.2  2126.8
+..                        ...     ...     ...     ...     ...
+495 2024-10-11 21:00:00+00:00  5816.2  5891.6  5811.2  5872.8
+496 2024-10-18 21:00:00+00:00  5877.2  5880.8  5770.8  5812.8
+497 2024-10-25 21:00:00+00:00  5833.6  5867.2  5708.4  5736.0
+498 2024-11-01 21:00:00+00:00  5723.0  6018.7  5703.3  6003.2
+499 2024-11-08 22:00:00+00:00  6010.2  6031.4  5860.0  5882.6
+
+[500 rows x 5 columns]
+Ichimoku columns added to csv
+
+----------- Reading symbols for W -----------
+readAssetList path: asset_list/Oanda.csv
+       symbol        name
+0  SPX500_USD  US SPX 500
+
+----------- Reading symbols for M -----------
+readAssetList path: asset_list/Oanda.csv
+       symbol        name
+0  SPX500_USD  US SPX 500
+
+----------- Downloading from Oanda API -----------
+df.columns.values ['Datetime' 'Open' 'High' 'Low' 'Close']
+==============
+                      Datetime    Open    High     Low   Close
+0   2003-03-31 22:00:00+00:00   847.5   924.6   846.8   916.9
+1   2003-04-30 21:00:00+00:00   915.6   965.9   902.6   965.4
+2   2003-05-31 21:00:00+00:00   968.6  1016.8   963.8   974.8
+3   2003-06-30 21:00:00+00:00   973.3  1016.1   961.7   989.7
+4   2003-07-31 21:00:00+00:00   989.9  1012.8   959.1  1008.4
+..                        ...     ...     ...     ...     ...
+255 2024-06-30 21:00:00+00:00  5480.4  5680.4  5398.6  5539.8
+256 2024-07-31 21:00:00+00:00  5545.4  5652.3  5094.2  5643.6
+257 2024-08-31 21:00:00+00:00  5645.6  5784.4  5386.2  5765.6
+258 2024-09-30 21:00:00+00:00  5765.4  5891.6  5682.9  5713.8
+259 2024-10-31 21:00:00+00:00  5722.8  6031.4  5703.3  5882.6
+
+[260 rows x 5 columns]
++++++++ data_df +++++++                      Datetime    Open    High     Low   Close
+0   2003-03-31 22:00:00+00:00   847.5   924.6   846.8   916.9
+1   2003-04-30 21:00:00+00:00   915.6   965.9   902.6   965.4
+2   2003-05-31 21:00:00+00:00   968.6  1016.8   963.8   974.8
+3   2003-06-30 21:00:00+00:00   973.3  1016.1   961.7   989.7
+4   2003-07-31 21:00:00+00:00   989.9  1012.8   959.1  1008.4
+..                        ...     ...     ...     ...     ...
+255 2024-06-30 21:00:00+00:00  5480.4  5680.4  5398.6  5539.8
+256 2024-07-31 21:00:00+00:00  5545.4  5652.3  5094.2  5643.6
+257 2024-08-31 21:00:00+00:00  5645.6  5784.4  5386.2  5765.6
+258 2024-09-30 21:00:00+00:00  5765.4  5891.6  5682.9  5713.8
+259 2024-10-31 21:00:00+00:00  5722.8  6031.4  5703.3  5882.6
+
+[260 rows x 5 columns]
+Download completed. Saved in: data/oanda/m/SPX500_USD.json data/oanda/m/SPX500_USD.csv
+
+----------- Creating Ichimoku Data (Oanda) -----------
+-------- createIchimokuDataTapy --------                      Datetime    Open    High     Low   Close
+0   2003-03-31 22:00:00+00:00   847.5   924.6   846.8   916.9
+1   2003-04-30 21:00:00+00:00   915.6   965.9   902.6   965.4
+2   2003-05-31 21:00:00+00:00   968.6  1016.8   963.8   974.8
+3   2003-06-30 21:00:00+00:00   973.3  1016.1   961.7   989.7
+4   2003-07-31 21:00:00+00:00   989.9  1012.8   959.1  1008.4
+..                        ...     ...     ...     ...     ...
+255 2024-06-30 21:00:00+00:00  5480.4  5680.4  5398.6  5539.8
+256 2024-07-31 21:00:00+00:00  5545.4  5652.3  5094.2  5643.6
+257 2024-08-31 21:00:00+00:00  5645.6  5784.4  5386.2  5765.6
+258 2024-09-30 21:00:00+00:00  5765.4  5891.6  5682.9  5713.8
+259 2024-10-31 21:00:00+00:00  5722.8  6031.4  5703.3  5882.6
+
+[260 rows x 5 columns]
+Ichimoku columns added to csv
+
+----------- Reading symbols for M -----------
+readAssetList path: asset_list/Oanda.csv
+       symbol        name
+0  SPX500_USD  US SPX 500
+
+----------- Generating Cloud Signals: data/oanda/1h/ -----------
+checking 1st cell 1st column:  Datetime Datetime data/oanda/1h/SPX500_USD_ichimokuTapy.csv
+__data
+                       Datetime    Open  ...  senkou_span_b  chikou_span
+0    2024-10-17 04:00:00+00:00  5839.0  ...            NaN       5862.0
+1    2024-10-17 05:00:00+00:00  5838.0  ...            NaN       5862.2
+2    2024-10-17 06:00:00+00:00  5845.8  ...            NaN       5859.4
+3    2024-10-17 07:00:00+00:00  5857.6  ...            NaN       5862.0
+4    2024-10-17 08:00:00+00:00  5862.6  ...            NaN       5864.0
+..                         ...     ...  ...            ...          ...
+495  2024-11-15 17:00:00+00:00  5878.5  ...        5993.15          NaN
+496  2024-11-15 18:00:00+00:00  5876.3  ...        5993.15          NaN
+497  2024-11-15 19:00:00+00:00  5866.0  ...        5993.15          NaN
+498  2024-11-15 20:00:00+00:00  5871.0  ...        5989.45          NaN
+499  2024-11-15 21:00:00+00:00  5879.8  ...        5989.45          NaN
+
+[500 rows x 10 columns]
+SPX500_USD - File is already in the correct format.
+Cloud signal count csv files are created
+
+----------- Generating Cloud Signals: data/oanda/4h/ -----------
+checking 1st cell 1st column:  Datetime Datetime data/oanda/4h/SPX500_USD_ichimokuTapy.csv
+__data
+                       Datetime    Open  ...  senkou_span_b  chikou_span
+0    2024-07-23 09:00:00+00:00  5563.2  ...            NaN       5474.6
+1    2024-07-23 13:00:00+00:00  5572.8  ...            NaN       5463.2
+2    2024-07-23 17:00:00+00:00  5571.6  ...            NaN       5469.6
+3    2024-07-23 21:00:00+00:00  5543.8  ...            NaN       5481.6
+4    2024-07-24 01:00:00+00:00  5545.8  ...            NaN       5482.8
+..                         ...     ...  ...            ...          ...
+495  2024-11-15 02:00:00+00:00  5937.8  ...        5861.00          NaN
+496  2024-11-15 06:00:00+00:00  5937.4  ...        5861.00          NaN
+497  2024-11-15 10:00:00+00:00  5920.4  ...        5861.00          NaN
+498  2024-11-15 14:00:00+00:00  5925.2  ...        5863.25          NaN
+499  2024-11-15 18:00:00+00:00  5876.3  ...        5867.35          NaN
+
+[500 rows x 10 columns]
+SPX500_USD - File is already in the correct format.
+Cloud signal count csv files are created
+
+----------- Generating Cloud Signals: data/oanda/d/ -----------
+checking 1st cell 1st column:  Datetime Datetime data/oanda/d/SPX500_USD_ichimokuTapy.csv
+__data
+                       Datetime    Open  ...  senkou_span_b  chikou_span
+0    2022-12-11 22:00:00+00:00  3933.0  ...            NaN       3900.7
+1    2022-12-12 22:00:00+00:00  3986.5  ...            NaN       3967.6
+2    2022-12-13 22:00:00+00:00  4019.7  ...            NaN       4016.6
+3    2022-12-14 22:00:00+00:00  4005.5  ...            NaN       4018.5
+4    2022-12-15 22:00:00+00:00  3893.9  ...            NaN       4016.5
+..                         ...     ...  ...            ...          ...
+495  2024-11-10 22:00:00+00:00  6010.2  ...         5439.3          NaN
+496  2024-11-11 22:00:00+00:00  6008.0  ...         5439.3          NaN
+497  2024-11-12 22:00:00+00:00  5991.2  ...         5439.3          NaN
+498  2024-11-13 22:00:00+00:00  5998.8  ...         5450.9          NaN
+499  2024-11-14 22:00:00+00:00  5953.0  ...         5450.9          NaN
+
+[500 rows x 10 columns]
+SPX500_USD - File is already in the correct format.
+Cloud signal count csv files are created
+
+----------- Generating Cloud Signals: data/oanda/w/ -----------
+checking 1st cell 1st column:  Datetime Datetime data/oanda/w/SPX500_USD_ichimokuTapy.csv
+__data
+                       Datetime    Open  ...  senkou_span_b  chikou_span
+0    2015-04-17 21:00:00+00:00  2086.0  ...            NaN       2071.5
+1    2015-04-24 21:00:00+00:00  2117.6  ...            NaN       2079.6
+2    2015-05-01 21:00:00+00:00  2106.4  ...            NaN       2098.2
+3    2015-05-08 21:00:00+00:00  2113.4  ...            NaN       2016.3
+4    2015-05-15 21:00:00+00:00  2122.6  ...            NaN       2092.2
+..                         ...     ...  ...            ...          ...
+495  2024-10-11 21:00:00+00:00  5816.2  ...        4664.40          NaN
+496  2024-10-18 21:00:00+00:00  5877.2  ...        4664.40          NaN
+497  2024-10-25 21:00:00+00:00  5833.6  ...        4691.90          NaN
+498  2024-11-01 21:00:00+00:00  5723.0  ...        4694.30          NaN
+499  2024-11-08 22:00:00+00:00  6010.2  ...        4715.85          NaN
+
+[500 rows x 10 columns]
+SPX500_USD - File is already in the correct format.
+Cloud signal count csv files are created
+
+----------- Generating Cloud Signals: data/oanda/m/ -----------
+checking 1st cell 1st column:  Datetime Datetime data/oanda/m/SPX500_USD_ichimokuTapy.csv
+__data
+                       Datetime    Open  ...  senkou_span_b  chikou_span
+0    2003-03-31 22:00:00+00:00   847.5  ...            NaN       1192.7
+1    2003-04-30 21:00:00+00:00   915.6  ...            NaN       1237.1
+2    2003-05-31 21:00:00+00:00   968.6  ...            NaN       1221.3
+3    2003-06-30 21:00:00+00:00   973.3  ...            NaN       1231.1
+4    2003-07-31 21:00:00+00:00   989.9  ...            NaN       1200.4
+..                         ...     ...  ...            ...          ...
+255  2024-06-30 21:00:00+00:00  5480.4  ...        3499.75          NaN
+256  2024-07-31 21:00:00+00:00  5545.4  ...        3499.75          NaN
+257  2024-08-31 21:00:00+00:00  5645.6  ...        3499.75          NaN
+258  2024-09-30 21:00:00+00:00  5765.4  ...        3499.75          NaN
+259  2024-10-31 21:00:00+00:00  5722.8  ...        3499.75          NaN
+
+[260 rows x 10 columns]
+SPX500_USD - File is already in the correct format.
+Cloud signal count csv files are created
+
+----------- Creating Cloud Signal Aggregator -----------
+self.model.use_datetime_format:: True
+[symbol: SPX500_USD , entries: 500]Aggregator Oanda-cloud-1H.csv and .xml are created
+
+----------- Creating Cloud Signal Aggregator -----------
+self.model.use_datetime_format:: True
+[symbol: SPX500_USD , entries: 500]Aggregator Oanda-cloud-4H.csv and .xml are created
+
+----------- Creating Cloud Signal Aggregator -----------
+self.model.use_datetime_format:: True
+[symbol: SPX500_USD , entries: 500]Aggregator Oanda-cloud-D.csv and .xml are created
+
+----------- Creating Cloud Signal Aggregator -----------
+self.model.use_datetime_format:: True
+[symbol: SPX500_USD , entries: 500]Aggregator Oanda-cloud-W.csv and .xml are created
+
+----------- Creating Cloud Signal Aggregator -----------
+self.model.use_datetime_format:: True
+[symbol: SPX500_USD , entries: 260]Aggregator Oanda-cloud-M.csv and .xml are created
+
+------------- Merging Multi Timeframe Cloud -------------
+Check files for merging:  ['output/cloud/Oanda-cloud-1H.csv', 'output/cloud/Oanda-cloud-4H.csv', 'output/cloud/Oanda-cloud-D.csv', 'output/cloud/Oanda-cloud-W.csv', 'output/cloud/Oanda-cloud-M.csv']
+merge path:: output/cloud/Oanda-cloud-1H.csv
+merge::df_csv1::
+        Symbol        Name   Close  1H Cloud Direction  1H Cloud Count
+0  SPX500_USD  US SPX 500  5882.6                  -1              31
+merge::combined_csv::
+        Symbol        Name   Close  1H Cloud Direction  1H Cloud Count
+0  SPX500_USD  US SPX 500  5882.6                  -1              31 
+
+merge path:: output/cloud/Oanda-cloud-4H.csv
+merge::df_csv1::
+        Symbol        Name  4H Cloud Direction  4H Cloud Count
+0  SPX500_USD  US SPX 500                   0               0
+merge::combined_csv::
+        Symbol        Name  ...  4H Cloud Direction  4H Cloud Count
+0  SPX500_USD  US SPX 500  ...                   0               0
+
+[1 rows x 7 columns] 
+
+merge path:: output/cloud/Oanda-cloud-D.csv
+merge::df_csv1::
+        Symbol        Name  1D Cloud Direction  1D Cloud Count
+0  SPX500_USD  US SPX 500                   1              50
+merge::combined_csv::
+        Symbol        Name  ...  1D Cloud Direction  1D Cloud Count
+0  SPX500_USD  US SPX 500  ...                   1              50
+
+[1 rows x 9 columns] 
+
+merge path:: output/cloud/Oanda-cloud-W.csv
+merge::df_csv1::
+        Symbol        Name  1W Cloud Direction  1W Cloud Count
+0  SPX500_USD  US SPX 500                   1              79
+merge::combined_csv::
+        Symbol        Name  ...  1W Cloud Direction  1W Cloud Count
+0  SPX500_USD  US SPX 500  ...                   1              79
+
+[1 rows x 11 columns] 
+
+merge path:: output/cloud/Oanda-cloud-M.csv
+merge::df_csv1::
+        Symbol        Name  1M Cloud Direction  1M Cloud Count
+0  SPX500_USD  US SPX 500                   1             168
+merge::combined_csv::
+        Symbol        Name  ...  1M Cloud Direction  1M Cloud Count
+0  SPX500_USD  US SPX 500  ...                   1             168
+
+[1 rows x 13 columns] 
+
+Multi Timeframe Cloud Signals Merged:  output/cloud/Oanda-cloud-merged.csv
+
+combined_csv size:: (1, 13)
+combined_csv::
+        Symbol        Name  ...  1M Cloud Direction  1M Cloud Count
+0  SPX500_USD  US SPX 500  ...                   1             168
+
+[1 rows x 13 columns]
+Columns exist: ['1H Cloud Direction', '1H Cloud Count']
+Columns exist: ['4H Cloud Direction', '4H Cloud Count']
+Columns exist: ['1D Cloud Direction', '1D Cloud Count']
+Columns exist: ['1W Cloud Direction', '1W Cloud Count']
+Columns exist: ['1M Cloud Direction', '1M Cloud Count']
+
+-------------------- Cloud Score Multi Timeframe Raw --------------------
+        Symbol        Name  ...  1W Cloud Score  1M Cloud Score
+0  SPX500_USD  US SPX 500  ...              79             168
+
+[1 rows x 18 columns]
+
+create_sum_column self.list_score_names:  ['1H Cloud Score', '4H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score', 'Cloud Score Sum'] 
+create_sum_column df.columns Index(['Symbol', 'Name', 'Close', '1H Cloud Direction', '1H Cloud Count',
+       '4H Cloud Direction', '4H Cloud Count', '1D Cloud Direction',
+       '1D Cloud Count', '1W Cloud Direction', '1W Cloud Count',
+       '1M Cloud Direction', '1M Cloud Count', '1H Cloud Score',
+       '4H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score'],
+      dtype='object')
+------ Cleaning columns ------
+Available columns:  ['Symbol', 'Name', 'Close', '1H Cloud Score', '4H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score', 'Cloud Score Sum']
+Saved data to: output/cloud/Oanda-cloud-merged.csv output/cloud/Oanda-cloud-merged.csv.html
+
+----------- Cloud Score Multi Timeframe Final View -----------
+        Symbol        Name  ...  1M Cloud Score  Cloud Score Sum
+0  SPX500_USD  US SPX 500  ...             168              266
+
+[1 rows x 9 columns]
+
+-------------------- Generating TKx Signals from data/oanda/1h/ asset_list/Oanda.csv --------------------
+DataTKxSignalMVC checking 1st cell 1st column:  Datetime Datetime
+__data
+                     Datetime    Open  ...  senkou_span_b  chikou_span
+0  2024-10-17 04:00:00+00:00  5839.0  ...            NaN       5862.0
+1  2024-10-17 05:00:00+00:00  5838.0  ...            NaN       5862.2
+2  2024-10-17 06:00:00+00:00  5845.8  ...            NaN       5859.4
+3  2024-10-17 07:00:00+00:00  5857.6  ...            NaN       5862.0
+4  2024-10-17 08:00:00+00:00  5862.6  ...            NaN       5864.0
+
+[5 rows x 10 columns]
+SPX500_USD - File is already in the correct format.
+TKx count csv files are created
+
+-------------------- Generating TKx Signals from data/oanda/4h/ asset_list/Oanda.csv --------------------
+DataTKxSignalMVC checking 1st cell 1st column:  Datetime Datetime
+__data
+                     Datetime    Open  ...  senkou_span_b  chikou_span
+0  2024-07-23 09:00:00+00:00  5563.2  ...            NaN       5474.6
+1  2024-07-23 13:00:00+00:00  5572.8  ...            NaN       5463.2
+2  2024-07-23 17:00:00+00:00  5571.6  ...            NaN       5469.6
+3  2024-07-23 21:00:00+00:00  5543.8  ...            NaN       5481.6
+4  2024-07-24 01:00:00+00:00  5545.8  ...            NaN       5482.8
+
+[5 rows x 10 columns]
+SPX500_USD - File is already in the correct format.
+TKx count csv files are created
+
+-------------------- Generating TKx Signals from data/oanda/d/ asset_list/Oanda.csv --------------------
+DataTKxSignalMVC checking 1st cell 1st column:  Datetime Datetime
+__data
+                     Datetime    Open  ...  senkou_span_b  chikou_span
+0  2022-12-11 22:00:00+00:00  3933.0  ...            NaN       3900.7
+1  2022-12-12 22:00:00+00:00  3986.5  ...            NaN       3967.6
+2  2022-12-13 22:00:00+00:00  4019.7  ...            NaN       4016.6
+3  2022-12-14 22:00:00+00:00  4005.5  ...            NaN       4018.5
+4  2022-12-15 22:00:00+00:00  3893.9  ...            NaN       4016.5
+
+[5 rows x 10 columns]
+SPX500_USD - File is already in the correct format.
+TKx count csv files are created
+
+-------------------- Generating TKx Signals from data/oanda/w/ asset_list/Oanda.csv --------------------
+DataTKxSignalMVC checking 1st cell 1st column:  Datetime Datetime
+__data
+                     Datetime    Open  ...  senkou_span_b  chikou_span
+0  2015-04-17 21:00:00+00:00  2086.0  ...            NaN       2071.5
+1  2015-04-24 21:00:00+00:00  2117.6  ...            NaN       2079.6
+2  2015-05-01 21:00:00+00:00  2106.4  ...            NaN       2098.2
+3  2015-05-08 21:00:00+00:00  2113.4  ...            NaN       2016.3
+4  2015-05-15 21:00:00+00:00  2122.6  ...            NaN       2092.2
+
+[5 rows x 10 columns]
+SPX500_USD - File is already in the correct format.
+TKx count csv files are created
+
+-------------------- Generating TKx Signals from data/oanda/m/ asset_list/Oanda.csv --------------------
+DataTKxSignalMVC checking 1st cell 1st column:  Datetime Datetime
+__data
+                     Datetime   Open  ...  senkou_span_b  chikou_span
+0  2003-03-31 22:00:00+00:00  847.5  ...            NaN       1192.7
+1  2003-04-30 21:00:00+00:00  915.6  ...            NaN       1237.1
+2  2003-05-31 21:00:00+00:00  968.6  ...            NaN       1221.3
+3  2003-06-30 21:00:00+00:00  973.3  ...            NaN       1231.1
+4  2003-07-31 21:00:00+00:00  989.9  ...            NaN       1200.4
+
+[5 rows x 10 columns]
+SPX500_USD - File is already in the correct format.
+TKx count csv files are created
+----------- Creating TKx Signal Aggregator data/oanda/1h/ -----------
+self.model.use_datetime_format:: True
+Aggregator Oanda-tkx-1H.csv and .xml are created
+
+----------- Creating TKx Signal Aggregator data/oanda/4h/ -----------
+self.model.use_datetime_format:: True
+Aggregator Oanda-tkx-4H.csv and .xml are created
+
+----------- Creating TKx Signal Aggregator data/oanda/d/ -----------
+self.model.use_datetime_format:: True
+Aggregator Oanda-tkx-D.csv and .xml are created
+
+----------- Creating TKx Signal Aggregator data/oanda/w/ -----------
+self.model.use_datetime_format:: True
+Aggregator Oanda-tkx-W.csv and .xml are created
+
+----------- Creating TKx Signal Aggregator data/oanda/m/ -----------
+self.model.use_datetime_format:: True
+Aggregator Oanda-tkx-M.csv and .xml are created
+
+------------- Merging Multi Timeframe TKx -------------
+Check files for merging:  ['output/tkx/Oanda-tkx-1H.csv', 'output/tkx/Oanda-tkx-4H.csv', 'output/tkx/Oanda-tkx-D.csv', 'output/tkx/Oanda-tkx-W.csv', 'output/tkx/Oanda-tkx-M.csv']
+Multi Timeframe TKx Signals Merged:  output/tkx/Oanda-tkx-merged.csv
+
+Columns exist:, ['1H TKx Direction', '1H TKx Count']
+Columns exist:, ['4H TKx Direction', '4H TKx Count']
+Columns exist:, ['1D TKx Direction', '1D TKx Count']
+Columns exist:, ['1W TKx Direction', '1W TKx Count']
+Columns exist:, ['1M TKx Direction', '1M TKx Count']
+-------------------- TKx Score Multi Timeframe Raw --------------------
+        Symbol        Name  ...  1W TKx Score  1M TKx Score
+0  SPX500_USD  US SPX 500  ...            47            16
+
+[1 rows x 17 columns]
+
+create_sum_column self.list_score_names:  ['1H TKx Score', '4H TKx Score', '1D TKx Score', '1W TKx Score', '1M TKx Score', 'TKx Score Sum'] 
+create_sum_column df.columns: Index(['Symbol', 'Name', '1H TKx Direction', '1H TKx Count',
+       '4H TKx Direction', '4H TKx Count', '1D TKx Direction', '1D TKx Count',
+       '1W TKx Direction', '1W TKx Count', '1M TKx Direction', '1M TKx Count',
+       '1H TKx Score', '4H TKx Score', '1D TKx Score', '1W TKx Score',
+       '1M TKx Score'],
+      dtype='object') 
+
+------ Cleaning columns ------
+Available columns:  ['Symbol', 'Name', '1H TKx Score', '4H TKx Score', '1D TKx Score', '1W TKx Score', '1M TKx Score', 'TKx Score Sum']
+Saved data to: output/tkx/Oanda-tkx-merged.csv output/tkx/Oanda-tkx-merged.csv.html
+
+----------- TKx Score Multi Timeframe Final View -----------
+        Symbol        Name  ...  1M TKx Score  TKx Score Sum
+0  SPX500_USD  US SPX 500  ...            16             28
+
+[1 rows x 8 columns]
+
+------------- Merging Multi Timeframe Cloud and TKx Sum -------------
+Check files for merging:  ['output/cloud/Oanda-cloud-merged.csv', 'output/tkx/Oanda-tkx-merged.csv']
+Multi Timeframe Cloud and TKx Signals Merged
+
+File path without filename: output/sum
+File name with extension: Oanda-sum-cloud-tkx-merged.csv
+Saved data to: output/sum/Oanda-sum-cloud-tkx-merged.csv output/sum/Oanda-sum-cloud-tkx-merged.csv.html
+
+----------- Cloud and TKx Sum Score Multi Timeframe Final View -----------
+        Symbol        Name   Close  ...  1M TKx Score  TKx Score Sum  Total Score Sum
+0  SPX500_USD  US SPX 500  5882.6  ...            16             28              294
+
+[1 rows x 16 columns]
+
+------------- Generating Html table -------------
+HTML title: Oanda Cloud Scan
+
+Table generated at 2024-11-16 05:04:48
+HTML table generated.
+generate_html output/sum/Oanda-sum-cloud-tkx-merged.csv
+HTML data table saved at output/sum/Oanda-sum-cloud-tkx-merged.csv.html
+
+Oanda tasks completed at 2024-11-16 05:04:48 [UK] (Time elapsed: 0:00:01.665904)
