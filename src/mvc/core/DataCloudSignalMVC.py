@@ -26,9 +26,14 @@ class DataCloudSignal(DataOHLC):
         # expected_columns = [__string_first_column, 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']
         is_correct_format = __data.columns[0] == __string_first_column
 
-        print("checking 1st cell 1st column: ", __data.columns[0], __string_first_column, __path)
+        print(
+            "checking 1st cell 1st column: ",
+            __data.columns[0],
+            __string_first_column,
+            __path,
+        )
 
-        print("__data\n", __data)
+        print("__data\n", __data.head())
 
         if not is_correct_format:
             # If the format is incorrect, reload with a multi-level header and apply transformations
