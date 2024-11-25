@@ -1,12 +1,12 @@
 from src.mvc.controllers import (
     GetDataRussell1000,
-    # GetIchimokuCloudDataRussell1000Aggregator,
-    # GetIchimokuCloudDataRussell1000MultiTFMerger,
+    GetIchimokuCloudDataRussell1000,
+    GetIchimokuCloudDataRussell1000Aggregator,
+    GetIchimokuCloudDataRussell1000MultiTFMerger,
     # GetIchimokuTKxDataRussell1000,
     # GetIchimokuTKxDataRussell1000Aggregator,
     # GetSymbolRussell1000,
     # GetIchimokuKijunDataRussell1000,
-    # GetIchimokuCloudDataRussell1000,
     # GetIchimokuKijunDataRussell1000Aggregator,
     # GetKickerDataRussell1000,
     # GetKickerDataRussell1000Aggregator,
@@ -65,14 +65,13 @@ def main(
     _getDataRussell1000 = GetDataRussell1000
     _getDataRussell1000.main(fetch_Russell1000_1H, fetch_Russell1000_D, fetch_Russell1000_W, fetch_Russell1000_M)
 
-    return
-    
     # 3. Produce Ichimoku Cloud data for each symbol
     _getIchimokuCloudDataRussell1000 = GetIchimokuCloudDataRussell1000
     _getIchimokuCloudDataRussell1000.main(
         fetch_Russell1000_1H, fetch_Russell1000_D, fetch_Russell1000_W, fetch_Russell1000_M
     )
 
+    
     # 3.1 Combine latest cloud signals of all symbols into one spreadsheet
     _getIchimokuCloudDataRussell1000Aggregator = GetIchimokuCloudDataRussell1000Aggregator
     _getIchimokuCloudDataRussell1000Aggregator.main(
@@ -87,6 +86,7 @@ def main(
         run_Multi_TimeFrame_Merger_Russell1000
     )
 
+    return
     # 3.3 Produce Ichimoku TK Cross data
     _getIchimokuTKxDataRussell1000 = GetIchimokuTKxDataRussell1000
     _getIchimokuTKxDataRussell1000.main(
