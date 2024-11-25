@@ -160,7 +160,7 @@ def main(
     time_elapsed = time_finish - time_start
     time_finish_formatted = time_finish.strftime("%Y-%m-%d %H:%M:%S")
     print(
-        f"\nTFTSE 250 tasks completed at {time_finish_formatted} [UK] (Time elapsed: {time_elapsed})",
+        f"\nFTSE 250 tasks completed at {time_finish_formatted} [UK] (Time elapsed: {time_elapsed})",
     )
 
 
