@@ -12,6 +12,7 @@ from src.mvc.controllers import (
     GetKickerDataDJ30Aggregator,
     GetIchimokuTKxDataDJ30MultiTFMerger,
     GetIchimokuSumCloudTKxDataDJ30MultiTFMerger,
+    GetIchimokuSumCloudTKxDataMatchDJ30_Russell1000_MultiTFMerger,
 )
 from datetime import datetime
 from pytz import timezone
@@ -23,7 +24,7 @@ fetch_DJ30_D = True
 fetch_DJ30_W = True
 fetch_DJ30_M = True
 
-run_Multi_TimeFrame_Merger_DJ30 = True
+run_Multi_TimeFrame_Merger_DJ30_RS1000 = True
 
 fetch_kijun_analysis = False
 
@@ -47,7 +48,7 @@ def main(
     fetch_DJ30_M=fetch_DJ30_M,
     fetch_kijun_analysis=fetch_kijun_analysis,
     fetch_Kicker_use_datetime_format=fetch_Kicker_use_datetime_format,
-    run_Multi_TimeFrame_Merger_DJ30=run_Multi_TimeFrame_Merger_DJ30,
+    run_Multi_TimeFrame_Merger_DJ30_RS1000=run_Multi_TimeFrame_Merger_DJ30_RS1000,
     fetch_kicker=fetch_kicker,
 ):
     # ---------------- Dow Jones 30 ----------------
@@ -82,7 +83,7 @@ def main(
     #     GetIchimokuCloudDataDJ30MultiTFMerger
     # )
     # _getIchimokuCloudDataDJ30MultiTFMerger.main(
-    #     run_Multi_TimeFrame_Merger_DJ30
+    #     run_Multi_TimeFrame_Merger_DJ30_RS1000
     # )
 
     # # 3.3 Produce Ichimoku TK Cross data
@@ -99,14 +100,14 @@ def main(
 
     # # 3.5 Merge Multi Time Frame TKx signals
     # _getIchimokuTKxDataDJ30MultiTFMerger = GetIchimokuTKxDataDJ30MultiTFMerger
-    # _getIchimokuTKxDataDJ30MultiTFMerger.main(run_Multi_TimeFrame_Merger_DJ30)
+    # _getIchimokuTKxDataDJ30MultiTFMerger.main(run_Multi_TimeFrame_Merger_DJ30_RS1000)
 
     # # 3.6 Merge Multi Time Frame Cloud and TKx Sum signals
     # _getIchimokuSumCloudTKxDataDJ30MultiTFMerger = (
     #     GetIchimokuSumCloudTKxDataDJ30MultiTFMerger
     # )
     # _getIchimokuSumCloudTKxDataDJ30MultiTFMerger.main(
-    #     run_Multi_TimeFrame_Merger_DJ30
+    #     run_Multi_TimeFrame_Merger_DJ30_RS1000
     # )
 
     # # 4. Produce Kijun data
@@ -128,11 +129,11 @@ def main(
     # )
 
     # 6.1 Source individual constituents scan from Russell 1000
-    _getIchimokuSumCloudTKxDataMatchSPY_SPDR_ETFSMultiTFMerger = (
-        GetIchimokuSumCloudTKxDataMatchSPY_SPDR_ETFSMultiTFMerger
+    _getIchimokuSumCloudTKxDataMatchDJ30_Russell1000_MultiTFMerger = (
+        GetIchimokuSumCloudTKxDataMatchDJ30_Russell1000_MultiTFMerger
     )
-    _getIchimokuSumCloudTKxDataMatchSPY_SPDR_ETFSMultiTFMerger.main(
-        run_Multi_TimeFrame_Merger_Individual_SPDR_ETFS
+    _getIchimokuSumCloudTKxDataMatchDJ30_Russell1000_MultiTFMerger.main(
+        run_Multi_TimeFrame_Merger_DJ30_RS1000
     )
 
     if fetch_kicker:
@@ -173,6 +174,6 @@ if __name__ == "__main__":
         fetch_DJ30_M,
         fetch_kijun_analysis,
         fetch_Kicker_use_datetime_format,
-        run_Multi_TimeFrame_Merger_DJ30,
+        run_Multi_TimeFrame_Merger_DJ30_RS1000,
         fetch_kicker,
     )
