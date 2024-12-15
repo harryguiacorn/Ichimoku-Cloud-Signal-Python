@@ -19,28 +19,31 @@ class Model(object):
 
     def merge(self) -> pd.DataFrame:
         print(
-            f"\n------------- Merging {self.html_title} Symbols with S&P 500 Multi Timeframe Cloud and TKx Sum -------------"
+            f"\n------------- Merging {self.html_title} Symbols with {self.dataFilePathList} Multi Timeframe Cloud and TKx Sum -------------"
         )
 
         print(
             "Check symbol file for merging:",
             self.symbolPathList,
-            " exist:",
+            "exist:",
             Util.file_exists(self.symbolPathList),
         )
         print(
             "Check data file for merging:",
             self.dataFilePathList,
-            " exist:",
+            "exist:",
             Util.file_exists(self.dataFilePathList),
         )
 
         # Load the two CSV files into dataframes
         df_symbols = pd.read_csv(
+            # self.symbolPathList
             self.symbolPathList, skiprows=1, usecols=["Symbol"]
         )  # CSV with stock symbols and names
 
-        # print(f"{self.html_title} Symbols:\n {df_symbols}")
+        print(f"{self.html_title} Symbols:\n {df_symbols}")
+        
+        return
 
         df_data = pd.read_csv(
             self.dataFilePathList
