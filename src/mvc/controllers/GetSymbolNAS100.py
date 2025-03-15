@@ -31,7 +31,7 @@ class Model(object):
         __df_list = self.df_list
         self.df = __df_list
         self.df.rename(
-            columns={"Company": "name", "Symbol": "symbol"}, inplace=True
+            columns={"Company": "name", "Ticker": "symbol"}, inplace=True
         )
         self.df["symbol"] = self.df["symbol"].str.replace(
             ".", "-", regex=False
