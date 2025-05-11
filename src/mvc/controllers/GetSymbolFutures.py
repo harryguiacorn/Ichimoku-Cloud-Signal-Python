@@ -28,6 +28,7 @@ class Model(object):
     def scrape_symbols_name(self):
         print("Reading symbols from source: ", self.url)
         response = requests.get(self.url)
+        print(response.status_code)
         df_temp = pd.read_html(response.content)
         print("Web Content::\n", df_temp)
 
