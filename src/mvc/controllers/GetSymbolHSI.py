@@ -1,4 +1,5 @@
 import pandas as pd
+import requests
 
 
 class Model(object):
@@ -19,13 +20,21 @@ class Model(object):
 
     def readHtml(self):
         print("Reading symbols from source: ", self.url)
-        # print("self.readHtmlMatch", self.readHtmlMatch)
-        self.df_list = pd.read_html(self.url, match=self.readHtmlMatch)[0]
-        # self.df_list = pd.read_html(self.url)[4]
-
-        # return type is list[DataFrame]
-        print(f"Total symbols: {len(self.df_list)}")
-        return self.df_list
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+        }
+        try:
+            response = requests.get(self.url, headers=headers)
+            response.raise_for_status()  # Raise an error for bad status codes
+            self.df_list = pd.read_html(
+                response.text, match=self.readHtmlMatch
+            )[0]
+            print("Reading symbols from source: ", self.url)
+            print(f"Total symbols: {len(self.df_list)}")
+            return self.df_list
+        except Exception as e:
+            print(f"Error reading HTML: {e}")
+            raise
 
     def cleanData(self):
         __df_list = self.df_list
