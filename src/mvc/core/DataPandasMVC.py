@@ -94,7 +94,7 @@ class Model(object):
         # __dict_lookbackPeriodConvertInt = {'h': 1, 'd': 1, 'w': 7, 'm': 31}
         if self.bGetLatestDataFromYahoo:
             print("----------- Downloading from Yahoo -----------")
-            # print(self.symbols)
+            print(self.symbols, self.lookbackPeriod, self.interval)
             # method 1. grab latest data from yahoo finance
             # using Pandas Datareader (now defunct)
             self.dataOHLC = self.getLatestDataFromYahooByYFinance(
@@ -114,14 +114,27 @@ class Model(object):
         __dict_df = {}
         for __symbol in symbols:
             try:
+                print(
+                    "getLatestDataFromYahooByYFinance download",
+                    __symbol,
+                    __lookbackPeriods,
+                    __interval,
+                )
                 data = yf.download(
                     tickers=__symbol,
                     period=__lookbackPeriods,
                     interval=__interval,
                 )
-                __dict_df[__symbol] = data
+
+                # clean data
+                df_dropped_rows = data.dropna()
+
+                # print("getLatestDataFromYahooByYFinance", df_dropped_rows)
+
+                __dict_df[__symbol] = df_dropped_rows
+
                 __path = self.csvPath + __symbol + ".csv"
-                data.to_csv(__path)
+                df_dropped_rows.to_csv(__path)
                 print(f"{symbols.index(__symbol)} {__symbol} -> {__path}")
             except Exception as e:
                 # raise Exception("Error: ", __symbol, " e.args: ",e.args)

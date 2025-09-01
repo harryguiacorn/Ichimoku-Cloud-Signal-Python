@@ -27,12 +27,19 @@ class Model(object):
 
     def scrape_symbols_name(self):
         print("Reading symbols from source: ", self.url)
-        response = requests.get(self.url)
+
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
+        }
+        response = requests.get(self.url, headers=headers)
+
+        print("response.status_code:", response.status_code)
+
         df_temp = pd.read_html(response.content)
         print("Web Content::\n", df_temp)
 
         # df_symbols = df[0][["Symbol"]] # If Yahoo Finance removed "Name", Otherwise use OLD CODING: df[0][["Symbol", "Name"]]
-        df_symbols = df_temp[0][["Symbol", "Name"]] 
+        df_symbols = df_temp[0][["Symbol", "Name"]]
 
         self.df_list = df_symbols
         # print(df_symbols.values.ravel())
@@ -40,10 +47,13 @@ class Model(object):
         return df_symbols
 
     def cleanData(self):
-        __df_list = self.df_list
+        # print("before leanData::\n", self.df_list)
+
+        __df_list = self.df_list.dropna()
+
+        # __df_list = self.df_lgetLatestDataFromYahooByYFinanceist
         self.df = __df_list
-        
-        # print("before leanData::\n", self.df)
+
         self.df.rename(
             columns={
                 "Symbol": "symbol",
@@ -51,12 +61,11 @@ class Model(object):
             },
             inplace=True,
         )
-        
         # # If Yahoo Finance removes "Name", Split the "Symbol" column at the first space
         # self.df[['symbol', 'name']] = self.df['Symbol'].str.split(n=1, expand=True)
 
         print("cleanData::\n", self.df)
-        
+
         # self.df["symbol"] = self.df["symbol"].str.replace(
         #     ".", "-", regex=False
         # )

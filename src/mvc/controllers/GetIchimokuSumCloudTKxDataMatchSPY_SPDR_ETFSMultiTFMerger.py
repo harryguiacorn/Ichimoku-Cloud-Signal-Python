@@ -1,4 +1,4 @@
-from src.mvc.core.DataSumCloudTKxSignalMultiTimeframeMergerWithList import (
+from src.mvc.core.DataSumCloudTKxSignalMultiTimeframeMergerWithSPDRList import (
     Control,
     Model,
     View,

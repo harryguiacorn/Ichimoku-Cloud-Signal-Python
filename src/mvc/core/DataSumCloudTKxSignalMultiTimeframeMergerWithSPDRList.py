@@ -37,8 +37,10 @@ class Model(object):
 
         # Load the two CSV files into dataframes
         df_symbols = pd.read_csv(
+            # self.symbolPathList
             self.symbolPathList,
-            usecols=["symbol"],
+            skiprows=1,
+            usecols=["Symbol"],
         )  # CSV with stock symbols and names
 
         print(f"{self.html_title} Symbols:\n {df_symbols}")
@@ -49,19 +51,11 @@ class Model(object):
             self.dataFilePathList
         )  # CSV with additional data
 
-        print("Data:\n", df_data)
+        # print("Data:\n", df_data)
 
-        # # Assuming the stock symbol is in a column named 'symbol' in both dataframes
-        # # Perform a merge to match rows based on the 'symbol' column
-        # df_merged = pd.merge(df_symbols, df_data, on="Symbol")
-
-        # Ensure column names match in both dataframes for merging
-        # Convert both to lowercase (or uppercase) to standardize
-        df_symbols.rename(columns={"symbol": "Symbol"}, inplace=True)
-        df_data.rename(columns={"symbol": "Symbol"}, inplace=True)
-
-        # Merge the dataframes on the 'Symbol' column
-        df_merged = pd.merge(df_symbols, df_data, on="Symbol", how="inner")
+        # Assuming the stock symbol is in a column named 'symbol' in both dataframes
+        # Perform a merge to match rows based on the 'symbol' column
+        df_merged = pd.merge(df_symbols, df_data, on="Symbol")
 
         print(
             "Multi Timeframe Cloud and TKx Signals Merged",
