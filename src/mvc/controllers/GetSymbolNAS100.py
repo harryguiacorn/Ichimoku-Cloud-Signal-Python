@@ -1,5 +1,6 @@
 import pandas as pd
 import requests
+import io
 
 
 class Model(object):
@@ -28,7 +29,11 @@ class Model(object):
             response = requests.get(self.url, headers=headers, timeout=10)
             response.raise_for_status()  # Raise an error for bad status codes
 
-            self.df_list = pd.read_html(response.text)
+            # Corrected line: Wrap the response text in StringIO
+            html_string_io = io.StringIO(response.text)
+            self.df_list = pd.read_html(html_string_io)
+
+            # self.df_list = pd.read_html(response.text)
 
             # Find the table containing the 'Ticker' column
             for df in self.df_list:
