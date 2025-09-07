@@ -1,5 +1,6 @@
 import pandas as pd
 import requests
+import io
 
 
 class Model(object):
@@ -31,8 +32,10 @@ class Model(object):
         try:
             response = requests.get(self.url, headers=headers)
             response.raise_for_status()  # Raise an error for bad status codes
+            # Corrected line: Wrap the response text in StringIO
+            html_string_io = io.StringIO(response.text)
             self.df_list = pd.read_html(
-                response.text, match=self.readHtmlMatch
+                html_string_io, match=self.readHtmlMatch
             )[0]
             print("Reading symbols from source: ", self.url)
             print(f"Total symbols: {len(self.df_list)}")

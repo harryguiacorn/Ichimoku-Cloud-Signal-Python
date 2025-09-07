@@ -24,14 +24,23 @@ class Model(object):
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
         }
         try:
-            response = requests.get(self.url, headers=headers)
+            # Use requests to get the HTML content with a timeout
+            response = requests.get(self.url, headers=headers, timeout=10)
             response.raise_for_status()  # Raise an error for bad status codes
-            self.df_list = pd.read_html(
-                response.text, match=self.readHtmlMatch
-            )[0]
+
+            self.df_list = pd.read_html(response.text)
+
+            # Find the table containing the 'Ticker' column
+            for df in self.df_list:
+                if "Ticker" in df.columns:
+                    self.df_list = df
+                    break
+
             print("Reading symbols from source: ", self.url)
             print(f"Total symbols: {len(self.df_list)}")
             return self.df_list
+        except requests.exceptions.RequestException as e:
+            print(f"An error occurred while fetching the URL: {e}")
         except Exception as e:
             print(f"Error reading HTML: {e}")
             raise
@@ -84,7 +93,7 @@ def main(__fetch_symbols_latest=True):
     if __fetch_symbols_latest is False:
         return
     _model = Model(
-        "https://en.wikipedia.org/wiki/Nasdaq-100#Components",
+        "https://en.wikipedia.org/wiki/Nasdaq-100",
         "asset_list/Nasdaq100.csv",
         "Components",
     )
