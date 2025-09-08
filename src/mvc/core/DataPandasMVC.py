@@ -124,6 +124,7 @@ class Model(object):
                     tickers=__symbol,
                     period=__lookbackPeriods,
                     interval=__interval,
+                    auto_adjust=True,
                 )
 
                 # clean data
