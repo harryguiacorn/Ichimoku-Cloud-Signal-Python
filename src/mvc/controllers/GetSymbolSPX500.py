@@ -27,13 +27,39 @@ class Model(object):
         try:
             response = requests.get(self.url, headers=headers)
             response.raise_for_status()  # Raise an error for bad status codes
+
             # Corrected line: Wrap the response text in StringIO
             html_string_io = io.StringIO(response.text)
-            self.df_list = pd.read_html(
-                html_string_io, match=self.readHtmlMatch
-            )[0]
-            print("Reading symbols from source: ", self.url)
-            print(f"Total symbols: {len(self.df_list)}")
+            tables = pd.read_html(html_string_io, match=self.readHtmlMatch)
+            # print(f"Total symbols: {len(tables )}")
+            # print("Columns found:", self.df_list.columns.tolist())
+            # print(f"Symbols: {tables}")
+
+            # 🔍 Dynamically find the correct table
+            selected_table = None
+            for i, df in enumerate(tables):
+                cols = [str(c).strip() for c in df.columns]
+                print(f"Table {i} columns: {cols}")
+
+                symbol_col = next(
+                    (c for c in cols if "Symbol" in c or "Ticker" in c), None
+                )
+                name_col = next(
+                    (c for c in cols if "Security" in c or "Company" in c),
+                    None,
+                )
+
+                if symbol_col and name_col:
+                    print(f"✅ Found matching table at index {i}")
+                    selected_table = df
+                    break
+
+            if selected_table is None:
+                raise ValueError(
+                    f"❌ Could not find a table with symbol/name columns among {[t.columns.tolist() for t in tables]}"
+                )
+
+            self.df_list = selected_table
             return self.df_list
         except Exception as e:
             print(f"Error reading HTML: {e}")
@@ -42,7 +68,10 @@ class Model(object):
     def cleanData(self):
         __df_list = self.df_list
         self.df = __df_list
+
+        print("cleanData -> Columns available:", self.df.columns.tolist())
         # print(self.df)
+
         self.df.rename(
             columns={"Security": "name", "Symbol": "symbol"}, inplace=True
         )
