@@ -3,6 +3,9 @@ import requests
 import json
 import time
 from src.mvc import Util
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 # Define the Model class
@@ -56,8 +59,8 @@ class Model:
 
         url = self.base_url + self.endpoint
 
-        print(
-            "\n--------- fetch_data ---------",
+        logger.info(
+            "fetch_data: instrument=%s time_frame=%s lookback=%s url=%s",
             self.instrument,
             self.time_frame,
             self.lookbackPeriod,
@@ -93,6 +96,10 @@ class Model:
             return True
         else:
             # Return False if the data is not fetched successfully
+            logger.warning(
+                "fetch_data failed with status_code=%s",
+                self.response.status_code,
+            )
             return False
 
     def save_json(self, filePath="data.json"):
@@ -106,6 +113,7 @@ class Model:
         # Save data to a JSON file
         with open(filePath, "w") as f:
             json.dump(self.get_data(), f)
+        logger.info("Saved json to %s", filePath)
 
     def save_csv(self, filePath="data.csv"):
         # print(
@@ -115,6 +123,7 @@ class Model:
         #     self.df,
         # )
         self.df.to_csv(filePath)
+        logger.info("Saved csv to %s", filePath)
 
     def set_data(self, data):
         # Convert the data list to a pandas DataFrame
@@ -144,6 +153,7 @@ class Model:
         # self.df = self.df.drop("Timestamp", axis=1)
         # Set the timestamp column as the index
         self.df = self.df.set_index("Datetime")
+        logger.debug("Set dataframe index and shape: %s", self.df.shape)
 
 
 # Define the View class
@@ -152,8 +162,8 @@ class View:
         pass
 
     def show_data(self, df: pd.DataFrame):
-        # Print the DataFrame
-        print("--------- kraken show_data head ---------\n", df.head(2))
+        # Log the DataFrame head
+        logger.debug("kraken show_data head:\n%s", df.head(2).to_string())
 
 
 # Define the Controller class
@@ -177,8 +187,11 @@ class Controller:
             # Show the data from the view
             self.view.show_data(self.model.df)
         else:
-            # Print the error message and break the loop
-            print(f"Error: {self.model.response.status_code}")
+            # Log the error status code
+            logger.error(
+                "Error fetching data: status_code=%s",
+                self.model.response.status_code,
+            )
 
     def save_json(self, filePath="data.json"):
         self.model.save_json(filePath)

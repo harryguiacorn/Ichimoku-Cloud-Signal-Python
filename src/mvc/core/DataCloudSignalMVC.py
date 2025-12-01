@@ -1,5 +1,8 @@
 import pandas as pd
 from abc import abstractclassmethod, ABC
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class DataOHLC(ABC):
@@ -26,14 +29,17 @@ class DataCloudSignal(DataOHLC):
         # expected_columns = [__string_first_column, 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']
         is_correct_format = __data.columns[0] == __string_first_column
 
-        print(
-            "checking 1st cell 1st column: ",
+        logger.debug(
+            "checking 1st cell 1st column: %s %s %s",
             __data.columns[0],
             __string_first_column,
             __path,
         )
 
-        print("__data\n", __data.head())
+        try:
+            logger.debug("__data\n%s", __data.head().to_string())
+        except Exception:
+            logger.debug("__data head unavailable")
 
         if not is_correct_format:
             # If the format is incorrect, reload with a multi-level header and apply transformations
@@ -53,10 +59,14 @@ class DataCloudSignal(DataOHLC):
             # Remove the second row of data (now the first row of the DataFrame after setting index)
             __data = __data.drop(__data.index[0])
 
-            print(f"{self.symbol} - Incorrect format detected and corrected.")
+            logger.info(
+                "%s - Incorrect format detected and corrected.", self.symbol
+            )
 
         else:
-            print(f"{self.symbol} - File is already in the correct format.")
+            logger.info(
+                "%s - File is already in the correct format.", self.symbol
+            )
 
         # Display the resulting DataFrame
         # print(__data)
@@ -83,7 +93,7 @@ class DataCloudSignal(DataOHLC):
             # )
 
             if __data.empty:  # Check if the DataFrame is empty
-                print("CSV file is empty", __path)
+                logger.warning("CSV file is empty %s", __path)
             else:
 
                 __data = self.check_yfinance_format(__path, "Datetime")
@@ -127,9 +137,9 @@ class DataCloudSignal(DataOHLC):
                     self.setColumnsSaveCsv_use_datetime_format(__data)
                     # print(__data)
         except pd.errors.EmptyDataError:
-            print("CSV file is empty", __path)
+            logger.warning("CSV file is empty %s", __path)
         except FileNotFoundError:
-            print(f"Error: {__path} not found")
+            logger.warning("Error: %s not found", __path)
 
     def setupPd(self, csvSuffix="_cloud.csv", folderPath="data/"):
         # pd.set_option("display.max_rows", None)  # print every row for debug
@@ -144,7 +154,7 @@ class DataCloudSignal(DataOHLC):
             __data = pd.read_csv(__path)
             # print("---------- setupPd -------------", __path)
             if __data.empty:  # Check if the DataFrame is empty
-                print("CSV file is empty: ", __path)
+                logger.warning("CSV file is empty: %s", __path)
             else:
                 __data = self.check_yfinance_format(__path, "Date")
 
@@ -191,9 +201,9 @@ class DataCloudSignal(DataOHLC):
 
                     self.setColumnsSaveCsv(__data)
         except pd.errors.EmptyDataError:
-            print("CSV file is empty: ", __path)
+            logger.warning("CSV file is empty: %s", __path)
         except FileNotFoundError:
-            print(f"Error: {__path} not found")
+            logger.warning("Error: %s not found", __path)
 
     def addPercentageSuffix(self, __series: pd.DataFrame):
         return (__series * 100).round(2).astype(str) + "%"
@@ -313,7 +323,7 @@ class DataCloudSignal(DataOHLC):
         pass
 
     def main(self):
-        # print(
+        # logger.debug(
         #     "----------- main::use_datetime_format------------",
         #     self.use_datetime_format,
         # )
@@ -388,9 +398,9 @@ class Model(object):
                 __df = pd.read_csv(__filePath)
                 __dict_df[__symbol] = __df
             except FileNotFoundError:
-                print(f"Error: {__filePath} not found\n")
+                logger.warning("Error: %s not found", __filePath)
                 continue
-        # print("------------ readLocalCsvData ----------", __dict_df)
+        # logger.debug("------------ readLocalCsvData ---------- %s", __dict_df)
         return __dict_df
 
     def getBatchLocalData(self):
@@ -398,13 +408,13 @@ class Model(object):
 
     def getIndividualSymbolData(self):
         for __symbol, __value in self.dataOHLC.items():
-            # print("getIndividualSymbolData:", __symbol, self.csvPath, end=", ")
+            # print("getIndividualSymbolData:", __symbol, self.csvPath, ", ")
             dataP = DataCloudSignal(
                 __symbol, self.csvPath, self.use_datetime_format
             )
             dataP.main()
         if self.dataOHLC.items():
-            print("Cloud signal count csv files are created\n")
+            logger.info("Cloud signal count csv files are created")
 
 
 class Control(object):
@@ -429,7 +439,7 @@ class Control(object):
         self.model.getIndividualSymbolData()
 
     def main(self):
-        print(
+        logger.info(
             f"----------- Generating Cloud Signals: {self.model.csvPath} -----------"
         )
         self.getAssetList()

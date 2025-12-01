@@ -1,4 +1,7 @@
 import yfinance as yf
+import logging
+
+logger = logging.getLogger(__name__)
 
 # Define the stock symbol and date range
 stock_symbol = "WMT"  # Apple Inc.
@@ -30,4 +33,4 @@ for i in range(1, len(df) - 1):
 output_file = "output/apple_stock_daily_high_difference_kicker.csv"
 df.to_csv(output_file)
 
-print(f"Data saved to {output_file}")
+logger.info("Data saved to %s", output_file)

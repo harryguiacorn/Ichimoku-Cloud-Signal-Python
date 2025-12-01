@@ -3,6 +3,9 @@ import os
 import pandas as pd
 from typing import Dict
 from src.mvc import Util
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class Model(object):
@@ -45,7 +48,7 @@ class Model(object):
                 # print(__filePath)
                 __df = pd.read_csv(__filePath)
             except FileNotFoundError:
-                print(f"Error: {__filePath} not found")
+                logger.info(f"Error: {__filePath} not found")
                 continue
             else:
                 if not __df.empty:
@@ -55,7 +58,7 @@ class Model(object):
 
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
-        
+
         # Remove any slashes from the 'symbol' column
         df[__colName] = df[__colName].str.replace("/", "", regex=False)
 
@@ -77,19 +80,19 @@ class Model(object):
             try:
                 # check if yahoo finance gives empty data
                 if __value.empty:
-                    print(
+                    logger.info(
                         f"\n------------ {__symbol} value empty --------------"
                     )
                     continue
 
                 # get latest direction sits at the bottom of dataframe
                 __colSize = __value["Kicker"].size
-                print(
+                logger.info(
                     "[symbol:",
                     __symbol,
                     ", entries:",
                     __colSize,
-                    end="]",
+                    "]",
                 )
                 #  check if column for signals is empty
                 # when yahoo receives empty data
@@ -103,7 +106,7 @@ class Model(object):
                 # print(__date, __symbolName, __kickerDirection)
 
             except KeyError as e:
-                print("------ KeyError ------", e.args)
+                logger.info("------ KeyError ------", e.args)
                 continue
             else:
                 list_temp = []
@@ -142,7 +145,7 @@ class Control(object):
         return self.model.exportResult(__list_result)
 
     def main(self):
-        print("----------- Begin Kick Signal Aggregator -----------")
+        logger.info("----------- Begin Kick Signal Aggregator -----------")
         list_result = self.getData()
 
         # print(list_result)
@@ -152,7 +155,7 @@ class Control(object):
         # return df_result
 
         self.view.showResultKCount(self.model.resultDataFrame)
-        print(f"Aggregator {self.model.assetClassName}.csv is created\n")
+        logger.info(f"Aggregator {self.model.assetClassName}.csv is created\n")
 
 
 class View(object):

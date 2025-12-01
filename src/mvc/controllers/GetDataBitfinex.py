@@ -1,4 +1,6 @@
 from src.mvc.core.bitfinex.DataPandasBitfinexMVC import Control, Model, View
+import logging
+logger = logging.getLogger(__name__)
 
 
 def main(

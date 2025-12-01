@@ -1,5 +1,8 @@
 import pandas as pd
 from src.mvc import Util
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class Model(object):
@@ -17,11 +20,11 @@ class Model(object):
         self.list_score_names = __list_score_names
 
     def merge(self) -> pd.DataFrame:
-        print("------------- Merging Multi Timeframe TKx -------------")
+        logger.info("------------- Merging Multi Timeframe TKx -------------")
 
         list_pd = self.outputPathList
 
-        print("Check files for merging: ", list_pd)
+        logger.debug("Check files for merging: %s", list_pd)
 
         # check to see if files exist before parsing to Pandas
         list_pd_exist = iter([x for x in list_pd if Util.file_exists(x)])
@@ -46,10 +49,8 @@ class Model(object):
                     combined_csv, df_csv1, on=["Symbol", "Name"]
                 )
 
-        print(
-            "Multi Timeframe TKx Signals Merged: ",
-            self.outputMergePath,
-            end="\n\n",
+        logger.info(
+            "Multi Timeframe TKx Signals Merged: %s", self.outputMergePath
         )
 
         # print(combined_csv)
@@ -77,7 +78,7 @@ class Model(object):
             __df.sort_values(
                 by=["TKx Score Sum"], ascending=False, inplace=True
             )
-        print("------ Cleaning columns ------")
+        logger.info("------ Cleaning columns ------")
         # filter through columns in df and output Score columns
         __filter_list_column = [
             x for x in __df.columns if x in self.list_score_names
@@ -86,7 +87,7 @@ class Model(object):
         # add Symbol and Name columns in the front of the list
         __filter_list_column.insert(0, "Symbol")
         __filter_list_column.insert(1, "Name")
-        print("Available columns: ", __filter_list_column)
+        logger.debug("Available columns: %s", __filter_list_column)
 
         # Filter columns based on the list of column names
         # print(__df)
@@ -102,11 +103,13 @@ class Model(object):
         if save_to_html:
             __df.to_html(f"{self.outputMergePath}.html", index=False)
 
-        print(
-            f"Saved data to: {self.outputMergePath} {self.outputMergePath}.html\n"
+        logger.info(
+            "Saved data to: %s %s.html",
+            self.outputMergePath,
+            self.outputMergePath,
         )
-        print(
-            "----------- TKx Score Multi Timeframe Final View -----------\n",
+        logger.info(
+            "----------- TKx Score Multi Timeframe Final View -----------\n%s",
             __df,
         )
         return __df
@@ -117,36 +120,25 @@ class Model(object):
         # check if a list of columns for TKx direction or Count exists in df.
         if set(list_for_merge).issubset(df.columns):
             df[name_sum] = df[list_for_merge[0]] * df[list_for_merge[1]]
-            print(
-                "Columns exist:",
-                list_for_merge,
-                # df[name_sum],
-                # df[list_for_merge[0]],
-                # df[list_for_merge[1]],
-                sep=", ",
-                end="\n",
-            )
+            logger.info("Columns exist: %s", list_for_merge)
         else:
-            print("Columns missing:", list_for_merge, end="\n")
+            logger.warning("Columns missing: %s", list_for_merge)
             # df[name_sum] = 0
         return df
 
     def create_score_columns(self, df: pd.DataFrame):
         for i, __list in enumerate(self.list_direction_count_names):
             df = self.create_score_column(df, __list, self.list_score_names[i])
-        print(
-            "-------------------- TKx Score Multi Timeframe Raw --------------------\n",
+        logger.info(
+            "-------------------- TKx Score Multi Timeframe Raw --------------------\n%s",
             df,
-            end="\n\n",
         )
 
     def create_sum_column(self, df: pd.DataFrame):
-        print(
-            "create_sum_column self.list_score_names: ",
+        logger.debug(
+            "create_sum_column self.list_score_names: %s \ncreate_sum_column df.columns: %s",
             self.list_score_names,
-            "\ncreate_sum_column df.columns:",
             df.columns,
-            "\n",
         )
         __sum = 0
         for __name in self.list_score_names:

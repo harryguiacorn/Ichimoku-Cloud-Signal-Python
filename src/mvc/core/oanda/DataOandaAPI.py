@@ -2,6 +2,9 @@ import requests
 import time
 import json
 import pandas as pd
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class DataOandaAPI:
@@ -51,18 +54,18 @@ class DataOandaAPI:
         while True:
             self.data = self.get_oanda_data()
             self.save_json()
-            print(self.data)
+            logger.debug("Polled data: %s", self.data)
             time.sleep(5)  # Poll every 5 seconds
 
     def json_to_csv(self, data: json, filePath="data.csv") -> pd.DataFrame:
         # Assuming json_string is your JSON data
-        # print(data)
+        # logger.debug(data)
         json_data = data.copy()
 
         # Extracting the 'candles' data
         candles = json_data["candles"]
 
-        # print("------- json_to_csv -------", candles)
+        # logger.debug("json_to_csv candles: %s", candles)
 
         # # Convert the candle data to a DataFrame
         # df = pd.DataFrame(
@@ -71,21 +74,17 @@ class DataOandaAPI:
         #         [candle["time"] for candle in candles], utc=True
         #     ),
         # )
-        
+
         # Convert the candle data to a DataFrame with 'datetime' as a column
-        df = pd.DataFrame(
-            [candle["mid"] for candle in candles]
-        )
+        df = pd.DataFrame([candle["mid"] for candle in candles])
 
         # Add the 'datetime' column
         df["Datetime"] = pd.to_datetime(
             [candle["time"] for candle in candles], utc=True
         )
 
-
-
         # Rename the columns
-        df.columns = ["Open", "High", "Low", "Close","Datetime"]
+        df.columns = ["Open", "High", "Low", "Close", "Datetime"]
 
         # Reorder the columns to make 'datetime' the first column
         df = df[["Datetime", "Open", "High", "Low", "Close"]]
@@ -93,14 +92,14 @@ class DataOandaAPI:
         # # Add a column for 'Datetime' and set the index values
         # df.insert(0, "Datetime", df.index)
 
-        # print("df.columns.values", df.columns.values)
+        # logger.debug("df.columns.values: %s", df.columns.values)
 
-        # print("==============\n", df)
+        # logger.debug("df: %s", df)
 
         # Export the DataFrame to a CSV file
         df.to_csv(filePath, index=False)
 
-        # print("json_to_csv:", df)
+        # logger.debug("json_to_csv: %s", df)
         return df
 
 
@@ -111,7 +110,7 @@ if __name__ == "__main__":
     # data = get_oanda_data()
     instruments = api.get_instruments()
     api.save_json("data/oanda/instruments.json", instruments)
-    print(instruments)
+    logger.info("Instruments: %s", instruments)
 
     # api.save_json(data=data, filePath="data/oanda/")
     # print(data)

@@ -1,5 +1,7 @@
 import pandas as pd
 import requests
+import logging
+logger = logging.getLogger(__name__)
 
 
 class SymbolScraper:
@@ -26,24 +28,24 @@ class Model(object):
         self.scrape_symbols_name()
 
     def scrape_symbols_name(self):
-        print("Reading symbols from source: ", self.url)
+        logger.info("Reading symbols from source: ", self.url)
 
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36"
         }
         response = requests.get(self.url, headers=headers)
 
-        print("response.status_code:", response.status_code)
+        logger.info("response.status_code:", response.status_code)
 
         df_temp = pd.read_html(response.content)
-        print("Web Content::\n", df_temp)
+        logger.info("Web Content::\n", df_temp)
 
         # df_symbols = df[0][["Symbol"]] # If Yahoo Finance removed "Name", Otherwise use OLD CODING: df[0][["Symbol", "Name"]]
         df_symbols = df_temp[0][["Symbol", "Name"]]
 
         self.df_list = df_symbols
         # print(df_symbols.values.ravel())
-        print(f"Total symbols: {len(self.df_list)}")
+        logger.info(f"Total symbols: {len(self.df_list)}")
         return df_symbols
 
     def cleanData(self):
@@ -64,7 +66,7 @@ class Model(object):
         # # If Yahoo Finance removes "Name", Split the "Symbol" column at the first space
         # self.df[['symbol', 'name']] = self.df['Symbol'].str.split(n=1, expand=True)
 
-        print("cleanData::\n", self.df)
+        logger.info("cleanData::\n", self.df)
 
         # self.df["symbol"] = self.df["symbol"].str.replace(
         #     ".", "-", regex=False
@@ -75,7 +77,7 @@ class Model(object):
         # print(self.df[__columns])
         # df_symbol.to_csv(self.fileNameCSV, index=False)
         __columns = ["symbol", "name"]
-        print("Table:\n", self.df[__columns])
+        logger.info("Table:\n", self.df[__columns])
         self.df.to_csv(
             self.fileNameCSV,
             columns=__columns,

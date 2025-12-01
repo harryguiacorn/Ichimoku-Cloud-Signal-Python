@@ -1,6 +1,9 @@
 import pandas as pd
 from src.mvc import Util
 from src.mvc.html_creator import TableGenerator
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class Model(object):
@@ -18,17 +21,17 @@ class Model(object):
         self.html_title = __html_title
 
     def merge(self) -> pd.DataFrame:
-        print(
+        logger.info(
             f"\n------------- Merging {self.html_title} Symbols with {self.dataFilePathList} Multi Timeframe Cloud and TKx Sum -------------"
         )
 
-        print(
+        logger.info(
             "Check symbol file for merging:",
             self.symbolPathList,
             "exist:",
             Util.file_exists(self.symbolPathList),
         )
-        print(
+        logger.info(
             "Check data file for merging:",
             self.dataFilePathList,
             "exist:",
@@ -41,7 +44,7 @@ class Model(object):
             usecols=["symbol"],
         )  # CSV with stock symbols and names
 
-        print(f"{self.html_title} Symbols:\n {df_symbols}")
+        logger.info(f"{self.html_title} Symbols:\n {df_symbols}")
 
         # return
 
@@ -49,7 +52,7 @@ class Model(object):
             self.dataFilePathList
         )  # CSV with additional data
 
-        print("Data:\n", df_data)
+        logger.info("Data:\n", df_data)
 
         # # Assuming the stock symbol is in a column named 'symbol' in both dataframes
         # # Perform a merge to match rows based on the 'symbol' column
@@ -63,12 +66,12 @@ class Model(object):
         # Merge the dataframes on the 'Symbol' column
         df_merged = pd.merge(df_symbols, df_data, on="Symbol", how="inner")
 
-        print(
+        logger.info(
             "Multi Timeframe Cloud and TKx Signals Merged",
-            end="\n\n",
+            "\n\n",
         )
 
-        print(f"{self.symbolPathList}\n{df_merged}")
+        logger.info(f"{self.symbolPathList}\n{df_merged}")
 
         return df_merged
 
@@ -101,8 +104,8 @@ class Model(object):
             filepath_without_filename,
             filename_with_extension,
         ) = Util.split_filepath(self.outputMergePath)
-        print("File path without filename:", filepath_without_filename)
-        print("File name with extension:", filename_with_extension)
+        logger.info("File path without filename:", filepath_without_filename)
+        logger.info("File name with extension:", filename_with_extension)
 
         Util.create_folder(filepath_without_filename)
 
@@ -115,10 +118,10 @@ class Model(object):
         if save_to_html:
             __df.to_html(f"{self.outputMergePath}.html", index=False)
 
-        print(
+        logger.info(
             f"Saved data to: {self.outputMergePath} {self.outputMergePath}.html\n"
         )
-        print(
+        logger.info(
             f"----------- {self.html_title} Cloud and TKx Sum Score Multi Timeframe Final View -----------\n {__df}"
         )
         return __df
@@ -158,7 +161,7 @@ class View(object):
     def generate_html(self, csv_file_path: str, html_title: str):
         table_generator = TableGenerator(csv_file_path)
         html_table = table_generator.generate_html_table(html_title)
-        print("generate_html", csv_file_path)
+        logger.info("generate_html", csv_file_path)
         table_generator.save_html_table(html_table, csv_file_path + ".html")
         # table_generator.display_html_table_jupyter(csv_file_path + ".html")
 

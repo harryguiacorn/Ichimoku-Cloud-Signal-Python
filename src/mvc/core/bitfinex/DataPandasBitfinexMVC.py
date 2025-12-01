@@ -11,6 +11,8 @@ from src.mvc.core.bitfinex.DataBitfinexAPI import View as DataBitfinexAPI_View
 from src.mvc.core.bitfinex.DataBitfinexAPI import (
     Controller as DataBitfinexAPI_Controller,
 )
+import logging
+logger = logging.getLogger(__name__)
 
 
 class Model(object):
@@ -88,9 +90,9 @@ class Model(object):
         # Remove any slashes from the 'symbol' column
         df[__colName] = df[__colName].str.replace("/", "", regex=False)
 
-        print(f"----------- Reading symbols for {self.interval} -----------")
-        print("readAssetList path:", __csvPath, end="\n")
-        print(df.to_string(), sep=",", end="\n\n")
+        logger.info(f"----------- Reading symbols for {self.interval} -----------")
+        logger.info("readAssetList path:", __csvPath, "\n")
+        logger.info(df.to_string(), sep=",", "\n\n")
         # print(df[__colName])
         l_symbol = df[__colName].tolist()
         self.symbols = l_symbol
@@ -99,7 +101,7 @@ class Model(object):
     def getDataOHLC(self):
         # __dict_lookbackPeriodConvertInt = {'h': 1, 'd': 1, 'w': 7, 'm': 31}
         if self.bGetLatestDataFromBitfinex:
-            print("----------- Downloading from Bitfinex API -----------")
+            logger.info("----------- Downloading from Bitfinex API -----------")
             # print(
             #     "getDataOHLC: ",
             #     self.symbols,
@@ -145,15 +147,15 @@ class Model(object):
                 data_df = model.get_data()
                 __dict_df[__symbol] = data_df
 
-                print(
+                logger.info(
                     "Download completed. Saved in:",
                     __path_csv,
                     __path_json,
-                    end="\n",
+                    "\n",
                 )
             except Exception as e:
                 # raise Exception("Error: ", __symbol, " e.args: ",e.args)
-                print(
+                logger.info(
                     f"Error getLatestDataFromBitfinexAPI: {__symbol}: {e.args}"
                 )
                 continue
@@ -167,18 +169,18 @@ class Model(object):
                 __df = pd.read_csv(__filePath)
                 __dict_df[__symbol] = __df
             except FileNotFoundError:
-                print(f"Error: {__filePath} not found")
+                logger.info(f"Error: {__filePath} not found")
                 continue
         return __dict_df
 
     def createIchimokuData(self):
-        print(
+        logger.info(
             "\n----------- Creating Ichimoku Data (Bitfinex) -----------",
             # self.dataOHLC,
         )
         # method 1. create Ichimoku data using tapy
         DictDataIchinokuTapy = self.createIchimokuDataTapy(self.dataOHLC)
-        print("Ichimoku columns added to csv\n")
+        logger.info("Ichimoku columns added to csv\n")
         # method 2. alternative method to
         # add ichimoku columns to csv using finta
         # self.createIchimokuDataFinta(DictData)
@@ -348,4 +350,4 @@ class Control(object):
 
 
 if __name__ == "__main__":
-    print("------ __main__ -----")
+    logger.info("------ __main__ -----")

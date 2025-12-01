@@ -4,6 +4,9 @@ import pandas as pd
 from src.mvc import Util
 from datetime import datetime
 from pytz import timezone
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class TableGenerator:
@@ -11,13 +14,13 @@ class TableGenerator:
         self.csv_file_path = csv_file_path
 
     def generate_html_table(self, str_title: str = "Cloud Scan") -> str:
-        print("\n------------- Generating Html table -------------")
+        logger.info("------------- Generating Html table -------------")
         if Util.file_exists(self.csv_file_path) is False:
             return
 
         # Read the CSV file
         df = pd.read_csv(self.csv_file_path)
-        print("HTML title:", str_title)
+        logger.debug("HTML title: %s", str_title)
         # added !important in css to overwrite cell colours
         html_table_head = f"""
       <!DOCTYPE html>
@@ -90,7 +93,7 @@ class TableGenerator:
         time_finish = datetime.now(london_tz_finish)
         time_finish_formatted = time_finish.strftime("%Y-%m-%d %H:%M:%S")
 
-        print(f"\nTable generated at {time_finish_formatted}")
+        logger.info("Table generated at %s", time_finish_formatted)
         html_table += f"""
         <footer>
           <p>Table Generated At {time_finish_formatted} [UK]<br></p>
@@ -99,9 +102,8 @@ class TableGenerator:
 
         </html>
         """
-        # print(html_table)
-
-        print("HTML table generated.")
+        # logger.debug(html_table)
+        logger.info("HTML table generated.")
         return html_table
 
     def save_html_table(self, html_table: str, filename: str):
@@ -110,7 +112,7 @@ class TableGenerator:
 
         with open(filename, "w", encoding="utf-8") as f:
             f.write(html_table)
-        print(f"HTML data table saved at {filename}")
+        logger.info("HTML data table saved at %s", filename)
 
     def display_html_table_jupyter(
         self, filename: str = "/content/Cloud-Signal-Python/table.html"

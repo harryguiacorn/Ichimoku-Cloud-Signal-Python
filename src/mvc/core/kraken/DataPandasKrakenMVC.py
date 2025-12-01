@@ -11,6 +11,9 @@ from src.mvc.core.kraken.DataKrakenAPI import View as DataKrakenAPI_View
 from src.mvc.core.kraken.DataKrakenAPI import (
     Controller as DataKrakenAPI_Controller,
 )
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class Model(object):
@@ -86,9 +89,9 @@ class Model(object):
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
 
-        print(f"----------- Reading symbols for {self.interval} -----------")
-        print("readAssetList path:", __csvPath, end="\n")
-        print(df.to_string(), sep=",", end="\n\n")
+        logger.info("Reading symbols for %s", self.interval)
+        logger.debug("readAssetList path: %s", __csvPath)
+        logger.debug("%s", df.to_string())
         # print(df[__colName])
         l_symbol = df[__colName].tolist()
         self.symbols = l_symbol
@@ -97,7 +100,7 @@ class Model(object):
     def getDataOHLC(self):
         # __dict_lookbackPeriodConvertInt = {'h': 1, 'd': 1, 'w': 7, 'm': 31}
         if self.bGetLatestDataFromKraken:
-            print("----------- Downloading from Kraken API -----------")
+            logger.info("Downloading from Kraken API")
             # print(
             #     "getDataOHLC: ",
             #     self.symbols,
@@ -154,16 +157,14 @@ class Model(object):
                 data_df = model.get_data()
                 __dict_df[__symbol_without_slash] = data_df
 
-                print(
-                    "Download completed. Saved in:",
+                logger.info(
+                    "Download completed. Saved in: %s %s",
                     __path_csv,
                     __path_json,
-                    end="\n",
                 )
             except Exception as e:
-                # raise Exception("Error: ", __symbol, " e.args: ",e.args)
-                print(
-                    f"Error getLatestDataFromKrakenAPI: {__symbol}: {e.args}"
+                logger.exception(
+                    "Error getLatestDataFromKrakenAPI: %s: %s", __symbol, e
                 )
                 continue
         return __dict_df
@@ -176,18 +177,15 @@ class Model(object):
                 __df = pd.read_csv(__filePath)
                 __dict_df[__symbol] = __df
             except FileNotFoundError:
-                print(f"Error: {__filePath} not found")
+                logger.warning("File not found: %s", __filePath)
                 continue
         return __dict_df
 
     def createIchimokuData(self):
-        print(
-            "\n----------- Creating Ichimoku Data (Kraken) -----------",
-            # self.dataOHLC,
-        )
+        logger.info("Creating Ichimoku Data (Kraken)")
         # method 1. create Ichimoku data using tapy
         DictDataIchinokuTapy = self.createIchimokuDataTapy(self.dataOHLC)
-        print("Ichimoku columns added to csv\n")
+        logger.info("Ichimoku columns added to csv")
         # method 2. alternative method to
         # add ichimoku columns to csv using finta
         # self.createIchimokuDataFinta(DictData)
@@ -357,4 +355,4 @@ class Control(object):
 
 
 if __name__ == "__main__":
-    print("------ __main__ -----")
+    logger.info("__main__ starting DataPandasKrakenMVC")

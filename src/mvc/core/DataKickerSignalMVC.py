@@ -1,5 +1,8 @@
 import pandas as pd
 from abc import abstractclassmethod, ABC
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class DataOHLC(ABC):
@@ -28,7 +31,7 @@ class DataKickerSignal(DataOHLC):
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
             if __data.empty:  # Check if the DataFrame is empty
-                print("CSV file is empty", __path)
+                logger.info("CSV file is empty", __path)
             else:
                 __data.index = __data.Date
                 # __data['Returns'] = self.getReturn(__data['Close'],
@@ -41,9 +44,9 @@ class DataKickerSignal(DataOHLC):
                 # print(__data)
                 self.setColumnsSaveCsv(__data)
         except pd.errors.EmptyDataError:
-            print("CSV file is empty", __path)
+            logger.info("CSV file is empty", __path)
         except FileNotFoundError:
-            print(f"Error: {__path} not found")
+            logger.info(f"Error: {__path} not found")
 
     def cleanupDF(
         self, __data
@@ -162,7 +165,7 @@ class Model(object):
                 __df = pd.read_csv(__filePath)
                 __dict_df[__symbol] = __df
             except FileNotFoundError:
-                print(f"Error: {__filePath} not found")
+                logger.info(f"Error: {__filePath} not found")
                 continue
         return __dict_df
 
@@ -198,11 +201,11 @@ class Control(object):
         self.model.getIndividualSymbolData()
 
     def main(self):
-        print("----------- Creating Kicker Signals -----------")
+        logger.info("----------- Creating Kicker Signals -----------")
         self.getAssetList()
         self.getBatchLocalData()
         self.getIndividualSymbolData()
-        print(f"Populated kicker csv {self.model.csvPath}", end="\n\n")
+        logger.info(f"Populated kicker csv {self.model.csvPath}", "\n\n")
 
 
 class View(object):

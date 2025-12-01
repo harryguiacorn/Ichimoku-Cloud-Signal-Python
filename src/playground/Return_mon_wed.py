@@ -3,6 +3,9 @@ import yfinance as yf
 import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
+import logging
+
+logger = logging.getLogger(__name__)
 
 symbol = "AAPL"  # Replace with your desired stock symbol
 # start_date = "2022-01-01"
@@ -40,7 +43,12 @@ wednesday_returns = (wednesday_prices - monday_prices) / monday_prices
 
 stock_data["Week day"] = stock_data.index.weekday
 stock_data["MON-WED Returns"] = wednesday_returns
-print(monday_prices, wednesday_prices, wednesday_returns)
+logger.debug(
+    "Monday prices: %s\nWednesday prices: %s\nWednesday returns: %s",
+    monday_prices.head().to_string(),
+    wednesday_prices.head().to_string(),
+    wednesday_returns.head().to_string(),
+)
 stock_data.to_csv(
     "data/playground/" + symbol + ".csv",
     columns=["Week day", "Close", "Returns", "MON-WED Returns"],

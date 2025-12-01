@@ -3,6 +3,9 @@ import os
 import pandas as pd
 from typing import Dict
 from src.mvc import Util
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class Model(object):
@@ -48,7 +51,7 @@ class Model(object):
                 __filePath = __csvPath + __symbol + __suffix + ".csv"
                 __df = pd.read_csv(__filePath)
             except FileNotFoundError:
-                print(f"Error: {__filePath} not found")
+                logger.info(f"Error: {__filePath} not found")
                 continue
             else:
                 __dict_df[__symbol] = __df
@@ -78,19 +81,19 @@ class Model(object):
             try:
                 # check if yahoo finance gives empty data
                 if __value.empty:
-                    print(
+                    logger.info(
                         f"\n------------ {__symbol} TKx value empty --------------"
                     )
                     continue
 
                 # get latest direction sits at the bottom of dataframe
                 __colSize = __value["TKx Signal"].size
-                print(
+                logger.info(
                     "[symbol:",
                     __symbol,
                     ", entries:",
                     __colSize,
-                    end="]",
+                    "]",
                 )
                 #  check if column for signals is empty
                 # when yahoo receives empty data
@@ -103,7 +106,7 @@ class Model(object):
                 __date = __value["Date"].iloc[-1]
 
             except KeyError as e:
-                print("------ KeyError ------", e.args)
+                logger.info("------ KeyError ------", e.args)
                 continue
             else:
                 list_temp = []
@@ -127,7 +130,7 @@ class Model(object):
             try:
                 # check if yahoo finance gives empty data
                 if __value.empty:
-                    print(
+                    logger.info(
                         f"\n------------ {__symbol} TKx value empty --------------"
                     )
                     continue
@@ -140,7 +143,7 @@ class Model(object):
                 __date = __value["Datetime"].iloc[-1]
 
             except KeyError as e:
-                print("------ KeyError ------", e.args)
+                logger.info("------ KeyError ------", e.args)
                 continue
             else:
                 list_temp = []
@@ -216,7 +219,7 @@ class Control(object):
         self.view = view
 
     def getData(self):
-        print(
+        logger.info(
             "self.model.use_datetime_format::", self.model.use_datetime_format
         )
         if self.model.use_datetime_format is False:
@@ -236,7 +239,7 @@ class Control(object):
         return self.model.exportResultJSON(__list_result)
 
     def main(self):
-        print(
+        logger.info(
             f"----------- Creating TKx Signal Aggregator {self.model.csvPath} -----------"
         )
         list_result = self.getData()
@@ -250,7 +253,7 @@ class Control(object):
         # return df_result
 
         self.view.showResultKCount(self.model.resultDataFrame)
-        print(
+        logger.info(
             f"Aggregator {self.model.assetClassName}.csv and .xml are created\n"
         )
 

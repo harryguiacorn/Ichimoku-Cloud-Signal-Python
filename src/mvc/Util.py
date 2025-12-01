@@ -1,5 +1,8 @@
 from genericpath import isdir
 import os
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def split_filepath(filepath):
@@ -13,7 +16,7 @@ def file_exists(filename):
     if os.path.exists(filename) and os.path.isfile(filename):
         return True
     else:
-        print(f"WARNING: {filename} does not exist.")
+        logger.warning("%s does not exist.", filename)
         return False
 
 
@@ -24,7 +27,7 @@ def create_folder(__name="data", __printError: bool = True):
             os.makedirs(__name)
     except FileExistsError as __errFile:
         if __printError:
-            print("WARNING: folder exists", __errFile)
+            logger.warning("Folder exists: %s", __errFile)
 
 
 # def save_file_to_folder(__path="/path", __filename="data.csv"):

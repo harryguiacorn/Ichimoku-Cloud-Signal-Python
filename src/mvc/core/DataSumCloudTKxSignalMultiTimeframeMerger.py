@@ -1,6 +1,9 @@
 import pandas as pd
 from src.mvc import Util
 from src.mvc.html_creator import TableGenerator
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class Model(object):
@@ -19,13 +22,13 @@ class Model(object):
         self.html_title = __html_title
 
     def merge(self) -> pd.DataFrame:
-        print(
+        logger.info(
             "\n------------- Merging Multi Timeframe Cloud and TKx Sum -------------"
         )
 
         list_pd = self.outputPathList
 
-        print("Check files for merging: ", list_pd)
+        logger.debug("Check files for merging: %s", list_pd)
 
         # check to see if files exist before parsing to Pandas
         list_pd_exist = iter([x for x in list_pd if Util.file_exists(x)])
@@ -50,10 +53,7 @@ class Model(object):
                     combined_csv, df_csv1, on=["Symbol", "Name"]
                 )
 
-        print(
-            "Multi Timeframe Cloud and TKx Signals Merged",
-            end="\n\n",
-        )
+        logger.info("Multi Timeframe Cloud and TKx Signals Merged")
 
         # print(combined_csv)
 
@@ -88,8 +88,10 @@ class Model(object):
             filepath_without_filename,
             filename_with_extension,
         ) = Util.split_filepath(self.outputMergePath)
-        print("File path without filename:", filepath_without_filename)
-        print("File name with extension:", filename_with_extension)
+        logger.debug(
+            "File path without filename: %s", filepath_without_filename
+        )
+        logger.debug("File name with extension: %s", filename_with_extension)
 
         Util.create_folder(filepath_without_filename)
 
@@ -102,11 +104,13 @@ class Model(object):
         if save_to_html:
             __df.to_html(f"{self.outputMergePath}.html", index=False)
 
-        print(
-            f"Saved data to: {self.outputMergePath} {self.outputMergePath}.html\n"
+        logger.info(
+            "Saved data to: %s %s.html",
+            self.outputMergePath,
+            self.outputMergePath,
         )
-        print(
-            "----------- Cloud and TKx Sum Score Multi Timeframe Final View -----------\n",
+        logger.info(
+            "----------- Cloud and TKx Sum Score Multi Timeframe Final View -----------\n%s",
             __df,
         )
         return __df
@@ -166,7 +170,7 @@ class View(object):
     def generate_html(self, csv_file_path: str, html_title: str):
         table_generator = TableGenerator(csv_file_path)
         html_table = table_generator.generate_html_table(html_title)
-        print("generate_html", csv_file_path)
+        logger.info("generate_html %s", csv_file_path)
         table_generator.save_html_table(html_table, csv_file_path + ".html")
         # table_generator.display_html_table_jupyter(csv_file_path + ".html")
 

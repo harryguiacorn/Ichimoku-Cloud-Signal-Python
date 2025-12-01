@@ -1,5 +1,8 @@
 import pandas as pd
 from abc import abstractclassmethod, ABC
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class DataOHLC(ABC):
@@ -25,10 +28,16 @@ class DataTKxSignal(DataOHLC):
         # Check if the format is correct
         # expected_columns = [__string_first_column, 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume']
         is_correct_format = __data.columns[0] == __string_first_column
-        
-        print("DataTKxSignalMVC checking 1st cell 1st column: ", __data.columns[0], __string_first_column)
 
-        print("__data\n", __data.head())
+        logger.debug(
+            "DataTKxSignalMVC checking 1st cell 1st column: %s %s",
+            __data.columns[0],
+            __string_first_column,
+        )
+        try:
+            logger.debug("__data\n%s", __data.head().to_string())
+        except Exception:
+            logger.debug("__data head unavailable")
 
         if not is_correct_format:
             # If the format is incorrect, reload with a multi-level header and apply transformations
@@ -48,9 +57,13 @@ class DataTKxSignal(DataOHLC):
             # Remove the second row of data (now the first row of the DataFrame after setting index)
             __data = __data.drop(__data.index[0])
 
-            print(f"{self.symbol} - Incorrect format detected and corrected.")
+            logger.info(
+                "%s - Incorrect format detected and corrected.", self.symbol
+            )
         else:
-            print(f"{self.symbol} - File is already in the correct format.")
+            logger.info(
+                "%s - File is already in the correct format.", self.symbol
+            )
 
         # Display the resulting DataFrame
         # print(__data)
@@ -68,7 +81,7 @@ class DataTKxSignal(DataOHLC):
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
             if __data.empty:  # Check if the DataFrame is empty
-                print("CSV file is empty", __path)
+                logger.warning("CSV file is empty %s", __path)
             else:
                 __data = self.check_yfinance_format(__path, "Datetime")
 
@@ -108,9 +121,9 @@ class DataTKxSignal(DataOHLC):
                     self.setColumnsSaveCsv_use_datetime_format(__data)
                     # print(__data)
         except pd.errors.EmptyDataError:
-            print("CSV file is empty", __path)
+            logger.warning("CSV file is empty %s", __path)
         except FileNotFoundError:
-            print(f"Error: {__path} not found")
+            logger.warning("Error: %s not found", __path)
 
     def setupPd(self, csvSuffix="_tkx.csv", folderPath="data/"):
         # pd.set_option("display.max_rows", None)  # print every row for debug
@@ -121,7 +134,7 @@ class DataTKxSignal(DataOHLC):
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
             if __data.empty:  # Check if the DataFrame is empty
-                print("CSV file is empty", __path)
+                logger.warning("CSV file is empty %s", __path)
             else:
                 __data = self.check_yfinance_format(__path, "Date")
 
@@ -156,9 +169,9 @@ class DataTKxSignal(DataOHLC):
 
                     self.setColumnsSaveCsv(__data)
         except pd.errors.EmptyDataError:
-            print("CSV file is empty", __path)
+            logger.warning("CSV file is empty %s", __path)
         except FileNotFoundError:
-            print(f"Error: {__path} not found")
+            logger.warning("Error: %s not found", __path)
 
     def getTKxSignalCount(self, __tkxDirectionList):
         __newList = []
@@ -220,7 +233,7 @@ class DataTKxSignal(DataOHLC):
             else:
                 # print("-----------6")
                 __data.append(__curDirection)
-        # print("getTKxDirection::__data:", __data)
+        # logger.debug("getTKxDirection::__data: %s", __data)
         return __data
 
     def getReturn(self, __curClose, __preClose):
@@ -245,12 +258,12 @@ class DataTKxSignal(DataOHLC):
 
     def main(self):
         if self.use_datetime_format is False:
-            # print(self.symbol, "N-------------", self.use_datetime_format)
+            # logger.debug(self.symbol, "N-------------", self.use_datetime_format)
             self.setupPd(
                 "_ichimokuTapy.csv"
             )  # _ichimokuPlotly _ichimokuTapy _ichimokuFinta
         else:
-            # print(self.symbol, "Y-------------", self.use_datetime_format)
+            # logger.debug(self.symbol, "Y-------------", self.use_datetime_format)
             self.setupPd_use_datetime_format(
                 "_ichimokuTapy.csv"
             )  # _ichimokuPlotly _ichimokuTapy _ichimokuFinta
@@ -304,8 +317,10 @@ class Model(object):
         self.__assetListPath = __assetListPath
 
     def readAssetList(self, __csvPath, __colName="symbol"):
-        print(
-            f"\n-------------------- Generating TKx Signals from {self.csvPath} {__csvPath} --------------------"
+        logger.info(
+            "-------------------- Generating TKx Signals from %s %s --------------------",
+            self.csvPath,
+            __csvPath,
         )
         df = pd.read_csv(__csvPath)
 
@@ -325,7 +340,7 @@ class Model(object):
                 __df = pd.read_csv(__filePath)
                 __dict_df[__symbol] = __df
             except FileNotFoundError:
-                print(f"Error: {__filePath} not found")
+                logger.warning("Error: %s not found", __filePath)
                 continue
         return __dict_df
 
@@ -341,7 +356,7 @@ class Model(object):
             # print("*************", self.use_datetime_format)
             dataP.main()
         if self.dataOHLC.items():
-            print("TKx count csv files are created")
+            logger.info("TKx count csv files are created")
 
 
 class Control(object):

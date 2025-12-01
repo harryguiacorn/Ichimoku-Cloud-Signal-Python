@@ -1,4 +1,6 @@
 from src.mvc.core.kraken.DataPandasKrakenMVC import Control, Model, View
+import logging
+logger = logging.getLogger(__name__)
 
 
 def main(

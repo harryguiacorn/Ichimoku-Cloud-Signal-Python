@@ -1,6 +1,9 @@
 import pandas as pd
 from src.mvc import Util
 from src.mvc.html_creator import TableGenerator
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class Model(object):
@@ -18,20 +21,20 @@ class Model(object):
         self.html_title = __html_title
 
     def merge(self) -> pd.DataFrame:
-        print(
-            f"\n------------- Merging {self.html_title} Symbols with {self.dataFilePathList} Multi Timeframe Cloud and TKx Sum -------------"
+        logger.info(
+            "\n------------- Merging %s Symbols with %s Multi Timeframe Cloud and TKx Sum -------------",
+            self.html_title,
+            self.dataFilePathList,
         )
 
-        print(
-            "Check symbol file for merging:",
+        logger.debug(
+            "Check symbol file for merging: %s exist: %s",
             self.symbolPathList,
-            "exist:",
             Util.file_exists(self.symbolPathList),
         )
-        print(
-            "Check data file for merging:",
+        logger.debug(
+            "Check data file for merging: %s exist: %s",
             self.dataFilePathList,
-            "exist:",
             Util.file_exists(self.dataFilePathList),
         )
 
@@ -43,7 +46,7 @@ class Model(object):
             usecols=["Symbol"],
         )  # CSV with stock symbols and names
 
-        print(f"{self.html_title} Symbols:\n {df_symbols}")
+        logger.debug("%s Symbols:\n %s", self.html_title, df_symbols)
 
         # return
 
@@ -51,18 +54,15 @@ class Model(object):
             self.dataFilePathList
         )  # CSV with additional data
 
-        # print("Data:\n", df_data)
+        # logger.debug("Data:\n%s", df_data)
 
         # Assuming the stock symbol is in a column named 'symbol' in both dataframes
         # Perform a merge to match rows based on the 'symbol' column
         df_merged = pd.merge(df_symbols, df_data, on="Symbol")
 
-        print(
-            "Multi Timeframe Cloud and TKx Signals Merged",
-            end="\n\n",
-        )
+        logger.info("Multi Timeframe Cloud and TKx Signals Merged")
 
-        print(f"{self.symbolPathList}\n{df_merged}")
+        logger.debug("%s\n%s", self.symbolPathList, df_merged)
 
         return df_merged
 
@@ -95,8 +95,10 @@ class Model(object):
             filepath_without_filename,
             filename_with_extension,
         ) = Util.split_filepath(self.outputMergePath)
-        print("File path without filename:", filepath_without_filename)
-        print("File name with extension:", filename_with_extension)
+        logger.debug(
+            "File path without filename: %s", filepath_without_filename
+        )
+        logger.debug("File name with extension: %s", filename_with_extension)
 
         Util.create_folder(filepath_without_filename)
 
@@ -109,11 +111,15 @@ class Model(object):
         if save_to_html:
             __df.to_html(f"{self.outputMergePath}.html", index=False)
 
-        print(
-            f"Saved data to: {self.outputMergePath} {self.outputMergePath}.html\n"
+        logger.info(
+            "Saved data to: %s %s.html",
+            self.outputMergePath,
+            self.outputMergePath,
         )
-        print(
-            f"----------- {self.html_title} Cloud and TKx Sum Score Multi Timeframe Final View -----------\n {__df}"
+        logger.info(
+            "----------- %s Cloud and TKx Sum Score Multi Timeframe Final View -----------\n%s",
+            self.html_title,
+            __df,
         )
         return __df
 
@@ -152,7 +158,7 @@ class View(object):
     def generate_html(self, csv_file_path: str, html_title: str):
         table_generator = TableGenerator(csv_file_path)
         html_table = table_generator.generate_html_table(html_title)
-        print("generate_html", csv_file_path)
+        logger.info("generate_html %s", csv_file_path)
         table_generator.save_html_table(html_table, csv_file_path + ".html")
         # table_generator.display_html_table_jupyter(csv_file_path + ".html")
 

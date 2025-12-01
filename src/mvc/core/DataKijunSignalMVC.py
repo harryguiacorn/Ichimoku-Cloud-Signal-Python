@@ -1,5 +1,7 @@
 import pandas as pd
 from abc import abstractclassmethod, ABC
+import logging
+logger = logging.getLogger(__name__)
 
 
 class DataOHLC(ABC):
@@ -26,7 +28,7 @@ class DataKijunSignal(DataOHLC):
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
             if __data.empty:  # Check if the DataFrame is empty
-                print("CSV file is empty", __path)
+                logger.info("CSV file is empty", __path)
             else:
                 # print(__path)
                 # print(__data.Datetime)
@@ -58,9 +60,9 @@ class DataKijunSignal(DataOHLC):
                 self.setColumnsSaveCsv_use_datetime_format(__data)
                 # print(__data)
         except pd.errors.EmptyDataError:
-            print("CSV file is empty", __path)
+            logger.info("CSV file is empty", __path)
         except FileNotFoundError:
-            print(f"Error: {__path} not found")
+            logger.info(f"Error: {__path} not found")
 
     def setupPd(self, csvSuffix="_kijun.csv", folderPath="data/"):
         # pd.set_option("display.max_rows", None)  # print every row for debug
@@ -71,7 +73,7 @@ class DataKijunSignal(DataOHLC):
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
             if __data.empty:  # Check if the DataFrame is empty
-                print("CSV file is empty", __path)
+                logger.info("CSV file is empty", __path)
             else:
                 # print(__data.Date)
                 __data.index = __data.Date
@@ -100,9 +102,9 @@ class DataKijunSignal(DataOHLC):
 
                 self.setColumnsSaveCsv(__data)
         except pd.errors.EmptyDataError:
-            print("CSV file is empty", __path)
+            logger.info("CSV file is empty", __path)
         except FileNotFoundError:
-            print(f"Error: {__path} not found")
+            logger.info(f"Error: {__path} not found")
 
     def getKijunSignalCount(self, __kijunDirectionList):
         __newList = []
@@ -233,7 +235,7 @@ class Model(object):
                 __df = pd.read_csv(__filePath)
                 __dict_df[__symbol] = __df
             except FileNotFoundError:
-                print(f"Error: {__filePath} not found")
+                logger.info(f"Error: {__filePath} not found")
                 continue
         return __dict_df
 
@@ -247,7 +249,7 @@ class Model(object):
                 __symbol, self.csvPath, self.use_datetime_format
             )
             dataP.main()
-        print("Kijun count csv files are created\n")
+        logger.info("Kijun count csv files are created\n")
 
 
 class Control(object):
@@ -272,7 +274,7 @@ class Control(object):
         self.model.getIndividualSymbolData()
 
     def main(self):
-        print("-------- Generating Kijun Signals --------")
+        logger.info("-------- Generating Kijun Signals --------")
         self.getAssetList()
         self.getBatchLocalData()
         self.getIndividualSymbolData()

@@ -3,6 +3,8 @@ import requests
 import json
 import time
 from src.mvc import Util
+import logging
+logger = logging.getLogger(__name__)
 
 
 # Define the Model class
@@ -50,7 +52,7 @@ class Model:
         return self.df
 
     def fetch_data(self):
-        print(
+        logger.info(
             "\n--------- fetch_data ---------",
             self.instrument,
             self.time_frame,
@@ -77,7 +79,7 @@ class Model:
             return True
 
         if self.response.status_code == 429:
-            print(
+            logger.info(
                 f'Error: 429 Bitfinex API Limitation, Retry after {int(self.response.headers["Retry-After"])} secs.'
             )
             time.sleep(int(self.response.headers["Retry-After"]))
@@ -124,7 +126,7 @@ class View:
 
     def show_data(self, df: pd.DataFrame):
         # Print the DataFrame
-        print("--------- show_data head ---------\n", df.head(2))
+        logger.info("--------- show_data head ---------\n", df.head(2))
 
 
 # Define the Controller class
@@ -145,7 +147,7 @@ class Controller:
             self.view.show_data(self.model.df)
         else:
             # Print the error message and break the loop
-            print(f"Error: {self.model.response.status_code}")
+            logger.info(f"Error: {self.model.response.status_code}")
 
     def save_json(self, filePath="data.json"):
         self.model.save_json(filePath)

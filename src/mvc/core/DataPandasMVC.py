@@ -6,6 +6,9 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import yfinance as yf
 from src.mvc import Util
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class Model(object):
@@ -82,9 +85,9 @@ class Model(object):
         # Remove any slashes from the 'symbol' column
         df[__colName] = df[__colName].str.replace("/", "", regex=False)
 
-        print("----------- Reading symbols -----------")
-        print("readAssetList path:", __csvPath, end="\n")
-        print(df.values.ravel().tolist(), end="\n\n")
+        logger.info("----------- Reading symbols -----------")
+        logger.info("readAssetList path: %s", __csvPath)
+        logger.debug(df.values.ravel().tolist())
         # print(df[__colName])
         l_symbol = df[__colName].tolist()
         self.symbols = l_symbol
@@ -93,8 +96,13 @@ class Model(object):
     def getDataOHLC(self):
         # __dict_lookbackPeriodConvertInt = {'h': 1, 'd': 1, 'w': 7, 'm': 31}
         if self.bGetLatestDataFromYahoo:
-            print("----------- Downloading from Yahoo -----------")
-            print(self.symbols, self.lookbackPeriod, self.interval)
+            logger.info("----------- Downloading from Yahoo -----------")
+            logger.debug(
+                "symbols=%s lookback=%s interval=%s",
+                self.symbols,
+                self.lookbackPeriod,
+                self.interval,
+            )
             # method 1. grab latest data from yahoo finance
             # using Pandas Datareader (now defunct)
             self.dataOHLC = self.getLatestDataFromYahooByYFinance(
@@ -106,7 +114,7 @@ class Model(object):
             # prevent IP getting blocked by Yahoo servers
             self.dataOHLC = self.readLocalCsvData(self.symbols, self.csvPath)
             return self.dataOHLC
-        print("csv files are downloaded")
+        logger.info("csv files are downloaded")
 
     def getLatestDataFromYahooByYFinance(
         self, symbols, __lookbackPeriods, __interval
@@ -114,8 +122,8 @@ class Model(object):
         __dict_df = {}
         for __symbol in symbols:
             try:
-                print(
-                    "getLatestDataFromYahooByYFinance download",
+                logger.info(
+                    "getLatestDataFromYahooByYFinance download %s %s %s",
                     __symbol,
                     __lookbackPeriods,
                     __interval,
@@ -136,10 +144,12 @@ class Model(object):
 
                 __path = self.csvPath + __symbol + ".csv"
                 df_dropped_rows.to_csv(__path)
-                print(f"{symbols.index(__symbol)} {__symbol} -> {__path}")
+                logger.info(
+                    "%s %s -> %s", symbols.index(__symbol), __symbol, __path
+                )
             except Exception as e:
                 # raise Exception("Error: ", __symbol, " e.args: ",e.args)
-                print(f"Error: {__symbol}: {e.args}")
+                logger.error("Error: %s: %s", __symbol, e.args)
                 continue
         return __dict_df
 
@@ -162,10 +172,12 @@ class Model(object):
                 __dict_df[__symbol] = data
                 __path = self.csvPath + __symbol + ".csv"
                 data.to_csv(__path)
-                print(f"{symbols.index(__symbol)} {__symbol} -> {__path}")
+                logger.info(
+                    "%s %s -> %s", symbols.index(__symbol), __symbol, __path
+                )
             except Exception as e:
                 # raise Exception("Error: ", __symbol, " e.args: ",e.args)
-                print(f"Error: {__symbol}: {e.args}")
+                logger.error("Error: %s: %s", __symbol, e.args)
                 continue
         return __dict_df
 
@@ -177,15 +189,15 @@ class Model(object):
                 __df = pd.read_csv(__filePath)
                 __dict_df[__symbol] = __df
             except FileNotFoundError:
-                print(f"Error: {__filePath} not found")
+                logger.warning("Error: %s not found", __filePath)
                 continue
         return __dict_df
 
     def createIchimokuData(self):
-        print("\n----------- Creating Ichimoku Data -----------")
+        logger.info("\n----------- Creating Ichimoku Data -----------")
         # method 1. create Ichimoku data using tapy
         DictDataIchinokuTapy = self.createIchimokuDataTapy(self.dataOHLC)
-        print("Ichimoku columns added to csv\n")
+        logger.info("Ichimoku columns added to csv")
         # method 2. alternative method to
         # add ichimoku columns to csv using finta
         # self.createIchimokuDataFinta(DictData)
@@ -352,7 +364,7 @@ class Control(object):
 
 
 if __name__ == "__main__":
-    print("------ __main__ -----")
+    logger.info("------ __main__ -----")
     # _model = Model(
     #     "data/futurescurrency/d/",
     #     "asset_list/FuturesCurrency.csv",

@@ -1,6 +1,8 @@
 import pandas as pd
 import requests
 import io
+import logging
+logger = logging.getLogger(__name__)
 
 
 class Model(object):
@@ -20,7 +22,7 @@ class Model(object):
         self.__df_list = __df_list
 
     def readHtml(self):
-        print("Reading symbols from source: ", self.url)
+        logger.info("Reading symbols from source: ", self.url)
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
         }
@@ -32,11 +34,11 @@ class Model(object):
             self.df_list = pd.read_html(
                 html_string_io, match=self.readHtmlMatch
             )[0]
-            print("Reading symbols from source: ", self.url)
-            print(f"Total symbols: {len(self.df_list)}")
+            logger.info("Reading symbols from source: ", self.url)
+            logger.info(f"Total symbols: {len(self.df_list)}")
             return self.df_list
         except Exception as e:
-            print(f"Error reading HTML: {e}")
+            logger.info(f"Error reading HTML: {e}")
             raise
 
     def cleanData(self):
@@ -59,7 +61,7 @@ class Model(object):
     def saveData(self):
         # print(type(self.df))
         __columns = ["symbol", "name"]
-        print("Table:\n", self.df[__columns])
+        logger.info("Table:\n", self.df[__columns])
         self.df.to_csv(self.fileNameCSV, columns=__columns, index=False)
         return self.df[__columns]
 

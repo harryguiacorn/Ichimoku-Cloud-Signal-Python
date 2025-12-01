@@ -6,6 +6,9 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from src.mvc import Util
 from src.mvc.core.oanda.DataOandaAPI import DataOandaAPI
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class Model(object):
@@ -83,9 +86,9 @@ class Model(object):
         # Remove any slashes from the 'symbol' column
         df[__colName] = df[__colName].str.replace("/", "", regex=False)
 
-        print(f"----------- Reading symbols for {self.interval} -----------")
-        print("readAssetList path:", __csvPath, end="\n")
-        print(df.to_string(), sep=",", end="\n\n")
+        logger.info("Reading symbols for %s", self.interval)
+        logger.debug("readAssetList path: %s", __csvPath)
+        logger.debug("%s", df.to_string())
         # print(df[__colName])
         l_symbol = df[__colName].tolist()
         self.symbols = l_symbol
@@ -94,7 +97,7 @@ class Model(object):
     def getDataOHLC(self):
         # __dict_lookbackPeriodConvertInt = {'h': 1, 'd': 1, 'w': 7, 'm': 31}
         if self.bGetLatestDataFromOanda:
-            print("----------- Downloading from Oanda API -----------")
+            logger.info("Downloading from Oanda API")
             # print(
             #     "getDataOHLC: ",
             #     self.symbols,
@@ -128,20 +131,17 @@ class Model(object):
                 api.save_json(__path_csv, data_json)
                 __path_json = self.csvPath + __symbol + ".csv"
                 data_df = api.json_to_csv(data_json, __path_json)
-                
 
                 # print("+++++++ data_df +++++++", data_df)
                 __dict_df[__symbol] = data_df
                 # print(f"{symbols.index(__symbol)} {__symbol} -> {__path}")
             except Exception as e:
-                # raise Exception("Error: ", __symbol, " e.args: ",e.args)
-                print(f"Error getLatestDataFromOandaAPI: {__symbol}: {e.args}")
+                logger.exception(
+                    "Error getLatestDataFromOandaAPI: %s: %s", __symbol, e
+                )
                 continue
-            print(
-                "Download completed. Saved in:",
-                __path_csv,
-                __path_json,
-                end="\n",
+            logger.info(
+                "Download completed. Saved in: %s %s", __path_csv, __path_json
             )
         return __dict_df
 
@@ -153,15 +153,16 @@ class Model(object):
                 __df = pd.read_csv(__filePath)
                 __dict_df[__symbol] = __df
             except FileNotFoundError:
-                print(f"Error: {__filePath} not found")
+                logger.warning("File not found: %s", __filePath)
+                continue
                 continue
         return __dict_df
 
     def createIchimokuData(self):
-        print("\n----------- Creating Ichimoku Data (Oanda) -----------")
+        logger.info("Creating Ichimoku Data (Oanda)")
         # method 1. create Ichimoku data using tapy
         DictDataIchinokuTapy = self.createIchimokuDataTapy(self.dataOHLC)
-        print("Ichimoku columns added to csv\n")
+        logger.info("Ichimoku columns added to csv")
         # method 2. alternative method to
         # add ichimoku columns to csv using finta
         # self.createIchimokuDataFinta(DictData)
@@ -174,12 +175,14 @@ class Model(object):
         __dict_df_ichimoku = {}
         for __key, __df in __dict_df.items():
             # initialising indicators
-            # print("-------- createIchimokuDataTapy --------\n", __df)
+            # logger.debug("createIchimokuDataTapy: %s", __df)
             __i = Indicators(__df)
             __i.ichimoku_kinko_hyo()  # column_name_kijun_sen="K Line"
-            __dataCloud : pd.DataFrame= __i.df
+            __dataCloud: pd.DataFrame = __i.df
             __dict_df_ichimoku[__key] = __dataCloud
-            __dataCloud.to_csv(self.csvPath + __key + "_ichimokuTapy.csv", index= False)
+            __dataCloud.to_csv(
+                self.csvPath + __key + "_ichimokuTapy.csv", index=False
+            )
         return __dict_df_ichimoku
 
     # create Ichimoku data using finta, this is the alternative option
@@ -328,7 +331,7 @@ class Control(object):
 
 
 if __name__ == "__main__":
-    print("------ __main__ -----")
+    logger.info("__main__ starting DataPandasOandaMVC")
     # _model = Model(
     #     "data/futurescurrency/d/",
     #     "asset_list/FuturesCurrency.csv",
