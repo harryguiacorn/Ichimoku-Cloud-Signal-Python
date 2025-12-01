@@ -85,11 +85,7 @@ class Model(object):
                 # get latest direction sits at the bottom of dataframe
                 __colSize = __value["Kijun Direction"].size
                 logger.info(
-                    "[symbol:",
-                    __symbol,
-                    ", entries:",
-                    __colSize,
-                    "]",
+                    f"[symbol:{__symbol} entries:{__colSize}]",
                 )
                 #  check if column for signals is empty
                 # when yahoo receives empty data
