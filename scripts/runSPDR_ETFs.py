@@ -27,6 +27,7 @@ import logging
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)s %(name)s: %(message)s",
+    filemode="w",
 )
 logger = logging.getLogger(__name__)
 
@@ -65,7 +66,7 @@ def main(
     run_Multi_TimeFrame_Merger_SPDR_ETFS=run_Multi_TimeFrame_Merger_SPDR_ETFS,
     fetch_kicker=fetch_kicker,
 ):
-    # ---------------- Dow Jones 30 ----------------
+    # ---------------- SPDR ETFs ----------------
 
     london_tz_start = timezone("Europe/London")
     time_start = datetime.now(london_tz_start)

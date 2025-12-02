@@ -3,7 +3,9 @@ import logging
 from scripts import runNas100 as _module
 
 logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s"
+    level=logging.INFO,
+    format="%(asctime)s %(levelname)s %(message)s",
+    filemode="w",
 )
 logger = logging.getLogger(__name__)
 
