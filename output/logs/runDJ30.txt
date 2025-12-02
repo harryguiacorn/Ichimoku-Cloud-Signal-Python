@@ -1558,3 +1558,48 @@
 2025-12-01 21:51:32,970 INFO src.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: generate_html output/sum/DowJones30-sum-cloud-tkx-merged.csv
 2025-12-01 21:51:32,971 INFO src.mvc.html_creator: HTML data table saved at output/sum/DowJones30-sum-cloud-tkx-merged.csv.html
 2025-12-01 21:51:32,971 INFO scripts.runDJ30: Dow Jones 30 tasks completed at 2025-12-01 21:51:32 [UK] (Time elapsed: 0:02:10.766349)
+2025-12-02 01:42:21,764 INFO __main__: Shim: launching scripts.runDJ30
+2025-12-02 01:42:21,886 INFO scripts.runDJ30: Dow Jones 30 task begins at: 2025-12-02 01:42:21 [UK]
+2025-12-02 01:42:21,887 INFO src.mvc.controllers.GetSymbolDowJones30: Reading symbols from source: https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average#Components
+2025-12-02 01:42:22,461 INFO src.mvc.controllers.GetSymbolDowJones30: Reading symbols from source: https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average#Components
+2025-12-02 01:42:22,462 INFO src.mvc.controllers.GetSymbolDowJones30: Total symbols: 30
+2025-12-02 01:42:22,469 INFO src.mvc.controllers.GetSymbolDowJones30: Table:
+   symbol                       name
+0     MMM                         3M
+1     AXP           American Express
+2    AMGN                      Amgen
+3    AMZN                     Amazon
+4    AAPL                      Apple
+5      BA                     Boeing
+6     CAT                Caterpillar
+7     CVX                    Chevron
+8    CSCO                      Cisco
+9      KO                  Coca-Cola
+10    DIS                     Disney
+11     GS              Goldman Sachs
+12     HD                 Home Depot
+13    HON                  Honeywell
+14    IBM                        IBM
+15    JNJ          Johnson & Johnson
+16    JPM             JPMorgan Chase
+17    MCD                 McDonald's
+18    MRK                      Merck
+19   MSFT                  Microsoft
+20    NKE                       Nike
+21   NVDA                     Nvidia
+22     PG           Procter & Gamble
+23    CRM                 Salesforce
+24    SHW           Sherwin-Williams
+25    TRV  Travelers Companies, Inc.
+26    UNH         UnitedHealth Group
+27     VZ                    Verizon
+28      V                       Visa
+29    WMT                    Walmart
+2025-12-02 01:42:22,485 INFO src.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
+2025-12-02 01:42:22,486 INFO src.mvc.core.DataPandasMVC: readAssetList path: asset_list/DowJones30.csv
+2025-12-02 01:42:22,486 INFO src.mvc.core.DataPandasMVC: ----------- Downloading from Yahoo -----------
+2025-12-02 01:42:22,487 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download MMM 1y 1h
+2025-12-02 01:42:23,368 INFO src.mvc.core.DataPandasMVC: 0 MMM -> data/dowjones30/1h/MMM.csv
+2025-12-02 01:42:23,369 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download AXP 1y 1h
+2025-12-02 01:42:23,830 INFO src.mvc.core.DataPandasMVC: 1 AXP -> data/dowjones30/1h/AXP.csv
+2025-12-02 01:42:23,831 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download AMGN 1y 1h
