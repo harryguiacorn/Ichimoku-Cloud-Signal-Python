@@ -60,13 +60,11 @@ class DataCloudSignal(DataOHLC):
             __data = __data.drop(__data.index[0])
 
             logger.info(
-                "%s - Incorrect format detected and corrected.", self.symbol
-            )
+                f"{self.symbol} - Incorrect format detected and corrected.")
 
         else:
             logger.info(
-                "%s - File is already in the correct format.", self.symbol
-            )
+                f"{self.symbol} - File is already in the correct format.")
 
         # Display the resulting DataFrame
         # print(__data)

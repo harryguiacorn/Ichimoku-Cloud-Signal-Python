@@ -21,12 +21,12 @@ class Model(object):
 
     def merge(self) -> pd.DataFrame:
         logger.info(
-            "------------- Merging Multi Timeframe Cloud -------------"
+            f"------------- Merging Multi Timeframe Cloud -------------"
         )
 
         list_pd = self.outputPathList
 
-        logger.info("Check files for merging: ", list_pd)
+        logger.info(f"Check files for merging: {list_pd}")
 
         # check to see if files exist before parsing to Pandas
         list_pd_exist = iter([x for x in list_pd if Util.file_exists(x)])
@@ -35,7 +35,7 @@ class Model(object):
         combined_csv = pd.DataFrame()
 
         for x in list_pd_exist:
-            logger.info("merge path::", x)
+            logger.info(f"merge path:{x}")
 
             df_csv_each = pd.read_csv(x)
 
@@ -65,16 +65,14 @@ class Model(object):
                     df_csv_each,
                     on=["Symbol", "Name"],  # , "Close"
                 )
-            logger.info("merge::df_csv1::\n", df_csv_each)
-            logger.info("merge::combined_csv::\n", combined_csv, "\n")
+            logger.info(f"merge::df_csv1::\n{df_csv_each}")
+            logger.info(f"merge::combined_csv::\n {combined_csv} \n")
 
         logger.info(
-            "Multi Timeframe Cloud Signals Merged: ",
-            self.outputMergePath,
-            "\n\n",
+            f"Multi Timeframe Cloud Signals Merged: {self.outputMergePath}"
         )
-        logger.info("combined_csv size::", combined_csv.shape)
-        logger.info("combined_csv::\n", combined_csv)
+        logger.info(f"combined_csv size::{combined_csv.shape}")
+        logger.info(f"combined_csv::\n{combined_csv}")
 
         return combined_csv
 
@@ -109,7 +107,7 @@ class Model(object):
         __filter_list_column.insert(0, "Symbol")
         __filter_list_column.insert(1, "Name")
         __filter_list_column.insert(2, "Close")
-        logger.info("Available columns: ", __filter_list_column)
+        logger.info(f"Available columns: {__filter_list_column}")
 
         # Filter columns based on the list of column names
         # print(__df)
@@ -129,8 +127,7 @@ class Model(object):
             f"Saved data to: {self.outputMergePath} {self.outputMergePath}.html\n"
         )
         logger.info(
-            "----------- Cloud Score Multi Timeframe Final View -----------\n",
-            __df,
+            f"----------- Cloud Score Multi Timeframe Final View -----------\n {__df}"
         )
         return __df
 
@@ -141,34 +138,23 @@ class Model(object):
         if set(list_for_merge).issubset(df.columns):
             df[name_sum] = df[list_for_merge[0]] * df[list_for_merge[1]]
             logger.info(
-                "Columns exist:",
-                list_for_merge,
-                # df[name_sum],
-                # df[list_for_merge[0]],
-                # df[list_for_merge[1]],
-                # sep=", ",
-                "\n",
+                f"Columns exist: {list_for_merge}",
             )
         else:
-            logger.info("Columns missing:", list_for_merge, "\n")
-            # df[name_sum] = 0
+            f"Columns missing: {list_for_merge}",
+        # df[name_sum] = 0
         return df
 
     def create_score_columns(self, df: pd.DataFrame):
         for i, __list in enumerate(self.list_direction_count_names):
             df = self.create_score_column(df, __list, self.list_score_names[i])
         logger.info(
-            "\n-------------------- Cloud Score Multi Timeframe Raw --------------------\n",
-            df,
-            "\n\n",
+            f"\n-------------------- Cloud Score Multi Timeframe Raw --------------------\n {df}"
         )
 
     def create_sum_column(self, df: pd.DataFrame):
         logger.info(
-            "create_sum_column self.list_score_names: ",
-            self.list_score_names,
-            "\ncreate_sum_column df.columns",
-            df.columns,
+            f"create_sum_column self.list_score_names: {self.list_score_names} \ncreate_sum_column df.columns {df.columns}"
         )
         __sum = 0
         for __name in self.list_score_names:

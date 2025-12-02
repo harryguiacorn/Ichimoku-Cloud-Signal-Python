@@ -100,7 +100,7 @@ class Model(object):
                 __date = __value["Date"].iloc[-1]
 
             except KeyError as e:
-                logger.info("------ KeyError ------", e.args)
+                logger.info(f"------ KeyError ------{e.args}")
                 continue
             else:
                 list_temp = []
@@ -139,7 +139,7 @@ class Model(object):
                 __date = __value["Datetime"].iloc[-1]
 
             except KeyError as e:
-                logger.info("------ KeyError ------", e.args)
+                logger.info(f"------ KeyError ------{e.args}")
                 continue
             else:
                 list_temp = []
@@ -204,8 +204,7 @@ class Control(object):
 
     def getData(self):
         logger.info(
-            "self.model.use_datetime_format::", self.model.use_datetime_format
-        )
+            f"self.model.use_datetime_format::{self.model.use_datetime_format}")
         if self.model.use_datetime_format is False:
             return self.model.getLatestResultFromEachDataFrame()
         else:

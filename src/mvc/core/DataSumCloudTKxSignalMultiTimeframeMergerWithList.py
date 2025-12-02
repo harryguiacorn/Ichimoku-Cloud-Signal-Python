@@ -26,16 +26,10 @@ class Model(object):
         )
 
         logger.info(
-            "Check symbol file for merging:",
-            self.symbolPathList,
-            "exist:",
-            Util.file_exists(self.symbolPathList),
+            f"Check symbol file for merging: {self.symbolPathList} exist:{Util.file_exists(self.symbolPathList)}"
         )
         logger.info(
-            "Check data file for merging:",
-            self.dataFilePathList,
-            "exist:",
-            Util.file_exists(self.dataFilePathList),
+            f"Check data file for merging: {self.dataFilePathList} exist: {Util.file_exists(self.dataFilePathList)}"
         )
 
         # Load the two CSV files into dataframes
@@ -52,7 +46,7 @@ class Model(object):
             self.dataFilePathList
         )  # CSV with additional data
 
-        logger.info("Data:\n", df_data)
+        logger.info(f"Data:\n{df_data}")
 
         # # Assuming the stock symbol is in a column named 'symbol' in both dataframes
         # # Perform a merge to match rows based on the 'symbol' column
@@ -66,10 +60,7 @@ class Model(object):
         # Merge the dataframes on the 'Symbol' column
         df_merged = pd.merge(df_symbols, df_data, on="Symbol", how="inner")
 
-        logger.info(
-            "Multi Timeframe Cloud and TKx Signals Merged",
-            "\n\n",
-        )
+        logger.info(f"Multi Timeframe Cloud and TKx Signals Merged\n\n")
 
         logger.info(f"{self.symbolPathList}\n{df_merged}")
 
@@ -104,8 +95,8 @@ class Model(object):
             filepath_without_filename,
             filename_with_extension,
         ) = Util.split_filepath(self.outputMergePath)
-        logger.info("File path without filename:", filepath_without_filename)
-        logger.info("File name with extension:", filename_with_extension)
+        logger.info(f"File path without filename:{filepath_without_filename}")
+        logger.info(f"File name with extension:{filename_with_extension}")
 
         Util.create_folder(filepath_without_filename)
 
@@ -161,7 +152,7 @@ class View(object):
     def generate_html(self, csv_file_path: str, html_title: str):
         table_generator = TableGenerator(csv_file_path)
         html_table = table_generator.generate_html_table(html_title)
-        logger.info("generate_html", csv_file_path)
+        logger.info(f"generate_html{csv_file_path}")
         table_generator.save_html_table(html_table, csv_file_path + ".html")
         # table_generator.display_html_table_jupyter(csv_file_path + ".html")
 

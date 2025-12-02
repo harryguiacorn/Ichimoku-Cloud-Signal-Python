@@ -86,7 +86,7 @@ class Model(object):
         df[__colName] = df[__colName].str.replace("/", "", regex=False)
 
         logger.info("----------- Reading symbols -----------")
-        logger.info("readAssetList path: %s", __csvPath)
+        logger.info(f"readAssetList path: {__csvPath}")
         logger.debug(df.values.ravel().tolist())
         # print(df[__colName])
         l_symbol = df[__colName].tolist()

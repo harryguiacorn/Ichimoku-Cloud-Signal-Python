@@ -50,7 +50,7 @@ class Model(object):
                 )
 
         logger.info(
-            "Multi Timeframe TKx Signals Merged: %s", self.outputMergePath
+            f"Multi Timeframe TKx Signals Merged: {self.outputMergePath}"
         )
 
         # print(combined_csv)
@@ -103,14 +103,10 @@ class Model(object):
         if save_to_html:
             __df.to_html(f"{self.outputMergePath}.html", index=False)
 
+        logger.info(f"Saved data to: {self.outputMergePath}.html")
+
         logger.info(
-            "Saved data to: %s %s.html",
-            self.outputMergePath,
-            self.outputMergePath,
-        )
-        logger.info(
-            "----------- TKx Score Multi Timeframe Final View -----------\n%s",
-            __df,
+            f"----------- TKx Score Multi Timeframe Final View -----------\n%s {__df}"
         )
         return __df
 
@@ -120,7 +116,7 @@ class Model(object):
         # check if a list of columns for TKx direction or Count exists in df.
         if set(list_for_merge).issubset(df.columns):
             df[name_sum] = df[list_for_merge[0]] * df[list_for_merge[1]]
-            logger.info("Columns exist: %s", list_for_merge)
+            logger.info(f"Columns exist: {list_for_merge}")
         else:
             logger.warning("Columns missing: %s", list_for_merge)
             # df[name_sum] = 0
@@ -130,8 +126,7 @@ class Model(object):
         for i, __list in enumerate(self.list_direction_count_names):
             df = self.create_score_column(df, __list, self.list_score_names[i])
         logger.info(
-            "-------------------- TKx Score Multi Timeframe Raw --------------------\n%s",
-            df,
+            f"-------------------- TKx Score Multi Timeframe Raw --------------------\n%s {df}"
         )
 
     def create_sum_column(self, df: pd.DataFrame):

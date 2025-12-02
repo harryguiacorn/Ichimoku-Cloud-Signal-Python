@@ -4,6 +4,7 @@ import json
 import time
 from src.mvc import Util
 import logging
+
 logger = logging.getLogger(__name__)
 
 
@@ -53,11 +54,9 @@ class Model:
 
     def fetch_data(self):
         logger.info(
-            "\n--------- fetch_data ---------",
-            self.instrument,
-            self.time_frame,
-            self.lookbackPeriod,
+            f"\n--------- fetch_data --------- {self.instrument} {self.time_frame} {self.lookbackPeriod}"
         )
+
         # Make a GET request to the API with the parameters
         self.response = requests.get(
             self.base_url + self.endpoint, params=self.params
@@ -126,7 +125,7 @@ class View:
 
     def show_data(self, df: pd.DataFrame):
         # Print the DataFrame
-        logger.info("--------- show_data head ---------\n", df.head(2))
+        logger.info(f"--------- show_data head ---------\n{df.head(2)}")
 
 
 # Define the Controller class

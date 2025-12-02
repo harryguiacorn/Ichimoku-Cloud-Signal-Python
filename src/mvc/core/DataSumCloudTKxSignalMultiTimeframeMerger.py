@@ -23,7 +23,7 @@ class Model(object):
 
     def merge(self) -> pd.DataFrame:
         logger.info(
-            "\n------------- Merging Multi Timeframe Cloud and TKx Sum -------------"
+            f"\n------------- Merging Multi Timeframe Cloud and TKx Sum -------------"
         )
 
         list_pd = self.outputPathList
@@ -105,13 +105,12 @@ class Model(object):
             __df.to_html(f"{self.outputMergePath}.html", index=False)
 
         logger.info(
-            "Saved data to: %s %s.html",
+            f"Saved data to: %s %s.html",
             self.outputMergePath,
             self.outputMergePath,
         )
         logger.info(
-            "----------- Cloud and TKx Sum Score Multi Timeframe Final View -----------\n%s",
-            __df,
+            f"----------- Cloud and TKx Sum Score Multi Timeframe Final View -----------\n%s {__df}"
         )
         return __df
 
@@ -170,7 +169,7 @@ class View(object):
     def generate_html(self, csv_file_path: str, html_title: str):
         table_generator = TableGenerator(csv_file_path)
         html_table = table_generator.generate_html_table(html_title)
-        logger.info("generate_html %s", csv_file_path)
+        logger.info(f"generate_html {csv_file_path}")
         table_generator.save_html_table(html_table, csv_file_path + ".html")
         # table_generator.display_html_table_jupyter(csv_file_path + ".html")
 

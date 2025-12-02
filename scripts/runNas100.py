@@ -61,7 +61,7 @@ def main(
     london_tz_start = timezone("Europe/London")
     time_start = datetime.now(london_tz_start)
     time_start_formatted = time_start.strftime("%Y-%m-%d %H:%M:%S")
-    logger.info("Nasdaq 100 task begins at: %s [UK]", time_start_formatted)
+    logger.info(f"Nasdaq 100 task begins at: {time_start_formatted} [UK]")
 
     # ---------------- Nasdaq 100 ----------------
 

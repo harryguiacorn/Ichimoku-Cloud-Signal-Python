@@ -58,11 +58,11 @@ class DataTKxSignal(DataOHLC):
             __data = __data.drop(__data.index[0])
 
             logger.info(
-                "%s - Incorrect format detected and corrected.", self.symbol
+                f"{self.symbol} - Incorrect format detected and corrected."
             )
         else:
             logger.info(
-                "%s - File is already in the correct format.", self.symbol
+                f"{self.symbol} - File is already in the correct format."
             )
 
         # Display the resulting DataFrame
@@ -318,9 +318,7 @@ class Model(object):
 
     def readAssetList(self, __csvPath, __colName="symbol"):
         logger.info(
-            "-------------------- Generating TKx Signals from %s %s --------------------",
-            self.csvPath,
-            __csvPath,
+            f"-------------------- Generating TKx Signals from %s %s --------------------{self.csvPath}{__csvPath}"
         )
         df = pd.read_csv(__csvPath)
 

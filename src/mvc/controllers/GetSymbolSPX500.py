@@ -125,7 +125,7 @@ class Model(object):
         __columns = ["symbol", "name"]
         # print(type(self.df))
         # print(self.df)
-        self.logger.info("Saving table to %s", self.fileNameCSV)
+        self.logger.info(f"Saving table to {self.fileNameCSV}")
         self.logger.debug(
             "Table:\n%s", self.df[__columns].head(20).to_string()
         )

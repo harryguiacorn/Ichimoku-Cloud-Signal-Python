@@ -60,11 +60,7 @@ class Model:
         url = self.base_url + self.endpoint
 
         logger.info(
-            "fetch_data: instrument=%s time_frame=%s lookback=%s url=%s",
-            self.instrument,
-            self.time_frame,
-            self.lookbackPeriod,
-            url,
+            f"fetch_data: instrument={self.instrument} time_frame={self.time_frame} lookback={self.lookbackPeriod} url={url}"
         )
         payload = {}
         headers = {"Accept": "application/json"}
@@ -113,7 +109,7 @@ class Model:
         # Save data to a JSON file
         with open(filePath, "w") as f:
             json.dump(self.get_data(), f)
-        logger.info("Saved json to %s", filePath)
+        logger.info(f"Saved json to {filePath}")
 
     def save_csv(self, filePath="data.csv"):
         # print(
@@ -123,7 +119,7 @@ class Model:
         #     self.df,
         # )
         self.df.to_csv(filePath)
-        logger.info("Saved csv to %s", filePath)
+        logger.info(f"Saved csv to {filePath}")
 
     def set_data(self, data):
         # Convert the data list to a pandas DataFrame

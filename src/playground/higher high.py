@@ -33,4 +33,4 @@ for i in range(1, len(df) - 1):
 output_file = "output/apple_stock_daily_high_difference_kicker.csv"
 df.to_csv(output_file)
 
-logger.info("Data saved to %s", output_file)
+logger.info(f"Data saved to {output_file}")

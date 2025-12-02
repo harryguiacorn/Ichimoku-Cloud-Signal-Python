@@ -2,6 +2,7 @@ import pandas as pd
 import requests
 import io
 import logging
+
 logger = logging.getLogger(__name__)
 
 
@@ -22,7 +23,7 @@ class Model(object):
         self.__df_list = __df_list
 
     def readHtml(self):
-        logger.info("Reading symbols from source: ", self.url)
+        logger.info(f"Reading symbols from source: {self.url}")
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
         }
@@ -43,7 +44,7 @@ class Model(object):
                     self.df_list = df
                     break
 
-            logger.info("Reading symbols from source: ", self.url)
+            logger.info(f"Reading symbols from source: {self.url}")
             logger.info(f"Total symbols: {len(self.df_list)}")
             return self.df_list
         except requests.exceptions.RequestException as e:
@@ -66,7 +67,7 @@ class Model(object):
         __columns = ["symbol", "name"]
         # print(type(self.df))
         # print(self.df)
-        logger.info("Table:\n", self.df[__columns])
+        logger.info(f"Table:\n{self.df[__columns]}")
         self.df.to_csv(self.fileNameCSV, columns=__columns, index=False)
         return self.df[__columns]
 

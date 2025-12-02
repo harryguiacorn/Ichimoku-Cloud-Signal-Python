@@ -22,20 +22,14 @@ class Model(object):
 
     def merge(self) -> pd.DataFrame:
         logger.info(
-            "\n------------- Merging %s Symbols with %s Multi Timeframe Cloud and TKx Sum -------------",
-            self.html_title,
-            self.dataFilePathList,
+            f"\n------------- Merging %s Symbols with %s Multi Timeframe Cloud and TKx Sum ------------- {self.html_title} {self.dataFilePathList}"
         )
 
         logger.debug(
-            "Check symbol file for merging: %s exist: %s",
-            self.symbolPathList,
-            Util.file_exists(self.symbolPathList),
+            f"Check symbol file for merging: %s exist: %s {self.symbolPathList} {Util.file_exists(self.symbolPathList)}"
         )
         logger.debug(
-            "Check data file for merging: %s exist: %s",
-            self.dataFilePathList,
-            Util.file_exists(self.dataFilePathList),
+            f"Check data file for merging: %s exist: %s {self.dataFilePathList} {Util.file_exists(self.dataFilePathList)}"
         )
 
         # Load the two CSV files into dataframes
@@ -111,15 +105,9 @@ class Model(object):
         if save_to_html:
             __df.to_html(f"{self.outputMergePath}.html", index=False)
 
+        logger.info(f"Saved data to: {self.outputMergePath}.html")
         logger.info(
-            "Saved data to: %s %s.html",
-            self.outputMergePath,
-            self.outputMergePath,
-        )
-        logger.info(
-            "----------- %s Cloud and TKx Sum Score Multi Timeframe Final View -----------\n%s",
-            self.html_title,
-            __df,
+            f"----------- %s Cloud and TKx Sum Score Multi Timeframe Final View -----------\n%s {self.html_title} {__df}"
         )
         return __df
 
@@ -158,7 +146,7 @@ class View(object):
     def generate_html(self, csv_file_path: str, html_title: str):
         table_generator = TableGenerator(csv_file_path)
         html_table = table_generator.generate_html_table(html_title)
-        logger.info("generate_html %s", csv_file_path)
+        logger.info(f"generate_html {csv_file_path}")
         table_generator.save_html_table(html_table, csv_file_path + ".html")
         # table_generator.display_html_table_jupyter(csv_file_path + ".html")
 

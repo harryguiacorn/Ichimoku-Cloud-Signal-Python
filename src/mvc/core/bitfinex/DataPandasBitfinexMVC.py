@@ -12,6 +12,7 @@ from src.mvc.core.bitfinex.DataBitfinexAPI import (
     Controller as DataBitfinexAPI_Controller,
 )
 import logging
+
 logger = logging.getLogger(__name__)
 
 
@@ -90,9 +91,11 @@ class Model(object):
         # Remove any slashes from the 'symbol' column
         df[__colName] = df[__colName].str.replace("/", "", regex=False)
 
-        logger.info(f"----------- Reading symbols for {self.interval} -----------")
-        logger.info("readAssetList path:", __csvPath, "\n")
-        logger.info(df.to_string(), sep=",", "\n\n")
+        logger.info(
+            f"----------- Reading symbols for {self.interval} -----------"
+        )
+        logger.info(f"readAssetList path: {__csvPath}\n")
+        logger.info(df.to_string())
         # print(df[__colName])
         l_symbol = df[__colName].tolist()
         self.symbols = l_symbol
@@ -101,7 +104,9 @@ class Model(object):
     def getDataOHLC(self):
         # __dict_lookbackPeriodConvertInt = {'h': 1, 'd': 1, 'w': 7, 'm': 31}
         if self.bGetLatestDataFromBitfinex:
-            logger.info("----------- Downloading from Bitfinex API -----------")
+            logger.info(
+                "----------- Downloading from Bitfinex API -----------"
+            )
             # print(
             #     "getDataOHLC: ",
             #     self.symbols,
@@ -148,10 +153,7 @@ class Model(object):
                 __dict_df[__symbol] = data_df
 
                 logger.info(
-                    "Download completed. Saved in:",
-                    __path_csv,
-                    __path_json,
-                    "\n",
+                    f"Download completed. Saved in: {__path_csv} {__path_json}\n"
                 )
             except Exception as e:
                 # raise Exception("Error: ", __symbol, " e.args: ",e.args)
@@ -175,8 +177,7 @@ class Model(object):
 
     def createIchimokuData(self):
         logger.info(
-            "\n----------- Creating Ichimoku Data (Bitfinex) -----------",
-            # self.dataOHLC,
+            f"\n----------- Creating Ichimoku Data (Bitfinex) -----------"
         )
         # method 1. create Ichimoku data using tapy
         DictDataIchinokuTapy = self.createIchimokuDataTapy(self.dataOHLC)

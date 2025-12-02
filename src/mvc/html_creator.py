@@ -93,7 +93,7 @@ class TableGenerator:
         time_finish = datetime.now(london_tz_finish)
         time_finish_formatted = time_finish.strftime("%Y-%m-%d %H:%M:%S")
 
-        logger.info("Table generated at %s", time_finish_formatted)
+        logger.info(f"Table generated at {time_finish_formatted}")
         html_table += f"""
         <footer>
           <p>Table Generated At {time_finish_formatted} [UK]<br></p>
@@ -112,7 +112,7 @@ class TableGenerator:
 
         with open(filename, "w", encoding="utf-8") as f:
             f.write(html_table)
-        logger.info("HTML data table saved at %s", filename)
+        logger.info(f"HTML data table saved at {filename}")
 
     def display_html_table_jupyter(
         self, filename: str = "/content/Cloud-Signal-Python/table.html"

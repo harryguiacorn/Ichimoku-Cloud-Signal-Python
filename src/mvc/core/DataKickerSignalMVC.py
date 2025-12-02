@@ -31,7 +31,7 @@ class DataKickerSignal(DataOHLC):
             __path = self.csvPath + self.symbol + csvSuffix
             __data = pd.read_csv(__path)
             if __data.empty:  # Check if the DataFrame is empty
-                logger.info("CSV file is empty", __path)
+                logger.info(f"CSV file is empty{__path}")
             else:
                 __data.index = __data.Date
                 # __data['Returns'] = self.getReturn(__data['Close'],
@@ -44,7 +44,7 @@ class DataKickerSignal(DataOHLC):
                 # print(__data)
                 self.setColumnsSaveCsv(__data)
         except pd.errors.EmptyDataError:
-            logger.info("CSV file is empty", __path)
+            logger.info(f"CSV file is empty{__path}")
         except FileNotFoundError:
             logger.info(f"Error: {__path} not found")
 

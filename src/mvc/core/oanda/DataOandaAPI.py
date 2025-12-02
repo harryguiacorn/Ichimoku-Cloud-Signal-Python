@@ -110,7 +110,7 @@ if __name__ == "__main__":
     # data = get_oanda_data()
     instruments = api.get_instruments()
     api.save_json("data/oanda/instruments.json", instruments)
-    logger.info("Instruments: %s", instruments)
+    logger.info(f"Instruments: {instruments}")
 
     # api.save_json(data=data, filePath="data/oanda/")
     # print(data)

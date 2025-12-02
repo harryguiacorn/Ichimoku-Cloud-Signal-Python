@@ -1,3 +1,5 @@
+from scripts._bootstrap import ensure_repo_root, setup_runner_logging
+
 from src.mvc.controllers import (
     GetDataBitfinex,
     GetIchimokuCloudDataBitfinex,
@@ -8,7 +10,6 @@ from src.mvc.controllers import (
     GetIchimokuTKxDataBitfinexMultiTFMerger,
     GetIchimokuSumCloudTKxDataBitfinexMultiTFMerger,
 )
-from scripts._bootstrap import ensure_repo_root, setup_runner_logging
 
 ensure_repo_root()
 RUNNER_CLASS = ""
@@ -47,7 +48,7 @@ def main(
 
     london_tz_start = timezone("Europe/London")
     time_start = datetime.now(london_tz_start)
-    logger.info("Task begins at: %s", time_start.strftime("%Y-%m-%d %H:%M:%S"))
+    logger.info(f"Task begins at: {time_start.strftime('%Y-%m-%d %H:%M:%S')}")
 
     # ----------------  Bitfinex ----------------
 

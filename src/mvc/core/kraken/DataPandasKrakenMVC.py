@@ -89,7 +89,7 @@ class Model(object):
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
 
-        logger.info("Reading symbols for %s", self.interval)
+        logger.info(f"Reading symbols for {self.interval}")
         logger.debug("readAssetList path: %s", __csvPath)
         logger.debug("%s", df.to_string())
         # print(df[__colName])

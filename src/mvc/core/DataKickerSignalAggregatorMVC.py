@@ -102,7 +102,7 @@ class Model(object):
                 # print(__date, __symbolName, __kickerDirection)
 
             except KeyError as e:
-                logger.info("------ KeyError ------", e.args)
+                logger.info(f"------ KeyError ------{e.args}")
                 continue
             else:
                 list_temp = []

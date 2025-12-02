@@ -64,7 +64,7 @@ def main(
     london_tz_start = timezone("Europe/London")
     time_start = datetime.now(london_tz_start)
     time_start_formatted = time_start.strftime("%Y-%m-%d %H:%M:%S")
-    logger.info("Dow Jones 30 task begins at: %s [UK]", time_start_formatted)
+    logger.info(f"Dow Jones 30 task begins at: {time_start_formatted} [UK]")
 
     # 1. Grab latest symbols
     _getSymbolRussell1000 = GetSymbolRussell1000

@@ -60,8 +60,7 @@ def main(
     time_start = datetime.now(london_tz_start)
     time_start_formatted = time_start.strftime("%Y-%m-%d %H:%M:%S")
     logger.info(
-        "Hang Seng Index task begins at: %s [UK]", time_start_formatted
-    )
+        f"Hang Seng Index task begins at: {time_start_formatted} [UK]")
 
     # ---------------- Hang Seng Index ----------------
 

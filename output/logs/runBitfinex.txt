@@ -1,0 +1,476 @@
+2025-12-01 23:40:54,882 INFO __main__: Shim: launching scripts.runBitfinex
+2025-12-01 23:40:57,955 INFO scripts.runBitfinex: Task begins at: 2025-12-01 23:40:57
+2025-12-01 23:40:57,959 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: ----------- Reading symbols for 1h -----------
+2025-12-01 23:40:57,959 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: readAssetList path: asset_list/Bitfinex.csv
+
+2025-12-01 23:40:57,961 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC:           symbol              name
+0        tBTCUSD            BTCUSD
+1        tLTCUSD            LTCUSD
+2        tETHUSD            ETHUSD
+3        tXRPUSD            XRPUSD
+4        tSOLUSD            SOLUSD
+5    tDOGE%3AUSD           DOGEUSD
+6        tTONUSD            TONUSD
+7        tADAUSD            ADAUSD
+8        tTRXUSD            TRXUSD
+9    tAVAX%3AUSD           AVAXUSD
+10   tSHIB%3AUSD       tSHIB%3AUSD
+11   tLINK%3AUSD       tLINK%3AUSD
+12   tBCHN%3AUSD       tBCHN%3AUSD
+13       tDAIUSD           tDAIUSD
+14       tLEOUSD           tLEOUSD
+15       tLTCUSD           tLTCUSD
+16   tNEAR%3AUSD       tNEAR%3AUSD
+17  tMATIC%3AUSD      tMATIC%3AUSD
+18       tUNIUSD           tUNIUSD
+19   tPEPE%3AUSD       tPEPE%3AUSD
+20       tETCUSD  Ethereum Classic
+21       tXMRUSD           Monero 
+22       tXLMUSD          Stellar 
+23       tAPTUSD             Aptos
+2025-12-01 23:40:57,961 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: ----------- Downloading from Bitfinex API -----------
+2025-12-01 23:40:59,319 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                      Open  Close   High    Low    Volume
+Datetime                                                 
+2024-10-11 08:00:00  60716  60702  60820  60702  5.198288
+2024-10-11 09:00:00  60703  61103  61140  60703  3.344149
+2025-12-01 23:40:59,356 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tBTCUSD.csv data/bitfinex/1h/tBTCUSD.json
+
+2025-12-01 23:41:00,653 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open  Close    High     Low     Volume
+Datetime                                                     
+2024-10-11 06:00:00  64.714   64.9  64.921  64.714  10.245354
+2024-10-11 07:00:00  64.737   64.7  64.783  64.666  13.381466
+2025-12-01 23:41:00,704 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tLTCUSD.csv data/bitfinex/1h/tLTCUSD.json
+
+2025-12-01 23:41:01,986 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open   Close    High     Low     Volume
+Datetime                                                      
+2024-10-11 08:00:00  2408.4  2405.1  2409.6  2405.1   9.015847
+2024-10-11 09:00:00  2405.2  2415.4  2420.4  2405.2  11.223431
+2025-12-01 23:41:02,035 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tETHUSD.csv data/bitfinex/1h/tETHUSD.json
+
+2025-12-01 23:41:03,211 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                        Open    Close     High      Low        Volume
+Datetime                                                             
+2024-10-11 08:00:00  0.53926  0.53841  0.53940  0.53796   9694.823213
+2024-10-11 09:00:00  0.53841  0.54027  0.54108  0.53841  73546.764341
+2025-12-01 23:41:03,259 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tXRPUSD.csv data/bitfinex/1h/tXRPUSD.json
+
+2025-12-01 23:41:04,468 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open   Close    High     Low     Volume
+Datetime                                                      
+2024-10-11 08:00:00  141.32  141.69  141.69  141.19  32.356899
+2024-10-11 09:00:00  141.64  142.24  142.39  141.64  10.079247
+2025-12-01 23:41:04,515 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tSOLUSD.csv data/bitfinex/1h/tSOLUSD.json
+
+2025-12-01 23:41:05,746 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                        Open    Close     High      Low         Volume
+Datetime                                                              
+2024-10-11 05:00:00  0.10771  0.10771  0.10792  0.10771    6713.234451
+2024-10-11 06:00:00  0.10781  0.10772  0.10839  0.10772  129915.769333
+2025-12-01 23:41:05,862 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tDOGE%3AUSD.csv data/bitfinex/1h/tDOGE%3AUSD.json
+
+2025-12-01 23:41:07,048 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open   Close    High     Low      Volume
+Datetime                                                       
+2024-07-27 17:00:00  6.6650  6.6737  6.6808  6.6600   81.174316
+2024-07-27 18:00:00  6.6648  6.6813  6.6813  6.6648  161.214783
+2025-12-01 23:41:07,096 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tTONUSD.csv data/bitfinex/1h/tTONUSD.json
+
+2025-12-01 23:41:08,312 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                        Open    Close     High      Low        Volume
+Datetime                                                             
+2024-10-10 13:00:00  0.33537  0.33585  0.33663  0.33362  31847.152073
+2024-10-10 14:00:00  0.33579  0.33565  0.33595  0.33410  29401.152991
+2025-12-01 23:41:08,362 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tADAUSD.csv data/bitfinex/1h/tADAUSD.json
+
+2025-12-01 23:41:09,739 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                        Open    Close     High      Low       Volume
+Datetime                                                            
+2024-08-26 04:00:00  0.16462  0.16552  0.16552  0.16462  1424.020273
+2024-08-26 05:00:00  0.16561  0.16589  0.16589  0.16561   903.819563
+2025-12-01 23:41:09,807 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tTRXUSD.csv data/bitfinex/1h/tTRXUSD.json
+
+2025-12-02 00:51:49,924 INFO __main__: Shim: launching scripts.runBitfinex
+2025-12-02 00:51:49,964 INFO scripts.runBitfinex: Task begins at: 2025-12-02 00:51:49
+2025-12-02 00:51:49,980 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: ----------- Reading symbols for 1h -----------
+2025-12-02 00:51:49,980 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: readAssetList path: asset_list/Bitfinex.csv
+
+2025-12-02 00:51:49,980 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC:           symbol              name
+0        tBTCUSD            BTCUSD
+1        tLTCUSD            LTCUSD
+2        tETHUSD            ETHUSD
+3        tXRPUSD            XRPUSD
+4        tSOLUSD            SOLUSD
+5    tDOGE%3AUSD           DOGEUSD
+6        tTONUSD            TONUSD
+7        tADAUSD            ADAUSD
+8        tTRXUSD            TRXUSD
+9    tAVAX%3AUSD           AVAXUSD
+10   tSHIB%3AUSD       tSHIB%3AUSD
+11   tLINK%3AUSD       tLINK%3AUSD
+12   tBCHN%3AUSD       tBCHN%3AUSD
+13       tDAIUSD           tDAIUSD
+14       tLEOUSD           tLEOUSD
+15       tLTCUSD           tLTCUSD
+16   tNEAR%3AUSD       tNEAR%3AUSD
+17  tMATIC%3AUSD      tMATIC%3AUSD
+18       tUNIUSD           tUNIUSD
+19   tPEPE%3AUSD       tPEPE%3AUSD
+20       tETCUSD  Ethereum Classic
+21       tXMRUSD           Monero 
+22       tXLMUSD          Stellar 
+23       tAPTUSD             Aptos
+2025-12-02 00:51:49,980 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: ----------- Downloading from Bitfinex API -----------
+2025-12-02 00:51:49,980 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tBTCUSD 1h 10000
+2025-12-02 00:51:51,232 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                      Open  Close   High    Low    Volume
+Datetime                                                 
+2024-10-11 09:00:00  60703  61103  61140  60703  3.344149
+2024-10-11 10:00:00  61110  61191  61259  61060  5.504383
+2025-12-02 00:51:51,274 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tBTCUSD.csv data/bitfinex/1h/tBTCUSD.json
+
+2025-12-02 00:51:51,276 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tLTCUSD 1h 10000
+2025-12-02 00:51:52,579 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open  Close    High     Low     Volume
+Datetime                                                     
+2024-10-11 07:00:00  64.737  64.70  64.783  64.666  13.381466
+2024-10-11 08:00:00  64.631  64.95  64.990  64.631   4.831715
+2025-12-02 00:51:52,655 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tLTCUSD.csv data/bitfinex/1h/tLTCUSD.json
+
+2025-12-02 00:51:52,655 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tETHUSD 1h 10000
+2025-12-02 00:51:54,005 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open   Close    High     Low     Volume
+Datetime                                                      
+2024-10-11 09:00:00  2405.2  2415.4  2420.4  2405.2  11.223431
+2024-10-11 10:00:00  2417.1  2415.5  2426.9  2412.2  62.011396
+2025-12-02 00:51:54,053 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tETHUSD.csv data/bitfinex/1h/tETHUSD.json
+
+2025-12-02 00:51:54,056 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tXRPUSD 1h 10000
+2025-12-02 00:51:55,294 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                        Open    Close     High      Low        Volume
+Datetime                                                             
+2024-10-11 09:00:00  0.53841  0.54027  0.54108  0.53841  73546.764341
+2024-10-11 10:00:00  0.53989  0.53837  0.53996  0.53837  13733.920113
+2025-12-02 00:51:55,348 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tXRPUSD.csv data/bitfinex/1h/tXRPUSD.json
+
+2025-12-02 00:51:55,348 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tSOLUSD 1h 10000
+2025-12-02 00:51:56,487 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open   Close    High     Low     Volume
+Datetime                                                      
+2024-10-11 09:00:00  141.64  142.24  142.39  141.64  10.079247
+2024-10-11 10:00:00  142.24  142.09  142.73  141.81  59.008514
+2025-12-02 00:51:56,548 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tSOLUSD.csv data/bitfinex/1h/tSOLUSD.json
+
+2025-12-02 00:51:56,548 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tDOGE%3AUSD 1h 10000
+2025-12-02 00:51:57,799 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                        Open    Close     High      Low         Volume
+Datetime                                                              
+2024-10-11 06:00:00  0.10781  0.10772  0.10839  0.10772  129915.769333
+2024-10-11 07:00:00  0.10766  0.10788  0.10809  0.10766   15345.096519
+2025-12-02 00:51:57,859 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tDOGE%3AUSD.csv data/bitfinex/1h/tDOGE%3AUSD.json
+
+2025-12-02 00:51:57,862 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tTONUSD 1h 10000
+2025-12-02 00:51:59,114 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open   Close    High     Low      Volume
+Datetime                                                       
+2024-07-27 18:00:00  6.6648  6.6813  6.6813  6.6648  161.214783
+2024-07-27 19:00:00  6.6471  6.6747  6.6747  6.6471  238.002666
+2025-12-02 00:51:59,167 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tTONUSD.csv data/bitfinex/1h/tTONUSD.json
+
+2025-12-02 00:51:59,169 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tADAUSD 1h 10000
+2025-12-02 00:52:00,531 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                        Open    Close     High      Low        Volume
+Datetime                                                             
+2024-10-10 14:00:00  0.33579  0.33565  0.33595  0.33410  29401.152991
+2024-10-10 15:00:00  0.33550  0.33789  0.33789  0.33527  83359.674998
+2025-12-02 00:52:00,588 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tADAUSD.csv data/bitfinex/1h/tADAUSD.json
+
+2025-12-02 00:52:00,590 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tTRXUSD 1h 10000
+2025-12-02 00:52:01,906 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                        Open    Close     High      Low       Volume
+Datetime                                                            
+2024-08-26 04:00:00  0.16462  0.16552  0.16552  0.16462  1424.020273
+2024-08-26 05:00:00  0.16561  0.16589  0.16589  0.16561   903.819563
+2025-12-02 00:52:01,959 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tTRXUSD.csv data/bitfinex/1h/tTRXUSD.json
+
+2025-12-02 00:52:01,961 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tAVAX%3AUSD 1h 10000
+2025-12-02 00:52:03,221 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open   Close    High     Low     Volume
+Datetime                                                      
+2024-09-28 02:00:00  30.652  30.617  30.730  30.617  32.185469
+2024-09-28 03:00:00  30.509  30.262  30.509  30.252  84.232777
+2025-12-02 00:52:03,272 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tAVAX%3AUSD.csv data/bitfinex/1h/tAVAX%3AUSD.json
+
+2025-12-02 00:52:03,272 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tSHIB%3AUSD 1h 10000
+2025-12-02 00:52:05,227 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                         Open     Close      High       Low        Volume
+Datetime                                                                 
+2024-07-20 22:00:00  0.000018  0.000018  0.000018  0.000018  7.983859e+07
+2024-07-20 23:00:00  0.000018  0.000018  0.000018  0.000018  8.694814e+07
+2025-12-02 00:52:05,273 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tSHIB%3AUSD.csv data/bitfinex/1h/tSHIB%3AUSD.json
+
+2025-12-02 00:52:05,273 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tLINK%3AUSD 1h 10000
+2025-12-02 00:52:06,609 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open   Close    High     Low      Volume
+Datetime                                                       
+2024-09-18 14:00:00  10.405  10.419  10.442  10.401   32.707337
+2024-09-18 15:00:00  10.404  10.321  10.404  10.321  143.583299
+2025-12-02 00:52:06,670 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tLINK%3AUSD.csv data/bitfinex/1h/tLINK%3AUSD.json
+
+2025-12-02 00:52:06,672 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tBCHN%3AUSD 1h 10000
+2025-12-02 00:52:07,845 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open   Close    High    Low    Volume
+Datetime                                                    
+2024-06-09 15:00:00  470.92  470.70  470.92  470.7  0.079706
+2024-06-09 16:00:00  471.32  471.25  471.88  471.2  0.327356
+2025-12-02 00:52:07,908 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tBCHN%3AUSD.csv data/bitfinex/1h/tBCHN%3AUSD.json
+
+2025-12-02 00:52:07,910 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tDAIUSD 1h 10000
+2025-12-02 00:52:09,100 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                     Open  Close  High      Low     Volume
+Datetime                                                  
+2023-01-17 19:00:00   1.0    1.0   1.0  0.99923  62.308142
+2023-01-17 20:00:00   1.0    1.0   1.0  0.99936  76.747578
+2025-12-02 00:52:09,150 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tDAIUSD.csv data/bitfinex/1h/tDAIUSD.json
+
+2025-12-02 00:52:09,153 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tLEOUSD 1h 10000
+2025-12-02 00:52:11,019 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open   Close    High     Low       Volume
+Datetime                                                        
+2024-10-02 01:00:00  5.9980  6.0075  6.0075  5.9980  4373.527830
+2024-10-02 02:00:00  6.0075  6.0075  6.0075  6.0075    60.027313
+2025-12-02 00:52:11,081 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tLEOUSD.csv data/bitfinex/1h/tLEOUSD.json
+
+2025-12-02 00:52:11,082 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tLTCUSD 1h 10000
+2025-12-02 00:52:12,432 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open  Close    High     Low     Volume
+Datetime                                                     
+2024-10-11 07:00:00  64.737  64.70  64.783  64.666  13.381466
+2024-10-11 08:00:00  64.631  64.95  64.990  64.631   4.831715
+2025-12-02 00:52:12,481 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tLTCUSD.csv data/bitfinex/1h/tLTCUSD.json
+
+2025-12-02 00:52:12,481 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tNEAR%3AUSD 1h 10000
+2025-12-02 00:52:13,719 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open   Close    High     Low      Volume
+Datetime                                                       
+2024-08-01 21:00:00  4.8603  4.9615  4.9853  4.8603  332.904841
+2024-08-01 22:00:00  4.9750  5.0357  5.0528  4.9643  613.045603
+2025-12-02 00:52:13,772 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tNEAR%3AUSD.csv data/bitfinex/1h/tNEAR%3AUSD.json
+
+2025-12-02 00:52:13,772 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tMATIC%3AUSD 1h 10000
+2025-12-02 00:52:15,064 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                        Open    Close     High      Low       Volume
+Datetime                                                            
+2024-04-07 13:00:00  0.91000  0.91241  0.91528  0.91000  5622.738393
+2024-04-07 14:00:00  0.91031  0.91523  0.91523  0.90971  2041.956254
+2025-12-02 00:52:15,114 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tMATIC%3AUSD.csv data/bitfinex/1h/tMATIC%3AUSD.json
+
+2025-12-02 00:52:15,114 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tUNIUSD 1h 10000
+2025-12-02 00:52:16,746 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open   Close    High     Low     Volume
+Datetime                                                      
+2024-09-30 05:00:00  7.3989  7.4388  7.4388  7.3989  77.949539
+2024-09-30 06:00:00  7.4641  7.4606  7.4704  7.4606   3.433712
+2025-12-02 00:52:16,814 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tUNIUSD.csv data/bitfinex/1h/tUNIUSD.json
+
+2025-12-02 00:52:16,816 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tPEPE%3AUSD 1h 10000
+2025-12-02 00:52:18,077 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                         Open     Close      High       Low        Volume
+Datetime                                                                 
+2024-06-09 13:00:00  0.000013  0.000013  0.000013  0.000013  9.370815e+05
+2024-06-09 15:00:00  0.000013  0.000013  0.000013  0.000013  2.156666e+06
+2025-12-02 00:52:18,132 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tPEPE%3AUSD.csv data/bitfinex/1h/tPEPE%3AUSD.json
+
+2025-12-02 00:52:18,134 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tETCUSD 1h 10000
+2025-12-02 00:52:19,322 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open   Close    High     Low       Volume
+Datetime                                                        
+2024-08-27 19:00:00  19.261  19.246  19.328  19.234    43.027932
+2024-08-27 20:00:00  19.164  19.140  19.164  19.123  2154.558329
+2025-12-02 00:52:19,371 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tETCUSD.csv data/bitfinex/1h/tETCUSD.json
+
+2025-12-02 00:52:19,374 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tXMRUSD 1h 10000
+2025-12-02 00:52:20,669 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open   Close    High     Low      Volume
+Datetime                                                       
+2024-10-10 17:00:00  154.10  151.43  154.36  151.43  315.871002
+2024-10-10 18:00:00  151.41  149.27  151.41  149.27    4.348547
+2025-12-02 00:52:20,721 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tXMRUSD.csv data/bitfinex/1h/tXMRUSD.json
+
+2025-12-02 00:52:20,724 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tXLMUSD 1h 10000
+2025-12-02 00:52:22,049 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                         Open     Close      High       Low        Volume
+Datetime                                                                 
+2024-09-16 11:00:00  0.095265  0.095151  0.095310  0.095151     63.707624
+2024-09-16 12:00:00  0.095276  0.095148  0.095276  0.094991  26146.277434
+2025-12-02 00:52:22,106 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tXLMUSD.csv data/bitfinex/1h/tXLMUSD.json
+
+2025-12-02 00:52:22,107 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tAPTUSD 1h 10000
+2025-12-02 00:52:23,242 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open   Close    High     Low       Volume
+Datetime                                                        
+2024-08-23 07:00:00  6.8224  6.8312  6.8434  6.8003   595.219262
+2024-08-23 08:00:00  6.8232  6.9284  6.9284  6.8204  2294.339710
+2025-12-02 00:52:23,290 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/1h/tAPTUSD.csv data/bitfinex/1h/tAPTUSD.json
+
+2025-12-02 00:52:23,291 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: 
+----------- Creating Ichimoku Data (Bitfinex) -----------
+2025-12-02 00:52:25,601 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Ichimoku columns added to csv
+
+2025-12-02 00:52:25,607 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: ----------- Reading symbols for 4h -----------
+2025-12-02 00:52:25,607 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: readAssetList path: asset_list/Bitfinex.csv
+
+2025-12-02 00:52:25,609 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC:           symbol              name
+0        tBTCUSD            BTCUSD
+1        tLTCUSD            LTCUSD
+2        tETHUSD            ETHUSD
+3        tXRPUSD            XRPUSD
+4        tSOLUSD            SOLUSD
+5    tDOGE%3AUSD           DOGEUSD
+6        tTONUSD            TONUSD
+7        tADAUSD            ADAUSD
+8        tTRXUSD            TRXUSD
+9    tAVAX%3AUSD           AVAXUSD
+10   tSHIB%3AUSD       tSHIB%3AUSD
+11   tLINK%3AUSD       tLINK%3AUSD
+12   tBCHN%3AUSD       tBCHN%3AUSD
+13       tDAIUSD           tDAIUSD
+14       tLEOUSD           tLEOUSD
+15       tLTCUSD           tLTCUSD
+16   tNEAR%3AUSD       tNEAR%3AUSD
+17  tMATIC%3AUSD      tMATIC%3AUSD
+18       tUNIUSD           tUNIUSD
+19   tPEPE%3AUSD       tPEPE%3AUSD
+20       tETCUSD  Ethereum Classic
+21       tXMRUSD           Monero 
+22       tXLMUSD          Stellar 
+23       tAPTUSD             Aptos
+2025-12-02 00:52:25,609 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: ----------- Downloading from Bitfinex API -----------
+2025-12-02 00:52:25,610 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tBTCUSD 4h 10000
+2025-12-02 00:52:26,750 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                        Open    Close     High      Low       Volume
+Datetime                                                            
+2021-05-10 08:00:00  58438.0  58176.0  58664.0  57392.0  1300.520968
+2021-05-10 12:00:00  58159.0  58384.0  58412.0  56637.0  2305.826525
+2025-12-02 00:52:26,802 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/4h/tBTCUSD.csv data/bitfinex/4h/tBTCUSD.json
+
+2025-12-02 00:52:26,804 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tLTCUSD 4h 10000
+2025-12-02 00:52:28,061 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open   Close    High     Low        Volume
+Datetime                                                         
+2021-05-10 00:00:00  388.07  409.22  413.46  387.73  39645.016075
+2021-05-10 04:00:00  409.58  398.10  410.11  396.32  15564.612242
+2025-12-02 00:52:28,113 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/4h/tLTCUSD.csv data/bitfinex/4h/tLTCUSD.json
+
+2025-12-02 00:52:28,115 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tETHUSD 4h 10000
+2025-12-02 00:52:29,553 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open   Close    High     Low        Volume
+Datetime                                                         
+2021-05-10 12:00:00  4069.1  4161.6  4173.6  4016.6  17231.718510
+2021-05-10 16:00:00  4160.0  3990.5  4207.6  3973.0  26323.380111
+2025-12-02 00:52:29,602 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/4h/tETHUSD.csv data/bitfinex/4h/tETHUSD.json
+
+2025-12-02 00:52:29,603 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tXRPUSD 4h 10000
+2025-12-02 00:52:30,804 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open   Close    High     Low        Volume
+Datetime                                                         
+2021-05-10 00:00:00  1.5350  1.5896  1.5996  1.5236  6.263701e+06
+2021-05-10 04:00:00  1.5896  1.6082  1.6285  1.5754  7.954785e+06
+2025-12-02 00:52:30,858 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/4h/tXRPUSD.csv data/bitfinex/4h/tXRPUSD.json
+
+2025-12-02 00:52:30,860 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tSOLUSD 4h 10000
+2025-12-02 00:52:32,539 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open   Close    High     Low       Volume
+Datetime                                                        
+2021-05-09 20:00:00  44.263  44.343  44.910  44.101  10933.83443
+2021-05-10 00:00:00  44.341  45.064  45.427  44.279   5915.66574
+2025-12-02 00:52:32,588 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/4h/tSOLUSD.csv data/bitfinex/4h/tSOLUSD.json
+
+2025-12-02 00:52:32,591 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tDOGE%3AUSD 4h 10000
+2025-12-02 00:52:33,804 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                        Open    Close     High      Low        Volume
+Datetime                                                             
+2021-05-09 20:00:00  0.56500  0.56800  0.59000  0.53532  1.687066e+07
+2021-05-10 00:00:00  0.57035  0.52977  0.57035  0.51501  8.296303e+06
+2025-12-02 00:52:33,857 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/4h/tDOGE%3AUSD.csv data/bitfinex/4h/tDOGE%3AUSD.json
+
+2025-12-02 00:52:33,859 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tTONUSD 4h 10000
+2025-12-02 00:52:34,838 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                      Open   Close    High   Low      Volume
+Datetime                                                    
+2023-04-07 08:00:00  2.600  2.2139  2.6000  2.07  239.073414
+2023-04-07 12:00:00  2.215  2.2369  2.2369  2.20  162.313491
+2025-12-02 00:52:34,865 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/4h/tTONUSD.csv data/bitfinex/4h/tTONUSD.json
+
+2025-12-02 00:52:34,866 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tADAUSD 4h 10000
+2025-12-02 00:52:36,173 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open   Close   High     Low         Volume
+Datetime                                                         
+2021-05-09 20:00:00  1.7563  1.7674  1.817  1.7522  733944.706234
+2021-05-10 00:00:00  1.7687  1.7621  1.790  1.7202  489376.310135
+2025-12-02 00:52:36,229 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/4h/tADAUSD.csv data/bitfinex/4h/tADAUSD.json
+
+2025-12-02 00:52:36,232 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tTRXUSD 4h 10000
+2025-12-02 00:52:37,422 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                        Open    Close     High      Low        Volume
+Datetime                                                             
+2021-05-09 04:00:00  0.13976  0.13982  0.14230  0.13592  1.742398e+06
+2021-05-09 08:00:00  0.13964  0.13965  0.14258  0.13911  1.715052e+06
+2025-12-02 00:52:37,475 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/4h/tTRXUSD.csv data/bitfinex/4h/tTRXUSD.json
+
+2025-12-02 00:52:37,477 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tAVAX%3AUSD 4h 10000
+2025-12-02 00:52:38,710 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                       Open   Close    High     Low       Volume
+Datetime                                                        
+2021-05-09 08:00:00  36.603  37.038  37.580  36.579  2075.803612
+2021-05-09 12:00:00  36.640  37.010  37.135  35.377  1317.002061
+2025-12-02 00:52:38,759 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/4h/tAVAX%3AUSD.csv data/bitfinex/4h/tAVAX%3AUSD.json
+
+2025-12-02 00:52:38,760 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tSHIB%3AUSD 4h 10000
+2025-12-02 00:52:40,011 INFO src.mvc.core.bitfinex.DataBitfinexAPI: --------- show_data head ---------
+                         Open     Close      High       Low        Volume
+Datetime                                                                 
+2021-10-28 08:00:00  0.000068  0.000079  0.000083  0.000067  1.047153e+10
+2021-10-28 12:00:00  0.000079  0.000072  0.000080  0.000068  6.100511e+09
+2025-12-02 00:52:40,061 INFO src.mvc.core.bitfinex.DataPandasBitfinexMVC: Download completed. Saved in: data/bitfinex/4h/tSHIB%3AUSD.csv data/bitfinex/4h/tSHIB%3AUSD.json
+
+2025-12-02 00:52:40,063 INFO src.mvc.core.bitfinex.DataBitfinexAPI: 
+--------- fetch_data --------- tLINK%3AUSD 4h 10000
+2025-12-02 00:52:40,306 INFO src.mvc.core.bitfinex.DataBitfinexAPI: Error: 429 Bitfinex API Limitation, Retry after 300 secs.
