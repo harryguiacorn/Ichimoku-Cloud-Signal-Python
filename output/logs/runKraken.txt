@@ -12595,3 +12595,1624 @@ create_sum_column df.columns Index(['Symbol', 'Name', 'Close', '1H Cloud Directi
 2025-12-02 01:00:56,876 INFO src.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: generate_html output/sum/Kraken-sum-cloud-tkx-merged.csv
 2025-12-02 01:00:56,878 INFO src.mvc.html_creator: HTML data table saved at output/sum/Kraken-sum-cloud-tkx-merged.csv.html
 2025-12-02 01:00:56,878 INFO scripts.runKraken: Kraken tasks completed at 2025-12-02 01:00:56 [UK] (Time elapsed: 0:01:32.984387)
+2025-12-03 00:38:36,655 INFO __main__: Shim: launching scripts.runKraken
+2025-12-03 00:38:36,669 INFO scripts.runKraken: Kraken task begins at: 2025-12-03 00:38:36 [UK]
+2025-12-03 00:38:36,674 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Reading symbols for 60
+2025-12-03 00:38:36,676 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Downloading from Kraken API
+2025-12-03 00:38:36,677 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=BTC/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=BTC/USD&interval=60&since=720
+2025-12-03 00:38:37,065 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/BTCUSD.csv
+2025-12-03 00:38:37,065 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/BTCUSD.csv data/kraken/1h/BTCUSD.json
+2025-12-03 00:38:37,066 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=LTC/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=LTC/USD&interval=60&since=720
+2025-12-03 00:38:37,616 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/LTCUSD.csv
+2025-12-03 00:38:37,616 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/LTCUSD.csv data/kraken/1h/LTCUSD.json
+2025-12-03 00:38:37,617 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=ETH/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=ETH/USD&interval=60&since=720
+2025-12-03 00:38:38,243 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/ETHUSD.csv
+2025-12-03 00:38:38,243 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/ETHUSD.csv data/kraken/1h/ETHUSD.json
+2025-12-03 00:38:38,244 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=XRP/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=XRP/USD&interval=60&since=720
+2025-12-03 00:38:38,535 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/XRPUSD.csv
+2025-12-03 00:38:38,536 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/XRPUSD.csv data/kraken/1h/XRPUSD.json
+2025-12-03 00:38:38,536 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=SOL/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=SOL/USD&interval=60&since=720
+2025-12-03 00:38:38,931 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/SOLUSD.csv
+2025-12-03 00:38:38,931 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/SOLUSD.csv data/kraken/1h/SOLUSD.json
+2025-12-03 00:38:38,932 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=DOGE/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=DOGE/USD&interval=60&since=720
+2025-12-03 00:38:39,568 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/DOGEUSD.csv
+2025-12-03 00:38:39,568 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/DOGEUSD.csv data/kraken/1h/DOGEUSD.json
+2025-12-03 00:38:39,569 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=TON/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=TON/USD&interval=60&since=720
+2025-12-03 00:38:40,069 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/TONUSD.csv
+2025-12-03 00:38:40,069 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/TONUSD.csv data/kraken/1h/TONUSD.json
+2025-12-03 00:38:40,071 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=ADA/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=ADA/USD&interval=60&since=720
+2025-12-03 00:38:40,624 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/ADAUSD.csv
+2025-12-03 00:38:40,624 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/ADAUSD.csv data/kraken/1h/ADAUSD.json
+2025-12-03 00:38:40,625 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=TRX/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=TRX/USD&interval=60&since=720
+2025-12-03 00:38:41,180 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/TRXUSD.csv
+2025-12-03 00:38:41,180 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/TRXUSD.csv data/kraken/1h/TRXUSD.json
+2025-12-03 00:38:41,181 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=AVAX/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=AVAX/USD&interval=60&since=720
+2025-12-03 00:38:41,754 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/AVAXUSD.csv
+2025-12-03 00:38:41,755 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/AVAXUSD.csv data/kraken/1h/AVAXUSD.json
+2025-12-03 00:38:41,755 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=SHIB/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=SHIB/USD&interval=60&since=720
+2025-12-03 00:38:42,057 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/SHIBUSD.csv
+2025-12-03 00:38:42,057 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/SHIBUSD.csv data/kraken/1h/SHIBUSD.json
+2025-12-03 00:38:42,058 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=LINK/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=LINK/USD&interval=60&since=720
+2025-12-03 00:38:42,349 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/LINKUSD.csv
+2025-12-03 00:38:42,349 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/LINKUSD.csv data/kraken/1h/LINKUSD.json
+2025-12-03 00:38:42,350 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=BCHN/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=BCHN/USD&interval=60&since=720
+2025-12-03 00:38:42,822 ERROR src.mvc.core.kraken.DataPandasKrakenMVC: Error getLatestDataFromKrakenAPI: BCHN/USD: 'result'
+Traceback (most recent call last):
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataPandasKrakenMVC.py", line 140, in getLatestDataFromKrakenAPI
+    controller.run()
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 174, in run
+    result = self.model.fetch_data()
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 79, in fetch_data
+    self.data = candles["result"][self.instrument]
+                ~~~~~~~^^^^^^^^^^
+KeyError: 'result'
+2025-12-03 00:38:42,824 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=DAI/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=DAI/USD&interval=60&since=720
+2025-12-03 00:38:43,181 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/DAIUSD.csv
+2025-12-03 00:38:43,181 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/DAIUSD.csv data/kraken/1h/DAIUSD.json
+2025-12-03 00:38:43,182 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=LEO/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=LEO/USD&interval=60&since=720
+2025-12-03 00:38:43,504 ERROR src.mvc.core.kraken.DataPandasKrakenMVC: Error getLatestDataFromKrakenAPI: LEO/USD: 'result'
+Traceback (most recent call last):
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataPandasKrakenMVC.py", line 140, in getLatestDataFromKrakenAPI
+    controller.run()
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 174, in run
+    result = self.model.fetch_data()
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 79, in fetch_data
+    self.data = candles["result"][self.instrument]
+                ~~~~~~~^^^^^^^^^^
+KeyError: 'result'
+2025-12-03 00:38:43,506 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=LTC/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=LTC/USD&interval=60&since=720
+2025-12-03 00:38:43,797 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/LTCUSD.csv
+2025-12-03 00:38:43,797 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/LTCUSD.csv data/kraken/1h/LTCUSD.json
+2025-12-03 00:38:43,798 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=NEAR/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=NEAR/USD&interval=60&since=720
+2025-12-03 00:38:44,348 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/NEARUSD.csv
+2025-12-03 00:38:44,348 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/NEARUSD.csv data/kraken/1h/NEARUSD.json
+2025-12-03 00:38:44,349 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=MATIC/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=MATIC/USD&interval=60&since=720
+2025-12-03 00:38:44,612 ERROR src.mvc.core.kraken.DataPandasKrakenMVC: Error getLatestDataFromKrakenAPI: MATIC/USD: 'result'
+Traceback (most recent call last):
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataPandasKrakenMVC.py", line 140, in getLatestDataFromKrakenAPI
+    controller.run()
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 174, in run
+    result = self.model.fetch_data()
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 79, in fetch_data
+    self.data = candles["result"][self.instrument]
+                ~~~~~~~^^^^^^^^^^
+KeyError: 'result'
+2025-12-03 00:38:44,613 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=UNI/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=UNI/USD&interval=60&since=720
+2025-12-03 00:38:45,046 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/UNIUSD.csv
+2025-12-03 00:38:45,046 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/UNIUSD.csv data/kraken/1h/UNIUSD.json
+2025-12-03 00:38:45,047 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=PEPE/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=PEPE/USD&interval=60&since=720
+2025-12-03 00:38:45,433 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/PEPEUSD.csv
+2025-12-03 00:38:45,433 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/PEPEUSD.csv data/kraken/1h/PEPEUSD.json
+2025-12-03 00:38:45,434 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=ETC/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=ETC/USD&interval=60&since=720
+2025-12-03 00:38:45,979 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/ETCUSD.csv
+2025-12-03 00:38:45,980 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/ETCUSD.csv data/kraken/1h/ETCUSD.json
+2025-12-03 00:38:45,980 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=XMR/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=XMR/USD&interval=60&since=720
+2025-12-03 00:38:46,299 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/XMRUSD.csv
+2025-12-03 00:38:46,300 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/XMRUSD.csv data/kraken/1h/XMRUSD.json
+2025-12-03 00:38:46,300 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=XLM/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=XLM/USD&interval=60&since=720
+2025-12-03 00:38:46,922 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/XLMUSD.csv
+2025-12-03 00:38:46,922 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/XLMUSD.csv data/kraken/1h/XLMUSD.json
+2025-12-03 00:38:46,923 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=APT/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=APT/USD&interval=60&since=720
+2025-12-03 00:38:47,312 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/APTUSD.csv
+2025-12-03 00:38:47,312 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/APTUSD.csv data/kraken/1h/APTUSD.json
+2025-12-03 00:38:47,313 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=SHIB/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=SHIB/USD&interval=60&since=720
+2025-12-03 00:38:47,838 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/SHIBUSD.csv
+2025-12-03 00:38:47,838 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/SHIBUSD.csv data/kraken/1h/SHIBUSD.json
+2025-12-03 00:38:47,839 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=DOT/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=DOT/USD&interval=60&since=720
+2025-12-03 00:38:48,664 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/DOTUSD.csv
+2025-12-03 00:38:48,664 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/DOTUSD.csv data/kraken/1h/DOTUSD.json
+2025-12-03 00:38:48,665 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=KAS/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=KAS/USD&interval=60&since=720
+2025-12-03 00:38:49,032 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/KASUSD.csv
+2025-12-03 00:38:49,032 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/KASUSD.csv data/kraken/1h/KASUSD.json
+2025-12-03 00:38:49,033 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=ICP/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=ICP/USD&interval=60&since=720
+2025-12-03 00:38:49,639 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/ICPUSD.csv
+2025-12-03 00:38:49,639 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/ICPUSD.csv data/kraken/1h/ICPUSD.json
+2025-12-03 00:38:49,640 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=FET/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=FET/USD&interval=60&since=720
+2025-12-03 00:38:50,181 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/FETUSD.csv
+2025-12-03 00:38:50,181 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/FETUSD.csv data/kraken/1h/FETUSD.json
+2025-12-03 00:38:50,182 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=STX/USD time_frame=60 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=STX/USD&interval=60&since=720
+2025-12-03 00:38:50,584 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/1h/STXUSD.csv
+2025-12-03 00:38:50,584 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/1h/STXUSD.csv data/kraken/1h/STXUSD.json
+2025-12-03 00:38:50,584 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Creating Ichimoku Data (Kraken)
+2025-12-03 00:38:51,094 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Ichimoku columns added to csv
+2025-12-03 00:38:51,102 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Reading symbols for 240
+2025-12-03 00:38:51,103 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Downloading from Kraken API
+2025-12-03 00:38:51,104 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=BTC/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=BTC/USD&interval=240&since=720
+2025-12-03 00:38:51,666 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/BTCUSD.csv
+2025-12-03 00:38:51,666 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/BTCUSD.csv data/kraken/4h/BTCUSD.json
+2025-12-03 00:38:51,667 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=LTC/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=LTC/USD&interval=240&since=720
+2025-12-03 00:38:52,112 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/LTCUSD.csv
+2025-12-03 00:38:52,112 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/LTCUSD.csv data/kraken/4h/LTCUSD.json
+2025-12-03 00:38:52,113 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=ETH/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=ETH/USD&interval=240&since=720
+2025-12-03 00:38:52,430 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/ETHUSD.csv
+2025-12-03 00:38:52,430 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/ETHUSD.csv data/kraken/4h/ETHUSD.json
+2025-12-03 00:38:52,431 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=XRP/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=XRP/USD&interval=240&since=720
+2025-12-03 00:38:52,731 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/XRPUSD.csv
+2025-12-03 00:38:52,731 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/XRPUSD.csv data/kraken/4h/XRPUSD.json
+2025-12-03 00:38:52,732 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=SOL/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=SOL/USD&interval=240&since=720
+2025-12-03 00:38:53,059 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/SOLUSD.csv
+2025-12-03 00:38:53,059 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/SOLUSD.csv data/kraken/4h/SOLUSD.json
+2025-12-03 00:38:53,060 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=DOGE/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=DOGE/USD&interval=240&since=720
+2025-12-03 00:38:53,373 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/DOGEUSD.csv
+2025-12-03 00:38:53,373 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/DOGEUSD.csv data/kraken/4h/DOGEUSD.json
+2025-12-03 00:38:53,374 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=TON/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=TON/USD&interval=240&since=720
+2025-12-03 00:38:53,844 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/TONUSD.csv
+2025-12-03 00:38:53,844 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/TONUSD.csv data/kraken/4h/TONUSD.json
+2025-12-03 00:38:53,845 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=ADA/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=ADA/USD&interval=240&since=720
+2025-12-03 00:38:54,123 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/ADAUSD.csv
+2025-12-03 00:38:54,124 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/ADAUSD.csv data/kraken/4h/ADAUSD.json
+2025-12-03 00:38:54,125 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=TRX/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=TRX/USD&interval=240&since=720
+2025-12-03 00:38:54,428 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/TRXUSD.csv
+2025-12-03 00:38:54,428 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/TRXUSD.csv data/kraken/4h/TRXUSD.json
+2025-12-03 00:38:54,429 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=AVAX/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=AVAX/USD&interval=240&since=720
+2025-12-03 00:38:54,973 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/AVAXUSD.csv
+2025-12-03 00:38:54,973 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/AVAXUSD.csv data/kraken/4h/AVAXUSD.json
+2025-12-03 00:38:54,974 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=SHIB/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=SHIB/USD&interval=240&since=720
+2025-12-03 00:38:55,683 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/SHIBUSD.csv
+2025-12-03 00:38:55,683 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/SHIBUSD.csv data/kraken/4h/SHIBUSD.json
+2025-12-03 00:38:55,684 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=LINK/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=LINK/USD&interval=240&since=720
+2025-12-03 00:38:56,248 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/LINKUSD.csv
+2025-12-03 00:38:56,248 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/LINKUSD.csv data/kraken/4h/LINKUSD.json
+2025-12-03 00:38:56,249 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=BCHN/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=BCHN/USD&interval=240&since=720
+2025-12-03 00:38:56,802 ERROR src.mvc.core.kraken.DataPandasKrakenMVC: Error getLatestDataFromKrakenAPI: BCHN/USD: 'result'
+Traceback (most recent call last):
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataPandasKrakenMVC.py", line 140, in getLatestDataFromKrakenAPI
+    controller.run()
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 174, in run
+    result = self.model.fetch_data()
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 79, in fetch_data
+    self.data = candles["result"][self.instrument]
+                ~~~~~~~^^^^^^^^^^
+KeyError: 'result'
+2025-12-03 00:38:56,803 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=DAI/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=DAI/USD&interval=240&since=720
+2025-12-03 00:38:57,161 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/DAIUSD.csv
+2025-12-03 00:38:57,162 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/DAIUSD.csv data/kraken/4h/DAIUSD.json
+2025-12-03 00:38:57,163 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=LEO/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=LEO/USD&interval=240&since=720
+2025-12-03 00:38:57,364 ERROR src.mvc.core.kraken.DataPandasKrakenMVC: Error getLatestDataFromKrakenAPI: LEO/USD: 'result'
+Traceback (most recent call last):
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataPandasKrakenMVC.py", line 140, in getLatestDataFromKrakenAPI
+    controller.run()
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 174, in run
+    result = self.model.fetch_data()
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 79, in fetch_data
+    self.data = candles["result"][self.instrument]
+                ~~~~~~~^^^^^^^^^^
+KeyError: 'result'
+2025-12-03 00:38:57,365 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=LTC/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=LTC/USD&interval=240&since=720
+2025-12-03 00:38:57,736 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/LTCUSD.csv
+2025-12-03 00:38:57,736 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/LTCUSD.csv data/kraken/4h/LTCUSD.json
+2025-12-03 00:38:57,737 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=NEAR/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=NEAR/USD&interval=240&since=720
+2025-12-03 00:38:58,280 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/NEARUSD.csv
+2025-12-03 00:38:58,280 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/NEARUSD.csv data/kraken/4h/NEARUSD.json
+2025-12-03 00:38:58,281 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=MATIC/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=MATIC/USD&interval=240&since=720
+2025-12-03 00:38:58,743 ERROR src.mvc.core.kraken.DataPandasKrakenMVC: Error getLatestDataFromKrakenAPI: MATIC/USD: 'result'
+Traceback (most recent call last):
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataPandasKrakenMVC.py", line 140, in getLatestDataFromKrakenAPI
+    controller.run()
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 174, in run
+    result = self.model.fetch_data()
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 79, in fetch_data
+    self.data = candles["result"][self.instrument]
+                ~~~~~~~^^^^^^^^^^
+KeyError: 'result'
+2025-12-03 00:38:58,744 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=UNI/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=UNI/USD&interval=240&since=720
+2025-12-03 00:38:59,033 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/UNIUSD.csv
+2025-12-03 00:38:59,033 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/UNIUSD.csv data/kraken/4h/UNIUSD.json
+2025-12-03 00:38:59,034 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=PEPE/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=PEPE/USD&interval=240&since=720
+2025-12-03 00:38:59,600 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/PEPEUSD.csv
+2025-12-03 00:38:59,600 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/PEPEUSD.csv data/kraken/4h/PEPEUSD.json
+2025-12-03 00:38:59,601 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=ETC/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=ETC/USD&interval=240&since=720
+2025-12-03 00:39:00,211 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/ETCUSD.csv
+2025-12-03 00:39:00,211 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/ETCUSD.csv data/kraken/4h/ETCUSD.json
+2025-12-03 00:39:00,212 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=XMR/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=XMR/USD&interval=240&since=720
+2025-12-03 00:39:00,575 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/XMRUSD.csv
+2025-12-03 00:39:00,576 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/XMRUSD.csv data/kraken/4h/XMRUSD.json
+2025-12-03 00:39:00,577 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=XLM/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=XLM/USD&interval=240&since=720
+2025-12-03 00:39:00,876 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/XLMUSD.csv
+2025-12-03 00:39:00,876 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/XLMUSD.csv data/kraken/4h/XLMUSD.json
+2025-12-03 00:39:00,877 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=APT/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=APT/USD&interval=240&since=720
+2025-12-03 00:39:01,234 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/APTUSD.csv
+2025-12-03 00:39:01,234 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/APTUSD.csv data/kraken/4h/APTUSD.json
+2025-12-03 00:39:01,235 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=SHIB/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=SHIB/USD&interval=240&since=720
+2025-12-03 00:39:01,862 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/SHIBUSD.csv
+2025-12-03 00:39:01,862 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/SHIBUSD.csv data/kraken/4h/SHIBUSD.json
+2025-12-03 00:39:01,863 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=DOT/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=DOT/USD&interval=240&since=720
+2025-12-03 00:39:02,538 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/DOTUSD.csv
+2025-12-03 00:39:02,539 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/DOTUSD.csv data/kraken/4h/DOTUSD.json
+2025-12-03 00:39:02,539 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=KAS/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=KAS/USD&interval=240&since=720
+2025-12-03 00:39:02,845 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/KASUSD.csv
+2025-12-03 00:39:02,845 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/KASUSD.csv data/kraken/4h/KASUSD.json
+2025-12-03 00:39:02,846 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=ICP/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=ICP/USD&interval=240&since=720
+2025-12-03 00:39:03,136 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/ICPUSD.csv
+2025-12-03 00:39:03,136 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/ICPUSD.csv data/kraken/4h/ICPUSD.json
+2025-12-03 00:39:03,137 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=FET/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=FET/USD&interval=240&since=720
+2025-12-03 00:39:03,782 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/FETUSD.csv
+2025-12-03 00:39:03,783 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/FETUSD.csv data/kraken/4h/FETUSD.json
+2025-12-03 00:39:03,784 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=STX/USD time_frame=240 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=STX/USD&interval=240&since=720
+2025-12-03 00:39:04,385 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/4h/STXUSD.csv
+2025-12-03 00:39:04,385 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/4h/STXUSD.csv data/kraken/4h/STXUSD.json
+2025-12-03 00:39:04,386 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Creating Ichimoku Data (Kraken)
+2025-12-03 00:39:04,902 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Ichimoku columns added to csv
+2025-12-03 00:39:04,909 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Reading symbols for 1440
+2025-12-03 00:39:04,911 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Downloading from Kraken API
+2025-12-03 00:39:04,911 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=BTC/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=BTC/USD&interval=1440&since=720
+2025-12-03 00:39:05,599 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/BTCUSD.csv
+2025-12-03 00:39:05,599 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/BTCUSD.csv data/kraken/d/BTCUSD.json
+2025-12-03 00:39:05,600 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=LTC/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=LTC/USD&interval=1440&since=720
+2025-12-03 00:39:05,906 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/LTCUSD.csv
+2025-12-03 00:39:05,906 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/LTCUSD.csv data/kraken/d/LTCUSD.json
+2025-12-03 00:39:05,907 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=ETH/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=ETH/USD&interval=1440&since=720
+2025-12-03 00:39:06,198 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/ETHUSD.csv
+2025-12-03 00:39:06,198 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/ETHUSD.csv data/kraken/d/ETHUSD.json
+2025-12-03 00:39:06,199 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=XRP/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=XRP/USD&interval=1440&since=720
+2025-12-03 00:39:06,509 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/XRPUSD.csv
+2025-12-03 00:39:06,509 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/XRPUSD.csv data/kraken/d/XRPUSD.json
+2025-12-03 00:39:06,510 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=SOL/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=SOL/USD&interval=1440&since=720
+2025-12-03 00:39:07,079 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/SOLUSD.csv
+2025-12-03 00:39:07,079 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/SOLUSD.csv data/kraken/d/SOLUSD.json
+2025-12-03 00:39:07,080 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=DOGE/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=DOGE/USD&interval=1440&since=720
+2025-12-03 00:39:07,714 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/DOGEUSD.csv
+2025-12-03 00:39:07,714 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/DOGEUSD.csv data/kraken/d/DOGEUSD.json
+2025-12-03 00:39:07,715 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=TON/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=TON/USD&interval=1440&since=720
+2025-12-03 00:39:08,063 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/TONUSD.csv
+2025-12-03 00:39:08,063 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/TONUSD.csv data/kraken/d/TONUSD.json
+2025-12-03 00:39:08,063 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=ADA/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=ADA/USD&interval=1440&since=720
+2025-12-03 00:39:08,456 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/ADAUSD.csv
+2025-12-03 00:39:08,456 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/ADAUSD.csv data/kraken/d/ADAUSD.json
+2025-12-03 00:39:08,457 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=TRX/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=TRX/USD&interval=1440&since=720
+2025-12-03 00:39:08,968 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/TRXUSD.csv
+2025-12-03 00:39:08,969 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/TRXUSD.csv data/kraken/d/TRXUSD.json
+2025-12-03 00:39:08,970 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=AVAX/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=AVAX/USD&interval=1440&since=720
+2025-12-03 00:39:09,518 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/AVAXUSD.csv
+2025-12-03 00:39:09,518 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/AVAXUSD.csv data/kraken/d/AVAXUSD.json
+2025-12-03 00:39:09,519 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=SHIB/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=SHIB/USD&interval=1440&since=720
+2025-12-03 00:39:10,133 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/SHIBUSD.csv
+2025-12-03 00:39:10,133 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/SHIBUSD.csv data/kraken/d/SHIBUSD.json
+2025-12-03 00:39:10,134 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=LINK/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=LINK/USD&interval=1440&since=720
+2025-12-03 00:39:10,857 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/LINKUSD.csv
+2025-12-03 00:39:10,857 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/LINKUSD.csv data/kraken/d/LINKUSD.json
+2025-12-03 00:39:10,858 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=BCHN/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=BCHN/USD&interval=1440&since=720
+2025-12-03 00:39:11,052 ERROR src.mvc.core.kraken.DataPandasKrakenMVC: Error getLatestDataFromKrakenAPI: BCHN/USD: 'result'
+Traceback (most recent call last):
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataPandasKrakenMVC.py", line 140, in getLatestDataFromKrakenAPI
+    controller.run()
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 174, in run
+    result = self.model.fetch_data()
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 79, in fetch_data
+    self.data = candles["result"][self.instrument]
+                ~~~~~~~^^^^^^^^^^
+KeyError: 'result'
+2025-12-03 00:39:11,054 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=DAI/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=DAI/USD&interval=1440&since=720
+2025-12-03 00:39:11,658 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/DAIUSD.csv
+2025-12-03 00:39:11,659 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/DAIUSD.csv data/kraken/d/DAIUSD.json
+2025-12-03 00:39:11,659 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=LEO/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=LEO/USD&interval=1440&since=720
+2025-12-03 00:39:12,132 ERROR src.mvc.core.kraken.DataPandasKrakenMVC: Error getLatestDataFromKrakenAPI: LEO/USD: 'result'
+Traceback (most recent call last):
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataPandasKrakenMVC.py", line 140, in getLatestDataFromKrakenAPI
+    controller.run()
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 174, in run
+    result = self.model.fetch_data()
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 79, in fetch_data
+    self.data = candles["result"][self.instrument]
+                ~~~~~~~^^^^^^^^^^
+KeyError: 'result'
+2025-12-03 00:39:12,133 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=LTC/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=LTC/USD&interval=1440&since=720
+2025-12-03 00:39:12,676 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/LTCUSD.csv
+2025-12-03 00:39:12,677 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/LTCUSD.csv data/kraken/d/LTCUSD.json
+2025-12-03 00:39:12,677 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=NEAR/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=NEAR/USD&interval=1440&since=720
+2025-12-03 00:39:13,097 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/NEARUSD.csv
+2025-12-03 00:39:13,097 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/NEARUSD.csv data/kraken/d/NEARUSD.json
+2025-12-03 00:39:13,098 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=MATIC/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=MATIC/USD&interval=1440&since=720
+2025-12-03 00:39:13,570 ERROR src.mvc.core.kraken.DataPandasKrakenMVC: Error getLatestDataFromKrakenAPI: MATIC/USD: 'result'
+Traceback (most recent call last):
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataPandasKrakenMVC.py", line 140, in getLatestDataFromKrakenAPI
+    controller.run()
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 174, in run
+    result = self.model.fetch_data()
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 79, in fetch_data
+    self.data = candles["result"][self.instrument]
+                ~~~~~~~^^^^^^^^^^
+KeyError: 'result'
+2025-12-03 00:39:13,571 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=UNI/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=UNI/USD&interval=1440&since=720
+2025-12-03 00:39:14,208 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/UNIUSD.csv
+2025-12-03 00:39:14,208 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/UNIUSD.csv data/kraken/d/UNIUSD.json
+2025-12-03 00:39:14,209 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=PEPE/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=PEPE/USD&interval=1440&since=720
+2025-12-03 00:39:14,778 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/PEPEUSD.csv
+2025-12-03 00:39:14,778 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/PEPEUSD.csv data/kraken/d/PEPEUSD.json
+2025-12-03 00:39:14,779 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=ETC/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=ETC/USD&interval=1440&since=720
+2025-12-03 00:39:15,176 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/ETCUSD.csv
+2025-12-03 00:39:15,176 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/ETCUSD.csv data/kraken/d/ETCUSD.json
+2025-12-03 00:39:15,177 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=XMR/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=XMR/USD&interval=1440&since=720
+2025-12-03 00:39:15,479 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/XMRUSD.csv
+2025-12-03 00:39:15,479 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/XMRUSD.csv data/kraken/d/XMRUSD.json
+2025-12-03 00:39:15,480 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=XLM/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=XLM/USD&interval=1440&since=720
+2025-12-03 00:39:15,768 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/XLMUSD.csv
+2025-12-03 00:39:15,768 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/XLMUSD.csv data/kraken/d/XLMUSD.json
+2025-12-03 00:39:15,769 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=APT/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=APT/USD&interval=1440&since=720
+2025-12-03 00:39:16,309 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/APTUSD.csv
+2025-12-03 00:39:16,309 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/APTUSD.csv data/kraken/d/APTUSD.json
+2025-12-03 00:39:16,310 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=SHIB/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=SHIB/USD&interval=1440&since=720
+2025-12-03 00:39:16,629 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/SHIBUSD.csv
+2025-12-03 00:39:16,629 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/SHIBUSD.csv data/kraken/d/SHIBUSD.json
+2025-12-03 00:39:16,630 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=DOT/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=DOT/USD&interval=1440&since=720
+2025-12-03 00:39:17,302 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/DOTUSD.csv
+2025-12-03 00:39:17,302 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/DOTUSD.csv data/kraken/d/DOTUSD.json
+2025-12-03 00:39:17,303 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=KAS/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=KAS/USD&interval=1440&since=720
+2025-12-03 00:39:18,023 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/KASUSD.csv
+2025-12-03 00:39:18,024 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/KASUSD.csv data/kraken/d/KASUSD.json
+2025-12-03 00:39:18,025 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=ICP/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=ICP/USD&interval=1440&since=720
+2025-12-03 00:39:18,353 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/ICPUSD.csv
+2025-12-03 00:39:18,353 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/ICPUSD.csv data/kraken/d/ICPUSD.json
+2025-12-03 00:39:18,354 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=FET/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=FET/USD&interval=1440&since=720
+2025-12-03 00:39:18,979 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/FETUSD.csv
+2025-12-03 00:39:18,979 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/FETUSD.csv data/kraken/d/FETUSD.json
+2025-12-03 00:39:18,980 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=STX/USD time_frame=1440 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=STX/USD&interval=1440&since=720
+2025-12-03 00:39:19,265 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/d/STXUSD.csv
+2025-12-03 00:39:19,266 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/d/STXUSD.csv data/kraken/d/STXUSD.json
+2025-12-03 00:39:19,266 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Creating Ichimoku Data (Kraken)
+2025-12-03 00:39:19,750 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Ichimoku columns added to csv
+2025-12-03 00:39:19,756 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Reading symbols for 10080
+2025-12-03 00:39:19,758 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Downloading from Kraken API
+2025-12-03 00:39:19,758 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=BTC/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=BTC/USD&interval=10080&since=720
+2025-12-03 00:39:20,379 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/BTCUSD.csv
+2025-12-03 00:39:20,379 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/BTCUSD.csv data/kraken/w/BTCUSD.json
+2025-12-03 00:39:20,380 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=LTC/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=LTC/USD&interval=10080&since=720
+2025-12-03 00:39:20,916 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/LTCUSD.csv
+2025-12-03 00:39:20,916 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/LTCUSD.csv data/kraken/w/LTCUSD.json
+2025-12-03 00:39:20,917 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=ETH/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=ETH/USD&interval=10080&since=720
+2025-12-03 00:39:21,455 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/ETHUSD.csv
+2025-12-03 00:39:21,455 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/ETHUSD.csv data/kraken/w/ETHUSD.json
+2025-12-03 00:39:21,456 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=XRP/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=XRP/USD&interval=10080&since=720
+2025-12-03 00:39:22,051 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/XRPUSD.csv
+2025-12-03 00:39:22,051 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/XRPUSD.csv data/kraken/w/XRPUSD.json
+2025-12-03 00:39:22,051 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=SOL/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=SOL/USD&interval=10080&since=720
+2025-12-03 00:39:22,261 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/SOLUSD.csv
+2025-12-03 00:39:22,261 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/SOLUSD.csv data/kraken/w/SOLUSD.json
+2025-12-03 00:39:22,262 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=DOGE/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=DOGE/USD&interval=10080&since=720
+2025-12-03 00:39:22,663 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/DOGEUSD.csv
+2025-12-03 00:39:22,663 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/DOGEUSD.csv data/kraken/w/DOGEUSD.json
+2025-12-03 00:39:22,664 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=TON/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=TON/USD&interval=10080&since=720
+2025-12-03 00:39:22,970 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/TONUSD.csv
+2025-12-03 00:39:22,970 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/TONUSD.csv data/kraken/w/TONUSD.json
+2025-12-03 00:39:22,971 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=ADA/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=ADA/USD&interval=10080&since=720
+2025-12-03 00:39:23,241 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/ADAUSD.csv
+2025-12-03 00:39:23,241 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/ADAUSD.csv data/kraken/w/ADAUSD.json
+2025-12-03 00:39:23,242 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=TRX/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=TRX/USD&interval=10080&since=720
+2025-12-03 00:39:24,957 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/TRXUSD.csv
+2025-12-03 00:39:24,957 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/TRXUSD.csv data/kraken/w/TRXUSD.json
+2025-12-03 00:39:24,958 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=AVAX/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=AVAX/USD&interval=10080&since=720
+2025-12-03 00:39:25,211 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/AVAXUSD.csv
+2025-12-03 00:39:25,211 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/AVAXUSD.csv data/kraken/w/AVAXUSD.json
+2025-12-03 00:39:25,212 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=SHIB/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=SHIB/USD&interval=10080&since=720
+2025-12-03 00:39:25,476 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/SHIBUSD.csv
+2025-12-03 00:39:25,476 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/SHIBUSD.csv data/kraken/w/SHIBUSD.json
+2025-12-03 00:39:25,477 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=LINK/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=LINK/USD&interval=10080&since=720
+2025-12-03 00:39:25,780 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/LINKUSD.csv
+2025-12-03 00:39:25,780 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/LINKUSD.csv data/kraken/w/LINKUSD.json
+2025-12-03 00:39:25,781 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=BCHN/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=BCHN/USD&interval=10080&since=720
+2025-12-03 00:39:26,049 ERROR src.mvc.core.kraken.DataPandasKrakenMVC: Error getLatestDataFromKrakenAPI: BCHN/USD: 'result'
+Traceback (most recent call last):
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataPandasKrakenMVC.py", line 140, in getLatestDataFromKrakenAPI
+    controller.run()
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 174, in run
+    result = self.model.fetch_data()
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 79, in fetch_data
+    self.data = candles["result"][self.instrument]
+                ~~~~~~~^^^^^^^^^^
+KeyError: 'result'
+2025-12-03 00:39:26,051 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=DAI/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=DAI/USD&interval=10080&since=720
+2025-12-03 00:39:26,372 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/DAIUSD.csv
+2025-12-03 00:39:26,373 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/DAIUSD.csv data/kraken/w/DAIUSD.json
+2025-12-03 00:39:26,374 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=LEO/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=LEO/USD&interval=10080&since=720
+2025-12-03 00:39:26,590 ERROR src.mvc.core.kraken.DataPandasKrakenMVC: Error getLatestDataFromKrakenAPI: LEO/USD: 'result'
+Traceback (most recent call last):
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataPandasKrakenMVC.py", line 140, in getLatestDataFromKrakenAPI
+    controller.run()
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 174, in run
+    result = self.model.fetch_data()
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 79, in fetch_data
+    self.data = candles["result"][self.instrument]
+                ~~~~~~~^^^^^^^^^^
+KeyError: 'result'
+2025-12-03 00:39:26,592 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=LTC/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=LTC/USD&interval=10080&since=720
+2025-12-03 00:39:26,946 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/LTCUSD.csv
+2025-12-03 00:39:26,947 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/LTCUSD.csv data/kraken/w/LTCUSD.json
+2025-12-03 00:39:26,947 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=NEAR/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=NEAR/USD&interval=10080&since=720
+2025-12-03 00:39:28,606 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/NEARUSD.csv
+2025-12-03 00:39:28,606 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/NEARUSD.csv data/kraken/w/NEARUSD.json
+2025-12-03 00:39:28,607 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=MATIC/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=MATIC/USD&interval=10080&since=720
+2025-12-03 00:39:29,073 ERROR src.mvc.core.kraken.DataPandasKrakenMVC: Error getLatestDataFromKrakenAPI: MATIC/USD: 'result'
+Traceback (most recent call last):
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataPandasKrakenMVC.py", line 140, in getLatestDataFromKrakenAPI
+    controller.run()
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 174, in run
+    result = self.model.fetch_data()
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 79, in fetch_data
+    self.data = candles["result"][self.instrument]
+                ~~~~~~~^^^^^^^^^^
+KeyError: 'result'
+2025-12-03 00:39:29,075 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=UNI/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=UNI/USD&interval=10080&since=720
+2025-12-03 00:39:29,646 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/UNIUSD.csv
+2025-12-03 00:39:29,646 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/UNIUSD.csv data/kraken/w/UNIUSD.json
+2025-12-03 00:39:29,647 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=PEPE/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=PEPE/USD&interval=10080&since=720
+2025-12-03 00:39:29,860 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/PEPEUSD.csv
+2025-12-03 00:39:29,860 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/PEPEUSD.csv data/kraken/w/PEPEUSD.json
+2025-12-03 00:39:29,861 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=ETC/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=ETC/USD&interval=10080&since=720
+2025-12-03 00:39:30,262 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/ETCUSD.csv
+2025-12-03 00:39:30,262 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/ETCUSD.csv data/kraken/w/ETCUSD.json
+2025-12-03 00:39:30,263 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=XMR/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=XMR/USD&interval=10080&since=720
+2025-12-03 00:39:30,635 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/XMRUSD.csv
+2025-12-03 00:39:30,635 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/XMRUSD.csv data/kraken/w/XMRUSD.json
+2025-12-03 00:39:30,636 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=XLM/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=XLM/USD&interval=10080&since=720
+2025-12-03 00:39:31,745 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/XLMUSD.csv
+2025-12-03 00:39:31,745 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/XLMUSD.csv data/kraken/w/XLMUSD.json
+2025-12-03 00:39:31,746 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=APT/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=APT/USD&interval=10080&since=720
+2025-12-03 00:39:31,983 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/APTUSD.csv
+2025-12-03 00:39:31,983 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/APTUSD.csv data/kraken/w/APTUSD.json
+2025-12-03 00:39:31,983 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=SHIB/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=SHIB/USD&interval=10080&since=720
+2025-12-03 00:39:32,246 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/SHIBUSD.csv
+2025-12-03 00:39:32,247 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/SHIBUSD.csv data/kraken/w/SHIBUSD.json
+2025-12-03 00:39:32,247 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=DOT/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=DOT/USD&interval=10080&since=720
+2025-12-03 00:39:32,595 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/DOTUSD.csv
+2025-12-03 00:39:32,596 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/DOTUSD.csv data/kraken/w/DOTUSD.json
+2025-12-03 00:39:32,597 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=KAS/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=KAS/USD&interval=10080&since=720
+2025-12-03 00:39:32,896 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/KASUSD.csv
+2025-12-03 00:39:32,896 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/KASUSD.csv data/kraken/w/KASUSD.json
+2025-12-03 00:39:32,897 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=ICP/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=ICP/USD&interval=10080&since=720
+2025-12-03 00:39:33,157 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/ICPUSD.csv
+2025-12-03 00:39:33,157 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/ICPUSD.csv data/kraken/w/ICPUSD.json
+2025-12-03 00:39:33,158 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=FET/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=FET/USD&interval=10080&since=720
+2025-12-03 00:39:33,375 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/FETUSD.csv
+2025-12-03 00:39:33,375 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/FETUSD.csv data/kraken/w/FETUSD.json
+2025-12-03 00:39:33,376 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=STX/USD time_frame=10080 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=STX/USD&interval=10080&since=720
+2025-12-03 00:39:33,903 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/w/STXUSD.csv
+2025-12-03 00:39:33,903 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/w/STXUSD.csv data/kraken/w/STXUSD.json
+2025-12-03 00:39:33,904 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Creating Ichimoku Data (Kraken)
+2025-12-03 00:39:34,278 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Ichimoku columns added to csv
+2025-12-03 00:39:34,281 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Reading symbols for 10080
+2025-12-03 00:39:34,285 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Reading symbols for 21600
+2025-12-03 00:39:34,287 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Downloading from Kraken API
+2025-12-03 00:39:34,287 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=BTC/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=BTC/USD&interval=21600&since=720
+2025-12-03 00:39:34,822 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/BTCUSD.csv
+2025-12-03 00:39:34,822 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/BTCUSD.csv data/kraken/m/BTCUSD.json
+2025-12-03 00:39:34,823 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=LTC/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=LTC/USD&interval=21600&since=720
+2025-12-03 00:39:35,347 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/LTCUSD.csv
+2025-12-03 00:39:35,348 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/LTCUSD.csv data/kraken/m/LTCUSD.json
+2025-12-03 00:39:35,348 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=ETH/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=ETH/USD&interval=21600&since=720
+2025-12-03 00:39:35,953 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/ETHUSD.csv
+2025-12-03 00:39:35,954 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/ETHUSD.csv data/kraken/m/ETHUSD.json
+2025-12-03 00:39:35,954 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=XRP/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=XRP/USD&interval=21600&since=720
+2025-12-03 00:39:36,581 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/XRPUSD.csv
+2025-12-03 00:39:36,581 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/XRPUSD.csv data/kraken/m/XRPUSD.json
+2025-12-03 00:39:36,581 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=SOL/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=SOL/USD&interval=21600&since=720
+2025-12-03 00:39:37,013 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/SOLUSD.csv
+2025-12-03 00:39:37,013 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/SOLUSD.csv data/kraken/m/SOLUSD.json
+2025-12-03 00:39:37,014 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=DOGE/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=DOGE/USD&interval=21600&since=720
+2025-12-03 00:39:37,230 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/DOGEUSD.csv
+2025-12-03 00:39:37,230 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/DOGEUSD.csv data/kraken/m/DOGEUSD.json
+2025-12-03 00:39:37,230 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=TON/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=TON/USD&interval=21600&since=720
+2025-12-03 00:39:37,706 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/TONUSD.csv
+2025-12-03 00:39:37,706 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/TONUSD.csv data/kraken/m/TONUSD.json
+2025-12-03 00:39:37,706 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=ADA/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=ADA/USD&interval=21600&since=720
+2025-12-03 00:39:38,070 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/ADAUSD.csv
+2025-12-03 00:39:38,070 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/ADAUSD.csv data/kraken/m/ADAUSD.json
+2025-12-03 00:39:38,071 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=TRX/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=TRX/USD&interval=21600&since=720
+2025-12-03 00:39:38,421 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/TRXUSD.csv
+2025-12-03 00:39:38,421 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/TRXUSD.csv data/kraken/m/TRXUSD.json
+2025-12-03 00:39:38,422 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=AVAX/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=AVAX/USD&interval=21600&since=720
+2025-12-03 00:39:38,724 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/AVAXUSD.csv
+2025-12-03 00:39:38,724 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/AVAXUSD.csv data/kraken/m/AVAXUSD.json
+2025-12-03 00:39:38,725 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=SHIB/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=SHIB/USD&interval=21600&since=720
+2025-12-03 00:39:39,344 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/SHIBUSD.csv
+2025-12-03 00:39:39,344 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/SHIBUSD.csv data/kraken/m/SHIBUSD.json
+2025-12-03 00:39:39,345 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=LINK/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=LINK/USD&interval=21600&since=720
+2025-12-03 00:39:39,598 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/LINKUSD.csv
+2025-12-03 00:39:39,598 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/LINKUSD.csv data/kraken/m/LINKUSD.json
+2025-12-03 00:39:39,599 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=BCHN/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=BCHN/USD&interval=21600&since=720
+2025-12-03 00:39:40,062 ERROR src.mvc.core.kraken.DataPandasKrakenMVC: Error getLatestDataFromKrakenAPI: BCHN/USD: 'result'
+Traceback (most recent call last):
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataPandasKrakenMVC.py", line 140, in getLatestDataFromKrakenAPI
+    controller.run()
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 174, in run
+    result = self.model.fetch_data()
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 79, in fetch_data
+    self.data = candles["result"][self.instrument]
+                ~~~~~~~^^^^^^^^^^
+KeyError: 'result'
+2025-12-03 00:39:40,063 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=DAI/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=DAI/USD&interval=21600&since=720
+2025-12-03 00:39:40,532 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/DAIUSD.csv
+2025-12-03 00:39:40,532 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/DAIUSD.csv data/kraken/m/DAIUSD.json
+2025-12-03 00:39:40,533 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=LEO/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=LEO/USD&interval=21600&since=720
+2025-12-03 00:39:40,756 ERROR src.mvc.core.kraken.DataPandasKrakenMVC: Error getLatestDataFromKrakenAPI: LEO/USD: 'result'
+Traceback (most recent call last):
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataPandasKrakenMVC.py", line 140, in getLatestDataFromKrakenAPI
+    controller.run()
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 174, in run
+    result = self.model.fetch_data()
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 79, in fetch_data
+    self.data = candles["result"][self.instrument]
+                ~~~~~~~^^^^^^^^^^
+KeyError: 'result'
+2025-12-03 00:39:40,757 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=LTC/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=LTC/USD&interval=21600&since=720
+2025-12-03 00:39:41,405 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/LTCUSD.csv
+2025-12-03 00:39:41,405 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/LTCUSD.csv data/kraken/m/LTCUSD.json
+2025-12-03 00:39:41,407 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=NEAR/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=NEAR/USD&interval=21600&since=720
+2025-12-03 00:39:41,634 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/NEARUSD.csv
+2025-12-03 00:39:41,634 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/NEARUSD.csv data/kraken/m/NEARUSD.json
+2025-12-03 00:39:41,635 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=MATIC/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=MATIC/USD&interval=21600&since=720
+2025-12-03 00:39:41,851 ERROR src.mvc.core.kraken.DataPandasKrakenMVC: Error getLatestDataFromKrakenAPI: MATIC/USD: 'result'
+Traceback (most recent call last):
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataPandasKrakenMVC.py", line 140, in getLatestDataFromKrakenAPI
+    controller.run()
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 174, in run
+    result = self.model.fetch_data()
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/Ichimoku-Cloud-Signal-Python/src/mvc/core/kraken/DataKrakenAPI.py", line 79, in fetch_data
+    self.data = candles["result"][self.instrument]
+                ~~~~~~~^^^^^^^^^^
+KeyError: 'result'
+2025-12-03 00:39:41,854 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=UNI/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=UNI/USD&interval=21600&since=720
+2025-12-03 00:39:42,096 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/UNIUSD.csv
+2025-12-03 00:39:42,096 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/UNIUSD.csv data/kraken/m/UNIUSD.json
+2025-12-03 00:39:42,098 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=PEPE/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=PEPE/USD&interval=21600&since=720
+2025-12-03 00:39:42,402 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/PEPEUSD.csv
+2025-12-03 00:39:42,403 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/PEPEUSD.csv data/kraken/m/PEPEUSD.json
+2025-12-03 00:39:42,404 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=ETC/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=ETC/USD&interval=21600&since=720
+2025-12-03 00:39:43,226 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/ETCUSD.csv
+2025-12-03 00:39:43,226 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/ETCUSD.csv data/kraken/m/ETCUSD.json
+2025-12-03 00:39:43,227 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=XMR/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=XMR/USD&interval=21600&since=720
+2025-12-03 00:39:43,498 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/XMRUSD.csv
+2025-12-03 00:39:43,498 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/XMRUSD.csv data/kraken/m/XMRUSD.json
+2025-12-03 00:39:43,498 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=XLM/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=XLM/USD&interval=21600&since=720
+2025-12-03 00:39:44,159 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/XLMUSD.csv
+2025-12-03 00:39:44,159 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/XLMUSD.csv data/kraken/m/XLMUSD.json
+2025-12-03 00:39:44,160 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=APT/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=APT/USD&interval=21600&since=720
+2025-12-03 00:39:44,398 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/APTUSD.csv
+2025-12-03 00:39:44,399 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/APTUSD.csv data/kraken/m/APTUSD.json
+2025-12-03 00:39:44,399 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=SHIB/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=SHIB/USD&interval=21600&since=720
+2025-12-03 00:39:44,973 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/SHIBUSD.csv
+2025-12-03 00:39:44,973 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/SHIBUSD.csv data/kraken/m/SHIBUSD.json
+2025-12-03 00:39:44,974 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=DOT/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=DOT/USD&interval=21600&since=720
+2025-12-03 00:39:45,472 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/DOTUSD.csv
+2025-12-03 00:39:45,473 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/DOTUSD.csv data/kraken/m/DOTUSD.json
+2025-12-03 00:39:45,473 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=KAS/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=KAS/USD&interval=21600&since=720
+2025-12-03 00:39:45,769 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/KASUSD.csv
+2025-12-03 00:39:45,769 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/KASUSD.csv data/kraken/m/KASUSD.json
+2025-12-03 00:39:45,770 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=ICP/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=ICP/USD&interval=21600&since=720
+2025-12-03 00:39:46,297 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/ICPUSD.csv
+2025-12-03 00:39:46,297 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/ICPUSD.csv data/kraken/m/ICPUSD.json
+2025-12-03 00:39:46,298 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=FET/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=FET/USD&interval=21600&since=720
+2025-12-03 00:39:46,520 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/FETUSD.csv
+2025-12-03 00:39:46,520 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/FETUSD.csv data/kraken/m/FETUSD.json
+2025-12-03 00:39:46,520 INFO src.mvc.core.kraken.DataKrakenAPI: fetch_data: instrument=STX/USD time_frame=21600 lookback=720 url=https://api.kraken.com/0/public/OHLC/?pair=STX/USD&interval=21600&since=720
+2025-12-03 00:39:47,087 INFO src.mvc.core.kraken.DataKrakenAPI: Saved csv to data/kraken/m/STXUSD.csv
+2025-12-03 00:39:47,088 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Download completed. Saved in: data/kraken/m/STXUSD.csv data/kraken/m/STXUSD.json
+2025-12-03 00:39:47,088 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Creating Ichimoku Data (Kraken)
+2025-12-03 00:39:47,401 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Ichimoku columns added to csv
+2025-12-03 00:39:47,403 INFO src.mvc.core.kraken.DataPandasKrakenMVC: Reading symbols for 21600
+2025-12-03 00:39:47,405 INFO src.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/kraken/1h/ -----------
+2025-12-03 00:39:47,433 WARNING src.mvc.core.DataCloudSignalMVC: Error: data/kraken/1h/BCHNUSD.csv not found
+2025-12-03 00:39:47,436 WARNING src.mvc.core.DataCloudSignalMVC: Error: data/kraken/1h/LEOUSD.csv not found
+2025-12-03 00:39:47,440 WARNING src.mvc.core.DataCloudSignalMVC: Error: data/kraken/1h/MATICUSD.csv not found
+2025-12-03 00:39:47,475 INFO src.mvc.core.DataCloudSignalMVC: BTCUSD - File is already in the correct format.
+2025-12-03 00:39:47,518 INFO src.mvc.core.DataCloudSignalMVC: LTCUSD - File is already in the correct format.
+2025-12-03 00:39:47,564 INFO src.mvc.core.DataCloudSignalMVC: ETHUSD - File is already in the correct format.
+2025-12-03 00:39:47,609 INFO src.mvc.core.DataCloudSignalMVC: XRPUSD - File is already in the correct format.
+2025-12-03 00:39:47,658 INFO src.mvc.core.DataCloudSignalMVC: SOLUSD - File is already in the correct format.
+2025-12-03 00:39:47,704 INFO src.mvc.core.DataCloudSignalMVC: DOGEUSD - File is already in the correct format.
+2025-12-03 00:39:47,748 INFO src.mvc.core.DataCloudSignalMVC: TONUSD - File is already in the correct format.
+2025-12-03 00:39:47,793 INFO src.mvc.core.DataCloudSignalMVC: ADAUSD - File is already in the correct format.
+2025-12-03 00:39:47,837 INFO src.mvc.core.DataCloudSignalMVC: TRXUSD - File is already in the correct format.
+2025-12-03 00:39:47,886 INFO src.mvc.core.DataCloudSignalMVC: AVAXUSD - File is already in the correct format.
+2025-12-03 00:39:47,944 INFO src.mvc.core.DataCloudSignalMVC: SHIBUSD - File is already in the correct format.
+2025-12-03 00:39:47,992 INFO src.mvc.core.DataCloudSignalMVC: LINKUSD - File is already in the correct format.
+2025-12-03 00:39:48,036 INFO src.mvc.core.DataCloudSignalMVC: DAIUSD - File is already in the correct format.
+2025-12-03 00:39:48,079 INFO src.mvc.core.DataCloudSignalMVC: NEARUSD - File is already in the correct format.
+2025-12-03 00:39:48,126 INFO src.mvc.core.DataCloudSignalMVC: UNIUSD - File is already in the correct format.
+2025-12-03 00:39:48,176 INFO src.mvc.core.DataCloudSignalMVC: PEPEUSD - File is already in the correct format.
+2025-12-03 00:39:48,219 INFO src.mvc.core.DataCloudSignalMVC: ETCUSD - File is already in the correct format.
+2025-12-03 00:39:48,265 INFO src.mvc.core.DataCloudSignalMVC: XMRUSD - File is already in the correct format.
+2025-12-03 00:39:48,309 INFO src.mvc.core.DataCloudSignalMVC: XLMUSD - File is already in the correct format.
+2025-12-03 00:39:48,352 INFO src.mvc.core.DataCloudSignalMVC: APTUSD - File is already in the correct format.
+2025-12-03 00:39:48,396 INFO src.mvc.core.DataCloudSignalMVC: DOTUSD - File is already in the correct format.
+2025-12-03 00:39:48,440 INFO src.mvc.core.DataCloudSignalMVC: KASUSD - File is already in the correct format.
+2025-12-03 00:39:48,489 INFO src.mvc.core.DataCloudSignalMVC: ICPUSD - File is already in the correct format.
+2025-12-03 00:39:48,536 INFO src.mvc.core.DataCloudSignalMVC: FETUSD - File is already in the correct format.
+2025-12-03 00:39:48,581 INFO src.mvc.core.DataCloudSignalMVC: STXUSD - File is already in the correct format.
+2025-12-03 00:39:48,614 INFO src.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
+2025-12-03 00:39:48,615 INFO src.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/kraken/4h/ -----------
+2025-12-03 00:39:48,651 WARNING src.mvc.core.DataCloudSignalMVC: Error: data/kraken/4h/BCHNUSD.csv not found
+2025-12-03 00:39:48,654 WARNING src.mvc.core.DataCloudSignalMVC: Error: data/kraken/4h/LEOUSD.csv not found
+2025-12-03 00:39:48,659 WARNING src.mvc.core.DataCloudSignalMVC: Error: data/kraken/4h/MATICUSD.csv not found
+2025-12-03 00:39:48,702 INFO src.mvc.core.DataCloudSignalMVC: BTCUSD - File is already in the correct format.
+2025-12-03 00:39:48,749 INFO src.mvc.core.DataCloudSignalMVC: LTCUSD - File is already in the correct format.
+2025-12-03 00:39:48,799 INFO src.mvc.core.DataCloudSignalMVC: ETHUSD - File is already in the correct format.
+2025-12-03 00:39:48,844 INFO src.mvc.core.DataCloudSignalMVC: XRPUSD - File is already in the correct format.
+2025-12-03 00:39:48,892 INFO src.mvc.core.DataCloudSignalMVC: SOLUSD - File is already in the correct format.
+2025-12-03 00:39:48,937 INFO src.mvc.core.DataCloudSignalMVC: DOGEUSD - File is already in the correct format.
+2025-12-03 00:39:49,001 INFO src.mvc.core.DataCloudSignalMVC: TONUSD - File is already in the correct format.
+2025-12-03 00:39:49,049 INFO src.mvc.core.DataCloudSignalMVC: ADAUSD - File is already in the correct format.
+2025-12-03 00:39:49,095 INFO src.mvc.core.DataCloudSignalMVC: TRXUSD - File is already in the correct format.
+2025-12-03 00:39:49,144 INFO src.mvc.core.DataCloudSignalMVC: AVAXUSD - File is already in the correct format.
+2025-12-03 00:39:49,190 INFO src.mvc.core.DataCloudSignalMVC: SHIBUSD - File is already in the correct format.
+2025-12-03 00:39:49,237 INFO src.mvc.core.DataCloudSignalMVC: LINKUSD - File is already in the correct format.
+2025-12-03 00:39:49,286 INFO src.mvc.core.DataCloudSignalMVC: DAIUSD - File is already in the correct format.
+2025-12-03 00:39:49,329 INFO src.mvc.core.DataCloudSignalMVC: NEARUSD - File is already in the correct format.
+2025-12-03 00:39:49,373 INFO src.mvc.core.DataCloudSignalMVC: UNIUSD - File is already in the correct format.
+2025-12-03 00:39:49,421 INFO src.mvc.core.DataCloudSignalMVC: PEPEUSD - File is already in the correct format.
+2025-12-03 00:39:49,469 INFO src.mvc.core.DataCloudSignalMVC: ETCUSD - File is already in the correct format.
+2025-12-03 00:39:49,515 INFO src.mvc.core.DataCloudSignalMVC: XMRUSD - File is already in the correct format.
+2025-12-03 00:39:49,560 INFO src.mvc.core.DataCloudSignalMVC: XLMUSD - File is already in the correct format.
+2025-12-03 00:39:49,605 INFO src.mvc.core.DataCloudSignalMVC: APTUSD - File is already in the correct format.
+2025-12-03 00:39:49,649 INFO src.mvc.core.DataCloudSignalMVC: DOTUSD - File is already in the correct format.
+2025-12-03 00:39:49,693 INFO src.mvc.core.DataCloudSignalMVC: KASUSD - File is already in the correct format.
+2025-12-03 00:39:49,740 INFO src.mvc.core.DataCloudSignalMVC: ICPUSD - File is already in the correct format.
+2025-12-03 00:39:49,789 INFO src.mvc.core.DataCloudSignalMVC: FETUSD - File is already in the correct format.
+2025-12-03 00:39:49,833 INFO src.mvc.core.DataCloudSignalMVC: STXUSD - File is already in the correct format.
+2025-12-03 00:39:49,872 INFO src.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
+2025-12-03 00:39:49,873 INFO src.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/kraken/d/ -----------
+2025-12-03 00:39:49,900 WARNING src.mvc.core.DataCloudSignalMVC: Error: data/kraken/d/BCHNUSD.csv not found
+2025-12-03 00:39:49,903 WARNING src.mvc.core.DataCloudSignalMVC: Error: data/kraken/d/LEOUSD.csv not found
+2025-12-03 00:39:49,908 WARNING src.mvc.core.DataCloudSignalMVC: Error: data/kraken/d/MATICUSD.csv not found
+2025-12-03 00:39:49,942 INFO src.mvc.core.DataCloudSignalMVC: BTCUSD - File is already in the correct format.
+2025-12-03 00:39:49,985 INFO src.mvc.core.DataCloudSignalMVC: LTCUSD - File is already in the correct format.
+2025-12-03 00:39:50,046 INFO src.mvc.core.DataCloudSignalMVC: ETHUSD - File is already in the correct format.
+2025-12-03 00:39:50,096 INFO src.mvc.core.DataCloudSignalMVC: XRPUSD - File is already in the correct format.
+2025-12-03 00:39:50,139 INFO src.mvc.core.DataCloudSignalMVC: SOLUSD - File is already in the correct format.
+2025-12-03 00:39:50,183 INFO src.mvc.core.DataCloudSignalMVC: DOGEUSD - File is already in the correct format.
+2025-12-03 00:39:50,225 INFO src.mvc.core.DataCloudSignalMVC: TONUSD - File is already in the correct format.
+2025-12-03 00:39:50,260 INFO src.mvc.core.DataCloudSignalMVC: ADAUSD - File is already in the correct format.
+2025-12-03 00:39:50,306 INFO src.mvc.core.DataCloudSignalMVC: TRXUSD - File is already in the correct format.
+2025-12-03 00:39:50,349 INFO src.mvc.core.DataCloudSignalMVC: AVAXUSD - File is already in the correct format.
+2025-12-03 00:39:50,393 INFO src.mvc.core.DataCloudSignalMVC: SHIBUSD - File is already in the correct format.
+2025-12-03 00:39:50,438 INFO src.mvc.core.DataCloudSignalMVC: LINKUSD - File is already in the correct format.
+2025-12-03 00:39:50,484 INFO src.mvc.core.DataCloudSignalMVC: DAIUSD - File is already in the correct format.
+2025-12-03 00:39:50,527 INFO src.mvc.core.DataCloudSignalMVC: NEARUSD - File is already in the correct format.
+2025-12-03 00:39:50,574 INFO src.mvc.core.DataCloudSignalMVC: UNIUSD - File is already in the correct format.
+2025-12-03 00:39:50,620 INFO src.mvc.core.DataCloudSignalMVC: PEPEUSD - File is already in the correct format.
+2025-12-03 00:39:50,665 INFO src.mvc.core.DataCloudSignalMVC: ETCUSD - File is already in the correct format.
+2025-12-03 00:39:50,711 INFO src.mvc.core.DataCloudSignalMVC: XMRUSD - File is already in the correct format.
+2025-12-03 00:39:50,754 INFO src.mvc.core.DataCloudSignalMVC: XLMUSD - File is already in the correct format.
+2025-12-03 00:39:50,803 INFO src.mvc.core.DataCloudSignalMVC: APTUSD - File is already in the correct format.
+2025-12-03 00:39:50,849 INFO src.mvc.core.DataCloudSignalMVC: DOTUSD - File is already in the correct format.
+2025-12-03 00:39:50,895 INFO src.mvc.core.DataCloudSignalMVC: KASUSD - File is already in the correct format.
+2025-12-03 00:39:50,926 INFO src.mvc.core.DataCloudSignalMVC: ICPUSD - File is already in the correct format.
+2025-12-03 00:39:50,973 INFO src.mvc.core.DataCloudSignalMVC: FETUSD - File is already in the correct format.
+2025-12-03 00:39:51,019 INFO src.mvc.core.DataCloudSignalMVC: STXUSD - File is already in the correct format.
+2025-12-03 00:39:51,076 INFO src.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
+2025-12-03 00:39:51,078 INFO src.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/kraken/w/ -----------
+2025-12-03 00:39:51,101 WARNING src.mvc.core.DataCloudSignalMVC: Error: data/kraken/w/BCHNUSD.csv not found
+2025-12-03 00:39:51,103 WARNING src.mvc.core.DataCloudSignalMVC: Error: data/kraken/w/LEOUSD.csv not found
+2025-12-03 00:39:51,107 WARNING src.mvc.core.DataCloudSignalMVC: Error: data/kraken/w/MATICUSD.csv not found
+2025-12-03 00:39:51,142 INFO src.mvc.core.DataCloudSignalMVC: BTCUSD - File is already in the correct format.
+2025-12-03 00:39:51,181 INFO src.mvc.core.DataCloudSignalMVC: LTCUSD - File is already in the correct format.
+2025-12-03 00:39:51,220 INFO src.mvc.core.DataCloudSignalMVC: ETHUSD - File is already in the correct format.
+2025-12-03 00:39:51,255 INFO src.mvc.core.DataCloudSignalMVC: XRPUSD - File is already in the correct format.
+2025-12-03 00:39:51,292 INFO src.mvc.core.DataCloudSignalMVC: SOLUSD - File is already in the correct format.
+2025-12-03 00:39:51,314 INFO src.mvc.core.DataCloudSignalMVC: DOGEUSD - File is already in the correct format.
+2025-12-03 00:39:51,339 INFO src.mvc.core.DataCloudSignalMVC: TONUSD - File is already in the correct format.
+2025-12-03 00:39:51,354 INFO src.mvc.core.DataCloudSignalMVC: ADAUSD - File is already in the correct format.
+2025-12-03 00:39:51,382 INFO src.mvc.core.DataCloudSignalMVC: TRXUSD - File is already in the correct format.
+2025-12-03 00:39:51,405 INFO src.mvc.core.DataCloudSignalMVC: AVAXUSD - File is already in the correct format.
+2025-12-03 00:39:51,425 INFO src.mvc.core.DataCloudSignalMVC: SHIBUSD - File is already in the correct format.
+2025-12-03 00:39:51,446 INFO src.mvc.core.DataCloudSignalMVC: LINKUSD - File is already in the correct format.
+2025-12-03 00:39:51,474 INFO src.mvc.core.DataCloudSignalMVC: DAIUSD - File is already in the correct format.
+2025-12-03 00:39:51,499 INFO src.mvc.core.DataCloudSignalMVC: NEARUSD - File is already in the correct format.
+2025-12-03 00:39:51,518 INFO src.mvc.core.DataCloudSignalMVC: UNIUSD - File is already in the correct format.
+2025-12-03 00:39:51,541 INFO src.mvc.core.DataCloudSignalMVC: PEPEUSD - File is already in the correct format.
+2025-12-03 00:39:51,560 INFO src.mvc.core.DataCloudSignalMVC: ETCUSD - File is already in the correct format.
+2025-12-03 00:39:51,600 INFO src.mvc.core.DataCloudSignalMVC: XMRUSD - File is already in the correct format.
+2025-12-03 00:39:51,633 INFO src.mvc.core.DataCloudSignalMVC: XLMUSD - File is already in the correct format.
+2025-12-03 00:39:51,664 INFO src.mvc.core.DataCloudSignalMVC: APTUSD - File is already in the correct format.
+2025-12-03 00:39:51,682 INFO src.mvc.core.DataCloudSignalMVC: DOTUSD - File is already in the correct format.
+2025-12-03 00:39:51,707 INFO src.mvc.core.DataCloudSignalMVC: KASUSD - File is already in the correct format.
+2025-12-03 00:39:51,722 INFO src.mvc.core.DataCloudSignalMVC: ICPUSD - File is already in the correct format.
+2025-12-03 00:39:51,743 INFO src.mvc.core.DataCloudSignalMVC: FETUSD - File is already in the correct format.
+2025-12-03 00:39:51,764 INFO src.mvc.core.DataCloudSignalMVC: STXUSD - File is already in the correct format.
+2025-12-03 00:39:51,779 INFO src.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
+2025-12-03 00:39:51,779 INFO src.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/kraken/m/ -----------
+2025-12-03 00:39:51,799 WARNING src.mvc.core.DataCloudSignalMVC: Error: data/kraken/m/BCHNUSD.csv not found
+2025-12-03 00:39:51,801 WARNING src.mvc.core.DataCloudSignalMVC: Error: data/kraken/m/LEOUSD.csv not found
+2025-12-03 00:39:51,804 WARNING src.mvc.core.DataCloudSignalMVC: Error: data/kraken/m/MATICUSD.csv not found
+2025-12-03 00:39:51,829 INFO src.mvc.core.DataCloudSignalMVC: BTCUSD - File is already in the correct format.
+2025-12-03 00:39:51,855 INFO src.mvc.core.DataCloudSignalMVC: LTCUSD - File is already in the correct format.
+2025-12-03 00:39:51,883 INFO src.mvc.core.DataCloudSignalMVC: ETHUSD - File is already in the correct format.
+2025-12-03 00:39:51,906 INFO src.mvc.core.DataCloudSignalMVC: XRPUSD - File is already in the correct format.
+2025-12-03 00:39:51,927 INFO src.mvc.core.DataCloudSignalMVC: SOLUSD - File is already in the correct format.
+2025-12-03 00:39:51,944 INFO src.mvc.core.DataCloudSignalMVC: DOGEUSD - File is already in the correct format.
+2025-12-03 00:39:51,962 INFO src.mvc.core.DataCloudSignalMVC: TONUSD - File is already in the correct format.
+2025-12-03 00:39:51,977 INFO src.mvc.core.DataCloudSignalMVC: ADAUSD - File is already in the correct format.
+2025-12-03 00:39:51,997 INFO src.mvc.core.DataCloudSignalMVC: TRXUSD - File is already in the correct format.
+2025-12-03 00:39:52,015 INFO src.mvc.core.DataCloudSignalMVC: AVAXUSD - File is already in the correct format.
+2025-12-03 00:39:52,031 INFO src.mvc.core.DataCloudSignalMVC: SHIBUSD - File is already in the correct format.
+2025-12-03 00:39:52,047 INFO src.mvc.core.DataCloudSignalMVC: LINKUSD - File is already in the correct format.
+2025-12-03 00:39:52,068 INFO src.mvc.core.DataCloudSignalMVC: DAIUSD - File is already in the correct format.
+2025-12-03 00:39:52,093 INFO src.mvc.core.DataCloudSignalMVC: NEARUSD - File is already in the correct format.
+2025-12-03 00:39:52,118 INFO src.mvc.core.DataCloudSignalMVC: UNIUSD - File is already in the correct format.
+2025-12-03 00:39:52,139 INFO src.mvc.core.DataCloudSignalMVC: PEPEUSD - File is already in the correct format.
+2025-12-03 00:39:52,155 INFO src.mvc.core.DataCloudSignalMVC: ETCUSD - File is already in the correct format.
+2025-12-03 00:39:52,176 INFO src.mvc.core.DataCloudSignalMVC: XMRUSD - File is already in the correct format.
+2025-12-03 00:39:52,196 INFO src.mvc.core.DataCloudSignalMVC: XLMUSD - File is already in the correct format.
+2025-12-03 00:39:52,215 INFO src.mvc.core.DataCloudSignalMVC: APTUSD - File is already in the correct format.
+2025-12-03 00:39:52,229 INFO src.mvc.core.DataCloudSignalMVC: DOTUSD - File is already in the correct format.
+2025-12-03 00:39:52,245 INFO src.mvc.core.DataCloudSignalMVC: KASUSD - File is already in the correct format.
+2025-12-03 00:39:52,258 INFO src.mvc.core.DataCloudSignalMVC: ICPUSD - File is already in the correct format.
+2025-12-03 00:39:52,277 INFO src.mvc.core.DataCloudSignalMVC: FETUSD - File is already in the correct format.
+2025-12-03 00:39:52,294 INFO src.mvc.core.DataCloudSignalMVC: STXUSD - File is already in the correct format.
+2025-12-03 00:39:52,300 INFO src.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
+2025-12-03 00:39:52,301 INFO src.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
+2025-12-03 00:39:52,301 INFO src.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::True
+2025-12-03 00:39:52,322 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Error: data/kraken/1h/BCHNUSD_cloudCount.csv not found
+
+2025-12-03 00:39:52,324 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Error: data/kraken/1h/LEOUSD_cloudCount.csv not found
+
+2025-12-03 00:39:52,327 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Error: data/kraken/1h/MATICUSD_cloudCount.csv not found
+
+2025-12-03 00:39:52,345 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BTCUSD entries:721]
+2025-12-03 00:39:52,346 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LTCUSD entries:721]
+2025-12-03 00:39:52,346 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ETHUSD entries:721]
+2025-12-03 00:39:52,346 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:XRPUSD entries:721]
+2025-12-03 00:39:52,347 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SOLUSD entries:721]
+2025-12-03 00:39:52,347 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DOGEUSD entries:721]
+2025-12-03 00:39:52,347 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:TONUSD entries:721]
+2025-12-03 00:39:52,348 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ADAUSD entries:721]
+2025-12-03 00:39:52,348 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:TRXUSD entries:721]
+2025-12-03 00:39:52,348 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AVAXUSD entries:721]
+2025-12-03 00:39:52,348 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SHIBUSD entries:721]
+2025-12-03 00:39:52,349 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LINKUSD entries:721]
+2025-12-03 00:39:52,349 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DAIUSD entries:721]
+2025-12-03 00:39:52,349 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NEARUSD entries:721]
+2025-12-03 00:39:52,350 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:UNIUSD entries:721]
+2025-12-03 00:39:52,350 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PEPEUSD entries:721]
+2025-12-03 00:39:52,350 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ETCUSD entries:721]
+2025-12-03 00:39:52,350 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:XMRUSD entries:721]
+2025-12-03 00:39:52,351 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:XLMUSD entries:721]
+2025-12-03 00:39:52,351 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:APTUSD entries:721]
+2025-12-03 00:39:52,351 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DOTUSD entries:721]
+2025-12-03 00:39:52,351 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KASUSD entries:721]
+2025-12-03 00:39:52,352 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ICPUSD entries:721]
+2025-12-03 00:39:52,352 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:FETUSD entries:721]
+2025-12-03 00:39:52,352 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:STXUSD entries:721]
+2025-12-03 00:39:52,356 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Aggregator Kraken-cloud-1H.csv and .xml are created
+
+2025-12-03 00:39:52,356 INFO src.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
+2025-12-03 00:39:52,356 INFO src.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::True
+2025-12-03 00:39:52,377 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Error: data/kraken/4h/BCHNUSD_cloudCount.csv not found
+
+2025-12-03 00:39:52,379 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Error: data/kraken/4h/LEOUSD_cloudCount.csv not found
+
+2025-12-03 00:39:52,382 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Error: data/kraken/4h/MATICUSD_cloudCount.csv not found
+
+2025-12-03 00:39:52,400 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BTCUSD entries:721]
+2025-12-03 00:39:52,400 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LTCUSD entries:721]
+2025-12-03 00:39:52,400 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ETHUSD entries:721]
+2025-12-03 00:39:52,401 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:XRPUSD entries:721]
+2025-12-03 00:39:52,401 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SOLUSD entries:721]
+2025-12-03 00:39:52,401 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DOGEUSD entries:721]
+2025-12-03 00:39:52,402 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:TONUSD entries:721]
+2025-12-03 00:39:52,402 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ADAUSD entries:721]
+2025-12-03 00:39:52,402 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:TRXUSD entries:721]
+2025-12-03 00:39:52,403 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AVAXUSD entries:721]
+2025-12-03 00:39:52,403 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SHIBUSD entries:721]
+2025-12-03 00:39:52,403 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LINKUSD entries:721]
+2025-12-03 00:39:52,403 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DAIUSD entries:721]
+2025-12-03 00:39:52,404 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NEARUSD entries:721]
+2025-12-03 00:39:52,404 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:UNIUSD entries:721]
+2025-12-03 00:39:52,404 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PEPEUSD entries:721]
+2025-12-03 00:39:52,404 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ETCUSD entries:721]
+2025-12-03 00:39:52,405 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:XMRUSD entries:721]
+2025-12-03 00:39:52,405 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:XLMUSD entries:721]
+2025-12-03 00:39:52,405 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:APTUSD entries:721]
+2025-12-03 00:39:52,406 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DOTUSD entries:721]
+2025-12-03 00:39:52,406 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KASUSD entries:721]
+2025-12-03 00:39:52,406 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ICPUSD entries:721]
+2025-12-03 00:39:52,406 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:FETUSD entries:721]
+2025-12-03 00:39:52,407 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:STXUSD entries:721]
+2025-12-03 00:39:52,410 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Aggregator Kraken-cloud-4H.csv and .xml are created
+
+2025-12-03 00:39:52,410 INFO src.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
+2025-12-03 00:39:52,410 INFO src.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::True
+2025-12-03 00:39:52,431 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Error: data/kraken/d/BCHNUSD_cloudCount.csv not found
+
+2025-12-03 00:39:52,433 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Error: data/kraken/d/LEOUSD_cloudCount.csv not found
+
+2025-12-03 00:39:52,436 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Error: data/kraken/d/MATICUSD_cloudCount.csv not found
+
+2025-12-03 00:39:52,453 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BTCUSD entries:721]
+2025-12-03 00:39:52,454 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LTCUSD entries:721]
+2025-12-03 00:39:52,454 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ETHUSD entries:721]
+2025-12-03 00:39:52,454 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:XRPUSD entries:721]
+2025-12-03 00:39:52,455 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SOLUSD entries:721]
+2025-12-03 00:39:52,455 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DOGEUSD entries:721]
+2025-12-03 00:39:52,455 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:TONUSD entries:419]
+2025-12-03 00:39:52,455 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ADAUSD entries:721]
+2025-12-03 00:39:52,456 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:TRXUSD entries:721]
+2025-12-03 00:39:52,456 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AVAXUSD entries:721]
+2025-12-03 00:39:52,456 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SHIBUSD entries:721]
+2025-12-03 00:39:52,457 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LINKUSD entries:721]
+2025-12-03 00:39:52,457 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DAIUSD entries:721]
+2025-12-03 00:39:52,457 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NEARUSD entries:721]
+2025-12-03 00:39:52,458 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:UNIUSD entries:721]
+2025-12-03 00:39:52,458 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PEPEUSD entries:721]
+2025-12-03 00:39:52,458 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ETCUSD entries:721]
+2025-12-03 00:39:52,459 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:XMRUSD entries:721]
+2025-12-03 00:39:52,459 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:XLMUSD entries:721]
+2025-12-03 00:39:52,459 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:APTUSD entries:721]
+2025-12-03 00:39:52,460 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DOTUSD entries:721]
+2025-12-03 00:39:52,460 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KASUSD entries:380]
+2025-12-03 00:39:52,460 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ICPUSD entries:721]
+2025-12-03 00:39:52,460 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:FETUSD entries:721]
+2025-12-03 00:39:52,461 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:STXUSD entries:721]
+2025-12-03 00:39:52,464 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Aggregator Kraken-cloud-D.csv and .xml are created
+
+2025-12-03 00:39:52,464 INFO src.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
+2025-12-03 00:39:52,464 INFO src.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::True
+2025-12-03 00:39:52,482 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Error: data/kraken/w/BCHNUSD_cloudCount.csv not found
+
+2025-12-03 00:39:52,484 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Error: data/kraken/w/LEOUSD_cloudCount.csv not found
+
+2025-12-03 00:39:52,486 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Error: data/kraken/w/MATICUSD_cloudCount.csv not found
+
+2025-12-03 00:39:52,500 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BTCUSD entries:635]
+2025-12-03 00:39:52,501 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LTCUSD entries:632]
+2025-12-03 00:39:52,501 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ETHUSD entries:539]
+2025-12-03 00:39:52,501 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:XRPUSD entries:446]
+2025-12-03 00:39:52,502 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SOLUSD entries:233]
+2025-12-03 00:39:52,502 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DOGEUSD entries:311]
+2025-12-03 00:39:52,502 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:TONUSD entries:60]
+2025-12-03 00:39:52,502 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ADAUSD entries:375]
+2025-12-03 00:39:52,503 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:TRXUSD entries:300]
+2025-12-03 00:39:52,503 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AVAXUSD entries:207]
+2025-12-03 00:39:52,503 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SHIBUSD entries:210]
+2025-12-03 00:39:52,503 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LINKUSD entries:324]
+2025-12-03 00:39:52,504 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DAIUSD entries:324]
+2025-12-03 00:39:52,504 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NEARUSD entries:181]
+2025-12-03 00:39:52,504 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:UNIUSD entries:268]
+2025-12-03 00:39:52,505 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PEPEUSD entries:134]
+2025-12-03 00:39:52,505 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ETCUSD entries:489]
+2025-12-03 00:39:52,505 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:XMRUSD entries:466]
+2025-12-03 00:39:52,505 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:XLMUSD entries:464]
+2025-12-03 00:39:52,506 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:APTUSD entries:164]
+2025-12-03 00:39:52,506 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DOTUSD entries:277]
+2025-12-03 00:39:52,506 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KASUSD entries:55]
+2025-12-03 00:39:52,507 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ICPUSD entries:194]
+2025-12-03 00:39:52,507 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:FETUSD entries:187]
+2025-12-03 00:39:52,507 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:STXUSD entries:165]
+2025-12-03 00:39:52,510 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Aggregator Kraken-cloud-W.csv and .xml are created
+
+2025-12-03 00:39:52,510 INFO src.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
+2025-12-03 00:39:52,510 INFO src.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::True
+2025-12-03 00:39:52,526 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Error: data/kraken/m/BCHNUSD_cloudCount.csv not found
+
+2025-12-03 00:39:52,527 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Error: data/kraken/m/LEOUSD_cloudCount.csv not found
+
+2025-12-03 00:39:52,530 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Error: data/kraken/m/MATICUSD_cloudCount.csv not found
+
+2025-12-03 00:39:52,545 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BTCUSD entries:297]
+2025-12-03 00:39:52,545 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LTCUSD entries:296]
+2025-12-03 00:39:52,546 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ETHUSD entries:252]
+2025-12-03 00:39:52,546 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:XRPUSD entries:209]
+2025-12-03 00:39:52,546 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SOLUSD entries:109]
+2025-12-03 00:39:52,547 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DOGEUSD entries:146]
+2025-12-03 00:39:52,547 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:TONUSD entries:29]
+2025-12-03 00:39:52,547 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ADAUSD entries:176]
+2025-12-03 00:39:52,548 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:TRXUSD entries:141]
+2025-12-03 00:39:52,548 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AVAXUSD entries:97]
+2025-12-03 00:39:52,548 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SHIBUSD entries:98]
+2025-12-03 00:39:52,549 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LINKUSD entries:152]
+2025-12-03 00:39:52,549 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DAIUSD entries:152]
+2025-12-03 00:39:52,549 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NEARUSD entries:85]
+2025-12-03 00:39:52,550 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:UNIUSD entries:126]
+2025-12-03 00:39:52,550 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PEPEUSD entries:63]
+2025-12-03 00:39:52,550 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ETCUSD entries:229]
+2025-12-03 00:39:52,551 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:XMRUSD entries:218]
+2025-12-03 00:39:52,551 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:XLMUSD entries:217]
+2025-12-03 00:39:52,551 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:APTUSD entries:77]
+2025-12-03 00:39:52,552 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DOTUSD entries:130]
+2025-12-03 00:39:52,552 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KASUSD entries:26]
+2025-12-03 00:39:52,552 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ICPUSD entries:91]
+2025-12-03 00:39:52,552 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:FETUSD entries:88]
+2025-12-03 00:39:52,553 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:STXUSD entries:77]
+2025-12-03 00:39:52,556 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Aggregator Kraken-cloud-M.csv and .xml are created
+
+2025-12-03 00:39:52,556 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: ------------- Merging Multi Timeframe Cloud -------------
+2025-12-03 00:39:52,556 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: Check files for merging: ['output/cloud/Kraken-cloud-1H.csv', 'output/cloud/Kraken-cloud-4H.csv', 'output/cloud/Kraken-cloud-D.csv', 'output/cloud/Kraken-cloud-W.csv', 'output/cloud/Kraken-cloud-M.csv']
+2025-12-03 00:39:52,556 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/Kraken-cloud-1H.csv
+2025-12-03 00:39:52,566 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge::df_csv1::
+     Symbol              Name     Close  1H Cloud Direction  1H Cloud Count
+0    KASUSD            KASUSD      0.05                   0               0
+1    ICPUSD            ICPUSD      3.74                   0               0
+2   AVAXUSD           AVAXUSD     13.61                   1               3
+3    XMRUSD           Monero     392.44                  -1               3
+4    DAIUSD            DAIUSD      1.00                   1               4
+5   SHIBUSD          SHIB/USD      0.00                   1              10
+6    XRPUSD            XRPUSD      2.14                   1              10
+7    ETHUSD            ETHUSD   2992.17                   1              10
+8   PEPEUSD          PEPE/USD      0.00                   1              10
+9    STXUSD            STXUSD      0.31                   1              10
+10   FETUSD            FETUSD      0.26                   1              10
+11   DOTUSD            DOTUSD      2.25                   1              10
+12   APTUSD             Aptos      1.98                   1              10
+13   UNIUSD            UNIUSD      5.93                   1              10
+14   TONUSD            TONUSD      1.58                   1              10
+15  DOGEUSD           DOGEUSD      0.15                   1              10
+16  NEARUSD          NEAR/USD      1.79                   1              11
+17  LINKUSD          LINK/USD     13.46                   1              11
+18   TRXUSD            TRXUSD      0.28                   1              11
+19   ADAUSD            ADAUSD      0.43                   1              11
+20   BTCUSD            BTCUSD  91123.40                   1              11
+21   LTCUSD            LTCUSD     82.61                   1              11
+22   SOLUSD            SOLUSD    138.30                   1              11
+23   XLMUSD          Stellar       0.25                   1              11
+24   ETCUSD  Ethereum Classic     13.58                   1              11
+2025-12-03 00:39:52,578 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge::combined_csv::
+      Symbol              Name     Close  1H Cloud Direction  1H Cloud Count
+0    KASUSD            KASUSD      0.05                   0               0
+1    ICPUSD            ICPUSD      3.74                   0               0
+2   AVAXUSD           AVAXUSD     13.61                   1               3
+3    XMRUSD           Monero     392.44                  -1               3
+4    DAIUSD            DAIUSD      1.00                   1               4
+5   SHIBUSD          SHIB/USD      0.00                   1              10
+6    XRPUSD            XRPUSD      2.14                   1              10
+7    ETHUSD            ETHUSD   2992.17                   1              10
+8   PEPEUSD          PEPE/USD      0.00                   1              10
+9    STXUSD            STXUSD      0.31                   1              10
+10   FETUSD            FETUSD      0.26                   1              10
+11   DOTUSD            DOTUSD      2.25                   1              10
+12   APTUSD             Aptos      1.98                   1              10
+13   UNIUSD            UNIUSD      5.93                   1              10
+14   TONUSD            TONUSD      1.58                   1              10
+15  DOGEUSD           DOGEUSD      0.15                   1              10
+16  NEARUSD          NEAR/USD      1.79                   1              11
+17  LINKUSD          LINK/USD     13.46                   1              11
+18   TRXUSD            TRXUSD      0.28                   1              11
+19   ADAUSD            ADAUSD      0.43                   1              11
+20   BTCUSD            BTCUSD  91123.40                   1              11
+21   LTCUSD            LTCUSD     82.61                   1              11
+22   SOLUSD            SOLUSD    138.30                   1              11
+23   XLMUSD          Stellar       0.25                   1              11
+24   ETCUSD  Ethereum Classic     13.58                   1              11 
+
+2025-12-03 00:39:52,578 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/Kraken-cloud-4H.csv
+2025-12-03 00:39:52,589 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge::df_csv1::
+     Symbol              Name  4H Cloud Direction  4H Cloud Count
+0    XRPUSD            XRPUSD                   0               0
+1    SOLUSD            SOLUSD                   0               0
+2   PEPEUSD          PEPE/USD                   0               0
+3   SHIBUSD          SHIB/USD                   0               0
+4    KASUSD            KASUSD                   0               0
+5    XLMUSD          Stellar                    0               0
+6    XMRUSD           Monero                    0               0
+7    ETCUSD  Ethereum Classic                   0               0
+8   DOGEUSD           DOGEUSD                  -1               3
+9    ADAUSD            ADAUSD                   1               3
+10   BTCUSD            BTCUSD                   1               4
+11   ETHUSD            ETHUSD                   1               4
+12  LINKUSD          LINK/USD                   1               4
+13   TRXUSD            TRXUSD                   1               4
+14  AVAXUSD           AVAXUSD                  -1              13
+15   TONUSD            TONUSD                  -1              13
+16   STXUSD            STXUSD                  -1              17
+17   UNIUSD            UNIUSD                  -1              17
+18   LTCUSD            LTCUSD                  -1              22
+19   DAIUSD            DAIUSD                  -1              23
+20   FETUSD            FETUSD                  -1              65
+21   APTUSD             Aptos                  -1              76
+22  NEARUSD          NEAR/USD                  -1             100
+23   DOTUSD            DOTUSD                  -1             117
+24   ICPUSD            ICPUSD                  -1             121
+2025-12-03 00:39:52,599 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge::combined_csv::
+      Symbol              Name  ...  4H Cloud Direction  4H Cloud Count
+0    KASUSD            KASUSD  ...                   0               0
+1    ICPUSD            ICPUSD  ...                  -1             121
+2   AVAXUSD           AVAXUSD  ...                  -1              13
+3    XMRUSD           Monero   ...                   0               0
+4    DAIUSD            DAIUSD  ...                  -1              23
+5   SHIBUSD          SHIB/USD  ...                   0               0
+6    XRPUSD            XRPUSD  ...                   0               0
+7    ETHUSD            ETHUSD  ...                   1               4
+8   PEPEUSD          PEPE/USD  ...                   0               0
+9    STXUSD            STXUSD  ...                  -1              17
+10   FETUSD            FETUSD  ...                  -1              65
+11   DOTUSD            DOTUSD  ...                  -1             117
+12   APTUSD             Aptos  ...                  -1              76
+13   UNIUSD            UNIUSD  ...                  -1              17
+14   TONUSD            TONUSD  ...                  -1              13
+15  DOGEUSD           DOGEUSD  ...                  -1               3
+16  NEARUSD          NEAR/USD  ...                  -1             100
+17  LINKUSD          LINK/USD  ...                   1               4
+18   TRXUSD            TRXUSD  ...                   1               4
+19   ADAUSD            ADAUSD  ...                   1               3
+20   BTCUSD            BTCUSD  ...                   1               4
+21   LTCUSD            LTCUSD  ...                  -1              22
+22   SOLUSD            SOLUSD  ...                   0               0
+23   XLMUSD          Stellar   ...                   0               0
+24   ETCUSD  Ethereum Classic  ...                   0               0
+
+[25 rows x 7 columns] 
+
+2025-12-03 00:39:52,599 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/Kraken-cloud-D.csv
+2025-12-03 00:39:52,608 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge::df_csv1::
+     Symbol              Name  1D Cloud Direction  1D Cloud Count
+0    UNIUSD            UNIUSD                   0               0
+1    KASUSD            KASUSD                   1               2
+2    ICPUSD            ICPUSD                  -1               4
+3    DAIUSD            DAIUSD                  -1               4
+4   NEARUSD          NEAR/USD                  -1              14
+5    LTCUSD            LTCUSD                  -1              15
+6    TONUSD            TONUSD                  -1              20
+7    XRPUSD            XRPUSD                  -1              20
+8    ETCUSD  Ethereum Classic                  -1              20
+9   SHIBUSD          SHIB/USD                  -1              23
+10  DOGEUSD           DOGEUSD                  -1              23
+11   BTCUSD            BTCUSD                  -1              37
+12   XMRUSD           Monero                    1              46
+13   ETHUSD            ETHUSD                  -1              51
+14   SOLUSD            SOLUSD                  -1              51
+15  LINKUSD          LINK/USD                  -1              55
+16   DOTUSD            DOTUSD                  -1              55
+17   APTUSD             Aptos                  -1              55
+18  AVAXUSD           AVAXUSD                  -1              55
+19   TRXUSD            TRXUSD                  -1              55
+20   XLMUSD          Stellar                   -1              56
+21   ADAUSD            ADAUSD                  -1              58
+22  PEPEUSD          PEPE/USD                  -1              76
+23   STXUSD            STXUSD                  -1             111
+24   FETUSD            FETUSD                  -1             112
+2025-12-03 00:39:52,618 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge::combined_csv::
+      Symbol              Name  ...  1D Cloud Direction  1D Cloud Count
+0    KASUSD            KASUSD  ...                   1               2
+1    ICPUSD            ICPUSD  ...                  -1               4
+2   AVAXUSD           AVAXUSD  ...                  -1              55
+3    XMRUSD           Monero   ...                   1              46
+4    DAIUSD            DAIUSD  ...                  -1               4
+5   SHIBUSD          SHIB/USD  ...                  -1              23
+6    XRPUSD            XRPUSD  ...                  -1              20
+7    ETHUSD            ETHUSD  ...                  -1              51
+8   PEPEUSD          PEPE/USD  ...                  -1              76
+9    STXUSD            STXUSD  ...                  -1             111
+10   FETUSD            FETUSD  ...                  -1             112
+11   DOTUSD            DOTUSD  ...                  -1              55
+12   APTUSD             Aptos  ...                  -1              55
+13   UNIUSD            UNIUSD  ...                   0               0
+14   TONUSD            TONUSD  ...                  -1              20
+15  DOGEUSD           DOGEUSD  ...                  -1              23
+16  NEARUSD          NEAR/USD  ...                  -1              14
+17  LINKUSD          LINK/USD  ...                  -1              55
+18   TRXUSD            TRXUSD  ...                  -1              55
+19   ADAUSD            ADAUSD  ...                  -1              58
+20   BTCUSD            BTCUSD  ...                  -1              37
+21   LTCUSD            LTCUSD  ...                  -1              15
+22   SOLUSD            SOLUSD  ...                  -1              51
+23   XLMUSD          Stellar   ...                  -1              56
+24   ETCUSD  Ethereum Classic  ...                  -1              20
+
+[25 rows x 9 columns] 
+
+2025-12-03 00:39:52,618 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/Kraken-cloud-W.csv
+2025-12-03 00:39:52,628 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge::df_csv1::
+     Symbol              Name  1W Cloud Direction  1W Cloud Count
+0    BTCUSD            BTCUSD                   0               0
+1    XRPUSD            XRPUSD                   0               0
+2    TONUSD            TONUSD                   0               0
+3    KASUSD            KASUSD                   0               0
+4    TRXUSD            TRXUSD                   1               1
+5    LTCUSD            LTCUSD                  -1               3
+6    SOLUSD            SOLUSD                  -1               4
+7   LINKUSD          LINK/USD                  -1               5
+8   AVAXUSD           AVAXUSD                  -1               8
+9    ADAUSD            ADAUSD                  -1               8
+10   XLMUSD          Stellar                   -1               8
+11  DOGEUSD           DOGEUSD                  -1               8
+12   UNIUSD            UNIUSD                  -1              16
+13   ETHUSD            ETHUSD                   1              21
+14  PEPEUSD          PEPE/USD                  -1              27
+15   DAIUSD            DAIUSD                  -1              30
+16   ETCUSD  Ethereum Classic                  -1              45
+17  NEARUSD          NEAR/USD                  -1              45
+18   DOTUSD            DOTUSD                  -1              50
+19   APTUSD             Aptos                  -1              50
+20  SHIBUSD          SHIB/USD                  -1              51
+21   ICPUSD            ICPUSD                  -1              51
+22   STXUSD            STXUSD                  -1              51
+23   FETUSD            FETUSD                  -1              52
+24   XMRUSD           Monero                    1              61
+2025-12-03 00:39:52,640 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge::combined_csv::
+      Symbol              Name  ...  1W Cloud Direction  1W Cloud Count
+0    KASUSD            KASUSD  ...                   0               0
+1    ICPUSD            ICPUSD  ...                  -1              51
+2   AVAXUSD           AVAXUSD  ...                  -1               8
+3    XMRUSD           Monero   ...                   1              61
+4    DAIUSD            DAIUSD  ...                  -1              30
+5   SHIBUSD          SHIB/USD  ...                  -1              51
+6    XRPUSD            XRPUSD  ...                   0               0
+7    ETHUSD            ETHUSD  ...                   1              21
+8   PEPEUSD          PEPE/USD  ...                  -1              27
+9    STXUSD            STXUSD  ...                  -1              51
+10   FETUSD            FETUSD  ...                  -1              52
+11   DOTUSD            DOTUSD  ...                  -1              50
+12   APTUSD             Aptos  ...                  -1              50
+13   UNIUSD            UNIUSD  ...                  -1              16
+14   TONUSD            TONUSD  ...                   0               0
+15  DOGEUSD           DOGEUSD  ...                  -1               8
+16  NEARUSD          NEAR/USD  ...                  -1              45
+17  LINKUSD          LINK/USD  ...                  -1               5
+18   TRXUSD            TRXUSD  ...                   1               1
+19   ADAUSD            ADAUSD  ...                  -1               8
+20   BTCUSD            BTCUSD  ...                   0               0
+21   LTCUSD            LTCUSD  ...                  -1               3
+22   SOLUSD            SOLUSD  ...                  -1               4
+23   XLMUSD          Stellar   ...                  -1               8
+24   ETCUSD  Ethereum Classic  ...                  -1              45
+
+[25 rows x 11 columns] 
+
+2025-12-03 00:39:52,640 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/Kraken-cloud-M.csv
+2025-12-03 00:39:52,685 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge::df_csv1::
+     Symbol              Name  1M Cloud Direction  1M Cloud Count
+0    TONUSD            TONUSD                   0               0
+1    SOLUSD            SOLUSD                   0               0
+2    DAIUSD            DAIUSD                   0               0
+3   LINKUSD          LINK/USD                   0               0
+4   PEPEUSD          PEPE/USD                   0               0
+5    STXUSD            STXUSD                   0               0
+6    KASUSD            KASUSD                   0               0
+7    APTUSD             Aptos                   0               0
+8   DOGEUSD           DOGEUSD                  -1               1
+9    ETHUSD            ETHUSD                   1               1
+10   ADAUSD            ADAUSD                  -1               2
+11  AVAXUSD           AVAXUSD                  -1               5
+12   UNIUSD            UNIUSD                  -1               6
+13  NEARUSD          NEAR/USD                  -1               8
+14   FETUSD            FETUSD                  -1              11
+15   LTCUSD            LTCUSD                   1              11
+16   ICPUSD            ICPUSD                  -1              14
+17  SHIBUSD          SHIB/USD                  -1              18
+18   ETCUSD  Ethereum Classic                  -1              21
+19   DOTUSD            DOTUSD                  -1              22
+20   XMRUSD           Monero                    1              23
+21   XLMUSD          Stellar                    1              26
+22   XRPUSD            XRPUSD                   1              26
+23   TRXUSD            TRXUSD                   1              37
+24   BTCUSD            BTCUSD                   1              50
+2025-12-03 00:39:52,704 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge::combined_csv::
+      Symbol              Name  ...  1M Cloud Direction  1M Cloud Count
+0    KASUSD            KASUSD  ...                   0               0
+1    ICPUSD            ICPUSD  ...                  -1              14
+2   AVAXUSD           AVAXUSD  ...                  -1               5
+3    XMRUSD           Monero   ...                   1              23
+4    DAIUSD            DAIUSD  ...                   0               0
+5   SHIBUSD          SHIB/USD  ...                  -1              18
+6    XRPUSD            XRPUSD  ...                   1              26
+7    ETHUSD            ETHUSD  ...                   1               1
+8   PEPEUSD          PEPE/USD  ...                   0               0
+9    STXUSD            STXUSD  ...                   0               0
+10   FETUSD            FETUSD  ...                  -1              11
+11   DOTUSD            DOTUSD  ...                  -1              22
+12   APTUSD             Aptos  ...                   0               0
+13   UNIUSD            UNIUSD  ...                  -1               6
+14   TONUSD            TONUSD  ...                   0               0
+15  DOGEUSD           DOGEUSD  ...                  -1               1
+16  NEARUSD          NEAR/USD  ...                  -1               8
+17  LINKUSD          LINK/USD  ...                   0               0
+18   TRXUSD            TRXUSD  ...                   1              37
+19   ADAUSD            ADAUSD  ...                  -1               2
+20   BTCUSD            BTCUSD  ...                   1              50
+21   LTCUSD            LTCUSD  ...                   1              11
+22   SOLUSD            SOLUSD  ...                   0               0
+23   XLMUSD          Stellar   ...                   1              26
+24   ETCUSD  Ethereum Classic  ...                  -1              21
+
+[25 rows x 13 columns] 
+
+2025-12-03 00:39:52,705 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: Multi Timeframe Cloud Signals Merged: output/cloud/Kraken-cloud-merged.csv
+2025-12-03 00:39:52,705 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: combined_csv size::(25, 13)
+2025-12-03 00:39:52,724 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: combined_csv::
+     Symbol              Name  ...  1M Cloud Direction  1M Cloud Count
+0    KASUSD            KASUSD  ...                   0               0
+1    ICPUSD            ICPUSD  ...                  -1              14
+2   AVAXUSD           AVAXUSD  ...                  -1               5
+3    XMRUSD           Monero   ...                   1              23
+4    DAIUSD            DAIUSD  ...                   0               0
+5   SHIBUSD          SHIB/USD  ...                  -1              18
+6    XRPUSD            XRPUSD  ...                   1              26
+7    ETHUSD            ETHUSD  ...                   1               1
+8   PEPEUSD          PEPE/USD  ...                   0               0
+9    STXUSD            STXUSD  ...                   0               0
+10   FETUSD            FETUSD  ...                  -1              11
+11   DOTUSD            DOTUSD  ...                  -1              22
+12   APTUSD             Aptos  ...                   0               0
+13   UNIUSD            UNIUSD  ...                  -1               6
+14   TONUSD            TONUSD  ...                   0               0
+15  DOGEUSD           DOGEUSD  ...                  -1               1
+16  NEARUSD          NEAR/USD  ...                  -1               8
+17  LINKUSD          LINK/USD  ...                   0               0
+18   TRXUSD            TRXUSD  ...                   1              37
+19   ADAUSD            ADAUSD  ...                  -1               2
+20   BTCUSD            BTCUSD  ...                   1              50
+21   LTCUSD            LTCUSD  ...                   1              11
+22   SOLUSD            SOLUSD  ...                   0               0
+23   XLMUSD          Stellar   ...                   1              26
+24   ETCUSD  Ethereum Classic  ...                  -1              21
+
+[25 rows x 13 columns]
+2025-12-03 00:39:52,725 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1H Cloud Direction', '1H Cloud Count']
+2025-12-03 00:39:52,725 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['4H Cloud Direction', '4H Cloud Count']
+2025-12-03 00:39:52,726 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1D Cloud Direction', '1D Cloud Count']
+2025-12-03 00:39:52,726 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1W Cloud Direction', '1W Cloud Count']
+2025-12-03 00:39:52,727 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1M Cloud Direction', '1M Cloud Count']
+2025-12-03 00:39:52,742 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: 
+-------------------- Cloud Score Multi Timeframe Raw --------------------
+      Symbol              Name  ...  1W Cloud Score  1M Cloud Score
+0    KASUSD            KASUSD  ...               0               0
+1    ICPUSD            ICPUSD  ...             -51             -14
+2   AVAXUSD           AVAXUSD  ...              -8              -5
+3    XMRUSD           Monero   ...              61              23
+4    DAIUSD            DAIUSD  ...             -30               0
+5   SHIBUSD          SHIB/USD  ...             -51             -18
+6    XRPUSD            XRPUSD  ...               0              26
+7    ETHUSD            ETHUSD  ...              21               1
+8   PEPEUSD          PEPE/USD  ...             -27               0
+9    STXUSD            STXUSD  ...             -51               0
+10   FETUSD            FETUSD  ...             -52             -11
+11   DOTUSD            DOTUSD  ...             -50             -22
+12   APTUSD             Aptos  ...             -50               0
+13   UNIUSD            UNIUSD  ...             -16              -6
+14   TONUSD            TONUSD  ...               0               0
+15  DOGEUSD           DOGEUSD  ...              -8              -1
+16  NEARUSD          NEAR/USD  ...             -45              -8
+17  LINKUSD          LINK/USD  ...              -5               0
+18   TRXUSD            TRXUSD  ...               1              37
+19   ADAUSD            ADAUSD  ...              -8              -2
+20   BTCUSD            BTCUSD  ...               0              50
+21   LTCUSD            LTCUSD  ...              -3              11
+22   SOLUSD            SOLUSD  ...              -4               0
+23   XLMUSD          Stellar   ...              -8              26
+24   ETCUSD  Ethereum Classic  ...             -45             -21
+
+[25 rows x 18 columns]
+2025-12-03 00:39:52,742 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: create_sum_column self.list_score_names: ['1H Cloud Score', '4H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score', 'Cloud Score Sum'] 
+create_sum_column df.columns Index(['Symbol', 'Name', 'Close', '1H Cloud Direction', '1H Cloud Count',
+       '4H Cloud Direction', '4H Cloud Count', '1D Cloud Direction',
+       '1D Cloud Count', '1W Cloud Direction', '1W Cloud Count',
+       '1M Cloud Direction', '1M Cloud Count', '1H Cloud Score',
+       '4H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score'],
+      dtype='object')
+2025-12-03 00:39:52,744 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: ------ Cleaning columns ------
+2025-12-03 00:39:52,744 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: Available columns: ['Symbol', 'Name', 'Close', '1H Cloud Score', '4H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score', 'Cloud Score Sum']
+2025-12-03 00:39:52,747 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: Saved data to: output/cloud/Kraken-cloud-merged.csv output/cloud/Kraken-cloud-merged.csv.html
+
+2025-12-03 00:39:52,764 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: ----------- Cloud Score Multi Timeframe Final View -----------
+      Symbol              Name  ...  1M Cloud Score  Cloud Score Sum
+3    XMRUSD           Monero   ...              23              127
+20   BTCUSD            BTCUSD  ...              50               28
+6    XRPUSD            XRPUSD  ...              26               16
+0    KASUSD            KASUSD  ...               0                2
+18   TRXUSD            TRXUSD  ...              37               -2
+7    ETHUSD            ETHUSD  ...               1              -15
+21   LTCUSD            LTCUSD  ...              11              -18
+14   TONUSD            TONUSD  ...               0              -23
+15  DOGEUSD           DOGEUSD  ...              -1              -25
+23   XLMUSD          Stellar   ...              26              -27
+13   UNIUSD            UNIUSD  ...              -6              -29
+22   SOLUSD            SOLUSD  ...               0              -44
+17  LINKUSD          LINK/USD  ...               0              -45
+4    DAIUSD            DAIUSD  ...               0              -53
+19   ADAUSD            ADAUSD  ...              -2              -54
+24   ETCUSD  Ethereum Classic  ...             -21              -75
+2   AVAXUSD           AVAXUSD  ...              -5              -78
+5   SHIBUSD          SHIB/USD  ...             -18              -82
+8   PEPEUSD          PEPE/USD  ...               0              -93
+16  NEARUSD          NEAR/USD  ...              -8             -156
+9    STXUSD            STXUSD  ...               0             -169
+12   APTUSD             Aptos  ...               0             -171
+1    ICPUSD            ICPUSD  ...             -14             -190
+10   FETUSD            FETUSD  ...             -11             -230
+11   DOTUSD            DOTUSD  ...             -22             -234
+
+[25 rows x 9 columns]
+2025-12-03 00:39:52,764 INFO src.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/kraken/1h/asset_list/Kraken.csv
+2025-12-03 00:39:52,838 WARNING src.mvc.core.DataTKxSignalMVC: Error: data/kraken/1h/BCHNUSD.csv not found
+2025-12-03 00:39:52,845 WARNING src.mvc.core.DataTKxSignalMVC: Error: data/kraken/1h/LEOUSD.csv not found
+2025-12-03 00:39:52,856 WARNING src.mvc.core.DataTKxSignalMVC: Error: data/kraken/1h/MATICUSD.csv not found
+2025-12-03 00:39:52,923 INFO src.mvc.core.DataTKxSignalMVC: BTCUSD - File is already in the correct format.
+2025-12-03 00:39:52,996 INFO src.mvc.core.DataTKxSignalMVC: LTCUSD - File is already in the correct format.
+2025-12-03 00:39:53,059 INFO src.mvc.core.DataTKxSignalMVC: ETHUSD - File is already in the correct format.
+2025-12-03 00:39:53,123 INFO src.mvc.core.DataTKxSignalMVC: XRPUSD - File is already in the correct format.
+2025-12-03 00:39:53,201 INFO src.mvc.core.DataTKxSignalMVC: SOLUSD - File is already in the correct format.
+2025-12-03 00:39:53,266 INFO src.mvc.core.DataTKxSignalMVC: DOGEUSD - File is already in the correct format.
+2025-12-03 00:39:53,330 INFO src.mvc.core.DataTKxSignalMVC: TONUSD - File is already in the correct format.
+2025-12-03 00:39:53,396 INFO src.mvc.core.DataTKxSignalMVC: ADAUSD - File is already in the correct format.
+2025-12-03 00:39:53,463 INFO src.mvc.core.DataTKxSignalMVC: TRXUSD - File is already in the correct format.
+2025-12-03 00:39:53,525 INFO src.mvc.core.DataTKxSignalMVC: AVAXUSD - File is already in the correct format.
+2025-12-03 00:39:53,590 INFO src.mvc.core.DataTKxSignalMVC: SHIBUSD - File is already in the correct format.
+2025-12-03 00:39:53,655 INFO src.mvc.core.DataTKxSignalMVC: LINKUSD - File is already in the correct format.
+2025-12-03 00:39:53,719 INFO src.mvc.core.DataTKxSignalMVC: DAIUSD - File is already in the correct format.
+2025-12-03 00:39:53,781 INFO src.mvc.core.DataTKxSignalMVC: NEARUSD - File is already in the correct format.
+2025-12-03 00:39:53,843 INFO src.mvc.core.DataTKxSignalMVC: UNIUSD - File is already in the correct format.
+2025-12-03 00:39:53,911 INFO src.mvc.core.DataTKxSignalMVC: PEPEUSD - File is already in the correct format.
+2025-12-03 00:39:53,970 INFO src.mvc.core.DataTKxSignalMVC: ETCUSD - File is already in the correct format.
+2025-12-03 00:39:54,031 INFO src.mvc.core.DataTKxSignalMVC: XMRUSD - File is already in the correct format.
+2025-12-03 00:39:54,094 INFO src.mvc.core.DataTKxSignalMVC: XLMUSD - File is already in the correct format.
+2025-12-03 00:39:54,162 INFO src.mvc.core.DataTKxSignalMVC: APTUSD - File is already in the correct format.
+2025-12-03 00:39:54,226 INFO src.mvc.core.DataTKxSignalMVC: DOTUSD - File is already in the correct format.
+2025-12-03 00:39:54,292 INFO src.mvc.core.DataTKxSignalMVC: KASUSD - File is already in the correct format.
+2025-12-03 00:39:54,352 INFO src.mvc.core.DataTKxSignalMVC: ICPUSD - File is already in the correct format.
+2025-12-03 00:39:54,414 INFO src.mvc.core.DataTKxSignalMVC: FETUSD - File is already in the correct format.
+2025-12-03 00:39:54,477 INFO src.mvc.core.DataTKxSignalMVC: STXUSD - File is already in the correct format.
+2025-12-03 00:39:54,525 INFO src.mvc.core.DataTKxSignalMVC: TKx count csv files are created
+2025-12-03 00:39:54,526 INFO src.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/kraken/4h/asset_list/Kraken.csv
+2025-12-03 00:39:54,570 WARNING src.mvc.core.DataTKxSignalMVC: Error: data/kraken/4h/BCHNUSD.csv not found
+2025-12-03 00:39:54,573 WARNING src.mvc.core.DataTKxSignalMVC: Error: data/kraken/4h/LEOUSD.csv not found
+2025-12-03 00:39:54,581 WARNING src.mvc.core.DataTKxSignalMVC: Error: data/kraken/4h/MATICUSD.csv not found
+2025-12-03 00:39:54,645 INFO src.mvc.core.DataTKxSignalMVC: BTCUSD - File is already in the correct format.
+2025-12-03 00:39:54,712 INFO src.mvc.core.DataTKxSignalMVC: LTCUSD - File is already in the correct format.
+2025-12-03 00:39:54,774 INFO src.mvc.core.DataTKxSignalMVC: ETHUSD - File is already in the correct format.
+2025-12-03 00:39:54,840 INFO src.mvc.core.DataTKxSignalMVC: XRPUSD - File is already in the correct format.
+2025-12-03 00:39:54,905 INFO src.mvc.core.DataTKxSignalMVC: SOLUSD - File is already in the correct format.
+2025-12-03 00:39:54,969 INFO src.mvc.core.DataTKxSignalMVC: DOGEUSD - File is already in the correct format.
+2025-12-03 00:39:55,032 INFO src.mvc.core.DataTKxSignalMVC: TONUSD - File is already in the correct format.
+2025-12-03 00:39:55,096 INFO src.mvc.core.DataTKxSignalMVC: ADAUSD - File is already in the correct format.
+2025-12-03 00:39:55,164 INFO src.mvc.core.DataTKxSignalMVC: TRXUSD - File is already in the correct format.
+2025-12-03 00:39:55,226 INFO src.mvc.core.DataTKxSignalMVC: AVAXUSD - File is already in the correct format.
+2025-12-03 00:39:55,303 INFO src.mvc.core.DataTKxSignalMVC: SHIBUSD - File is already in the correct format.
+2025-12-03 00:39:55,371 INFO src.mvc.core.DataTKxSignalMVC: LINKUSD - File is already in the correct format.
+2025-12-03 00:39:55,446 INFO src.mvc.core.DataTKxSignalMVC: DAIUSD - File is already in the correct format.
+2025-12-03 00:39:55,513 INFO src.mvc.core.DataTKxSignalMVC: NEARUSD - File is already in the correct format.
+2025-12-03 00:39:55,577 INFO src.mvc.core.DataTKxSignalMVC: UNIUSD - File is already in the correct format.
+2025-12-03 00:39:55,644 INFO src.mvc.core.DataTKxSignalMVC: PEPEUSD - File is already in the correct format.
+2025-12-03 00:39:55,708 INFO src.mvc.core.DataTKxSignalMVC: ETCUSD - File is already in the correct format.
+2025-12-03 00:39:55,746 INFO src.mvc.core.DataTKxSignalMVC: XMRUSD - File is already in the correct format.
+2025-12-03 00:39:55,784 INFO src.mvc.core.DataTKxSignalMVC: XLMUSD - File is already in the correct format.
+2025-12-03 00:39:55,824 INFO src.mvc.core.DataTKxSignalMVC: APTUSD - File is already in the correct format.
+2025-12-03 00:39:55,862 INFO src.mvc.core.DataTKxSignalMVC: DOTUSD - File is already in the correct format.
+2025-12-03 00:39:55,900 INFO src.mvc.core.DataTKxSignalMVC: KASUSD - File is already in the correct format.
+2025-12-03 00:39:55,940 INFO src.mvc.core.DataTKxSignalMVC: ICPUSD - File is already in the correct format.
+2025-12-03 00:39:55,978 INFO src.mvc.core.DataTKxSignalMVC: FETUSD - File is already in the correct format.
+2025-12-03 00:39:56,021 INFO src.mvc.core.DataTKxSignalMVC: STXUSD - File is already in the correct format.
+2025-12-03 00:39:56,049 INFO src.mvc.core.DataTKxSignalMVC: TKx count csv files are created
+2025-12-03 00:39:56,050 INFO src.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/kraken/d/asset_list/Kraken.csv
+2025-12-03 00:39:56,078 WARNING src.mvc.core.DataTKxSignalMVC: Error: data/kraken/d/BCHNUSD.csv not found
+2025-12-03 00:39:56,081 WARNING src.mvc.core.DataTKxSignalMVC: Error: data/kraken/d/LEOUSD.csv not found
+2025-12-03 00:39:56,085 WARNING src.mvc.core.DataTKxSignalMVC: Error: data/kraken/d/MATICUSD.csv not found
+2025-12-03 00:39:56,123 INFO src.mvc.core.DataTKxSignalMVC: BTCUSD - File is already in the correct format.
+2025-12-03 00:39:56,162 INFO src.mvc.core.DataTKxSignalMVC: LTCUSD - File is already in the correct format.
+2025-12-03 00:39:56,198 INFO src.mvc.core.DataTKxSignalMVC: ETHUSD - File is already in the correct format.
+2025-12-03 00:39:56,234 INFO src.mvc.core.DataTKxSignalMVC: XRPUSD - File is already in the correct format.
+2025-12-03 00:39:56,271 INFO src.mvc.core.DataTKxSignalMVC: SOLUSD - File is already in the correct format.
+2025-12-03 00:39:56,311 INFO src.mvc.core.DataTKxSignalMVC: DOGEUSD - File is already in the correct format.
+2025-12-03 00:39:56,362 INFO src.mvc.core.DataTKxSignalMVC: TONUSD - File is already in the correct format.
+2025-12-03 00:39:56,391 INFO src.mvc.core.DataTKxSignalMVC: ADAUSD - File is already in the correct format.
+2025-12-03 00:39:56,427 INFO src.mvc.core.DataTKxSignalMVC: TRXUSD - File is already in the correct format.
+2025-12-03 00:39:56,462 INFO src.mvc.core.DataTKxSignalMVC: AVAXUSD - File is already in the correct format.
+2025-12-03 00:39:56,501 INFO src.mvc.core.DataTKxSignalMVC: SHIBUSD - File is already in the correct format.
+2025-12-03 00:39:56,537 INFO src.mvc.core.DataTKxSignalMVC: LINKUSD - File is already in the correct format.
+2025-12-03 00:39:56,574 INFO src.mvc.core.DataTKxSignalMVC: DAIUSD - File is already in the correct format.
+2025-12-03 00:39:56,616 INFO src.mvc.core.DataTKxSignalMVC: NEARUSD - File is already in the correct format.
+2025-12-03 00:39:56,657 INFO src.mvc.core.DataTKxSignalMVC: UNIUSD - File is already in the correct format.
+2025-12-03 00:39:56,695 INFO src.mvc.core.DataTKxSignalMVC: PEPEUSD - File is already in the correct format.
+2025-12-03 00:39:56,731 INFO src.mvc.core.DataTKxSignalMVC: ETCUSD - File is already in the correct format.
+2025-12-03 00:39:56,768 INFO src.mvc.core.DataTKxSignalMVC: XMRUSD - File is already in the correct format.
+2025-12-03 00:39:56,804 INFO src.mvc.core.DataTKxSignalMVC: XLMUSD - File is already in the correct format.
+2025-12-03 00:39:56,848 INFO src.mvc.core.DataTKxSignalMVC: APTUSD - File is already in the correct format.
+2025-12-03 00:39:56,884 INFO src.mvc.core.DataTKxSignalMVC: DOTUSD - File is already in the correct format.
+2025-12-03 00:39:56,921 INFO src.mvc.core.DataTKxSignalMVC: KASUSD - File is already in the correct format.
+2025-12-03 00:39:56,948 INFO src.mvc.core.DataTKxSignalMVC: ICPUSD - File is already in the correct format.
+2025-12-03 00:39:56,987 INFO src.mvc.core.DataTKxSignalMVC: FETUSD - File is already in the correct format.
+2025-12-03 00:39:57,025 INFO src.mvc.core.DataTKxSignalMVC: STXUSD - File is already in the correct format.
+2025-12-03 00:39:57,052 INFO src.mvc.core.DataTKxSignalMVC: TKx count csv files are created
+2025-12-03 00:39:57,053 INFO src.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/kraken/w/asset_list/Kraken.csv
+2025-12-03 00:39:57,074 WARNING src.mvc.core.DataTKxSignalMVC: Error: data/kraken/w/BCHNUSD.csv not found
+2025-12-03 00:39:57,076 WARNING src.mvc.core.DataTKxSignalMVC: Error: data/kraken/w/LEOUSD.csv not found
+2025-12-03 00:39:57,080 WARNING src.mvc.core.DataTKxSignalMVC: Error: data/kraken/w/MATICUSD.csv not found
+2025-12-03 00:39:57,109 INFO src.mvc.core.DataTKxSignalMVC: BTCUSD - File is already in the correct format.
+2025-12-03 00:39:57,152 INFO src.mvc.core.DataTKxSignalMVC: LTCUSD - File is already in the correct format.
+2025-12-03 00:39:57,187 INFO src.mvc.core.DataTKxSignalMVC: ETHUSD - File is already in the correct format.
+2025-12-03 00:39:57,218 INFO src.mvc.core.DataTKxSignalMVC: XRPUSD - File is already in the correct format.
+2025-12-03 00:39:57,245 INFO src.mvc.core.DataTKxSignalMVC: SOLUSD - File is already in the correct format.
+2025-12-03 00:39:57,264 INFO src.mvc.core.DataTKxSignalMVC: DOGEUSD - File is already in the correct format.
+2025-12-03 00:39:57,286 INFO src.mvc.core.DataTKxSignalMVC: TONUSD - File is already in the correct format.
+2025-12-03 00:39:57,301 INFO src.mvc.core.DataTKxSignalMVC: ADAUSD - File is already in the correct format.
+2025-12-03 00:39:57,327 INFO src.mvc.core.DataTKxSignalMVC: TRXUSD - File is already in the correct format.
+2025-12-03 00:39:57,348 INFO src.mvc.core.DataTKxSignalMVC: AVAXUSD - File is already in the correct format.
+2025-12-03 00:39:57,366 INFO src.mvc.core.DataTKxSignalMVC: SHIBUSD - File is already in the correct format.
+2025-12-03 00:39:57,398 INFO src.mvc.core.DataTKxSignalMVC: LINKUSD - File is already in the correct format.
+2025-12-03 00:39:57,429 INFO src.mvc.core.DataTKxSignalMVC: DAIUSD - File is already in the correct format.
+2025-12-03 00:39:57,451 INFO src.mvc.core.DataTKxSignalMVC: NEARUSD - File is already in the correct format.
+2025-12-03 00:39:57,468 INFO src.mvc.core.DataTKxSignalMVC: UNIUSD - File is already in the correct format.
+2025-12-03 00:39:57,488 INFO src.mvc.core.DataTKxSignalMVC: PEPEUSD - File is already in the correct format.
+2025-12-03 00:39:57,505 INFO src.mvc.core.DataTKxSignalMVC: ETCUSD - File is already in the correct format.
+2025-12-03 00:39:57,536 INFO src.mvc.core.DataTKxSignalMVC: XMRUSD - File is already in the correct format.
+2025-12-03 00:39:57,566 INFO src.mvc.core.DataTKxSignalMVC: XLMUSD - File is already in the correct format.
+2025-12-03 00:39:57,595 INFO src.mvc.core.DataTKxSignalMVC: APTUSD - File is already in the correct format.
+2025-12-03 00:39:57,613 INFO src.mvc.core.DataTKxSignalMVC: DOTUSD - File is already in the correct format.
+2025-12-03 00:39:57,638 INFO src.mvc.core.DataTKxSignalMVC: KASUSD - File is already in the correct format.
+2025-12-03 00:39:57,651 INFO src.mvc.core.DataTKxSignalMVC: ICPUSD - File is already in the correct format.
+2025-12-03 00:39:57,668 INFO src.mvc.core.DataTKxSignalMVC: FETUSD - File is already in the correct format.
+2025-12-03 00:39:57,685 INFO src.mvc.core.DataTKxSignalMVC: STXUSD - File is already in the correct format.
+2025-12-03 00:39:57,695 INFO src.mvc.core.DataTKxSignalMVC: TKx count csv files are created
+2025-12-03 00:39:57,695 INFO src.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/kraken/m/asset_list/Kraken.csv
+2025-12-03 00:39:57,715 WARNING src.mvc.core.DataTKxSignalMVC: Error: data/kraken/m/BCHNUSD.csv not found
+2025-12-03 00:39:57,716 WARNING src.mvc.core.DataTKxSignalMVC: Error: data/kraken/m/LEOUSD.csv not found
+2025-12-03 00:39:57,720 WARNING src.mvc.core.DataTKxSignalMVC: Error: data/kraken/m/MATICUSD.csv not found
+2025-12-03 00:39:57,743 INFO src.mvc.core.DataTKxSignalMVC: BTCUSD - File is already in the correct format.
+2025-12-03 00:39:57,764 INFO src.mvc.core.DataTKxSignalMVC: LTCUSD - File is already in the correct format.
+2025-12-03 00:39:57,787 INFO src.mvc.core.DataTKxSignalMVC: ETHUSD - File is already in the correct format.
+2025-12-03 00:39:57,806 INFO src.mvc.core.DataTKxSignalMVC: XRPUSD - File is already in the correct format.
+2025-12-03 00:39:57,827 INFO src.mvc.core.DataTKxSignalMVC: SOLUSD - File is already in the correct format.
+2025-12-03 00:39:57,842 INFO src.mvc.core.DataTKxSignalMVC: DOGEUSD - File is already in the correct format.
+2025-12-03 00:39:57,858 INFO src.mvc.core.DataTKxSignalMVC: TONUSD - File is already in the correct format.
+2025-12-03 00:39:57,869 INFO src.mvc.core.DataTKxSignalMVC: ADAUSD - File is already in the correct format.
+2025-12-03 00:39:57,885 INFO src.mvc.core.DataTKxSignalMVC: TRXUSD - File is already in the correct format.
+2025-12-03 00:39:57,900 INFO src.mvc.core.DataTKxSignalMVC: AVAXUSD - File is already in the correct format.
+2025-12-03 00:39:57,913 INFO src.mvc.core.DataTKxSignalMVC: SHIBUSD - File is already in the correct format.
+2025-12-03 00:39:57,929 INFO src.mvc.core.DataTKxSignalMVC: LINKUSD - File is already in the correct format.
+2025-12-03 00:39:57,945 INFO src.mvc.core.DataTKxSignalMVC: DAIUSD - File is already in the correct format.
+2025-12-03 00:39:57,960 INFO src.mvc.core.DataTKxSignalMVC: NEARUSD - File is already in the correct format.
+2025-12-03 00:39:57,973 INFO src.mvc.core.DataTKxSignalMVC: UNIUSD - File is already in the correct format.
+2025-12-03 00:39:57,988 INFO src.mvc.core.DataTKxSignalMVC: PEPEUSD - File is already in the correct format.
+2025-12-03 00:39:58,001 INFO src.mvc.core.DataTKxSignalMVC: ETCUSD - File is already in the correct format.
+2025-12-03 00:39:58,021 INFO src.mvc.core.DataTKxSignalMVC: XMRUSD - File is already in the correct format.
+2025-12-03 00:39:58,040 INFO src.mvc.core.DataTKxSignalMVC: XLMUSD - File is already in the correct format.
+2025-12-03 00:39:58,058 INFO src.mvc.core.DataTKxSignalMVC: APTUSD - File is already in the correct format.
+2025-12-03 00:39:58,071 INFO src.mvc.core.DataTKxSignalMVC: DOTUSD - File is already in the correct format.
+2025-12-03 00:39:58,086 INFO src.mvc.core.DataTKxSignalMVC: KASUSD - File is already in the correct format.
+2025-12-03 00:39:58,098 INFO src.mvc.core.DataTKxSignalMVC: ICPUSD - File is already in the correct format.
+2025-12-03 00:39:58,114 INFO src.mvc.core.DataTKxSignalMVC: FETUSD - File is already in the correct format.
+2025-12-03 00:39:58,134 INFO src.mvc.core.DataTKxSignalMVC: STXUSD - File is already in the correct format.
+2025-12-03 00:39:58,142 INFO src.mvc.core.DataTKxSignalMVC: TKx count csv files are created
+2025-12-03 00:39:58,142 INFO src.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/kraken/1h/ -----------
+2025-12-03 00:39:58,143 INFO src.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::True
+2025-12-03 00:39:58,163 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Error: data/kraken/1h/BCHNUSD_tkxCount.csv not found
+2025-12-03 00:39:58,164 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Error: data/kraken/1h/LEOUSD_tkxCount.csv not found
+2025-12-03 00:39:58,168 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Error: data/kraken/1h/MATICUSD_tkxCount.csv not found
+2025-12-03 00:39:58,190 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Aggregator Kraken-tkx-1H.csv and .xml are created
+
+2025-12-03 00:39:58,190 INFO src.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/kraken/4h/ -----------
+2025-12-03 00:39:58,190 INFO src.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::True
+2025-12-03 00:39:58,209 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Error: data/kraken/4h/BCHNUSD_tkxCount.csv not found
+2025-12-03 00:39:58,211 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Error: data/kraken/4h/LEOUSD_tkxCount.csv not found
+2025-12-03 00:39:58,214 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Error: data/kraken/4h/MATICUSD_tkxCount.csv not found
+2025-12-03 00:39:58,237 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Aggregator Kraken-tkx-4H.csv and .xml are created
+
+2025-12-03 00:39:58,237 INFO src.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/kraken/d/ -----------
+2025-12-03 00:39:58,237 INFO src.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::True
+2025-12-03 00:39:58,255 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Error: data/kraken/d/BCHNUSD_tkxCount.csv not found
+2025-12-03 00:39:58,256 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Error: data/kraken/d/LEOUSD_tkxCount.csv not found
+2025-12-03 00:39:58,259 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Error: data/kraken/d/MATICUSD_tkxCount.csv not found
+2025-12-03 00:39:58,280 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Aggregator Kraken-tkx-D.csv and .xml are created
+
+2025-12-03 00:39:58,280 INFO src.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/kraken/w/ -----------
+2025-12-03 00:39:58,280 INFO src.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::True
+2025-12-03 00:39:58,297 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Error: data/kraken/w/BCHNUSD_tkxCount.csv not found
+2025-12-03 00:39:58,298 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Error: data/kraken/w/LEOUSD_tkxCount.csv not found
+2025-12-03 00:39:58,301 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Error: data/kraken/w/MATICUSD_tkxCount.csv not found
+2025-12-03 00:39:58,320 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Aggregator Kraken-tkx-W.csv and .xml are created
+
+2025-12-03 00:39:58,321 INFO src.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/kraken/m/ -----------
+2025-12-03 00:39:58,321 INFO src.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::True
+2025-12-03 00:39:58,338 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Error: data/kraken/m/BCHNUSD_tkxCount.csv not found
+2025-12-03 00:39:58,339 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Error: data/kraken/m/LEOUSD_tkxCount.csv not found
+2025-12-03 00:39:58,342 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Error: data/kraken/m/MATICUSD_tkxCount.csv not found
+2025-12-03 00:39:58,359 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Aggregator Kraken-tkx-M.csv and .xml are created
+
+2025-12-03 00:39:58,359 INFO src.mvc.core.DataTKxSignalMultiTimeframeMerger: ------------- Merging Multi Timeframe TKx -------------
+2025-12-03 00:39:58,375 INFO src.mvc.core.DataTKxSignalMultiTimeframeMerger: Multi Timeframe TKx Signals Merged: output/tkx/Kraken-tkx-merged.csv
+2025-12-03 00:39:58,375 INFO src.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1H TKx Direction', '1H TKx Count']
+2025-12-03 00:39:58,376 INFO src.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['4H TKx Direction', '4H TKx Count']
+2025-12-03 00:39:58,377 INFO src.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1D TKx Direction', '1D TKx Count']
+2025-12-03 00:39:58,378 INFO src.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1W TKx Direction', '1W TKx Count']
+2025-12-03 00:39:58,379 INFO src.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1M TKx Direction', '1M TKx Count']
+2025-12-03 00:39:58,394 INFO src.mvc.core.DataTKxSignalMultiTimeframeMerger: -------------------- TKx Score Multi Timeframe Raw --------------------
+%s      Symbol              Name  ...  1W TKx Score  1M TKx Score
+0    DAIUSD            DAIUSD  ...           -11            -1
+1    XMRUSD           Monero   ...             4            36
+2    UNIUSD            UNIUSD  ...            -8           -16
+3   PEPEUSD          PEPE/USD  ...           -11           -16
+4    FETUSD            FETUSD  ...           -10           -33
+5    STXUSD            STXUSD  ...           -43           -32
+6    XRPUSD            XRPUSD  ...            -8            26
+7   AVAXUSD           AVAXUSD  ...            -2           -33
+8    KASUSD            KASUSD  ...           -11            -1
+9    ETHUSD            ETHUSD  ...            21             8
+10  NEARUSD          NEAR/USD  ...            -8           -21
+11   TRXUSD            TRXUSD  ...            -3             9
+12   SOLUSD            SOLUSD  ...            -2           -13
+13  DOGEUSD           DOGEUSD  ...            -3           -16
+14  LINKUSD          LINK/USD  ...            -6           -15
+15  SHIBUSD          SHIB/USD  ...           -43           -34
+16   XLMUSD          Stellar   ...            -8            -1
+17   ETCUSD  Ethereum Classic  ...            -8           -16
+18   DOTUSD            DOTUSD  ...           -44           -34
+19   ADAUSD            ADAUSD  ...            -7           -10
+20   BTCUSD            BTCUSD  ...            26            62
+21   LTCUSD            LTCUSD  ...            18            -4
+22   TONUSD            TONUSD  ...           -35            -4
+23   APTUSD             Aptos  ...           -43           -33
+24   ICPUSD            ICPUSD  ...           -11           -32
+
+[25 rows x 17 columns]
+2025-12-03 00:39:58,396 INFO src.mvc.core.DataTKxSignalMultiTimeframeMerger: ------ Cleaning columns ------
+2025-12-03 00:39:58,399 INFO src.mvc.core.DataTKxSignalMultiTimeframeMerger: Saved data to: output/tkx/Kraken-tkx-merged.csv.html
+2025-12-03 00:39:58,412 INFO src.mvc.core.DataTKxSignalMultiTimeframeMerger: ----------- TKx Score Multi Timeframe Final View -----------
+%s      Symbol              Name  ...  1M TKx Score  TKx Score Sum
+20   BTCUSD            BTCUSD  ...            62             62
+1    XMRUSD           Monero   ...            36             42
+11   TRXUSD            TRXUSD  ...             9              6
+21   LTCUSD            LTCUSD  ...            -4              1
+8    KASUSD            KASUSD  ...            -1             -6
+9    ETHUSD            ETHUSD  ...             8            -15
+6    XRPUSD            XRPUSD  ...            26            -16
+0    DAIUSD            DAIUSD  ...            -1            -17
+16   XLMUSD          Stellar   ...            -1            -18
+19   ADAUSD            ADAUSD  ...           -10            -25
+14  LINKUSD          LINK/USD  ...           -15            -44
+13  DOGEUSD           DOGEUSD  ...           -16            -47
+17   ETCUSD  Ethereum Classic  ...           -16            -48
+2    UNIUSD            UNIUSD  ...           -16            -49
+10  NEARUSD          NEAR/USD  ...           -21            -52
+12   SOLUSD            SOLUSD  ...           -13            -61
+22   TONUSD            TONUSD  ...            -4            -63
+3   PEPEUSD          PEPE/USD  ...           -16            -64
+7   AVAXUSD           AVAXUSD  ...           -33            -65
+24   ICPUSD            ICPUSD  ...           -32            -68
+4    FETUSD            FETUSD  ...           -33            -77
+18   DOTUSD            DOTUSD  ...           -34            -90
+15  SHIBUSD          SHIB/USD  ...           -34            -93
+5    STXUSD            STXUSD  ...           -32           -109
+23   APTUSD             Aptos  ...           -33           -134
+
+[25 rows x 8 columns]
+2025-12-03 00:39:58,413 INFO src.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: 
+------------- Merging Multi Timeframe Cloud and TKx Sum -------------
+2025-12-03 00:39:58,420 INFO src.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: Multi Timeframe Cloud and TKx Signals Merged
+2025-12-03 00:39:58,424 INFO src.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: Saved data to: output/sum/Kraken-sum-cloud-tkx-merged.csv output/sum/Kraken-sum-cloud-tkx-merged.csv.html
+2025-12-03 00:39:58,446 INFO src.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: ----------- Cloud and TKx Sum Score Multi Timeframe Final View -----------
+%s      Symbol              Name  ...  TKx Score Sum  Total Score Sum
+0    XMRUSD           Monero   ...             42              169
+1    BTCUSD            BTCUSD  ...             62               90
+4    TRXUSD            TRXUSD  ...              6                4
+2    XRPUSD            XRPUSD  ...            -16                0
+3    KASUSD            KASUSD  ...             -6               -4
+6    LTCUSD            LTCUSD  ...              1              -17
+5    ETHUSD            ETHUSD  ...            -15              -30
+9    XLMUSD          Stellar   ...            -18              -45
+13   DAIUSD            DAIUSD  ...            -17              -70
+8   DOGEUSD           DOGEUSD  ...            -47              -72
+10   UNIUSD            UNIUSD  ...            -49              -78
+14   ADAUSD            ADAUSD  ...            -25              -79
+7    TONUSD            TONUSD  ...            -63              -86
+12  LINKUSD          LINK/USD  ...            -44              -89
+11   SOLUSD            SOLUSD  ...            -61             -105
+15   ETCUSD  Ethereum Classic  ...            -48             -123
+16  AVAXUSD           AVAXUSD  ...            -65             -143
+18  PEPEUSD          PEPE/USD  ...            -64             -157
+17  SHIBUSD          SHIB/USD  ...            -93             -175
+19  NEARUSD          NEAR/USD  ...            -52             -208
+22   ICPUSD            ICPUSD  ...            -68             -258
+20   STXUSD            STXUSD  ...           -109             -278
+21   APTUSD             Aptos  ...           -134             -305
+23   FETUSD            FETUSD  ...            -77             -307
+24   DOTUSD            DOTUSD  ...            -90             -324
+
+[25 rows x 16 columns]
+2025-12-03 00:39:58,446 INFO src.mvc.html_creator: ------------- Generating Html table -------------
+2025-12-03 00:39:58,453 INFO src.mvc.html_creator: Table generated at 2025-12-03 00:39:58
+2025-12-03 00:39:58,453 INFO src.mvc.html_creator: HTML table generated.
+2025-12-03 00:39:58,453 INFO src.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: generate_html output/sum/Kraken-sum-cloud-tkx-merged.csv
+2025-12-03 00:39:58,454 INFO src.mvc.html_creator: HTML data table saved at output/sum/Kraken-sum-cloud-tkx-merged.csv.html
+2025-12-03 00:39:58,454 INFO scripts.runKraken: Kraken tasks completed at 2025-12-03 00:39:58 [UK] (Time elapsed: 0:01:21.784535)
