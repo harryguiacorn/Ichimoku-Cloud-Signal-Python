@@ -1,0 +1,1662 @@
+2025-12-03 00:40:01,117 INFO __main__: Shim: launching scripts.runFutures
+2025-12-03 00:40:01,133 INFO scripts.runFutures: Futures task begins at: 2025-12-03 00:40:01 [UK]
+2025-12-03 00:40:01,133 INFO src.mvc.controllers.GetSymbolFutures: Reading symbols from source: https://finance.yahoo.com/markets/commodities/
+2025-12-03 00:40:01,432 INFO src.mvc.controllers.GetSymbolFutures: response.status_code:200
+2025-12-03 00:40:01,563 INFO src.mvc.controllers.GetSymbolFutures: Web Content::
+[   Symbol                             Name  ...    Volume Open Interest
+0    ES=F            E-Mini S&P 500 Dec 25  ...    9611.0        2.003M
+1    YM=F  Mini Dow Jones Indus.-$5 Dec 25  ...    2943.0         82004
+2    NQ=F                Nasdaq 100 Dec 25  ...    6332.0        298559
+3   RTY=F  E-mini Russell 2000 Index Futur  ...    1035.0        375497
+4    ZB=F  U.S. Treasury Bond Futures,Dec-  ...    4205.0        1.799M
+5    ZN=F  10-Year T-Note Futures,Dec-2025  ...   10937.0        5.598M
+6    ZF=F  Five-Year US Treasury Note Futu  ...   10698.0        6.622M
+7    ZT=F   2-Year T-Note Futures,Mar-2026  ...    4656.0        4.386M
+8    GC=F                      Gold Dec 25  ...    4855.0        317826
+9   MGC=F      Micro Gold Futures,Dec-2025  ...   15279.0         39793
+10   SI=F                    Silver Dec 25  ...    3172.0          2363
+11  SIL=F    Micro Silver Futures,Dec-2025  ...    4349.0         10105
+12   PL=F                  Platinum Jan 26  ...     535.0         65338
+13   HG=F                    Copper Dec 25  ...     805.0        139658
+14   PA=F                 Palladium Mar 26  ...      77.0         19018
+15   CL=F                 Crude Oil Jan 26  ...     799.0        353200
+16   HO=F                               --  ...     362.0         56844
+17   NG=F               Natural Gas Jan 26  ...     832.0        241067
+18   RB=F                               --  ...     152.0        133767
+19   BZ=F  Brent Crude Oil Last Day Financ  ...      34.0         30367
+20   B0=F  Mont Belvieu LDH Propane (OPIS)  ...      10.0         18631
+21   ZC=F            Corn Futures,Dec-2025  ...  195181.0        727008
+22   ZO=F             Oat Futures,Dec-2025  ...     167.0          3530
+23   KE=F    KC HRW Wheat Futures,Mar-2026  ...   28700.0        171541
+24   ZR=F      Rough Rice Futures,Jan-2026  ...     830.0         11929
+25   ZM=F  S&P Composite 1500 ESG Tilted I  ...   55485.0        171985
+26   ZL=F     Soybean Oil Futures,Jan-2026  ...   60852.0        224336
+27   ZS=F         Soybean Futures,Jan-2026  ...  122786.0        347646
+28   GF=F  WisdomTree International High D  ...    9856.0         28106
+29   HE=F        Lean Hog Futures,Feb-2026  ...    5838.0        122091
+30   LE=F     Live Cattle Futures,Dec-2025  ...   11854.0         37347
+31   CC=F                     Cocoa Mar 26  ...       0.0         61057
+32   KC=F                    Coffee Dec 25  ...       0.0           645
+33   CT=F                    Cotton Dec 25  ...       0.0        178023
+34  LBS=F     Random Length Lumber Futures  ...     193.0          2057
+35   OJ=F              Orange Juice Jan 26  ...       0.0          7612
+36   SB=F                 Sugar #11 Mar 26  ...       0.0        468263
+37    NaN                              NaN  ...       NaN           NaN
+
+[38 rows x 9 columns]]
+2025-12-03 00:40:01,563 INFO src.mvc.controllers.GetSymbolFutures: Total symbols: 38
+2025-12-03 00:40:01,570 INFO src.mvc.controllers.GetSymbolFutures: cleanData::
+   symbol                             name
+0    ES=F            E-Mini S&P 500 Dec 25
+1    YM=F  Mini Dow Jones Indus.-$5 Dec 25
+2    NQ=F                Nasdaq 100 Dec 25
+3   RTY=F  E-mini Russell 2000 Index Futur
+4    ZB=F  U.S. Treasury Bond Futures,Dec-
+5    ZN=F  10-Year T-Note Futures,Dec-2025
+6    ZF=F  Five-Year US Treasury Note Futu
+7    ZT=F   2-Year T-Note Futures,Mar-2026
+8    GC=F                      Gold Dec 25
+9   MGC=F      Micro Gold Futures,Dec-2025
+10   SI=F                    Silver Dec 25
+11  SIL=F    Micro Silver Futures,Dec-2025
+12   PL=F                  Platinum Jan 26
+13   HG=F                    Copper Dec 25
+14   PA=F                 Palladium Mar 26
+15   CL=F                 Crude Oil Jan 26
+16   HO=F                               --
+17   NG=F               Natural Gas Jan 26
+18   RB=F                               --
+19   BZ=F  Brent Crude Oil Last Day Financ
+20   B0=F  Mont Belvieu LDH Propane (OPIS)
+21   ZC=F            Corn Futures,Dec-2025
+22   ZO=F             Oat Futures,Dec-2025
+23   KE=F    KC HRW Wheat Futures,Mar-2026
+24   ZR=F      Rough Rice Futures,Jan-2026
+25   ZM=F  S&P Composite 1500 ESG Tilted I
+26   ZL=F     Soybean Oil Futures,Jan-2026
+27   ZS=F         Soybean Futures,Jan-2026
+28   GF=F  WisdomTree International High D
+29   HE=F        Lean Hog Futures,Feb-2026
+30   LE=F     Live Cattle Futures,Dec-2025
+31   CC=F                     Cocoa Mar 26
+32   KC=F                    Coffee Dec 25
+33   CT=F                    Cotton Dec 25
+34  LBS=F     Random Length Lumber Futures
+35   OJ=F              Orange Juice Jan 26
+36   SB=F                 Sugar #11 Mar 26
+2025-12-03 00:40:01,575 INFO src.mvc.controllers.GetSymbolFutures: Table:
+   symbol                             name
+0    ES=F            E-Mini S&P 500 Dec 25
+1    YM=F  Mini Dow Jones Indus.-$5 Dec 25
+2    NQ=F                Nasdaq 100 Dec 25
+3   RTY=F  E-mini Russell 2000 Index Futur
+4    ZB=F  U.S. Treasury Bond Futures,Dec-
+5    ZN=F  10-Year T-Note Futures,Dec-2025
+6    ZF=F  Five-Year US Treasury Note Futu
+7    ZT=F   2-Year T-Note Futures,Mar-2026
+8    GC=F                      Gold Dec 25
+9   MGC=F      Micro Gold Futures,Dec-2025
+10   SI=F                    Silver Dec 25
+11  SIL=F    Micro Silver Futures,Dec-2025
+12   PL=F                  Platinum Jan 26
+13   HG=F                    Copper Dec 25
+14   PA=F                 Palladium Mar 26
+15   CL=F                 Crude Oil Jan 26
+16   HO=F                               --
+17   NG=F               Natural Gas Jan 26
+18   RB=F                               --
+19   BZ=F  Brent Crude Oil Last Day Financ
+20   B0=F  Mont Belvieu LDH Propane (OPIS)
+21   ZC=F            Corn Futures,Dec-2025
+22   ZO=F             Oat Futures,Dec-2025
+23   KE=F    KC HRW Wheat Futures,Mar-2026
+24   ZR=F      Rough Rice Futures,Jan-2026
+25   ZM=F  S&P Composite 1500 ESG Tilted I
+26   ZL=F     Soybean Oil Futures,Jan-2026
+27   ZS=F         Soybean Futures,Jan-2026
+28   GF=F  WisdomTree International High D
+29   HE=F        Lean Hog Futures,Feb-2026
+30   LE=F     Live Cattle Futures,Dec-2025
+31   CC=F                     Cocoa Mar 26
+32   KC=F                    Coffee Dec 25
+33   CT=F                    Cotton Dec 25
+34  LBS=F     Random Length Lumber Futures
+35   OJ=F              Orange Juice Jan 26
+36   SB=F                 Sugar #11 Mar 26
+2025-12-03 00:40:01,581 INFO src.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
+2025-12-03 00:40:01,581 INFO src.mvc.core.DataPandasMVC: readAssetList path: asset_list/Futures.csv
+2025-12-03 00:40:01,581 INFO src.mvc.core.DataPandasMVC: ----------- Downloading from Yahoo -----------
+2025-12-03 00:40:01,581 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ES=F 1y 1h
+2025-12-03 00:40:01,959 INFO src.mvc.core.DataPandasMVC: 0 ES=F -> data/futures/1h/ES=F.csv
+2025-12-03 00:40:01,959 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download YM=F 1y 1h
+2025-12-03 00:40:02,265 INFO src.mvc.core.DataPandasMVC: 1 YM=F -> data/futures/1h/YM=F.csv
+2025-12-03 00:40:02,265 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download NQ=F 1y 1h
+2025-12-03 00:40:02,610 INFO src.mvc.core.DataPandasMVC: 2 NQ=F -> data/futures/1h/NQ=F.csv
+2025-12-03 00:40:02,611 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download RTY=F 1y 1h
+2025-12-03 00:40:02,931 INFO src.mvc.core.DataPandasMVC: 3 RTY=F -> data/futures/1h/RTY=F.csv
+2025-12-03 00:40:02,931 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZB=F 1y 1h
+2025-12-03 00:40:03,245 INFO src.mvc.core.DataPandasMVC: 4 ZB=F -> data/futures/1h/ZB=F.csv
+2025-12-03 00:40:03,245 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZN=F 1y 1h
+2025-12-03 00:40:03,556 INFO src.mvc.core.DataPandasMVC: 5 ZN=F -> data/futures/1h/ZN=F.csv
+2025-12-03 00:40:03,556 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZF=F 1y 1h
+2025-12-03 00:40:03,869 INFO src.mvc.core.DataPandasMVC: 6 ZF=F -> data/futures/1h/ZF=F.csv
+2025-12-03 00:40:03,869 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZT=F 1y 1h
+2025-12-03 00:40:04,163 INFO src.mvc.core.DataPandasMVC: 7 ZT=F -> data/futures/1h/ZT=F.csv
+2025-12-03 00:40:04,163 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download GC=F 1y 1h
+2025-12-03 00:40:04,478 INFO src.mvc.core.DataPandasMVC: 8 GC=F -> data/futures/1h/GC=F.csv
+2025-12-03 00:40:04,479 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download MGC=F 1y 1h
+2025-12-03 00:40:04,807 INFO src.mvc.core.DataPandasMVC: 9 MGC=F -> data/futures/1h/MGC=F.csv
+2025-12-03 00:40:04,807 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download SI=F 1y 1h
+2025-12-03 00:40:05,152 INFO src.mvc.core.DataPandasMVC: 10 SI=F -> data/futures/1h/SI=F.csv
+2025-12-03 00:40:05,152 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download SIL=F 1y 1h
+2025-12-03 00:40:05,510 INFO src.mvc.core.DataPandasMVC: 11 SIL=F -> data/futures/1h/SIL=F.csv
+2025-12-03 00:40:05,510 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download PL=F 1y 1h
+2025-12-03 00:40:05,955 INFO src.mvc.core.DataPandasMVC: 12 PL=F -> data/futures/1h/PL=F.csv
+2025-12-03 00:40:05,956 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download HG=F 1y 1h
+2025-12-03 00:40:06,425 INFO src.mvc.core.DataPandasMVC: 13 HG=F -> data/futures/1h/HG=F.csv
+2025-12-03 00:40:06,425 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download PA=F 1y 1h
+2025-12-03 00:40:06,838 INFO src.mvc.core.DataPandasMVC: 14 PA=F -> data/futures/1h/PA=F.csv
+2025-12-03 00:40:06,839 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download CL=F 1y 1h
+2025-12-03 00:40:07,237 INFO src.mvc.core.DataPandasMVC: 15 CL=F -> data/futures/1h/CL=F.csv
+2025-12-03 00:40:07,237 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download HO=F 1y 1h
+2025-12-03 00:40:07,641 INFO src.mvc.core.DataPandasMVC: 16 HO=F -> data/futures/1h/HO=F.csv
+2025-12-03 00:40:07,641 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download NG=F 1y 1h
+2025-12-03 00:40:08,076 INFO src.mvc.core.DataPandasMVC: 17 NG=F -> data/futures/1h/NG=F.csv
+2025-12-03 00:40:08,076 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download RB=F 1y 1h
+2025-12-03 00:40:08,451 INFO src.mvc.core.DataPandasMVC: 18 RB=F -> data/futures/1h/RB=F.csv
+2025-12-03 00:40:08,451 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download BZ=F 1y 1h
+2025-12-03 00:40:08,801 INFO src.mvc.core.DataPandasMVC: 19 BZ=F -> data/futures/1h/BZ=F.csv
+2025-12-03 00:40:08,802 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download B0=F 1y 1h
+2025-12-03 00:40:09,006 INFO src.mvc.core.DataPandasMVC: 20 B0=F -> data/futures/1h/B0=F.csv
+2025-12-03 00:40:09,006 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZC=F 1y 1h
+2025-12-03 00:40:09,311 INFO src.mvc.core.DataPandasMVC: 21 ZC=F -> data/futures/1h/ZC=F.csv
+2025-12-03 00:40:09,311 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZO=F 1y 1h
+2025-12-03 00:40:09,624 INFO src.mvc.core.DataPandasMVC: 22 ZO=F -> data/futures/1h/ZO=F.csv
+2025-12-03 00:40:09,624 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download KE=F 1y 1h
+2025-12-03 00:40:09,925 INFO src.mvc.core.DataPandasMVC: 23 KE=F -> data/futures/1h/KE=F.csv
+2025-12-03 00:40:09,925 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZR=F 1y 1h
+2025-12-03 00:40:10,185 INFO src.mvc.core.DataPandasMVC: 24 ZR=F -> data/futures/1h/ZR=F.csv
+2025-12-03 00:40:10,185 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZM=F 1y 1h
+2025-12-03 00:40:10,490 INFO src.mvc.core.DataPandasMVC: 25 ZM=F -> data/futures/1h/ZM=F.csv
+2025-12-03 00:40:10,490 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZL=F 1y 1h
+2025-12-03 00:40:10,827 INFO src.mvc.core.DataPandasMVC: 26 ZL=F -> data/futures/1h/ZL=F.csv
+2025-12-03 00:40:10,827 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZS=F 1y 1h
+2025-12-03 00:40:11,135 INFO src.mvc.core.DataPandasMVC: 27 ZS=F -> data/futures/1h/ZS=F.csv
+2025-12-03 00:40:11,135 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download GF=F 1y 1h
+2025-12-03 00:40:11,371 INFO src.mvc.core.DataPandasMVC: 28 GF=F -> data/futures/1h/GF=F.csv
+2025-12-03 00:40:11,371 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download HE=F 1y 1h
+2025-12-03 00:40:11,602 INFO src.mvc.core.DataPandasMVC: 29 HE=F -> data/futures/1h/HE=F.csv
+2025-12-03 00:40:11,602 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download LE=F 1y 1h
+2025-12-03 00:40:11,863 INFO src.mvc.core.DataPandasMVC: 30 LE=F -> data/futures/1h/LE=F.csv
+2025-12-03 00:40:11,863 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download CC=F 1y 1h
+2025-12-03 00:40:12,115 INFO src.mvc.core.DataPandasMVC: 31 CC=F -> data/futures/1h/CC=F.csv
+2025-12-03 00:40:12,116 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download KC=F 1y 1h
+2025-12-03 00:40:12,377 INFO src.mvc.core.DataPandasMVC: 32 KC=F -> data/futures/1h/KC=F.csv
+2025-12-03 00:40:12,377 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download CT=F 1y 1h
+2025-12-03 00:40:12,701 INFO src.mvc.core.DataPandasMVC: 33 CT=F -> data/futures/1h/CT=F.csv
+2025-12-03 00:40:12,701 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download LBS=F 1y 1h
+2025-12-03 00:40:12,794 ERROR yfinance: 
+1 Failed download:
+2025-12-03 00:40:12,794 ERROR yfinance: ['LBS=F']: YFPricesMissingError('possibly delisted; no price data found  (period=1y)')
+2025-12-03 00:40:12,800 INFO src.mvc.core.DataPandasMVC: 34 LBS=F -> data/futures/1h/LBS=F.csv
+2025-12-03 00:40:12,800 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download OJ=F 1y 1h
+2025-12-03 00:40:13,050 INFO src.mvc.core.DataPandasMVC: 35 OJ=F -> data/futures/1h/OJ=F.csv
+2025-12-03 00:40:13,051 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download SB=F 1y 1h
+2025-12-03 00:40:13,309 INFO src.mvc.core.DataPandasMVC: 36 SB=F -> data/futures/1h/SB=F.csv
+2025-12-03 00:40:13,310 INFO src.mvc.core.DataPandasMVC: 
+----------- Creating Ichimoku Data -----------
+2025-12-03 00:40:17,526 INFO src.mvc.core.DataPandasMVC: Ichimoku columns added to csv
+2025-12-03 00:40:17,530 INFO src.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
+2025-12-03 00:40:17,530 INFO src.mvc.core.DataPandasMVC: readAssetList path: asset_list/Futures.csv
+2025-12-03 00:40:17,530 INFO src.mvc.core.DataPandasMVC: ----------- Downloading from Yahoo -----------
+2025-12-03 00:40:17,531 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ES=F max 1d
+2025-12-03 00:40:17,816 INFO src.mvc.core.DataPandasMVC: 0 ES=F -> data/futures/d/ES=F.csv
+2025-12-03 00:40:17,816 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download YM=F max 1d
+2025-12-03 00:40:18,031 INFO src.mvc.core.DataPandasMVC: 1 YM=F -> data/futures/d/YM=F.csv
+2025-12-03 00:40:18,032 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download NQ=F max 1d
+2025-12-03 00:40:18,324 INFO src.mvc.core.DataPandasMVC: 2 NQ=F -> data/futures/d/NQ=F.csv
+2025-12-03 00:40:18,324 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download RTY=F max 1d
+2025-12-03 00:40:18,511 INFO src.mvc.core.DataPandasMVC: 3 RTY=F -> data/futures/d/RTY=F.csv
+2025-12-03 00:40:18,511 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZB=F max 1d
+2025-12-03 00:40:18,792 INFO src.mvc.core.DataPandasMVC: 4 ZB=F -> data/futures/d/ZB=F.csv
+2025-12-03 00:40:18,792 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZN=F max 1d
+2025-12-03 00:40:19,091 INFO src.mvc.core.DataPandasMVC: 5 ZN=F -> data/futures/d/ZN=F.csv
+2025-12-03 00:40:19,092 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZF=F max 1d
+2025-12-03 00:40:19,384 INFO src.mvc.core.DataPandasMVC: 6 ZF=F -> data/futures/d/ZF=F.csv
+2025-12-03 00:40:19,384 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZT=F max 1d
+2025-12-03 00:40:19,696 INFO src.mvc.core.DataPandasMVC: 7 ZT=F -> data/futures/d/ZT=F.csv
+2025-12-03 00:40:19,697 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download GC=F max 1d
+2025-12-03 00:40:20,007 INFO src.mvc.core.DataPandasMVC: 8 GC=F -> data/futures/d/GC=F.csv
+2025-12-03 00:40:20,007 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download MGC=F max 1d
+2025-12-03 00:40:20,226 INFO src.mvc.core.DataPandasMVC: 9 MGC=F -> data/futures/d/MGC=F.csv
+2025-12-03 00:40:20,226 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download SI=F max 1d
+2025-12-03 00:40:20,490 INFO src.mvc.core.DataPandasMVC: 10 SI=F -> data/futures/d/SI=F.csv
+2025-12-03 00:40:20,491 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download SIL=F max 1d
+2025-12-03 00:40:20,642 INFO src.mvc.core.DataPandasMVC: 11 SIL=F -> data/futures/d/SIL=F.csv
+2025-12-03 00:40:20,642 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download PL=F max 1d
+2025-12-03 00:40:20,865 INFO src.mvc.core.DataPandasMVC: 12 PL=F -> data/futures/d/PL=F.csv
+2025-12-03 00:40:20,865 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download HG=F max 1d
+2025-12-03 00:40:21,150 INFO src.mvc.core.DataPandasMVC: 13 HG=F -> data/futures/d/HG=F.csv
+2025-12-03 00:40:21,150 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download PA=F max 1d
+2025-12-03 00:40:21,392 INFO src.mvc.core.DataPandasMVC: 14 PA=F -> data/futures/d/PA=F.csv
+2025-12-03 00:40:21,392 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download CL=F max 1d
+2025-12-03 00:40:21,646 INFO src.mvc.core.DataPandasMVC: 15 CL=F -> data/futures/d/CL=F.csv
+2025-12-03 00:40:21,646 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download HO=F max 1d
+2025-12-03 00:40:21,905 INFO src.mvc.core.DataPandasMVC: 16 HO=F -> data/futures/d/HO=F.csv
+2025-12-03 00:40:21,905 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download NG=F max 1d
+2025-12-03 00:40:22,144 INFO src.mvc.core.DataPandasMVC: 17 NG=F -> data/futures/d/NG=F.csv
+2025-12-03 00:40:22,144 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download RB=F max 1d
+2025-12-03 00:40:22,386 INFO src.mvc.core.DataPandasMVC: 18 RB=F -> data/futures/d/RB=F.csv
+2025-12-03 00:40:22,386 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download BZ=F max 1d
+2025-12-03 00:40:22,593 INFO src.mvc.core.DataPandasMVC: 19 BZ=F -> data/futures/d/BZ=F.csv
+2025-12-03 00:40:22,593 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download B0=F max 1d
+2025-12-03 00:40:22,647 ERROR yfinance: 
+1 Failed download:
+2025-12-03 00:40:22,647 ERROR yfinance: ['B0=F']: YFInvalidPeriodError("B0=F: Period 'max' is invalid, must be one of: 1d, 5d")
+2025-12-03 00:40:22,653 INFO src.mvc.core.DataPandasMVC: 20 B0=F -> data/futures/d/B0=F.csv
+2025-12-03 00:40:22,653 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZC=F max 1d
+2025-12-03 00:40:22,910 INFO src.mvc.core.DataPandasMVC: 21 ZC=F -> data/futures/d/ZC=F.csv
+2025-12-03 00:40:22,910 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZO=F max 1d
+2025-12-03 00:40:23,171 INFO src.mvc.core.DataPandasMVC: 22 ZO=F -> data/futures/d/ZO=F.csv
+2025-12-03 00:40:23,172 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download KE=F max 1d
+2025-12-03 00:40:23,371 INFO src.mvc.core.DataPandasMVC: 23 KE=F -> data/futures/d/KE=F.csv
+2025-12-03 00:40:23,371 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZR=F max 1d
+2025-12-03 00:40:23,623 INFO src.mvc.core.DataPandasMVC: 24 ZR=F -> data/futures/d/ZR=F.csv
+2025-12-03 00:40:23,623 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZM=F max 1d
+2025-12-03 00:40:23,843 INFO src.mvc.core.DataPandasMVC: 25 ZM=F -> data/futures/d/ZM=F.csv
+2025-12-03 00:40:23,843 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZL=F max 1d
+2025-12-03 00:40:24,104 INFO src.mvc.core.DataPandasMVC: 26 ZL=F -> data/futures/d/ZL=F.csv
+2025-12-03 00:40:24,105 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZS=F max 1d
+2025-12-03 00:40:24,363 INFO src.mvc.core.DataPandasMVC: 27 ZS=F -> data/futures/d/ZS=F.csv
+2025-12-03 00:40:24,363 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download GF=F max 1d
+2025-12-03 00:40:24,588 INFO src.mvc.core.DataPandasMVC: 28 GF=F -> data/futures/d/GF=F.csv
+2025-12-03 00:40:24,588 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download HE=F max 1d
+2025-12-03 00:40:24,807 INFO src.mvc.core.DataPandasMVC: 29 HE=F -> data/futures/d/HE=F.csv
+2025-12-03 00:40:24,807 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download LE=F max 1d
+2025-12-03 00:40:25,040 INFO src.mvc.core.DataPandasMVC: 30 LE=F -> data/futures/d/LE=F.csv
+2025-12-03 00:40:25,040 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download CC=F max 1d
+2025-12-03 00:40:25,254 INFO src.mvc.core.DataPandasMVC: 31 CC=F -> data/futures/d/CC=F.csv
+2025-12-03 00:40:25,254 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download KC=F max 1d
+2025-12-03 00:40:25,487 INFO src.mvc.core.DataPandasMVC: 32 KC=F -> data/futures/d/KC=F.csv
+2025-12-03 00:40:25,488 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download CT=F max 1d
+2025-12-03 00:40:25,718 INFO src.mvc.core.DataPandasMVC: 33 CT=F -> data/futures/d/CT=F.csv
+2025-12-03 00:40:25,718 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download LBS=F max 1d
+2025-12-03 00:40:25,942 INFO src.mvc.core.DataPandasMVC: 34 LBS=F -> data/futures/d/LBS=F.csv
+2025-12-03 00:40:25,942 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download OJ=F max 1d
+2025-12-03 00:40:26,171 INFO src.mvc.core.DataPandasMVC: 35 OJ=F -> data/futures/d/OJ=F.csv
+2025-12-03 00:40:26,171 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download SB=F max 1d
+2025-12-03 00:40:26,408 INFO src.mvc.core.DataPandasMVC: 36 SB=F -> data/futures/d/SB=F.csv
+2025-12-03 00:40:26,408 INFO src.mvc.core.DataPandasMVC: 
+----------- Creating Ichimoku Data -----------
+2025-12-03 00:40:30,596 INFO src.mvc.core.DataPandasMVC: Ichimoku columns added to csv
+2025-12-03 00:40:30,601 INFO src.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
+2025-12-03 00:40:30,601 INFO src.mvc.core.DataPandasMVC: readAssetList path: asset_list/Futures.csv
+2025-12-03 00:40:30,601 INFO src.mvc.core.DataPandasMVC: ----------- Downloading from Yahoo -----------
+2025-12-03 00:40:30,602 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ES=F max 1wk
+2025-12-03 00:40:30,752 INFO src.mvc.core.DataPandasMVC: 0 ES=F -> data/futures/w/ES=F.csv
+2025-12-03 00:40:30,752 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download YM=F max 1wk
+2025-12-03 00:40:30,974 INFO src.mvc.core.DataPandasMVC: 1 YM=F -> data/futures/w/YM=F.csv
+2025-12-03 00:40:30,974 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download NQ=F max 1wk
+2025-12-03 00:40:31,160 INFO src.mvc.core.DataPandasMVC: 2 NQ=F -> data/futures/w/NQ=F.csv
+2025-12-03 00:40:31,160 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download RTY=F max 1wk
+2025-12-03 00:40:31,271 INFO src.mvc.core.DataPandasMVC: 3 RTY=F -> data/futures/w/RTY=F.csv
+2025-12-03 00:40:31,271 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZB=F max 1wk
+2025-12-03 00:40:31,444 INFO src.mvc.core.DataPandasMVC: 4 ZB=F -> data/futures/w/ZB=F.csv
+2025-12-03 00:40:31,444 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZN=F max 1wk
+2025-12-03 00:40:31,608 INFO src.mvc.core.DataPandasMVC: 5 ZN=F -> data/futures/w/ZN=F.csv
+2025-12-03 00:40:31,608 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZF=F max 1wk
+2025-12-03 00:40:31,763 INFO src.mvc.core.DataPandasMVC: 6 ZF=F -> data/futures/w/ZF=F.csv
+2025-12-03 00:40:31,763 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZT=F max 1wk
+2025-12-03 00:40:31,936 INFO src.mvc.core.DataPandasMVC: 7 ZT=F -> data/futures/w/ZT=F.csv
+2025-12-03 00:40:31,936 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download GC=F max 1wk
+2025-12-03 00:40:32,160 INFO src.mvc.core.DataPandasMVC: 8 GC=F -> data/futures/w/GC=F.csv
+2025-12-03 00:40:32,160 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download MGC=F max 1wk
+2025-12-03 00:40:32,295 INFO src.mvc.core.DataPandasMVC: 9 MGC=F -> data/futures/w/MGC=F.csv
+2025-12-03 00:40:32,295 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download SI=F max 1wk
+2025-12-03 00:40:32,473 INFO src.mvc.core.DataPandasMVC: 10 SI=F -> data/futures/w/SI=F.csv
+2025-12-03 00:40:32,473 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download SIL=F max 1wk
+2025-12-03 00:40:32,613 INFO src.mvc.core.DataPandasMVC: 11 SIL=F -> data/futures/w/SIL=F.csv
+2025-12-03 00:40:32,614 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download PL=F max 1wk
+2025-12-03 00:40:32,752 INFO src.mvc.core.DataPandasMVC: 12 PL=F -> data/futures/w/PL=F.csv
+2025-12-03 00:40:32,752 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download HG=F max 1wk
+2025-12-03 00:40:32,898 INFO src.mvc.core.DataPandasMVC: 13 HG=F -> data/futures/w/HG=F.csv
+2025-12-03 00:40:32,899 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download PA=F max 1wk
+2025-12-03 00:40:33,029 INFO src.mvc.core.DataPandasMVC: 14 PA=F -> data/futures/w/PA=F.csv
+2025-12-03 00:40:33,029 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download CL=F max 1wk
+2025-12-03 00:40:33,175 INFO src.mvc.core.DataPandasMVC: 15 CL=F -> data/futures/w/CL=F.csv
+2025-12-03 00:40:33,176 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download HO=F max 1wk
+2025-12-03 00:40:33,314 INFO src.mvc.core.DataPandasMVC: 16 HO=F -> data/futures/w/HO=F.csv
+2025-12-03 00:40:33,314 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download NG=F max 1wk
+2025-12-03 00:40:33,465 INFO src.mvc.core.DataPandasMVC: 17 NG=F -> data/futures/w/NG=F.csv
+2025-12-03 00:40:33,465 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download RB=F max 1wk
+2025-12-03 00:40:33,613 INFO src.mvc.core.DataPandasMVC: 18 RB=F -> data/futures/w/RB=F.csv
+2025-12-03 00:40:33,613 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download BZ=F max 1wk
+2025-12-03 00:40:33,759 INFO src.mvc.core.DataPandasMVC: 19 BZ=F -> data/futures/w/BZ=F.csv
+2025-12-03 00:40:33,759 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download B0=F max 1wk
+2025-12-03 00:40:33,812 ERROR yfinance: 
+1 Failed download:
+2025-12-03 00:40:33,812 ERROR yfinance: ['B0=F']: YFInvalidPeriodError("B0=F: Period 'max' is invalid, must be one of: 1d, 5d")
+2025-12-03 00:40:33,818 INFO src.mvc.core.DataPandasMVC: 20 B0=F -> data/futures/w/B0=F.csv
+2025-12-03 00:40:33,818 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZC=F max 1wk
+2025-12-03 00:40:33,938 INFO src.mvc.core.DataPandasMVC: 21 ZC=F -> data/futures/w/ZC=F.csv
+2025-12-03 00:40:33,938 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZO=F max 1wk
+2025-12-03 00:40:34,069 INFO src.mvc.core.DataPandasMVC: 22 ZO=F -> data/futures/w/ZO=F.csv
+2025-12-03 00:40:34,069 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download KE=F max 1wk
+2025-12-03 00:40:34,227 INFO src.mvc.core.DataPandasMVC: 23 KE=F -> data/futures/w/KE=F.csv
+2025-12-03 00:40:34,227 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZR=F max 1wk
+2025-12-03 00:40:34,368 INFO src.mvc.core.DataPandasMVC: 24 ZR=F -> data/futures/w/ZR=F.csv
+2025-12-03 00:40:34,369 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZM=F max 1wk
+2025-12-03 00:40:34,585 INFO src.mvc.core.DataPandasMVC: 25 ZM=F -> data/futures/w/ZM=F.csv
+2025-12-03 00:40:34,585 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZL=F max 1wk
+2025-12-03 00:40:34,730 INFO src.mvc.core.DataPandasMVC: 26 ZL=F -> data/futures/w/ZL=F.csv
+2025-12-03 00:40:34,730 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZS=F max 1wk
+2025-12-03 00:40:34,873 INFO src.mvc.core.DataPandasMVC: 27 ZS=F -> data/futures/w/ZS=F.csv
+2025-12-03 00:40:34,873 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download GF=F max 1wk
+2025-12-03 00:40:35,069 INFO src.mvc.core.DataPandasMVC: 28 GF=F -> data/futures/w/GF=F.csv
+2025-12-03 00:40:35,069 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download HE=F max 1wk
+2025-12-03 00:40:35,213 INFO src.mvc.core.DataPandasMVC: 29 HE=F -> data/futures/w/HE=F.csv
+2025-12-03 00:40:35,213 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download LE=F max 1wk
+2025-12-03 00:40:35,356 INFO src.mvc.core.DataPandasMVC: 30 LE=F -> data/futures/w/LE=F.csv
+2025-12-03 00:40:35,357 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download CC=F max 1wk
+2025-12-03 00:40:35,486 INFO src.mvc.core.DataPandasMVC: 31 CC=F -> data/futures/w/CC=F.csv
+2025-12-03 00:40:35,486 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download KC=F max 1wk
+2025-12-03 00:40:35,612 INFO src.mvc.core.DataPandasMVC: 32 KC=F -> data/futures/w/KC=F.csv
+2025-12-03 00:40:35,612 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download CT=F max 1wk
+2025-12-03 00:40:35,790 INFO src.mvc.core.DataPandasMVC: 33 CT=F -> data/futures/w/CT=F.csv
+2025-12-03 00:40:35,790 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download LBS=F max 1wk
+2025-12-03 00:40:35,924 INFO src.mvc.core.DataPandasMVC: 34 LBS=F -> data/futures/w/LBS=F.csv
+2025-12-03 00:40:35,924 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download OJ=F max 1wk
+2025-12-03 00:40:36,064 INFO src.mvc.core.DataPandasMVC: 35 OJ=F -> data/futures/w/OJ=F.csv
+2025-12-03 00:40:36,064 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download SB=F max 1wk
+2025-12-03 00:40:36,212 INFO src.mvc.core.DataPandasMVC: 36 SB=F -> data/futures/w/SB=F.csv
+2025-12-03 00:40:36,212 INFO src.mvc.core.DataPandasMVC: 
+----------- Creating Ichimoku Data -----------
+2025-12-03 00:40:38,017 INFO src.mvc.core.DataPandasMVC: Ichimoku columns added to csv
+2025-12-03 00:40:38,020 INFO src.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
+2025-12-03 00:40:38,020 INFO src.mvc.core.DataPandasMVC: readAssetList path: asset_list/Futures.csv
+2025-12-03 00:40:38,023 INFO src.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
+2025-12-03 00:40:38,023 INFO src.mvc.core.DataPandasMVC: readAssetList path: asset_list/Futures.csv
+2025-12-03 00:40:38,024 INFO src.mvc.core.DataPandasMVC: ----------- Downloading from Yahoo -----------
+2025-12-03 00:40:38,024 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ES=F max 1mo
+2025-12-03 00:40:38,129 INFO src.mvc.core.DataPandasMVC: 0 ES=F -> data/futures/m/ES=F.csv
+2025-12-03 00:40:38,130 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download YM=F max 1mo
+2025-12-03 00:40:38,220 INFO src.mvc.core.DataPandasMVC: 1 YM=F -> data/futures/m/YM=F.csv
+2025-12-03 00:40:38,221 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download NQ=F max 1mo
+2025-12-03 00:40:38,300 INFO src.mvc.core.DataPandasMVC: 2 NQ=F -> data/futures/m/NQ=F.csv
+2025-12-03 00:40:38,300 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download RTY=F max 1mo
+2025-12-03 00:40:38,382 INFO src.mvc.core.DataPandasMVC: 3 RTY=F -> data/futures/m/RTY=F.csv
+2025-12-03 00:40:38,382 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZB=F max 1mo
+2025-12-03 00:40:38,463 INFO src.mvc.core.DataPandasMVC: 4 ZB=F -> data/futures/m/ZB=F.csv
+2025-12-03 00:40:38,463 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZN=F max 1mo
+2025-12-03 00:40:38,544 INFO src.mvc.core.DataPandasMVC: 5 ZN=F -> data/futures/m/ZN=F.csv
+2025-12-03 00:40:38,545 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZF=F max 1mo
+2025-12-03 00:40:38,642 INFO src.mvc.core.DataPandasMVC: 6 ZF=F -> data/futures/m/ZF=F.csv
+2025-12-03 00:40:38,643 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZT=F max 1mo
+2025-12-03 00:40:38,732 INFO src.mvc.core.DataPandasMVC: 7 ZT=F -> data/futures/m/ZT=F.csv
+2025-12-03 00:40:38,732 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download GC=F max 1mo
+2025-12-03 00:40:38,813 INFO src.mvc.core.DataPandasMVC: 8 GC=F -> data/futures/m/GC=F.csv
+2025-12-03 00:40:38,814 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download MGC=F max 1mo
+2025-12-03 00:40:38,893 INFO src.mvc.core.DataPandasMVC: 9 MGC=F -> data/futures/m/MGC=F.csv
+2025-12-03 00:40:38,893 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download SI=F max 1mo
+2025-12-03 00:40:38,979 INFO src.mvc.core.DataPandasMVC: 10 SI=F -> data/futures/m/SI=F.csv
+2025-12-03 00:40:38,979 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download SIL=F max 1mo
+2025-12-03 00:40:39,080 INFO src.mvc.core.DataPandasMVC: 11 SIL=F -> data/futures/m/SIL=F.csv
+2025-12-03 00:40:39,080 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download PL=F max 1mo
+2025-12-03 00:40:39,160 INFO src.mvc.core.DataPandasMVC: 12 PL=F -> data/futures/m/PL=F.csv
+2025-12-03 00:40:39,160 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download HG=F max 1mo
+2025-12-03 00:40:39,256 INFO src.mvc.core.DataPandasMVC: 13 HG=F -> data/futures/m/HG=F.csv
+2025-12-03 00:40:39,256 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download PA=F max 1mo
+2025-12-03 00:40:39,342 INFO src.mvc.core.DataPandasMVC: 14 PA=F -> data/futures/m/PA=F.csv
+2025-12-03 00:40:39,342 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download CL=F max 1mo
+2025-12-03 00:40:39,424 INFO src.mvc.core.DataPandasMVC: 15 CL=F -> data/futures/m/CL=F.csv
+2025-12-03 00:40:39,424 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download HO=F max 1mo
+2025-12-03 00:40:39,542 INFO src.mvc.core.DataPandasMVC: 16 HO=F -> data/futures/m/HO=F.csv
+2025-12-03 00:40:39,542 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download NG=F max 1mo
+2025-12-03 00:40:39,649 INFO src.mvc.core.DataPandasMVC: 17 NG=F -> data/futures/m/NG=F.csv
+2025-12-03 00:40:39,649 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download RB=F max 1mo
+2025-12-03 00:40:39,744 INFO src.mvc.core.DataPandasMVC: 18 RB=F -> data/futures/m/RB=F.csv
+2025-12-03 00:40:39,744 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download BZ=F max 1mo
+2025-12-03 00:40:39,837 INFO src.mvc.core.DataPandasMVC: 19 BZ=F -> data/futures/m/BZ=F.csv
+2025-12-03 00:40:39,837 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download B0=F max 1mo
+2025-12-03 00:40:39,909 ERROR yfinance: 
+1 Failed download:
+2025-12-03 00:40:39,910 ERROR yfinance: ['B0=F']: YFInvalidPeriodError("B0=F: Period 'max' is invalid, must be one of: 1d, 5d")
+2025-12-03 00:40:39,915 INFO src.mvc.core.DataPandasMVC: 20 B0=F -> data/futures/m/B0=F.csv
+2025-12-03 00:40:39,915 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZC=F max 1mo
+2025-12-03 00:40:40,000 INFO src.mvc.core.DataPandasMVC: 21 ZC=F -> data/futures/m/ZC=F.csv
+2025-12-03 00:40:40,000 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZO=F max 1mo
+2025-12-03 00:40:40,085 INFO src.mvc.core.DataPandasMVC: 22 ZO=F -> data/futures/m/ZO=F.csv
+2025-12-03 00:40:40,085 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download KE=F max 1mo
+2025-12-03 00:40:40,164 INFO src.mvc.core.DataPandasMVC: 23 KE=F -> data/futures/m/KE=F.csv
+2025-12-03 00:40:40,164 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZR=F max 1mo
+2025-12-03 00:40:40,246 INFO src.mvc.core.DataPandasMVC: 24 ZR=F -> data/futures/m/ZR=F.csv
+2025-12-03 00:40:40,246 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZM=F max 1mo
+2025-12-03 00:40:40,338 INFO src.mvc.core.DataPandasMVC: 25 ZM=F -> data/futures/m/ZM=F.csv
+2025-12-03 00:40:40,338 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZL=F max 1mo
+2025-12-03 00:40:40,420 INFO src.mvc.core.DataPandasMVC: 26 ZL=F -> data/futures/m/ZL=F.csv
+2025-12-03 00:40:40,420 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download ZS=F max 1mo
+2025-12-03 00:40:40,503 INFO src.mvc.core.DataPandasMVC: 27 ZS=F -> data/futures/m/ZS=F.csv
+2025-12-03 00:40:40,503 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download GF=F max 1mo
+2025-12-03 00:40:40,590 INFO src.mvc.core.DataPandasMVC: 28 GF=F -> data/futures/m/GF=F.csv
+2025-12-03 00:40:40,590 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download HE=F max 1mo
+2025-12-03 00:40:40,694 INFO src.mvc.core.DataPandasMVC: 29 HE=F -> data/futures/m/HE=F.csv
+2025-12-03 00:40:40,694 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download LE=F max 1mo
+2025-12-03 00:40:40,772 INFO src.mvc.core.DataPandasMVC: 30 LE=F -> data/futures/m/LE=F.csv
+2025-12-03 00:40:40,772 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download CC=F max 1mo
+2025-12-03 00:40:40,858 INFO src.mvc.core.DataPandasMVC: 31 CC=F -> data/futures/m/CC=F.csv
+2025-12-03 00:40:40,858 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download KC=F max 1mo
+2025-12-03 00:40:41,082 INFO src.mvc.core.DataPandasMVC: 32 KC=F -> data/futures/m/KC=F.csv
+2025-12-03 00:40:41,082 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download CT=F max 1mo
+2025-12-03 00:40:41,172 INFO src.mvc.core.DataPandasMVC: 33 CT=F -> data/futures/m/CT=F.csv
+2025-12-03 00:40:41,173 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download LBS=F max 1mo
+2025-12-03 00:40:41,258 INFO src.mvc.core.DataPandasMVC: 34 LBS=F -> data/futures/m/LBS=F.csv
+2025-12-03 00:40:41,258 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download OJ=F max 1mo
+2025-12-03 00:40:41,346 INFO src.mvc.core.DataPandasMVC: 35 OJ=F -> data/futures/m/OJ=F.csv
+2025-12-03 00:40:41,346 INFO src.mvc.core.DataPandasMVC: getLatestDataFromYahooByYFinance download SB=F max 1mo
+2025-12-03 00:40:41,428 INFO src.mvc.core.DataPandasMVC: 36 SB=F -> data/futures/m/SB=F.csv
+2025-12-03 00:40:41,429 INFO src.mvc.core.DataPandasMVC: 
+----------- Creating Ichimoku Data -----------
+2025-12-03 00:40:42,576 INFO src.mvc.core.DataPandasMVC: Ichimoku columns added to csv
+2025-12-03 00:40:42,579 INFO src.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
+2025-12-03 00:40:42,579 INFO src.mvc.core.DataPandasMVC: readAssetList path: asset_list/Futures.csv
+2025-12-03 00:40:42,581 INFO src.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/futures/1h/ -----------
+2025-12-03 00:40:43,317 INFO src.mvc.core.DataCloudSignalMVC: ES=F - Incorrect format detected and corrected.
+2025-12-03 00:40:43,819 INFO src.mvc.core.DataCloudSignalMVC: YM=F - Incorrect format detected and corrected.
+2025-12-03 00:40:44,326 INFO src.mvc.core.DataCloudSignalMVC: NQ=F - Incorrect format detected and corrected.
+2025-12-03 00:40:44,853 INFO src.mvc.core.DataCloudSignalMVC: RTY=F - Incorrect format detected and corrected.
+2025-12-03 00:40:45,357 INFO src.mvc.core.DataCloudSignalMVC: ZB=F - Incorrect format detected and corrected.
+2025-12-03 00:40:45,653 INFO src.mvc.core.DataCloudSignalMVC: ZN=F - Incorrect format detected and corrected.
+2025-12-03 00:40:45,955 INFO src.mvc.core.DataCloudSignalMVC: ZF=F - Incorrect format detected and corrected.
+2025-12-03 00:40:46,277 INFO src.mvc.core.DataCloudSignalMVC: ZT=F - Incorrect format detected and corrected.
+2025-12-03 00:40:46,585 INFO src.mvc.core.DataCloudSignalMVC: GC=F - Incorrect format detected and corrected.
+2025-12-03 00:40:46,897 INFO src.mvc.core.DataCloudSignalMVC: MGC=F - Incorrect format detected and corrected.
+2025-12-03 00:40:47,218 INFO src.mvc.core.DataCloudSignalMVC: SI=F - Incorrect format detected and corrected.
+2025-12-03 00:40:47,530 INFO src.mvc.core.DataCloudSignalMVC: SIL=F - Incorrect format detected and corrected.
+2025-12-03 00:40:47,840 INFO src.mvc.core.DataCloudSignalMVC: PL=F - Incorrect format detected and corrected.
+2025-12-03 00:40:48,175 INFO src.mvc.core.DataCloudSignalMVC: HG=F - Incorrect format detected and corrected.
+2025-12-03 00:40:48,474 INFO src.mvc.core.DataCloudSignalMVC: PA=F - Incorrect format detected and corrected.
+2025-12-03 00:40:48,778 INFO src.mvc.core.DataCloudSignalMVC: CL=F - Incorrect format detected and corrected.
+2025-12-03 00:40:49,082 INFO src.mvc.core.DataCloudSignalMVC: HO=F - Incorrect format detected and corrected.
+2025-12-03 00:40:49,404 INFO src.mvc.core.DataCloudSignalMVC: NG=F - Incorrect format detected and corrected.
+2025-12-03 00:40:49,710 INFO src.mvc.core.DataCloudSignalMVC: RB=F - Incorrect format detected and corrected.
+2025-12-03 00:40:50,009 INFO src.mvc.core.DataCloudSignalMVC: BZ=F - Incorrect format detected and corrected.
+2025-12-03 00:40:50,256 INFO src.mvc.core.DataCloudSignalMVC: B0=F - Incorrect format detected and corrected.
+2025-12-03 00:40:50,319 INFO src.mvc.core.DataCloudSignalMVC: ZC=F - Incorrect format detected and corrected.
+2025-12-03 00:40:50,558 INFO src.mvc.core.DataCloudSignalMVC: ZO=F - Incorrect format detected and corrected.
+2025-12-03 00:40:50,751 INFO src.mvc.core.DataCloudSignalMVC: KE=F - Incorrect format detected and corrected.
+2025-12-03 00:40:50,982 INFO src.mvc.core.DataCloudSignalMVC: ZR=F - Incorrect format detected and corrected.
+2025-12-03 00:40:51,136 INFO src.mvc.core.DataCloudSignalMVC: ZM=F - Incorrect format detected and corrected.
+2025-12-03 00:40:51,408 INFO src.mvc.core.DataCloudSignalMVC: ZL=F - Incorrect format detected and corrected.
+2025-12-03 00:40:51,646 INFO src.mvc.core.DataCloudSignalMVC: ZS=F - Incorrect format detected and corrected.
+2025-12-03 00:40:51,866 INFO src.mvc.core.DataCloudSignalMVC: GF=F - Incorrect format detected and corrected.
+2025-12-03 00:40:51,959 INFO src.mvc.core.DataCloudSignalMVC: HE=F - Incorrect format detected and corrected.
+2025-12-03 00:40:52,054 INFO src.mvc.core.DataCloudSignalMVC: LE=F - Incorrect format detected and corrected.
+2025-12-03 00:40:52,158 INFO src.mvc.core.DataCloudSignalMVC: CC=F - Incorrect format detected and corrected.
+2025-12-03 00:40:52,309 INFO src.mvc.core.DataCloudSignalMVC: KC=F - Incorrect format detected and corrected.
+2025-12-03 00:40:52,501 INFO src.mvc.core.DataCloudSignalMVC: CT=F - Incorrect format detected and corrected.
+2025-12-03 00:40:52,673 INFO src.mvc.core.DataCloudSignalMVC: LBS=F - Incorrect format detected and corrected.
+2025-12-03 00:40:52,703 INFO src.mvc.core.DataCloudSignalMVC: OJ=F - Incorrect format detected and corrected.
+2025-12-03 00:40:52,810 INFO src.mvc.core.DataCloudSignalMVC: SB=F - Incorrect format detected and corrected.
+2025-12-03 00:40:52,919 INFO src.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
+2025-12-03 00:40:52,932 INFO src.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/futures/d/ -----------
+2025-12-03 00:40:53,546 INFO src.mvc.core.DataCloudSignalMVC: ES=F - Incorrect format detected and corrected.
+2025-12-03 00:40:53,844 INFO src.mvc.core.DataCloudSignalMVC: YM=F - Incorrect format detected and corrected.
+2025-12-03 00:40:54,137 INFO src.mvc.core.DataCloudSignalMVC: NQ=F - Incorrect format detected and corrected.
+2025-12-03 00:40:54,418 INFO src.mvc.core.DataCloudSignalMVC: RTY=F - Incorrect format detected and corrected.
+2025-12-03 00:40:54,587 INFO src.mvc.core.DataCloudSignalMVC: ZB=F - Incorrect format detected and corrected.
+2025-12-03 00:40:54,906 INFO src.mvc.core.DataCloudSignalMVC: ZN=F - Incorrect format detected and corrected.
+2025-12-03 00:40:55,227 INFO src.mvc.core.DataCloudSignalMVC: ZF=F - Incorrect format detected and corrected.
+2025-12-03 00:40:55,771 INFO src.mvc.core.DataCloudSignalMVC: ZT=F - Incorrect format detected and corrected.
+2025-12-03 00:40:56,375 INFO src.mvc.core.DataCloudSignalMVC: GC=F - Incorrect format detected and corrected.
+2025-12-03 00:40:56,915 INFO src.mvc.core.DataCloudSignalMVC: MGC=F - Incorrect format detected and corrected.
+2025-12-03 00:40:57,323 INFO src.mvc.core.DataCloudSignalMVC: SI=F - Incorrect format detected and corrected.
+2025-12-03 00:40:57,866 INFO src.mvc.core.DataCloudSignalMVC: SIL=F - Incorrect format detected and corrected.
+2025-12-03 00:40:58,092 INFO src.mvc.core.DataCloudSignalMVC: PL=F - Incorrect format detected and corrected.
+2025-12-03 00:40:58,439 INFO src.mvc.core.DataCloudSignalMVC: HG=F - Incorrect format detected and corrected.
+2025-12-03 00:40:58,776 INFO src.mvc.core.DataCloudSignalMVC: PA=F - Incorrect format detected and corrected.
+2025-12-03 00:40:59,111 INFO src.mvc.core.DataCloudSignalMVC: CL=F - Incorrect format detected and corrected.
+2025-12-03 00:40:59,444 INFO src.mvc.core.DataCloudSignalMVC: HO=F - Incorrect format detected and corrected.
+2025-12-03 00:40:59,789 INFO src.mvc.core.DataCloudSignalMVC: NG=F - Incorrect format detected and corrected.
+2025-12-03 00:41:00,139 INFO src.mvc.core.DataCloudSignalMVC: RB=F - Incorrect format detected and corrected.
+2025-12-03 00:41:00,461 INFO src.mvc.core.DataCloudSignalMVC: BZ=F - Incorrect format detected and corrected.
+2025-12-03 00:41:00,656 INFO src.mvc.core.DataCloudSignalMVC: B0=F - Incorrect format detected and corrected.
+2025-12-03 00:41:00,714 INFO src.mvc.core.DataCloudSignalMVC: ZC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:01,038 INFO src.mvc.core.DataCloudSignalMVC: ZO=F - Incorrect format detected and corrected.
+2025-12-03 00:41:01,355 INFO src.mvc.core.DataCloudSignalMVC: KE=F - Incorrect format detected and corrected.
+2025-12-03 00:41:01,670 INFO src.mvc.core.DataCloudSignalMVC: ZR=F - Incorrect format detected and corrected.
+2025-12-03 00:41:02,023 INFO src.mvc.core.DataCloudSignalMVC: ZM=F - Incorrect format detected and corrected.
+2025-12-03 00:41:02,395 INFO src.mvc.core.DataCloudSignalMVC: ZL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:02,717 INFO src.mvc.core.DataCloudSignalMVC: ZS=F - Incorrect format detected and corrected.
+2025-12-03 00:41:03,065 INFO src.mvc.core.DataCloudSignalMVC: GF=F - Incorrect format detected and corrected.
+2025-12-03 00:41:03,382 INFO src.mvc.core.DataCloudSignalMVC: HE=F - Incorrect format detected and corrected.
+2025-12-03 00:41:03,709 INFO src.mvc.core.DataCloudSignalMVC: LE=F - Incorrect format detected and corrected.
+2025-12-03 00:41:04,027 INFO src.mvc.core.DataCloudSignalMVC: CC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:04,377 INFO src.mvc.core.DataCloudSignalMVC: KC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:04,718 INFO src.mvc.core.DataCloudSignalMVC: CT=F - Incorrect format detected and corrected.
+2025-12-03 00:41:05,054 INFO src.mvc.core.DataCloudSignalMVC: LBS=F - Incorrect format detected and corrected.
+2025-12-03 00:41:05,359 INFO src.mvc.core.DataCloudSignalMVC: OJ=F - Incorrect format detected and corrected.
+2025-12-03 00:41:05,686 INFO src.mvc.core.DataCloudSignalMVC: SB=F - Incorrect format detected and corrected.
+2025-12-03 00:41:05,940 INFO src.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
+2025-12-03 00:41:05,964 INFO src.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/futures/w/ -----------
+2025-12-03 00:41:06,163 INFO src.mvc.core.DataCloudSignalMVC: ES=F - Incorrect format detected and corrected.
+2025-12-03 00:41:06,236 INFO src.mvc.core.DataCloudSignalMVC: YM=F - Incorrect format detected and corrected.
+2025-12-03 00:41:06,309 INFO src.mvc.core.DataCloudSignalMVC: NQ=F - Incorrect format detected and corrected.
+2025-12-03 00:41:06,382 INFO src.mvc.core.DataCloudSignalMVC: RTY=F - Incorrect format detected and corrected.
+2025-12-03 00:41:06,427 INFO src.mvc.core.DataCloudSignalMVC: ZB=F - Incorrect format detected and corrected.
+2025-12-03 00:41:06,507 INFO src.mvc.core.DataCloudSignalMVC: ZN=F - Incorrect format detected and corrected.
+2025-12-03 00:41:06,593 INFO src.mvc.core.DataCloudSignalMVC: ZF=F - Incorrect format detected and corrected.
+2025-12-03 00:41:06,673 INFO src.mvc.core.DataCloudSignalMVC: ZT=F - Incorrect format detected and corrected.
+2025-12-03 00:41:06,758 INFO src.mvc.core.DataCloudSignalMVC: GC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:06,833 INFO src.mvc.core.DataCloudSignalMVC: MGC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:06,897 INFO src.mvc.core.DataCloudSignalMVC: SI=F - Incorrect format detected and corrected.
+2025-12-03 00:41:06,972 INFO src.mvc.core.DataCloudSignalMVC: SIL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:07,039 INFO src.mvc.core.DataCloudSignalMVC: PL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:07,135 INFO src.mvc.core.DataCloudSignalMVC: HG=F - Incorrect format detected and corrected.
+2025-12-03 00:41:07,218 INFO src.mvc.core.DataCloudSignalMVC: PA=F - Incorrect format detected and corrected.
+2025-12-03 00:41:07,305 INFO src.mvc.core.DataCloudSignalMVC: CL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:07,402 INFO src.mvc.core.DataCloudSignalMVC: HO=F - Incorrect format detected and corrected.
+2025-12-03 00:41:07,489 INFO src.mvc.core.DataCloudSignalMVC: NG=F - Incorrect format detected and corrected.
+2025-12-03 00:41:07,583 INFO src.mvc.core.DataCloudSignalMVC: RB=F - Incorrect format detected and corrected.
+2025-12-03 00:41:07,666 INFO src.mvc.core.DataCloudSignalMVC: BZ=F - Incorrect format detected and corrected.
+2025-12-03 00:41:07,722 INFO src.mvc.core.DataCloudSignalMVC: B0=F - Incorrect format detected and corrected.
+2025-12-03 00:41:07,749 INFO src.mvc.core.DataCloudSignalMVC: ZC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:07,828 INFO src.mvc.core.DataCloudSignalMVC: ZO=F - Incorrect format detected and corrected.
+2025-12-03 00:41:07,911 INFO src.mvc.core.DataCloudSignalMVC: KE=F - Incorrect format detected and corrected.
+2025-12-03 00:41:08,037 INFO src.mvc.core.DataCloudSignalMVC: ZR=F - Incorrect format detected and corrected.
+2025-12-03 00:41:08,202 INFO src.mvc.core.DataCloudSignalMVC: ZM=F - Incorrect format detected and corrected.
+2025-12-03 00:41:08,351 INFO src.mvc.core.DataCloudSignalMVC: ZL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:08,497 INFO src.mvc.core.DataCloudSignalMVC: ZS=F - Incorrect format detected and corrected.
+2025-12-03 00:41:08,651 INFO src.mvc.core.DataCloudSignalMVC: GF=F - Incorrect format detected and corrected.
+2025-12-03 00:41:08,805 INFO src.mvc.core.DataCloudSignalMVC: HE=F - Incorrect format detected and corrected.
+2025-12-03 00:41:08,951 INFO src.mvc.core.DataCloudSignalMVC: LE=F - Incorrect format detected and corrected.
+2025-12-03 00:41:09,073 INFO src.mvc.core.DataCloudSignalMVC: CC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:09,227 INFO src.mvc.core.DataCloudSignalMVC: KC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:09,368 INFO src.mvc.core.DataCloudSignalMVC: CT=F - Incorrect format detected and corrected.
+2025-12-03 00:41:09,502 INFO src.mvc.core.DataCloudSignalMVC: LBS=F - Incorrect format detected and corrected.
+2025-12-03 00:41:09,632 INFO src.mvc.core.DataCloudSignalMVC: OJ=F - Incorrect format detected and corrected.
+2025-12-03 00:41:09,773 INFO src.mvc.core.DataCloudSignalMVC: SB=F - Incorrect format detected and corrected.
+2025-12-03 00:41:09,870 INFO src.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
+2025-12-03 00:41:09,879 INFO src.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/futures/m/ -----------
+2025-12-03 00:41:10,012 INFO src.mvc.core.DataCloudSignalMVC: ES=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,056 INFO src.mvc.core.DataCloudSignalMVC: YM=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,103 INFO src.mvc.core.DataCloudSignalMVC: NQ=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,149 INFO src.mvc.core.DataCloudSignalMVC: RTY=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,179 INFO src.mvc.core.DataCloudSignalMVC: ZB=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,227 INFO src.mvc.core.DataCloudSignalMVC: ZN=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,281 INFO src.mvc.core.DataCloudSignalMVC: ZF=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,327 INFO src.mvc.core.DataCloudSignalMVC: ZT=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,373 INFO src.mvc.core.DataCloudSignalMVC: GC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,417 INFO src.mvc.core.DataCloudSignalMVC: MGC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,453 INFO src.mvc.core.DataCloudSignalMVC: SI=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,496 INFO src.mvc.core.DataCloudSignalMVC: SIL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,530 INFO src.mvc.core.DataCloudSignalMVC: PL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,567 INFO src.mvc.core.DataCloudSignalMVC: HG=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,599 INFO src.mvc.core.DataCloudSignalMVC: PA=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,630 INFO src.mvc.core.DataCloudSignalMVC: CL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,660 INFO src.mvc.core.DataCloudSignalMVC: HO=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,690 INFO src.mvc.core.DataCloudSignalMVC: NG=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,720 INFO src.mvc.core.DataCloudSignalMVC: RB=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,749 INFO src.mvc.core.DataCloudSignalMVC: BZ=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,772 INFO src.mvc.core.DataCloudSignalMVC: B0=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,794 INFO src.mvc.core.DataCloudSignalMVC: ZC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,823 INFO src.mvc.core.DataCloudSignalMVC: ZO=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,853 INFO src.mvc.core.DataCloudSignalMVC: KE=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,882 INFO src.mvc.core.DataCloudSignalMVC: ZR=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,911 INFO src.mvc.core.DataCloudSignalMVC: ZM=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,941 INFO src.mvc.core.DataCloudSignalMVC: ZL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,970 INFO src.mvc.core.DataCloudSignalMVC: ZS=F - Incorrect format detected and corrected.
+2025-12-03 00:41:10,999 INFO src.mvc.core.DataCloudSignalMVC: GF=F - Incorrect format detected and corrected.
+2025-12-03 00:41:11,029 INFO src.mvc.core.DataCloudSignalMVC: HE=F - Incorrect format detected and corrected.
+2025-12-03 00:41:11,058 INFO src.mvc.core.DataCloudSignalMVC: LE=F - Incorrect format detected and corrected.
+2025-12-03 00:41:11,086 INFO src.mvc.core.DataCloudSignalMVC: CC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:11,120 INFO src.mvc.core.DataCloudSignalMVC: KC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:11,151 INFO src.mvc.core.DataCloudSignalMVC: CT=F - Incorrect format detected and corrected.
+2025-12-03 00:41:11,177 INFO src.mvc.core.DataCloudSignalMVC: LBS=F - Incorrect format detected and corrected.
+2025-12-03 00:41:11,204 INFO src.mvc.core.DataCloudSignalMVC: OJ=F - Incorrect format detected and corrected.
+2025-12-03 00:41:11,231 INFO src.mvc.core.DataCloudSignalMVC: SB=F - Incorrect format detected and corrected.
+2025-12-03 00:41:11,243 INFO src.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
+2025-12-03 00:41:11,245 INFO src.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
+2025-12-03 00:41:11,245 INFO src.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::True
+2025-12-03 00:41:11,433 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Error: data/futures/1h/LBS=F_cloudCount.csv not found
+
+2025-12-03 00:41:11,439 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ES=F entries:5731]
+2025-12-03 00:41:11,439 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:YM=F entries:5729]
+2025-12-03 00:41:11,439 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NQ=F entries:5732]
+2025-12-03 00:41:11,440 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RTY=F entries:5747]
+2025-12-03 00:41:11,440 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZB=F entries:5681]
+2025-12-03 00:41:11,440 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZN=F entries:5681]
+2025-12-03 00:41:11,441 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZF=F entries:5681]
+2025-12-03 00:41:11,441 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZT=F entries:5682]
+2025-12-03 00:41:11,441 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GC=F entries:5759]
+2025-12-03 00:41:11,442 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MGC=F entries:5757]
+2025-12-03 00:41:11,442 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SI=F entries:5757]
+2025-12-03 00:41:11,442 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SIL=F entries:5757]
+2025-12-03 00:41:11,442 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PL=F entries:5757]
+2025-12-03 00:41:11,443 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HG=F entries:5755]
+2025-12-03 00:41:11,443 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PA=F entries:5745]
+2025-12-03 00:41:11,443 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CL=F entries:5620]
+2025-12-03 00:41:11,443 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HO=F entries:5574]
+2025-12-03 00:41:11,444 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NG=F entries:5499]
+2025-12-03 00:41:11,444 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RB=F entries:5556]
+2025-12-03 00:41:11,444 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BZ=F entries:5752]
+2025-12-03 00:41:11,445 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:B0=F entries:3]
+2025-12-03 00:41:11,445 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZC=F entries:4637]
+2025-12-03 00:41:11,445 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZO=F entries:3480]
+2025-12-03 00:41:11,446 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KE=F entries:4638]
+2025-12-03 00:41:11,446 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZR=F entries:1904]
+2025-12-03 00:41:11,446 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZM=F entries:4641]
+2025-12-03 00:41:11,447 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZL=F entries:4636]
+2025-12-03 00:41:11,447 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZS=F entries:4641]
+2025-12-03 00:41:11,447 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GF=F entries:1499]
+2025-12-03 00:41:11,448 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HE=F entries:1499]
+2025-12-03 00:41:11,448 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LE=F entries:1499]
+2025-12-03 00:41:11,448 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CC=F entries:2431]
+2025-12-03 00:41:11,449 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KC=F entries:2459]
+2025-12-03 00:41:11,449 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CT=F entries:3857]
+2025-12-03 00:41:11,449 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:OJ=F entries:1401]
+2025-12-03 00:41:11,450 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SB=F entries:2462]
+2025-12-03 00:41:11,456 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Aggregator Futures-cloud-1H.csv and .xml are created
+
+2025-12-03 00:41:11,456 INFO src.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
+2025-12-03 00:41:11,456 INFO src.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::False
+2025-12-03 00:41:11,639 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ES=F entries:6362]
+2025-12-03 00:41:11,639 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:YM=F entries:5953]
+2025-12-03 00:41:11,640 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NQ=F entries:6362]
+2025-12-03 00:41:11,640 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RTY=F entries:2112]
+2025-12-03 00:41:11,641 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZB=F entries:6330]
+2025-12-03 00:41:11,641 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZN=F entries:6324]
+2025-12-03 00:41:11,641 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZF=F entries:6336]
+2025-12-03 00:41:11,641 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZT=F entries:6390]
+2025-12-03 00:41:11,642 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GC=F entries:6334]
+2025-12-03 00:41:11,642 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MGC=F entries:3800]
+2025-12-03 00:41:11,642 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SI=F entries:6336]
+2025-12-03 00:41:11,643 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SIL=F entries:3132]
+2025-12-03 00:41:11,643 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PL=F entries:6362]
+2025-12-03 00:41:11,643 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HG=F entries:6339]
+2025-12-03 00:41:11,644 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PA=F entries:6373]
+2025-12-03 00:41:11,644 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CL=F entries:6343]
+2025-12-03 00:41:11,644 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HO=F entries:6337]
+2025-12-03 00:41:11,644 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NG=F entries:6340]
+2025-12-03 00:41:11,645 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RB=F entries:6298]
+2025-12-03 00:41:11,645 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BZ=F entries:4561]
+2025-12-03 00:41:11,645 INFO src.mvc.core.DataCloudSignalAggregatorMVC: 
+------------ B0=F cloud value empty --------------
+2025-12-03 00:41:11,645 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZC=F entries:6346]
+2025-12-03 00:41:11,646 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZO=F entries:6425]
+2025-12-03 00:41:11,646 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KE=F entries:6335]
+2025-12-03 00:41:11,646 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZR=F entries:6568]
+2025-12-03 00:41:11,647 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZM=F entries:6349]
+2025-12-03 00:41:11,647 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZL=F entries:6387]
+2025-12-03 00:41:11,647 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZS=F entries:6338]
+2025-12-03 00:41:11,647 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GF=F entries:6171]
+2025-12-03 00:41:11,648 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HE=F entries:6269]
+2025-12-03 00:41:11,648 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LE=F entries:6201]
+2025-12-03 00:41:11,648 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CC=F entries:6495]
+2025-12-03 00:41:11,649 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KC=F entries:6494]
+2025-12-03 00:41:11,649 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CT=F entries:6496]
+2025-12-03 00:41:11,649 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LBS=F entries:5723]
+2025-12-03 00:41:11,650 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:OJ=F entries:6072]
+2025-12-03 00:41:11,650 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SB=F entries:6457]
+2025-12-03 00:41:11,657 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Aggregator Futures-cloud-D.csv and .xml are created
+
+2025-12-03 00:41:11,657 INFO src.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
+2025-12-03 00:41:11,657 INFO src.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::False
+2025-12-03 00:41:11,727 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ES=F entries:1316]
+2025-12-03 00:41:11,728 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:YM=F entries:1236]
+2025-12-03 00:41:11,728 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NQ=F entries:1316]
+2025-12-03 00:41:11,728 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RTY=F entries:439]
+2025-12-03 00:41:11,729 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZB=F entries:1316]
+2025-12-03 00:41:11,729 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZN=F entries:1315]
+2025-12-03 00:41:11,729 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZF=F entries:1316]
+2025-12-03 00:41:11,730 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZT=F entries:1332]
+2025-12-03 00:41:11,730 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GC=F entries:1319]
+2025-12-03 00:41:11,730 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MGC=F entries:791]
+2025-12-03 00:41:11,731 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SI=F entries:1319]
+2025-12-03 00:41:11,731 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SIL=F entries:651]
+2025-12-03 00:41:11,731 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PL=F entries:1346]
+2025-12-03 00:41:11,732 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HG=F entries:1319]
+2025-12-03 00:41:11,732 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PA=F entries:1346]
+2025-12-03 00:41:11,732 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CL=F entries:1320]
+2025-12-03 00:41:11,733 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HO=F entries:1319]
+2025-12-03 00:41:11,733 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NG=F entries:1319]
+2025-12-03 00:41:11,733 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RB=F entries:1310]
+2025-12-03 00:41:11,734 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BZ=F entries:957]
+2025-12-03 00:41:11,734 INFO src.mvc.core.DataCloudSignalAggregatorMVC: 
+------------ B0=F cloud value empty --------------
+2025-12-03 00:41:11,734 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZC=F entries:1323]
+2025-12-03 00:41:11,734 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZO=F entries:1350]
+2025-12-03 00:41:11,735 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KE=F entries:1316]
+2025-12-03 00:41:11,735 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZR=F entries:1368]
+2025-12-03 00:41:11,735 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZM=F entries:1329]
+2025-12-03 00:41:11,735 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZL=F entries:1340]
+2025-12-03 00:41:11,736 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZS=F entries:1317]
+2025-12-03 00:41:11,736 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GF=F entries:1287]
+2025-12-03 00:41:11,736 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HE=F entries:1304]
+2025-12-03 00:41:11,737 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LE=F entries:1289]
+2025-12-03 00:41:11,737 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CC=F entries:1352]
+2025-12-03 00:41:11,737 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KC=F entries:1353]
+2025-12-03 00:41:11,738 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CT=F entries:1353]
+2025-12-03 00:41:11,738 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LBS=F entries:1188]
+2025-12-03 00:41:11,738 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:OJ=F entries:1264]
+2025-12-03 00:41:11,738 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SB=F entries:1345]
+2025-12-03 00:41:11,742 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Aggregator Futures-cloud-W.csv and .xml are created
+
+2025-12-03 00:41:11,742 INFO src.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
+2025-12-03 00:41:11,743 INFO src.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::False
+2025-12-03 00:41:11,788 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ES=F entries:260]
+2025-12-03 00:41:11,788 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:YM=F entries:244]
+2025-12-03 00:41:11,789 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NQ=F entries:260]
+2025-12-03 00:41:11,789 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RTY=F entries:88]
+2025-12-03 00:41:11,789 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZB=F entries:260]
+2025-12-03 00:41:11,790 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZN=F entries:260]
+2025-12-03 00:41:11,790 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZF=F entries:260]
+2025-12-03 00:41:11,790 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZT=F entries:263]
+2025-12-03 00:41:11,791 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GC=F entries:261]
+2025-12-03 00:41:11,791 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MGC=F entries:157]
+2025-12-03 00:41:11,791 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SI=F entries:261]
+2025-12-03 00:41:11,791 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SIL=F entries:129]
+2025-12-03 00:41:11,792 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PL=F entries:278]
+2025-12-03 00:41:11,792 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HG=F entries:261]
+2025-12-03 00:41:11,792 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PA=F entries:277]
+2025-12-03 00:41:11,793 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CL=F entries:261]
+2025-12-03 00:41:11,793 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HO=F entries:260]
+2025-12-03 00:41:11,793 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NG=F entries:261]
+2025-12-03 00:41:11,794 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RB=F entries:259]
+2025-12-03 00:41:11,794 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BZ=F entries:190]
+2025-12-03 00:41:11,794 INFO src.mvc.core.DataCloudSignalAggregatorMVC: 
+------------ B0=F cloud value empty --------------
+2025-12-03 00:41:11,794 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZC=F entries:262]
+2025-12-03 00:41:11,795 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZO=F entries:271]
+2025-12-03 00:41:11,795 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KE=F entries:260]
+2025-12-03 00:41:11,795 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZR=F entries:272]
+2025-12-03 00:41:11,796 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZM=F entries:264]
+2025-12-03 00:41:11,796 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZL=F entries:266]
+2025-12-03 00:41:11,796 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZS=F entries:260]
+2025-12-03 00:41:11,796 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GF=F entries:254]
+2025-12-03 00:41:11,797 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HE=F entries:258]
+2025-12-03 00:41:11,797 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LE=F entries:255]
+2025-12-03 00:41:11,797 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CC=F entries:267]
+2025-12-03 00:41:11,798 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KC=F entries:268]
+2025-12-03 00:41:11,798 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CT=F entries:268]
+2025-12-03 00:41:11,798 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LBS=F entries:275]
+2025-12-03 00:41:11,799 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:OJ=F entries:251]
+2025-12-03 00:41:11,799 INFO src.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SB=F entries:266]
+2025-12-03 00:41:11,802 INFO src.mvc.core.DataCloudSignalAggregatorMVC: Aggregator Futures-cloud-M.csv and .xml are created
+
+2025-12-03 00:41:11,802 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: ------------- Merging Multi Timeframe Cloud -------------
+2025-12-03 00:41:11,802 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: Check files for merging: ['output/cloud/Futures-cloud-1H.csv', 'output/cloud/Futures-cloud-D.csv', 'output/cloud/Futures-cloud-W.csv', 'output/cloud/Futures-cloud-M.csv']
+2025-12-03 00:41:11,803 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/Futures-cloud-1H.csv
+2025-12-03 00:41:11,812 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge::df_csv1::
+   Symbol                             Name  ...  1H Cloud Direction  1H Cloud Count
+0    PL=F                  Platinum Jan 26  ...                   0               0
+1    HG=F                    Copper Dec 25  ...                   0               0
+2   MGC=F      Micro Gold Futures,Dec-2025  ...                   0               0
+3    GC=F                      Gold Dec 25  ...                   0               0
+4    B0=F  Mont Belvieu LDH Propane (OPIS)  ...                   0               0
+5    ZC=F            Corn Futures,Dec-2025  ...                   0               0
+6    OJ=F              Orange Juice Jan 26  ...                   0               0
+7    ZO=F             Oat Futures,Dec-2025  ...                  -1               1
+8    KC=F                    Coffee Dec 25  ...                   1               1
+9    SB=F                 Sugar #11 Mar 26  ...                  -1               1
+10   YM=F  Mini Dow Jones Indus.-$5 Dec 25  ...                   1               2
+11   ZS=F         Soybean Futures,Jan-2026  ...                  -1               3
+12   CT=F                    Cotton Dec 25  ...                   1               3
+13   CC=F                     Cocoa Mar 26  ...                  -1               3
+14   BZ=F  Brent Crude Oil Last Day Financ  ...                  -1               5
+15   KE=F    KC HRW Wheat Futures,Mar-2026  ...                   1               5
+16   CL=F                 Crude Oil Jan 26  ...                  -1               5
+17   HE=F        Lean Hog Futures,Feb-2026  ...                   1               6
+18   ES=F            E-Mini S&P 500 Dec 25  ...                   1               6
+19   LE=F     Live Cattle Futures,Dec-2025  ...                   1               6
+20   HO=F                               --  ...                  -1               7
+21  RTY=F  E-mini Russell 2000 Index Futur  ...                  -1               8
+22   PA=F                 Palladium Mar 26  ...                   1               8
+23   ZT=F   2-Year T-Note Futures,Mar-2026  ...                   1               8
+24   RB=F                               --  ...                  -1              13
+25   GF=F  WisdomTree International High D  ...                   1              14
+26   ZR=F      Rough Rice Futures,Jan-2026  ...                  -1              21
+27   ZM=F  S&P Composite 1500 ESG Tilted I  ...                  -1              27
+28   ZF=F  Five-Year US Treasury Note Futu  ...                  -1              34
+29   ZN=F  10-Year T-Note Futures,Dec-2025  ...                  -1              51
+30   ZB=F  U.S. Treasury Bond Futures,Dec-  ...                  -1              52
+31   ZL=F     Soybean Oil Futures,Jan-2026  ...                   1              59
+32   NG=F               Natural Gas Jan 26  ...                   1              65
+33  SIL=F    Micro Silver Futures,Dec-2025  ...                   1             110
+34   SI=F                    Silver Dec 25  ...                   1             110
+35   NQ=F                Nasdaq 100 Dec 25  ...                   1             112
+
+[36 rows x 5 columns]
+2025-12-03 00:41:11,820 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge::combined_csv::
+    Symbol                             Name  ...  1H Cloud Direction  1H Cloud Count
+0    PL=F                  Platinum Jan 26  ...                   0               0
+1    HG=F                    Copper Dec 25  ...                   0               0
+2   MGC=F      Micro Gold Futures,Dec-2025  ...                   0               0
+3    GC=F                      Gold Dec 25  ...                   0               0
+4    B0=F  Mont Belvieu LDH Propane (OPIS)  ...                   0               0
+5    ZC=F            Corn Futures,Dec-2025  ...                   0               0
+6    OJ=F              Orange Juice Jan 26  ...                   0               0
+7    ZO=F             Oat Futures,Dec-2025  ...                  -1               1
+8    KC=F                    Coffee Dec 25  ...                   1               1
+9    SB=F                 Sugar #11 Mar 26  ...                  -1               1
+10   YM=F  Mini Dow Jones Indus.-$5 Dec 25  ...                   1               2
+11   ZS=F         Soybean Futures,Jan-2026  ...                  -1               3
+12   CT=F                    Cotton Dec 25  ...                   1               3
+13   CC=F                     Cocoa Mar 26  ...                  -1               3
+14   BZ=F  Brent Crude Oil Last Day Financ  ...                  -1               5
+15   KE=F    KC HRW Wheat Futures,Mar-2026  ...                   1               5
+16   CL=F                 Crude Oil Jan 26  ...                  -1               5
+17   HE=F        Lean Hog Futures,Feb-2026  ...                   1               6
+18   ES=F            E-Mini S&P 500 Dec 25  ...                   1               6
+19   LE=F     Live Cattle Futures,Dec-2025  ...                   1               6
+20   HO=F                               --  ...                  -1               7
+21  RTY=F  E-mini Russell 2000 Index Futur  ...                  -1               8
+22   PA=F                 Palladium Mar 26  ...                   1               8
+23   ZT=F   2-Year T-Note Futures,Mar-2026  ...                   1               8
+24   RB=F                               --  ...                  -1              13
+25   GF=F  WisdomTree International High D  ...                   1              14
+26   ZR=F      Rough Rice Futures,Jan-2026  ...                  -1              21
+27   ZM=F  S&P Composite 1500 ESG Tilted I  ...                  -1              27
+28   ZF=F  Five-Year US Treasury Note Futu  ...                  -1              34
+29   ZN=F  10-Year T-Note Futures,Dec-2025  ...                  -1              51
+30   ZB=F  U.S. Treasury Bond Futures,Dec-  ...                  -1              52
+31   ZL=F     Soybean Oil Futures,Jan-2026  ...                   1              59
+32   NG=F               Natural Gas Jan 26  ...                   1              65
+33  SIL=F    Micro Silver Futures,Dec-2025  ...                   1             110
+34   SI=F                    Silver Dec 25  ...                   1             110
+35   NQ=F                Nasdaq 100 Dec 25  ...                   1             112
+
+[36 rows x 5 columns] 
+
+2025-12-03 00:41:11,820 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/Futures-cloud-D.csv
+2025-12-03 00:41:11,829 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge::df_csv1::
+   Symbol                             Name  1D Cloud Direction  1D Cloud Count
+0   RTY=F  E-mini Russell 2000 Index Futur                   0               0
+1    ZN=F  10-Year T-Note Futures,Dec-2025                   0               0
+2    ZF=F  Five-Year US Treasury Note Futu                   0               0
+3    PA=F                 Palladium Mar 26                   0               0
+4    CT=F                    Cotton Dec 25                   0               0
+5    ZT=F   2-Year T-Note Futures,Mar-2026                   1               1
+6    PL=F                  Platinum Jan 26                   1               1
+7    ZB=F  U.S. Treasury Bond Futures,Dec-                  -1               1
+8    ZO=F             Oat Futures,Dec-2025                  -1               1
+9    ZL=F     Soybean Oil Futures,Jan-2026                   1               1
+10   RB=F                               --                  -1               1
+11   NQ=F                Nasdaq 100 Dec 25                   1               2
+12   ES=F            E-Mini S&P 500 Dec 25                   1               2
+13   YM=F  Mini Dow Jones Indus.-$5 Dec 25                   1               3
+14   HG=F                    Copper Dec 25                   1              10
+15  LBS=F     Random Length Lumber Futures                  -1              16
+16   LE=F     Live Cattle Futures,Dec-2025                  -1              17
+17   GF=F  WisdomTree International High D                  -1              18
+18   HO=F                               --                   1              20
+19   KE=F    KC HRW Wheat Futures,Mar-2026                   1              22
+20   ZM=F  S&P Composite 1500 ESG Tilted I                   1              25
+21   NG=F               Natural Gas Jan 26                   1              27
+22   ZS=F         Soybean Futures,Jan-2026                   1              28
+23   HE=F        Lean Hog Futures,Feb-2026                  -1              30
+24   SB=F                 Sugar #11 Mar 26                  -1              30
+25   BZ=F  Brent Crude Oil Last Day Financ                  -1              41
+26   CL=F                 Crude Oil Jan 26                  -1              42
+27   ZC=F            Corn Futures,Dec-2025                   1              52
+28   GC=F                      Gold Dec 25                   1              67
+29  MGC=F      Micro Gold Futures,Dec-2025                   1              67
+30   SI=F                    Silver Dec 25                   1              69
+31   KC=F                    Coffee Dec 25                   1              70
+32   OJ=F              Orange Juice Jan 26                  -1              72
+33   ZR=F      Rough Rice Futures,Jan-2026                  -1              75
+34   CC=F                     Cocoa Mar 26                  -1             106
+35  SIL=F    Micro Silver Futures,Dec-2025                   1             138
+2025-12-03 00:41:11,838 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge::combined_csv::
+    Symbol                             Name  ...  1D Cloud Direction  1D Cloud Count
+0    PL=F                  Platinum Jan 26  ...                   1               1
+1    HG=F                    Copper Dec 25  ...                   1              10
+2   MGC=F      Micro Gold Futures,Dec-2025  ...                   1              67
+3    GC=F                      Gold Dec 25  ...                   1              67
+4    ZC=F            Corn Futures,Dec-2025  ...                   1              52
+5    OJ=F              Orange Juice Jan 26  ...                  -1              72
+6    ZO=F             Oat Futures,Dec-2025  ...                  -1               1
+7    KC=F                    Coffee Dec 25  ...                   1              70
+8    SB=F                 Sugar #11 Mar 26  ...                  -1              30
+9    YM=F  Mini Dow Jones Indus.-$5 Dec 25  ...                   1               3
+10   ZS=F         Soybean Futures,Jan-2026  ...                   1              28
+11   CT=F                    Cotton Dec 25  ...                   0               0
+12   CC=F                     Cocoa Mar 26  ...                  -1             106
+13   BZ=F  Brent Crude Oil Last Day Financ  ...                  -1              41
+14   KE=F    KC HRW Wheat Futures,Mar-2026  ...                   1              22
+15   CL=F                 Crude Oil Jan 26  ...                  -1              42
+16   HE=F        Lean Hog Futures,Feb-2026  ...                  -1              30
+17   ES=F            E-Mini S&P 500 Dec 25  ...                   1               2
+18   LE=F     Live Cattle Futures,Dec-2025  ...                  -1              17
+19   HO=F                               --  ...                   1              20
+20  RTY=F  E-mini Russell 2000 Index Futur  ...                   0               0
+21   PA=F                 Palladium Mar 26  ...                   0               0
+22   ZT=F   2-Year T-Note Futures,Mar-2026  ...                   1               1
+23   RB=F                               --  ...                  -1               1
+24   GF=F  WisdomTree International High D  ...                  -1              18
+25   ZR=F      Rough Rice Futures,Jan-2026  ...                  -1              75
+26   ZM=F  S&P Composite 1500 ESG Tilted I  ...                   1              25
+27   ZF=F  Five-Year US Treasury Note Futu  ...                   0               0
+28   ZN=F  10-Year T-Note Futures,Dec-2025  ...                   0               0
+29   ZB=F  U.S. Treasury Bond Futures,Dec-  ...                  -1               1
+30   ZL=F     Soybean Oil Futures,Jan-2026  ...                   1               1
+31   NG=F               Natural Gas Jan 26  ...                   1              27
+32  SIL=F    Micro Silver Futures,Dec-2025  ...                   1             138
+33   SI=F                    Silver Dec 25  ...                   1              69
+34   NQ=F                Nasdaq 100 Dec 25  ...                   1               2
+
+[35 rows x 7 columns] 
+
+2025-12-03 00:41:11,838 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/Futures-cloud-W.csv
+2025-12-03 00:41:11,848 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge::df_csv1::
+   Symbol                             Name  1W Cloud Direction  1W Cloud Count
+0    ZB=F  U.S. Treasury Bond Futures,Dec-                   0               0
+1    ZM=F  S&P Composite 1500 ESG Tilted I                   0               0
+2    ZC=F            Corn Futures,Dec-2025                   0               0
+3    HO=F                               --                   0               0
+4    ZR=F      Rough Rice Futures,Jan-2026                  -1               1
+5    ZS=F         Soybean Futures,Jan-2026                   1               6
+6    NG=F               Natural Gas Jan 26                   1               6
+7    HE=F        Lean Hog Futures,Feb-2026                  -1               8
+8    HG=F                    Copper Dec 25                   1              11
+9    RB=F                               --                  -1              14
+10   KC=F                    Coffee Dec 25                   1              16
+11  RTY=F  E-mini Russell 2000 Index Futur                   1              17
+12   ZO=F             Oat Futures,Dec-2025                  -1              19
+13   ZN=F  10-Year T-Note Futures,Dec-2025                   1              19
+14   CC=F                     Cocoa Mar 26                  -1              20
+15   CL=F                 Crude Oil Jan 26                  -1              24
+16   KE=F    KC HRW Wheat Futures,Mar-2026                  -1              24
+17   BZ=F  Brent Crude Oil Last Day Financ                  -1              24
+18   YM=F  Mini Dow Jones Indus.-$5 Dec 25                   1              24
+19   PA=F                 Palladium Mar 26                   1              25
+20   ZF=F  Five-Year US Treasury Note Futu                   1              26
+21   PL=F                  Platinum Jan 26                   1              31
+22   ES=F            E-Mini S&P 500 Dec 25                   1              32
+23   NQ=F                Nasdaq 100 Dec 25                   1              33
+24   ZL=F     Soybean Oil Futures,Jan-2026                   1              34
+25   SI=F                    Silver Dec 25                   1              35
+26  SIL=F    Micro Silver Futures,Dec-2025                   1              35
+27   SB=F                 Sugar #11 Mar 26                  -1              41
+28   ZT=F   2-Year T-Note Futures,Mar-2026                   1              42
+29   OJ=F              Orange Juice Jan 26                  -1              43
+30  LBS=F     Random Length Lumber Futures                  -1              53
+31   LE=F     Live Cattle Futures,Dec-2025                   1              64
+32   GF=F  WisdomTree International High D                   1              65
+33   CT=F                    Cotton Dec 25                  -1              86
+34   GC=F                      Gold Dec 25                   1             108
+35  MGC=F      Micro Gold Futures,Dec-2025                   1             108
+2025-12-03 00:41:11,896 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge::combined_csv::
+    Symbol                             Name  ...  1W Cloud Direction  1W Cloud Count
+0    PL=F                  Platinum Jan 26  ...                   1              31
+1    HG=F                    Copper Dec 25  ...                   1              11
+2   MGC=F      Micro Gold Futures,Dec-2025  ...                   1             108
+3    GC=F                      Gold Dec 25  ...                   1             108
+4    ZC=F            Corn Futures,Dec-2025  ...                   0               0
+5    OJ=F              Orange Juice Jan 26  ...                  -1              43
+6    ZO=F             Oat Futures,Dec-2025  ...                  -1              19
+7    KC=F                    Coffee Dec 25  ...                   1              16
+8    SB=F                 Sugar #11 Mar 26  ...                  -1              41
+9    YM=F  Mini Dow Jones Indus.-$5 Dec 25  ...                   1              24
+10   ZS=F         Soybean Futures,Jan-2026  ...                   1               6
+11   CT=F                    Cotton Dec 25  ...                  -1              86
+12   CC=F                     Cocoa Mar 26  ...                  -1              20
+13   BZ=F  Brent Crude Oil Last Day Financ  ...                  -1              24
+14   KE=F    KC HRW Wheat Futures,Mar-2026  ...                  -1              24
+15   CL=F                 Crude Oil Jan 26  ...                  -1              24
+16   HE=F        Lean Hog Futures,Feb-2026  ...                  -1               8
+17   ES=F            E-Mini S&P 500 Dec 25  ...                   1              32
+18   LE=F     Live Cattle Futures,Dec-2025  ...                   1              64
+19   HO=F                               --  ...                   0               0
+20  RTY=F  E-mini Russell 2000 Index Futur  ...                   1              17
+21   PA=F                 Palladium Mar 26  ...                   1              25
+22   ZT=F   2-Year T-Note Futures,Mar-2026  ...                   1              42
+23   RB=F                               --  ...                  -1              14
+24   GF=F  WisdomTree International High D  ...                   1              65
+25   ZR=F      Rough Rice Futures,Jan-2026  ...                  -1               1
+26   ZM=F  S&P Composite 1500 ESG Tilted I  ...                   0               0
+27   ZF=F  Five-Year US Treasury Note Futu  ...                   1              26
+28   ZN=F  10-Year T-Note Futures,Dec-2025  ...                   1              19
+29   ZB=F  U.S. Treasury Bond Futures,Dec-  ...                   0               0
+30   ZL=F     Soybean Oil Futures,Jan-2026  ...                   1              34
+31   NG=F               Natural Gas Jan 26  ...                   1               6
+32  SIL=F    Micro Silver Futures,Dec-2025  ...                   1              35
+33   SI=F                    Silver Dec 25  ...                   1              35
+34   NQ=F                Nasdaq 100 Dec 25  ...                   1              33
+
+[35 rows x 9 columns] 
+
+2025-12-03 00:41:11,896 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/Futures-cloud-M.csv
+2025-12-03 00:41:11,907 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge::df_csv1::
+   Symbol                             Name  1M Cloud Direction  1M Cloud Count
+0    ZT=F   2-Year T-Note Futures,Mar-2026                   0               0
+1    CL=F                 Crude Oil Jan 26                   0               0
+2    HE=F        Lean Hog Futures,Feb-2026                   0               0
+3    SB=F                 Sugar #11 Mar 26                   0               0
+4    OJ=F              Orange Juice Jan 26                   0               0
+5    PL=F                  Platinum Jan 26                   1               7
+6   LBS=F     Random Length Lumber Futures                  -1               9
+7    BZ=F  Brent Crude Oil Last Day Financ                  -1              10
+8   RTY=F  E-mini Russell 2000 Index Futur                   1              11
+9    RB=F                               --                  -1              13
+10   CT=F                    Cotton Dec 25                  -1              14
+11   HO=F                               --                  -1              14
+12   ZR=F      Rough Rice Futures,Jan-2026                  -1              15
+13   KE=F    KC HRW Wheat Futures,Mar-2026                  -1              16
+14   SI=F                    Silver Dec 25                   1              19
+15   ZO=F             Oat Futures,Dec-2025                  -1              19
+16   HG=F                    Copper Dec 25                   1              19
+17  SIL=F    Micro Silver Futures,Dec-2025                   1              19
+18   ZM=F  S&P Composite 1500 ESG Tilted I                  -1              21
+19   ZS=F         Soybean Futures,Jan-2026                  -1              21
+20   ZL=F     Soybean Oil Futures,Jan-2026                  -1              22
+21   NG=F               Natural Gas Jan 26                  -1              23
+22   ZC=F            Corn Futures,Dec-2025                  -1              24
+23   PA=F                 Palladium Mar 26                  -1              31
+24   CC=F                     Cocoa Mar 26                   1              33
+25   GF=F  WisdomTree International High D                   1              37
+26   ZB=F  U.S. Treasury Bond Futures,Dec-                  -1              40
+27   ZN=F  10-Year T-Note Futures,Dec-2025                  -1              40
+28   ZF=F  Five-Year US Treasury Note Futu                  -1              40
+29   LE=F     Live Cattle Futures,Dec-2025                   1              44
+30   KC=F                    Coffee Dec 25                   1              49
+31   GC=F                      Gold Dec 25                   1              67
+32  MGC=F      Micro Gold Futures,Dec-2025                   1              76
+33   ES=F            E-Mini S&P 500 Dec 25                   1             146
+34   YM=F  Mini Dow Jones Indus.-$5 Dec 25                   1             146
+35   NQ=F                Nasdaq 100 Dec 25                   1             158
+2025-12-03 00:41:11,919 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: merge::combined_csv::
+    Symbol                             Name  ...  1M Cloud Direction  1M Cloud Count
+0    PL=F                  Platinum Jan 26  ...                   1               7
+1    HG=F                    Copper Dec 25  ...                   1              19
+2   MGC=F      Micro Gold Futures,Dec-2025  ...                   1              76
+3    GC=F                      Gold Dec 25  ...                   1              67
+4    ZC=F            Corn Futures,Dec-2025  ...                  -1              24
+5    OJ=F              Orange Juice Jan 26  ...                   0               0
+6    ZO=F             Oat Futures,Dec-2025  ...                  -1              19
+7    KC=F                    Coffee Dec 25  ...                   1              49
+8    SB=F                 Sugar #11 Mar 26  ...                   0               0
+9    YM=F  Mini Dow Jones Indus.-$5 Dec 25  ...                   1             146
+10   ZS=F         Soybean Futures,Jan-2026  ...                  -1              21
+11   CT=F                    Cotton Dec 25  ...                  -1              14
+12   CC=F                     Cocoa Mar 26  ...                   1              33
+13   BZ=F  Brent Crude Oil Last Day Financ  ...                  -1              10
+14   KE=F    KC HRW Wheat Futures,Mar-2026  ...                  -1              16
+15   CL=F                 Crude Oil Jan 26  ...                   0               0
+16   HE=F        Lean Hog Futures,Feb-2026  ...                   0               0
+17   ES=F            E-Mini S&P 500 Dec 25  ...                   1             146
+18   LE=F     Live Cattle Futures,Dec-2025  ...                   1              44
+19   HO=F                               --  ...                  -1              14
+20  RTY=F  E-mini Russell 2000 Index Futur  ...                   1              11
+21   PA=F                 Palladium Mar 26  ...                  -1              31
+22   ZT=F   2-Year T-Note Futures,Mar-2026  ...                   0               0
+23   RB=F                               --  ...                  -1              13
+24   GF=F  WisdomTree International High D  ...                   1              37
+25   ZR=F      Rough Rice Futures,Jan-2026  ...                  -1              15
+26   ZM=F  S&P Composite 1500 ESG Tilted I  ...                  -1              21
+27   ZF=F  Five-Year US Treasury Note Futu  ...                  -1              40
+28   ZN=F  10-Year T-Note Futures,Dec-2025  ...                  -1              40
+29   ZB=F  U.S. Treasury Bond Futures,Dec-  ...                  -1              40
+30   ZL=F     Soybean Oil Futures,Jan-2026  ...                  -1              22
+31   NG=F               Natural Gas Jan 26  ...                  -1              23
+32  SIL=F    Micro Silver Futures,Dec-2025  ...                   1              19
+33   SI=F                    Silver Dec 25  ...                   1              19
+34   NQ=F                Nasdaq 100 Dec 25  ...                   1             158
+
+[35 rows x 11 columns] 
+
+2025-12-03 00:41:11,919 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: Multi Timeframe Cloud Signals Merged: output/cloud/Futures-cloud-merged.csv
+2025-12-03 00:41:11,919 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: combined_csv size::(35, 11)
+2025-12-03 00:41:11,931 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: combined_csv::
+   Symbol                             Name  ...  1M Cloud Direction  1M Cloud Count
+0    PL=F                  Platinum Jan 26  ...                   1               7
+1    HG=F                    Copper Dec 25  ...                   1              19
+2   MGC=F      Micro Gold Futures,Dec-2025  ...                   1              76
+3    GC=F                      Gold Dec 25  ...                   1              67
+4    ZC=F            Corn Futures,Dec-2025  ...                  -1              24
+5    OJ=F              Orange Juice Jan 26  ...                   0               0
+6    ZO=F             Oat Futures,Dec-2025  ...                  -1              19
+7    KC=F                    Coffee Dec 25  ...                   1              49
+8    SB=F                 Sugar #11 Mar 26  ...                   0               0
+9    YM=F  Mini Dow Jones Indus.-$5 Dec 25  ...                   1             146
+10   ZS=F         Soybean Futures,Jan-2026  ...                  -1              21
+11   CT=F                    Cotton Dec 25  ...                  -1              14
+12   CC=F                     Cocoa Mar 26  ...                   1              33
+13   BZ=F  Brent Crude Oil Last Day Financ  ...                  -1              10
+14   KE=F    KC HRW Wheat Futures,Mar-2026  ...                  -1              16
+15   CL=F                 Crude Oil Jan 26  ...                   0               0
+16   HE=F        Lean Hog Futures,Feb-2026  ...                   0               0
+17   ES=F            E-Mini S&P 500 Dec 25  ...                   1             146
+18   LE=F     Live Cattle Futures,Dec-2025  ...                   1              44
+19   HO=F                               --  ...                  -1              14
+20  RTY=F  E-mini Russell 2000 Index Futur  ...                   1              11
+21   PA=F                 Palladium Mar 26  ...                  -1              31
+22   ZT=F   2-Year T-Note Futures,Mar-2026  ...                   0               0
+23   RB=F                               --  ...                  -1              13
+24   GF=F  WisdomTree International High D  ...                   1              37
+25   ZR=F      Rough Rice Futures,Jan-2026  ...                  -1              15
+26   ZM=F  S&P Composite 1500 ESG Tilted I  ...                  -1              21
+27   ZF=F  Five-Year US Treasury Note Futu  ...                  -1              40
+28   ZN=F  10-Year T-Note Futures,Dec-2025  ...                  -1              40
+29   ZB=F  U.S. Treasury Bond Futures,Dec-  ...                  -1              40
+30   ZL=F     Soybean Oil Futures,Jan-2026  ...                  -1              22
+31   NG=F               Natural Gas Jan 26  ...                  -1              23
+32  SIL=F    Micro Silver Futures,Dec-2025  ...                   1              19
+33   SI=F                    Silver Dec 25  ...                   1              19
+34   NQ=F                Nasdaq 100 Dec 25  ...                   1             158
+
+[35 rows x 11 columns]
+2025-12-03 00:41:11,931 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1H Cloud Direction', '1H Cloud Count']
+2025-12-03 00:41:11,932 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1D Cloud Direction', '1D Cloud Count']
+2025-12-03 00:41:11,933 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1W Cloud Direction', '1W Cloud Count']
+2025-12-03 00:41:11,933 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1M Cloud Direction', '1M Cloud Count']
+2025-12-03 00:41:11,947 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: 
+-------------------- Cloud Score Multi Timeframe Raw --------------------
+    Symbol                             Name  ...  1W Cloud Score  1M Cloud Score
+0    PL=F                  Platinum Jan 26  ...              31               7
+1    HG=F                    Copper Dec 25  ...              11              19
+2   MGC=F      Micro Gold Futures,Dec-2025  ...             108              76
+3    GC=F                      Gold Dec 25  ...             108              67
+4    ZC=F            Corn Futures,Dec-2025  ...               0             -24
+5    OJ=F              Orange Juice Jan 26  ...             -43               0
+6    ZO=F             Oat Futures,Dec-2025  ...             -19             -19
+7    KC=F                    Coffee Dec 25  ...              16              49
+8    SB=F                 Sugar #11 Mar 26  ...             -41               0
+9    YM=F  Mini Dow Jones Indus.-$5 Dec 25  ...              24             146
+10   ZS=F         Soybean Futures,Jan-2026  ...               6             -21
+11   CT=F                    Cotton Dec 25  ...             -86             -14
+12   CC=F                     Cocoa Mar 26  ...             -20              33
+13   BZ=F  Brent Crude Oil Last Day Financ  ...             -24             -10
+14   KE=F    KC HRW Wheat Futures,Mar-2026  ...             -24             -16
+15   CL=F                 Crude Oil Jan 26  ...             -24               0
+16   HE=F        Lean Hog Futures,Feb-2026  ...              -8               0
+17   ES=F            E-Mini S&P 500 Dec 25  ...              32             146
+18   LE=F     Live Cattle Futures,Dec-2025  ...              64              44
+19   HO=F                               --  ...               0             -14
+20  RTY=F  E-mini Russell 2000 Index Futur  ...              17              11
+21   PA=F                 Palladium Mar 26  ...              25             -31
+22   ZT=F   2-Year T-Note Futures,Mar-2026  ...              42               0
+23   RB=F                               --  ...             -14             -13
+24   GF=F  WisdomTree International High D  ...              65              37
+25   ZR=F      Rough Rice Futures,Jan-2026  ...              -1             -15
+26   ZM=F  S&P Composite 1500 ESG Tilted I  ...               0             -21
+27   ZF=F  Five-Year US Treasury Note Futu  ...              26             -40
+28   ZN=F  10-Year T-Note Futures,Dec-2025  ...              19             -40
+29   ZB=F  U.S. Treasury Bond Futures,Dec-  ...               0             -40
+30   ZL=F     Soybean Oil Futures,Jan-2026  ...              34             -22
+31   NG=F               Natural Gas Jan 26  ...               6             -23
+32  SIL=F    Micro Silver Futures,Dec-2025  ...              35              19
+33   SI=F                    Silver Dec 25  ...              35              19
+34   NQ=F                Nasdaq 100 Dec 25  ...              33             158
+
+[35 rows x 15 columns]
+2025-12-03 00:41:11,948 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: create_sum_column self.list_score_names: ['1H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score', 'Cloud Score Sum'] 
+create_sum_column df.columns Index(['Symbol', 'Name', 'Close', '1H Cloud Direction', '1H Cloud Count',
+       '1D Cloud Direction', '1D Cloud Count', '1W Cloud Direction',
+       '1W Cloud Count', '1M Cloud Direction', '1M Cloud Count',
+       '1H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score'],
+      dtype='object')
+2025-12-03 00:41:11,950 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: ------ Cleaning columns ------
+2025-12-03 00:41:11,987 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: Available columns: ['Symbol', 'Name', 'Close', '1H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score', 'Cloud Score Sum']
+2025-12-03 00:41:11,990 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: Saved data to: output/cloud/Futures-cloud-merged.csv output/cloud/Futures-cloud-merged.csv.html
+
+2025-12-03 00:41:12,004 INFO src.mvc.core.DataCloudSignalMultiTimeframeMerger: ----------- Cloud Score Multi Timeframe Final View -----------
+    Symbol                             Name  ...  1M Cloud Score  Cloud Score Sum
+34   NQ=F                Nasdaq 100 Dec 25  ...             158              305
+32  SIL=F    Micro Silver Futures,Dec-2025  ...              19              302
+2   MGC=F      Micro Gold Futures,Dec-2025  ...              76              251
+3    GC=F                      Gold Dec 25  ...              67              242
+33   SI=F                    Silver Dec 25  ...              19              233
+17   ES=F            E-Mini S&P 500 Dec 25  ...             146              186
+9    YM=F  Mini Dow Jones Indus.-$5 Dec 25  ...             146              175
+7    KC=F                    Coffee Dec 25  ...              49              136
+24   GF=F  WisdomTree International High D  ...              37               98
+18   LE=F     Live Cattle Futures,Dec-2025  ...              44               97
+31   NG=F               Natural Gas Jan 26  ...             -23               75
+30   ZL=F     Soybean Oil Futures,Jan-2026  ...             -22               72
+22   ZT=F   2-Year T-Note Futures,Mar-2026  ...               0               51
+1    HG=F                    Copper Dec 25  ...              19               40
+0    PL=F                  Platinum Jan 26  ...               7               39
+4    ZC=F            Corn Futures,Dec-2025  ...             -24               28
+20  RTY=F  E-mini Russell 2000 Index Futur  ...              11               20
+10   ZS=F         Soybean Futures,Jan-2026  ...             -21               10
+21   PA=F                 Palladium Mar 26  ...             -31                2
+19   HO=F                               --  ...             -14               -1
+14   KE=F    KC HRW Wheat Futures,Mar-2026  ...             -16              -13
+26   ZM=F  S&P Composite 1500 ESG Tilted I  ...             -21              -23
+16   HE=F        Lean Hog Futures,Feb-2026  ...               0              -32
+6    ZO=F             Oat Futures,Dec-2025  ...             -19              -40
+23   RB=F                               --  ...             -13              -41
+27   ZF=F  Five-Year US Treasury Note Futu  ...             -40              -48
+15   CL=F                 Crude Oil Jan 26  ...               0              -71
+8    SB=F                 Sugar #11 Mar 26  ...               0              -72
+28   ZN=F  10-Year T-Note Futures,Dec-2025  ...             -40              -72
+13   BZ=F  Brent Crude Oil Last Day Financ  ...             -10              -80
+29   ZB=F  U.S. Treasury Bond Futures,Dec-  ...             -40              -93
+12   CC=F                     Cocoa Mar 26  ...              33              -96
+11   CT=F                    Cotton Dec 25  ...             -14              -97
+25   ZR=F      Rough Rice Futures,Jan-2026  ...             -15             -112
+5    OJ=F              Orange Juice Jan 26  ...               0             -115
+
+[35 rows x 8 columns]
+2025-12-03 00:41:12,004 INFO src.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/futures/1h/asset_list/Futures.csv
+2025-12-03 00:41:12,479 INFO src.mvc.core.DataTKxSignalMVC: ES=F - Incorrect format detected and corrected.
+2025-12-03 00:41:12,726 INFO src.mvc.core.DataTKxSignalMVC: YM=F - Incorrect format detected and corrected.
+2025-12-03 00:41:12,970 INFO src.mvc.core.DataTKxSignalMVC: NQ=F - Incorrect format detected and corrected.
+2025-12-03 00:41:13,230 INFO src.mvc.core.DataTKxSignalMVC: RTY=F - Incorrect format detected and corrected.
+2025-12-03 00:41:13,489 INFO src.mvc.core.DataTKxSignalMVC: ZB=F - Incorrect format detected and corrected.
+2025-12-03 00:41:13,739 INFO src.mvc.core.DataTKxSignalMVC: ZN=F - Incorrect format detected and corrected.
+2025-12-03 00:41:13,990 INFO src.mvc.core.DataTKxSignalMVC: ZF=F - Incorrect format detected and corrected.
+2025-12-03 00:41:14,256 INFO src.mvc.core.DataTKxSignalMVC: ZT=F - Incorrect format detected and corrected.
+2025-12-03 00:41:14,544 INFO src.mvc.core.DataTKxSignalMVC: GC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:14,807 INFO src.mvc.core.DataTKxSignalMVC: MGC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:15,061 INFO src.mvc.core.DataTKxSignalMVC: SI=F - Incorrect format detected and corrected.
+2025-12-03 00:41:15,322 INFO src.mvc.core.DataTKxSignalMVC: SIL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:15,601 INFO src.mvc.core.DataTKxSignalMVC: PL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:15,862 INFO src.mvc.core.DataTKxSignalMVC: HG=F - Incorrect format detected and corrected.
+2025-12-03 00:41:16,098 INFO src.mvc.core.DataTKxSignalMVC: PA=F - Incorrect format detected and corrected.
+2025-12-03 00:41:16,357 INFO src.mvc.core.DataTKxSignalMVC: CL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:16,635 INFO src.mvc.core.DataTKxSignalMVC: HO=F - Incorrect format detected and corrected.
+2025-12-03 00:41:16,894 INFO src.mvc.core.DataTKxSignalMVC: NG=F - Incorrect format detected and corrected.
+2025-12-03 00:41:17,158 INFO src.mvc.core.DataTKxSignalMVC: RB=F - Incorrect format detected and corrected.
+2025-12-03 00:41:17,405 INFO src.mvc.core.DataTKxSignalMVC: BZ=F - Incorrect format detected and corrected.
+2025-12-03 00:41:17,617 INFO src.mvc.core.DataTKxSignalMVC: B0=F - Incorrect format detected and corrected.
+2025-12-03 00:41:17,668 INFO src.mvc.core.DataTKxSignalMVC: ZC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:17,853 INFO src.mvc.core.DataTKxSignalMVC: ZO=F - Incorrect format detected and corrected.
+2025-12-03 00:41:18,016 INFO src.mvc.core.DataTKxSignalMVC: KE=F - Incorrect format detected and corrected.
+2025-12-03 00:41:18,206 INFO src.mvc.core.DataTKxSignalMVC: ZR=F - Incorrect format detected and corrected.
+2025-12-03 00:41:18,334 INFO src.mvc.core.DataTKxSignalMVC: ZM=F - Incorrect format detected and corrected.
+2025-12-03 00:41:18,564 INFO src.mvc.core.DataTKxSignalMVC: ZL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:18,802 INFO src.mvc.core.DataTKxSignalMVC: ZS=F - Incorrect format detected and corrected.
+2025-12-03 00:41:18,987 INFO src.mvc.core.DataTKxSignalMVC: GF=F - Incorrect format detected and corrected.
+2025-12-03 00:41:19,070 INFO src.mvc.core.DataTKxSignalMVC: HE=F - Incorrect format detected and corrected.
+2025-12-03 00:41:19,157 INFO src.mvc.core.DataTKxSignalMVC: LE=F - Incorrect format detected and corrected.
+2025-12-03 00:41:19,240 INFO src.mvc.core.DataTKxSignalMVC: CC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:19,367 INFO src.mvc.core.DataTKxSignalMVC: KC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:19,501 INFO src.mvc.core.DataTKxSignalMVC: CT=F - Incorrect format detected and corrected.
+2025-12-03 00:41:19,655 INFO src.mvc.core.DataTKxSignalMVC: LBS=F - Incorrect format detected and corrected.
+2025-12-03 00:41:19,685 INFO src.mvc.core.DataTKxSignalMVC: OJ=F - Incorrect format detected and corrected.
+2025-12-03 00:41:19,778 INFO src.mvc.core.DataTKxSignalMVC: SB=F - Incorrect format detected and corrected.
+2025-12-03 00:41:19,858 INFO src.mvc.core.DataTKxSignalMVC: TKx count csv files are created
+2025-12-03 00:41:19,871 INFO src.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/futures/d/asset_list/Futures.csv
+2025-12-03 00:41:20,432 INFO src.mvc.core.DataTKxSignalMVC: ES=F - Incorrect format detected and corrected.
+2025-12-03 00:41:20,792 INFO src.mvc.core.DataTKxSignalMVC: YM=F - Incorrect format detected and corrected.
+2025-12-03 00:41:21,219 INFO src.mvc.core.DataTKxSignalMVC: NQ=F - Incorrect format detected and corrected.
+2025-12-03 00:41:21,644 INFO src.mvc.core.DataTKxSignalMVC: RTY=F - Incorrect format detected and corrected.
+2025-12-03 00:41:21,870 INFO src.mvc.core.DataTKxSignalMVC: ZB=F - Incorrect format detected and corrected.
+2025-12-03 00:41:22,327 INFO src.mvc.core.DataTKxSignalMVC: ZN=F - Incorrect format detected and corrected.
+2025-12-03 00:41:22,811 INFO src.mvc.core.DataTKxSignalMVC: ZF=F - Incorrect format detected and corrected.
+2025-12-03 00:41:23,261 INFO src.mvc.core.DataTKxSignalMVC: ZT=F - Incorrect format detected and corrected.
+2025-12-03 00:41:23,545 INFO src.mvc.core.DataTKxSignalMVC: GC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:23,795 INFO src.mvc.core.DataTKxSignalMVC: MGC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:24,015 INFO src.mvc.core.DataTKxSignalMVC: SI=F - Incorrect format detected and corrected.
+2025-12-03 00:41:24,262 INFO src.mvc.core.DataTKxSignalMVC: SIL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:24,435 INFO src.mvc.core.DataTKxSignalMVC: PL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:24,721 INFO src.mvc.core.DataTKxSignalMVC: HG=F - Incorrect format detected and corrected.
+2025-12-03 00:41:25,005 INFO src.mvc.core.DataTKxSignalMVC: PA=F - Incorrect format detected and corrected.
+2025-12-03 00:41:25,290 INFO src.mvc.core.DataTKxSignalMVC: CL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:25,574 INFO src.mvc.core.DataTKxSignalMVC: HO=F - Incorrect format detected and corrected.
+2025-12-03 00:41:25,856 INFO src.mvc.core.DataTKxSignalMVC: NG=F - Incorrect format detected and corrected.
+2025-12-03 00:41:26,178 INFO src.mvc.core.DataTKxSignalMVC: RB=F - Incorrect format detected and corrected.
+2025-12-03 00:41:26,436 INFO src.mvc.core.DataTKxSignalMVC: BZ=F - Incorrect format detected and corrected.
+2025-12-03 00:41:26,610 INFO src.mvc.core.DataTKxSignalMVC: B0=F - Incorrect format detected and corrected.
+2025-12-03 00:41:26,670 INFO src.mvc.core.DataTKxSignalMVC: ZC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:26,919 INFO src.mvc.core.DataTKxSignalMVC: ZO=F - Incorrect format detected and corrected.
+2025-12-03 00:41:27,195 INFO src.mvc.core.DataTKxSignalMVC: KE=F - Incorrect format detected and corrected.
+2025-12-03 00:41:27,448 INFO src.mvc.core.DataTKxSignalMVC: ZR=F - Incorrect format detected and corrected.
+2025-12-03 00:41:27,731 INFO src.mvc.core.DataTKxSignalMVC: ZM=F - Incorrect format detected and corrected.
+2025-12-03 00:41:28,015 INFO src.mvc.core.DataTKxSignalMVC: ZL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:28,297 INFO src.mvc.core.DataTKxSignalMVC: ZS=F - Incorrect format detected and corrected.
+2025-12-03 00:41:28,574 INFO src.mvc.core.DataTKxSignalMVC: GF=F - Incorrect format detected and corrected.
+2025-12-03 00:41:28,835 INFO src.mvc.core.DataTKxSignalMVC: HE=F - Incorrect format detected and corrected.
+2025-12-03 00:41:29,126 INFO src.mvc.core.DataTKxSignalMVC: LE=F - Incorrect format detected and corrected.
+2025-12-03 00:41:29,377 INFO src.mvc.core.DataTKxSignalMVC: CC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:29,657 INFO src.mvc.core.DataTKxSignalMVC: KC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:29,947 INFO src.mvc.core.DataTKxSignalMVC: CT=F - Incorrect format detected and corrected.
+2025-12-03 00:41:30,237 INFO src.mvc.core.DataTKxSignalMVC: LBS=F - Incorrect format detected and corrected.
+2025-12-03 00:41:30,489 INFO src.mvc.core.DataTKxSignalMVC: OJ=F - Incorrect format detected and corrected.
+2025-12-03 00:41:30,761 INFO src.mvc.core.DataTKxSignalMVC: SB=F - Incorrect format detected and corrected.
+2025-12-03 00:41:30,961 INFO src.mvc.core.DataTKxSignalMVC: TKx count csv files are created
+2025-12-03 00:41:30,983 INFO src.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/futures/w/asset_list/Futures.csv
+2025-12-03 00:41:31,189 INFO src.mvc.core.DataTKxSignalMVC: ES=F - Incorrect format detected and corrected.
+2025-12-03 00:41:31,255 INFO src.mvc.core.DataTKxSignalMVC: YM=F - Incorrect format detected and corrected.
+2025-12-03 00:41:31,318 INFO src.mvc.core.DataTKxSignalMVC: NQ=F - Incorrect format detected and corrected.
+2025-12-03 00:41:31,377 INFO src.mvc.core.DataTKxSignalMVC: RTY=F - Incorrect format detected and corrected.
+2025-12-03 00:41:31,419 INFO src.mvc.core.DataTKxSignalMVC: ZB=F - Incorrect format detected and corrected.
+2025-12-03 00:41:31,492 INFO src.mvc.core.DataTKxSignalMVC: ZN=F - Incorrect format detected and corrected.
+2025-12-03 00:41:31,565 INFO src.mvc.core.DataTKxSignalMVC: ZF=F - Incorrect format detected and corrected.
+2025-12-03 00:41:31,638 INFO src.mvc.core.DataTKxSignalMVC: ZT=F - Incorrect format detected and corrected.
+2025-12-03 00:41:31,716 INFO src.mvc.core.DataTKxSignalMVC: GC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:31,780 INFO src.mvc.core.DataTKxSignalMVC: MGC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:31,837 INFO src.mvc.core.DataTKxSignalMVC: SI=F - Incorrect format detected and corrected.
+2025-12-03 00:41:31,902 INFO src.mvc.core.DataTKxSignalMVC: SIL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:31,952 INFO src.mvc.core.DataTKxSignalMVC: PL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:32,032 INFO src.mvc.core.DataTKxSignalMVC: HG=F - Incorrect format detected and corrected.
+2025-12-03 00:41:32,101 INFO src.mvc.core.DataTKxSignalMVC: PA=F - Incorrect format detected and corrected.
+2025-12-03 00:41:32,196 INFO src.mvc.core.DataTKxSignalMVC: CL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:32,277 INFO src.mvc.core.DataTKxSignalMVC: HO=F - Incorrect format detected and corrected.
+2025-12-03 00:41:32,351 INFO src.mvc.core.DataTKxSignalMVC: NG=F - Incorrect format detected and corrected.
+2025-12-03 00:41:32,431 INFO src.mvc.core.DataTKxSignalMVC: RB=F - Incorrect format detected and corrected.
+2025-12-03 00:41:32,500 INFO src.mvc.core.DataTKxSignalMVC: BZ=F - Incorrect format detected and corrected.
+2025-12-03 00:41:32,546 INFO src.mvc.core.DataTKxSignalMVC: B0=F - Incorrect format detected and corrected.
+2025-12-03 00:41:32,574 INFO src.mvc.core.DataTKxSignalMVC: ZC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:32,648 INFO src.mvc.core.DataTKxSignalMVC: ZO=F - Incorrect format detected and corrected.
+2025-12-03 00:41:32,721 INFO src.mvc.core.DataTKxSignalMVC: KE=F - Incorrect format detected and corrected.
+2025-12-03 00:41:32,791 INFO src.mvc.core.DataTKxSignalMVC: ZR=F - Incorrect format detected and corrected.
+2025-12-03 00:41:32,869 INFO src.mvc.core.DataTKxSignalMVC: ZM=F - Incorrect format detected and corrected.
+2025-12-03 00:41:32,948 INFO src.mvc.core.DataTKxSignalMVC: ZL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:33,019 INFO src.mvc.core.DataTKxSignalMVC: ZS=F - Incorrect format detected and corrected.
+2025-12-03 00:41:33,095 INFO src.mvc.core.DataTKxSignalMVC: GF=F - Incorrect format detected and corrected.
+2025-12-03 00:41:33,173 INFO src.mvc.core.DataTKxSignalMVC: HE=F - Incorrect format detected and corrected.
+2025-12-03 00:41:33,308 INFO src.mvc.core.DataTKxSignalMVC: LE=F - Incorrect format detected and corrected.
+2025-12-03 00:41:33,434 INFO src.mvc.core.DataTKxSignalMVC: CC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:33,562 INFO src.mvc.core.DataTKxSignalMVC: KC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:33,683 INFO src.mvc.core.DataTKxSignalMVC: CT=F - Incorrect format detected and corrected.
+2025-12-03 00:41:33,801 INFO src.mvc.core.DataTKxSignalMVC: LBS=F - Incorrect format detected and corrected.
+2025-12-03 00:41:33,923 INFO src.mvc.core.DataTKxSignalMVC: OJ=F - Incorrect format detected and corrected.
+2025-12-03 00:41:34,056 INFO src.mvc.core.DataTKxSignalMVC: SB=F - Incorrect format detected and corrected.
+2025-12-03 00:41:34,158 INFO src.mvc.core.DataTKxSignalMVC: TKx count csv files are created
+2025-12-03 00:41:34,170 INFO src.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/futures/m/asset_list/Futures.csv
+2025-12-03 00:41:34,294 INFO src.mvc.core.DataTKxSignalMVC: ES=F - Incorrect format detected and corrected.
+2025-12-03 00:41:34,343 INFO src.mvc.core.DataTKxSignalMVC: YM=F - Incorrect format detected and corrected.
+2025-12-03 00:41:34,384 INFO src.mvc.core.DataTKxSignalMVC: NQ=F - Incorrect format detected and corrected.
+2025-12-03 00:41:34,418 INFO src.mvc.core.DataTKxSignalMVC: RTY=F - Incorrect format detected and corrected.
+2025-12-03 00:41:34,447 INFO src.mvc.core.DataTKxSignalMVC: ZB=F - Incorrect format detected and corrected.
+2025-12-03 00:41:34,485 INFO src.mvc.core.DataTKxSignalMVC: ZN=F - Incorrect format detected and corrected.
+2025-12-03 00:41:34,526 INFO src.mvc.core.DataTKxSignalMVC: ZF=F - Incorrect format detected and corrected.
+2025-12-03 00:41:34,564 INFO src.mvc.core.DataTKxSignalMVC: ZT=F - Incorrect format detected and corrected.
+2025-12-03 00:41:34,608 INFO src.mvc.core.DataTKxSignalMVC: GC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:34,647 INFO src.mvc.core.DataTKxSignalMVC: MGC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:34,680 INFO src.mvc.core.DataTKxSignalMVC: SI=F - Incorrect format detected and corrected.
+2025-12-03 00:41:34,717 INFO src.mvc.core.DataTKxSignalMVC: SIL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:34,753 INFO src.mvc.core.DataTKxSignalMVC: PL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:34,799 INFO src.mvc.core.DataTKxSignalMVC: HG=F - Incorrect format detected and corrected.
+2025-12-03 00:41:34,843 INFO src.mvc.core.DataTKxSignalMVC: PA=F - Incorrect format detected and corrected.
+2025-12-03 00:41:34,887 INFO src.mvc.core.DataTKxSignalMVC: CL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:34,926 INFO src.mvc.core.DataTKxSignalMVC: HO=F - Incorrect format detected and corrected.
+2025-12-03 00:41:34,970 INFO src.mvc.core.DataTKxSignalMVC: NG=F - Incorrect format detected and corrected.
+2025-12-03 00:41:35,008 INFO src.mvc.core.DataTKxSignalMVC: RB=F - Incorrect format detected and corrected.
+2025-12-03 00:41:35,045 INFO src.mvc.core.DataTKxSignalMVC: BZ=F - Incorrect format detected and corrected.
+2025-12-03 00:41:35,081 INFO src.mvc.core.DataTKxSignalMVC: B0=F - Incorrect format detected and corrected.
+2025-12-03 00:41:35,108 INFO src.mvc.core.DataTKxSignalMVC: ZC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:35,156 INFO src.mvc.core.DataTKxSignalMVC: ZO=F - Incorrect format detected and corrected.
+2025-12-03 00:41:35,200 INFO src.mvc.core.DataTKxSignalMVC: KE=F - Incorrect format detected and corrected.
+2025-12-03 00:41:35,240 INFO src.mvc.core.DataTKxSignalMVC: ZR=F - Incorrect format detected and corrected.
+2025-12-03 00:41:35,279 INFO src.mvc.core.DataTKxSignalMVC: ZM=F - Incorrect format detected and corrected.
+2025-12-03 00:41:35,327 INFO src.mvc.core.DataTKxSignalMVC: ZL=F - Incorrect format detected and corrected.
+2025-12-03 00:41:35,374 INFO src.mvc.core.DataTKxSignalMVC: ZS=F - Incorrect format detected and corrected.
+2025-12-03 00:41:35,427 INFO src.mvc.core.DataTKxSignalMVC: GF=F - Incorrect format detected and corrected.
+2025-12-03 00:41:35,473 INFO src.mvc.core.DataTKxSignalMVC: HE=F - Incorrect format detected and corrected.
+2025-12-03 00:41:35,514 INFO src.mvc.core.DataTKxSignalMVC: LE=F - Incorrect format detected and corrected.
+2025-12-03 00:41:35,559 INFO src.mvc.core.DataTKxSignalMVC: CC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:35,603 INFO src.mvc.core.DataTKxSignalMVC: KC=F - Incorrect format detected and corrected.
+2025-12-03 00:41:35,651 INFO src.mvc.core.DataTKxSignalMVC: CT=F - Incorrect format detected and corrected.
+2025-12-03 00:41:35,696 INFO src.mvc.core.DataTKxSignalMVC: LBS=F - Incorrect format detected and corrected.
+2025-12-03 00:41:35,739 INFO src.mvc.core.DataTKxSignalMVC: OJ=F - Incorrect format detected and corrected.
+2025-12-03 00:41:35,774 INFO src.mvc.core.DataTKxSignalMVC: SB=F - Incorrect format detected and corrected.
+2025-12-03 00:41:35,786 INFO src.mvc.core.DataTKxSignalMVC: TKx count csv files are created
+2025-12-03 00:41:35,789 INFO src.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/futures/1h/ -----------
+2025-12-03 00:41:35,789 INFO src.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::True
+2025-12-03 00:41:35,940 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Error: data/futures/1h/LBS=F_tkxCount.csv not found
+2025-12-03 00:41:35,955 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Aggregator Futures-tkx-1H.csv and .xml are created
+
+2025-12-03 00:41:35,955 INFO src.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/futures/d/ -----------
+2025-12-03 00:41:35,955 INFO src.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::False
+2025-12-03 00:41:36,120 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ES=F entries:6362]
+2025-12-03 00:41:36,121 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:YM=F entries:5953]
+2025-12-03 00:41:36,121 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NQ=F entries:6362]
+2025-12-03 00:41:36,121 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:RTY=F entries:2112]
+2025-12-03 00:41:36,122 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZB=F entries:6330]
+2025-12-03 00:41:36,122 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZN=F entries:6324]
+2025-12-03 00:41:36,122 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZF=F entries:6336]
+2025-12-03 00:41:36,122 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZT=F entries:6390]
+2025-12-03 00:41:36,123 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GC=F entries:6334]
+2025-12-03 00:41:36,123 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MGC=F entries:3800]
+2025-12-03 00:41:36,123 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SI=F entries:6336]
+2025-12-03 00:41:36,124 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SIL=F entries:3132]
+2025-12-03 00:41:36,124 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PL=F entries:6362]
+2025-12-03 00:41:36,125 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HG=F entries:6339]
+2025-12-03 00:41:36,125 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PA=F entries:6373]
+2025-12-03 00:41:36,125 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CL=F entries:6343]
+2025-12-03 00:41:36,125 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HO=F entries:6337]
+2025-12-03 00:41:36,126 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NG=F entries:6340]
+2025-12-03 00:41:36,126 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:RB=F entries:6298]
+2025-12-03 00:41:36,126 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:BZ=F entries:4561]
+2025-12-03 00:41:36,126 INFO src.mvc.core.DataTKxSignalAggregatorMVC: 
+------------ B0=F TKx value empty --------------
+2025-12-03 00:41:36,127 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZC=F entries:6346]
+2025-12-03 00:41:36,127 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZO=F entries:6425]
+2025-12-03 00:41:36,128 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KE=F entries:6335]
+2025-12-03 00:41:36,128 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZR=F entries:6568]
+2025-12-03 00:41:36,128 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZM=F entries:6349]
+2025-12-03 00:41:36,129 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZL=F entries:6387]
+2025-12-03 00:41:36,129 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZS=F entries:6338]
+2025-12-03 00:41:36,129 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GF=F entries:6171]
+2025-12-03 00:41:36,130 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HE=F entries:6269]
+2025-12-03 00:41:36,130 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:LE=F entries:6201]
+2025-12-03 00:41:36,130 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CC=F entries:6495]
+2025-12-03 00:41:36,131 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KC=F entries:6494]
+2025-12-03 00:41:36,131 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CT=F entries:6496]
+2025-12-03 00:41:36,132 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:LBS=F entries:5723]
+2025-12-03 00:41:36,132 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:OJ=F entries:6072]
+2025-12-03 00:41:36,133 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SB=F entries:6457]
+2025-12-03 00:41:36,141 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Aggregator Futures-tkx-D.csv and .xml are created
+
+2025-12-03 00:41:36,141 INFO src.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/futures/w/ -----------
+2025-12-03 00:41:36,141 INFO src.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::False
+2025-12-03 00:41:36,202 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ES=F entries:1316]
+2025-12-03 00:41:36,203 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:YM=F entries:1236]
+2025-12-03 00:41:36,203 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NQ=F entries:1316]
+2025-12-03 00:41:36,203 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:RTY=F entries:439]
+2025-12-03 00:41:36,204 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZB=F entries:1316]
+2025-12-03 00:41:36,204 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZN=F entries:1315]
+2025-12-03 00:41:36,204 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZF=F entries:1316]
+2025-12-03 00:41:36,204 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZT=F entries:1332]
+2025-12-03 00:41:36,205 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GC=F entries:1319]
+2025-12-03 00:41:36,205 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MGC=F entries:791]
+2025-12-03 00:41:36,205 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SI=F entries:1319]
+2025-12-03 00:41:36,206 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SIL=F entries:651]
+2025-12-03 00:41:36,206 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PL=F entries:1346]
+2025-12-03 00:41:36,207 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HG=F entries:1319]
+2025-12-03 00:41:36,207 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PA=F entries:1346]
+2025-12-03 00:41:36,207 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CL=F entries:1320]
+2025-12-03 00:41:36,208 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HO=F entries:1319]
+2025-12-03 00:41:36,208 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NG=F entries:1319]
+2025-12-03 00:41:36,208 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:RB=F entries:1310]
+2025-12-03 00:41:36,209 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:BZ=F entries:957]
+2025-12-03 00:41:36,209 INFO src.mvc.core.DataTKxSignalAggregatorMVC: 
+------------ B0=F TKx value empty --------------
+2025-12-03 00:41:36,209 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZC=F entries:1323]
+2025-12-03 00:41:36,210 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZO=F entries:1350]
+2025-12-03 00:41:36,210 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KE=F entries:1316]
+2025-12-03 00:41:36,210 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZR=F entries:1368]
+2025-12-03 00:41:36,211 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZM=F entries:1329]
+2025-12-03 00:41:36,211 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZL=F entries:1340]
+2025-12-03 00:41:36,212 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZS=F entries:1317]
+2025-12-03 00:41:36,212 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GF=F entries:1287]
+2025-12-03 00:41:36,212 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HE=F entries:1304]
+2025-12-03 00:41:36,213 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:LE=F entries:1289]
+2025-12-03 00:41:36,213 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CC=F entries:1352]
+2025-12-03 00:41:36,214 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KC=F entries:1353]
+2025-12-03 00:41:36,214 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CT=F entries:1353]
+2025-12-03 00:41:36,214 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:LBS=F entries:1188]
+2025-12-03 00:41:36,215 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:OJ=F entries:1264]
+2025-12-03 00:41:36,215 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SB=F entries:1345]
+2025-12-03 00:41:36,219 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Aggregator Futures-tkx-W.csv and .xml are created
+
+2025-12-03 00:41:36,219 INFO src.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/futures/m/ -----------
+2025-12-03 00:41:36,219 INFO src.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::False
+2025-12-03 00:41:36,262 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ES=F entries:260]
+2025-12-03 00:41:36,262 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:YM=F entries:244]
+2025-12-03 00:41:36,263 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NQ=F entries:260]
+2025-12-03 00:41:36,263 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:RTY=F entries:88]
+2025-12-03 00:41:36,263 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZB=F entries:260]
+2025-12-03 00:41:36,264 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZN=F entries:260]
+2025-12-03 00:41:36,264 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZF=F entries:260]
+2025-12-03 00:41:36,264 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZT=F entries:263]
+2025-12-03 00:41:36,264 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GC=F entries:261]
+2025-12-03 00:41:36,265 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MGC=F entries:157]
+2025-12-03 00:41:36,265 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SI=F entries:261]
+2025-12-03 00:41:36,265 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SIL=F entries:129]
+2025-12-03 00:41:36,266 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PL=F entries:278]
+2025-12-03 00:41:36,266 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HG=F entries:261]
+2025-12-03 00:41:36,266 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PA=F entries:277]
+2025-12-03 00:41:36,266 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CL=F entries:261]
+2025-12-03 00:41:36,267 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HO=F entries:260]
+2025-12-03 00:41:36,267 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NG=F entries:261]
+2025-12-03 00:41:36,267 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:RB=F entries:259]
+2025-12-03 00:41:36,268 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:BZ=F entries:190]
+2025-12-03 00:41:36,268 INFO src.mvc.core.DataTKxSignalAggregatorMVC: 
+------------ B0=F TKx value empty --------------
+2025-12-03 00:41:36,268 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZC=F entries:262]
+2025-12-03 00:41:36,268 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZO=F entries:271]
+2025-12-03 00:41:36,268 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KE=F entries:260]
+2025-12-03 00:41:36,269 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZR=F entries:272]
+2025-12-03 00:41:36,269 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZM=F entries:264]
+2025-12-03 00:41:36,269 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZL=F entries:266]
+2025-12-03 00:41:36,269 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZS=F entries:260]
+2025-12-03 00:41:36,270 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GF=F entries:254]
+2025-12-03 00:41:36,270 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HE=F entries:258]
+2025-12-03 00:41:36,270 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:LE=F entries:255]
+2025-12-03 00:41:36,271 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CC=F entries:267]
+2025-12-03 00:41:36,271 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KC=F entries:268]
+2025-12-03 00:41:36,271 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CT=F entries:268]
+2025-12-03 00:41:36,271 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:LBS=F entries:275]
+2025-12-03 00:41:36,272 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:OJ=F entries:251]
+2025-12-03 00:41:36,272 INFO src.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SB=F entries:266]
+2025-12-03 00:41:36,275 INFO src.mvc.core.DataTKxSignalAggregatorMVC: Aggregator Futures-tkx-M.csv and .xml are created
+
+2025-12-03 00:41:36,275 INFO src.mvc.core.DataTKxSignalMultiTimeframeMerger: ------------- Merging Multi Timeframe TKx -------------
+2025-12-03 00:41:36,289 INFO src.mvc.core.DataTKxSignalMultiTimeframeMerger: Multi Timeframe TKx Signals Merged: output/tkx/Futures-tkx-merged.csv
+2025-12-03 00:41:36,290 INFO src.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1H TKx Direction', '1H TKx Count']
+2025-12-03 00:41:36,291 INFO src.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1D TKx Direction', '1D TKx Count']
+2025-12-03 00:41:36,291 INFO src.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1W TKx Direction', '1W TKx Count']
+2025-12-03 00:41:36,292 INFO src.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1M TKx Direction', '1M TKx Count']
+2025-12-03 00:41:36,304 INFO src.mvc.core.DataTKxSignalMultiTimeframeMerger: -------------------- TKx Score Multi Timeframe Raw --------------------
+%s    Symbol                             Name  ...  1W TKx Score  1M TKx Score
+0    KC=F                    Coffee Dec 25  ...            10            15
+1    NG=F               Natural Gas Jan 26  ...             6             6
+2    ZF=F  Five-Year US Treasury Note Futu  ...            12             8
+3    ZN=F  10-Year T-Note Futures,Dec-2025  ...            14             2
+4    ZO=F             Oat Futures,Dec-2025  ...           -14           -30
+5    SI=F                    Silver Dec 25  ...            26            24
+6    KE=F    KC HRW Wheat Futures,Mar-2026  ...           -33           -25
+7    ZS=F         Soybean Futures,Jan-2026  ...             8           -27
+8   SIL=F    Micro Silver Futures,Dec-2025  ...            26            24
+9    HG=F                    Copper Dec 25  ...           -10            18
+10   YM=F  Mini Dow Jones Indus.-$5 Dec 25  ...            24            25
+11   ZT=F   2-Year T-Note Futures,Mar-2026  ...            10            10
+12   PA=F                 Palladium Mar 26  ...            26             3
+13  RTY=F  E-mini Russell 2000 Index Futur  ...            24            16
+14   RB=F                               --  ...           -14           -28
+15   SB=F                 Sugar #11 Mar 26  ...           -47           -14
+16   CT=F                    Cotton Dec 25  ...           -22           -30
+17   ES=F            E-Mini S&P 500 Dec 25  ...            26            25
+18   LE=F     Live Cattle Futures,Dec-2025  ...            -3            51
+19   CL=F                 Crude Oil Jan 26  ...           -15           -28
+20   BZ=F  Brent Crude Oil Last Day Financ  ...           -15           -28
+21   ZC=F            Corn Futures,Dec-2025  ...             4           -28
+22   HO=F                               --  ...            -1           -29
+23   GF=F  WisdomTree International High D  ...            55            51
+24   OJ=F              Orange Juice Jan 26  ...           -10            -3
+25   HE=F        Lean Hog Futures,Feb-2026  ...           -14            10
+26   NQ=F                Nasdaq 100 Dec 25  ...            26            23
+27   GC=F                      Gold Dec 25  ...           105            24
+28   CC=F                     Cocoa Mar 26  ...           -20            50
+29  MGC=F      Micro Gold Futures,Dec-2025  ...           105            26
+30   ZR=F      Rough Rice Futures,Jan-2026  ...           -51            -1
+31   PL=F                  Platinum Jan 26  ...            26             7
+32   ZB=F  U.S. Treasury Bond Futures,Dec-  ...            10           -45
+33   ZM=F  S&P Composite 1500 ESG Tilted I  ...            10           -21
+34   ZL=F     Soybean Oil Futures,Jan-2026  ...            -7           -28
+
+[35 rows x 14 columns]
+2025-12-03 00:41:36,306 INFO src.mvc.core.DataTKxSignalMultiTimeframeMerger: ------ Cleaning columns ------
+2025-12-03 00:41:36,308 INFO src.mvc.core.DataTKxSignalMultiTimeframeMerger: Saved data to: output/tkx/Futures-tkx-merged.csv.html
+2025-12-03 00:41:36,317 INFO src.mvc.core.DataTKxSignalMultiTimeframeMerger: ----------- TKx Score Multi Timeframe Final View -----------
+%s    Symbol                             Name  ...  1M TKx Score  TKx Score Sum
+29  MGC=F      Micro Gold Futures,Dec-2025  ...            26            108
+27   GC=F                      Gold Dec 25  ...            24            106
+23   GF=F  WisdomTree International High D  ...            51            104
+1    NG=F               Natural Gas Jan 26  ...             6             66
+26   NQ=F                Nasdaq 100 Dec 25  ...            23             66
+5    SI=F                    Silver Dec 25  ...            24             65
+8   SIL=F    Micro Silver Futures,Dec-2025  ...            24             65
+17   ES=F            E-Mini S&P 500 Dec 25  ...            25             58
+10   YM=F  Mini Dow Jones Indus.-$5 Dec 25  ...            25             55
+18   LE=F     Live Cattle Futures,Dec-2025  ...            51             47
+34   ZL=F     Soybean Oil Futures,Jan-2026  ...           -28             34
+13  RTY=F  E-mini Russell 2000 Index Futur  ...            16             19
+0    KC=F                    Coffee Dec 25  ...            15             18
+12   PA=F                 Palladium Mar 26  ...             3             18
+9    HG=F                    Copper Dec 25  ...            18             15
+11   ZT=F   2-Year T-Note Futures,Mar-2026  ...            10             11
+31   PL=F                  Platinum Jan 26  ...             7              8
+2    ZF=F  Five-Year US Treasury Note Futu  ...             8              4
+3    ZN=F  10-Year T-Note Futures,Dec-2025  ...             2              3
+28   CC=F                     Cocoa Mar 26  ...            50              0
+7    ZS=F         Soybean Futures,Jan-2026  ...           -27              0
+25   HE=F        Lean Hog Futures,Feb-2026  ...            10            -13
+21   ZC=F            Corn Futures,Dec-2025  ...           -28            -18
+22   HO=F                               --  ...           -29            -27
+4    ZO=F             Oat Futures,Dec-2025  ...           -30            -28
+6    KE=F    KC HRW Wheat Futures,Mar-2026  ...           -25            -31
+14   RB=F                               --  ...           -28            -35
+24   OJ=F              Orange Juice Jan 26  ...            -3            -35
+33   ZM=F  S&P Composite 1500 ESG Tilted I  ...           -21            -42
+16   CT=F                    Cotton Dec 25  ...           -30            -47
+20   BZ=F  Brent Crude Oil Last Day Financ  ...           -28            -60
+19   CL=F                 Crude Oil Jan 26  ...           -28            -62
+30   ZR=F      Rough Rice Futures,Jan-2026  ...            -1            -76
+32   ZB=F  U.S. Treasury Bond Futures,Dec-  ...           -45            -96
+15   SB=F                 Sugar #11 Mar 26  ...           -14            -99
+
+[35 rows x 7 columns]
+2025-12-03 00:41:36,317 INFO src.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: 
+------------- Merging Multi Timeframe Cloud and TKx Sum -------------
+2025-12-03 00:41:36,322 INFO src.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: Multi Timeframe Cloud and TKx Signals Merged
+2025-12-03 00:41:36,324 INFO src.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: Saved data to: output/sum/Futures-sum-cloud-tkx-merged.csv output/sum/Futures-sum-cloud-tkx-merged.csv.html
+2025-12-03 00:41:36,339 INFO src.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: ----------- Cloud and TKx Sum Score Multi Timeframe Final View -----------
+%s    Symbol                             Name  ...  TKx Score Sum  Total Score Sum
+0    NQ=F                Nasdaq 100 Dec 25  ...             66              371
+1   SIL=F    Micro Silver Futures,Dec-2025  ...             65              367
+2   MGC=F      Micro Gold Futures,Dec-2025  ...            108              359
+3    GC=F                      Gold Dec 25  ...            106              348
+4    SI=F                    Silver Dec 25  ...             65              298
+5    ES=F            E-Mini S&P 500 Dec 25  ...             58              244
+6    YM=F  Mini Dow Jones Indus.-$5 Dec 25  ...             55              230
+8    GF=F  WisdomTree International High D  ...            104              202
+7    KC=F                    Coffee Dec 25  ...             18              154
+9    LE=F     Live Cattle Futures,Dec-2025  ...             47              144
+10   NG=F               Natural Gas Jan 26  ...             66              141
+11   ZL=F     Soybean Oil Futures,Jan-2026  ...             34              106
+12   ZT=F   2-Year T-Note Futures,Mar-2026  ...             11               62
+13   HG=F                    Copper Dec 25  ...             15               55
+14   PL=F                  Platinum Jan 26  ...              8               47
+16  RTY=F  E-mini Russell 2000 Index Futur  ...             19               39
+18   PA=F                 Palladium Mar 26  ...             18               20
+15   ZC=F            Corn Futures,Dec-2025  ...            -18               10
+17   ZS=F         Soybean Futures,Jan-2026  ...              0               10
+19   HO=F                               --  ...            -27              -28
+20   KE=F    KC HRW Wheat Futures,Mar-2026  ...            -31              -44
+25   ZF=F  Five-Year US Treasury Note Futu  ...              4              -44
+22   HE=F        Lean Hog Futures,Feb-2026  ...            -13              -45
+21   ZM=F  S&P Composite 1500 ESG Tilted I  ...            -42              -65
+23   ZO=F             Oat Futures,Dec-2025  ...            -28              -68
+28   ZN=F  10-Year T-Note Futures,Dec-2025  ...              3              -69
+24   RB=F                               --  ...            -35              -76
+31   CC=F                     Cocoa Mar 26  ...              0              -96
+26   CL=F                 Crude Oil Jan 26  ...            -62             -133
+29   BZ=F  Brent Crude Oil Last Day Financ  ...            -60             -140
+32   CT=F                    Cotton Dec 25  ...            -47             -144
+34   OJ=F              Orange Juice Jan 26  ...            -35             -150
+27   SB=F                 Sugar #11 Mar 26  ...            -99             -171
+33   ZR=F      Rough Rice Futures,Jan-2026  ...            -76             -188
+30   ZB=F  U.S. Treasury Bond Futures,Dec-  ...            -96             -189
+
+[35 rows x 14 columns]
+2025-12-03 00:41:36,340 INFO src.mvc.html_creator: ------------- Generating Html table -------------
+2025-12-03 00:41:36,350 INFO src.mvc.html_creator: Table generated at 2025-12-03 00:41:36
+2025-12-03 00:41:36,350 INFO src.mvc.html_creator: HTML table generated.
+2025-12-03 00:41:36,351 INFO src.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: generate_html output/sum/Futures-sum-cloud-tkx-merged.csv
+2025-12-03 00:41:36,351 INFO src.mvc.html_creator: HTML data table saved at output/sum/Futures-sum-cloud-tkx-merged.csv.html
+2025-12-03 00:41:36,351 INFO scripts.runFutures: Futures tasks completed at 2025-12-03 00:41:36 [UK] (Time elapsed: 0:01:35.218312)
