@@ -53,9 +53,23 @@ def setup_runner_logging(
     root = logging.getLogger()
     root.setLevel(logging.INFO)
 
-    # remove existing handlers to avoid duplicate logs when re-imported
-    for h in list(root.handlers):
-        root.removeHandler(h)
+    # Reduce noisy third-party INFO logs that clutter runner logs
+    # e.g. numexpr prints a startup INFO line about thread defaults.
+    logging.getLogger("numexpr").setLevel(logging.WARNING)
+
+    # If logging is already configured (root has handlers), do not reconfigure.
+    # This prevents individual runner modules (which call this at import time)
+    # from overriding the top-level runner log file. Instead, return the
+    # file path used by the existing FileHandler if present.
+    if root.handlers:
+        for h in root.handlers:
+            if isinstance(h, logging.FileHandler):
+                try:
+                    return h.baseFilename
+                except Exception:
+                    return filename
+        # root has handlers but none is a FileHandler; leave configuration alone
+        return filename
 
     fmt = logging.Formatter("%(asctime)s %(levelname)s %(name)s: %(message)s")
     sh = logging.StreamHandler()
