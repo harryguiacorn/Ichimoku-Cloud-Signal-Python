@@ -60,7 +60,8 @@ def setup_runner_logging(
     fmt = logging.Formatter("%(asctime)s %(levelname)s %(name)s: %(message)s")
     sh = logging.StreamHandler()
     sh.setFormatter(fmt)
-    fh = logging.FileHandler(filename, encoding="utf-8")
+    # open the log file in write mode so each run overwrites previous logs
+    fh = logging.FileHandler(filename, mode="w", encoding="utf-8")
     fh.setFormatter(fmt)
 
     root.addHandler(sh)

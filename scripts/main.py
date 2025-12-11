@@ -122,7 +122,7 @@ def main():
     london_tz_start = timezone("Europe/London")
     time_start = datetime.now(london_tz_start)
     time_start_formatted = time_start.strftime("%Y-%m-%d %H:%M:%S")
-    print(f"Main Task begins at: {time_start_formatted} [UK]")
+    logger.info(f"Main Task begins at: {time_start_formatted} [UK]")
 
     # ---------------- Oanda ----------------
 
@@ -138,7 +138,7 @@ def main():
         run_Multi_TimeFrame_Merger_Oanda,
         fetch_kicker,
     )
-    print("\nTasks completed.")
+    logger.info("\nTasks completed.")
 
     # ---------------- Dow Jones 30 ----------------
 
@@ -306,7 +306,7 @@ def main():
     time_finish = datetime.now(london_tz_finish)
     time_elapsed = time_finish - time_start
     time_finish_formatted = time_finish.strftime("%Y-%m-%d %H:%M:%S")
-    print(
+    logger.info(
         f"\nMain Tasks completed at {time_finish_formatted} [UK] (Time elapsed: {time_elapsed})",
     )
 
