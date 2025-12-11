@@ -136,6 +136,9 @@ class Model(object):
                 )
 
                 # clean data
+                if isinstance(data.columns, pd.MultiIndex):
+                    data.columns = data.columns.droplevel(1)
+                
                 df_dropped_rows = data.dropna()
 
                 # print("getLatestDataFromYahooByYFinance", df_dropped_rows)
