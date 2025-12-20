@@ -1,0 +1,51 @@
+name: Daily Ichimoku Scan
+
+# Trigger: Run automatically every day at 8:00 AM UTC, or manually when you click a button
+on:
+  schedule:
+    - cron: '15 22 * * *' # 22:15 UTC is 5:15 PM EST / 6:15 PM EDT
+  workflow_dispatch:      # Allows you to click "Run Now" button manually
+
+permissions:
+  contents: write         # Gives permission to save the new scan results back to the repo
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Download your code
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # 2. Set up Python (CI)
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    # 3. Install your libraries (CI)
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    # 4. Run your Scan (CD)
+    # This replaces your manual Colab step. 
+    # Adjust 'main.py' to whichever script generates the output files.
+    - name: Run Ichimoku Scanner - SPDR_ETFs
+      run: |
+        python runSPDR_ETFs.py
+
+    # 5. Save results back to GitHub (CD)
+    # This automatically updates your 'output_*.txt' files
+    - name: Commit and Push changes
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git status
+        git add --all
+        git diff --staged --quiet || git commit -m "Daily updates Github Action - SPDR ETFs"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
