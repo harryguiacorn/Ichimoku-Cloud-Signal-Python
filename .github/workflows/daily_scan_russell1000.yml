@@ -1,4 +1,4 @@
-name: Daily Ichimoku Scan
+name: Daily Ichimoku Scan - Russell 1000
 
 # Trigger: Run automatically every day at 8:00 AM UTC, or manually when you click a button
 on:
@@ -33,9 +33,9 @@ jobs:
     # 4. Run your Scan (CD)
     # This replaces your manual Colab step. 
     # Adjust 'main.py' to whichever script generates the output files.
-    - name: Run Ichimoku Scanner
+    - name: Run Ichimoku Scanner - Russell 1000
       run: |
-        python main.py
+        python runRussell1000.py
 
     # 5. Save results back to GitHub (CD)
     # This automatically updates your 'output_*.txt' files
@@ -45,7 +45,7 @@ jobs:
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git status
         git add --all
-        git diff --staged --quiet || git commit -m "Daily updates Github Action - Main"
+        git diff --staged --quiet || git commit -m "Daily updates Github Action - Russell 1000"
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
