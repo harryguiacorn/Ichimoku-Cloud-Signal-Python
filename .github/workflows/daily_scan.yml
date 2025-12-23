@@ -43,9 +43,23 @@ jobs:
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
         git status
         git add --all
-        git diff --staged --quiet || git commit -m "Daily updates Github Action - Main"
-        git push
+
+        # If there are no staged changes, exit cleanly
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+          exit 0
+        fi
+
+        git commit -m "Daily updates Github Action - Main"
+
+        # Rebase on top of the latest master to avoid push conflicts
+        git pull --rebase origin master
+
+        # Push our changes (now a fast‑forward)
+        git push origin HEAD:master
+
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
