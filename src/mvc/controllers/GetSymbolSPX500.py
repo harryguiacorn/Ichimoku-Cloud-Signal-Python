@@ -1,6 +1,7 @@
 import logging
 import pandas as pd
 import requests
+import io
 
 
 class Model(object):
@@ -29,8 +30,9 @@ class Model(object):
             response = requests.get(self.url, headers=headers)
             response.raise_for_status()  # Raise an error for bad status codes
 
-            # Read HTML tables from response text
-            tables = pd.read_html(response.text, match=self.readHtmlMatch)
+            # Read HTML tables from response text; wrap literal HTML in StringIO
+            html_string_io = io.StringIO(response.text)
+            tables = pd.read_html(html_string_io, match=self.readHtmlMatch)
             # print(f"Total symbols: {len(tables )}")
             # print("Columns found:", self.df_list.columns.tolist())
             # print(f"Symbols: {tables}")

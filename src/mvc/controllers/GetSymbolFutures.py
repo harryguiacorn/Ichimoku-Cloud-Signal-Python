@@ -1,6 +1,8 @@
 import pandas as pd
 import requests
+import io
 import logging
+
 logger = logging.getLogger(__name__)
 
 
@@ -37,7 +39,9 @@ class Model(object):
 
         logger.info(f"response.status_code:{response.status_code}")
 
-        df_temp = pd.read_html(response.content)
+        # Wrap the response HTML in StringIO to avoid passing literal HTML
+        html_string_io = io.StringIO(response.text)
+        df_temp = pd.read_html(html_string_io)
         logger.info(f"Web Content::\n{df_temp}")
 
         # df_symbols = df[0][["Symbol"]] # If Yahoo Finance removed "Name", Otherwise use OLD CODING: df[0][["Symbol", "Name"]]
