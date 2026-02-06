@@ -52,7 +52,7 @@ def main(
     fetch_kijun_analysis=fetch_kijun_analysis,
     fetch_Kicker_use_datetime_format=fetch_Kicker_use_datetime_format,
     run_Multi_TimeFrame_Merger_SPX500=run_Multi_TimeFrame_Merger_SPX500,
-    fetch_kicker=run_Multi_TimeFrame_Merger_SPX500,
+    fetch_kicker=fetch_kicker,
 ):
     # Stop script being auto-run by Replit or Gitpod
     # return

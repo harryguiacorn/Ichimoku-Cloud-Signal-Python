@@ -33,7 +33,49 @@ class DataKickerSignal(DataOHLC):
             if __data.empty:  # Check if the DataFrame is empty
                 logger.info(f"CSV file is empty{__path}")
             else:
-                __data.index = __data.Date
+                # Robustly determine the date column. Some CSVs may use 'Date', 'date',
+                # or have the date saved as the first/unnamed column. Ensure a
+                # `Date` column exists and parse it to datetime before setting index.
+                date_col = None
+                cols_lower = [c.lower() for c in __data.columns]
+                if "date" in __data.columns:
+                    date_col = "date"
+                elif "Date" in __data.columns:
+                    date_col = "Date"
+                elif "date" in cols_lower:
+                    # pick the column whose lower-case name matches 'date'
+                    for c in __data.columns:
+                        if c.lower() == "date":
+                            date_col = c
+                            break
+                else:
+                    # fallback: use first column (often it's the date or an unnamed index)
+                    date_col = __data.columns[0]
+
+                # Normalize into a 'Date' column so downstream code can rely on it
+                if date_col != "Date":
+                    __data["Date"] = __data[date_col]
+
+                # Try parsing dates; if parsing fails, leave values as-is but avoid AttributeError
+                try:
+                    __data["Date"] = pd.to_datetime(
+                        __data["Date"], errors="coerce", infer_datetime_format=True
+                    )
+                except Exception:
+                    logger.debug(
+                        f"Failed to parse dates for {__path} in column {date_col}"
+                    )
+
+                if __data["Date"].isnull().all():
+                    # If no valid dates were parsed, keep original values as strings to avoid attribute errors
+                    __data["Date"] = __data["Date"].astype(str)
+
+                __data.index = __data["Date"]
+
+                # Ensure numeric columns are numeric types so arithmetic works
+                for _col in ("Open", "High", "Low", "Close"):
+                    if _col in __data.columns:
+                        __data[_col] = pd.to_numeric(__data[_col], errors="coerce")
                 # __data['Returns'] = self.getReturn(__data['Close'],
                 #                                    __data['Close'].shift(1))
                 __data["Kicker"] = self.getKickerSignal(
