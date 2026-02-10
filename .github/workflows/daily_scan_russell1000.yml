@@ -17,9 +17,6 @@ jobs:
     # 1. Download your code
     - name: Checkout code
       uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-        persist-credentials: true
 
     # 2. Set up Python (CI)
     - name: Set up Python
@@ -44,11 +41,13 @@ jobs:
     # This automatically updates your 'output_*.txt' files
     - name: Commit and Push changes
       run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
+        git status
         git add --all
 
+        # If there are no staged changes, exit cleanly
         if git diff --staged --quiet; then
           echo "No changes to commit"
           exit 0
@@ -56,12 +55,11 @@ jobs:
 
         git commit -m "Daily updates Github Action - Russell 1000"
 
-        git fetch origin master
-        if git rev-parse --verify origin/master >/dev/null 2>&1; then
-          git rebase origin/master || (git rebase --abort && git push --force-with-lease origin HEAD:master)
-        else
-          git push origin HEAD:master
-        fi
+        # Rebase on top of the latest master to avoid push conflicts
+        git pull --rebase origin master
+
+        # Push our changes (now a fast‑forward)
+        git push origin HEAD:master
         
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
