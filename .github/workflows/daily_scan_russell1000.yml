@@ -53,10 +53,10 @@ jobs:
           exit 0
         fi
 
-        git commit -m "Daily updates Github Action - Russell 1000"
-
         # Rebase on top of the latest master to avoid push conflicts
         git pull --rebase origin master
+        
+        git commit -m "Daily updates Github Action - Russell 1000"
 
         # Push our changes (now a fast‑forward)
         git push origin HEAD:master

@@ -40,8 +40,8 @@ jobs:
           echo "No changes to commit"
           exit 0
         fi
-        git commit -m "Daily updates Github Action - Oanda"
         git pull --rebase origin master
+        git commit -m "Daily updates Github Action - Oanda"
         git push origin HEAD:master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
