@@ -45,6 +45,8 @@ jobs:
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
         git status
+        # Rebase on top of the latest master to avoid push conflicts
+        git pull --rebase origin master
         git add --all
 
         # If there are no staged changes, exit cleanly
@@ -53,8 +55,6 @@ jobs:
           exit 0
         fi
 
-        # Rebase on top of the latest master to avoid push conflicts
-        git pull --rebase origin master
         
         git commit -m "Daily updates Github Action - Russell 1000"
 

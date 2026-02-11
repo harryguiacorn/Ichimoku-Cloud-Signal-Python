@@ -35,12 +35,12 @@ jobs:
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git status
+        git pull --rebase origin master
         git add --all
         if git diff --staged --quiet; then
           echo "No changes to commit"
           exit 0
         fi
-        git pull --rebase origin master
         git commit -m "Daily updates Github Action - DJ30"
         git push origin HEAD:master
       env:
