@@ -1,6 +1,5 @@
 name: Daily Ichimoku Scan - Futures
 
-# Trigger: Run automatically every day at 8:00 AM UTC, or manually when you click a button
 on:
   schedule:
     - cron: '15 21 * * 1-5' # 21:15 UTC, Monday–Friday only
@@ -30,35 +29,26 @@ jobs:
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    # 4. Sync remote
-    - name: Sync remote
-      run: |
-        git pull --rebase --autostash origin master
-
-    # 5. Run your Scan (CD)
+    # 4. Run your Scan (CD)
     - name: Run Ichimoku Scanner - Futures
       run: |
         python runFutures.py
 
-    # 6. Save results back to GitHub (CD)
+    # 5. Save results back to GitHub (CD)
     - name: Commit and Push changes
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
         git status
-        # Rebase on top of the latest master to avoid push conflicts
-        git pull --rebase origin master
-
-        # If there are no staged changes, exit cleanly
+        git add --all
         if git diff --staged --quiet; then
           echo "No changes to commit"
           exit 0
         fi
 
         git commit -m "Daily updates Github Action - Futures"
-
-        # Push our changes (now a fast‑forward)
         git push origin HEAD:master
+
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
