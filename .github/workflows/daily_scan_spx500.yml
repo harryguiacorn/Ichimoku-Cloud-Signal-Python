@@ -5,6 +5,11 @@ on:
     - cron: '15 21 * * 1-5' # 21:15 UTC, Monday–Friday only
   workflow_dispatch:      # Allows you to click "Run Now" button manually
 
+  # Add this to queue workflows instead of canceling them
+concurrency:
+  group: ichimoku-scans
+  cancel-in-progress: false
+
 permissions:
   contents: write         # Gives permission to save the new scan results back to the repo
 
