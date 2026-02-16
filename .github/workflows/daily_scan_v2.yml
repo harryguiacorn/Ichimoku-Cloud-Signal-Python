@@ -15,10 +15,17 @@ jobs:
       matrix:
         market:
           - { name: 'DJ30', script: 'runDJ30.py' }
-          # - { name: 'SP500', script: 'runSP500.py' }
+          - { name: 'SP500', script: 'runSPX500.py' }
           - { name: 'NASDAQ', script: 'runNas100.py' }
-          # - { name: 'Russell2000', script: 'runRussell2000.py' }
-          # ... add all 16 markets
+          - { name: 'SPDR ETFs', script: 'runSPDR_ETFs.py' }
+          - { name: 'Oanda', script: 'runOanda.py' }
+          - { name: 'FTSE100', script: 'runFTSE100.py' }
+          - { name: 'FTSE250', script: 'runFTSE250.py' }
+          - { name: 'Futures', script: 'runFutures.py' }
+          - { name: 'Currency Futures', script: 'runCurrencyFutures.py' }
+          - { name: 'HSI', script: 'runHSI.py' }
+          - { name: 'Kraken', script: 'runKraken.py' }
+          - { name: 'Russell1000', script: 'runRussell1000.py' }
       max-parallel: 1  # Forces sequential execution
     
     steps:
