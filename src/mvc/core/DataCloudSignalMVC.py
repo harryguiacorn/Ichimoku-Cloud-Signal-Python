@@ -60,11 +60,13 @@ class DataCloudSignal(DataOHLC):
             __data = __data.drop(__data.index[0])
 
             logger.info(
-                f"{self.symbol} - Incorrect format detected and corrected.")
+                f"{self.symbol} - Incorrect format detected and corrected."
+            )
 
         else:
             logger.info(
-                f"{self.symbol} - File is already in the correct format.")
+                f"{self.symbol} - File is already in the correct format."
+            )
 
         # Display the resulting DataFrame
         # print(__data)
@@ -380,6 +382,16 @@ class Model(object):
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
         # print("------ readAssetList --------\n", df.to_string())
+
+        # Remove rows where symbol is missing or empty
+        df = df[df[__colName].notna()]
+        df[__colName] = (
+            df[__colName]
+            .astype(str)
+            .str.strip()
+            .str.replace("/", "", regex=False)
+        )
+        df = df[df[__colName] != ""]
 
         # Remove any slashes from the 'symbol' column, specific for Kraken
         df[__colName] = df[__colName].str.replace("/", "", regex=False)

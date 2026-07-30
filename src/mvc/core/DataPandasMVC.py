@@ -82,13 +82,19 @@ class Model(object):
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
 
-        # Remove any slashes from the 'symbol' column
-        df[__colName] = df[__colName].str.replace("/", "", regex=False)
+        # Remove rows where symbol is missing or empty
+        df = df[df[__colName].notna()]
+        df[__colName] = (
+            df[__colName]
+            .astype(str)
+            .str.strip()
+            .str.replace("/", "", regex=False)
+        )
+        df = df[df[__colName] != ""]
 
         logger.info("----------- Reading symbols -----------")
         logger.info(f"readAssetList path: {__csvPath}")
         logger.debug(df.values.ravel().tolist())
-        # print(df[__colName])
         l_symbol = df[__colName].tolist()
         self.symbols = l_symbol
         return l_symbol
