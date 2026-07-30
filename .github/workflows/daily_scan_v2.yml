@@ -26,55 +26,85 @@ jobs:
           - { name: 'HSI', script: 'runHSI.py' }
           - { name: 'Kraken', script: 'runKraken.py' }
           - { name: 'Russell1000', script: 'runRussell1000.py' }
-      max-parallel: 1  # Forces sequential execution
-    
+      max-parallel: 1
+      fail-fast: false
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-      with:
-        ref: master
-    
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
-    
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    
-    - name: Run Ichimoku Scanner - ${{ matrix.market.name }}
-      run: python ${{ matrix.market.script }}
-    
-    - name: Pull latest changes
-      run: git pull origin master
-    
-    - name: Commit and Push changes
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add --all
-        
-        if git diff --staged --quiet; then
-          echo "No changes to commit for ${{ matrix.market.name }}"
-          exit 0
-        fi
-        
-        git commit -m "Daily updates Github Action - ${{ matrix.market.name }}"
-        
-        # Retry with pull if push fails
-        MAX_RETRIES=3
-        for i in $(seq 1 $MAX_RETRIES); do
-          if git push origin HEAD:master; then
-            echo "Push successful"
-            exit 0
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: master
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Ichimoku Scanner - ${{ matrix.market.name }}
+        id: run_scanner
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -o pipefail
+          python ${{ matrix.market.script }} 2>&1 | tee "error_log_${{ matrix.market.name }}.txt"
+          exit ${PIPESTATUS[0]}
+
+      - name: Log failure to file
+        if: steps.run_scanner.outcome == 'failure'
+        run: |
+          echo "$(date -u +'%Y-%m-%dT%H:%M:%SZ') - FAILED: ${{ matrix.market.name }} (${{ matrix.market.script }})" >> errors.log
+          cat "error_log_${{ matrix.market.name }}.txt" >> errors.log
+          echo "----" >> errors.log
+
+      - name: Write job summary
+        if: always()
+        run: |
+          if [ "${{ steps.run_scanner.outcome }}" == "failure" ]; then
+            {
+              echo "### ❌ ${{ matrix.market.name }} — FAILED"
+              echo ""
+              echo '```'
+              tail -n 20 "error_log_${{ matrix.market.name }}.txt" 2>/dev/null || echo "No output captured"
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "Push failed, retrying..."
-            git pull --rebase origin master
-            sleep 5
+            echo "### ✅ ${{ matrix.market.name }} — OK" >> "$GITHUB_STEP_SUMMARY"
           fi
-        done
-        exit 1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pull latest changes
+        run: git pull origin master
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add --all
+          if git diff --staged --quiet; then
+            echo "No changes to commit for ${{ matrix.market.name }}"
+            exit 0
+          fi
+          git commit -m "Daily updates Github Action - ${{ matrix.market.name }}"
+
+          MAXRETRIES=3
+          for i in $(seq 1 $MAXRETRIES); do
+            if git push origin HEAD:master; then
+              echo "Push successful"
+              exit 0
+            else
+              echo "Push failed, retrying…"
+              git pull --rebase origin master
+              sleep 5
+            fi
+          done
+          exit 1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Fail job if scanner failed (for red X visibility)
+        if: steps.run_scanner.outcome == 'failure'
+        run: exit 1

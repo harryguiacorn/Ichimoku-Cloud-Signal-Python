@@ -34,15 +34,19 @@ class Model(object):
 
             # Corrected line: Wrap the response text in StringIO
             html_string_io = io.StringIO(response.text)
-            self.df_list = pd.read_html(html_string_io)
+            frames = pd.read_html(html_string_io)
 
-            # self.df_list = pd.read_html(response.text)
-
-            # Find the table containing the 'Ticker' column
-            for df in self.df_list:
-                if "Ticker" in df.columns:
+            # Find the table containing both the 'Ticker' and 'Company' columns
+            self.df_list = None
+            for df in frames:
+                if {"Ticker", "Company"}.issubset(df.columns):
                     self.df_list = df
                     break
+
+            if self.df_list is None:
+                raise ValueError(
+                    "Unable to find the NASDAQ-100 company table with Ticker and Company columns."
+                )
 
             logger.info(f"Reading symbols from source: {self.url}")
             logger.info(f"Total symbols: {len(self.df_list)}")
@@ -101,9 +105,9 @@ def main(__fetch_symbols_latest=True):
     if __fetch_symbols_latest is False:
         return
     _model = Model(
-        "https://en.wikipedia.org/wiki/Nasdaq-100",
+        "https://en.wikipedia.org/wiki/List_of_NASDAQ-100_companies",
         "asset_list/Nasdaq100.csv",
-        "Components",
+        "",
     )
 
     _control = Control(_model, View())
