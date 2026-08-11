@@ -322,8 +322,15 @@ class Model(object):
         )
         df = pd.read_csv(__csvPath)
 
-        # Remove any slashes from the 'symbol' column
-        df[__colName] = df[__colName].str.replace("/", "", regex=False)
+        # Drop missing symbols and clean text values
+        df = df[df[__colName].notna()]
+        df[__colName] = (
+            df[__colName]
+            .astype(str)
+            .str.strip()
+            .str.replace("/", "", regex=False)
+        )
+        df = df[df[__colName] != ""]
 
         # print(df.to_string())
         l_symbol = df[__colName].tolist()
@@ -333,6 +340,9 @@ class Model(object):
     def readLocalCsvData(self, symbols, __csvPath):
         __dict_df = {}
         for __symbol in symbols:
+            __symbol = str(__symbol).strip()
+            if not __symbol:
+                continue
             try:
                 __filePath = __csvPath + __symbol + ".csv"
                 __df = pd.read_csv(__filePath)
