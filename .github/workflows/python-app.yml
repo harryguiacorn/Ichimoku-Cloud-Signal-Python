@@ -28,6 +28,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Validate asset lists
+      run: |
+        python scripts/validate_asset_lists.py
+    - name: Run tests
+      run: |
+        pytest -q
+    - name: Run lint
+      run: |
+        flake8 scripts src tests --max-line-length=120
     - name: Run script
       run: |
         python main.py

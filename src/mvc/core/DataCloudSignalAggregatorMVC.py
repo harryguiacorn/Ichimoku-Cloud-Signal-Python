@@ -43,17 +43,32 @@ class Model(object):
 
     def readLocalCsvData(self, symbols, __csvPath, __suffix):
         __dict_df: Dict[str, pd.DataFrame] = {}
+        skipped_symbols = []
+        missing_files = []
 
         for __symbol in symbols:
+            # skip empty or NaN symbols that may appear in asset lists
+            if pd.isna(__symbol):
+                skipped_symbols.append(__symbol)
+                logger.info("Skipping empty/NaN symbol in asset list")
+                continue
+
+            __symbol_str = str(__symbol)
             try:
-                __filePath = __csvPath + __symbol + __suffix + ".csv"
+                __filePath = __csvPath + __symbol_str + __suffix + ".csv"
                 __df = pd.read_csv(__filePath)
             except FileNotFoundError:
+                missing_files.append(__filePath)
                 logger.info(f"Error: {__filePath} not found\n")
                 continue
             else:
-                __dict_df[__symbol] = __df
-        # print(__dict_df)
+                __dict_df[__symbol_str] = __df
+
+        if skipped_symbols:
+            logger.info(f"Skipped symbols (empty/NaN): {skipped_symbols}")
+        if missing_files:
+            logger.info(f"Missing CSV files: {missing_files}")
+
         return __dict_df
 
     def readAssetList(self, __csvPath, __colName="symbol"):
@@ -236,7 +251,8 @@ class Control(object):
 
     def getData(self):
         logger.info(
-            f"self.model.use_datetime_format::{self.model.use_datetime_format}")
+            f"self.model.use_datetime_format::{self.model.use_datetime_format}"
+        )
         if self.model.use_datetime_format is False:
             return self.model.getLatestResultFromEachDataFrame()
         else:
