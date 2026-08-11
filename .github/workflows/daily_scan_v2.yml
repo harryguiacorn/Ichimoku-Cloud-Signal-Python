@@ -2,14 +2,45 @@ name: Daily Ichimoku Scans - All Markets
 
 on:
   schedule:
-    - cron: '15 21 * * 1-5'
+    # US market closes 4:00 PM Eastern. We want to run 15 min later (4:15 PM ET).
+    # Because GitHub Actions cron is always UTC and does not observe DST,
+    # we schedule BOTH possible UTC times and use a guard step to only
+    # actually run the one that matches real US Eastern time right now.
+    - cron: '15 20 * * 1-5'   # 16:15 ET when US is on EDT (summer, UTC-4)
+    - cron: '15 21 * * 1-5'   # 16:15 ET when US is on EST (winter, UTC-5)
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
+  guard:
+    runs-on: ubuntu-latest
+    outputs:
+      skip: ${{ steps.timecheck.outputs.skip }}
+    steps:
+      - name: Only proceed at actual 16:15 US Eastern time
+        id: timecheck
+        run: |
+          # workflow_dispatch (manual run) always proceeds
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          current_hm=$(TZ='America/New_York' date +'%H:%M')
+          echo "Current US Eastern time: $current_hm"
+
+          if [ "$current_hm" == "16:15" ]; then
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Not the target NY time — this trigger is the 'off-season' one, skipping."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+
   scan:
+    needs: guard
+    if: needs.guard.outputs.skip != 'true'
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -46,7 +77,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Ichimoku Scanner - ${{ matrix.market.name }}
-        id: run_scanner
+        id: runscanner
         continue-on-error: true
         shell: bash
         run: |
@@ -55,7 +86,7 @@ jobs:
           exit ${PIPESTATUS[0]}
 
       - name: Log failure to file
-        if: steps.run_scanner.outcome == 'failure'
+        if: steps.runscanner.outcome == 'failure'
         run: |
           echo "$(date -u +'%Y-%m-%dT%H:%M:%SZ') - FAILED: ${{ matrix.market.name }} (${{ matrix.market.script }})" >> errors.log
           cat "error_log_${{ matrix.market.name }}.txt" >> errors.log
@@ -64,7 +95,7 @@ jobs:
       - name: Write job summary
         if: always()
         run: |
-          if [ "${{ steps.run_scanner.outcome }}" == "failure" ]; then
+          if [ "${{ steps.runscanner.outcome }}" == "failure" ]; then
             {
               echo "### ❌ ${{ matrix.market.name }} — FAILED"
               echo ""
@@ -90,8 +121,8 @@ jobs:
           fi
           git commit -m "Daily updates Github Action - ${{ matrix.market.name }}"
 
-          MAXRETRIES=3
-          for i in $(seq 1 $MAXRETRIES); do
+          MAX_RETRIES=3
+          for i in $(seq 1 $MAX_RETRIES); do
             if git push origin HEAD:master; then
               echo "Push successful"
               exit 0
@@ -106,5 +137,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Fail job if scanner failed (for red X visibility)
-        if: steps.run_scanner.outcome == 'failure'
+        if: steps.runscanner.outcome == 'failure'
         run: exit 1
