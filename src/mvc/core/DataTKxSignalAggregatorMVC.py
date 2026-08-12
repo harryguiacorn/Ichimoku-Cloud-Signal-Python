@@ -47,27 +47,39 @@ class Model(object):
         __dict_df: Dict[str, pd.DataFrame] = {}
 
         for __symbol in symbols:
+            __symbol_text = str(__symbol).strip()
+            if __symbol_text == "" or __symbol_text.lower() == "nan":
+                continue
             try:
-                __filePath = __csvPath + __symbol + __suffix + ".csv"
+                __filePath = os.path.join(
+                    __csvPath, f"{__symbol_text}{__suffix}.csv"
+                )
                 __df = pd.read_csv(__filePath)
             except FileNotFoundError:
                 logger.info(f"Error: {__filePath} not found")
                 continue
             else:
-                __dict_df[__symbol] = __df
+                __dict_df[__symbol_text] = __df
         # print(__dict_df)
         return __dict_df
 
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)
 
-        # Remove any slashes from the 'symbol' column
-        df[__colName] = df[__colName].str.replace("/", "", regex=False)
+        # Drop missing symbols before string conversion, then normalize values.
+        df = df.dropna(subset=[__colName])
+        df[__colName] = (
+            df[__colName]
+            .astype(str)
+            .str.replace("/", "", regex=False)
+            .str.strip()
+        )
+        valid_mask = df[__colName].ne("") & ~df[
+            __colName
+        ].str.lower().str.startswith("nan")
+        df = df[valid_mask]
 
-        # print(df.to_string())
-        # l_symbol = df[__colName].tolist()
         d_symbol = df.to_dict(orient="list")
-        # print(d_symbol)
         return d_symbol
 
     def getLatestResultFromEachDataFrame(self):
@@ -216,7 +228,8 @@ class Control(object):
 
     def getData(self):
         logger.info(
-            f"self.model.use_datetime_format::{self.model.use_datetime_format}")
+            f"self.model.use_datetime_format::{self.model.use_datetime_format}"
+        )
         if self.model.use_datetime_format is False:
             return self.model.getLatestResultFromEachDataFrame()
         else:

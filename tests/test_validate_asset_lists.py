@@ -36,6 +36,7 @@ def test_read_asset_list_normalizes_symbols_and_skips_invalid(tmp_path: Path):
         " /GOOG,Google LLC\n"
         ",Missing\n"
         "nan,Null\n"
+        "nan.L,Bad Symbol\n"
     )
 
     data_dir = tmp_path / "data"
@@ -55,6 +56,25 @@ def test_read_asset_list_normalizes_symbols_and_skips_invalid(tmp_path: Path):
 
     assert symbols == ["AAPL", "MSFT", "GOOG"]
     assert all(isinstance(symbol, str) for symbol in symbols)
+    assert all(not symbol.lower().startswith("nan") for symbol in symbols)
 
     ohlc = model.readLocalCsvData(symbols, model.csvPath)
     assert set(ohlc.keys()) == {"AAPL", "MSFT", "GOOG"}
+
+
+def test_wiki_symbol_reader_drops_blank_last_row():
+    import pandas as pd
+    from src.mvc.controllers.GetSymbolFTSE250 import Model
+
+    model = Model("https://example.com", "asset_list/FTSE250.csv", "Company")
+    model.df_list = pd.DataFrame(
+        {
+            "Company": ["Alpha", "Beta", ""],
+            "Ticker": ["AAPL", "MSFT", ""],
+        }
+    )
+
+    model.cleanData()
+
+    assert list(model.df["symbol"]) == ["AAPL.L", "MSFT.L"]
+    assert list(model.df["name"]) == ["Alpha", "Beta"]

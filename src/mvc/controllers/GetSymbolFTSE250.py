@@ -43,15 +43,18 @@ class Model(object):
             raise
 
     def cleanData(self):
-        __df_list = self.df_list
+        __df_list = self.df_list.copy()
         self.df = __df_list
-        # print(self.df)
         self.df.rename(
             columns={"Company": "name", "Ticker": "symbol"}, inplace=True
         )
-        self.df["symbol"] = (
-            self.df["symbol"].astype(str) + ".L"
-        )  # add .L to symbol for Yahoo Finance
+
+        self.df = self.df[self.df["symbol"].notna()].copy()
+        self.df["symbol"] = self.df["symbol"].astype(str).str.strip()
+        self.df = self.df[self.df["symbol"] != ""].copy()
+        self.df["name"] = self.df["name"].astype(str).str.strip()
+        self.df = self.df[self.df["name"] != ""].copy()
+        self.df["symbol"] = self.df["symbol"] + ".L"
 
     def saveData(self):
         __columns = ["symbol", "name"]

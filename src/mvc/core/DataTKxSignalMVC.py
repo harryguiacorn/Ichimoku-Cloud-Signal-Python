@@ -331,6 +331,7 @@ class Model(object):
             .str.replace("/", "", regex=False)
         )
         df = df[df[__colName] != ""]
+        df = df[~df[__colName].str.lower().str.startswith("nan")]
 
         # print(df.to_string())
         l_symbol = df[__colName].tolist()
@@ -341,7 +342,7 @@ class Model(object):
         __dict_df = {}
         for __symbol in symbols:
             __symbol = str(__symbol).strip()
-            if not __symbol:
+            if not __symbol or __symbol.lower().startswith("nan"):
                 continue
             try:
                 __filePath = __csvPath + __symbol + ".csv"
