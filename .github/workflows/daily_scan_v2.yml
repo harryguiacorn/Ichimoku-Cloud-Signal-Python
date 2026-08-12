@@ -2,45 +2,14 @@ name: Daily Ichimoku Scans - All Markets
 
 on:
   schedule:
-    # US market closes 4:00 PM Eastern. We want to run 15 min later (4:15 PM ET).
-    # Because GitHub Actions cron is always UTC and does not observe DST,
-    # we schedule BOTH possible UTC times and use a guard step to only
-    # actually run the one that matches real US Eastern time right now.
-    - cron: '15 20 * * 1-5'   # 16:15 ET when US is on EDT (summer, UTC-4)
-    - cron: '15 21 * * 1-5'   # 16:15 ET when US is on EST (winter, UTC-5)
+    - cron: '15 21 * * 1-5'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  guard:
-    runs-on: ubuntu-latest
-    outputs:
-      skip: ${{ steps.timecheck.outputs.skip }}
-    steps:
-      - name: Only proceed at actual 16:15 US Eastern time
-        id: timecheck
-        run: |
-          # workflow_dispatch (manual run) always proceeds
-          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            echo "skip=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          current_hm=$(TZ='America/New_York' date +'%H:%M')
-          echo "Current US Eastern time: $current_hm"
-
-          if [ "$current_hm" == "16:15" ]; then
-            echo "skip=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "Not the target NY time — this trigger is the 'off-season' one, skipping."
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-          fi
-
   scan:
-    needs: guard
-    if: needs.guard.outputs.skip != 'true'
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -57,85 +26,55 @@ jobs:
           - { name: 'HSI', script: 'runHSI.py' }
           - { name: 'Kraken', script: 'runKraken.py' }
           - { name: 'Russell1000', script: 'runRussell1000.py' }
-      max-parallel: 1
-      fail-fast: false
-
+      max-parallel: 1  # Forces sequential execution
+    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          ref: master
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Run Ichimoku Scanner - ${{ matrix.market.name }}
-        id: runscanner
-        continue-on-error: true
-        shell: bash
-        run: |
-          set -o pipefail
-          python ${{ matrix.market.script }} 2>&1 | tee "error_log_${{ matrix.market.name }}.txt"
-          exit ${PIPESTATUS[0]}
-
-      - name: Log failure to file
-        if: steps.runscanner.outcome == 'failure'
-        run: |
-          echo "$(date -u +'%Y-%m-%dT%H:%M:%SZ') - FAILED: ${{ matrix.market.name }} (${{ matrix.market.script }})" >> errors.log
-          cat "error_log_${{ matrix.market.name }}.txt" >> errors.log
-          echo "----" >> errors.log
-
-      - name: Write job summary
-        if: always()
-        run: |
-          if [ "${{ steps.runscanner.outcome }}" == "failure" ]; then
-            {
-              echo "### ❌ ${{ matrix.market.name }} — FAILED"
-              echo ""
-              echo '```'
-              tail -n 20 "error_log_${{ matrix.market.name }}.txt" 2>/dev/null || echo "No output captured"
-              echo '```'
-            } >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "### ✅ ${{ matrix.market.name }} — OK" >> "$GITHUB_STEP_SUMMARY"
-          fi
-
-      - name: Pull latest changes
-        run: git pull origin master
-
-      - name: Commit and Push changes
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add --all
-          if git diff --staged --quiet; then
-            echo "No changes to commit for ${{ matrix.market.name }}"
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        ref: master
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    
+    - name: Run Ichimoku Scanner - ${{ matrix.market.name }}
+      run: python ${{ matrix.market.script }}
+    
+    - name: Pull latest changes
+      run: git pull origin master
+    
+    - name: Commit and Push changes
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add --all
+        
+        if git diff --staged --quiet; then
+          echo "No changes to commit for ${{ matrix.market.name }}"
+          exit 0
+        fi
+        
+        git commit -m "Daily updates Github Action - ${{ matrix.market.name }}"
+        
+        # Retry with pull if push fails
+        MAX_RETRIES=3
+        for i in $(seq 1 $MAX_RETRIES); do
+          if git push origin HEAD:master; then
+            echo "Push successful"
             exit 0
+          else
+            echo "Push failed, retrying..."
+            git pull --rebase origin master
+            sleep 5
           fi
-          git commit -m "Daily updates Github Action - ${{ matrix.market.name }}"
-
-          MAX_RETRIES=3
-          for i in $(seq 1 $MAX_RETRIES); do
-            if git push origin HEAD:master; then
-              echo "Push successful"
-              exit 0
-            else
-              echo "Push failed, retrying…"
-              git pull --rebase origin master
-              sleep 5
-            fi
-          done
-          exit 1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Fail job if scanner failed (for red X visibility)
-        if: steps.runscanner.outcome == 'failure'
-        run: exit 1
+        done
+        exit 1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
