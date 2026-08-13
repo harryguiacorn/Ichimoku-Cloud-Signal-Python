@@ -60,6 +60,8 @@ class Model(object):
         self.df["symbol"] = self.df["symbol"].str.replace(
             ".", "-", regex=False
         )
+        # Remove rows with missing symbols or names
+        self.df = self.df.dropna(subset=["symbol", "name"])
 
     def saveData(self):
         __columns = ["symbol", "name"]
@@ -104,9 +106,9 @@ def main(__fetch_symbols_latest=True):
     if __fetch_symbols_latest is False:
         return
     _model = Model(
-        "https://en.wikipedia.org/wiki/Russell_1000_Index#Components",
+        "https://en.wikipedia.org/wiki/List_of_Russell_1000_companies",
         "asset_list/Russell1000.csv",
-        "Components",
+        "Company",
     )
 
     _control = Control(_model, View())
