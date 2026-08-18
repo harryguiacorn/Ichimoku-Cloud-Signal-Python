@@ -78,3 +78,36 @@ def test_wiki_symbol_reader_drops_blank_last_row():
 
     assert list(model.df["symbol"]) == ["AAPL.L", "MSFT.L"]
     assert list(model.df["name"]) == ["Alpha", "Beta"]
+
+
+def test_dow_jones_reader_does_not_depend_on_wikipedia_table_caption(
+    monkeypatch,
+):
+    import pandas as pd
+    from src.mvc.controllers.GetSymbolDowJones30 import Model
+
+    class Response:
+        text = "<html></html>"
+
+        def raise_for_status(self):
+            pass
+
+    monkeypatch.setattr(
+        "src.mvc.controllers.GetSymbolDowJones30.requests.get",
+        lambda url, headers: Response(),
+    )
+    monkeypatch.setattr(
+        "src.mvc.controllers.GetSymbolDowJones30.pd.read_html",
+        lambda html: [
+            pd.DataFrame({"Other": ["unrelated"], "Value": [1]}),
+            pd.DataFrame({"Company": ["Alpha"], "Symbol": ["BRK.B"]}),
+        ],
+    )
+
+    model = Model("https://example.com", "asset_list/DowJones30.csv")
+
+    model.readHtml()
+    model.cleanData()
+
+    assert list(model.df["symbol"]) == ["BRK-B"]
+    assert list(model.df["name"]) == ["Alpha"]

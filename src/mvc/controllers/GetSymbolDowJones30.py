@@ -2,6 +2,7 @@ import pandas as pd
 import requests
 import io
 import logging
+
 logger = logging.getLogger(__name__)
 
 
@@ -34,11 +35,47 @@ class Model(object):
         try:
             response = requests.get(self.url, headers=headers)
             response.raise_for_status()  # Raise an error for bad status codes
-            # Corrected line: Wrap the response text in StringIO
-            html_string_io = io.StringIO(response.text)
-            self.df_list = pd.read_html(
-                html_string_io, match=self.readHtmlMatch
-            )[0]
+            tables = pd.read_html(io.StringIO(response.text))
+            selected_table = None
+            for table in tables:
+                columns = [str(column).strip() for column in table.columns]
+                normalized_columns = [column.lower() for column in columns]
+                symbol_column = next(
+                    (
+                        column
+                        for column, normalized in zip(
+                            columns, normalized_columns
+                        )
+                        if "symbol" in normalized or "ticker" in normalized
+                    ),
+                    None,
+                )
+                name_column = next(
+                    (
+                        column
+                        for column, normalized in zip(
+                            columns, normalized_columns
+                        )
+                        if "company" in normalized
+                        or "security" in normalized
+                        or normalized == "name"
+                    ),
+                    None,
+                )
+                if symbol_column is not None and name_column is not None:
+                    selected_table = table.copy()
+                    selected_table.rename(
+                        columns={symbol_column: "symbol", name_column: "name"},
+                        inplace=True,
+                    )
+                    break
+
+            if selected_table is None:
+                raise ValueError(
+                    "Could not find a Dow Jones table with symbol and company columns"
+                )
+
+            self.df_list = selected_table
             logger.info(f"Reading symbols from source: {self.url}")
             logger.info(f"Total symbols: {len(self.df_list)}")
             return self.df_list
@@ -49,15 +86,8 @@ class Model(object):
     def cleanData(self):
         __df_list = self.df_list
         self.df = __df_list
-        self.df.rename(
-            columns={
-                "Company": "name",
-                "Symbol": "symbol",
-            },
-            inplace=True,
-        )
-        self.df["symbol"] = self.df["symbol"].str.replace(
-            ".", "-", regex=False
+        self.df["symbol"] = (
+            self.df["symbol"].astype(str).str.replace(".", "-", regex=False)
         )
 
     def saveData(self):
@@ -103,9 +133,8 @@ def main(__fetch_symbols_latest=True):
     if __fetch_symbols_latest is False:
         return
     _model = Model(
-        "https://en.wikipedia.org/wiki/Dow_Jones_Industrial_Average#Components",
+        "https://en.wikipedia.org/wiki/List_of_Dow_Jones_Industrial_Average_companies",
         "asset_list/DowJones30.csv",
-        "DJIA component companies",
     )
 
     _control = Control(_model, View())
