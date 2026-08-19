@@ -14,6 +14,9 @@ from src.mvc.controllers import (
     GetKickerDataDJ30Aggregator,
     GetIchimokuTKxDataDJ30MultiTFMerger,
     GetIchimokuSumCloudTKxDataDJ30MultiTFMerger,
+    GetIchimokuChikouDataDJ30,
+    GetIchimokuChikouDataDJ30Aggregator,
+    GetIchimokuChikouDataDJ30MultiTFMerger,
 )
 from datetime import datetime
 from pytz import timezone
@@ -115,6 +118,26 @@ def main(
         GetIchimokuSumCloudTKxDataDJ30MultiTFMerger
     )
     _getIchimokuSumCloudTKxDataDJ30MultiTFMerger.main(
+        run_Multi_TimeFrame_Merger_DJ30
+    )
+
+    # 3.7 Produce Ichimoku Chikou Span data
+    _getIchimokuChikouDataDJ30 = GetIchimokuChikouDataDJ30
+    _getIchimokuChikouDataDJ30.main(
+        fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W, fetch_DJ30_M
+    )
+
+    # 3.8 Combine latest Chikou signals from all symbols into one spreadsheet
+    _getIchimokuChikouDataDJ30Aggregator = GetIchimokuChikouDataDJ30Aggregator
+    _getIchimokuChikouDataDJ30Aggregator.main(
+        fetch_DJ30_1H, fetch_DJ30_D, fetch_DJ30_W, fetch_DJ30_M
+    )
+
+    # 3.9 Merge Multi Time Frame Chikou signals
+    _getIchimokuChikouDataDJ30MultiTFMerger = (
+        GetIchimokuChikouDataDJ30MultiTFMerger
+    )
+    _getIchimokuChikouDataDJ30MultiTFMerger.main(
         run_Multi_TimeFrame_Merger_DJ30
     )
 
