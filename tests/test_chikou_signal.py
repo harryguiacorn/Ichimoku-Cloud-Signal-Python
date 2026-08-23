@@ -33,7 +33,7 @@ def test_chikou_opposite_confirmation_resets_streak():
 
     counts, states = model.getChikouState(signals)
 
-    assert counts == [0, 1, 2, 3, 1, 2, 3]
+    assert counts == [0, 1, 2, 3, -1, -2, -3]
     assert states == [
         "neutral chikou",
         "above chikou",
@@ -43,6 +43,15 @@ def test_chikou_opposite_confirmation_resets_streak():
         "below chikou",
         "below chikou",
     ]
+
+
+def test_chikou_bearish_direction_has_negative_count():
+    model = DataChikouSignal("TEST", "")
+
+    counts, states = model.getChikouState(pd.Series([-1]))
+
+    assert counts == [-1]
+    assert states == ["below chikou"]
 
 
 def test_chikou_aggregator_and_merger_write_csv_and_html(tmp_path):
@@ -93,3 +102,46 @@ def test_chikou_aggregator_and_merger_write_csv_and_html(tmp_path):
 
     assert merged_csv.exists()
     assert (output_path / "merged.csv.html").exists()
+
+
+def test_chikou_score_sum_uses_count_not_direction_or_state(tmp_path):
+    first_path = tmp_path / "first.csv"
+    second_path = tmp_path / "second.csv"
+    output_path = tmp_path / "merged.csv"
+    first_columns = [
+        "Symbol",
+        "Name",
+        "1H Chikou Direction",
+        "1H Chikou Count",
+        "1H Chikou State",
+    ]
+    second_columns = [
+        "Symbol",
+        "Name",
+        "1D Chikou Direction",
+        "1D Chikou Count",
+        "1D Chikou State",
+    ]
+    pd.DataFrame(
+        [["TEST", "Test Asset", 1, 99, "below chikou"]], columns=first_columns
+    ).to_csv(first_path, index=False)
+    pd.DataFrame(
+        [["TEST", "Test Asset", -1, 88, "above chikou"]],
+        columns=second_columns,
+    ).to_csv(second_path, index=False)
+
+    MergerControl(
+        MergerModel(
+            [str(first_path), str(second_path)],
+            str(output_path),
+            [
+                ["1H Chikou Direction", "1H Chikou Count"],
+                ["1D Chikou Direction", "1D Chikou Count"],
+            ],
+            ["Chikou Score Sum"],
+        ),
+        MergerView(),
+    ).main()
+
+    result = pd.read_csv(output_path)
+    assert result.loc[0, "Chikou Score Sum"] == 187

@@ -39,41 +39,171 @@
     .link-container a:hover {
       color: #007bff;
     }
+
+    .scan-table {
+      margin-top: 1.5rem;
+    }
+
+    .scan-table th,
+    .scan-table td {
+      padding: 0.75rem 1rem;
+      vertical-align: middle;
+      text-align: left;
+    }
+
+    .scan-table th {
+      white-space: nowrap;
+    }
+
+    .scan-table .pending {
+      color: #777;
+      font-size: 0.95rem;
+    }
   </style>
 </head>
 
 <body>
   <div class="container link-container">
     <h1>Apex Investor System</h1>
-    <div>
-      <div><a href="output\sum\SPX500-sum-cloud-tkx-merged.csv.html">S&P 500</a></div>
-      <div><a href="output\sum\Nasdaq100-sum-cloud-tkx-merged.csv.html">Nasdaq 100</a></div>
-      <div><a href="output\sum\DowJones30-sum-cloud-tkx-merged.csv.html">DowJones 30</a></div>
-      <div><a href="output\sum\Russell1000-sum-cloud-tkx-merged.csv.html">Russell 1000</a></div>
-      <div><a href="output\sum\Oanda-sum-cloud-tkx-merged.csv.html">Oanda</a></div>
-      <div><a href="output\sum\Kraken-sum-cloud-tkx-merged.csv.html">Kraken Cryptocurrency</a></div>
-      <div><a href="output\sum\FTSE100-sum-cloud-tkx-merged.csv.html">FTSE 100</a></div>
-      <div><a href="output\sum\FTSE250-sum-cloud-tkx-merged.csv.html">FTSE 250</a></div>
-      <div><a href="output\sum\Futures-sum-cloud-tkx-merged.csv.html">Futures</a></div>
-      <div><a href="output\sum\FuturesCurrency-sum-cloud-tkx-merged.csv.html">Futures Currency</a></div>
+    <table class="table table-hover scan-table">
+      <thead>
+        <tr>
+          <th scope="col">Market</th>
+          <th scope="col">Cloud Scan</th>
+          <th scope="col">Chikou Scan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">S&amp;P 500</th>
+          <td><a href="output/sum/SPX500-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+        <tr>
+          <th scope="row">Nasdaq 100</th>
+          <td><a href="output/sum/Nasdaq100-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+        <tr>
+          <th scope="row">Dow Jones 30</th>
+          <td><a href="output/sum/DowJones30-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/DowJones30-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Russell 1000</th>
+          <td><a href="output/sum/Russell1000-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+        <tr>
+          <th scope="row">Oanda</th>
+          <td><a href="output/sum/Oanda-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+        <tr>
+          <th scope="row">Kraken Cryptocurrency</th>
+          <td><a href="output/sum/Kraken-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+        <tr>
+          <th scope="row">FTSE 100</th>
+          <td><a href="output/sum/FTSE100-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+        <tr>
+          <th scope="row">FTSE 250</th>
+          <td><a href="output/sum/FTSE250-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+        <tr>
+          <th scope="row">Futures</th>
+          <td><a href="output/sum/Futures-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+        <tr>
+          <th scope="row">Futures Currency</th>
+          <td><a href="output/sum/FuturesCurrency-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+        <tr>
+          <th scope="row">Hang Seng Index</th>
+          <td><a href="output/sum/HSI-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+      </tbody>
+    </table>
 
-      <div><a href="output\sum\SPDR_ETFS-sum-cloud-tkx-merged.csv.html">Sector</a></div>
-      <ul>
-        <div><a href="output\sum\SPDR_ETF-XLC-sum-cloud-tkx-merged.csv.html">XLC - Communication Services</a></div>
-        <div><a href="output\sum\SPDR_ETF-XLY-sum-cloud-tkx-merged.csv.html">XLY - Consumer Discretionary</a></div>
-        <div><a href="output\sum\SPDR_ETF-XLP-sum-cloud-tkx-merged.csv.html">XLP - Consumer Staples</a></div>
-        <div><a href="output\sum\SPDR_ETF-XLE-sum-cloud-tkx-merged.csv.html">XLE - Energy</a></div>
-        <div><a href="output\sum\SPDR_ETF-XLF-sum-cloud-tkx-merged.csv.html">XLF - Financials</a></div>
-        <div><a href="output\sum\SPDR_ETF-XLV-sum-cloud-tkx-merged.csv.html">XLV - Health Care</a></div>
-        <div><a href="output\sum\SPDR_ETF-XLI-sum-cloud-tkx-merged.csv.html">XLI - Industrials</a></div>
-        <div><a href="output\sum\SPDR_ETF-XLB-sum-cloud-tkx-merged.csv.html">XLB - Materials</a></div>
-        <div><a href="output\sum\SPDR_ETF-XLRE-sum-cloud-tkx-merged.csv.html">XLRE - Real Estate</a></div>
-        <div><a href="output\sum\SPDR_ETF-XLK-sum-cloud-tkx-merged.csv.html">XLK - Technology</a></div>
-        <div><a href="output\sum\SPDR_ETF-XLU-sum-cloud-tkx-merged.csv.html">XLU - Utilities</a></div>
-      </ul>
-
-      <div><a href="output\sum\HSI-sum-cloud-tkx-merged.csv.html">Hang Seng Index</a></div>
-    </div>
+    <h2 class="h4 mt-4">Sector Scans</h2>
+    <table class="table table-hover scan-table">
+      <thead>
+        <tr>
+          <th scope="col">Sector</th>
+          <th scope="col">Cloud Scan</th>
+          <th scope="col">Chikou Scan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">All sectors</th>
+          <td><a href="output/sum/SPDR_ETFS-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+        <tr>
+          <th scope="row">XLC - Communication Services</th>
+          <td><a href="output/sum/SPDR_ETF-XLC-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+        <tr>
+          <th scope="row">XLY - Consumer Discretionary</th>
+          <td><a href="output/sum/SPDR_ETF-XLY-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+        <tr>
+          <th scope="row">XLP - Consumer Staples</th>
+          <td><a href="output/sum/SPDR_ETF-XLP-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+        <tr>
+          <th scope="row">XLE - Energy</th>
+          <td><a href="output/sum/SPDR_ETF-XLE-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+        <tr>
+          <th scope="row">XLF - Financials</th>
+          <td><a href="output/sum/SPDR_ETF-XLF-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+        <tr>
+          <th scope="row">XLV - Health Care</th>
+          <td><a href="output/sum/SPDR_ETF-XLV-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+        <tr>
+          <th scope="row">XLI - Industrials</th>
+          <td><a href="output/sum/SPDR_ETF-XLI-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+        <tr>
+          <th scope="row">XLB - Materials</th>
+          <td><a href="output/sum/SPDR_ETF-XLB-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+        <tr>
+          <th scope="row">XLRE - Real Estate</th>
+          <td><a href="output/sum/SPDR_ETF-XLRE-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+        <tr>
+          <th scope="row">XLK - Technology</th>
+          <td><a href="output/sum/SPDR_ETF-XLK-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+        <tr>
+          <th scope="row">XLU - Utilities</th>
+          <td><a href="output/sum/SPDR_ETF-XLU-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td class="pending">Coming soon</td>
+        </tr>
+      </tbody>
+    </table>
 </body>
 
 </html>

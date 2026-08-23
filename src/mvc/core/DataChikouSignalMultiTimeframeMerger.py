@@ -32,10 +32,20 @@ class Model(object):
 
         if merged is None:
             merged = pd.DataFrame()
-        merged["Chikou Score Sum"] = 0
-        for direction, count in self.direction_count_names:
-            if direction in merged and count in merged:
-                merged["Chikou Score Sum"] += merged[direction]
+        count_columns = [
+            count
+            for _direction, count in self.direction_count_names
+            if count in merged
+        ]
+        if count_columns:
+            merged["Chikou Score Sum"] = (
+                merged[count_columns]
+                .apply(pd.to_numeric, errors="coerce")
+                .fillna(0)
+                .sum(axis=1)
+            )
+        else:
+            merged["Chikou Score Sum"] = 0
         os.makedirs(os.path.dirname(self.output_path), exist_ok=True)
         merged.to_csv(self.output_path, index=False)
         html = TableGenerator(self.output_path).generate_html_table(

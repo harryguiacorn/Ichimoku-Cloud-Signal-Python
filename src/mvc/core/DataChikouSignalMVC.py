@@ -94,7 +94,7 @@ class DataChikouSignal(DataOHLC):
             else:
                 periods = 0
 
-            counts.append(periods)
+            counts.append(periods * previous_direction)
             states.append(self.getChikouStateLabel(previous_direction))
         return counts, states
 
