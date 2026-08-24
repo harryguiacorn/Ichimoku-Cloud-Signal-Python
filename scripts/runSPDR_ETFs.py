@@ -2,6 +2,7 @@ from src.mvc.controllers import (
     GetIchimokuChikouData,
     GetIchimokuChikouDataAggregator,
     GetIchimokuChikouDataMultiTFMerger,
+    GetIchimokuChikouDataMatchSPX500_SPDR_ETFs,
     GetDataSPDR_ETFS,
     GetIchimokuCloudDataSPDR_ETFSAggregator,
     GetIchimokuCloudDataSPDR_ETFSMultiTFMerger,
@@ -218,6 +219,11 @@ def main(
         GetIchimokuSumCloudTKxDataMatchSPY_SPDR_ETFSMultiTFMerger
     )
     _getIchimokuSumCloudTKxDataMatchSPY_SPDR_ETFSMultiTFMerger.main(
+        run_Multi_TimeFrame_Merger_Individual_SPDR_ETFS
+    )
+
+    # 6.2 Create individual ETF constituent Chikou scans
+    GetIchimokuChikouDataMatchSPX500_SPDR_ETFs.main(
         run_Multi_TimeFrame_Merger_Individual_SPDR_ETFS
     )
 

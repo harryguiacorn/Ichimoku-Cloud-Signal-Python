@@ -1,0 +1,327 @@
+
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="../../css/html_creator.css">
+          <title>XLE - Energy Chikou Scan</title>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+          <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+          <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
+          
+          <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+          <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+          <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+          
+      </head>
+      <body>
+        <h1>XLE - Energy Chikou Scan</h1>
+      <table class="table table-striped table-bordered" id="dataTable_1" border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Symbol</th>
+      <th>Name</th>
+      <th>1H Chikou Count</th>
+      <th>1H Chikou State</th>
+      <th>1D Chikou Count</th>
+      <th>1D Chikou State</th>
+      <th>1W Chikou Count</th>
+      <th>1W Chikou State</th>
+      <th>1M Chikou Count</th>
+      <th>1M Chikou State</th>
+      <th>Chikou Score Sum</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>KMI</td>
+      <td>Kinder Morgan</td>
+      <td>-23</td>
+      <td>below chikou</td>
+      <td>-3</td>
+      <td>below chikou</td>
+      <td>-2</td>
+      <td>below chikou</td>
+      <td>52</td>
+      <td>above chikou</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <td>WMB</td>
+      <td>Williams Companies</td>
+      <td>-19</td>
+      <td>below chikou</td>
+      <td>-20</td>
+      <td>below chikou</td>
+      <td>166</td>
+      <td>above chikou</td>
+      <td>67</td>
+      <td>above chikou</td>
+      <td>194</td>
+    </tr>
+    <tr>
+      <td>BKR</td>
+      <td>Baker Hughes</td>
+      <td>-18</td>
+      <td>below chikou</td>
+      <td>18</td>
+      <td>above chikou</td>
+      <td>-1</td>
+      <td>below chikou</td>
+      <td>60</td>
+      <td>above chikou</td>
+      <td>59</td>
+    </tr>
+    <tr>
+      <td>OKE</td>
+      <td>Oneok</td>
+      <td>-11</td>
+      <td>below chikou</td>
+      <td>12</td>
+      <td>above chikou</td>
+      <td>30</td>
+      <td>above chikou</td>
+      <td>59</td>
+      <td>above chikou</td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <td>SLB</td>
+      <td>Schlumberger</td>
+      <td>-10</td>
+      <td>below chikou</td>
+      <td>19</td>
+      <td>above chikou</td>
+      <td>45</td>
+      <td>above chikou</td>
+      <td>7</td>
+      <td>above chikou</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <td>MPC</td>
+      <td>Marathon Petroleum</td>
+      <td>-5</td>
+      <td>below chikou</td>
+      <td>38</td>
+      <td>above chikou</td>
+      <td>68</td>
+      <td>above chikou</td>
+      <td>64</td>
+      <td>above chikou</td>
+      <td>165</td>
+    </tr>
+    <tr>
+      <td>TRGP</td>
+      <td>Targa Resources</td>
+      <td>-4</td>
+      <td>below chikou</td>
+      <td>6</td>
+      <td>above chikou</td>
+      <td>43</td>
+      <td>above chikou</td>
+      <td>64</td>
+      <td>above chikou</td>
+      <td>109</td>
+    </tr>
+    <tr>
+      <td>XOM</td>
+      <td>ExxonMobil</td>
+      <td>-4</td>
+      <td>below chikou</td>
+      <td>24</td>
+      <td>above chikou</td>
+      <td>63</td>
+      <td>above chikou</td>
+      <td>57</td>
+      <td>above chikou</td>
+      <td>140</td>
+    </tr>
+    <tr>
+      <td>HAL</td>
+      <td>Halliburton</td>
+      <td>-4</td>
+      <td>below chikou</td>
+      <td>-5</td>
+      <td>below chikou</td>
+      <td>-5</td>
+      <td>below chikou</td>
+      <td>-3</td>
+      <td>below chikou</td>
+      <td>-17</td>
+    </tr>
+    <tr>
+      <td>VLO</td>
+      <td>Valero Energy</td>
+      <td>-3</td>
+      <td>below chikou</td>
+      <td>40</td>
+      <td>above chikou</td>
+      <td>63</td>
+      <td>above chikou</td>
+      <td>15</td>
+      <td>above chikou</td>
+      <td>115</td>
+    </tr>
+    <tr>
+      <td>DVN</td>
+      <td>Devon Energy</td>
+      <td>-3</td>
+      <td>below chikou</td>
+      <td>23</td>
+      <td>above chikou</td>
+      <td>47</td>
+      <td>above chikou</td>
+      <td>1</td>
+      <td>above chikou</td>
+      <td>68</td>
+    </tr>
+    <tr>
+      <td>FANG</td>
+      <td>Diamondback Energy</td>
+      <td>-3</td>
+      <td>below chikou</td>
+      <td>24</td>
+      <td>above chikou</td>
+      <td>47</td>
+      <td>above chikou</td>
+      <td>2</td>
+      <td>above chikou</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <td>PSX</td>
+      <td>Phillips 66</td>
+      <td>-3</td>
+      <td>below chikou</td>
+      <td>36</td>
+      <td>above chikou</td>
+      <td>63</td>
+      <td>above chikou</td>
+      <td>53</td>
+      <td>above chikou</td>
+      <td>149</td>
+    </tr>
+    <tr>
+      <td>CVX</td>
+      <td>Chevron Corporation</td>
+      <td>-3</td>
+      <td>below chikou</td>
+      <td>24</td>
+      <td>above chikou</td>
+      <td>47</td>
+      <td>above chikou</td>
+      <td>13</td>
+      <td>above chikou</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <td>EQT</td>
+      <td>EQT Corporation</td>
+      <td>12</td>
+      <td>above chikou</td>
+      <td>11</td>
+      <td>above chikou</td>
+      <td>-16</td>
+      <td>below chikou</td>
+      <td>21</td>
+      <td>above chikou</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <td>OXY</td>
+      <td>Occidental Petroleum</td>
+      <td>35</td>
+      <td>above chikou</td>
+      <td>24</td>
+      <td>above chikou</td>
+      <td>31</td>
+      <td>above chikou</td>
+      <td>-4</td>
+      <td>below chikou</td>
+      <td>86</td>
+    </tr>
+    <tr>
+      <td>APA</td>
+      <td>APA Corporation</td>
+      <td>36</td>
+      <td>above chikou</td>
+      <td>23</td>
+      <td>above chikou</td>
+      <td>53</td>
+      <td>above chikou</td>
+      <td>6</td>
+      <td>above chikou</td>
+      <td>118</td>
+    </tr>
+    <tr>
+      <td>EOG</td>
+      <td>EOG Resources</td>
+      <td>68</td>
+      <td>above chikou</td>
+      <td>27</td>
+      <td>above chikou</td>
+      <td>29</td>
+      <td>above chikou</td>
+      <td>7</td>
+      <td>above chikou</td>
+      <td>131</td>
+    </tr>
+    <tr>
+      <td>COP</td>
+      <td>ConocoPhillips</td>
+      <td>74</td>
+      <td>above chikou</td>
+      <td>24</td>
+      <td>above chikou</td>
+      <td>40</td>
+      <td>above chikou</td>
+      <td>2</td>
+      <td>above chikou</td>
+      <td>140</td>
+    </tr>
+  </tbody>
+</table>
+        <script>
+        $(document).ready(function() {
+          // Calculate the last column index
+          let lastColumnIndex = $('#dataTable_1 thead th').length - 1; 
+
+          // Initialize the DataTable with the order option set to sort by the last column in descending order
+          $('#dataTable_1').DataTable({ order: [[lastColumnIndex, 'desc']] });
+
+          // Get all table rows
+          var rows = $('#dataTable_1').DataTable().rows().nodes();
+
+          // Iterate over all table rows and add classes
+          for (var i = 0; i < rows.length; i++) {
+            var row = rows[i];
+            var cells = row.querySelectorAll('td');
+
+            for (var j = 0; j < cells.length; j++) {
+              var cell = cells[j];
+              var value = parseFloat(cell.textContent);
+
+              if (!isNaN(value)) {
+                if (value > 0) {
+                  cell.classList.add('highlight-positive');
+                } else if (value < 0) {
+                  cell.classList.add('highlight-negative');
+                } else {
+                  cell.classList.add('highlight-neutral');
+                }
+              }
+            }
+          }
+        });     
+        </script>
+        </table>
+        
+        <footer>
+          <p>Table Generated At 2026-08-24 23:38:01 [UK]<br></p>
+        </footer>
+        </body>
+
+        </html>
+        
