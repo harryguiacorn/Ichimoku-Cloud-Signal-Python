@@ -1,4 +1,7 @@
 from src.mvc.controllers import (
+    GetIchimokuChikouData,
+    GetIchimokuChikouDataAggregator,
+    GetIchimokuChikouDataMultiTFMerger,
     GetIchimokuCloudDataHSI,
     GetIchimokuCloudDataHSIMultiTFMerger,
     GetIchimokuTKxDataHSI,
@@ -59,8 +62,7 @@ def main(
     london_tz_start = timezone("Europe/London")
     time_start = datetime.now(london_tz_start)
     time_start_formatted = time_start.strftime("%Y-%m-%d %H:%M:%S")
-    logger.info(
-        f"Hang Seng Index task begins at: {time_start_formatted} [UK]")
+    logger.info(f"Hang Seng Index task begins at: {time_start_formatted} [UK]")
 
     # ---------------- Hang Seng Index ----------------
 
@@ -112,6 +114,26 @@ def main(
     )
     _getIchimokuSumCloudTKxDataHSIMultiTFMerger.main(
         run_Multi_TimeFrame_Merger_HSI
+    )
+
+    # 3.7 Produce Ichimoku Chikou Span data
+    chikou_timeframes = [
+        (fetch_HSI_1H, "data/hsi/1h/", True, "HSI-chikou-1H", "1H"),
+        (fetch_HSI_D, "data/hsi/d/", False, "HSI-chikou-D", "1D"),
+        (fetch_HSI_W, "data/hsi/w/", False, "HSI-chikou-W", "1W"),
+        (fetch_HSI_M, "data/hsi/m/", False, "HSI-chikou-M", "1M"),
+    ]
+    GetIchimokuChikouData.main(
+        "asset_list/HSI.csv",
+        [(a, b, c) for a, b, c, _, _ in chikou_timeframes],
+    )
+    # 3.8 Combine latest Chikou signals from all symbols into one spreadsheet
+    GetIchimokuChikouDataAggregator.main(
+        "asset_list/HSI.csv", chikou_timeframes
+    )
+    # 3.9 Merge Multi Time Frame Chikou signals
+    GetIchimokuChikouDataMultiTFMerger.main(
+        "HSI", chikou_timeframes, run_Multi_TimeFrame_Merger_HSI
     )
 
     # # 4. Produce Kijun data

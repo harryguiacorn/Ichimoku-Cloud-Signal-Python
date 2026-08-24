@@ -1,4 +1,7 @@
 from src.mvc.controllers import (
+    GetIchimokuChikouData,
+    GetIchimokuChikouDataAggregator,
+    GetIchimokuChikouDataMultiTFMerger,
     GetDataKraken,
     GetIchimokuCloudDataKraken,
     GetIchimokuCloudDataKrakenAggregator,
@@ -125,6 +128,27 @@ def main(
     )
     _getIchimokuSumCloudTKxDataKrakenMultiTFMerger.main(
         run_Multi_TimeFrame_Merger_Kraken
+    )
+
+    # 3.7 Produce Ichimoku Chikou Span data
+    chikou_timeframes = [
+        (fetch_Kraken_1H, "data/kraken/1h/", True, "Kraken-chikou-1H", "1H"),
+        (fetch_Kraken_4H, "data/kraken/4h/", True, "Kraken-chikou-4H", "4H"),
+        (fetch_Kraken_D, "data/kraken/d/", False, "Kraken-chikou-D", "1D"),
+        (fetch_Kraken_W, "data/kraken/w/", False, "Kraken-chikou-W", "1W"),
+        (fetch_Kraken_M, "data/kraken/m/", False, "Kraken-chikou-M", "1M"),
+    ]
+    GetIchimokuChikouData.main(
+        "asset_list/Kraken.csv",
+        [(a, b, c) for a, b, c, _, _ in chikou_timeframes],
+    )
+    # 3.8 Combine latest Chikou signals from all symbols into one spreadsheet
+    GetIchimokuChikouDataAggregator.main(
+        "asset_list/Kraken.csv", chikou_timeframes
+    )
+    # 3.9 Merge Multi Time Frame Chikou signals
+    GetIchimokuChikouDataMultiTFMerger.main(
+        "Kraken", chikou_timeframes, run_Multi_TimeFrame_Merger_Kraken
     )
 
     # calculate time elapsed

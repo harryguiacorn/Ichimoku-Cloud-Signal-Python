@@ -1,4 +1,7 @@
 from src.mvc.controllers import (
+    GetIchimokuChikouData,
+    GetIchimokuChikouDataAggregator,
+    GetIchimokuChikouDataMultiTFMerger,
     GetSymbolRussell1000,
     GetDataRussell1000,
     GetIchimokuCloudDataRussell1000,
@@ -141,6 +144,52 @@ def main(
     )
     _getIchimokuSumCloudTKxDataRussell1000MultiTFMerger.main(
         run_Multi_TimeFrame_Merger_Russell1000
+    )
+
+    # 3.7 Produce Ichimoku Chikou Span data
+    chikou_timeframes = [
+        (
+            fetch_Russell1000_1H,
+            "data/russell1000/1h/",
+            True,
+            "Russell1000-chikou-1H",
+            "1H",
+        ),
+        (
+            fetch_Russell1000_D,
+            "data/russell1000/d/",
+            False,
+            "Russell1000-chikou-D",
+            "1D",
+        ),
+        (
+            fetch_Russell1000_W,
+            "data/russell1000/w/",
+            False,
+            "Russell1000-chikou-W",
+            "1W",
+        ),
+        (
+            fetch_Russell1000_M,
+            "data/russell1000/m/",
+            False,
+            "Russell1000-chikou-M",
+            "1M",
+        ),
+    ]
+    GetIchimokuChikouData.main(
+        "asset_list/Russell1000.csv",
+        [(a, b, c) for a, b, c, _, _ in chikou_timeframes],
+    )
+    # 3.8 Combine latest Chikou signals from all symbols into one spreadsheet
+    GetIchimokuChikouDataAggregator.main(
+        "asset_list/Russell1000.csv", chikou_timeframes
+    )
+    # 3.9 Merge Multi Time Frame Chikou signals
+    GetIchimokuChikouDataMultiTFMerger.main(
+        "Russell1000",
+        chikou_timeframes,
+        run_Multi_TimeFrame_Merger_Russell1000,
     )
     return
 

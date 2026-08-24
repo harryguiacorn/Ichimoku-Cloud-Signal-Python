@@ -1,4 +1,7 @@
 from src.mvc.controllers import (
+    GetIchimokuChikouData,
+    GetIchimokuChikouDataAggregator,
+    GetIchimokuChikouDataMultiTFMerger,
     GetIchimokuCloudDataFTSE100,
     GetIchimokuCloudDataFTSE100MultiTFMerger,
     GetIchimokuTKxDataFTSE100,
@@ -121,6 +124,32 @@ def main(
     )
     _getIchimokuSumCloudTKxDataFTSE100MultiTFMerger.main(
         run_Multi_TimeFrame_Merger_FTSE100
+    )
+
+    # 3.7 Produce Ichimoku Chikou Span data
+    chikou_timeframes = [
+        (
+            fetch_FTSE100_1H,
+            "data/ftse100/1h/",
+            True,
+            "FTSE100-chikou-1H",
+            "1H",
+        ),
+        (fetch_FTSE100_D, "data/ftse100/d/", False, "FTSE100-chikou-D", "1D"),
+        (fetch_FTSE100_W, "data/ftse100/w/", False, "FTSE100-chikou-W", "1W"),
+        (fetch_FTSE100_M, "data/ftse100/m/", False, "FTSE100-chikou-M", "1M"),
+    ]
+    GetIchimokuChikouData.main(
+        "asset_list/FTSE100.csv",
+        [(a, b, c) for a, b, c, _, _ in chikou_timeframes],
+    )
+    # 3.8 Combine latest Chikou signals from all symbols into one spreadsheet
+    GetIchimokuChikouDataAggregator.main(
+        "asset_list/FTSE100.csv", chikou_timeframes
+    )
+    # 3.9 Merge Multi Time Frame Chikou signals
+    GetIchimokuChikouDataMultiTFMerger.main(
+        "FTSE100", chikou_timeframes, run_Multi_TimeFrame_Merger_FTSE100
     )
 
     # 4. Produce Kijun data

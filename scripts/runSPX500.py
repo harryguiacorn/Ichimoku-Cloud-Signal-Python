@@ -1,4 +1,7 @@
 from src.mvc.controllers import (
+    GetIchimokuChikouData,
+    GetIchimokuChikouDataAggregator,
+    GetIchimokuChikouDataMultiTFMerger,
     GetIchimokuCloudDataSPX500,
     GetIchimokuCloudDataSPX500Aggregator,
     GetIchimokuTKxDataSPX500,
@@ -122,6 +125,26 @@ def main(
     )
     _getIchimokuSumCloudTKxDataSPX500MultiTFMerger.main(
         run_Multi_TimeFrame_Merger_SPX500
+    )
+
+    # 3.7 Produce Ichimoku Chikou Span data
+    chikou_timeframes = [
+        (fetch_SPX500_1H, "data/spx500/1h/", True, "SPX500-chikou-1H", "1H"),
+        (fetch_SPX500_D, "data/spx500/d/", False, "SPX500-chikou-D", "1D"),
+        (fetch_SPX500_W, "data/spx500/w/", False, "SPX500-chikou-W", "1W"),
+        (fetch_SPX500_M, "data/spx500/m/", False, "SPX500-chikou-M", "1M"),
+    ]
+    GetIchimokuChikouData.main(
+        "asset_list/SPX500.csv",
+        [(a, b, c) for a, b, c, _, _ in chikou_timeframes],
+    )
+    # 3.8 Combine latest Chikou signals from all symbols into one spreadsheet
+    GetIchimokuChikouDataAggregator.main(
+        "asset_list/SPX500.csv", chikou_timeframes
+    )
+    # 3.9 Merge Multi Time Frame Chikou signals
+    GetIchimokuChikouDataMultiTFMerger.main(
+        "SPX500", chikou_timeframes, run_Multi_TimeFrame_Merger_SPX500
     )
 
     # 4. Produce Kijun data

@@ -102,6 +102,11 @@ def test_chikou_aggregator_and_merger_write_csv_and_html(tmp_path):
 
     assert merged_csv.exists()
     assert (output_path / "merged.csv.html").exists()
+    html = (output_path / "merged.csv.html").read_text(encoding="utf-8")
+    assert "1D Chikou Direction" not in html
+    assert "1D Chikou Count" in html
+    assert "1D Chikou State" in html
+    assert "Chikou Score Sum" in html
 
 
 def test_chikou_score_sum_uses_count_not_direction_or_state(tmp_path):

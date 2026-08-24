@@ -13,13 +13,17 @@ class TableGenerator:
     def __init__(self, csv_file_path):
         self.csv_file_path = csv_file_path
 
-    def generate_html_table(self, str_title: str = "Cloud Scan") -> str:
+    def generate_html_table(
+        self, str_title: str = "Cloud Scan", hidden_columns=None
+    ) -> str:
         logger.info("------------- Generating Html table -------------")
         if Util.file_exists(self.csv_file_path) is False:
             return
 
         # Read the CSV file
         df = pd.read_csv(self.csv_file_path)
+        if hidden_columns:
+            df = df.drop(columns=hidden_columns, errors="ignore")
         logger.debug("HTML title: %s", str_title)
         # added !important in css to overwrite cell colours
         html_table_head = f"""

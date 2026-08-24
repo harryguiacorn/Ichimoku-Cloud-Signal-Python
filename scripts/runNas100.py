@@ -1,4 +1,7 @@
 from src.mvc.controllers import (
+    GetIchimokuChikouData,
+    GetIchimokuChikouDataAggregator,
+    GetIchimokuChikouDataMultiTFMerger,
     GetIchimokuCloudDataNAS100,
     GetIchimokuCloudDataNAS100Aggregator,
     GetIchimokuCloudDataNAS100MultiTFMerger,
@@ -123,6 +126,50 @@ def main(
     )
     _getIchimokuSumCloudTKxDataNas100MultiTFMerger.main(
         run_Multi_TimeFrame_Merger_Nas100
+    )
+
+    # 3.7 Produce Ichimoku Chikou Span data
+    chikou_timeframes = [
+        (
+            fetch_Nas100_1H,
+            "data/nasdaq100/1h/",
+            True,
+            "Nasdaq100-chikou-1H",
+            "1H",
+        ),
+        (
+            fetch_Nas100_D,
+            "data/nasdaq100/d/",
+            False,
+            "Nasdaq100-chikou-D",
+            "1D",
+        ),
+        (
+            fetch_Nas100_W,
+            "data/nasdaq100/w/",
+            False,
+            "Nasdaq100-chikou-W",
+            "1W",
+        ),
+        (
+            fetch_Nas100_M,
+            "data/nasdaq100/m/",
+            False,
+            "Nasdaq100-chikou-M",
+            "1M",
+        ),
+    ]
+    GetIchimokuChikouData.main(
+        "asset_list/Nasdaq100.csv",
+        [(a, b, c) for a, b, c, _, _ in chikou_timeframes],
+    )
+    # 3.8 Combine latest Chikou signals from all symbols into one spreadsheet
+    GetIchimokuChikouDataAggregator.main(
+        "asset_list/Nasdaq100.csv", chikou_timeframes
+    )
+    # 3.9 Merge Multi Time Frame Chikou signals
+    GetIchimokuChikouDataMultiTFMerger.main(
+        "Nasdaq100", chikou_timeframes, run_Multi_TimeFrame_Merger_Nas100
     )
 
     # 4. Produce Kijun data

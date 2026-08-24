@@ -1,4 +1,7 @@
 from src.mvc.controllers import (
+    GetIchimokuChikouData,
+    GetIchimokuChikouDataAggregator,
+    GetIchimokuChikouDataMultiTFMerger,
     GetIchimokuCloudDataFuturesCurrency,
     GetIchimokuCloudDataFuturesCurrencyAggregator,
     GetIchimokuTKxDataFuturesCurrency,
@@ -60,8 +63,7 @@ def main(
     london_tz_start = timezone("Europe/London")
     time_start = datetime.now(london_tz_start)
     time_start_formatted = time_start.strftime("%Y-%m-%d %H:%M:%S")
-    logger.info(
-        f"CurrencyFutures task begins at: {time_start_formatted} [UK]")
+    logger.info(f"CurrencyFutures task begins at: {time_start_formatted} [UK]")
 
     # ---------------- Futures Currency ----------------
 
@@ -138,6 +140,52 @@ def main(
     )
     _getIchimokuSumCloudTKxDataFuturesCurrencyMultiTFMerger.main(
         run_Multi_TimeFrame_Merger_CurrencyFutures
+    )
+
+    # 3.7 Produce Ichimoku Chikou Span data
+    chikou_timeframes = [
+        (
+            fetch_CurrencyFutures_1H,
+            "data/futurescurrency/1h/",
+            True,
+            "FuturesCurrency-chikou-1H",
+            "1H",
+        ),
+        (
+            fetch_CurrencyFutures_D,
+            "data/futurescurrency/d/",
+            False,
+            "FuturesCurrency-chikou-D",
+            "1D",
+        ),
+        (
+            fetch_CurrencyFutures_W,
+            "data/futurescurrency/w/",
+            False,
+            "FuturesCurrency-chikou-W",
+            "1W",
+        ),
+        (
+            fetch_CurrencyFutures_M,
+            "data/futurescurrency/m/",
+            False,
+            "FuturesCurrency-chikou-M",
+            "1M",
+        ),
+    ]
+    GetIchimokuChikouData.main(
+        "asset_list/FuturesCurrency.csv",
+        [(a, b, c) for a, b, c, _, _ in chikou_timeframes],
+    )
+    # 3.8 Combine latest Chikou signals from all symbols into one spreadsheet
+    GetIchimokuChikouDataAggregator.main(
+        "asset_list/FuturesCurrency.csv", chikou_timeframes
+    )
+    # 3.9 Merge Multi Time Frame Chikou signals
+    GetIchimokuChikouDataMultiTFMerger.main(
+        "FuturesCurrency",
+        chikou_timeframes,
+        run_Multi_TimeFrame_Merger_CurrencyFutures,
     )
 
     # 4. Produce Kijun data

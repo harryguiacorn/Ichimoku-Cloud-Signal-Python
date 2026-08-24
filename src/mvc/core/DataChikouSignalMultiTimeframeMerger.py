@@ -6,12 +6,18 @@ from src.mvc.html_creator import TableGenerator
 
 class Model(object):
     def __init__(
-        self, input_paths, output_path, direction_count_names, score_names
+        self,
+        input_paths,
+        output_path,
+        direction_count_names,
+        score_names,
+        title="Dow Jones 30 Chikou Multi Timeframe Scan",
     ):
         self.input_paths = input_paths
         self.output_path = output_path
         self.direction_count_names = direction_count_names
         self.score_names = score_names
+        self.title = title
 
     def main(self):
         merged = None
@@ -49,7 +55,10 @@ class Model(object):
         os.makedirs(os.path.dirname(self.output_path), exist_ok=True)
         merged.to_csv(self.output_path, index=False)
         html = TableGenerator(self.output_path).generate_html_table(
-            "Dow Jones 30 Chikou Multi Timeframe Scan"
+            self.title,
+            hidden_columns=[
+                direction for direction, _count in self.direction_count_names
+            ],
         )
         TableGenerator(self.output_path).save_html_table(
             html, self.output_path + ".html"

@@ -1,4 +1,7 @@
 from src.mvc.controllers import (
+    GetIchimokuChikouData,
+    GetIchimokuChikouDataAggregator,
+    GetIchimokuChikouDataMultiTFMerger,
     GetDataOanda,
     GetIchimokuCloudDataOanda,
     GetIchimokuCloudDataOandaAggregator,
@@ -126,6 +129,27 @@ def main(
     )
     _getIchimokuSumCloudTKxDataOandaMultiTFMerger.main(
         run_Multi_TimeFrame_Merger_Oanda
+    )
+
+    # 3.7 Produce Ichimoku Chikou Span data
+    chikou_timeframes = [
+        (fetch_Oanda_1H, "data/oanda/1h/", True, "Oanda-chikou-1H", "1H"),
+        (fetch_Oanda_4H, "data/oanda/4h/", True, "Oanda-chikou-4H", "4H"),
+        (fetch_Oanda_D, "data/oanda/d/", False, "Oanda-chikou-D", "1D"),
+        (fetch_Oanda_W, "data/oanda/w/", False, "Oanda-chikou-W", "1W"),
+        (fetch_Oanda_M, "data/oanda/m/", False, "Oanda-chikou-M", "1M"),
+    ]
+    GetIchimokuChikouData.main(
+        "asset_list/Oanda.csv",
+        [(a, b, c) for a, b, c, _, _ in chikou_timeframes],
+    )
+    # 3.8 Combine latest Chikou signals from all symbols into one spreadsheet
+    GetIchimokuChikouDataAggregator.main(
+        "asset_list/Oanda.csv", chikou_timeframes
+    )
+    # 3.9 Merge Multi Time Frame Chikou signals
+    GetIchimokuChikouDataMultiTFMerger.main(
+        "Oanda", chikou_timeframes, run_Multi_TimeFrame_Merger_Oanda
     )
 
     # calculate time elapsed

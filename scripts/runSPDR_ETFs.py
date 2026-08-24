@@ -1,4 +1,7 @@
 from src.mvc.controllers import (
+    GetIchimokuChikouData,
+    GetIchimokuChikouDataAggregator,
+    GetIchimokuChikouDataMultiTFMerger,
     GetDataSPDR_ETFS,
     GetIchimokuCloudDataSPDR_ETFSAggregator,
     GetIchimokuCloudDataSPDR_ETFSMultiTFMerger,
@@ -146,6 +149,50 @@ def main(
     )
     _getIchimokuSumCloudTKxDataSPDR_ETFSMultiTFMerger.main(
         run_Multi_TimeFrame_Merger_SPDR_ETFS
+    )
+
+    # 3.7 Produce Ichimoku Chikou Span data
+    chikou_timeframes = [
+        (
+            fetch_SPDR_ETFS_1H,
+            "data/spdr_etfs/1h/",
+            True,
+            "SPDR_ETFs-chikou-1H",
+            "1H",
+        ),
+        (
+            fetch_SPDR_ETFS_D,
+            "data/spdr_etfs/d/",
+            False,
+            "SPDR_ETFs-chikou-D",
+            "1D",
+        ),
+        (
+            fetch_SPDR_ETFS_W,
+            "data/spdr_etfs/w/",
+            False,
+            "SPDR_ETFs-chikou-W",
+            "1W",
+        ),
+        (
+            fetch_SPDR_ETFS_M,
+            "data/spdr_etfs/m/",
+            False,
+            "SPDR_ETFs-chikou-M",
+            "1M",
+        ),
+    ]
+    GetIchimokuChikouData.main(
+        "asset_list/SPDR_ETFs.csv",
+        [(a, b, c) for a, b, c, _, _ in chikou_timeframes],
+    )
+    # 3.8 Combine latest Chikou signals from all symbols into one spreadsheet
+    GetIchimokuChikouDataAggregator.main(
+        "asset_list/SPDR_ETFs.csv", chikou_timeframes
+    )
+    # 3.9 Merge Multi Time Frame Chikou signals
+    GetIchimokuChikouDataMultiTFMerger.main(
+        "SPDR_ETFs", chikou_timeframes, run_Multi_TimeFrame_Merger_SPDR_ETFS
     )
 
     # 4. Produce Kijun data

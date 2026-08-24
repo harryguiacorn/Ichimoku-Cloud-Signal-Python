@@ -1,4 +1,7 @@
 from src.mvc.controllers import (
+    GetIchimokuChikouData,
+    GetIchimokuChikouDataAggregator,
+    GetIchimokuChikouDataMultiTFMerger,
     GetIchimokuCloudDataFutures,
     GetIchimokuCloudDataFuturesAggregator,
     GetIchimokuCloudDataFuturesMultiTFMerger,
@@ -119,6 +122,32 @@ def main(
     )
     _getIchimokuSumCloudTKxDataFuturesMultiTFMerger.main(
         run_Multi_TimeFrame_Merger_Futures
+    )
+
+    # 3.7 Produce Ichimoku Chikou Span data
+    chikou_timeframes = [
+        (
+            fetch_Futures_1H,
+            "data/futures/1h/",
+            True,
+            "Futures-chikou-1H",
+            "1H",
+        ),
+        (fetch_Futures_D, "data/futures/d/", False, "Futures-chikou-D", "1D"),
+        (fetch_Futures_W, "data/futures/w/", False, "Futures-chikou-W", "1W"),
+        (fetch_Futures_M, "data/futures/m/", False, "Futures-chikou-M", "1M"),
+    ]
+    GetIchimokuChikouData.main(
+        "asset_list/Futures.csv",
+        [(a, b, c) for a, b, c, _, _ in chikou_timeframes],
+    )
+    # 3.8 Combine latest Chikou signals from all symbols into one spreadsheet
+    GetIchimokuChikouDataAggregator.main(
+        "asset_list/Futures.csv", chikou_timeframes
+    )
+    # 3.9 Merge Multi Time Frame Chikou signals
+    GetIchimokuChikouDataMultiTFMerger.main(
+        "Futures", chikou_timeframes, run_Multi_TimeFrame_Merger_Futures
     )
 
     # 4. Produce Kijun data
