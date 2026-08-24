@@ -1,0 +1,891 @@
+
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="../../css/html_creator.css">
+          <title>Nasdaq100-chikou-M Chikou Scan</title>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+          <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+          <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
+          
+          <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+          <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+          <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+          
+      </head>
+      <body>
+        <h1>Nasdaq100-chikou-M Chikou Scan</h1>
+      <table class="table table-striped table-bordered" id="dataTable_1" border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Date</th>
+      <th>Symbol</th>
+      <th>Name</th>
+      <th>1M Chikou Direction</th>
+      <th>1M Chikou Count</th>
+      <th>1M Chikou State</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2026-08-01</td>
+      <td>DXCM</td>
+      <td>DexCom</td>
+      <td>-1</td>
+      <td>-24</td>
+      <td>below chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>KHC</td>
+      <td>Kraft Heinz</td>
+      <td>-1</td>
+      <td>-23</td>
+      <td>below chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>REGN</td>
+      <td>Regeneron Pharmaceuticals</td>
+      <td>-1</td>
+      <td>-20</td>
+      <td>below chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>CMCSA</td>
+      <td>Comcast</td>
+      <td>-1</td>
+      <td>-17</td>
+      <td>below chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>ADBE</td>
+      <td>Adobe Inc.</td>
+      <td>-1</td>
+      <td>-13</td>
+      <td>below chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>ROP</td>
+      <td>Roper Technologies</td>
+      <td>-1</td>
+      <td>-11</td>
+      <td>below chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>CPRT</td>
+      <td>Copart</td>
+      <td>-1</td>
+      <td>-10</td>
+      <td>below chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>SNPS</td>
+      <td>Synopsys</td>
+      <td>-1</td>
+      <td>-10</td>
+      <td>below chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>TRI</td>
+      <td>Thomson Reuters</td>
+      <td>-1</td>
+      <td>-8</td>
+      <td>below chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>WDAY</td>
+      <td>Workday, Inc.</td>
+      <td>-1</td>
+      <td>-8</td>
+      <td>below chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>PYPL</td>
+      <td>PayPal</td>
+      <td>0</td>
+      <td>-7</td>
+      <td>below chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>PDD</td>
+      <td>PDD Holdings</td>
+      <td>-1</td>
+      <td>-7</td>
+      <td>below chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>INTU</td>
+      <td>Intuit</td>
+      <td>-1</td>
+      <td>-7</td>
+      <td>below chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>GEHC</td>
+      <td>GE HealthCare</td>
+      <td>-1</td>
+      <td>-5</td>
+      <td>below chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>PEP</td>
+      <td>PepsiCo</td>
+      <td>-1</td>
+      <td>-4</td>
+      <td>below chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>MSTR</td>
+      <td>MicroStrategy</td>
+      <td>-1</td>
+      <td>-3</td>
+      <td>below chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>MCHP</td>
+      <td>Microchip Technology</td>
+      <td>-1</td>
+      <td>-2</td>
+      <td>below chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>ISRG</td>
+      <td>Intuitive Surgical</td>
+      <td>-1</td>
+      <td>-2</td>
+      <td>below chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>NXPI</td>
+      <td>NXP Semiconductors</td>
+      <td>-1</td>
+      <td>-2</td>
+      <td>below chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>QCOM</td>
+      <td>Qualcomm</td>
+      <td>-1</td>
+      <td>-2</td>
+      <td>below chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>NBIS</td>
+      <td>Nebius Group</td>
+      <td>0</td>
+      <td>0</td>
+      <td>neutral chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>SNDK</td>
+      <td>Sandisk</td>
+      <td>0</td>
+      <td>0</td>
+      <td>neutral chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>HONA</td>
+      <td>Honeywell Aerospace</td>
+      <td>0</td>
+      <td>0</td>
+      <td>neutral chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>SPCX</td>
+      <td>SpaceX</td>
+      <td>0</td>
+      <td>0</td>
+      <td>neutral chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>CRWV</td>
+      <td>CoreWeave</td>
+      <td>0</td>
+      <td>0</td>
+      <td>neutral chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>ABNB</td>
+      <td>Airbnb</td>
+      <td>1</td>
+      <td>1</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>PAYX</td>
+      <td>Paychex</td>
+      <td>1</td>
+      <td>1</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>MDLZ</td>
+      <td>Mondelez International</td>
+      <td>1</td>
+      <td>1</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>FANG</td>
+      <td>Diamondback Energy</td>
+      <td>1</td>
+      <td>2</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>MSFT</td>
+      <td>Microsoft</td>
+      <td>1</td>
+      <td>2</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>ADP</td>
+      <td>Automatic Data Processing</td>
+      <td>1</td>
+      <td>2</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>ADSK</td>
+      <td>Autodesk</td>
+      <td>1</td>
+      <td>2</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>ALAB</td>
+      <td>Astera Labs</td>
+      <td>1</td>
+      <td>4</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>ODFL</td>
+      <td>Old Dominion Freight Line</td>
+      <td>1</td>
+      <td>4</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>KDP</td>
+      <td>Keurig Dr Pepper</td>
+      <td>0</td>
+      <td>4</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>DDOG</td>
+      <td>Datadog</td>
+      <td>1</td>
+      <td>4</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>SBUX</td>
+      <td>Starbucks</td>
+      <td>1</td>
+      <td>7</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>ARM</td>
+      <td>Arm Holdings</td>
+      <td>1</td>
+      <td>10</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>INTC</td>
+      <td>Intel</td>
+      <td>1</td>
+      <td>11</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>WBD</td>
+      <td>Warner Bros. Discovery</td>
+      <td>1</td>
+      <td>12</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>TER</td>
+      <td>Teradyne</td>
+      <td>1</td>
+      <td>14</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>IDXX</td>
+      <td>Idexx Laboratories</td>
+      <td>1</td>
+      <td>16</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>CSX</td>
+      <td>CSX Corporation</td>
+      <td>1</td>
+      <td>16</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>EXC</td>
+      <td>Exelon</td>
+      <td>1</td>
+      <td>21</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>XEL</td>
+      <td>Xcel Energy</td>
+      <td>1</td>
+      <td>22</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>TSLA</td>
+      <td>Tesla, Inc.</td>
+      <td>1</td>
+      <td>22</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>LITE</td>
+      <td>Lumentum</td>
+      <td>1</td>
+      <td>22</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>RKLB</td>
+      <td>Rocket Lab</td>
+      <td>1</td>
+      <td>25</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>FTNT</td>
+      <td>Fortinet</td>
+      <td>1</td>
+      <td>25</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>MRVL</td>
+      <td>Marvell Technology</td>
+      <td>1</td>
+      <td>26</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>SHOP</td>
+      <td>Shopify</td>
+      <td>1</td>
+      <td>26</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>TTWO</td>
+      <td>Take-Two Interactive</td>
+      <td>1</td>
+      <td>26</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>CSCO</td>
+      <td>Cisco</td>
+      <td>1</td>
+      <td>26</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>AEP</td>
+      <td>American Electric Power</td>
+      <td>1</td>
+      <td>26</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>STX</td>
+      <td>Seagate Technology</td>
+      <td>1</td>
+      <td>27</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>ALNY</td>
+      <td>Alnylam Pharmaceuticals</td>
+      <td>0</td>
+      <td>27</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>HON</td>
+      <td>Honeywell Technologies</td>
+      <td>1</td>
+      <td>28</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>APP</td>
+      <td>AppLovin</td>
+      <td>1</td>
+      <td>28</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>TXN</td>
+      <td>Texas Instruments</td>
+      <td>1</td>
+      <td>28</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>DASH</td>
+      <td>DoorDash</td>
+      <td>1</td>
+      <td>29</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>WDC</td>
+      <td>Western Digital</td>
+      <td>1</td>
+      <td>29</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>NFLX</td>
+      <td>Netflix, Inc.</td>
+      <td>1</td>
+      <td>29</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>GOOG</td>
+      <td>Alphabet Inc. (Class C)</td>
+      <td>1</td>
+      <td>30</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>AMZN</td>
+      <td>Amazon</td>
+      <td>1</td>
+      <td>30</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>GOOGL</td>
+      <td>Alphabet Inc. (Class A)</td>
+      <td>1</td>
+      <td>30</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>CEG</td>
+      <td>Constellation Energy</td>
+      <td>1</td>
+      <td>30</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>CRWD</td>
+      <td>CrowdStrike</td>
+      <td>1</td>
+      <td>31</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>PLTR</td>
+      <td>Palantir Technologies</td>
+      <td>1</td>
+      <td>31</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>ASML</td>
+      <td>ASML Holding</td>
+      <td>1</td>
+      <td>32</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>MELI</td>
+      <td>Mercado Libre</td>
+      <td>1</td>
+      <td>32</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>META</td>
+      <td>Meta Platforms</td>
+      <td>1</td>
+      <td>33</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>MU</td>
+      <td>Micron Technology</td>
+      <td>1</td>
+      <td>34</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>ROST</td>
+      <td>Ross Stores</td>
+      <td>1</td>
+      <td>34</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>TMUS</td>
+      <td>T-Mobile US</td>
+      <td>1</td>
+      <td>34</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>AMD</td>
+      <td>Advanced Micro Devices</td>
+      <td>1</td>
+      <td>34</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>FER</td>
+      <td>Ferrovial</td>
+      <td>1</td>
+      <td>45</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>GILD</td>
+      <td>Gilead Sciences</td>
+      <td>1</td>
+      <td>47</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>CCEP</td>
+      <td>Coca-Cola Europacific Partners</td>
+      <td>1</td>
+      <td>57</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>BKR</td>
+      <td>Baker Hughes</td>
+      <td>1</td>
+      <td>60</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>MAR</td>
+      <td>Marriott International</td>
+      <td>1</td>
+      <td>69</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>BKNG</td>
+      <td>Booking Holdings</td>
+      <td>1</td>
+      <td>70</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>AMAT</td>
+      <td>Applied Materials</td>
+      <td>1</td>
+      <td>75</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>MNST</td>
+      <td>Monster Beverage</td>
+      <td>1</td>
+      <td>76</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>PCAR</td>
+      <td>Paccar</td>
+      <td>1</td>
+      <td>77</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>ORLY</td>
+      <td>O'Reilly Automotive</td>
+      <td>1</td>
+      <td>98</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>PANW</td>
+      <td>Palo Alto Networks</td>
+      <td>1</td>
+      <td>102</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>AXON</td>
+      <td>Axon Enterprise</td>
+      <td>1</td>
+      <td>106</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>VRTX</td>
+      <td>Vertex Pharmaceuticals</td>
+      <td>1</td>
+      <td>110</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>WMT</td>
+      <td>Walmart</td>
+      <td>1</td>
+      <td>110</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>LIN</td>
+      <td>Linde plc</td>
+      <td>1</td>
+      <td>113</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>FAST</td>
+      <td>Fastenal</td>
+      <td>1</td>
+      <td>118</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>NVDA</td>
+      <td>Nvidia</td>
+      <td>1</td>
+      <td>155</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>LRCX</td>
+      <td>Lam Research</td>
+      <td>1</td>
+      <td>156</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>MPWR</td>
+      <td>Monolithic Power Systems</td>
+      <td>1</td>
+      <td>169</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>AMGN</td>
+      <td>Amgen</td>
+      <td>1</td>
+      <td>177</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>AVGO</td>
+      <td>Broadcom</td>
+      <td>1</td>
+      <td>179</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>COST</td>
+      <td>Costco</td>
+      <td>1</td>
+      <td>189</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>CTAS</td>
+      <td>Cintas</td>
+      <td>1</td>
+      <td>189</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>KLAC</td>
+      <td>KLA Corporation</td>
+      <td>1</td>
+      <td>190</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>CDNS</td>
+      <td>Cadence Design Systems</td>
+      <td>0</td>
+      <td>191</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>ADI</td>
+      <td>Analog Devices</td>
+      <td>1</td>
+      <td>192</td>
+      <td>above chikou</td>
+    </tr>
+    <tr>
+      <td>2026-08-01</td>
+      <td>AAPL</td>
+      <td>Apple Inc.</td>
+      <td>1</td>
+      <td>275</td>
+      <td>above chikou</td>
+    </tr>
+  </tbody>
+</table>
+        <script>
+        $(document).ready(function() {
+          // Calculate the last column index
+          let lastColumnIndex = $('#dataTable_1 thead th').length - 1; 
+
+          // Initialize the DataTable with the order option set to sort by the last column in descending order
+          $('#dataTable_1').DataTable({ order: [[lastColumnIndex, 'desc']] });
+
+          // Get all table rows
+          var rows = $('#dataTable_1').DataTable().rows().nodes();
+
+          // Iterate over all table rows and add classes
+          for (var i = 0; i < rows.length; i++) {
+            var row = rows[i];
+            var cells = row.querySelectorAll('td');
+
+            for (var j = 0; j < cells.length; j++) {
+              var cell = cells[j];
+              var value = parseFloat(cell.textContent);
+
+              if (!isNaN(value)) {
+                if (value > 0) {
+                  cell.classList.add('highlight-positive');
+                } else if (value < 0) {
+                  cell.classList.add('highlight-negative');
+                } else {
+                  cell.classList.add('highlight-neutral');
+                }
+              }
+            }
+          }
+        });     
+        </script>
+        </table>
+        
+        <footer>
+          <p>Table Generated At 2026-08-24 18:19:53 [UK]<br></p>
+        </footer>
+        </body>
+
+        </html>
+        
