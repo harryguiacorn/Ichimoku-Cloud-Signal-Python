@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import logging
-from scripts import runKraken as _module
+from cloud_signal.runners import runKraken as _module
 
 logging.basicConfig(
     level=logging.INFO,

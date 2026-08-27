@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import logging
-from scripts import runFutures as _module
+from cloud_signal.runners import runFutures as _module
 
 logging.basicConfig(
     level=logging.INFO,

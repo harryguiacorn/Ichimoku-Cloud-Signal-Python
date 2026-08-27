@@ -1,16 +1,16 @@
 import pandas as pd
 
-from src.mvc.core.DataChikouSignalAggregatorMVC import (
+from cloud_signal.mvc.core.DataChikouSignalAggregatorMVC import (
     Control as AggregatorControl,
     Model as AggregatorModel,
     View as AggregatorView,
 )
-from src.mvc.core.DataChikouSignalMultiTimeframeMerger import (
+from cloud_signal.mvc.core.DataChikouSignalMultiTimeframeMerger import (
     Control as MergerControl,
     Model as MergerModel,
     View as MergerView,
 )
-from src.mvc.core.DataChikouSignalMVC import DataChikouSignal
+from cloud_signal.mvc.core.DataChikouSignalMVC import DataChikouSignal
 
 
 def test_chikou_uses_historical_high_low_and_neutral_freezes_state():

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from scripts._bootstrap import ensure_repo_root, setup_runner_logging
+from cloud_signal.runners._bootstrap import ensure_repo_root, setup_runner_logging
 
 ensure_repo_root()
 # configure runner logging before importing the heavy `scripts.main` module
@@ -7,7 +7,7 @@ ensure_repo_root()
 log_file = setup_runner_logging("main", None)
 
 import logging
-from scripts import main as _module
+from cloud_signal.runners import main as _module
 
 logger = logging.getLogger(__name__)
 

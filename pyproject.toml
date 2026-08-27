@@ -1,8 +1,9 @@
 [tool.poetry]
-name = "python-template"
+name = "cloud-signal-python"
 version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
+description = "Multi-timeframe Ichimoku market signal generation"
+authors = ["Cloud Signal contributors"]
+packages = [{ include = "cloud_signal" }]
 
 [tool.poetry.dependencies]
 python = ">=3.8.0,<4.0"
@@ -14,6 +15,14 @@ urllib3 = "^2.6.0"
 [tool.poetry.dev-dependencies]
 debugpy = "^1.6.2"
 replit-python-lsp-server = {extras = ["yapf", "rope", "pyflakes"], version = "^1.5.9"}
+
+[tool.poetry.scripts]
+cloud-signal = "cloud_signal.runners.main:main"
+cloud-signal-dj30 = "cloud_signal.runners.runDJ30:main"
+cloud-signal-nas100 = "cloud_signal.runners.runNas100:main"
+cloud-signal-sp500 = "cloud_signal.runners.runSPX500:main"
+cloud-signal-oanda = "cloud_signal.runners.runOanda:main"
+cloud-signal-validate-assets = "cloud_signal.runners.validate_asset_lists:main"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

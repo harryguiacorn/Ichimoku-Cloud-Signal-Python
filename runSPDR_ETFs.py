@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import logging
-from scripts import runSPDR_ETFs as _module
+from cloud_signal.runners import runSPDR_ETFs as _module
 
 logging.basicConfig(
     level=logging.INFO,

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import logging
-from scripts import runDJ30 as _module
+from cloud_signal.runners import runDJ30 as _module
 
 logging.basicConfig(
     level=logging.INFO,

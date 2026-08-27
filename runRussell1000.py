@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import logging
-from scripts import runRussell1000 as _module
+from cloud_signal.runners import runRussell1000 as _module
 
 logging.basicConfig(
     level=logging.INFO,

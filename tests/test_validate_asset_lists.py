@@ -1,5 +1,5 @@
 from pathlib import Path
-from scripts.validate_asset_lists import validate_asset_list
+from cloud_signal.runners.validate_asset_lists import validate_asset_list
 
 
 def test_validate_asset_list_valid(tmp_path: Path):
@@ -25,7 +25,7 @@ def test_validate_asset_list_invalid_nan(tmp_path: Path):
 
 def test_read_asset_list_normalizes_symbols_and_skips_invalid(tmp_path: Path):
     from pathlib import Path
-    from src.mvc.core.DataTKxSignalMVC import Model
+    from cloud_signal.mvc.core.DataTKxSignalMVC import Model
     import os
 
     asset_file = tmp_path / "asset_list.csv"
@@ -64,7 +64,7 @@ def test_read_asset_list_normalizes_symbols_and_skips_invalid(tmp_path: Path):
 
 def test_wiki_symbol_reader_drops_blank_last_row():
     import pandas as pd
-    from src.mvc.controllers.GetSymbolFTSE250 import Model
+    from cloud_signal.mvc.controllers.GetSymbolFTSE250 import Model
 
     model = Model("https://example.com", "asset_list/FTSE250.csv", "Company")
     model.df_list = pd.DataFrame(
@@ -84,7 +84,7 @@ def test_dow_jones_reader_does_not_depend_on_wikipedia_table_caption(
     monkeypatch,
 ):
     import pandas as pd
-    from src.mvc.controllers.GetSymbolDowJones30 import Model
+    from cloud_signal.mvc.controllers.GetSymbolDowJones30 import Model
 
     class Response:
         text = "<html></html>"

@@ -1,1 +1,1 @@
-web: python runDJ30.py
+web: python -m cloud_signal.runners.runDJ30

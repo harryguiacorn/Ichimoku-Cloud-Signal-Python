@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dow Jones 30 Chikou Scan</title>
+  <link rel="stylesheet" href="../../css/html_creator.css">
+  <link rel="stylesheet" href="https://unpkg.com/tabulator-tables@6.3.1/dist/css/tabulator.min.css">
+  <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
+  <style>
+    body { background: #eef2f4; color: #17212b; }
+    .tabulator-page { max-width: 100%; margin: 0 auto; padding: 24px; }
+    .tabulator { border: 2px solid #344955; background: #ffffff; box-shadow: 0 8px 20px rgba(23, 33, 43, .14); }
+    .tabulator .tabulator-header, .tabulator .tabulator-header .tabulator-col { background: #17212b; color: #ffffff; }
+    .tabulator .tabulator-header .tabulator-col { border-right: 1px solid #657782; }
+    .tabulator .tabulator-header-filter input { background: #ffffff; color: #17212b; border: 2px solid #8ba3af; border-radius: 3px; }
+    .tabulator-row { border-bottom: 1px solid #c4d0d6; }
+    .tabulator-row:nth-child(even) { background: #e8f0f2; }
+    .tabulator-row:hover { background: #b9dfe0 !important; }
+    .tabulator .tabulator-cell { border-right: 1px solid #d0dbe0; }
+  </style>
+</head>
+<body>
+  <main class="tabulator-page">
+    <h1>Dow Jones 30 Chikou Scan</h1>
+    <div id="dataTableTabulator"></div>
+    <footer><p>Table Generated At 2026-08-27 23:44:19 [UK]</p></footer>
+  </main>
+  <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
+  <script>
+    const tableData = [{"Date":"2026-08-27","Symbol":"CAT","Name":"Caterpillar","1D Chikou Direction":-1,"1D Chikou Count":-31,"1D Chikou State":"below chikou"},{"Date":"2026-08-27","Symbol":"UNH","Name":"UnitedHealth Group","1D Chikou Direction":-1,"1D Chikou Count":-18,"1D Chikou State":"below chikou"},{"Date":"2026-08-27","Symbol":"GOOGL","Name":"Alphabet (Class A)","1D Chikou Direction":-1,"1D Chikou Count":-15,"1D Chikou State":"below chikou"},{"Date":"2026-08-27","Symbol":"AXP","Name":"American Express","1D Chikou Direction":-1,"1D Chikou Count":-14,"1D Chikou State":"below chikou"},{"Date":"2026-08-27","Symbol":"PG","Name":"Procter & Gamble","1D Chikou Direction":-1,"1D Chikou Count":-14,"1D Chikou State":"below chikou"},{"Date":"2026-08-27","Symbol":"NKE","Name":"Nike","1D Chikou Direction":-1,"1D Chikou Count":-14,"1D Chikou State":"below chikou"},{"Date":"2026-08-27","Symbol":"GS","Name":"Goldman Sachs","1D Chikou Direction":-1,"1D Chikou Count":-10,"1D Chikou State":"below chikou"},{"Date":"2026-08-27","Symbol":"CSCO","Name":"Cisco","1D Chikou Direction":0,"1D Chikou Count":-10,"1D Chikou State":"below chikou"},{"Date":"2026-08-27","Symbol":"HON","Name":"Honeywell Technologies","1D Chikou Direction":-1,"1D Chikou Count":-6,"1D Chikou State":"below chikou"},{"Date":"2026-08-27","Symbol":"WMT","Name":"Walmart","1D Chikou Direction":-1,"1D Chikou Count":-6,"1D Chikou State":"below chikou"},{"Date":"2026-08-27","Symbol":"AAPL","Name":"Apple","1D Chikou Direction":-1,"1D Chikou Count":-6,"1D Chikou State":"below chikou"},{"Date":"2026-08-27","Symbol":"MCD","Name":"McDonald's","1D Chikou Direction":-1,"1D Chikou Count":-1,"1D Chikou State":"below chikou"},{"Date":"2026-08-27","Symbol":"HD","Name":"Home Depot","1D Chikou Direction":-1,"1D Chikou Count":-1,"1D Chikou State":"below chikou"},{"Date":"2026-08-27","Symbol":"BA","Name":"Boeing","1D Chikou Direction":1,"1D Chikou Count":2,"1D Chikou State":"above chikou"},{"Date":"2026-08-27","Symbol":"IBM","Name":"IBM","1D Chikou Direction":1,"1D Chikou Count":7,"1D Chikou State":"above chikou"},{"Date":"2026-08-27","Symbol":"JNJ","Name":"Johnson & Johnson","1D Chikou Direction":1,"1D Chikou Count":9,"1D Chikou State":"above chikou"},{"Date":"2026-08-27","Symbol":"DIS","Name":"Disney","1D Chikou Direction":1,"1D Chikou Count":17,"1D Chikou State":"above chikou"},{"Date":"2026-08-27","Symbol":"NVDA","Name":"Nvidia","1D Chikou Direction":1,"1D Chikou Count":19,"1D Chikou State":"above chikou"},{"Date":"2026-08-27","Symbol":"AMZN","Name":"Amazon","1D Chikou Direction":1,"1D Chikou Count":20,"1D Chikou State":"above chikou"},{"Date":"2026-08-27","Symbol":"MSFT","Name":"Microsoft","1D Chikou Direction":1,"1D Chikou Count":23,"1D Chikou State":"above chikou"},{"Date":"2026-08-27","Symbol":"SHW","Name":"Sherwin-Williams","1D Chikou Direction":1,"1D Chikou Count":24,"1D Chikou State":"above chikou"},{"Date":"2026-08-27","Symbol":"CRM","Name":"Salesforce","1D Chikou Direction":1,"1D Chikou Count":24,"1D Chikou State":"above chikou"},{"Date":"2026-08-27","Symbol":"CVX","Name":"Chevron","1D Chikou Direction":1,"1D Chikou Count":27,"1D Chikou State":"above chikou"},{"Date":"2026-08-27","Symbol":"V","Name":"Visa","1D Chikou Direction":1,"1D Chikou Count":52,"1D Chikou State":"above chikou"},{"Date":"2026-08-27","Symbol":"TRV","Name":"Travelers","1D Chikou Direction":0,"1D Chikou Count":54,"1D Chikou State":"above chikou"},{"Date":"2026-08-27","Symbol":"KO","Name":"Coca-Cola","1D Chikou Direction":1,"1D Chikou Count":58,"1D Chikou State":"above chikou"},{"Date":"2026-08-27","Symbol":"JPM","Name":"JPMorgan Chase","1D Chikou Direction":1,"1D Chikou Count":58,"1D Chikou State":"above chikou"},{"Date":"2026-08-27","Symbol":"AMGN","Name":"Amgen","1D Chikou Direction":1,"1D Chikou Count":59,"1D Chikou State":"above chikou"},{"Date":"2026-08-27","Symbol":"MRK","Name":"Merck","1D Chikou Direction":1,"1D Chikou Count":67,"1D Chikou State":"above chikou"},{"Date":"2026-08-27","Symbol":"MMM","Name":"3M","1D Chikou Direction":1,"1D Chikou Count":67,"1D Chikou State":"above chikou"}];
+    const tableColumns = [{"title": "Date", "field": "Date", "headerFilter": "input"}, {"title": "Symbol", "field": "Symbol", "headerFilter": "input"}, {"title": "Name", "field": "Name", "headerFilter": "input"}, {"title": "1D Direction", "field": "1D Chikou Direction", "headerFilter": "input", "sorter": "number"}, {"title": "1D Count", "field": "1D Chikou Count", "headerFilter": "input", "sorter": "number"}, {"title": "1D State", "field": "1D Chikou State", "headerFilter": "input"}];
+    const exactHeaderFilter = (headerValue, rowValue) =>
+      String(rowValue ?? "").trim() === String(headerValue ?? "").trim();
+    tableColumns.forEach(column => {
+      column.headerFilterFunc = exactHeaderFilter;
+    });
+    new Tabulator("#dataTableTabulator", {
+      data: tableData,
+      columns: tableColumns,
+      layout: "fitDataStretch",
+      responsiveLayout: false,
+      pagination: true,
+      paginationSize: 50,
+      paginationSizeSelector: [25, 50, 100, true],
+      initialSort: [{column: tableColumns[tableColumns.length - 1].field, dir: "desc"}],
+      placeholder: "No matching rows"
+    });
+  </script>
+</body>
+</html>
