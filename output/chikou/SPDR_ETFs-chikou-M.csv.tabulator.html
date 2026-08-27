@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPDR_ETFs Chikou Scan</title>
+  <link rel="stylesheet" href="../../css/html_creator.css">
+  <link rel="stylesheet" href="https://unpkg.com/tabulator-tables@6.3.1/dist/css/tabulator.min.css">
+  <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
+  <style>
+    body { background: #eef2f4; color: #17212b; }
+    .tabulator-page { max-width: 100%; margin: 0 auto; padding: 24px; }
+    .tabulator { border: 2px solid #344955; background: #ffffff; box-shadow: 0 8px 20px rgba(23, 33, 43, .14); }
+    .tabulator .tabulator-header, .tabulator .tabulator-header .tabulator-col { background: #17212b; color: #ffffff; }
+    .tabulator .tabulator-header .tabulator-col { border-right: 1px solid #657782; }
+    .tabulator .tabulator-header-filter input { background: #ffffff; color: #17212b; border: 2px solid #8ba3af; border-radius: 3px; }
+    .tabulator-row { border-bottom: 1px solid #c4d0d6; }
+    .tabulator-row:nth-child(even) { background: #e8f0f2; }
+    .tabulator-row:hover { background: #b9dfe0 !important; }
+    .tabulator .tabulator-cell { border-right: 1px solid #d0dbe0; }
+  </style>
+</head>
+<body>
+  <main class="tabulator-page">
+    <h1>SPDR_ETFs Chikou Scan</h1>
+    <div id="dataTableTabulator"></div>
+    <footer><p>Table Generated At 2026-08-28 00:31:21 [UK]</p></footer>
+  </main>
+  <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
+  <script>
+    const tableData = [{"Date":"2026-08-01","Symbol":"XLRE","Name":"Real Estate","1M Chikou Direction":1,"1M Chikou Count":25,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"XLY","Name":"Consumer Discretionary","1M Chikou Direction":1,"1M Chikou Count":26,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"XLF","Name":"Financials","1M Chikou Direction":1,"1M Chikou Count":31,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"XLC","Name":"Communication Services","1M Chikou Direction":1,"1M Chikou Count":31,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"XLB","Name":"Materials","1M Chikou Direction":1,"1M Chikou Count":33,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"XLV","Name":"Health Care","1M Chikou Direction":1,"1M Chikou Count":33,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"XLU","Name":"Utilities","1M Chikou Direction":1,"1M Chikou Count":33,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"XLE","Name":"Energy","1M Chikou Direction":1,"1M Chikou Count":59,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"XLI","Name":"Industrials","1M Chikou Direction":1,"1M Chikou Count":73,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"XLK","Name":"Technology","1M Chikou Direction":1,"1M Chikou Count":192,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"XLP","Name":"Consumer Staples","1M Chikou Direction":1,"1M Chikou Count":194,"1M Chikou State":"above chikou"}];
+    const tableColumns = [{"title": "Date", "field": "Date", "headerFilter": "input"}, {"title": "Symbol", "field": "Symbol", "headerFilter": "input"}, {"title": "Name", "field": "Name", "headerFilter": "input"}, {"title": "1M Direction", "field": "1M Chikou Direction", "headerFilter": "input", "sorter": "number"}, {"title": "1M Count", "field": "1M Chikou Count", "headerFilter": "input", "sorter": "number"}, {"title": "1M State", "field": "1M Chikou State", "headerFilter": "input"}];
+    const exactHeaderFilter = (headerValue, rowValue) =>
+      String(rowValue ?? "").trim() === String(headerValue ?? "").trim();
+    tableColumns.forEach(column => {
+      column.headerFilterFunc = exactHeaderFilter;
+    });
+    new Tabulator("#dataTableTabulator", {
+      data: tableData,
+      columns: tableColumns,
+      layout: "fitDataStretch",
+      responsiveLayout: false,
+      pagination: true,
+      paginationSize: 50,
+      paginationSizeSelector: [25, 50, 100, true],
+      initialSort: [{column: tableColumns[tableColumns.length - 1].field, dir: "desc"}],
+      placeholder: "No matching rows"
+    });
+  </script>
+</body>
+</html>

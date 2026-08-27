@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,70 +8,28 @@
   <link rel="stylesheet" href="https://unpkg.com/tabulator-tables@6.3.1/dist/css/tabulator.min.css">
   <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
   <style>
-    body {
-      background: #eef2f4;
-      color: #17212b;
-    }
-
-    .tabulator-page {
-      max-width: 100%;
-      margin: 0 auto;
-      padding: 24px;
-    }
-
-    .tabulator {
-      border: 2px solid #344955;
-      background: #ffffff;
-      box-shadow: 0 8px 20px rgba(23, 33, 43, .14);
-    }
-
-    .tabulator .tabulator-header,
-    .tabulator .tabulator-header .tabulator-col {
-      background: #17212b;
-      color: #ffffff;
-    }
-
-    .tabulator .tabulator-header .tabulator-col {
-      border-right: 1px solid #657782;
-    }
-
-    .tabulator .tabulator-header-filter input {
-      background: #ffffff;
-      color: #17212b;
-      border: 2px solid #8ba3af;
-      border-radius: 3px;
-    }
-
-    .tabulator-row {
-      border-bottom: 1px solid #c4d0d6;
-    }
-
-    .tabulator-row:nth-child(even) {
-      background: #e8f0f2;
-    }
-
-    .tabulator-row:hover {
-      background: #b9dfe0 !important;
-    }
-
-    .tabulator .tabulator-cell {
-      border-right: 1px solid #d0dbe0;
-    }
+    body { background: #eef2f4; color: #17212b; }
+    .tabulator-page { max-width: 100%; margin: 0 auto; padding: 24px; }
+    .tabulator { border: 2px solid #344955; background: #ffffff; box-shadow: 0 8px 20px rgba(23, 33, 43, .14); }
+    .tabulator .tabulator-header, .tabulator .tabulator-header .tabulator-col { background: #17212b; color: #ffffff; }
+    .tabulator .tabulator-header .tabulator-col { border-right: 1px solid #657782; }
+    .tabulator .tabulator-header-filter input { background: #ffffff; color: #17212b; border: 2px solid #8ba3af; border-radius: 3px; }
+    .tabulator-row { border-bottom: 1px solid #c4d0d6; }
+    .tabulator-row:nth-child(even) { background: #e8f0f2; }
+    .tabulator-row:hover { background: #b9dfe0 !important; }
+    .tabulator .tabulator-cell { border-right: 1px solid #d0dbe0; }
   </style>
 </head>
-
 <body>
   <main class="tabulator-page">
     <h1>XLC - Communication Services Chikou Scan</h1>
     <div id="dataTableTabulator"></div>
-    <footer>
-      <p>Table Generated At 2026-08-27 12:41:53 [UK]</p>
-    </footer>
+    <footer><p>Table Generated At 2026-08-28 00:31:21 [UK]</p></footer>
   </main>
   <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
   <script>
-    const tableData = [{ "Symbol": "TTWO", "Name": "Take-Two Interactive", "1H Chikou Direction": -1, "1H Chikou Count": -23, "1H Chikou State": "below chikou", "1D Chikou Direction": -1, "1D Chikou Count": -16, "1D Chikou State": "below chikou", "1W Chikou Direction": 1, "1W Chikou Count": 4, "1W Chikou State": "above chikou", "1M Chikou Direction": 1, "1M Chikou Count": 26, "1M Chikou State": "above chikou", "Chikou Score Sum": -9 }, { "Symbol": "TMUS", "Name": "T-Mobile US", "1H Chikou Direction": -1, "1H Chikou Count": -4, "1H Chikou State": "below chikou", "1D Chikou Direction": -1, "1D Chikou Count": -8, "1D Chikou State": "below chikou", "1W Chikou Direction": -1, "1W Chikou Count": -54, "1W Chikou State": "below chikou", "1M Chikou Direction": 1, "1M Chikou Count": 34, "1M Chikou State": "above chikou", "Chikou Score Sum": -32 }, { "Symbol": "GOOG", "Name": "Alphabet Inc. (Class C)", "1H Chikou Direction": -1, "1H Chikou Count": -1, "1H Chikou State": "below chikou", "1D Chikou Direction": -1, "1D Chikou Count": -12, "1D Chikou State": "below chikou", "1W Chikou Direction": 1, "1W Chikou Count": 5, "1W Chikou State": "above chikou", "1M Chikou Direction": 1, "1M Chikou Count": 30, "1M Chikou State": "above chikou", "Chikou Score Sum": 22 }, { "Symbol": "GOOGL", "Name": "Alphabet Inc. (Class A)", "1H Chikou Direction": -1, "1H Chikou Count": -1, "1H Chikou State": "below chikou", "1D Chikou Direction": -1, "1D Chikou Count": -14, "1D Chikou State": "below chikou", "1W Chikou Direction": 1, "1W Chikou Count": 55, "1W Chikou State": "above chikou", "1M Chikou Direction": 1, "1M Chikou Count": 30, "1M Chikou State": "above chikou", "Chikou Score Sum": 70 }, { "Symbol": "CHTR", "Name": "Charter Communications", "1H Chikou Direction": 1, "1H Chikou Count": 12, "1H Chikou State": "above chikou", "1D Chikou Direction": 1, "1D Chikou Count": 22, "1D Chikou State": "above chikou", "1W Chikou Direction": -1, "1W Chikou Count": -58, "1W Chikou State": "below chikou", "1M Chikou Direction": -1, "1M Chikou Count": -14, "1M Chikou State": "below chikou", "Chikou Score Sum": -38 }, { "Symbol": "NFLX", "Name": "Netflix", "1H Chikou Direction": 1, "1H Chikou Count": 14, "1H Chikou State": "above chikou", "1D Chikou Direction": 1, "1D Chikou Count": 10, "1D Chikou State": "above chikou", "1W Chikou Direction": 0, "1W Chikou Count": 2, "1W Chikou State": "above chikou", "1M Chikou Direction": 1, "1M Chikou Count": 29, "1M Chikou State": "above chikou", "Chikou Score Sum": 55 }, { "Symbol": "FOXA", "Name": "Fox Corporation (Class A)", "1H Chikou Direction": 1, "1H Chikou Count": 15, "1H Chikou State": "above chikou", "1D Chikou Direction": 1, "1D Chikou Count": 24, "1D Chikou State": "above chikou", "1W Chikou Direction": 1, "1W Chikou Count": 3, "1W Chikou State": "above chikou", "1M Chikou Direction": 1, "1M Chikou Count": 26, "1M Chikou State": "above chikou", "Chikou Score Sum": 68 }, { "Symbol": "FOX", "Name": "Fox Corporation (Class B)", "1H Chikou Direction": 1, "1H Chikou Count": 16, "1H Chikou State": "above chikou", "1D Chikou Direction": 1, "1D Chikou Count": 23, "1D Chikou State": "above chikou", "1W Chikou Direction": 1, "1W Chikou Count": 3, "1W Chikou State": "above chikou", "1M Chikou Direction": 1, "1M Chikou Count": 26, "1M Chikou State": "above chikou", "Chikou Score Sum": 68 }, { "Symbol": "META", "Name": "Meta Platforms", "1H Chikou Direction": 1, "1H Chikou Count": 20, "1H Chikou State": "above chikou", "1D Chikou Direction": -1, "1D Chikou Count": -14, "1D Chikou State": "below chikou", "1W Chikou Direction": -1, "1W Chikou Count": -6, "1W Chikou State": "below chikou", "1M Chikou Direction": 1, "1M Chikou Count": 33, "1M Chikou State": "above chikou", "Chikou Score Sum": 33 }, { "Symbol": "LYV", "Name": "Live Nation Entertainment", "1H Chikou Direction": 0, "1H Chikou Count": 21, "1H Chikou State": "above chikou", "1D Chikou Direction": 1, "1D Chikou Count": 4, "1D Chikou State": "above chikou", "1W Chikou Direction": 1, "1W Chikou Count": 21, "1W Chikou State": "above chikou", "1M Chikou Direction": 1, "1M Chikou Count": 24, "1M Chikou State": "above chikou", "Chikou Score Sum": 70 }, { "Symbol": "OMC", "Name": "Omnicom Group", "1H Chikou Direction": 0, "1H Chikou Count": 30, "1H Chikou State": "above chikou", "1D Chikou Direction": 1, "1D Chikou Count": 45, "1D Chikou State": "above chikou", "1W Chikou Direction": 1, "1W Chikou Count": 8, "1W Chikou State": "above chikou", "1M Chikou Direction": 1, "1M Chikou Count": 1, "1M Chikou State": "above chikou", "Chikou Score Sum": 84 }, { "Symbol": "NWS", "Name": "News Corp (Class B)", "1H Chikou Direction": 1, "1H Chikou Count": 54, "1H Chikou State": "above chikou", "1D Chikou Direction": 1, "1D Chikou Count": 39, "1D Chikou State": "above chikou", "1W Chikou Direction": 1, "1W Chikou Count": 9, "1W Chikou State": "above chikou", "1M Chikou Direction": 1, "1M Chikou Count": 33, "1M Chikou State": "above chikou", "Chikou Score Sum": 135 }, { "Symbol": "DIS", "Name": "Walt Disney Company (The)", "1H Chikou Direction": 1, "1H Chikou Count": 64, "1H Chikou State": "above chikou", "1D Chikou Direction": 1, "1D Chikou Count": 16, "1D Chikou State": "above chikou", "1W Chikou Direction": 1, "1W Chikou Count": 2, "1W Chikou State": "above chikou", "1M Chikou Direction": 1, "1M Chikou Count": 1, "1M Chikou State": "above chikou", "Chikou Score Sum": 83 }, { "Symbol": "NWSA", "Name": "News Corp (Class A)", "1H Chikou Direction": 1, "1H Chikou Count": 70, "1H Chikou State": "above chikou", "1D Chikou Direction": 1, "1D Chikou Count": 39, "1D Chikou State": "above chikou", "1W Chikou Direction": 1, "1W Chikou Count": 9, "1W Chikou State": "above chikou", "1M Chikou Direction": 1, "1M Chikou Count": 33, "1M Chikou State": "above chikou", "Chikou Score Sum": 151 }, { "Symbol": "VZ", "Name": "Verizon", "1H Chikou Direction": 1, "1H Chikou Count": 92, "1H Chikou State": "above chikou", "1D Chikou Direction": 1, "1D Chikou Count": 23, "1D Chikou State": "above chikou", "1W Chikou Direction": 1, "1W Chikou Count": 31, "1W Chikou State": "above chikou", "1M Chikou Direction": 1, "1M Chikou Count": 23, "1M Chikou State": "above chikou", "Chikou Score Sum": 169 }, { "Symbol": "T", "Name": "AT&T", "1H Chikou Direction": 1, "1H Chikou Count": 99, "1H Chikou State": "above chikou", "1D Chikou Direction": 1, "1D Chikou Count": 24, "1D Chikou State": "above chikou", "1W Chikou Direction": -1, "1W Chikou Count": -4, "1W Chikou State": "below chikou", "1M Chikou Direction": 1, "1M Chikou Count": 32, "1M Chikou State": "above chikou", "Chikou Score Sum": 151 }, { "Symbol": "CMCSA", "Name": "Comcast", "1H Chikou Direction": 1, "1H Chikou Count": 115, "1H Chikou State": "above chikou", "1D Chikou Direction": 1, "1D Chikou Count": 22, "1D Chikou State": "above chikou", "1W Chikou Direction": -1, "1W Chikou Count": -13, "1W Chikou State": "below chikou", "1M Chikou Direction": -1, "1M Chikou Count": -17, "1M Chikou State": "below chikou", "Chikou Score Sum": 107 }, { "Symbol": "WBD", "Name": "Warner Bros. Discovery", "1H Chikou Direction": 1, "1H Chikou Count": 132, "1H Chikou State": "above chikou", "1D Chikou Direction": 1, "1D Chikou Count": 13, "1D Chikou State": "above chikou", "1W Chikou Direction": 0, "1W Chikou Count": -11, "1W Chikou State": "below chikou", "1M Chikou Direction": 1, "1M Chikou Count": 12, "1M Chikou State": "above chikou", "Chikou Score Sum": 146 }];
-    const tableColumns = [{ "title": "Symbol", "field": "Symbol", "headerFilter": "input" }, { "title": "Name", "field": "Name", "headerFilter": "input" }, { "title": "1H Direction", "field": "1H Chikou Direction", "headerFilter": "input", "sorter": "number" }, { "title": "1H Count", "field": "1H Chikou Count", "headerFilter": "input", "sorter": "number" }, { "title": "1H State", "field": "1H Chikou State", "headerFilter": "input" }, { "title": "1D Direction", "field": "1D Chikou Direction", "headerFilter": "input", "sorter": "number" }, { "title": "1D Count", "field": "1D Chikou Count", "headerFilter": "input", "sorter": "number" }, { "title": "1D State", "field": "1D Chikou State", "headerFilter": "input" }, { "title": "1W Direction", "field": "1W Chikou Direction", "headerFilter": "input", "sorter": "number" }, { "title": "1W Count", "field": "1W Chikou Count", "headerFilter": "input", "sorter": "number" }, { "title": "1W State", "field": "1W Chikou State", "headerFilter": "input" }, { "title": "1M Direction", "field": "1M Chikou Direction", "headerFilter": "input", "sorter": "number" }, { "title": "1M Count", "field": "1M Chikou Count", "headerFilter": "input", "sorter": "number" }, { "title": "1M State", "field": "1M Chikou State", "headerFilter": "input" }, { "title": "Chikou Score Sum", "field": "Chikou Score Sum", "headerFilter": "input", "sorter": "number" }];
+    const tableData = [{"Symbol":"TTWO","Name":"Take-Two Interactive","1H Chikou Direction":-1,"1H Chikou Count":-30,"1H Chikou State":"below chikou","1D Chikou Direction":0,"1D Chikou Count":-17,"1D Chikou State":"below chikou","1W Chikou Direction":1,"1W Chikou Count":4,"1W Chikou State":"above chikou","1M Chikou Direction":1,"1M Chikou Count":26,"1M Chikou State":"above chikou","Chikou Score Sum":-17},{"Symbol":"TMUS","Name":"T-Mobile US","1H Chikou Direction":-1,"1H Chikou Count":-11,"1H Chikou State":"below chikou","1D Chikou Direction":-1,"1D Chikou Count":-9,"1D Chikou State":"below chikou","1W Chikou Direction":-1,"1W Chikou Count":-54,"1W Chikou State":"below chikou","1M Chikou Direction":1,"1M Chikou Count":34,"1M Chikou State":"above chikou","Chikou Score Sum":-40},{"Symbol":"GOOGL","Name":"Alphabet Inc. (Class A)","1H Chikou Direction":-1,"1H Chikou Count":-8,"1H Chikou State":"below chikou","1D Chikou Direction":-1,"1D Chikou Count":-15,"1D Chikou State":"below chikou","1W Chikou Direction":1,"1W Chikou Count":55,"1W Chikou State":"above chikou","1M Chikou Direction":1,"1M Chikou Count":30,"1M Chikou State":"above chikou","Chikou Score Sum":62},{"Symbol":"GOOG","Name":"Alphabet Inc. (Class C)","1H Chikou Direction":-1,"1H Chikou Count":-8,"1H Chikou State":"below chikou","1D Chikou Direction":-1,"1D Chikou Count":-13,"1D Chikou State":"below chikou","1W Chikou Direction":1,"1W Chikou Count":5,"1W Chikou State":"above chikou","1M Chikou Direction":1,"1M Chikou Count":30,"1M Chikou State":"above chikou","Chikou Score Sum":14},{"Symbol":"FOXA","Name":"Fox Corporation (Class A)","1H Chikou Direction":-1,"1H Chikou Count":-7,"1H Chikou State":"below chikou","1D Chikou Direction":1,"1D Chikou Count":25,"1D Chikou State":"above chikou","1W Chikou Direction":1,"1W Chikou Count":3,"1W Chikou State":"above chikou","1M Chikou Direction":1,"1M Chikou Count":26,"1M Chikou State":"above chikou","Chikou Score Sum":47},{"Symbol":"CMCSA","Name":"Comcast","1H Chikou Direction":-1,"1H Chikou Count":-7,"1H Chikou State":"below chikou","1D Chikou Direction":1,"1D Chikou Count":23,"1D Chikou State":"above chikou","1W Chikou Direction":-1,"1W Chikou Count":-13,"1W Chikou State":"below chikou","1M Chikou Direction":-1,"1M Chikou Count":-17,"1M Chikou State":"below chikou","Chikou Score Sum":-14},{"Symbol":"LYV","Name":"Live Nation Entertainment","1H Chikou Direction":-1,"1H Chikou Count":-5,"1H Chikou State":"below chikou","1D Chikou Direction":1,"1D Chikou Count":5,"1D Chikou State":"above chikou","1W Chikou Direction":1,"1W Chikou Count":21,"1W Chikou State":"above chikou","1M Chikou Direction":1,"1M Chikou Count":24,"1M Chikou State":"above chikou","Chikou Score Sum":45},{"Symbol":"DIS","Name":"Walt Disney Company (The)","1H Chikou Direction":-1,"1H Chikou Count":-4,"1H Chikou State":"below chikou","1D Chikou Direction":1,"1D Chikou Count":17,"1D Chikou State":"above chikou","1W Chikou Direction":1,"1W Chikou Count":2,"1W Chikou State":"above chikou","1M Chikou Direction":1,"1M Chikou Count":1,"1M Chikou State":"above chikou","Chikou Score Sum":16},{"Symbol":"CHTR","Name":"Charter Communications","1H Chikou Direction":0,"1H Chikou Count":-4,"1H Chikou State":"below chikou","1D Chikou Direction":1,"1D Chikou Count":23,"1D Chikou State":"above chikou","1W Chikou Direction":-1,"1W Chikou Count":-58,"1W Chikou State":"below chikou","1M Chikou Direction":-1,"1M Chikou Count":-14,"1M Chikou State":"below chikou","Chikou Score Sum":-53},{"Symbol":"FOX","Name":"Fox Corporation (Class B)","1H Chikou Direction":-1,"1H Chikou Count":-2,"1H Chikou State":"below chikou","1D Chikou Direction":1,"1D Chikou Count":24,"1D Chikou State":"above chikou","1W Chikou Direction":1,"1W Chikou Count":3,"1W Chikou State":"above chikou","1M Chikou Direction":1,"1M Chikou Count":26,"1M Chikou State":"above chikou","Chikou Score Sum":51},{"Symbol":"OMC","Name":"Omnicom Group","1H Chikou Direction":-1,"1H Chikou Count":-1,"1H Chikou State":"below chikou","1D Chikou Direction":1,"1D Chikou Count":46,"1D Chikou State":"above chikou","1W Chikou Direction":1,"1W Chikou Count":8,"1W Chikou State":"above chikou","1M Chikou Direction":1,"1M Chikou Count":1,"1M Chikou State":"above chikou","Chikou Score Sum":54},{"Symbol":"VZ","Name":"Verizon","1H Chikou Direction":-1,"1H Chikou Count":-1,"1H Chikou State":"below chikou","1D Chikou Direction":1,"1D Chikou Count":24,"1D Chikou State":"above chikou","1W Chikou Direction":1,"1W Chikou Count":31,"1W Chikou State":"above chikou","1M Chikou Direction":1,"1M Chikou Count":23,"1M Chikou State":"above chikou","Chikou Score Sum":77},{"Symbol":"T","Name":"AT&T","1H Chikou Direction":-1,"1H Chikou Count":-1,"1H Chikou State":"below chikou","1D Chikou Direction":1,"1D Chikou Count":25,"1D Chikou State":"above chikou","1W Chikou Direction":-1,"1W Chikou Count":-4,"1W Chikou State":"below chikou","1M Chikou Direction":1,"1M Chikou Count":32,"1M Chikou State":"above chikou","Chikou Score Sum":52},{"Symbol":"NFLX","Name":"Netflix","1H Chikou Direction":0,"1H Chikou Count":4,"1H Chikou State":"above chikou","1D Chikou Direction":1,"1D Chikou Count":11,"1D Chikou State":"above chikou","1W Chikou Direction":0,"1W Chikou Count":2,"1W Chikou State":"above chikou","1M Chikou Direction":1,"1M Chikou Count":29,"1M Chikou State":"above chikou","Chikou Score Sum":46},{"Symbol":"META","Name":"Meta Platforms","1H Chikou Direction":1,"1H Chikou Count":27,"1H Chikou State":"above chikou","1D Chikou Direction":-1,"1D Chikou Count":-15,"1D Chikou State":"below chikou","1W Chikou Direction":-1,"1W Chikou Count":-6,"1W Chikou State":"below chikou","1M Chikou Direction":1,"1M Chikou Count":33,"1M Chikou State":"above chikou","Chikou Score Sum":39},{"Symbol":"NWS","Name":"News Corp (Class B)","1H Chikou Direction":1,"1H Chikou Count":61,"1H Chikou State":"above chikou","1D Chikou Direction":1,"1D Chikou Count":40,"1D Chikou State":"above chikou","1W Chikou Direction":1,"1W Chikou Count":9,"1W Chikou State":"above chikou","1M Chikou Direction":1,"1M Chikou Count":33,"1M Chikou State":"above chikou","Chikou Score Sum":143},{"Symbol":"NWSA","Name":"News Corp (Class A)","1H Chikou Direction":1,"1H Chikou Count":77,"1H Chikou State":"above chikou","1D Chikou Direction":1,"1D Chikou Count":40,"1D Chikou State":"above chikou","1W Chikou Direction":1,"1W Chikou Count":9,"1W Chikou State":"above chikou","1M Chikou Direction":1,"1M Chikou Count":33,"1M Chikou State":"above chikou","Chikou Score Sum":159},{"Symbol":"WBD","Name":"Warner Bros. Discovery","1H Chikou Direction":1,"1H Chikou Count":139,"1H Chikou State":"above chikou","1D Chikou Direction":1,"1D Chikou Count":14,"1D Chikou State":"above chikou","1W Chikou Direction":0,"1W Chikou Count":-11,"1W Chikou State":"below chikou","1M Chikou Direction":1,"1M Chikou Count":12,"1M Chikou State":"above chikou","Chikou Score Sum":154}];
+    const tableColumns = [{"title": "Symbol", "field": "Symbol", "headerFilter": "input"}, {"title": "Name", "field": "Name", "headerFilter": "input"}, {"title": "1H Direction", "field": "1H Chikou Direction", "headerFilter": "input", "sorter": "number"}, {"title": "1H Count", "field": "1H Chikou Count", "headerFilter": "input", "sorter": "number"}, {"title": "1H State", "field": "1H Chikou State", "headerFilter": "input"}, {"title": "1D Direction", "field": "1D Chikou Direction", "headerFilter": "input", "sorter": "number"}, {"title": "1D Count", "field": "1D Chikou Count", "headerFilter": "input", "sorter": "number"}, {"title": "1D State", "field": "1D Chikou State", "headerFilter": "input"}, {"title": "1W Direction", "field": "1W Chikou Direction", "headerFilter": "input", "sorter": "number"}, {"title": "1W Count", "field": "1W Chikou Count", "headerFilter": "input", "sorter": "number"}, {"title": "1W State", "field": "1W Chikou State", "headerFilter": "input"}, {"title": "1M Direction", "field": "1M Chikou Direction", "headerFilter": "input", "sorter": "number"}, {"title": "1M Count", "field": "1M Chikou Count", "headerFilter": "input", "sorter": "number"}, {"title": "1M State", "field": "1M Chikou State", "headerFilter": "input"}, {"title": "Chikou Score Sum", "field": "Chikou Score Sum", "headerFilter": "input", "sorter": "number"}];
     const exactHeaderFilter = (headerValue, rowValue) =>
       String(rowValue ?? "").trim() === String(headerValue ?? "").trim();
     tableColumns.forEach(column => {
@@ -86,10 +43,9 @@
       pagination: true,
       paginationSize: 50,
       paginationSizeSelector: [25, 50, 100, true],
-      initialSort: [{ column: tableColumns[tableColumns.length - 1].field, dir: "desc" }],
+      initialSort: [{column: tableColumns[tableColumns.length - 1].field, dir: "desc"}],
       placeholder: "No matching rows"
     });
   </script>
 </body>
-
 </html>

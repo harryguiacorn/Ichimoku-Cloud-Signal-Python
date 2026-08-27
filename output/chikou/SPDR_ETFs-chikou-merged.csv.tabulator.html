@@ -1,78 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All Sector SPDR ETFs Chikou Scan</title>
+  <title>SPDR_ETFs Chikou Scan</title>
   <link rel="stylesheet" href="../../css/html_creator.css">
   <link rel="stylesheet" href="https://unpkg.com/tabulator-tables@6.3.1/dist/css/tabulator.min.css">
   <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
   <style>
-    body {
-      background: #eef2f4;
-      color: #17212b;
-    }
-
-    .tabulator-page {
-      max-width: 100%;
-      margin: 0 auto;
-      padding: 24px;
-    }
-
-    .tabulator {
-      border: 2px solid #344955;
-      background: #ffffff;
-      box-shadow: 0 8px 20px rgba(23, 33, 43, .14);
-    }
-
-    .tabulator .tabulator-header,
-    .tabulator .tabulator-header .tabulator-col {
-      background: #17212b;
-      color: #ffffff;
-    }
-
-    .tabulator .tabulator-header .tabulator-col {
-      border-right: 1px solid #657782;
-    }
-
-    .tabulator .tabulator-header-filter input {
-      background: #ffffff;
-      color: #17212b;
-      border: 2px solid #8ba3af;
-      border-radius: 3px;
-    }
-
-    .tabulator-row {
-      border-bottom: 1px solid #c4d0d6;
-    }
-
-    .tabulator-row:nth-child(even) {
-      background: #e8f0f2;
-    }
-
-    .tabulator-row:hover {
-      background: #b9dfe0 !important;
-    }
-
-    .tabulator .tabulator-cell {
-      border-right: 1px solid #d0dbe0;
-    }
+    body { background: #eef2f4; color: #17212b; }
+    .tabulator-page { max-width: 100%; margin: 0 auto; padding: 24px; }
+    .tabulator { border: 2px solid #344955; background: #ffffff; box-shadow: 0 8px 20px rgba(23, 33, 43, .14); }
+    .tabulator .tabulator-header, .tabulator .tabulator-header .tabulator-col { background: #17212b; color: #ffffff; }
+    .tabulator .tabulator-header .tabulator-col { border-right: 1px solid #657782; }
+    .tabulator .tabulator-header-filter input { background: #ffffff; color: #17212b; border: 2px solid #8ba3af; border-radius: 3px; }
+    .tabulator-row { border-bottom: 1px solid #c4d0d6; }
+    .tabulator-row:nth-child(even) { background: #e8f0f2; }
+    .tabulator-row:hover { background: #b9dfe0 !important; }
+    .tabulator .tabulator-cell { border-right: 1px solid #d0dbe0; }
   </style>
 </head>
-
 <body>
   <main class="tabulator-page">
-    <h1>All Sector SPDR ETFs Chikou Scan</h1>
+    <h1>SPDR_ETFs Chikou Scan</h1>
     <div id="dataTableTabulator"></div>
-    <footer>
-      <p>Table Generated At 2026-08-27 12:41:53 [UK]</p>
-    </footer>
+    <footer><p>Table Generated At 2026-08-28 00:31:21 [UK]</p></footer>
   </main>
   <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
   <script>
-    const tableData = [{ "Symbol": "XLK", "Name": "Technology", "1H Chikou Direction": 0, "1H Chikou Count": -49, "1H Chikou State": "below chikou", "1D Chikou Direction": 1, "1D Chikou Count": 12, "1D Chikou State": "above chikou", "1W Chikou Direction": 1, "1W Chikou Count": 20, "1W Chikou State": "above chikou", "1M Chikou Direction": 1, "1M Chikou Count": 192, "1M Chikou State": "above chikou", "Chikou Score Sum": 175 }, { "Symbol": "XLE", "Name": "Energy", "1H Chikou Direction": -1, "1H Chikou Count": -21, "1H Chikou State": "below chikou", "1D Chikou Direction": 1, "1D Chikou Count": 26, "1D Chikou State": "above chikou", "1W Chikou Direction": 1, "1W Chikou Count": 53, "1W Chikou State": "above chikou", "1M Chikou Direction": 1, "1M Chikou Count": 59, "1M Chikou State": "above chikou", "Chikou Score Sum": 117 }, { "Symbol": "XLRE", "Name": "Real Estate", "1H Chikou Direction": 0, "1H Chikou Count": -4, "1H Chikou State": "below chikou", "1D Chikou Direction": 0, "1D Chikou Count": 10, "1D Chikou State": "above chikou", "1W Chikou Direction": 1, "1W Chikou Count": 21, "1W Chikou State": "above chikou", "1M Chikou Direction": 1, "1M Chikou Count": 25, "1M Chikou State": "above chikou", "Chikou Score Sum": 52 }, { "Symbol": "XLY", "Name": "Consumer Discretionary", "1H Chikou Direction": -1, "1H Chikou Count": -1, "1H Chikou State": "below chikou", "1D Chikou Direction": 1, "1D Chikou Count": 18, "1D Chikou State": "above chikou", "1W Chikou Direction": 0, "1W Chikou Count": 2, "1W Chikou State": "above chikou", "1M Chikou Direction": 1, "1M Chikou Count": 26, "1M Chikou State": "above chikou", "Chikou Score Sum": 45 }, { "Symbol": "XLV", "Name": "Health Care", "1H Chikou Direction": -1, "1H Chikou Count": -1, "1H Chikou State": "below chikou", "1D Chikou Direction": 1, "1D Chikou Count": 66, "1D Chikou State": "above chikou", "1W Chikou Direction": 1, "1W Chikou Count": 10, "1W Chikou State": "above chikou", "1M Chikou Direction": 1, "1M Chikou Count": 33, "1M Chikou State": "above chikou", "Chikou Score Sum": 108 }, { "Symbol": "XLU", "Name": "Utilities", "1H Chikou Direction": 1, "1H Chikou Count": 1, "1H Chikou State": "above chikou", "1D Chikou Direction": -1, "1D Chikou Count": -19, "1D Chikou State": "below chikou", "1W Chikou Direction": -1, "1W Chikou Count": -2, "1W Chikou State": "below chikou", "1M Chikou Direction": 1, "1M Chikou Count": 33, "1M Chikou State": "above chikou", "Chikou Score Sum": 13 }, { "Symbol": "XLI", "Name": "Industrials", "1H Chikou Direction": 1, "1H Chikou Count": 5, "1H Chikou State": "above chikou", "1D Chikou Direction": 1, "1D Chikou Count": 17, "1D Chikou State": "above chikou", "1W Chikou Direction": 1, "1W Chikou Count": 68, "1W Chikou State": "above chikou", "1M Chikou Direction": 1, "1M Chikou Count": 73, "1M Chikou State": "above chikou", "Chikou Score Sum": 163 }, { "Symbol": "XLP", "Name": "Consumer Staples", "1H Chikou Direction": 1, "1H Chikou Count": 9, "1H Chikou State": "above chikou", "1D Chikou Direction": 1, "1D Chikou Count": 23, "1D Chikou State": "above chikou", "1W Chikou Direction": -1, "1W Chikou Count": -2, "1W Chikou State": "below chikou", "1M Chikou Direction": 1, "1M Chikou Count": 194, "1M Chikou State": "above chikou", "Chikou Score Sum": 224 }, { "Symbol": "XLF", "Name": "Financials", "1H Chikou Direction": 1, "1H Chikou Count": 21, "1H Chikou State": "above chikou", "1D Chikou Direction": 1, "1D Chikou Count": 54, "1D Chikou State": "above chikou", "1W Chikou Direction": 1, "1W Chikou Count": 9, "1W Chikou State": "above chikou", "1M Chikou Direction": 1, "1M Chikou Count": 31, "1M Chikou State": "above chikou", "Chikou Score Sum": 115 }, { "Symbol": "XLC", "Name": "Communication Services", "1H Chikou Direction": 1, "1H Chikou Count": 27, "1H Chikou State": "above chikou", "1D Chikou Direction": 1, "1D Chikou Count": 3, "1D Chikou State": "above chikou", "1W Chikou Direction": -1, "1W Chikou Count": -13, "1W Chikou State": "below chikou", "1M Chikou Direction": 1, "1M Chikou Count": 31, "1M Chikou State": "above chikou", "Chikou Score Sum": 48 }, { "Symbol": "XLB", "Name": "Materials", "1H Chikou Direction": 0, "1H Chikou Count": 42, "1H Chikou State": "above chikou", "1D Chikou Direction": 1, "1D Chikou Count": 17, "1D Chikou State": "above chikou", "1W Chikou Direction": 1, "1W Chikou Count": 55, "1W Chikou State": "above chikou", "1M Chikou Direction": 1, "1M Chikou Count": 33, "1M Chikou State": "above chikou", "Chikou Score Sum": 147 }];
-    const tableColumns = [{ "title": "Symbol", "field": "Symbol", "headerFilter": "input" }, { "title": "Name", "field": "Name", "headerFilter": "input" }, { "title": "1H Direction", "field": "1H Chikou Direction", "headerFilter": "input", "sorter": "number" }, { "title": "1H Count", "field": "1H Chikou Count", "headerFilter": "input", "sorter": "number" }, { "title": "1H State", "field": "1H Chikou State", "headerFilter": "input" }, { "title": "1D Direction", "field": "1D Chikou Direction", "headerFilter": "input", "sorter": "number" }, { "title": "1D Count", "field": "1D Chikou Count", "headerFilter": "input", "sorter": "number" }, { "title": "1D State", "field": "1D Chikou State", "headerFilter": "input" }, { "title": "1W Direction", "field": "1W Chikou Direction", "headerFilter": "input", "sorter": "number" }, { "title": "1W Count", "field": "1W Chikou Count", "headerFilter": "input", "sorter": "number" }, { "title": "1W State", "field": "1W Chikou State", "headerFilter": "input" }, { "title": "1M Direction", "field": "1M Chikou Direction", "headerFilter": "input", "sorter": "number" }, { "title": "1M Count", "field": "1M Chikou Count", "headerFilter": "input", "sorter": "number" }, { "title": "1M State", "field": "1M Chikou State", "headerFilter": "input" }, { "title": "Chikou Score Sum", "field": "Chikou Score Sum", "headerFilter": "input", "sorter": "number" }];
+    const tableData = [{"Symbol":"XLE","Name":"Energy","1H Chikou Direction":-1,"1H Chikou Count":-28,"1H Chikou State":"below chikou","1D Chikou Direction":1,"1D Chikou Count":27,"1D Chikou State":"above chikou","1W Chikou Direction":1,"1W Chikou Count":53,"1W Chikou State":"above chikou","1M Chikou Direction":1,"1M Chikou Count":59,"1M Chikou State":"above chikou","Chikou Score Sum":111},{"Symbol":"XLRE","Name":"Real Estate","1H Chikou Direction":-1,"1H Chikou Count":-11,"1H Chikou State":"below chikou","1D Chikou Direction":-1,"1D Chikou Count":-1,"1D Chikou State":"below chikou","1W Chikou Direction":1,"1W Chikou Count":21,"1W Chikou State":"above chikou","1M Chikou Direction":1,"1M Chikou Count":25,"1M Chikou State":"above chikou","Chikou Score Sum":34},{"Symbol":"XLV","Name":"Health Care","1H Chikou Direction":-1,"1H Chikou Count":-8,"1H Chikou State":"below chikou","1D Chikou Direction":1,"1D Chikou Count":67,"1D Chikou State":"above chikou","1W Chikou Direction":1,"1W Chikou Count":10,"1W Chikou State":"above chikou","1M Chikou Direction":1,"1M Chikou Count":33,"1M Chikou State":"above chikou","Chikou Score Sum":102},{"Symbol":"XLY","Name":"Consumer Discretionary","1H Chikou Direction":-1,"1H Chikou Count":-8,"1H Chikou State":"below chikou","1D Chikou Direction":1,"1D Chikou Count":19,"1D Chikou State":"above chikou","1W Chikou Direction":0,"1W Chikou Count":2,"1W Chikou State":"above chikou","1M Chikou Direction":1,"1M Chikou Count":26,"1M Chikou State":"above chikou","Chikou Score Sum":39},{"Symbol":"XLB","Name":"Materials","1H Chikou Direction":-1,"1H Chikou Count":-7,"1H Chikou State":"below chikou","1D Chikou Direction":1,"1D Chikou Count":18,"1D Chikou State":"above chikou","1W Chikou Direction":0,"1W Chikou Count":55,"1W Chikou State":"above chikou","1M Chikou Direction":1,"1M Chikou Count":33,"1M Chikou State":"above chikou","Chikou Score Sum":99},{"Symbol":"XLI","Name":"Industrials","1H Chikou Direction":0,"1H Chikou Count":-7,"1H Chikou State":"below chikou","1D Chikou Direction":0,"1D Chikou Count":18,"1D Chikou State":"above chikou","1W Chikou Direction":1,"1W Chikou Count":68,"1W Chikou State":"above chikou","1M Chikou Direction":1,"1M Chikou Count":73,"1M Chikou State":"above chikou","Chikou Score Sum":152},{"Symbol":"XLP","Name":"Consumer Staples","1H Chikou Direction":-1,"1H Chikou Count":-7,"1H Chikou State":"below chikou","1D Chikou Direction":1,"1D Chikou Count":24,"1D Chikou State":"above chikou","1W Chikou Direction":-1,"1W Chikou Count":-2,"1W Chikou State":"below chikou","1M Chikou Direction":1,"1M Chikou Count":194,"1M Chikou State":"above chikou","Chikou Score Sum":209},{"Symbol":"XLC","Name":"Communication Services","1H Chikou Direction":-1,"1H Chikou Count":-2,"1H Chikou State":"below chikou","1D Chikou Direction":1,"1D Chikou Count":4,"1D Chikou State":"above chikou","1W Chikou Direction":-1,"1W Chikou Count":-13,"1W Chikou State":"below chikou","1M Chikou Direction":1,"1M Chikou Count":31,"1M Chikou State":"above chikou","Chikou Score Sum":20},{"Symbol":"XLF","Name":"Financials","1H Chikou Direction":-1,"1H Chikou Count":-1,"1H Chikou State":"below chikou","1D Chikou Direction":1,"1D Chikou Count":55,"1D Chikou State":"above chikou","1W Chikou Direction":1,"1W Chikou Count":9,"1W Chikou State":"above chikou","1M Chikou Direction":1,"1M Chikou Count":31,"1M Chikou State":"above chikou","Chikou Score Sum":94},{"Symbol":"XLU","Name":"Utilities","1H Chikou Direction":1,"1H Chikou Count":4,"1H Chikou State":"above chikou","1D Chikou Direction":-1,"1D Chikou Count":-20,"1D Chikou State":"below chikou","1W Chikou Direction":-1,"1W Chikou Count":-2,"1W Chikou State":"below chikou","1M Chikou Direction":1,"1M Chikou Count":33,"1M Chikou State":"above chikou","Chikou Score Sum":15},{"Symbol":"XLK","Name":"Technology","1H Chikou Direction":1,"1H Chikou Count":7,"1H Chikou State":"above chikou","1D Chikou Direction":1,"1D Chikou Count":13,"1D Chikou State":"above chikou","1W Chikou Direction":1,"1W Chikou Count":20,"1W Chikou State":"above chikou","1M Chikou Direction":1,"1M Chikou Count":192,"1M Chikou State":"above chikou","Chikou Score Sum":232}];
+    const tableColumns = [{"title": "Symbol", "field": "Symbol", "headerFilter": "input"}, {"title": "Name", "field": "Name", "headerFilter": "input"}, {"title": "1H Direction", "field": "1H Chikou Direction", "headerFilter": "input", "sorter": "number"}, {"title": "1H Count", "field": "1H Chikou Count", "headerFilter": "input", "sorter": "number"}, {"title": "1H State", "field": "1H Chikou State", "headerFilter": "input"}, {"title": "1D Direction", "field": "1D Chikou Direction", "headerFilter": "input", "sorter": "number"}, {"title": "1D Count", "field": "1D Chikou Count", "headerFilter": "input", "sorter": "number"}, {"title": "1D State", "field": "1D Chikou State", "headerFilter": "input"}, {"title": "1W Direction", "field": "1W Chikou Direction", "headerFilter": "input", "sorter": "number"}, {"title": "1W Count", "field": "1W Chikou Count", "headerFilter": "input", "sorter": "number"}, {"title": "1W State", "field": "1W Chikou State", "headerFilter": "input"}, {"title": "1M Direction", "field": "1M Chikou Direction", "headerFilter": "input", "sorter": "number"}, {"title": "1M Count", "field": "1M Chikou Count", "headerFilter": "input", "sorter": "number"}, {"title": "1M State", "field": "1M Chikou State", "headerFilter": "input"}, {"title": "Chikou Score Sum", "field": "Chikou Score Sum", "headerFilter": "input", "sorter": "number"}];
     const exactHeaderFilter = (headerValue, rowValue) =>
       String(rowValue ?? "").trim() === String(headerValue ?? "").trim();
     tableColumns.forEach(column => {
@@ -86,10 +43,9 @@
       pagination: true,
       paginationSize: 50,
       paginationSizeSelector: [25, 50, 100, true],
-      initialSort: [{ column: tableColumns[tableColumns.length - 1].field, dir: "desc" }],
+      initialSort: [{column: tableColumns[tableColumns.length - 1].field, dir: "desc"}],
       placeholder: "No matching rows"
     });
   </script>
 </body>
-
 </html>
