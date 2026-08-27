@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futures Currency Chikou Scan</title>
+  <link rel="stylesheet" href="../../css/html_creator.css">
+  <link rel="stylesheet" href="https://unpkg.com/tabulator-tables@6.3.1/dist/css/tabulator.min.css">
+  <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
+  <style>
+    body { background: #eef2f4; color: #17212b; }
+    .tabulator-page { max-width: 100%; margin: 0 auto; padding: 24px; }
+    .tabulator { border: 2px solid #344955; background: #ffffff; box-shadow: 0 8px 20px rgba(23, 33, 43, .14); }
+    .tabulator .tabulator-header, .tabulator .tabulator-header .tabulator-col { background: #17212b; color: #ffffff; }
+    .tabulator .tabulator-header .tabulator-col { border-right: 1px solid #657782; }
+    .tabulator .tabulator-header-filter input { background: #ffffff; color: #17212b; border: 2px solid #8ba3af; border-radius: 3px; }
+    .tabulator-row { border-bottom: 1px solid #c4d0d6; }
+    .tabulator-row:nth-child(even) { background: #e8f0f2; }
+    .tabulator-row:hover { background: #b9dfe0 !important; }
+    .tabulator .tabulator-cell { border-right: 1px solid #d0dbe0; }
+  </style>
+</head>
+<body>
+  <main class="tabulator-page">
+    <h1>Futures Currency Chikou Scan</h1>
+    <div id="dataTableTabulator"></div>
+    <footer><p>Table Generated At 2026-08-28 00:52:25 [UK]</p></footer>
+  </main>
+  <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
+  <script>
+    const tableData = [{"Datetime":"2026-08-27 19:00:00-04:00","Symbol":"6E=F","Name":"Euro FX Futures","1H Chikou Direction":0,"1H Chikou Count":-34,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-27 19:00:00-04:00","Symbol":"6J=F","Name":"Japanese Yen Futures","1H Chikou Direction":0,"1H Chikou Count":-33,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-27 19:00:00-04:00","Symbol":"6B=F","Name":"British Pound Futures","1H Chikou Direction":1,"1H Chikou Count":2,"1H Chikou State":"above chikou"},{"Datetime":"2026-08-27 19:00:00-04:00","Symbol":"6S=F","Name":"Swiss Franc Futures","1H Chikou Direction":1,"1H Chikou Count":7,"1H Chikou State":"above chikou"},{"Datetime":"2026-08-27 19:00:00-04:00","Symbol":"6N=F","Name":"New Zealand Dollar Futures","1H Chikou Direction":1,"1H Chikou Count":7,"1H Chikou State":"above chikou"},{"Datetime":"2026-08-27 19:00:00-04:00","Symbol":"6C=F","Name":"Canadian Dollar Futures","1H Chikou Direction":1,"1H Chikou Count":10,"1H Chikou State":"above chikou"},{"Datetime":"2026-08-27 19:00:00-04:00","Symbol":"6A=F","Name":"Australian Dollar Futures","1H Chikou Direction":1,"1H Chikou Count":51,"1H Chikou State":"above chikou"}];
+    const tableColumns = [{"title": "Datetime", "field": "Datetime", "headerFilter": "input"}, {"title": "Symbol", "field": "Symbol", "headerFilter": "input"}, {"title": "Name", "field": "Name", "headerFilter": "input"}, {"title": "1H Direction", "field": "1H Chikou Direction", "headerFilter": "input", "sorter": "number"}, {"title": "1H Count", "field": "1H Chikou Count", "headerFilter": "input", "sorter": "number"}, {"title": "1H State", "field": "1H Chikou State", "headerFilter": "input"}];
+    const exactHeaderFilter = (headerValue, rowValue) =>
+      String(rowValue ?? "").trim() === String(headerValue ?? "").trim();
+    tableColumns.forEach(column => {
+      column.headerFilterFunc = exactHeaderFilter;
+    });
+    new Tabulator("#dataTableTabulator", {
+      data: tableData,
+      columns: tableColumns,
+      layout: "fitDataStretch",
+      responsiveLayout: false,
+      pagination: true,
+      paginationSize: 50,
+      paginationSizeSelector: [25, 50, 100, true],
+      initialSort: [{column: tableColumns[tableColumns.length - 1].field, dir: "desc"}],
+      placeholder: "No matching rows"
+    });
+  </script>
+</body>
+</html>
