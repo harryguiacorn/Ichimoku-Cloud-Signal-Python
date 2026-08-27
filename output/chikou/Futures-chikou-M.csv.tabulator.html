@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futures Chikou Scan</title>
+  <link rel="stylesheet" href="../../css/html_creator.css">
+  <link rel="stylesheet" href="https://unpkg.com/tabulator-tables@6.3.1/dist/css/tabulator.min.css">
+  <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
+  <style>
+    body { background: #eef2f4; color: #17212b; }
+    .tabulator-page { max-width: 100%; margin: 0 auto; padding: 24px; }
+    .tabulator { border: 2px solid #344955; background: #ffffff; box-shadow: 0 8px 20px rgba(23, 33, 43, .14); }
+    .tabulator .tabulator-header, .tabulator .tabulator-header .tabulator-col { background: #17212b; color: #ffffff; }
+    .tabulator .tabulator-header .tabulator-col { border-right: 1px solid #657782; }
+    .tabulator .tabulator-header-filter input { background: #ffffff; color: #17212b; border: 2px solid #8ba3af; border-radius: 3px; }
+    .tabulator-row { border-bottom: 1px solid #c4d0d6; }
+    .tabulator-row:nth-child(even) { background: #e8f0f2; }
+    .tabulator-row:hover { background: #b9dfe0 !important; }
+    .tabulator .tabulator-cell { border-right: 1px solid #d0dbe0; }
+  </style>
+</head>
+<body>
+  <main class="tabulator-page">
+    <h1>Futures Chikou Scan</h1>
+    <div id="dataTableTabulator"></div>
+    <footer><p>Table Generated At 2026-08-28 00:51:23 [UK]</p></footer>
+  </main>
+  <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
+  <script>
+    const tableData = [{"Date":"2026-08-01","Symbol":"ZN=F","Name":"10-Year T-Note Futures,Sep-2026","1M Chikou Direction":-1,"1M Chikou Count":-46,"1M Chikou State":"below chikou"},{"Date":"2026-08-01","Symbol":"ZB=F","Name":"U.S. Treasury Bond Futures,Sep-","1M Chikou Direction":-1,"1M Chikou Count":-46,"1M Chikou State":"below chikou"},{"Date":"2026-08-01","Symbol":"ZS=F","Name":"Soybean Futures,Nov-2026","1M Chikou Direction":0,"1M Chikou Count":-31,"1M Chikou State":"below chikou"},{"Date":"2026-08-01","Symbol":"ZO=F","Name":"Oat Futures,Dec-2026","1M Chikou Direction":0,"1M Chikou Count":-26,"1M Chikou State":"below chikou"},{"Date":"2026-08-01","Symbol":"ZM=F","Name":"Soybean Meal Futures","1M Chikou Direction":-1,"1M Chikou Count":-22,"1M Chikou State":"below chikou"},{"Date":"2026-08-01","Symbol":"ZR=F","Name":"Rough Rice Futures,Nov-2026","1M Chikou Direction":-1,"1M Chikou Count":-20,"1M Chikou State":"below chikou"},{"Date":"2026-08-01","Symbol":"SB=F","Name":"Sugar #11 Oct 26","1M Chikou Direction":-1,"1M Chikou Count":-13,"1M Chikou State":"below chikou"},{"Date":"2023-05-01","Symbol":"LBS=F","Name":"Random Length Lumber Futures","1M Chikou Direction":-1,"1M Chikou Count":-9,"1M Chikou State":"below chikou"},{"Date":"2026-08-01","Symbol":"OJ=F","Name":"Orange Juice Nov 26","1M Chikou Direction":-1,"1M Chikou Count":-9,"1M Chikou State":"below chikou"},{"Date":"2026-08-01","Symbol":"ZF=F","Name":"5-Year T-Note Futures,Sep-2026","1M Chikou Direction":-1,"1M Chikou Count":-2,"1M Chikou State":"below chikou"},{"Date":"2026-08-01","Symbol":"CT=F","Name":"Cotton Mar 26","1M Chikou Direction":1,"1M Chikou Count":1,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"ZC=F","Name":"Corn Futures,Dec-2026","1M Chikou Direction":1,"1M Chikou Count":1,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"BZ=F","Name":"Brent Crude Oil Last Day Financial Futures","1M Chikou Direction":1,"1M Chikou Count":2,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"KE=F","Name":"KC HRW Wheat Futures,Dec-2026","1M Chikou Direction":1,"1M Chikou Count":2,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"CL=F","Name":"Crude Oil Oct 26","1M Chikou Direction":1,"1M Chikou Count":2,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"HE=F","Name":"Lean Hog Futures,Oct-2026","1M Chikou Direction":1,"1M Chikou Count":4,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"RB=F","Name":"RBOB Gasoline Oct 26","1M Chikou Direction":1,"1M Chikou Count":5,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"ZL=F","Name":"Soybean Oil Futures,Dec-2026","1M Chikou Direction":1,"1M Chikou Count":5,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"HO=F","Name":"Heating Oil Oct 26","1M Chikou Direction":1,"1M Chikou Count":5,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"PA=F","Name":"Palladium Sep 26","1M Chikou Direction":1,"1M Chikou Count":7,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"NG=F","Name":"Natural Gas Oct 26","1M Chikou Direction":0,"1M Chikou Count":11,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"ZT=F","Name":"2-Year T-Note Futures,Sep-2026","1M Chikou Direction":0,"1M Chikou Count":14,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"PL=F","Name":"Platinum Oct 26","1M Chikou Direction":1,"1M Chikou Count":17,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"HG=F","Name":"Copper Sep 26","1M Chikou Direction":1,"1M Chikou Count":17,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"KC=F","Name":"Coffee Dec 26","1M Chikou Direction":1,"1M Chikou Count":20,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"RTY=F","Name":"E-mini Russell 2000 Index Futur","1M Chikou Direction":1,"1M Chikou Count":21,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"SI=F","Name":"Silver Sep 26","1M Chikou Direction":1,"1M Chikou Count":25,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"SIL=F","Name":"Micro Silver Futures,Sep-2026","1M Chikou Direction":1,"1M Chikou Count":25,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"GC=F","Name":"Gold Dec 26","1M Chikou Direction":1,"1M Chikou Count":35,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"MGC=F","Name":"Micro Gold Futures,Dec-2026","1M Chikou Direction":1,"1M Chikou Count":35,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"CC=F","Name":"Cocoa Dec 26","1M Chikou Direction":1,"1M Chikou Count":38,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"LE=F","Name":"Live Cattle Futures,Oct-2026","1M Chikou Direction":1,"1M Chikou Count":50,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"GF=F","Name":"Feeder Cattle","1M Chikou Direction":1,"1M Chikou Count":54,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"ES=F","Name":"E-Mini S&P 500 Sep 26","1M Chikou Direction":1,"1M Chikou Count":159,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"YM=F","Name":"Mini Dow Jones Indus.-$5 Sep 26","1M Chikou Direction":1,"1M Chikou Count":160,"1M Chikou State":"above chikou"},{"Date":"2026-08-01","Symbol":"NQ=F","Name":"Nasdaq 100 Sep 26","1M Chikou Direction":1,"1M Chikou Count":164,"1M Chikou State":"above chikou"}];
+    const tableColumns = [{"title": "Date", "field": "Date", "headerFilter": "input"}, {"title": "Symbol", "field": "Symbol", "headerFilter": "input"}, {"title": "Name", "field": "Name", "headerFilter": "input"}, {"title": "1M Direction", "field": "1M Chikou Direction", "headerFilter": "input", "sorter": "number"}, {"title": "1M Count", "field": "1M Chikou Count", "headerFilter": "input", "sorter": "number"}, {"title": "1M State", "field": "1M Chikou State", "headerFilter": "input"}];
+    const exactHeaderFilter = (headerValue, rowValue) =>
+      String(rowValue ?? "").trim() === String(headerValue ?? "").trim();
+    tableColumns.forEach(column => {
+      column.headerFilterFunc = exactHeaderFilter;
+    });
+    new Tabulator("#dataTableTabulator", {
+      data: tableData,
+      columns: tableColumns,
+      layout: "fitDataStretch",
+      responsiveLayout: false,
+      pagination: true,
+      paginationSize: 50,
+      paginationSizeSelector: [25, 50, 100, true],
+      initialSort: [{column: tableColumns[tableColumns.length - 1].field, dir: "desc"}],
+      placeholder: "No matching rows"
+    });
+  </script>
+</body>
+</html>
