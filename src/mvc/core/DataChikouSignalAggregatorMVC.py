@@ -80,8 +80,20 @@ class Control(object):
 
     def main(self):
         csv_path = self.model.main()
+        market_name = self.model.assetClassName.rsplit("-chikou-", 1)[0]
+        market_name = {
+            "SPX500": "S&P 500",
+            "Nasdaq100": "Nasdaq 100",
+            "DowJones30": "Dow Jones 30",
+            "Russell1000": "Russell 1000",
+            "Kraken": "Kraken Cryptocurrency",
+            "FTSE100": "FTSE 100",
+            "FTSE250": "FTSE 250",
+            "FuturesCurrency": "Futures Currency",
+            "HSI": "Hang Seng Index",
+        }.get(market_name, market_name)
         html = TableGenerator(csv_path).generate_html_table(
-            f"{self.model.assetClassName} Chikou Scan"
+            f"{market_name} Chikou Scan"
         )
         TableGenerator(csv_path).save_html_table(html, csv_path + ".html")
 

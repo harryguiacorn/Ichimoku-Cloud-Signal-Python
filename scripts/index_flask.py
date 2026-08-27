@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return send_file("index.html")
+    return send_file("index_tabulator.html")
 
 
 @app.route("/spx500")

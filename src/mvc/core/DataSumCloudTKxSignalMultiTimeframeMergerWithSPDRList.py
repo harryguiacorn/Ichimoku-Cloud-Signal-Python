@@ -18,7 +18,11 @@ class Model(object):
         self.symbolPathList = __symbolPathList
         self.dataFilePathList = __dataFilePathList
         self.outputMergePath = __outputMergePath
-        self.html_title = __html_title
+        self.html_title = (
+            __html_title
+            if __html_title.endswith(" Cloud Scan")
+            else f"{__html_title} Cloud Scan"
+        )
 
     def merge(self) -> pd.DataFrame:
         logger.info(

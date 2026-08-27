@@ -80,6 +80,15 @@ def test_chikou_aggregator_and_merger_write_csv_and_html(tmp_path):
     timeframe_csv = output_path / "Test-chikou-D.csv"
     assert timeframe_csv.exists()
     assert (output_path / "Test-chikou-D.csv.html").exists()
+    tabulator_html = output_path / "Test-chikou-D.csv.tabulator.html"
+    assert tabulator_html.exists()
+    tabulator_source = tabulator_html.read_text(encoding="utf-8")
+    assert "tabulator-tables@6.3.1" in tabulator_source
+    assert '"headerFilter": "input"' in tabulator_source
+    assert "responsiveLayout: false" in tabulator_source
+    assert "exactHeaderFilter" in tabulator_source
+    assert "<title>Test Chikou Scan</title>" in tabulator_source
+    assert '"title": "1D Direction"' in tabulator_source
     assert list(pd.read_csv(timeframe_csv).columns) == [
         "Date",
         "Symbol",
@@ -90,9 +99,14 @@ def test_chikou_aggregator_and_merger_write_csv_and_html(tmp_path):
     ]
 
     merged_csv = output_path / "merged.csv"
+    empty_timeframe = output_path / "empty.csv"
+    empty_timeframe.write_text(
+        "Date,Symbol,Name,Empty Chikou Direction,Empty Chikou Count,Empty Chikou State\n",
+        encoding="utf-8",
+    )
     MergerControl(
         MergerModel(
-            [str(timeframe_csv)],
+            [str(timeframe_csv), str(empty_timeframe)],
             str(merged_csv),
             [["1D Chikou Direction", "1D Chikou Count"]],
             ["Chikou Score Sum"],
@@ -102,6 +116,7 @@ def test_chikou_aggregator_and_merger_write_csv_and_html(tmp_path):
 
     assert merged_csv.exists()
     assert (output_path / "merged.csv.html").exists()
+    assert (output_path / "merged.csv.tabulator.html").exists()
     html = (output_path / "merged.csv.html").read_text(encoding="utf-8")
     assert "1D Chikou Direction" not in html
     assert "1D Chikou Count" in html

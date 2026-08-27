@@ -4,6 +4,20 @@ from src.mvc.core.DataChikouSignalMultiTimeframeMerger import (
     View,
 )
 
+MARKET_NAMES = {
+    "SPX500": "S&P 500",
+    "Nasdaq100": "Nasdaq 100",
+    "DowJones30": "Dow Jones 30",
+    "Russell1000": "Russell 1000",
+    "Oanda": "Oanda",
+    "Kraken": "Kraken Cryptocurrency",
+    "FTSE100": "FTSE 100",
+    "FTSE250": "FTSE 250",
+    "Futures": "Futures",
+    "FuturesCurrency": "Futures Currency",
+    "HSI": "Hang Seng Index",
+}
+
 
 def main(asset_name, timeframes, run_merger=True):
     if not run_merger:
@@ -31,6 +45,6 @@ def main(asset_name, timeframes, run_merger=True):
         f"output/chikou/{asset_name}-chikou-merged.csv",
         direction_count_names,
         ["Chikou Score Sum"],
-        f"{asset_name} Chikou Multi Timeframe Scan",
+        f"{MARKET_NAMES.get(asset_name, asset_name)} Chikou Scan",
     )
     Control(model, View()).main()
