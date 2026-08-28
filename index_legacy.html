@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex Investor System</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evSXBKJEiFNJhqCsLnTmojOvCTpBVzudIWSoz9hCqZVCJa/wXTTYJkWvQk/dxtwRwt" crossorigin="anonymous">
+  <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    .link-container {
+      padding: 2rem;
+    }
+
+    .link-container div {
+      margin: 0.5rem 0;
+    }
+
+    .link-container a {
+      /* margin: 0.5rem 0; */
+      /* Adjust margin for spacing */
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: #333;
+      transition: color 0.3s ease-in-out;
+      display: inline-block;
+      /* Ensures only the text area is clickable */
+      /* padding: 0.1rem 0; */
+      /* Adds some vertical space for each link */
+
+    }
+
+    .link-container a:hover {
+      color: #007bff;
+    }
+
+    .scan-table {
+      margin-top: 1.5rem;
+    }
+
+    .scan-table th,
+    .scan-table td {
+      padding: 0.75rem 1rem;
+      vertical-align: middle;
+      text-align: left;
+    }
+
+    .scan-table th {
+      white-space: nowrap;
+    }
+
+    .scan-table .pending {
+      color: #777;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container link-container">
+    <h1>Apex Investor System</h1>
+    <table class="table table-hover scan-table">
+      <thead>
+        <tr>
+          <th scope="col">Market</th>
+          <th scope="col">Cloud Scan</th>
+          <th scope="col">Chikou Scan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">S&amp;P 500</th>
+          <td><a href="output/sum/SPX500-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/SPX500-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Nasdaq 100</th>
+          <td><a href="output/sum/Nasdaq100-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/Nasdaq100-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Dow Jones 30</th>
+          <td><a href="output/sum/DowJones30-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/DowJones30-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Russell 1000</th>
+          <td><a href="output/sum/Russell1000-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/Russell1000-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Oanda</th>
+          <td><a href="output/sum/Oanda-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/Oanda-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Kraken Cryptocurrency</th>
+          <td><a href="output/sum/Kraken-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/Kraken-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">FTSE 100</th>
+          <td><a href="output/sum/FTSE100-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/FTSE100-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">FTSE 250</th>
+          <td><a href="output/sum/FTSE250-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/FTSE250-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Futures</th>
+          <td><a href="output/sum/Futures-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/Futures-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Futures Currency</th>
+          <td><a href="output/sum/FuturesCurrency-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/FuturesCurrency-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">Hang Seng Index</th>
+          <td><a href="output/sum/HSI-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/HSI-chikou-merged.csv.html">Open</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="h4 mt-4">Sector Scans</h2>
+    <table class="table table-hover scan-table">
+      <thead>
+        <tr>
+          <th scope="col">Sector</th>
+          <th scope="col">Cloud Scan</th>
+          <th scope="col">Chikou Scan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">All sectors</th>
+          <td><a href="output/sum/SPDR_ETFS-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/SPDR_ETFs-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">XLC - Communication Services</th>
+          <td><a href="output/sum/SPDR_ETF-XLC-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/SPDR_ETF-XLC-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">XLY - Consumer Discretionary</th>
+          <td><a href="output/sum/SPDR_ETF-XLY-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/SPDR_ETF-XLY-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">XLP - Consumer Staples</th>
+          <td><a href="output/sum/SPDR_ETF-XLP-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/SPDR_ETF-XLP-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">XLE - Energy</th>
+          <td><a href="output/sum/SPDR_ETF-XLE-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/SPDR_ETF-XLE-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">XLF - Financials</th>
+          <td><a href="output/sum/SPDR_ETF-XLF-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/SPDR_ETF-XLF-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">XLV - Health Care</th>
+          <td><a href="output/sum/SPDR_ETF-XLV-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/SPDR_ETF-XLV-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">XLI - Industrials</th>
+          <td><a href="output/sum/SPDR_ETF-XLI-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/SPDR_ETF-XLI-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">XLB - Materials</th>
+          <td><a href="output/sum/SPDR_ETF-XLB-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/SPDR_ETF-XLB-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">XLRE - Real Estate</th>
+          <td><a href="output/sum/SPDR_ETF-XLRE-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/SPDR_ETF-XLRE-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">XLK - Technology</th>
+          <td><a href="output/sum/SPDR_ETF-XLK-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/SPDR_ETF-XLK-chikou-merged.csv.html">Open</a></td>
+        </tr>
+        <tr>
+          <th scope="row">XLU - Utilities</th>
+          <td><a href="output/sum/SPDR_ETF-XLU-sum-cloud-tkx-merged.csv.html">Open</a></td>
+          <td><a href="output/chikou/SPDR_ETF-XLU-chikou-merged.csv.html">Open</a></td>
+        </tr>
+      </tbody>
+    </table>
+</body>
+
+</html>
