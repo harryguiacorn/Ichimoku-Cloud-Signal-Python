@@ -6,6 +6,16 @@
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open Live In Colab"/>
 </a>
 
+
+## Status Update [2026.08.29] ## 
+Overall facelift and added scans, which includes Cloud, Tenkan-sen and Kijun-sen, and Chikou span counts.
+<img width="1217" height="693" alt="image" src="https://github.com/user-attachments/assets/7c8311d3-f36e-41d6-82c2-1d803260b543" />
+<img width="1206" height="601" alt="image" src="https://github.com/user-attachments/assets/2291b6e1-4cd6-4966-8809-14d8864886b4" />
+<img width="1844" height="582" alt="image" src="https://github.com/user-attachments/assets/50b65452-5fb3-4120-8af8-b3c8ab428094" />
+<img width="1632" height="728" alt="image" src="https://github.com/user-attachments/assets/92f25b3c-d967-41c7-b6f4-7cb3dab4ff49" />
+
+
+
 ## Status Update [2024.02.06] ## 
 
 Uncover market movers with ease! This application analyses data silently and generates web pages displaying strength scores for every stock in major indices. Dive deeper into each stock's cloud and TKx strength, calculated using powerful multi-timeframe Ichimoku analysis. Finally, see the ultimate verdict: a clear total score for each stock. Dominate the market by sorting through this scorecard, instantly identifying the champions and laggards primed for your trading moves.
