@@ -11,7 +11,9 @@ def run_market(name: str):
     module_name = f"cloud_signal.runners.{config['module']}"
     module = importlib.import_module(module_name)
     if not hasattr(module, "main"):
-        raise AttributeError(f"Runner module {module_name} has no main() entry point")
+        raise AttributeError(
+            f"Runner module {module_name} has no main() entry point"
+        )
     runtime = config.get("runtime", {})
     if not runtime:
         return module.main()
@@ -19,7 +21,11 @@ def run_market(name: str):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Run a configured market workflow.")
-    parser.add_argument("--market", required=True, help="Market name, e.g. FTSE250")
+    parser = argparse.ArgumentParser(
+        description="Run a configured market workflow."
+    )
+    parser.add_argument(
+        "--market", required=True, help="Market name, e.g. FTSE250"
+    )
     args = parser.parse_args()
     run_market(args.market)

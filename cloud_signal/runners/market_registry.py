@@ -164,7 +164,16 @@ def _normalize_market(raw_market: Dict[str, Any]) -> Dict[str, Any]:
     return market
 
 
-def _build_default_market(name: str, module: str, asset_list: str, data_dir: str, output_dir: str, timeframes: List[str], *, fetch_symbols: bool) -> Dict[str, Any]:
+def _build_default_market(
+    name: str,
+    module: str,
+    asset_list: str,
+    data_dir: str,
+    output_dir: str,
+    timeframes: List[str],
+    *,
+    fetch_symbols: bool,
+) -> Dict[str, Any]:
     runtime = dict(RUNTIME_DEFAULTS.get(name, {}))
     return {
         "name": name,
@@ -184,23 +193,129 @@ def _build_default_market(name: str, module: str, asset_list: str, data_dir: str
 
 
 DEFAULT_MARKETS: List[Dict[str, Any]] = [
-    _build_default_market("DJ30", "runDJ30", "asset_list/DowJones30.csv", "data/dowjones30", "output/dowjones30", ["1h", "d", "w", "m"], fetch_symbols=True),
-    _build_default_market("FTSE100", "runFTSE100", "asset_list/FTSE100.csv", "data/ftse100", "output/ftse100", ["1h", "d", "w", "m"], fetch_symbols=True),
-    _build_default_market("FTSE250", "runFTSE250", "asset_list/FTSE250.csv", "data/ftse250", "output/ftse250", ["1h", "d", "w", "m"], fetch_symbols=True),
-    _build_default_market("Futures", "runFutures", "asset_list/Futures.csv", "data/futures", "output/futures", ["1h", "d", "w", "m"], fetch_symbols=True),
-    _build_default_market("CurrencyFutures", "runCurrencyFutures", "asset_list/FuturesCurrency.csv", "data/futurescurrency", "output/futurescurrency", ["1h", "d", "w", "m"], fetch_symbols=False),
-    _build_default_market("HSI", "runHSI", "asset_list/HSI.csv", "data/hsi", "output/hsi", ["1h", "d", "w", "m"], fetch_symbols=True),
-    _build_default_market("Nas100", "runNas100", "asset_list/Nasdaq100.csv", "data/nasdaq100", "output/nasdaq100", ["1h", "d", "w", "m"], fetch_symbols=True),
-    _build_default_market("Oanda", "runOanda", "asset_list/Oanda.csv", "data/oanda", "output/oanda", ["1h", "4h", "d", "w", "m"], fetch_symbols=False),
-    _build_default_market("SPX500", "runSPX500", "asset_list/SPX500.csv", "data/spx500", "output/spx500", ["1h", "d", "w", "m"], fetch_symbols=True),
-    _build_default_market("SPDR_ETFs", "runSPDR_ETFs", "asset_list/SPDR_ETFs.csv", "data/spdr_etfs", "output/spdr_etfs", ["1h", "d", "w", "m"], fetch_symbols=False),
-    _build_default_market("Kraken", "runKraken", "asset_list/Kraken.csv", "data/kraken", "output/kraken", ["1h", "4h", "d", "w", "m"], fetch_symbols=False),
-    _build_default_market("Bitfinex", "runBitfinex", "asset_list/Bitfinex.csv", "data/bitfinex", "output/bitfinex", ["1h", "4h", "d", "w", "m"], fetch_symbols=False),
-    _build_default_market("Russell1000", "runRussell1000", "asset_list/Russell1000.csv", "data/russell1000", "output/russell1000", ["1h", "d", "w", "m"], fetch_symbols=True),
+    _build_default_market(
+        "DJ30",
+        "runDJ30",
+        "asset_list/DowJones30.csv",
+        "data/dowjones30",
+        "output/dowjones30",
+        ["1h", "d", "w", "m"],
+        fetch_symbols=True,
+    ),
+    _build_default_market(
+        "FTSE100",
+        "runFTSE100",
+        "asset_list/FTSE100.csv",
+        "data/ftse100",
+        "output/ftse100",
+        ["1h", "d", "w", "m"],
+        fetch_symbols=True,
+    ),
+    _build_default_market(
+        "FTSE250",
+        "runFTSE250",
+        "asset_list/FTSE250.csv",
+        "data/ftse250",
+        "output/ftse250",
+        ["1h", "d", "w", "m"],
+        fetch_symbols=True,
+    ),
+    _build_default_market(
+        "Futures",
+        "runFutures",
+        "asset_list/Futures.csv",
+        "data/futures",
+        "output/futures",
+        ["1h", "d", "w", "m"],
+        fetch_symbols=True,
+    ),
+    _build_default_market(
+        "CurrencyFutures",
+        "runCurrencyFutures",
+        "asset_list/FuturesCurrency.csv",
+        "data/futurescurrency",
+        "output/futurescurrency",
+        ["1h", "d", "w", "m"],
+        fetch_symbols=False,
+    ),
+    _build_default_market(
+        "HSI",
+        "runHSI",
+        "asset_list/HSI.csv",
+        "data/hsi",
+        "output/hsi",
+        ["1h", "d", "w", "m"],
+        fetch_symbols=True,
+    ),
+    _build_default_market(
+        "Nas100",
+        "runNas100",
+        "asset_list/Nasdaq100.csv",
+        "data/nasdaq100",
+        "output/nasdaq100",
+        ["1h", "d", "w", "m"],
+        fetch_symbols=True,
+    ),
+    _build_default_market(
+        "Oanda",
+        "runOanda",
+        "asset_list/Oanda.csv",
+        "data/oanda",
+        "output/oanda",
+        ["1h", "4h", "d", "w", "m"],
+        fetch_symbols=False,
+    ),
+    _build_default_market(
+        "SPX500",
+        "runSPX500",
+        "asset_list/SPX500.csv",
+        "data/spx500",
+        "output/spx500",
+        ["1h", "d", "w", "m"],
+        fetch_symbols=True,
+    ),
+    _build_default_market(
+        "SPDR_ETFs",
+        "runSPDR_ETFs",
+        "asset_list/SPDR_ETFs.csv",
+        "data/spdr_etfs",
+        "output/spdr_etfs",
+        ["1h", "d", "w", "m"],
+        fetch_symbols=False,
+    ),
+    _build_default_market(
+        "Kraken",
+        "runKraken",
+        "asset_list/Kraken.csv",
+        "data/kraken",
+        "output/kraken",
+        ["1h", "4h", "d", "w", "m"],
+        fetch_symbols=False,
+    ),
+    _build_default_market(
+        "Bitfinex",
+        "runBitfinex",
+        "asset_list/Bitfinex.csv",
+        "data/bitfinex",
+        "output/bitfinex",
+        ["1h", "4h", "d", "w", "m"],
+        fetch_symbols=False,
+    ),
+    _build_default_market(
+        "Russell1000",
+        "runRussell1000",
+        "asset_list/Russell1000.csv",
+        "data/russell1000",
+        "output/russell1000",
+        ["1h", "d", "w", "m"],
+        fetch_symbols=True,
+    ),
 ]
 
 
-def _load_toml_market_config(config_path: Path | str | None = None) -> List[Dict[str, Any]]:
+def _load_toml_market_config(
+    config_path: Path | str | None = None,
+) -> List[Dict[str, Any]]:
     path = Path(config_path) if config_path else DEFAULT_CONFIG_PATH
     if not path.exists():
         return [_normalize_market(market) for market in DEFAULT_MARKETS]
@@ -213,7 +328,9 @@ def _load_toml_market_config(config_path: Path | str | None = None) -> List[Dict
     return [_normalize_market(market) for market in markets]
 
 
-MARKETS: List[Dict[str, Any]] = _load_toml_market_config(os.getenv("CLOUD_SIGNAL_MARKETS_CONFIG"))
+MARKETS: List[Dict[str, Any]] = _load_toml_market_config(
+    os.getenv("CLOUD_SIGNAL_MARKETS_CONFIG")
+)
 
 
 def list_market_names() -> List[str]:

@@ -1,4 +1,7 @@
-from cloud_signal.runners.market_registry import get_market_config, list_market_names
+from cloud_signal.runners.market_registry import (
+    get_market_config,
+    list_market_names,
+)
 
 
 def test_market_registry_contains_all_expected_runners():

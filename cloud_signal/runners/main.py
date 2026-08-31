@@ -1,4 +1,7 @@
-from cloud_signal.runners._bootstrap import ensure_repo_root, setup_runner_logging
+from cloud_signal.runners._bootstrap import (
+    ensure_repo_root,
+    setup_runner_logging,
+)
 from cloud_signal.runners.market_registry import get_market_configs
 from cloud_signal.runners.run_market import run_market
 

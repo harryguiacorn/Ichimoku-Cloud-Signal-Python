@@ -20,11 +20,13 @@ from cloud_signal.runners.market_registry import RUNTIME_DEFAULTS
 # Legacy module-level constants (deprecated; use registry instead)
 # These are automatically populated from RUNTIME_DEFAULTS for backward compatibility
 
+
 def _populate_legacy_constants():
     """Populate module-level flags from the registry for backward compatibility."""
     for market_name, runtime_flags in RUNTIME_DEFAULTS.items():
         for flag_name, flag_value in runtime_flags.items():
             globals()[flag_name] = flag_value
+
 
 _populate_legacy_constants()
 del _populate_legacy_constants
