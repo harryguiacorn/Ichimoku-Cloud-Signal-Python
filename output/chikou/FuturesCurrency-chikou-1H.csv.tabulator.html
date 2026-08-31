@@ -24,12 +24,12 @@
   <main class="tabulator-page">
     <h1>Futures Currency Chikou Scan</h1>
     <div id="dataTableTabulator"></div>
-    <footer><p>Table Generated At 2026-08-29 13:38:55 [UK]</p></footer>
+    <footer><p>Table Generated At 2026-08-31 21:10:51 [UK]</p></footer>
   </main>
   <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
   <script>
-    const tableData = [{"Datetime":"2026-08-28 16:00:00-04:00","Symbol":"6E=F","Name":"Euro FX Futures","1H Chikou Direction":-1,"1H Chikou Count":-55,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-28 16:00:00-04:00","Symbol":"6J=F","Name":"Japanese Yen Futures","1H Chikou Direction":-1,"1H Chikou Count":-54,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-28 16:00:00-04:00","Symbol":"6N=F","Name":"New Zealand Dollar Futures","1H Chikou Direction":-1,"1H Chikou Count":-7,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-28 16:00:00-04:00","Symbol":"6S=F","Name":"Swiss Franc Futures","1H Chikou Direction":-1,"1H Chikou Count":-7,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-28 16:00:00-04:00","Symbol":"6B=F","Name":"British Pound Futures","1H Chikou Direction":-1,"1H Chikou Count":-6,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-28 16:00:00-04:00","Symbol":"6A=F","Name":"Australian Dollar Futures","1H Chikou Direction":-1,"1H Chikou Count":-6,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-28 16:00:00-04:00","Symbol":"6C=F","Name":"Canadian Dollar Futures","1H Chikou Direction":-1,"1H Chikou Count":-6,"1H Chikou State":"below chikou"}];
-    const tableColumns = [{"title": "Datetime", "field": "Datetime", "headerFilter": "input"}, {"title": "Symbol", "field": "Symbol", "headerFilter": "input"}, {"title": "Name", "field": "Name", "headerFilter": "input"}, {"title": "1H Direction", "field": "1H Chikou Direction", "headerFilter": "input", "sorter": "number"}, {"title": "1H Count", "field": "1H Chikou Count", "headerFilter": "input", "sorter": "number"}, {"title": "1H State", "field": "1H Chikou State", "headerFilter": "input"}];
+    const tableData = [{"Datetime":"2026-08-31 16:00:00-04:00","Symbol":"6B=F","Name":"British Pound Futures","1H Chikou Direction":1,"1H Chikou Count":1,"1H Chikou State":"above chikou"},{"Datetime":"2026-08-31 16:00:00-04:00","Symbol":"6E=F","Name":"Euro FX Futures","1H Chikou Direction":1,"1H Chikou Count":2,"1H Chikou State":"above chikou"},{"Datetime":"2026-08-31 16:00:00-04:00","Symbol":"6J=F","Name":"Japanese Yen Futures","1H Chikou Direction":1,"1H Chikou Count":2,"1H Chikou State":"above chikou"},{"Datetime":"2026-08-31 16:00:00-04:00","Symbol":"6A=F","Name":"Australian Dollar Futures","1H Chikou Direction":1,"1H Chikou Count":2,"1H Chikou State":"above chikou"},{"Datetime":"2026-08-31 16:00:00-04:00","Symbol":"6S=F","Name":"Swiss Franc Futures","1H Chikou Direction":1,"1H Chikou Count":2,"1H Chikou State":"above chikou"},{"Datetime":"2026-08-31 16:00:00-04:00","Symbol":"6N=F","Name":"New Zealand Dollar Futures","1H Chikou Direction":1,"1H Chikou Count":2,"1H Chikou State":"above chikou"},{"Datetime":"2026-08-31 16:00:00-04:00","Symbol":"6C=F","Name":"Canadian Dollar Futures","1H Chikou Direction":1,"1H Chikou Count":3,"1H Chikou State":"above chikou"}];
+    const tableColumns = [{"title": "Datetime", "field": "Datetime", "headerFilter": "input"}, {"title": "Symbol", "field": "Symbol", "headerFilter": "input"}, {"title": "Name", "field": "Name", "headerFilter": "input"}, {"title": "1H Direction", "field": "1H Chikou Direction", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H Count", "field": "1H Chikou Count", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H State", "field": "1H Chikou State", "headerFilter": "input"}];
     const exactHeaderFilter = (headerValue, rowValue) =>
       String(rowValue ?? "").trim() === String(headerValue ?? "").trim();
     tableColumns.forEach(column => {
@@ -38,7 +38,7 @@
     new Tabulator("#dataTableTabulator", {
       data: tableData,
       columns: tableColumns,
-      layout: "fitDataStretch",
+      layout: "fitDataTable",
       responsiveLayout: false,
       pagination: true,
       paginationSize: 50,
