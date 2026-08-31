@@ -19,4 +19,6 @@ __all__ = [
     "runDJ30",
     "runDJ30_source_russell",
     "runCurrencyFutures",
+    "run_market",
+    "market_registry",
 ]

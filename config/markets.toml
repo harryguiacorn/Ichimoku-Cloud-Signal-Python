@@ -1,0 +1,322 @@
+[[market]]
+name = "DJ30"
+module = "runDJ30"
+asset_list = "asset_list/DowJones30.csv"
+data_dir = "data/dowjones30"
+output_dir = "output/dowjones30"
+timeframes = ["1h", "d", "w", "m"]
+fetch_symbols = true
+merge_multitimeframe = true
+fetch_kijun = false
+fetch_kicker = false
+symbol_key = "fetch_symbols_latest_DJ30"
+enabled = true
+
+[market.runtime]
+fetch_symbols_latest_DJ30 = true
+fetch_DJ30_1H = true
+fetch_DJ30_D = true
+fetch_DJ30_W = true
+fetch_DJ30_M = true
+fetch_kijun_analysis = false
+fetch_Kicker_use_datetime_format = false
+run_Multi_TimeFrame_Merger_DJ30 = true
+fetch_kicker = false
+
+[[market]]
+name = "FTSE100"
+module = "runFTSE100"
+asset_list = "asset_list/FTSE100.csv"
+data_dir = "data/ftse100"
+output_dir = "output/ftse100"
+timeframes = ["1h", "d", "w", "m"]
+fetch_symbols = true
+merge_multitimeframe = true
+fetch_kijun = false
+fetch_kicker = false
+symbol_key = "fetch_symbols_latest_FTSE100"
+enabled = true
+
+[market.runtime]
+fetch_symbols_latest_FTSE100 = true
+fetch_FTSE100_1H = true
+fetch_FTSE100_D = true
+fetch_FTSE100_W = true
+fetch_FTSE100_M = true
+fetch_kijun_analysis = false
+fetch_Kicker_use_datetime_format = false
+run_Multi_TimeFrame_Merger_FTSE100 = true
+fetch_kicker = false
+
+[[market]]
+name = "FTSE250"
+module = "runFTSE250"
+asset_list = "asset_list/FTSE250.csv"
+data_dir = "data/ftse250"
+output_dir = "output/ftse250"
+timeframes = ["1h", "d", "w", "m"]
+fetch_symbols = true
+merge_multitimeframe = true
+fetch_kijun = false
+fetch_kicker = false
+symbol_key = "fetch_symbols_latest_FTSE250"
+enabled = true
+
+[market.runtime]
+fetch_symbols_latest_FTSE250 = true
+fetch_FTSE250_1H = true
+fetch_FTSE250_D = true
+fetch_FTSE250_W = true
+fetch_FTSE250_M = true
+fetch_kijun_analysis = false
+fetch_Kicker_use_datetime_format = false
+run_Multi_TimeFrame_Merger_FTSE250 = true
+fetch_kicker = false
+
+[[market]]
+name = "Futures"
+module = "runFutures"
+asset_list = "asset_list/Futures.csv"
+data_dir = "data/futures"
+output_dir = "output/futures"
+timeframes = ["1h", "d", "w", "m"]
+fetch_symbols = true
+merge_multitimeframe = true
+fetch_kijun = false
+fetch_kicker = false
+symbol_key = "fetch_symbols_latest_Futures"
+enabled = true
+
+[market.runtime]
+fetch_symbols_latest_Futures = true
+fetch_Futures_1H = true
+fetch_Futures_D = true
+fetch_Futures_W = true
+fetch_Futures_M = true
+fetch_kijun_analysis = false
+fetch_Kicker_use_datetime_format = false
+run_Multi_TimeFrame_Merger_Futures = true
+fetch_kicker = false
+
+[[market]]
+name = "CurrencyFutures"
+module = "runCurrencyFutures"
+asset_list = "asset_list/FuturesCurrency.csv"
+data_dir = "data/futurescurrency"
+output_dir = "output/futurescurrency"
+timeframes = ["1h", "d", "w", "m"]
+fetch_symbols = false
+merge_multitimeframe = true
+fetch_kijun = false
+fetch_kicker = false
+symbol_key = "fetch_symbols_latest_CurrencyFutures"
+enabled = true
+
+[market.runtime]
+fetch_symbols_latest_CurrencyFutures = false
+fetch_CurrencyFutures_1H = true
+fetch_CurrencyFutures_D = true
+fetch_CurrencyFutures_W = true
+fetch_CurrencyFutures_M = true
+fetch_kijun_analysis = false
+fetch_Kicker_use_datetime_format = false
+run_Multi_TimeFrame_Merger_CurrencyFutures = true
+fetch_kicker = false
+
+[[market]]
+name = "HSI"
+module = "runHSI"
+asset_list = "asset_list/HSI.csv"
+data_dir = "data/hsi"
+output_dir = "output/hsi"
+timeframes = ["1h", "d", "w", "m"]
+fetch_symbols = true
+merge_multitimeframe = true
+fetch_kijun = false
+fetch_kicker = false
+symbol_key = "fetch_symbols_latest_HSI"
+enabled = true
+
+[market.runtime]
+fetch_symbols_latest_HSI = true
+fetch_HSI_1H = true
+fetch_HSI_D = true
+fetch_HSI_W = true
+fetch_HSI_M = true
+fetch_kijun_analysis = false
+fetch_Kicker_use_datetime_format = false
+run_Multi_TimeFrame_Merger_HSI = true
+fetch_kicker = false
+
+[[market]]
+name = "Nas100"
+module = "runNas100"
+asset_list = "asset_list/Nasdaq100.csv"
+data_dir = "data/nasdaq100"
+output_dir = "output/nasdaq100"
+timeframes = ["1h", "d", "w", "m"]
+fetch_symbols = true
+merge_multitimeframe = true
+fetch_kijun = false
+fetch_kicker = false
+symbol_key = "fetch_symbols_latest_Nas100"
+enabled = true
+
+[market.runtime]
+fetch_symbols_latest_Nas100 = true
+fetch_Nas100_1H = true
+fetch_Nas100_D = true
+fetch_Nas100_W = true
+fetch_Nas100_M = true
+fetch_kijun_analysis = false
+fetch_Kicker_use_datetime_format = false
+run_Multi_TimeFrame_Merger_Nas100 = true
+fetch_kicker = false
+
+[[market]]
+name = "Oanda"
+module = "runOanda"
+asset_list = "asset_list/Oanda.csv"
+data_dir = "data/oanda"
+output_dir = "output/oanda"
+timeframes = ["1h", "4h", "d", "w", "m"]
+fetch_symbols = false
+merge_multitimeframe = true
+fetch_kijun = false
+fetch_kicker = false
+symbol_key = ""
+enabled = true
+
+[market.runtime]
+fetch_Oanda_1H = true
+fetch_Oanda_4H = true
+fetch_Oanda_D = true
+fetch_Oanda_W = true
+fetch_Oanda_M = true
+fetch_kijun_analysis = false
+fetch_Kicker_use_datetime_format = false
+run_Multi_TimeFrame_Merger_Oanda = true
+fetch_kicker = false
+
+[[market]]
+name = "SPX500"
+module = "runSPX500"
+asset_list = "asset_list/SPX500.csv"
+data_dir = "data/spx500"
+output_dir = "output/spx500"
+timeframes = ["1h", "d", "w", "m"]
+fetch_symbols = true
+merge_multitimeframe = true
+fetch_kijun = false
+fetch_kicker = false
+symbol_key = "fetch_symbols_latest_SPX500"
+enabled = true
+
+[market.runtime]
+fetch_symbols_latest_SPX500 = true
+fetch_SPX500_1H = true
+fetch_SPX500_D = true
+fetch_SPX500_W = true
+fetch_SPX500_M = true
+fetch_kijun_analysis = false
+fetch_Kicker_use_datetime_format = false
+run_Multi_TimeFrame_Merger_SPX500 = true
+fetch_kicker = false
+
+[[market]]
+name = "SPDR_ETFs"
+module = "runSPDR_ETFs"
+asset_list = "asset_list/SPDR_ETFs.csv"
+data_dir = "data/spdr_etfs"
+output_dir = "output/spdr_etfs"
+timeframes = ["1h", "d", "w", "m"]
+fetch_symbols = false
+merge_multitimeframe = true
+fetch_kijun = false
+fetch_kicker = false
+symbol_key = "fetch_symbols_latest_SPDR_ETFS"
+enabled = true
+
+[market.runtime]
+fetch_symbols_latest_SPDR_ETFS = true
+fetch_SPDR_ETFs_1H = true
+fetch_SPDR_ETFs_D = true
+fetch_SPDR_ETFs_W = true
+fetch_SPDR_ETFs_M = true
+fetch_kijun_analysis = false
+fetch_Kicker_use_datetime_format = false
+run_Multi_TimeFrame_Merger_SPDR_ETFs = true
+fetch_kicker = false
+
+[[market]]
+name = "Kraken"
+module = "runKraken"
+asset_list = "asset_list/Kraken.csv"
+data_dir = "data/kraken"
+output_dir = "output/kraken"
+timeframes = ["1h", "4h", "d", "w", "m"]
+fetch_symbols = false
+merge_multitimeframe = true
+fetch_kijun = false
+fetch_kicker = false
+symbol_key = ""
+enabled = true
+
+[market.runtime]
+fetch_Kraken_1H = true
+fetch_Kraken_4H = true
+fetch_Kraken_D = true
+fetch_Kraken_W = true
+fetch_Kraken_M = true
+fetch_Kicker_use_datetime_format = false
+run_Multi_TimeFrame_Merger_Kraken = true
+fetch_kicker = false
+
+[[market]]
+name = "Bitfinex"
+module = "runBitfinex"
+asset_list = "asset_list/Bitfinex.csv"
+data_dir = "data/bitfinex"
+output_dir = "output/bitfinex"
+timeframes = ["1h", "4h", "d", "w", "m"]
+fetch_symbols = false
+merge_multitimeframe = true
+fetch_kijun = false
+fetch_kicker = false
+symbol_key = ""
+enabled = true
+
+[market.runtime]
+fetch_Bitfinex_1H = true
+fetch_Bitfinex_4H = true
+fetch_Bitfinex_D = true
+fetch_Bitfinex_W = true
+fetch_Bitfinex_M = true
+fetch_Kicker_use_datetime_format = false
+run_Multi_TimeFrame_Merger_Bitfinex = true
+fetch_kicker = false
+
+[[market]]
+name = "Russell1000"
+module = "runRussell1000"
+asset_list = "asset_list/Russell1000.csv"
+data_dir = "data/russell1000"
+output_dir = "output/russell1000"
+timeframes = ["1h", "d", "w", "m"]
+fetch_symbols = true
+merge_multitimeframe = true
+fetch_kijun = false
+fetch_kicker = false
+symbol_key = "fetch_symbols_latest_Russell1000"
+enabled = true
+
+[market.runtime]
+fetch_symbols_latest_Russell1000 = true
+fetch_Russell1000_1H = true
+fetch_Russell1000_D = true
+fetch_Russell1000_W = true
+fetch_Russell1000_M = true
+fetch_kijun_analysis = false
+fetch_Kicker_use_datetime_format = false
+run_Multi_TimeFrame_Merger_Russell1000 = true
+fetch_kicker = false

@@ -1,83 +1,30 @@
-"""Default orchestration settings for the full market scan."""
+"""
+DEPRECATED: This module contained hard-coded orchestration settings for market runs.
 
-fetch_symbols_latest_DJ30 = True
-fetch_symbols_latest_SPX500 = True
-fetch_symbols_latest_Nas100 = True
-fetch_symbols_latest_FTSE100 = True
-fetch_symbols_latest_FTSE250 = True
-fetch_symbols_latest_Futures = True
-fetch_symbols_latest_CurrencyFutures = True
-fetch_symbols_latest_HSI = True
+As of August 2026, all market configuration—including asset lists, timeframes, output paths,
+and runtime flags—has been centralized in the registry-driven model:
 
-fetch_DJ30_1H = True
-fetch_SPX500_1H = True
-fetch_Nas100_1H = True
-fetch_FTSE100_1H = True
-fetch_FTSE250_1H = True
-fetch_Futures_1H = True
-fetch_CurrencyFutures_1H = True
-fetch_Oanda_1H = True
-fetch_Bitfinex_1H = True
-fetch_Kraken_1H = True
-fetch_SPDR_ETFs_1H = True
-fetch_HSI_1H = True
+    - See: config/markets.toml (TOML-based source of truth)
+    - See: cloud_signal/runners/market_registry.py (Python registry loader)
+    - See: cloud_signal/runners/run_market.py (Generic parametrized runner)
 
-fetch_Oanda_4H = True
-fetch_Bitfinex_4H = True
-fetch_Kraken_4H = True
+Each market's runtime flags are now stored in the [market.runtime] section of markets.toml.
+The registry automatically loads these at startup and passes them to legacy runner modules.
 
-fetch_DJ30_D = True
-fetch_SPX500_D = True
-fetch_Nas100_D = True
-fetch_FTSE100_D = True
-fetch_FTSE250_D = True
-fetch_Futures_D = True
-fetch_CurrencyFutures_D = True
-fetch_Oanda_D = True
-fetch_Bitfinex_D = True
-fetch_Kraken_D = True
-fetch_SPDR_ETFs_D = True
-fetch_HSI_D = True
+For backward compatibility, all original settings are preserved as module-level constants below.
+These are now derived from the registry and serve as fallback defaults only.
+"""
 
-fetch_DJ30_W = True
-fetch_SPX500_W = True
-fetch_Nas100_W = True
-fetch_FTSE100_W = True
-fetch_FTSE250_W = True
-fetch_Futures_W = True
-fetch_CurrencyFutures_W = True
-fetch_Oanda_W = True
-fetch_Bitfinex_W = True
-fetch_Kraken_W = True
-fetch_SPDR_ETFs_W = True
-fetch_HSI_W = True
+from cloud_signal.runners.market_registry import RUNTIME_DEFAULTS
 
-fetch_DJ30_M = True
-fetch_SPX500_M = True
-fetch_Nas100_M = True
-fetch_FTSE100_M = True
-fetch_FTSE250_M = True
-fetch_Futures_M = True
-fetch_CurrencyFutures_M = True
-fetch_Oanda_M = True
-fetch_Bitfinex_M = True
-fetch_Kraken_M = True
-fetch_SPDR_ETFs_M = True
-fetch_HSI_M = True
+# Legacy module-level constants (deprecated; use registry instead)
+# These are automatically populated from RUNTIME_DEFAULTS for backward compatibility
 
-run_Multi_TimeFrame_Merger_DJ30 = True
-run_Multi_TimeFrame_Merger_SPX500 = True
-run_Multi_TimeFrame_Merger_Nas100 = True
-run_Multi_TimeFrame_Merger_FTSE100 = True
-run_Multi_TimeFrame_Merger_FTSE250 = True
-run_Multi_TimeFrame_Merger_Futures = True
-run_Multi_TimeFrame_Merger_CurrencyFutures = True
-run_Multi_TimeFrame_Merger_Oanda = True
-run_Multi_TimeFrame_Merger_Bitfinex = True
-run_Multi_TimeFrame_Merger_Kraken = True
-run_Multi_TimeFrame_Merger_SPDR_ETFs = True
-run_Multi_TimeFrame_Merger_HSI = True
+def _populate_legacy_constants():
+    """Populate module-level flags from the registry for backward compatibility."""
+    for market_name, runtime_flags in RUNTIME_DEFAULTS.items():
+        for flag_name, flag_value in runtime_flags.items():
+            globals()[flag_name] = flag_value
 
-fetch_kijun_analysis = False
-fetch_kicker = False
-fetch_Kicker_use_datetime_format = False
+_populate_legacy_constants()
+del _populate_legacy_constants
