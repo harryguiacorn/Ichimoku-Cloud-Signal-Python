@@ -132,12 +132,13 @@ class TableGenerator:
         columns = []
         for column in df.columns:
             definition = {
-                "title": str(column).replace(" Chikou", ""),
+                "title": str(column).replace(" Chikou", "").replace(" Cloud", "").replace("Cloud", "").strip(),
                 "field": str(column),
                 "headerFilter": "input",
             }
             if pd.api.types.is_numeric_dtype(df[column]):
                 definition["sorter"] = "number"
+                definition["hozAlign"] = "right"
             columns.append(definition)
 
         data_json = df.to_json(orient="records", date_format="iso")
@@ -189,7 +190,7 @@ class TableGenerator:
     new Tabulator("#dataTableTabulator", {{
       data: tableData,
       columns: tableColumns,
-      layout: "fitDataStretch",
+      layout: "fitDataTable",
       responsiveLayout: false,
       pagination: true,
       paginationSize: 50,
