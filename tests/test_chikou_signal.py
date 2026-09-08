@@ -91,7 +91,11 @@ def test_chikou_aggregator_and_merger_write_csv_and_html(tmp_path):
     assert "responsiveLayout: false" in tabulator_source
     assert "exactHeaderFilter" in tabulator_source
     assert "<title>Test Chikou Scan</title>" in tabulator_source
-    assert '"title": "1D Chikou Direction"' in tabulator_source
+    assert '"title": "1D<br>Direction"' in tabulator_source
+    assert '"title": "1D<br>Count"' in tabulator_source
+    assert '"title": "1D<br>State"' in tabulator_source
+    assert '"title": "1D<br>Chikou' not in tabulator_source
+    assert '<a href="../../index.html">Home</a>' in tabulator_source
     assert list(pd.read_csv(timeframe_csv).columns) == [
         "Date",
         "Symbol",
@@ -122,9 +126,11 @@ def test_chikou_aggregator_and_merger_write_csv_and_html(tmp_path):
     assert (output_path / "merged.csv.tabulator.html").exists()
     html = (output_path / "merged.csv.html").read_text(encoding="utf-8")
     assert "1D Chikou Direction" not in html
-    assert "1D\nChikou Count" in html
-    assert "1D\nChikou State" in html
-    assert "Chikou\nScore Sum" in html
+    assert "1D<br>Count" in html
+    assert "1D<br>State" in html
+    assert "Score<br>Sum" in html
+    assert "<th>1D<br>Chikou" not in html
+    assert '<a href="../../index.html">Home</a>' in html
 
 
 def test_chikou_score_sum_uses_count_not_direction_or_state(tmp_path):

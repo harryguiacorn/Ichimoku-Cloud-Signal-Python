@@ -11,7 +11,10 @@ from cloud_signal.mvc.controllers import (
     GetIchimokuTKxDataOandaMultiTFMerger,
     GetIchimokuSumCloudTKxDataOandaMultiTFMerger,
 )
-from cloud_signal.runners._bootstrap import ensure_repo_root, setup_runner_logging
+from cloud_signal.runners._bootstrap import (
+    ensure_repo_root,
+    setup_runner_logging,
+)
 
 ensure_repo_root()
 RUNNER_CLASS = ""
@@ -135,9 +138,9 @@ def main(
     chikou_timeframes = [
         (fetch_Oanda_1H, "data/oanda/1h/", True, "Oanda-chikou-1H", "1H"),
         (fetch_Oanda_4H, "data/oanda/4h/", True, "Oanda-chikou-4H", "4H"),
-        (fetch_Oanda_D, "data/oanda/d/", False, "Oanda-chikou-D", "1D"),
-        (fetch_Oanda_W, "data/oanda/w/", False, "Oanda-chikou-W", "1W"),
-        (fetch_Oanda_M, "data/oanda/m/", False, "Oanda-chikou-M", "1M"),
+        (fetch_Oanda_D, "data/oanda/d/", True, "Oanda-chikou-D", "1D"),
+        (fetch_Oanda_W, "data/oanda/w/", True, "Oanda-chikou-W", "1W"),
+        (fetch_Oanda_M, "data/oanda/m/", True, "Oanda-chikou-M", "1M"),
     ]
     GetIchimokuChikouData.main(
         "asset_list/Oanda.csv",

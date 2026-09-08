@@ -15,8 +15,11 @@ logger = logging.getLogger(__name__)
 
 def _wrap_header_label(label: str, column_index: int, is_chikou: bool) -> str:
     cleaned = str(label).strip()
+    if is_chikou:
+        cleaned = re.sub(r"\bChikou\b", "", cleaned, flags=re.IGNORECASE)
+        cleaned = re.sub(r"\s+", " ", cleaned).strip()
     if not cleaned:
-        return cleaned
+        return f"{cleaned}<br>&nbsp;"
     if (is_chikou and column_index >= 1) or (
         (not is_chikou) and column_index >= 2
     ):
@@ -30,7 +33,7 @@ def _wrap_header_label(label: str, column_index: int, is_chikou: bool) -> str:
             if parts[0].startswith(
                 ("1H", "4H", "1D", "1W", "1M", "3M", "6M", "1Y")
             ):
-                return f"{parts[0]}\n{' '.join(parts[1:])}"
+                return f"{parts[0]}<br>{' '.join(parts[1:])}"
             if parts[0].lower() in {
                 "cloud",
                 "chikou",
@@ -41,10 +44,10 @@ def _wrap_header_label(label: str, column_index: int, is_chikou: bool) -> str:
                 "state",
                 "direction",
             }:
-                return f"{parts[0]}\n{' '.join(parts[1:])}"
+                return f"{parts[0]}<br>{' '.join(parts[1:])}"
             if parts[0].isdigit() and len(parts) > 1:
-                return f"{parts[0]}\n{' '.join(parts[1:])}"
-    return cleaned
+                return f"{parts[0]}<br>{' '.join(parts[1:])}"
+    return f"{cleaned}<br>&nbsp;"
 
 
 class TableGenerator:
@@ -90,6 +93,9 @@ class TableGenerator:
           <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
       </head>
       <body>
+        <nav class="scan-navigation" aria-label="Page navigation">
+          <a href="../../index.html">Home</a>
+        </nav>
         <h1>{str_title}</h1>
       """
         html_table = html_table_head
@@ -100,6 +106,33 @@ class TableGenerator:
         )
         html_table += """
         <script>
+        const classifyCell = (cell, isStateColumn) => {
+          cell.classList.remove('highlight-positive', 'highlight-negative', 'highlight-neutral');
+          const text = cell.textContent.trim();
+          const normalized = text.toLowerCase();
+
+          if (isStateColumn) {
+            if (normalized.startsWith('above')) {
+              cell.classList.add('highlight-positive');
+            } else if (normalized.startsWith('below')) {
+              cell.classList.add('highlight-negative');
+            }
+            return;
+          }
+
+          const numericText = text.replace(/,/g, '');
+          if (/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(numericText)) {
+            const value = Number(numericText);
+            if (value > 0) {
+              cell.classList.add('highlight-positive');
+            } else if (value < 0) {
+              cell.classList.add('highlight-negative');
+            } else {
+              cell.classList.add('highlight-neutral');
+            }
+          }
+        };
+
         const wrapHeaderLabel = (label, columnIndex, isChikou) => {
           const cleaned = String(label).trim();
           if (!cleaned) return cleaned;
@@ -109,10 +142,10 @@ class TableGenerator:
             const parts = cleaned.split(/\s+/);
             if (parts.length >= 2 && !['Symbol', 'Name', 'Close', 'Date'].includes(parts[0])) {
               if (/^(1H|4H|1D|1W|1M|3M|6M|1Y)/.test(parts[0])) {
-                return `${parts[0]}\n${parts.slice(1).join(' ')}`;
+                return `${parts[0]}<br>${parts.slice(1).join(' ')}`;
               }
               if (['Cloud', 'Chikou', 'TKx', 'Score', 'Signal', 'Count', 'State', 'Direction'].includes(parts[0])) {
-                return `${parts[0]}\n${parts.slice(1).join(' ')}`;
+                return `${parts[0]}<br>${parts.slice(1).join(' ')}`;
               }
             }
           }
@@ -131,33 +164,20 @@ class TableGenerator:
 
           const table = $('#dataTable_1').DataTable({
             order: [[$('#dataTable_1 thead th').length - 1, 'desc']],
-            initComplete: function() {
-              const rows = table.rows().nodes();
-              for (let i = 0; i < rows.length; i++) {
-                const cells = rows[i].querySelectorAll('td');
-                for (let j = 0; j < cells.length; j++) {
-                  const cell = cells[j];
-                  const text = cell.textContent.trim();
-                  const normalized = text.toLowerCase();
+            drawCallback: function() {
+              const stateColumnIndexes = $('#dataTable_1 thead th')
+                .toArray()
+                .map((th, index) => th.textContent.toLowerCase().includes('state') ? index : null)
+                .filter(index => index !== null);
 
-                  if (normalized.startsWith('above')) {
-                    cell.classList.add('highlight-positive');
-                  } else if (normalized.startsWith('below')) {
-                    cell.classList.add('highlight-negative');
-                  } else {
-                    const value = parseFloat(text);
-                    if (!isNaN(value)) {
-                      if (value > 0) {
-                        cell.classList.add('highlight-positive');
-                      } else if (value < 0) {
-                        cell.classList.add('highlight-negative');
-                      } else {
-                        cell.classList.add('highlight-neutral');
-                      }
-                    }
-                  }
-                }
-              }
+              $('#dataTable_1 tbody tr').each(function() {
+                $(this).find('td').each(function(index) {
+                  classifyCell(this, stateColumnIndexes.includes(index));
+                });
+              });
+            },
+            initComplete: function() {
+              this.api().draw(false);
             }
           });
         });
@@ -193,8 +213,9 @@ class TableGenerator:
             df = df.drop(columns=hidden_columns, errors="ignore")
 
         columns = []
-        for column in df.columns:
-            title = str(column).strip()
+        is_chikou_page = any("Chikou" in str(column) for column in df.columns)
+        for index, column in enumerate(df.columns):
+            title = _wrap_header_label(column, index, is_chikou_page)
             definition = {
                 "title": title,
                 "field": str(column),
@@ -233,7 +254,8 @@ class TableGenerator:
     .tabulator-row:nth-child(even) {{ background: #e8f0f2; }}
     .tabulator-row:hover {{ background: #b9dfe0 !important; }}
     .tabulator .tabulator-cell {{ border-right: 1px solid #d0dbe0; white-space: normal !important; word-break: break-word; line-height: 1.4; }}
-    .tabulator .tabulator-col-title {{ white-space: normal !important; word-break: break-word; line-height: 1.4; }}
+    .tabulator .tabulator-header .tabulator-col {{ height: 80px !important; min-height: 80px !important; box-sizing: border-box; line-height: 1.25 !important; text-align: center !important; }}
+    .tabulator .tabulator-col-title {{ display: flex; align-items: center; justify-content: center; min-height: 28px; white-space: normal !important; word-break: break-word; line-height: 1.4; text-align: center; }}
     .highlight-positive {{ background-color: #d1f2d1 !important; color: #0b6e3d !important; font-weight: 600; }}
     .highlight-negative {{ background-color: #f8d7da !important; color: #8b1e2d !important; font-weight: 600; }}
     .highlight-neutral {{ background-color: #e6e7e8 !important; color: #4a4a4a !important; }}
@@ -241,6 +263,9 @@ class TableGenerator:
 </head>
 <body>
   <main class="tabulator-page">
+    <nav class="scan-navigation" aria-label="Page navigation">
+      <a href="../../index.html">Home</a>
+    </nav>
     <h1>{safe_title}</h1>
     <div id="dataTableTabulator"></div>
     <footer><p>Last updated: {time_finish_formatted} [UK]</p></footer>
@@ -275,17 +300,16 @@ class TableGenerator:
           element.classList.remove('highlight-positive', 'highlight-negative', 'highlight-neutral');
 
           const normalized = rawValue.toLowerCase();
-          if (normalized.startsWith('above')) {{
-            element.classList.add('highlight-positive');
-            return;
-          }}
-          if (normalized.startsWith('below')) {{
-            element.classList.add('highlight-negative');
+          const field = String(cell.getColumn().getField() ?? '').toLowerCase();
+          if (field.includes('state')) {{
+            if (normalized.startsWith('above')) element.classList.add('highlight-positive');
+            else if (normalized.startsWith('below')) element.classList.add('highlight-negative');
             return;
           }}
 
-          const value = Number.parseFloat(rawValue);
-          if (Number.isFinite(value)) {{
+          const numericText = rawValue.replace(/,/g, '');
+          if (/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(numericText)) {{
+            const value = Number(numericText);
             if (value > 0) element.classList.add('highlight-positive');
             else if (value < 0) element.classList.add('highlight-negative');
             else element.classList.add('highlight-neutral');
@@ -296,6 +320,7 @@ class TableGenerator:
 
     tabulatorTable.on("renderComplete", applyNumericHighlights);
     tabulatorTable.on("dataLoaded", applyNumericHighlights);
+  tabulatorTable.on("pageLoaded", applyNumericHighlights);
   </script>
 </body>
 </html>
@@ -333,10 +358,11 @@ class TableGenerator:
         with open(filename, "r", encoding="utf-8") as f:
             _ = f.read()
 
-    if __name__ == "__main__":
-        table_generator = TableGenerator(
-            "output/sum/Oanda-sum-cloud-tkx-merged.csv"
-        )
-        html_table = table_generator.generate_html_table()
-        table_generator.save_html_table(html_table, "table.html")
-        table_generator.display_html_table_jupyter("table.html")
+
+if __name__ == "__main__":
+    table_generator = TableGenerator(
+        "output/sum/Oanda-sum-cloud-tkx-merged.csv"
+    )
+    html_table = table_generator.generate_html_table()
+    table_generator.save_html_table(html_table, "table.html")
+    table_generator.display_html_table_jupyter("table.html")

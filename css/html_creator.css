@@ -3,6 +3,22 @@ body {
     font-size: 1rem;
 }
 
+.scan-navigation {
+    margin: 0 0 0.75rem;
+    text-align: left;
+}
+
+.scan-navigation a {
+    color: #0b4f71;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.scan-navigation a:hover,
+.scan-navigation a:focus {
+    text-decoration: underline;
+}
+
 #dataTable_1,
 #dataTable_1 table,
 .table,
@@ -43,6 +59,41 @@ body {
     white-space: pre-line !important;
     word-break: break-word;
     overflow-wrap: anywhere;
+}
+
+#dataTable_1 thead th,
+.table thead th,
+.tabulator .tabulator-header .tabulator-col {
+    height: 80px !important;
+    min-height: 80px !important;
+    box-sizing: border-box;
+    vertical-align: middle !important;
+    line-height: 1.25 !important;
+    text-align: center !important;
+}
+
+#dataTable_1 thead tr,
+.table thead tr {
+    height: 80px !important;
+}
+
+#dataTable_1 thead th,
+.table thead th {
+    padding: 6px 22px 6px 6px !important;
+}
+
+#dataTable_1 thead th input,
+.table thead th input {
+    display: block;
+    margin: 6px auto 0 !important;
+}
+
+.tabulator .tabulator-col-title {
+    min-height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 #dataTable_1 td:nth-child(1),

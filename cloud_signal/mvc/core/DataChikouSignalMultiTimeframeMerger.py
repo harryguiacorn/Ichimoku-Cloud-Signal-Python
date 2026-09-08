@@ -25,8 +25,6 @@ class Model(object):
             if not os.path.exists(path):
                 continue
             data = pd.read_csv(path)
-            if data.empty:
-                continue
             date_columns = [
                 column for column in ("Date", "Datetime") if column in data
             ]
@@ -35,7 +33,12 @@ class Model(object):
             merged = (
                 data
                 if merged is None
-                else pd.merge(merged, data, on=["Symbol", "Name"])
+                else pd.merge(
+                    merged,
+                    data,
+                    on=["Symbol", "Name"],
+                    how="outer",
+                )
             )
 
         if merged is None:
