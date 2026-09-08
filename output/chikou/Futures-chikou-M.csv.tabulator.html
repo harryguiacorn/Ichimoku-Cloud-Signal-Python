@@ -18,7 +18,8 @@
     .tabulator-row:nth-child(even) { background: #e8f0f2; }
     .tabulator-row:hover { background: #b9dfe0 !important; }
     .tabulator .tabulator-cell { border-right: 1px solid #d0dbe0; white-space: normal !important; word-break: break-word; line-height: 1.4; }
-    .tabulator .tabulator-col-title { white-space: normal !important; word-break: break-word; line-height: 1.4; }
+    .tabulator .tabulator-header .tabulator-col { height: 80px !important; min-height: 80px !important; box-sizing: border-box; line-height: 1.25 !important; text-align: center !important; }
+    .tabulator .tabulator-col-title { display: flex; align-items: center; justify-content: center; min-height: 28px; white-space: normal !important; word-break: break-word; line-height: 1.4; text-align: center; }
     .highlight-positive { background-color: #d1f2d1 !important; color: #0b6e3d !important; font-weight: 600; }
     .highlight-negative { background-color: #f8d7da !important; color: #8b1e2d !important; font-weight: 600; }
     .highlight-neutral { background-color: #e6e7e8 !important; color: #4a4a4a !important; }
@@ -26,14 +27,17 @@
 </head>
 <body>
   <main class="tabulator-page">
+    <nav class="scan-navigation" aria-label="Page navigation">
+      <a href="../../index.html">Home</a>
+    </nav>
     <h1>Futures Chikou Scan</h1>
     <div id="dataTableTabulator"></div>
-    <footer><p>Last updated: 2026-09-08 22:33:04 [UK]</p></footer>
+    <footer><p>Last updated: 2026-09-09 00:54:11 [UK]</p></footer>
   </main>
   <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
   <script>
     const tableData = [{"Date":"2026-09-01","Symbol":"ZN=F","Name":"10-Year T-Note Futures,Dec-2026","1M Chikou Direction":-1,"1M Chikou Count":-47,"1M Chikou State":"below chikou"},{"Date":"2026-09-01","Symbol":"ZB=F","Name":"U.S. Treasury Bond Futures,Dec-","1M Chikou Direction":-1,"1M Chikou Count":-47,"1M Chikou State":"below chikou"},{"Date":"2026-09-01","Symbol":"ZO=F","Name":"Oat Futures,Dec-2026","1M Chikou Direction":0,"1M Chikou Count":-27,"1M Chikou State":"below chikou"},{"Date":"2026-09-01","Symbol":"ZM=F","Name":"Soybean Meal Futures","1M Chikou Direction":0,"1M Chikou Count":-23,"1M Chikou State":"below chikou"},{"Date":"2026-09-01","Symbol":"ZR=F","Name":"Rough Rice Futures,Nov-2026","1M Chikou Direction":-1,"1M Chikou Count":-21,"1M Chikou State":"below chikou"},{"Date":"2026-09-01","Symbol":"SB=F","Name":"Sugar #11 Oct 26","1M Chikou Direction":-1,"1M Chikou Count":-14,"1M Chikou State":"below chikou"},{"Date":"2026-09-01","Symbol":"OJ=F","Name":"Orange Juice Nov 26","1M Chikou Direction":-1,"1M Chikou Count":-10,"1M Chikou State":"below chikou"},{"Date":"2023-05-01","Symbol":"LBS=F","Name":"Random Length Lumber Futures","1M Chikou Direction":-1,"1M Chikou Count":-9,"1M Chikou State":"below chikou"},{"Date":"2026-09-01","Symbol":"ZF=F","Name":"5-Year T-Note Futures,Dec-2026","1M Chikou Direction":-1,"1M Chikou Count":-3,"1M Chikou State":"below chikou"},{"Date":"2026-09-01","Symbol":"ZS=F","Name":"Soybean Futures,Nov-2026","1M Chikou Direction":1,"1M Chikou Count":1,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"CT=F","Name":"Cotton Mar 26","1M Chikou Direction":1,"1M Chikou Count":2,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"ZC=F","Name":"Corn Futures,Dec-2026","1M Chikou Direction":1,"1M Chikou Count":2,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"BZ=F","Name":"Brent Crude Oil Last Day Financial Futures","1M Chikou Direction":1,"1M Chikou Count":3,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"KE=F","Name":"KC HRW Wheat Futures,Dec-2026","1M Chikou Direction":1,"1M Chikou Count":3,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"CL=F","Name":"Crude Oil Oct 26","1M Chikou Direction":1,"1M Chikou Count":3,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"HE=F","Name":"Lean Hog Futures,Oct-2026","1M Chikou Direction":0,"1M Chikou Count":5,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"RB=F","Name":"RBOB Gasoline Oct 26","1M Chikou Direction":1,"1M Chikou Count":6,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"ZL=F","Name":"Soybean Oil Futures,Dec-2026","1M Chikou Direction":1,"1M Chikou Count":6,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"HO=F","Name":"Heating Oil Oct 26","1M Chikou Direction":1,"1M Chikou Count":6,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"PA=F","Name":"Palladium Dec 26","1M Chikou Direction":1,"1M Chikou Count":8,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"NG=F","Name":"Natural Gas Oct 26","1M Chikou Direction":1,"1M Chikou Count":12,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"ZT=F","Name":"2-Year T-Note Futures,Dec-2026","1M Chikou Direction":0,"1M Chikou Count":15,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"PL=F","Name":"Platinum Oct 26","1M Chikou Direction":1,"1M Chikou Count":18,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"HG=F","Name":"Copper Dec 26","1M Chikou Direction":1,"1M Chikou Count":18,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"KC=F","Name":"Coffee Dec 26","1M Chikou Direction":1,"1M Chikou Count":21,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"RTY=F","Name":"E-mini Russell 2000 Index Futur","1M Chikou Direction":1,"1M Chikou Count":22,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"SI=F","Name":"Silver Dec 26","1M Chikou Direction":1,"1M Chikou Count":26,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"SIL=F","Name":"Micro Silver Futures,Dec-2026","1M Chikou Direction":1,"1M Chikou Count":26,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"GC=F","Name":"Gold Dec 26","1M Chikou Direction":1,"1M Chikou Count":36,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"MGC=F","Name":"Micro Gold Futures,Dec-2026","1M Chikou Direction":1,"1M Chikou Count":36,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"CC=F","Name":"Cocoa Dec 26","1M Chikou Direction":0,"1M Chikou Count":39,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"LE=F","Name":"Live Cattle Futures,Oct-2026","1M Chikou Direction":1,"1M Chikou Count":51,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"GF=F","Name":"Feeder Cattle","1M Chikou Direction":1,"1M Chikou Count":55,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"ES=F","Name":"E-Mini S&P 500 Sep 26","1M Chikou Direction":1,"1M Chikou Count":160,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"YM=F","Name":"Mini Dow Jones Indus.-$5 Sep 26","1M Chikou Direction":1,"1M Chikou Count":161,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"NQ=F","Name":"Nasdaq 100 Sep 26","1M Chikou Direction":1,"1M Chikou Count":165,"1M Chikou State":"above chikou"}];
-    const tableColumns = [{"title": "Date", "field": "Date", "headerFilter": "input"}, {"title": "Symbol", "field": "Symbol", "headerFilter": "input"}, {"title": "Name", "field": "Name", "headerFilter": "input"}, {"title": "1M Chikou Direction", "field": "1M Chikou Direction", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M Chikou Count", "field": "1M Chikou Count", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M Chikou State", "field": "1M Chikou State", "headerFilter": "input"}];
+    const tableColumns = [{"title": "Date<br>&nbsp;", "field": "Date", "headerFilter": "input"}, {"title": "Symbol<br>&nbsp;", "field": "Symbol", "headerFilter": "input"}, {"title": "Name<br>&nbsp;", "field": "Name", "headerFilter": "input"}, {"title": "1M<br>Direction", "field": "1M Chikou Direction", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M<br>Count", "field": "1M Chikou Count", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M<br>State", "field": "1M Chikou State", "headerFilter": "input"}];
     const exactHeaderFilter = (headerValue, rowValue) =>
       String(rowValue ?? "").trim() === String(headerValue ?? "").trim();
     tableColumns.forEach(column => {
@@ -60,17 +64,16 @@
           element.classList.remove('highlight-positive', 'highlight-negative', 'highlight-neutral');
 
           const normalized = rawValue.toLowerCase();
-          if (normalized.startsWith('above')) {
-            element.classList.add('highlight-positive');
-            return;
-          }
-          if (normalized.startsWith('below')) {
-            element.classList.add('highlight-negative');
+          const field = String(cell.getColumn().getField() ?? '').toLowerCase();
+          if (field.includes('state')) {
+            if (normalized.startsWith('above')) element.classList.add('highlight-positive');
+            else if (normalized.startsWith('below')) element.classList.add('highlight-negative');
             return;
           }
 
-          const value = Number.parseFloat(rawValue);
-          if (Number.isFinite(value)) {
+          const numericText = rawValue.replace(/,/g, '');
+          if (/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(numericText)) {
+            const value = Number(numericText);
             if (value > 0) element.classList.add('highlight-positive');
             else if (value < 0) element.classList.add('highlight-negative');
             else element.classList.add('highlight-neutral');
@@ -81,6 +84,7 @@
 
     tabulatorTable.on("renderComplete", applyNumericHighlights);
     tabulatorTable.on("dataLoaded", applyNumericHighlights);
+  tabulatorTable.on("pageLoaded", applyNumericHighlights);
   </script>
 </body>
 </html>
