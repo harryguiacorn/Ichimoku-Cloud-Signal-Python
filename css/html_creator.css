@@ -1,15 +1,76 @@
-    body {
-        margin: 1em !important;
-    }
+body {
+    margin: 1em !important;
+    font-size: 1rem;
+}
 
-    .highlight-positive {
-        background-color: #c6efce !important;
-    }
+#dataTable_1,
+#dataTable_1 table,
+.table,
+.tabulator,
+.tabulator .tabulator-cell {
+    font-size: 1rem;
+}
 
-    .highlight-negative {
-        background-color: #f8d7da !important;
-    }
+#dataTable_1 th,
+#dataTable_1 td,
+.table th,
+.table td,
+.tabulator .tabulator-cell,
+.tabulator .tabulator-col-title {
+    white-space: normal !important;
+    line-height: 1.4;
+}
 
-    .highlight-neutral {
-        background-color: #d3d3d3 !important;
-    }
+#dataTable_1,
+#dataTable_1 table,
+.table {
+    table-layout: fixed;
+}
+
+#dataTable_1 td,
+.table td,
+.tabulator .tabulator-row .tabulator-cell {
+    white-space: nowrap !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#dataTable_1 th,
+.table th,
+.tabulator .tabulator-col-title {
+    vertical-align: top;
+    min-width: 90px;
+    white-space: pre-line !important;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+#dataTable_1 td:nth-child(1),
+#dataTable_1 td:nth-child(2),
+#dataTable_1 th:nth-child(1),
+#dataTable_1 th:nth-child(2),
+.table td:nth-child(1),
+.table td:nth-child(2),
+.table th:nth-child(1),
+.table th:nth-child(2),
+.tabulator .tabulator-row .tabulator-cell:nth-child(1),
+.tabulator .tabulator-row .tabulator-cell:nth-child(2) {
+    font-weight: 700;
+}
+
+.highlight-positive {
+    background-color: #d1f2d1 !important;
+    color: #0b6e3d !important;
+    font-weight: 600;
+}
+
+.highlight-negative {
+    background-color: #f8d7da !important;
+    color: #8b1e2d !important;
+    font-weight: 600;
+}
+
+.highlight-neutral {
+    background-color: #e6e7e8 !important;
+    color: #4a4a4a !important;
+}

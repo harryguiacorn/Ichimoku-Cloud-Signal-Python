@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pandas as pd
 
 from cloud_signal.mvc.core.DataChikouSignalAggregatorMVC import (
@@ -11,6 +13,7 @@ from cloud_signal.mvc.core.DataChikouSignalMultiTimeframeMerger import (
     View as MergerView,
 )
 from cloud_signal.mvc.core.DataChikouSignalMVC import DataChikouSignal
+from cloud_signal.mvc.html_creator import TableGenerator
 
 
 def test_chikou_uses_historical_high_low_and_neutral_freezes_state():
@@ -88,7 +91,7 @@ def test_chikou_aggregator_and_merger_write_csv_and_html(tmp_path):
     assert "responsiveLayout: false" in tabulator_source
     assert "exactHeaderFilter" in tabulator_source
     assert "<title>Test Chikou Scan</title>" in tabulator_source
-    assert '"title": "1D Direction"' in tabulator_source
+    assert '"title": "1D Chikou Direction"' in tabulator_source
     assert list(pd.read_csv(timeframe_csv).columns) == [
         "Date",
         "Symbol",
@@ -119,9 +122,9 @@ def test_chikou_aggregator_and_merger_write_csv_and_html(tmp_path):
     assert (output_path / "merged.csv.tabulator.html").exists()
     html = (output_path / "merged.csv.html").read_text(encoding="utf-8")
     assert "1D Chikou Direction" not in html
-    assert "1D Chikou Count" in html
-    assert "1D Chikou State" in html
-    assert "Chikou Score Sum" in html
+    assert "1D\nChikou Count" in html
+    assert "1D\nChikou State" in html
+    assert "Chikou\nScore Sum" in html
 
 
 def test_chikou_score_sum_uses_count_not_direction_or_state(tmp_path):
@@ -165,3 +168,21 @@ def test_chikou_score_sum_uses_count_not_direction_or_state(tmp_path):
 
     result = pd.read_csv(output_path)
     assert result.loc[0, "Chikou Score Sum"] == 187
+
+
+def test_scan_html_styles_wrap_headers_and_highlight_numeric_values(tmp_path):
+    csv_path = tmp_path / "scan.csv"
+    pd.DataFrame(
+        [["TEST", 2.5, -1.2, 0.0]],
+        columns=["Symbol", "Cloud Score", "Chikou Delta", "Neutral"],
+    ).to_csv(csv_path, index=False)
+
+    html = TableGenerator(str(csv_path)).generate_html_table("Cloud Test")
+    css_text = Path("css/html_creator.css").read_text(encoding="utf-8")
+
+    assert "white-space: normal" in html or "white-space: normal" in css_text
+    assert "font-size: 1rem" in html or "font-size: 1rem" in css_text
+    assert "highlight-positive" in html
+    assert "highlight-negative" in html
+    assert ".highlight-positive" in css_text
+    assert ".highlight-negative" in css_text

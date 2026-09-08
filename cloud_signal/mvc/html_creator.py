@@ -1,15 +1,50 @@
+import html
+import json
+import logging
+import re
+from datetime import datetime
+
 import pandas as pd
+from pytz import timezone
 
 # from IPython.display import HTML
 from cloud_signal.mvc import Util
-from datetime import datetime
-from pytz import timezone
-import logging
-import html
-import json
-import re
 
 logger = logging.getLogger(__name__)
+
+
+def _wrap_header_label(label: str, column_index: int, is_chikou: bool) -> str:
+    cleaned = str(label).strip()
+    if not cleaned:
+        return cleaned
+    if (is_chikou and column_index >= 1) or (
+        (not is_chikou) and column_index >= 2
+    ):
+        parts = cleaned.split()
+        if len(parts) >= 2 and parts[0].lower() not in {
+            "symbol",
+            "name",
+            "close",
+            "date",
+        }:
+            if parts[0].startswith(
+                ("1H", "4H", "1D", "1W", "1M", "3M", "6M", "1Y")
+            ):
+                return f"{parts[0]}\n{' '.join(parts[1:])}"
+            if parts[0].lower() in {
+                "cloud",
+                "chikou",
+                "tkx",
+                "score",
+                "signal",
+                "count",
+                "state",
+                "direction",
+            }:
+                return f"{parts[0]}\n{' '.join(parts[1:])}"
+            if parts[0].isdigit() and len(parts) > 1:
+                return f"{parts[0]}\n{' '.join(parts[1:])}"
+    return cleaned
 
 
 class TableGenerator:
@@ -25,14 +60,20 @@ class TableGenerator:
         if Util.file_exists(self.csv_file_path) is False:
             return
 
-        # Read the CSV file
         df = pd.read_csv(self.csv_file_path)
         self._hidden_columns = hidden_columns
         self._title = str_title
         if hidden_columns:
             df = df.drop(columns=hidden_columns, errors="ignore")
+
+        is_chikou_page = any("Chikou" in str(column) for column in df.columns)
+        df = df.copy()
+        df.columns = [
+            _wrap_header_label(column, idx, is_chikou_page)
+            for idx, column in enumerate(df.columns)
+        ]
+
         logger.debug("HTML title: %s", str_title)
-        # added !important in css to overwrite cell colours
         html_table_head = f"""
       <!DOCTYPE html>
       <html lang="en">
@@ -44,77 +85,99 @@ class TableGenerator:
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
           <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
           <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
-          
           <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
           <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
           <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
-          
       </head>
       <body>
         <h1>{str_title}</h1>
       """
         html_table = html_table_head
-
-        # Convert the CSV file to an HTML table
-        html_table += df.to_html(index=False)
-
-        # Add the DataTables plugin to the HTML table
+        html_table += df.to_html(index=False, escape=False)
         html_table = html_table.replace(
             "<table",
             '<table class="table table-striped table-bordered" id="dataTable_1"',
         )
         html_table += """
         <script>
-        $(document).ready(function() {
-          // Calculate the last column index
-          let lastColumnIndex = $('#dataTable_1 thead th').length - 1; 
+        const wrapHeaderLabel = (label, columnIndex, isChikou) => {
+          const cleaned = String(label).trim();
+          if (!cleaned) return cleaned;
 
-          // Initialize the DataTable with the order option set to sort by the last column in descending order
-          $('#dataTable_1').DataTable({ order: [[lastColumnIndex, 'desc']] });
-
-          // Get all table rows
-          var rows = $('#dataTable_1').DataTable().rows().nodes();
-
-          // Iterate over all table rows and add classes
-          for (var i = 0; i < rows.length; i++) {
-            var row = rows[i];
-            var cells = row.querySelectorAll('td');
-
-            for (var j = 0; j < cells.length; j++) {
-              var cell = cells[j];
-              var value = parseFloat(cell.textContent);
-
-              if (!isNaN(value)) {
-                if (value > 0) {
-                  cell.classList.add('highlight-positive');
-                } else if (value < 0) {
-                  cell.classList.add('highlight-negative');
-                } else {
-                  cell.classList.add('highlight-neutral');
-                }
+          const firstWrapIndex = isChikou ? 1 : 2;
+          if (columnIndex >= firstWrapIndex) {
+            const parts = cleaned.split(/\s+/);
+            if (parts.length >= 2 && !['Symbol', 'Name', 'Close', 'Date'].includes(parts[0])) {
+              if (/^(1H|4H|1D|1W|1M|3M|6M|1Y)/.test(parts[0])) {
+                return `${parts[0]}\n${parts.slice(1).join(' ')}`;
+              }
+              if (['Cloud', 'Chikou', 'TKx', 'Score', 'Signal', 'Count', 'State', 'Direction'].includes(parts[0])) {
+                return `${parts[0]}\n${parts.slice(1).join(' ')}`;
               }
             }
           }
-        });     
+          return cleaned;
+        };
+
+        $(document).ready(function() {
+          const isChikou = $('#dataTable_1 thead th').toArray().some((th) => th.textContent.includes('Chikou'));
+          $('#dataTable_1 thead th').each(function(index) {
+            const raw = $(this).text().trim();
+            const wrapped = wrapHeaderLabel(raw, index, isChikou);
+            if (wrapped !== raw) {
+              $(this).html(wrapped);
+            }
+          });
+
+          const table = $('#dataTable_1').DataTable({
+            order: [[$('#dataTable_1 thead th').length - 1, 'desc']],
+            initComplete: function() {
+              const rows = table.rows().nodes();
+              for (let i = 0; i < rows.length; i++) {
+                const cells = rows[i].querySelectorAll('td');
+                for (let j = 0; j < cells.length; j++) {
+                  const cell = cells[j];
+                  const text = cell.textContent.trim();
+                  const normalized = text.toLowerCase();
+
+                  if (normalized.startsWith('above')) {
+                    cell.classList.add('highlight-positive');
+                  } else if (normalized.startsWith('below')) {
+                    cell.classList.add('highlight-negative');
+                  } else {
+                    const value = parseFloat(text);
+                    if (!isNaN(value)) {
+                      if (value > 0) {
+                        cell.classList.add('highlight-positive');
+                      } else if (value < 0) {
+                        cell.classList.add('highlight-negative');
+                      } else {
+                        cell.classList.add('highlight-neutral');
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          });
+        });
         </script>
         </table>
         """
-        # calculate time elapsed
+
         london_tz_finish = timezone("Europe/London")
         time_finish = datetime.now(london_tz_finish)
         time_finish_formatted = time_finish.strftime("%Y-%m-%d %H:%M:%S")
+        logger.info("Last updated: %s", time_finish_formatted)
 
-        logger.info(f"Table generated at {time_finish_formatted}")
         html_table += f"""
         <footer>
-          <p>Table Generated At {time_finish_formatted} [UK]<br></p>
+          <p>Last updated: {time_finish_formatted} [UK]<br></p>
         </footer>
         </body>
-
         </html>
         """
-        # logger.debug(html_table)
-        logger.info("HTML table generated.")
+        logger.info("HTML Last updated: .")
         return html_table
 
     def generate_tabulator_html_table(
@@ -131,8 +194,9 @@ class TableGenerator:
 
         columns = []
         for column in df.columns:
+            title = str(column).strip()
             definition = {
-                "title": str(column).replace(" Chikou", "").replace(" Cloud", "").replace("Cloud", "").strip(),
+                "title": title,
                 "field": str(column),
                 "headerFilter": "input",
             }
@@ -142,7 +206,6 @@ class TableGenerator:
             columns.append(definition)
 
         data_json = df.to_json(orient="records", date_format="iso")
-        # Prevent CSV values from terminating the JSON script element.
         data_json = data_json.replace("<", "\\u003c")
         columns_json = json.dumps(columns)
         safe_title = html.escape(str_title, quote=True)
@@ -169,14 +232,18 @@ class TableGenerator:
     .tabulator-row {{ border-bottom: 1px solid #c4d0d6; }}
     .tabulator-row:nth-child(even) {{ background: #e8f0f2; }}
     .tabulator-row:hover {{ background: #b9dfe0 !important; }}
-    .tabulator .tabulator-cell {{ border-right: 1px solid #d0dbe0; }}
+    .tabulator .tabulator-cell {{ border-right: 1px solid #d0dbe0; white-space: normal !important; word-break: break-word; line-height: 1.4; }}
+    .tabulator .tabulator-col-title {{ white-space: normal !important; word-break: break-word; line-height: 1.4; }}
+    .highlight-positive {{ background-color: #d1f2d1 !important; color: #0b6e3d !important; font-weight: 600; }}
+    .highlight-negative {{ background-color: #f8d7da !important; color: #8b1e2d !important; font-weight: 600; }}
+    .highlight-neutral {{ background-color: #e6e7e8 !important; color: #4a4a4a !important; }}
   </style>
 </head>
 <body>
   <main class="tabulator-page">
     <h1>{safe_title}</h1>
     <div id="dataTableTabulator"></div>
-    <footer><p>Table Generated At {time_finish_formatted} [UK]</p></footer>
+    <footer><p>Last updated: {time_finish_formatted} [UK]</p></footer>
   </main>
   <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
   <script>
@@ -187,7 +254,7 @@ class TableGenerator:
     tableColumns.forEach(column => {{
       column.headerFilterFunc = exactHeaderFilter;
     }});
-    new Tabulator("#dataTableTabulator", {{
+    const tabulatorTable = new Tabulator("#dataTableTabulator", {{
       data: tableData,
       columns: tableColumns,
       layout: "fitDataTable",
@@ -198,6 +265,37 @@ class TableGenerator:
       initialSort: [{{column: tableColumns[tableColumns.length - 1].field, dir: "desc"}}],
       placeholder: "No matching rows"
     }});
+
+    const applyNumericHighlights = () => {{
+      const rows = tabulatorTable.getRows();
+      rows.forEach(row => {{
+        row.getCells().forEach(cell => {{
+          const rawValue = String(cell.getValue() ?? '').trim();
+          const element = cell.getElement();
+          element.classList.remove('highlight-positive', 'highlight-negative', 'highlight-neutral');
+
+          const normalized = rawValue.toLowerCase();
+          if (normalized.startsWith('above')) {{
+            element.classList.add('highlight-positive');
+            return;
+          }}
+          if (normalized.startsWith('below')) {{
+            element.classList.add('highlight-negative');
+            return;
+          }}
+
+          const value = Number.parseFloat(rawValue);
+          if (Number.isFinite(value)) {{
+            if (value > 0) element.classList.add('highlight-positive');
+            else if (value < 0) element.classList.add('highlight-negative');
+            else element.classList.add('highlight-neutral');
+          }}
+        }});
+      }});
+    }};
+
+    tabulatorTable.on("renderComplete", applyNumericHighlights);
+    tabulatorTable.on("dataLoaded", applyNumericHighlights);
   </script>
 </body>
 </html>
@@ -209,11 +307,12 @@ class TableGenerator:
 
         with open(filename, "w", encoding="utf-8") as f:
             f.write(html_table)
-        logger.info(f"HTML data table saved at {filename}")
+        logger.info("HTML data table saved at %s", filename)
 
         title_match = re.search(r"<title>(.*?)</title>", html_table, re.S)
         if title_match:
             self._title = html.unescape(title_match.group(1).strip())
+
         tabulator_html = self.generate_tabulator_html_table(
             self._title, hidden_columns=self._hidden_columns
         )
@@ -231,19 +330,13 @@ class TableGenerator:
         if Util.file_exists(filename) is False:
             return
 
-        # Open the HTML file and read its contents
-        with open(filename, "r") as f:
-            html_content = f.read()
+        with open(filename, "r", encoding="utf-8") as f:
+            _ = f.read()
 
-        # Commented out because of deployment error in Koyeb and Render
-        # # Display the HTML content in the Colab notebook
-        # HTML(html_content)
-
-
-if __name__ == "__main__":
-    table_generator = TableGenerator(
-        "output/sum/Oanda-sum-cloud-tkx-merged.csv"
-    )
-    html_table = table_generator.generate_html_table()
-    table_generator.save_html_table(html_table, "table.html")
-    table_generator.display_html_table_jupyter("table.html")
+    if __name__ == "__main__":
+        table_generator = TableGenerator(
+            "output/sum/Oanda-sum-cloud-tkx-merged.csv"
+        )
+        html_table = table_generator.generate_html_table()
+        table_generator.save_html_table(html_table, "table.html")
+        table_generator.display_html_table_jupyter("table.html")
