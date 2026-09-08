@@ -18,7 +18,8 @@
     .tabulator-row:nth-child(even) { background: #e8f0f2; }
     .tabulator-row:hover { background: #b9dfe0 !important; }
     .tabulator .tabulator-cell { border-right: 1px solid #d0dbe0; white-space: normal !important; word-break: break-word; line-height: 1.4; }
-    .tabulator .tabulator-col-title { white-space: normal !important; word-break: break-word; line-height: 1.4; }
+    .tabulator .tabulator-header .tabulator-col { height: 80px !important; min-height: 80px !important; box-sizing: border-box; line-height: 1.25 !important; text-align: center !important; }
+    .tabulator .tabulator-col-title { display: flex; align-items: center; justify-content: center; min-height: 28px; white-space: normal !important; word-break: break-word; line-height: 1.4; text-align: center; }
     .highlight-positive { background-color: #d1f2d1 !important; color: #0b6e3d !important; font-weight: 600; }
     .highlight-negative { background-color: #f8d7da !important; color: #8b1e2d !important; font-weight: 600; }
     .highlight-neutral { background-color: #e6e7e8 !important; color: #4a4a4a !important; }
@@ -26,14 +27,17 @@
 </head>
 <body>
   <main class="tabulator-page">
+    <nav class="scan-navigation" aria-label="Page navigation">
+      <a href="../../index.html">Home</a>
+    </nav>
     <h1>Futures Currency Chikou Scan</h1>
     <div id="dataTableTabulator"></div>
-    <footer><p>Last updated: 2026-09-08 22:34:01 [UK]</p></footer>
+    <footer><p>Last updated: 2026-09-09 00:54:29 [UK]</p></footer>
   </main>
   <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
   <script>
     const tableData = [{"Date":"2026-09-01","Symbol":"6C=F","Name":"Canadian Dollar Futures","1M Chikou Direction":-1,"1M Chikou Count":-38,"1M Chikou State":"below chikou"},{"Date":"2026-09-01","Symbol":"6J=F","Name":"Japanese Yen Futures","1M Chikou Direction":-1,"1M Chikou Count":-13,"1M Chikou State":"below chikou"},{"Date":"2026-09-01","Symbol":"6N=F","Name":"New Zealand Dollar Futures","1M Chikou Direction":-1,"1M Chikou Count":-13,"1M Chikou State":"below chikou"},{"Date":"2026-09-01","Symbol":"6A=F","Name":"Australian Dollar Futures","1M Chikou Direction":1,"1M Chikou Count":7,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"6E=F","Name":"Euro FX Futures","1M Chikou Direction":1,"1M Chikou Count":17,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"6B=F","Name":"British Pound Futures","1M Chikou Direction":1,"1M Chikou Count":19,"1M Chikou State":"above chikou"},{"Date":"2026-09-01","Symbol":"6S=F","Name":"Swiss Franc Futures","1M Chikou Direction":1,"1M Chikou Count":33,"1M Chikou State":"above chikou"}];
-    const tableColumns = [{"title": "Date", "field": "Date", "headerFilter": "input"}, {"title": "Symbol", "field": "Symbol", "headerFilter": "input"}, {"title": "Name", "field": "Name", "headerFilter": "input"}, {"title": "1M Chikou Direction", "field": "1M Chikou Direction", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M Chikou Count", "field": "1M Chikou Count", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M Chikou State", "field": "1M Chikou State", "headerFilter": "input"}];
+    const tableColumns = [{"title": "Date<br>&nbsp;", "field": "Date", "headerFilter": "input"}, {"title": "Symbol<br>&nbsp;", "field": "Symbol", "headerFilter": "input"}, {"title": "Name<br>&nbsp;", "field": "Name", "headerFilter": "input"}, {"title": "1M<br>Direction", "field": "1M Chikou Direction", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M<br>Count", "field": "1M Chikou Count", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M<br>State", "field": "1M Chikou State", "headerFilter": "input"}];
     const exactHeaderFilter = (headerValue, rowValue) =>
       String(rowValue ?? "").trim() === String(headerValue ?? "").trim();
     tableColumns.forEach(column => {
@@ -60,17 +64,16 @@
           element.classList.remove('highlight-positive', 'highlight-negative', 'highlight-neutral');
 
           const normalized = rawValue.toLowerCase();
-          if (normalized.startsWith('above')) {
-            element.classList.add('highlight-positive');
-            return;
-          }
-          if (normalized.startsWith('below')) {
-            element.classList.add('highlight-negative');
+          const field = String(cell.getColumn().getField() ?? '').toLowerCase();
+          if (field.includes('state')) {
+            if (normalized.startsWith('above')) element.classList.add('highlight-positive');
+            else if (normalized.startsWith('below')) element.classList.add('highlight-negative');
             return;
           }
 
-          const value = Number.parseFloat(rawValue);
-          if (Number.isFinite(value)) {
+          const numericText = rawValue.replace(/,/g, '');
+          if (/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(numericText)) {
+            const value = Number(numericText);
             if (value > 0) element.classList.add('highlight-positive');
             else if (value < 0) element.classList.add('highlight-negative');
             else element.classList.add('highlight-neutral');
@@ -81,6 +84,7 @@
 
     tabulatorTable.on("renderComplete", applyNumericHighlights);
     tabulatorTable.on("dataLoaded", applyNumericHighlights);
+  tabulatorTable.on("pageLoaded", applyNumericHighlights);
   </script>
 </body>
 </html>

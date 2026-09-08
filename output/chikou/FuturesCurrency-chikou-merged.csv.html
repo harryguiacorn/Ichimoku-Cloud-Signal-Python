@@ -14,115 +14,31 @@
           <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
       </head>
       <body>
+        <nav class="scan-navigation" aria-label="Page navigation">
+          <a href="../../index.html">Home</a>
+        </nav>
         <h1>Futures Currency Chikou Scan</h1>
       <table class="table table-striped table-bordered" id="dataTable_1" border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th>Symbol</th>
-      <th>Name</th>
-      <th>1H
-Chikou Count</th>
-      <th>1H
-Chikou State</th>
-      <th>1D
-Chikou Count</th>
-      <th>1D
-Chikou State</th>
-      <th>1W
-Chikou Count</th>
-      <th>1W
-Chikou State</th>
-      <th>1M
-Chikou Count</th>
-      <th>1M
-Chikou State</th>
-      <th>Chikou
-Score Sum</th>
+      <th>Symbol<br>&nbsp;</th>
+      <th>Name<br>&nbsp;</th>
+      <th>1H<br>Count</th>
+      <th>1H<br>State</th>
+      <th>1D<br>Count</th>
+      <th>1D<br>State</th>
+      <th>1W<br>Count</th>
+      <th>1W<br>State</th>
+      <th>1M<br>Count</th>
+      <th>1M<br>State</th>
+      <th>Score<br>Sum</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>6S=F</td>
-      <td>Swiss Franc Futures</td>
-      <td>-26</td>
-      <td>below chikou</td>
-      <td>14</td>
-      <td>above chikou</td>
-      <td>-13</td>
-      <td>below chikou</td>
-      <td>33</td>
-      <td>above chikou</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <td>6N=F</td>
-      <td>New Zealand Dollar Futures</td>
-      <td>-18</td>
-      <td>below chikou</td>
-      <td>-1</td>
-      <td>below chikou</td>
-      <td>-7</td>
-      <td>below chikou</td>
-      <td>-13</td>
-      <td>below chikou</td>
-      <td>-39</td>
-    </tr>
-    <tr>
-      <td>6E=F</td>
-      <td>Euro FX Futures</td>
-      <td>3</td>
-      <td>above chikou</td>
-      <td>28</td>
-      <td>above chikou</td>
-      <td>-15</td>
-      <td>below chikou</td>
-      <td>17</td>
-      <td>above chikou</td>
-      <td>33</td>
-    </tr>
-    <tr>
-      <td>6C=F</td>
-      <td>Canadian Dollar Futures</td>
-      <td>8</td>
-      <td>above chikou</td>
-      <td>29</td>
-      <td>above chikou</td>
-      <td>-14</td>
-      <td>below chikou</td>
-      <td>-38</td>
-      <td>below chikou</td>
-      <td>-15</td>
-    </tr>
-    <tr>
-      <td>6J=F</td>
-      <td>Japanese Yen Futures</td>
-      <td>17</td>
-      <td>above chikou</td>
-      <td>28</td>
-      <td>above chikou</td>
-      <td>1</td>
-      <td>above chikou</td>
-      <td>-13</td>
-      <td>below chikou</td>
-      <td>33</td>
-    </tr>
-    <tr>
-      <td>6B=F</td>
-      <td>British Pound Futures</td>
-      <td>17</td>
-      <td>above chikou</td>
-      <td>29</td>
-      <td>above chikou</td>
-      <td>2</td>
-      <td>above chikou</td>
-      <td>19</td>
-      <td>above chikou</td>
-      <td>67</td>
-    </tr>
-    <tr>
       <td>6A=F</td>
       <td>Australian Dollar Futures</td>
-      <td>72</td>
+      <td>74</td>
       <td>above chikou</td>
       <td>28</td>
       <td>above chikou</td>
@@ -130,11 +46,116 @@ Score Sum</th>
       <td>above chikou</td>
       <td>7</td>
       <td>above chikou</td>
-      <td>173</td>
+      <td>175</td>
+    </tr>
+    <tr>
+      <td>6B=F</td>
+      <td>British Pound Futures</td>
+      <td>19</td>
+      <td>above chikou</td>
+      <td>29</td>
+      <td>above chikou</td>
+      <td>2</td>
+      <td>above chikou</td>
+      <td>19</td>
+      <td>above chikou</td>
+      <td>69</td>
+    </tr>
+    <tr>
+      <td>6C=F</td>
+      <td>Canadian Dollar Futures</td>
+      <td>10</td>
+      <td>above chikou</td>
+      <td>29</td>
+      <td>above chikou</td>
+      <td>-14</td>
+      <td>below chikou</td>
+      <td>-38</td>
+      <td>below chikou</td>
+      <td>-13</td>
+    </tr>
+    <tr>
+      <td>6E=F</td>
+      <td>Euro FX Futures</td>
+      <td>5</td>
+      <td>above chikou</td>
+      <td>28</td>
+      <td>above chikou</td>
+      <td>-15</td>
+      <td>below chikou</td>
+      <td>17</td>
+      <td>above chikou</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <td>6J=F</td>
+      <td>Japanese Yen Futures</td>
+      <td>19</td>
+      <td>above chikou</td>
+      <td>28</td>
+      <td>above chikou</td>
+      <td>1</td>
+      <td>above chikou</td>
+      <td>-13</td>
+      <td>below chikou</td>
+      <td>35</td>
+    </tr>
+    <tr>
+      <td>6N=F</td>
+      <td>New Zealand Dollar Futures</td>
+      <td>-20</td>
+      <td>below chikou</td>
+      <td>29</td>
+      <td>above chikou</td>
+      <td>-7</td>
+      <td>below chikou</td>
+      <td>-13</td>
+      <td>below chikou</td>
+      <td>-11</td>
+    </tr>
+    <tr>
+      <td>6S=F</td>
+      <td>Swiss Franc Futures</td>
+      <td>1</td>
+      <td>above chikou</td>
+      <td>14</td>
+      <td>above chikou</td>
+      <td>-13</td>
+      <td>below chikou</td>
+      <td>33</td>
+      <td>above chikou</td>
+      <td>35</td>
     </tr>
   </tbody>
 </table>
         <script>
+        const classifyCell = (cell, isStateColumn) => {
+          cell.classList.remove('highlight-positive', 'highlight-negative', 'highlight-neutral');
+          const text = cell.textContent.trim();
+          const normalized = text.toLowerCase();
+
+          if (isStateColumn) {
+            if (normalized.startsWith('above')) {
+              cell.classList.add('highlight-positive');
+            } else if (normalized.startsWith('below')) {
+              cell.classList.add('highlight-negative');
+            }
+            return;
+          }
+
+          const numericText = text.replace(/,/g, '');
+          if (/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(numericText)) {
+            const value = Number(numericText);
+            if (value > 0) {
+              cell.classList.add('highlight-positive');
+            } else if (value < 0) {
+              cell.classList.add('highlight-negative');
+            } else {
+              cell.classList.add('highlight-neutral');
+            }
+          }
+        };
+
         const wrapHeaderLabel = (label, columnIndex, isChikou) => {
           const cleaned = String(label).trim();
           if (!cleaned) return cleaned;
@@ -144,12 +165,10 @@ Score Sum</th>
             const parts = cleaned.split(/\s+/);
             if (parts.length >= 2 && !['Symbol', 'Name', 'Close', 'Date'].includes(parts[0])) {
               if (/^(1H|4H|1D|1W|1M|3M|6M|1Y)/.test(parts[0])) {
-                return `${parts[0]}
-${parts.slice(1).join(' ')}`;
+                return `${parts[0]}<br>${parts.slice(1).join(' ')}`;
               }
               if (['Cloud', 'Chikou', 'TKx', 'Score', 'Signal', 'Count', 'State', 'Direction'].includes(parts[0])) {
-                return `${parts[0]}
-${parts.slice(1).join(' ')}`;
+                return `${parts[0]}<br>${parts.slice(1).join(' ')}`;
               }
             }
           }
@@ -168,33 +187,20 @@ ${parts.slice(1).join(' ')}`;
 
           const table = $('#dataTable_1').DataTable({
             order: [[$('#dataTable_1 thead th').length - 1, 'desc']],
-            initComplete: function() {
-              const rows = table.rows().nodes();
-              for (let i = 0; i < rows.length; i++) {
-                const cells = rows[i].querySelectorAll('td');
-                for (let j = 0; j < cells.length; j++) {
-                  const cell = cells[j];
-                  const text = cell.textContent.trim();
-                  const normalized = text.toLowerCase();
+            drawCallback: function() {
+              const stateColumnIndexes = $('#dataTable_1 thead th')
+                .toArray()
+                .map((th, index) => th.textContent.toLowerCase().includes('state') ? index : null)
+                .filter(index => index !== null);
 
-                  if (normalized.startsWith('above')) {
-                    cell.classList.add('highlight-positive');
-                  } else if (normalized.startsWith('below')) {
-                    cell.classList.add('highlight-negative');
-                  } else {
-                    const value = parseFloat(text);
-                    if (!isNaN(value)) {
-                      if (value > 0) {
-                        cell.classList.add('highlight-positive');
-                      } else if (value < 0) {
-                        cell.classList.add('highlight-negative');
-                      } else {
-                        cell.classList.add('highlight-neutral');
-                      }
-                    }
-                  }
-                }
-              }
+              $('#dataTable_1 tbody tr').each(function() {
+                $(this).find('td').each(function(index) {
+                  classifyCell(this, stateColumnIndexes.includes(index));
+                });
+              });
+            },
+            initComplete: function() {
+              this.api().draw(false);
             }
           });
         });
@@ -202,7 +208,7 @@ ${parts.slice(1).join(' ')}`;
         </table>
         
         <footer>
-          <p>Last updated: 2026-09-08 22:34:01 [UK]<br></p>
+          <p>Last updated: 2026-09-09 00:54:29 [UK]<br></p>
         </footer>
         </body>
         </html>
