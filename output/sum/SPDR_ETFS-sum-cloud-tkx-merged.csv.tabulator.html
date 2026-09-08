@@ -17,25 +17,29 @@
     .tabulator-row { border-bottom: 1px solid #c4d0d6; }
     .tabulator-row:nth-child(even) { background: #e8f0f2; }
     .tabulator-row:hover { background: #b9dfe0 !important; }
-    .tabulator .tabulator-cell { border-right: 1px solid #d0dbe0; }
+    .tabulator .tabulator-cell { border-right: 1px solid #d0dbe0; white-space: normal !important; word-break: break-word; line-height: 1.4; }
+    .tabulator .tabulator-col-title { white-space: normal !important; word-break: break-word; line-height: 1.4; }
+    .highlight-positive { background-color: #d1f2d1 !important; color: #0b6e3d !important; font-weight: 600; }
+    .highlight-negative { background-color: #f8d7da !important; color: #8b1e2d !important; font-weight: 600; }
+    .highlight-neutral { background-color: #e6e7e8 !important; color: #4a4a4a !important; }
   </style>
 </head>
 <body>
   <main class="tabulator-page">
     <h1>All Sector SPDR ETFs Cloud Scan</h1>
     <div id="dataTableTabulator"></div>
-    <footer><p>Table Generated At 2026-09-08 01:01:46 [UK]</p></footer>
+    <footer><p>Last updated: 2026-09-08 21:48:05 [UK]</p></footer>
   </main>
   <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
   <script>
-    const tableData = [{"Symbol":"XLV","Name":"Health Care","Close":171.45,"1H Cloud Score":-2,"1D Cloud Score":54,"1W Cloud Score":47,"1M Cloud Score":190,"Cloud Score Sum":289,"1H TKx Score":-5,"1D TKx Score":73,"1W TKx Score":10,"1M TKx Score":11,"TKx Score Sum":89,"Total Score Sum":378},{"Symbol":"XLK","Name":"Technology","Close":187.29,"1H Cloud Score":10,"1D Cloud Score":3,"1W Cloud Score":27,"1M Cloud Score":193,"Cloud Score Sum":233,"1H TKx Score":7,"1D TKx Score":19,"1W TKx Score":14,"1M TKx Score":5,"TKx Score Sum":45,"Total Score Sum":278},{"Symbol":"XLF","Name":"Financials","Close":58.1,"1H Cloud Score":5,"1D Cloud Score":65,"1W Cloud Score":14,"1M Cloud Score":71,"Cloud Score Sum":155,"1H TKx Score":13,"1D TKx Score":57,"1W TKx Score":13,"1M TKx Score":33,"TKx Score Sum":116,"Total Score Sum":271},{"Symbol":"XLP","Name":"Consumer Staples","Close":84.59,"1H Cloud Score":-27,"1D Cloud Score":-1,"1W Cloud Score":35,"1M Cloud Score":207,"Cloud Score Sum":214,"1H TKx Score":-14,"1D TKx Score":3,"1W TKx Score":6,"1M TKx Score":31,"TKx Score Sum":26,"Total Score Sum":240},{"Symbol":"XLE","Name":"Energy","Close":64.07,"1H Cloud Score":32,"1D Cloud Score":34,"1W Cloud Score":27,"1M Cloud Score":60,"Cloud Score Sum":153,"1H TKx Score":-4,"1D TKx Score":36,"1W TKx Score":1,"1M TKx Score":-16,"TKx Score Sum":17,"Total Score Sum":170},{"Symbol":"XLB","Name":"Materials","Close":52.45,"1H Cloud Score":-15,"1D Cloud Score":24,"1W Cloud Score":27,"1M Cloud Score":78,"Cloud Score Sum":114,"1H TKx Score":-5,"1D TKx Score":25,"1W TKx Score":35,"1M TKx Score":-16,"TKx Score Sum":39,"Total Score Sum":153},{"Symbol":"XLI","Name":"Industrials","Close":175.25,"1H Cloud Score":-97,"1D Cloud Score":-5,"1W Cloud Score":71,"1M Cloud Score":77,"Cloud Score Sum":46,"1H TKx Score":7,"1D TKx Score":-6,"1W TKx Score":65,"1M TKx Score":40,"TKx Score Sum":106,"Total Score Sum":152},{"Symbol":"XLY","Name":"Consumer Discretionary","Close":114.9,"1H Cloud Score":-56,"1D Cloud Score":0,"1W Cloud Score":0,"1M Cloud Score":193,"Cloud Score Sum":137,"1H TKx Score":12,"1D TKx Score":-1,"1W TKx Score":13,"1M TKx Score":-16,"TKx Score Sum":8,"Total Score Sum":145},{"Symbol":"XLU","Name":"Utilities","Close":43.06,"1H Cloud Score":3,"1D Cloud Score":-26,"1W Cloud Score":0,"1M Cloud Score":190,"Cloud Score Sum":167,"1H TKx Score":14,"1D TKx Score":-22,"1W TKx Score":-5,"1M TKx Score":-16,"TKx Score Sum":-29,"Total Score Sum":138},{"Symbol":"XLRE","Name":"Real Estate","Close":43.91,"1H Cloud Score":-47,"1D Cloud Score":-5,"1W Cloud Score":66,"1M Cloud Score":27,"Cloud Score Sum":41,"1H TKx Score":7,"1D TKx Score":-20,"1W TKx Score":28,"1M TKx Score":26,"TKx Score Sum":41,"Total Score Sum":82},{"Symbol":"XLC","Name":"Communication Services","Close":112.06,"1H Cloud Score":0,"1D Cloud Score":3,"1W Cloud Score":0,"1M Cloud Score":23,"Cloud Score Sum":26,"1H TKx Score":15,"1D TKx Score":18,"1W TKx Score":-11,"1M TKx Score":34,"TKx Score Sum":56,"Total Score Sum":82}];
-    const tableColumns = [{"title": "Symbol", "field": "Symbol", "headerFilter": "input"}, {"title": "Name", "field": "Name", "headerFilter": "input"}, {"title": "Close", "field": "Close", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H Score", "field": "1H Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1D Score", "field": "1D Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1W Score", "field": "1W Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M Score", "field": "1M Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "Score Sum", "field": "Cloud Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H TKx Score", "field": "1H TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1D TKx Score", "field": "1D TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1W TKx Score", "field": "1W TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M TKx Score", "field": "1M TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "TKx Score Sum", "field": "TKx Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "Total Score Sum", "field": "Total Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}];
+    const tableData = [{"Symbol":"XLV","Name":"Health Care","Close":167.15,"1H Cloud Score":-9,"1D Cloud Score":55,"1W Cloud Score":48,"1M Cloud Score":190,"Cloud Score Sum":284,"1H TKx Score":-12,"1D TKx Score":74,"1W TKx Score":11,"1M TKx Score":11,"TKx Score Sum":84,"Total Score Sum":368},{"Symbol":"XLK","Name":"Technology","Close":187.86,"1H Cloud Score":17,"1D Cloud Score":4,"1W Cloud Score":28,"1M Cloud Score":193,"Cloud Score Sum":242,"1H TKx Score":14,"1D TKx Score":20,"1W TKx Score":15,"1M TKx Score":5,"TKx Score Sum":54,"Total Score Sum":296},{"Symbol":"XLI","Name":"Industrials","Close":174.42,"1H Cloud Score":-1,"1D Cloud Score":-6,"1W Cloud Score":72,"1M Cloud Score":77,"Cloud Score Sum":142,"1H TKx Score":14,"1D TKx Score":-7,"1W TKx Score":66,"1M TKx Score":40,"TKx Score Sum":113,"Total Score Sum":255},{"Symbol":"XLF","Name":"Financials","Close":57.3,"1H Cloud Score":-7,"1D Cloud Score":66,"1W Cloud Score":15,"1M Cloud Score":71,"Cloud Score Sum":145,"1H TKx Score":-5,"1D TKx Score":58,"1W TKx Score":14,"1M TKx Score":33,"TKx Score Sum":100,"Total Score Sum":245},{"Symbol":"XLP","Name":"Consumer Staples","Close":84.02,"1H Cloud Score":-34,"1D Cloud Score":-2,"1W Cloud Score":36,"1M Cloud Score":207,"Cloud Score Sum":207,"1H TKx Score":-21,"1D TKx Score":-1,"1W TKx Score":7,"1M TKx Score":31,"TKx Score Sum":16,"Total Score Sum":223},{"Symbol":"XLE","Name":"Energy","Close":64.78,"1H Cloud Score":39,"1D Cloud Score":35,"1W Cloud Score":28,"1M Cloud Score":60,"Cloud Score Sum":162,"1H TKx Score":5,"1D TKx Score":37,"1W TKx Score":2,"1M TKx Score":-16,"TKx Score Sum":28,"Total Score Sum":190},{"Symbol":"XLU","Name":"Utilities","Close":43.45,"1H Cloud Score":10,"1D Cloud Score":-27,"1W Cloud Score":0,"1M Cloud Score":190,"Cloud Score Sum":173,"1H TKx Score":21,"1D TKx Score":-23,"1W TKx Score":-6,"1M TKx Score":-16,"TKx Score Sum":-24,"Total Score Sum":149},{"Symbol":"XLB","Name":"Materials","Close":51.95,"1H Cloud Score":-22,"1D Cloud Score":25,"1W Cloud Score":28,"1M Cloud Score":78,"Cloud Score Sum":109,"1H TKx Score":-12,"1D TKx Score":26,"1W TKx Score":36,"1M TKx Score":-16,"TKx Score Sum":34,"Total Score Sum":143},{"Symbol":"XLY","Name":"Consumer Discretionary","Close":114.02,"1H Cloud Score":-63,"1D Cloud Score":0,"1W Cloud Score":0,"1M Cloud Score":193,"Cloud Score Sum":130,"1H TKx Score":-7,"1D TKx Score":-2,"1W TKx Score":14,"1M TKx Score":-16,"TKx Score Sum":-11,"Total Score Sum":119},{"Symbol":"XLRE","Name":"Real Estate","Close":43.89,"1H Cloud Score":-54,"1D Cloud Score":-6,"1W Cloud Score":67,"1M Cloud Score":27,"Cloud Score Sum":34,"1H TKx Score":-2,"1D TKx Score":-21,"1W TKx Score":29,"1M TKx Score":26,"TKx Score Sum":32,"Total Score Sum":66},{"Symbol":"XLC","Name":"Communication Services","Close":111.54,"1H Cloud Score":-7,"1D Cloud Score":4,"1W Cloud Score":0,"1M Cloud Score":23,"Cloud Score Sum":20,"1H TKx Score":-7,"1D TKx Score":19,"1W TKx Score":-12,"1M TKx Score":34,"TKx Score Sum":34,"Total Score Sum":54}];
+    const tableColumns = [{"title": "Symbol", "field": "Symbol", "headerFilter": "input"}, {"title": "Name", "field": "Name", "headerFilter": "input"}, {"title": "Close", "field": "Close", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H Cloud Score", "field": "1H Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1D Cloud Score", "field": "1D Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1W Cloud Score", "field": "1W Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M Cloud Score", "field": "1M Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "Cloud Score Sum", "field": "Cloud Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H TKx Score", "field": "1H TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1D TKx Score", "field": "1D TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1W TKx Score", "field": "1W TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M TKx Score", "field": "1M TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "TKx Score Sum", "field": "TKx Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "Total Score Sum", "field": "Total Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}];
     const exactHeaderFilter = (headerValue, rowValue) =>
       String(rowValue ?? "").trim() === String(headerValue ?? "").trim();
     tableColumns.forEach(column => {
       column.headerFilterFunc = exactHeaderFilter;
     });
-    new Tabulator("#dataTableTabulator", {
+    const tabulatorTable = new Tabulator("#dataTableTabulator", {
       data: tableData,
       columns: tableColumns,
       layout: "fitDataTable",
@@ -46,6 +50,37 @@
       initialSort: [{column: tableColumns[tableColumns.length - 1].field, dir: "desc"}],
       placeholder: "No matching rows"
     });
+
+    const applyNumericHighlights = () => {
+      const rows = tabulatorTable.getRows();
+      rows.forEach(row => {
+        row.getCells().forEach(cell => {
+          const rawValue = String(cell.getValue() ?? '').trim();
+          const element = cell.getElement();
+          element.classList.remove('highlight-positive', 'highlight-negative', 'highlight-neutral');
+
+          const normalized = rawValue.toLowerCase();
+          if (normalized.startsWith('above')) {
+            element.classList.add('highlight-positive');
+            return;
+          }
+          if (normalized.startsWith('below')) {
+            element.classList.add('highlight-negative');
+            return;
+          }
+
+          const value = Number.parseFloat(rawValue);
+          if (Number.isFinite(value)) {
+            if (value > 0) element.classList.add('highlight-positive');
+            else if (value < 0) element.classList.add('highlight-negative');
+            else element.classList.add('highlight-neutral');
+          }
+        });
+      });
+    };
+
+    tabulatorTable.on("renderComplete", applyNumericHighlights);
+    tabulatorTable.on("dataLoaded", applyNumericHighlights);
   </script>
 </body>
 </html>
