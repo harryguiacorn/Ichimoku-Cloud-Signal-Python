@@ -9,11 +9,9 @@
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
           <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
           <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
-          
           <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
           <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
           <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
-          
       </head>
       <body>
         <h1>Dow Jones 30 Cloud Scan</h1>
@@ -23,16 +21,26 @@
       <th>Symbol</th>
       <th>Name</th>
       <th>Close</th>
-      <th>1H Cloud Score</th>
-      <th>1D Cloud Score</th>
-      <th>1W Cloud Score</th>
-      <th>1M Cloud Score</th>
-      <th>Cloud Score Sum</th>
-      <th>1H TKx Score</th>
-      <th>1D TKx Score</th>
-      <th>1W TKx Score</th>
-      <th>1M TKx Score</th>
-      <th>TKx Score Sum</th>
+      <th>1H
+Cloud Score</th>
+      <th>1D
+Cloud Score</th>
+      <th>1W
+Cloud Score</th>
+      <th>1M
+Cloud Score</th>
+      <th>Cloud
+Score Sum</th>
+      <th>1H
+TKx Score</th>
+      <th>1D
+TKx Score</th>
+      <th>1W
+TKx Score</th>
+      <th>1M
+TKx Score</th>
+      <th>TKx
+Score Sum</th>
       <th>Total Score Sum</th>
     </tr>
   </thead>
@@ -40,524 +48,555 @@
     <tr>
       <td>JPM</td>
       <td>JPMorgan Chase</td>
-      <td>358.61</td>
-      <td>5</td>
-      <td>65</td>
-      <td>178</td>
+      <td>353.55</td>
+      <td>-2</td>
+      <td>66</td>
+      <td>179</td>
       <td>171</td>
-      <td>419</td>
-      <td>64</td>
-      <td>-1</td>
-      <td>13</td>
+      <td>414</td>
+      <td>-5</td>
+      <td>-2</td>
+      <td>14</td>
       <td>39</td>
-      <td>115</td>
-      <td>534</td>
+      <td>46</td>
+      <td>460</td>
     </tr>
     <tr>
       <td>AAPL</td>
       <td>Apple</td>
-      <td>319.99</td>
-      <td>48</td>
-      <td>0</td>
-      <td>53</td>
+      <td>316.35</td>
+      <td>-7</td>
+      <td>1</td>
+      <td>54</td>
       <td>264</td>
-      <td>365</td>
-      <td>-2</td>
-      <td>2</td>
-      <td>19</td>
+      <td>312</td>
+      <td>-9</td>
+      <td>3</td>
+      <td>20</td>
       <td>84</td>
-      <td>103</td>
-      <td>468</td>
-    </tr>
-    <tr>
-      <td>TRV</td>
-      <td>Travelers</td>
-      <td>369.35</td>
-      <td>14</td>
-      <td>61</td>
-      <td>146</td>
-      <td>71</td>
-      <td>292</td>
-      <td>13</td>
-      <td>-11</td>
-      <td>79</td>
-      <td>69</td>
-      <td>150</td>
-      <td>442</td>
+      <td>98</td>
+      <td>410</td>
     </tr>
     <tr>
       <td>AMGN</td>
       <td>Amgen</td>
-      <td>437.23</td>
-      <td>3</td>
-      <td>52</td>
-      <td>45</td>
+      <td>393.23</td>
+      <td>-7</td>
+      <td>53</td>
+      <td>46</td>
       <td>178</td>
-      <td>278</td>
-      <td>22</td>
-      <td>67</td>
-      <td>6</td>
+      <td>270</td>
+      <td>-7</td>
+      <td>68</td>
+      <td>7</td>
       <td>49</td>
-      <td>144</td>
-      <td>422</td>
+      <td>117</td>
+      <td>387</td>
     </tr>
     <tr>
       <td>KO</td>
       <td>Coca-Cola</td>
-      <td>88.08</td>
-      <td>-37</td>
-      <td>64</td>
-      <td>49</td>
-      <td>195</td>
-      <td>271</td>
-      <td>2</td>
-      <td>56</td>
-      <td>40</td>
-      <td>27</td>
-      <td>125</td>
-      <td>396</td>
-    </tr>
-    <tr>
-      <td>GOOGL</td>
-      <td>Alphabet (Class A)</td>
-      <td>338.50</td>
-      <td>-8</td>
-      <td>-1</td>
-      <td>63</td>
-      <td>189</td>
-      <td>243</td>
-      <td>11</td>
-      <td>-13</td>
-      <td>60</td>
-      <td>34</td>
-      <td>92</td>
-      <td>335</td>
-    </tr>
-    <tr>
-      <td>GS</td>
-      <td>Goldman Sachs</td>
-      <td>1038.02</td>
-      <td>4</td>
-      <td>0</td>
-      <td>147</td>
-      <td>71</td>
-      <td>222</td>
-      <td>14</td>
-      <td>-2</td>
+      <td>88.41</td>
+      <td>-44</td>
       <td>65</td>
-      <td>34</td>
-      <td>111</td>
-      <td>333</td>
+      <td>50</td>
+      <td>195</td>
+      <td>266</td>
+      <td>-6</td>
+      <td>57</td>
+      <td>41</td>
+      <td>27</td>
+      <td>119</td>
+      <td>385</td>
     </tr>
     <tr>
       <td>NVDA</td>
       <td>Nvidia</td>
-      <td>230.35</td>
-      <td>21</td>
-      <td>7</td>
-      <td>69</td>
+      <td>225.77</td>
+      <td>28</td>
+      <td>8</td>
+      <td>70</td>
       <td>147</td>
-      <td>244</td>
-      <td>16</td>
-      <td>19</td>
-      <td>14</td>
+      <td>253</td>
+      <td>23</td>
+      <td>20</td>
+      <td>15</td>
       <td>39</td>
-      <td>88</td>
-      <td>332</td>
+      <td>97</td>
+      <td>350</td>
+    </tr>
+    <tr>
+      <td>GS</td>
+      <td>Goldman Sachs</td>
+      <td>1036.45</td>
+      <td>6</td>
+      <td>0</td>
+      <td>148</td>
+      <td>71</td>
+      <td>225</td>
+      <td>21</td>
+      <td>-3</td>
+      <td>66</td>
+      <td>34</td>
+      <td>118</td>
+      <td>343</td>
+    </tr>
+    <tr>
+      <td>TRV</td>
+      <td>Travelers</td>
+      <td>365.70</td>
+      <td>-7</td>
+      <td>0</td>
+      <td>147</td>
+      <td>71</td>
+      <td>211</td>
+      <td>-7</td>
+      <td>-12</td>
+      <td>80</td>
+      <td>69</td>
+      <td>130</td>
+      <td>341</td>
+    </tr>
+    <tr>
+      <td>GOOGL</td>
+      <td>Alphabet (Class A)</td>
+      <td>338.43</td>
+      <td>-3</td>
+      <td>-2</td>
+      <td>64</td>
+      <td>189</td>
+      <td>248</td>
+      <td>-7</td>
+      <td>-14</td>
+      <td>61</td>
+      <td>34</td>
+      <td>74</td>
+      <td>322</td>
     </tr>
     <tr>
       <td>V</td>
       <td>Visa</td>
-      <td>374.97</td>
-      <td>-2</td>
-      <td>59</td>
-      <td>10</td>
-      <td>146</td>
-      <td>213</td>
-      <td>-5</td>
-      <td>57</td>
-      <td>10</td>
-      <td>39</td>
-      <td>101</td>
-      <td>314</td>
-    </tr>
-    <tr>
-      <td>JNJ</td>
-      <td>Johnson &amp; Johnson</td>
-      <td>275.15</td>
-      <td>23</td>
-      <td>53</td>
-      <td>63</td>
-      <td>20</td>
-      <td>159</td>
-      <td>28</td>
-      <td>14</td>
+      <td>368.83</td>
+      <td>-9</td>
       <td>60</td>
-      <td>19</td>
-      <td>121</td>
-      <td>280</td>
-    </tr>
-    <tr>
-      <td>MSFT</td>
-      <td>Microsoft</td>
-      <td>499.68</td>
-      <td>0</td>
-      <td>27</td>
-      <td>5</td>
-      <td>186</td>
-      <td>218</td>
-      <td>10</td>
-      <td>38</td>
-      <td>2</td>
-      <td>-3</td>
-      <td>47</td>
-      <td>265</td>
-    </tr>
-    <tr>
-      <td>MRK</td>
-      <td>Merck</td>
-      <td>150.33</td>
-      <td>0</td>
-      <td>54</td>
-      <td>38</td>
       <td>11</td>
-      <td>103</td>
-      <td>24</td>
-      <td>73</td>
-      <td>50</td>
-      <td>8</td>
-      <td>155</td>
-      <td>258</td>
+      <td>146</td>
+      <td>208</td>
+      <td>-12</td>
+      <td>58</td>
+      <td>11</td>
+      <td>39</td>
+      <td>96</td>
+      <td>304</td>
     </tr>
     <tr>
       <td>CAT</td>
       <td>Caterpillar</td>
-      <td>813.69</td>
-      <td>2</td>
-      <td>-29</td>
-      <td>63</td>
+      <td>822.64</td>
+      <td>9</td>
+      <td>-30</td>
+      <td>64</td>
       <td>77</td>
-      <td>113</td>
-      <td>12</td>
-      <td>-14</td>
-      <td>63</td>
+      <td>120</td>
+      <td>19</td>
+      <td>-15</td>
+      <td>64</td>
       <td>70</td>
-      <td>131</td>
-      <td>244</td>
+      <td>138</td>
+      <td>258</td>
     </tr>
     <tr>
       <td>CVX</td>
       <td>Chevron</td>
-      <td>208.56</td>
-      <td>32</td>
-      <td>32</td>
-      <td>62</td>
+      <td>209.80</td>
+      <td>39</td>
+      <td>33</td>
+      <td>63</td>
       <td>61</td>
-      <td>187</td>
-      <td>-3</td>
-      <td>36</td>
-      <td>1</td>
-      <td>9</td>
-      <td>43</td>
-      <td>230</td>
-    </tr>
-    <tr>
-      <td>PG</td>
-      <td>Procter &amp; Gamble</td>
-      <td>146.47</td>
-      <td>31</td>
-      <td>0</td>
-      <td>-5</td>
-      <td>192</td>
-      <td>218</td>
-      <td>-2</td>
-      <td>3</td>
-      <td>1</td>
-      <td>-10</td>
-      <td>-8</td>
-      <td>210</td>
-    </tr>
-    <tr>
-      <td>CRM</td>
-      <td>Salesforce</td>
-      <td>259.30</td>
-      <td>98</td>
-      <td>29</td>
-      <td>2</td>
-      <td>2</td>
-      <td>131</td>
-      <td>47</td>
+      <td>196</td>
+      <td>5</td>
       <td>37</td>
       <td>2</td>
-      <td>-11</td>
-      <td>75</td>
-      <td>206</td>
+      <td>9</td>
+      <td>53</td>
+      <td>249</td>
     </tr>
     <tr>
-      <td>SHW</td>
-      <td>Sherwin-Williams</td>
-      <td>333.71</td>
-      <td>-49</td>
-      <td>30</td>
-      <td>-1</td>
-      <td>203</td>
-      <td>183</td>
-      <td>2</td>
-      <td>-4</td>
-      <td>5</td>
-      <td>-5</td>
+      <td>MSFT</td>
+      <td>Microsoft</td>
+      <td>494.02</td>
+      <td>-7</td>
+      <td>28</td>
+      <td>6</td>
+      <td>186</td>
+      <td>213</td>
+      <td>-7</td>
+      <td>39</td>
+      <td>3</td>
+      <td>-3</td>
+      <td>32</td>
+      <td>245</td>
+    </tr>
+    <tr>
+      <td>MRK</td>
+      <td>Merck</td>
+      <td>148.48</td>
+      <td>-7</td>
+      <td>55</td>
+      <td>39</td>
+      <td>11</td>
+      <td>98</td>
+      <td>-7</td>
+      <td>74</td>
+      <td>51</td>
+      <td>8</td>
+      <td>126</td>
+      <td>224</td>
+    </tr>
+    <tr>
+      <td>JNJ</td>
+      <td>Johnson & Johnson</td>
+      <td>269.15</td>
       <td>-2</td>
-      <td>181</td>
+      <td>54</td>
+      <td>64</td>
+      <td>20</td>
+      <td>136</td>
+      <td>-7</td>
+      <td>15</td>
+      <td>61</td>
+      <td>19</td>
+      <td>88</td>
+      <td>224</td>
     </tr>
     <tr>
       <td>CSCO</td>
       <td>Cisco</td>
-      <td>109.17</td>
-      <td>-40</td>
-      <td>-6</td>
-      <td>103</td>
+      <td>109.13</td>
+      <td>-47</td>
+      <td>-7</td>
+      <td>104</td>
       <td>27</td>
-      <td>84</td>
-      <td>3</td>
-      <td>-10</td>
-      <td>65</td>
+      <td>77</td>
+      <td>10</td>
+      <td>-11</td>
+      <td>66</td>
       <td>38</td>
-      <td>96</td>
+      <td>103</td>
       <td>180</td>
+    </tr>
+    <tr>
+      <td>PG</td>
+      <td>Procter & Gamble</td>
+      <td>145.60</td>
+      <td>0</td>
+      <td>-1</td>
+      <td>-6</td>
+      <td>192</td>
+      <td>185</td>
+      <td>-9</td>
+      <td>4</td>
+      <td>2</td>
+      <td>-10</td>
+      <td>-13</td>
+      <td>172</td>
+    </tr>
+    <tr>
+      <td>SHW</td>
+      <td>Sherwin-Williams</td>
+      <td>326.19</td>
+      <td>-56</td>
+      <td>0</td>
+      <td>-2</td>
+      <td>203</td>
+      <td>145</td>
+      <td>-7</td>
+      <td>-5</td>
+      <td>6</td>
+      <td>-5</td>
+      <td>-11</td>
+      <td>134</td>
     </tr>
     <tr>
       <td>WMT</td>
       <td>Walmart</td>
-      <td>107.14</td>
-      <td>8</td>
-      <td>-12</td>
-      <td>0</td>
+      <td>106.07</td>
+      <td>15</td>
+      <td>-13</td>
+      <td>-1</td>
       <td>114</td>
-      <td>110</td>
-      <td>30</td>
-      <td>-12</td>
-      <td>-7</td>
+      <td>115</td>
+      <td>-5</td>
+      <td>-13</td>
+      <td>-8</td>
       <td>42</td>
-      <td>53</td>
-      <td>163</td>
+      <td>16</td>
+      <td>131</td>
     </tr>
     <tr>
       <td>MCD</td>
       <td>McDonald's</td>
-      <td>255.70</td>
-      <td>-60</td>
-      <td>-56</td>
-      <td>-19</td>
-      <td>255</td>
-      <td>120</td>
+      <td>255.82</td>
+      <td>-67</td>
+      <td>-57</td>
       <td>-20</td>
-      <td>-7</td>
-      <td>-18</td>
-      <td>70</td>
-      <td>25</td>
-      <td>145</td>
-    </tr>
-    <tr>
-      <td>IBM</td>
-      <td>IBM</td>
-      <td>234.90</td>
-      <td>1</td>
-      <td>0</td>
+      <td>255</td>
+      <td>111</td>
+      <td>-27</td>
       <td>-8</td>
-      <td>67</td>
-      <td>60</td>
-      <td>12</td>
-      <td>14</td>
-      <td>-28</td>
-      <td>67</td>
-      <td>65</td>
-      <td>125</td>
+      <td>-19</td>
+      <td>70</td>
+      <td>16</td>
+      <td>127</td>
     </tr>
     <tr>
       <td>AMZN</td>
       <td>Amazon</td>
-      <td>258.51</td>
-      <td>-35</td>
-      <td>26</td>
-      <td>6</td>
+      <td>256.96</td>
+      <td>0</td>
+      <td>27</td>
+      <td>7</td>
       <td>34</td>
-      <td>31</td>
-      <td>9</td>
-      <td>-1</td>
-      <td>20</td>
+      <td>68</td>
+      <td>-5</td>
+      <td>-2</td>
+      <td>21</td>
       <td>33</td>
-      <td>61</td>
-      <td>92</td>
+      <td>47</td>
+      <td>115</td>
+    </tr>
+    <tr>
+      <td>IBM</td>
+      <td>IBM</td>
+      <td>232.12</td>
+      <td>-7</td>
+      <td>-1</td>
+      <td>-9</td>
+      <td>67</td>
+      <td>50</td>
+      <td>-7</td>
+      <td>15</td>
+      <td>-29</td>
+      <td>67</td>
+      <td>46</td>
+      <td>96</td>
     </tr>
     <tr>
       <td>AXP</td>
       <td>American Express</td>
-      <td>326.15</td>
-      <td>-50</td>
-      <td>-5</td>
+      <td>326.11</td>
+      <td>-57</td>
+      <td>-6</td>
       <td>0</td>
       <td>112</td>
-      <td>57</td>
-      <td>-5</td>
-      <td>-5</td>
-      <td>9</td>
+      <td>49</td>
+      <td>-12</td>
+      <td>-6</td>
+      <td>10</td>
       <td>34</td>
-      <td>33</td>
-      <td>90</td>
+      <td>26</td>
+      <td>75</td>
     </tr>
     <tr>
       <td>HD</td>
       <td>Home Depot</td>
-      <td>321.05</td>
-      <td>-69</td>
-      <td>0</td>
-      <td>-27</td>
+      <td>313.72</td>
+      <td>-76</td>
+      <td>-1</td>
+      <td>-28</td>
       <td>193</td>
-      <td>97</td>
-      <td>1</td>
-      <td>-9</td>
-      <td>4</td>
-      <td>-5</td>
-      <td>-9</td>
       <td>88</td>
+      <td>-4</td>
+      <td>-10</td>
+      <td>5</td>
+      <td>-5</td>
+      <td>-14</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <td>CRM</td>
+      <td>Salesforce</td>
+      <td>249.22</td>
+      <td>0</td>
+      <td>30</td>
+      <td>3</td>
+      <td>2</td>
+      <td>35</td>
+      <td>-7</td>
+      <td>38</td>
+      <td>3</td>
+      <td>-11</td>
+      <td>23</td>
+      <td>58</td>
     </tr>
     <tr>
       <td>DIS</td>
       <td>Disney</td>
-      <td>105.29</td>
-      <td>-14</td>
-      <td>22</td>
-      <td>0</td>
-      <td>0</td>
-      <td>8</td>
-      <td>-5</td>
+      <td>105.06</td>
+      <td>-21</td>
       <td>23</td>
-      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>-12</td>
+      <td>24</td>
+      <td>4</td>
       <td>16</td>
-      <td>37</td>
-      <td>45</td>
+      <td>32</td>
+      <td>34</td>
     </tr>
     <tr>
       <td>BA</td>
       <td>Boeing</td>
-      <td>212.23</td>
-      <td>2</td>
-      <td>-14</td>
+      <td>210.75</td>
+      <td>9</td>
+      <td>-15</td>
       <td>0</td>
       <td>2</td>
-      <td>-10</td>
-      <td>13</td>
-      <td>-10</td>
-      <td>6</td>
+      <td>-4</td>
+      <td>20</td>
+      <td>-11</td>
+      <td>7</td>
       <td>9</td>
-      <td>18</td>
-      <td>8</td>
+      <td>25</td>
+      <td>21</td>
     </tr>
     <tr>
       <td>HON</td>
       <td>Honeywell Technologies</td>
-      <td>209.61</td>
-      <td>-35</td>
-      <td>-15</td>
-      <td>-1</td>
-      <td>35</td>
+      <td>208.21</td>
+      <td>-42</td>
       <td>-16</td>
-      <td>1</td>
-      <td>-13</td>
-      <td>-9</td>
-      <td>35</td>
-      <td>14</td>
       <td>-2</td>
+      <td>35</td>
+      <td>-25</td>
+      <td>8</td>
+      <td>-14</td>
+      <td>-10</td>
+      <td>35</td>
+      <td>19</td>
+      <td>-6</td>
     </tr>
     <tr>
       <td>UNH</td>
       <td>UnitedHealth Group</td>
-      <td>397.20</td>
-      <td>17</td>
-      <td>-14</td>
+      <td>400.87</td>
+      <td>5</td>
+      <td>-15</td>
       <td>0</td>
       <td>0</td>
-      <td>3</td>
-      <td>-1</td>
-      <td>-28</td>
-      <td>15</td>
+      <td>-10</td>
+      <td>-8</td>
+      <td>-29</td>
+      <td>16</td>
       <td>-14</td>
-      <td>-28</td>
-      <td>-25</td>
+      <td>-35</td>
+      <td>-45</td>
     </tr>
     <tr>
       <td>MMM</td>
       <td>3M</td>
-      <td>168.51</td>
-      <td>-88</td>
+      <td>167.53</td>
+      <td>-95</td>
       <td>0</td>
-      <td>7</td>
-      <td>27</td>
-      <td>-54</td>
-      <td>-49</td>
-      <td>-5</td>
       <td>8</td>
       <td>27</td>
-      <td>-19</td>
-      <td>-73</td>
+      <td>-60</td>
+      <td>-56</td>
+      <td>-6</td>
+      <td>9</td>
+      <td>27</td>
+      <td>-26</td>
+      <td>-86</td>
     </tr>
     <tr>
       <td>NKE</td>
       <td>Nike</td>
-      <td>38.41</td>
-      <td>-63</td>
-      <td>-36</td>
-      <td>-38</td>
+      <td>38.10</td>
+      <td>-70</td>
+      <td>-37</td>
+      <td>-39</td>
       <td>-34</td>
-      <td>-171</td>
-      <td>3</td>
-      <td>-27</td>
-      <td>-44</td>
+      <td>-180</td>
+      <td>-6</td>
+      <td>-28</td>
+      <td>-45</td>
       <td>-49</td>
-      <td>-117</td>
-      <td>-288</td>
+      <td>-128</td>
+      <td>-308</td>
     </tr>
   </tbody>
 </table>
         <script>
-        $(document).ready(function() {
-          // Calculate the last column index
-          let lastColumnIndex = $('#dataTable_1 thead th').length - 1; 
+        const wrapHeaderLabel = (label, columnIndex, isChikou) => {
+          const cleaned = String(label).trim();
+          if (!cleaned) return cleaned;
 
-          // Initialize the DataTable with the order option set to sort by the last column in descending order
-          $('#dataTable_1').DataTable({ order: [[lastColumnIndex, 'desc']] });
-
-          // Get all table rows
-          var rows = $('#dataTable_1').DataTable().rows().nodes();
-
-          // Iterate over all table rows and add classes
-          for (var i = 0; i < rows.length; i++) {
-            var row = rows[i];
-            var cells = row.querySelectorAll('td');
-
-            for (var j = 0; j < cells.length; j++) {
-              var cell = cells[j];
-              var value = parseFloat(cell.textContent);
-
-              if (!isNaN(value)) {
-                if (value > 0) {
-                  cell.classList.add('highlight-positive');
-                } else if (value < 0) {
-                  cell.classList.add('highlight-negative');
-                } else {
-                  cell.classList.add('highlight-neutral');
-                }
+          const firstWrapIndex = isChikou ? 1 : 2;
+          if (columnIndex >= firstWrapIndex) {
+            const parts = cleaned.split(/\s+/);
+            if (parts.length >= 2 && !['Symbol', 'Name', 'Close', 'Date'].includes(parts[0])) {
+              if (/^(1H|4H|1D|1W|1M|3M|6M|1Y)/.test(parts[0])) {
+                return `${parts[0]}
+${parts.slice(1).join(' ')}`;
+              }
+              if (['Cloud', 'Chikou', 'TKx', 'Score', 'Signal', 'Count', 'State', 'Direction'].includes(parts[0])) {
+                return `${parts[0]}
+${parts.slice(1).join(' ')}`;
               }
             }
           }
-        });     
+          return cleaned;
+        };
+
+        $(document).ready(function() {
+          const isChikou = $('#dataTable_1 thead th').toArray().some((th) => th.textContent.includes('Chikou'));
+          $('#dataTable_1 thead th').each(function(index) {
+            const raw = $(this).text().trim();
+            const wrapped = wrapHeaderLabel(raw, index, isChikou);
+            if (wrapped !== raw) {
+              $(this).html(wrapped);
+            }
+          });
+
+          const table = $('#dataTable_1').DataTable({
+            order: [[$('#dataTable_1 thead th').length - 1, 'desc']],
+            initComplete: function() {
+              const rows = table.rows().nodes();
+              for (let i = 0; i < rows.length; i++) {
+                const cells = rows[i].querySelectorAll('td');
+                for (let j = 0; j < cells.length; j++) {
+                  const cell = cells[j];
+                  const text = cell.textContent.trim();
+                  const normalized = text.toLowerCase();
+
+                  if (normalized.startsWith('above')) {
+                    cell.classList.add('highlight-positive');
+                  } else if (normalized.startsWith('below')) {
+                    cell.classList.add('highlight-negative');
+                  } else {
+                    const value = parseFloat(text);
+                    if (!isNaN(value)) {
+                      if (value > 0) {
+                        cell.classList.add('highlight-positive');
+                      } else if (value < 0) {
+                        cell.classList.add('highlight-negative');
+                      } else {
+                        cell.classList.add('highlight-neutral');
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          });
+        });
         </script>
         </table>
         
         <footer>
-          <p>Table Generated At 2026-09-08 00:33:06 [UK]<br></p>
+          <p>Last updated: 2026-09-08 21:16:57 [UK]<br></p>
         </footer>
         </body>
-
         </html>
         
