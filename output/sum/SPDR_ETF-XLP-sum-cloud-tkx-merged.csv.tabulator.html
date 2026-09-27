@@ -10,6 +10,9 @@
   <style>
     body { background: #eef2f4; color: #17212b; }
     .tabulator-page { max-width: 100%; margin: 0 auto; padding: 24px; }
+    .search-help-dialog { max-width: 440px; border: 2px solid #344955; padding: 20px; color: #17212b; }
+    .search-help-dialog::backdrop { background: rgba(23, 33, 43, .45); }
+    .search-help-dialog h2 { margin-top: 0; font-size: 1.25rem; }
     .tabulator { border: 2px solid #344955; background: #ffffff; box-shadow: 0 8px 20px rgba(23, 33, 43, .14); }
     .tabulator .tabulator-header, .tabulator .tabulator-header .tabulator-col { background: #17212b; color: #ffffff; }
     .tabulator .tabulator-header .tabulator-col { border-right: 1px solid #657782; }
@@ -29,19 +32,60 @@
   <main class="tabulator-page">
     <nav class="scan-navigation" aria-label="Page navigation">
       <a href="../../index.html">Home</a>
+      <button type="button" class="search-help-button" data-search-help-open>Filter guide</button>
     </nav>
     <h1>XLP - Consumer Staples Cloud Scan</h1>
+    <dialog class="search-help-dialog" data-search-help-dialog aria-labelledby="search-help-title">
+      <h2 id="search-help-title">Filter guide</h2>
+      <p>For numeric columns:</p>
+      <ul>
+        <li><code>1</code> matches exactly 1</li>
+        <li><code>&gt;1</code> or <code>1+</code> matches values greater than 1</li>
+        <li><code>0+</code> matches positive values; <code>0-</code> matches negative values</li>
+      </ul>
+      <p>Comparisons such as <code>&gt;=1</code>, <code>&lt;1</code>, and <code>&lt;=1</code> are also supported. Text searches match partial values, ignoring case.</p>
+      <form method="dialog"><button type="submit">Close</button></form>
+    </dialog>
     <div id="dataTableTabulator"></div>
-    <footer><p>Last updated: 2026-09-26 01:28:26 [UK]</p></footer>
+    <footer><p>Last updated: 2026-09-27 23:25:21 [UK]</p></footer>
   </main>
   <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
   <script>
     const tableData = [{"Symbol":"PG","Name":"Procter & Gamble","Close":146.24,"1H Cloud Score":0,"1D Cloud Score":-1,"1W Cloud Score":-8,"1M Cloud Score":192,"Cloud Score Sum":183,"1H TKx Score":-5,"1D TKx Score":2,"1W TKx Score":4,"1M TKx Score":-10,"TKx Score Sum":-9,"Total Score Sum":174},{"Symbol":"COST","Name":"Costco","Close":922.95,"1H Cloud Score":7,"1D Cloud Score":-16,"1W Cloud Score":-4,"1M Cloud Score":193,"Cloud Score Sum":180,"1H TKx Score":26,"1D TKx Score":-19,"1W TKx Score":-10,"1M TKx Score":197,"TKx Score Sum":194,"Total Score Sum":374},{"Symbol":"WMT","Name":"Walmart","Close":107.98,"1H Cloud Score":5,"1D Cloud Score":-25,"1W Cloud Score":0,"1M Cloud Score":114,"Cloud Score Sum":94,"1H TKx Score":-7,"1D TKx Score":-25,"1W TKx Score":-10,"1M TKx Score":42,"TKx Score Sum":0,"Total Score Sum":94},{"Symbol":"KO","Name":"Coca-Cola Company (The)","Close":87.82,"1H Cloud Score":-3,"1D Cloud Score":77,"1W Cloud Score":52,"1M Cloud Score":195,"Cloud Score Sum":321,"1H TKx Score":-4,"1D TKx Score":-12,"1W TKx Score":43,"1M TKx Score":27,"TKx Score Sum":54,"Total Score Sum":375},{"Symbol":"PEP","Name":"PepsiCo","Close":128.62,"1H Cloud Score":-143,"1D Cloud Score":-15,"1W Cloud Score":-8,"1M Cloud Score":-1,"Cloud Score Sum":-167,"1H TKx Score":-9,"1D TKx Score":-14,"1W TKx Score":-18,"1M TKx Score":8,"TKx Score Sum":-33,"Total Score Sum":-200},{"Symbol":"PM","Name":"Philip Morris International","Close":190.47,"1H Cloud Score":0,"1D Cloud Score":3,"1W Cloud Score":23,"1M Cloud Score":68,"Cloud Score Sum":94,"1H TKx Score":-5,"1D TKx Score":3,"1W TKx Score":20,"1M TKx Score":70,"TKx Score Sum":88,"Total Score Sum":182},{"Symbol":"MO","Name":"Altria","Close":68.81,"1H Cloud Score":-11,"1D Cloud Score":0,"1W Cloud Score":128,"1M Cloud Score":58,"Cloud Score Sum":175,"1H TKx Score":-5,"1D TKx Score":15,"1W TKx Score":29,"1M TKx Score":29,"TKx Score Sum":68,"Total Score Sum":243},{"Symbol":"MDLZ","Name":"Mondelez International","Close":60.26,"1H Cloud Score":-13,"1D Cloud Score":-6,"1W Cloud Score":11,"1M Cloud Score":0,"Cloud Score Sum":-8,"1H TKx Score":-5,"1D TKx Score":-14,"1W TKx Score":29,"1M TKx Score":-16,"TKx Score Sum":-6,"Total Score Sum":-14},{"Symbol":"CL","Name":"Colgate-Palmolive","Close":86.06,"1H Cloud Score":-125,"1D Cloud Score":-14,"1W Cloud Score":0,"1M Cloud Score":36,"Cloud Score Sum":-103,"1H TKx Score":-19,"1D TKx Score":-33,"1W TKx Score":8,"1M TKx Score":-10,"TKx Score Sum":-54,"Total Score Sum":-157},{"Symbol":"TGT","Name":"Target Corporation","Close":157.41,"1H Cloud Score":0,"1D Cloud Score":75,"1W Cloud Score":27,"1M Cloud Score":2,"Cloud Score Sum":104,"1H TKx Score":-14,"1D TKx Score":-4,"1W TKx Score":36,"1M TKx Score":2,"TKx Score Sum":20,"Total Score Sum":124},{"Symbol":"KMB","Name":"Kimberly-Clark","Close":98.45,"1H Cloud Score":0,"1D Cloud Score":-13,"1W Cloud Score":-3,"1M Cloud Score":-2,"Cloud Score Sum":-18,"1H TKx Score":-15,"1D TKx Score":-14,"1W TKx Score":14,"1M TKx Score":-10,"TKx Score Sum":-25,"Total Score Sum":-43},{"Symbol":"KVUE","Name":"Kenvue","Close":17.82,"1H Cloud Score":0,"1D Cloud Score":-12,"1W Cloud Score":0,"1M Cloud Score":0,"Cloud Score Sum":-12,"1H TKx Score":-9,"1D TKx Score":-13,"1W TKx Score":15,"1M TKx Score":-8,"TKx Score Sum":-15,"Total Score Sum":-27},{"Symbol":"KR","Name":"Kroger","Close":58.75,"1H Cloud Score":-8,"1D Cloud Score":0,"1W Cloud Score":-18,"1M Cloud Score":80,"Cloud Score Sum":54,"1H TKx Score":-44,"1D TKx Score":16,"1W TKx Score":-16,"1M TKx Score":28,"TKx Score Sum":-16,"Total Score Sum":38},{"Symbol":"GIS","Name":"General Mills","Close":33.64,"1H Cloud Score":-36,"1D Cloud Score":-1,"1W Cloud Score":-99,"1M Cloud Score":-17,"Cloud Score Sum":-153,"1H TKx Score":-8,"1D TKx Score":-8,"1W TKx Score":5,"1M TKx Score":-32,"TKx Score Sum":-43,"Total Score Sum":-196},{"Symbol":"MNST","Name":"Monster Beverage","Close":43.1,"1H Cloud Score":-14,"1D Cloud Score":-17,"1W Cloud Score":84,"1M Cloud Score":193,"Cloud Score Sum":246,"1H TKx Score":-28,"1D TKx Score":-17,"1W TKx Score":77,"1M TKx Score":17,"TKx Score Sum":49,"Total Score Sum":295},{"Symbol":"STZ","Name":"Constellation Brands","Close":113.64,"1H Cloud Score":-58,"1D Cloud Score":-22,"1W Cloud Score":-13,"1M Cloud Score":-16,"Cloud Score Sum":-109,"1H TKx Score":-56,"1D TKx Score":-15,"1W TKx Score":-15,"1M TKx Score":-21,"TKx Score Sum":-107,"Total Score Sum":-216},{"Symbol":"KDP","Name":"Keurig Dr Pepper","Close":31.96,"1H Cloud Score":4,"1D Cloud Score":-1,"1W Cloud Score":18,"1M Cloud Score":4,"Cloud Score Sum":25,"1H TKx Score":-7,"1D TKx Score":-3,"1W TKx Score":16,"1M TKx Score":-13,"TKx Score Sum":-7,"Total Score Sum":18},{"Symbol":"SYY","Name":"Sysco","Close":78.46,"1H Cloud Score":-63,"1D Cloud Score":-7,"1W Cloud Score":0,"1M Cloud Score":16,"Cloud Score Sum":-54,"1H TKx Score":3,"1D TKx Score":-19,"1W TKx Score":9,"1M TKx Score":27,"TKx Score Sum":20,"Total Score Sum":-34},{"Symbol":"KHC","Name":"Kraft Heinz","Close":23.62,"1H Cloud Score":-28,"1D Cloud Score":-5,"1W Cloud Score":0,"1M Cloud Score":-1,"Cloud Score Sum":-34,"1H TKx Score":-37,"1D TKx Score":-7,"1W TKx Score":18,"1M TKx Score":-23,"TKx Score Sum":-49,"Total Score Sum":-83},{"Symbol":"ADM","Name":"Archer Daniels Midland","Close":80.63,"1H Cloud Score":-40,"1D Cloud Score":17,"1W Cloud Score":60,"1M Cloud Score":7,"Cloud Score Sum":44,"1H TKx Score":-32,"1D TKx Score":18,"1W TKx Score":68,"1M TKx Score":9,"TKx Score Sum":63,"Total Score Sum":107},{"Symbol":"HSY","Name":"Hershey Company (The)","Close":166.31,"1H Cloud Score":-63,"1D Cloud Score":-15,"1W Cloud Score":-8,"1M Cloud Score":-1,"Cloud Score Sum":-87,"1H TKx Score":-5,"1D TKx Score":-15,"1W TKx Score":-20,"1M TKx Score":11,"TKx Score Sum":-29,"Total Score Sum":-116},{"Symbol":"CHD","Name":"Church & Dwight","Close":96.37,"1H Cloud Score":23,"1D Cloud Score":-13,"1W Cloud Score":1,"1M Cloud Score":9,"Cloud Score Sum":20,"1H TKx Score":-5,"1D TKx Score":-13,"1W TKx Score":8,"1M TKx Score":-10,"TKx Score Sum":-20,"Total Score Sum":0},{"Symbol":"EL","Name":"Est\u00e9e Lauder Companies (The)","Close":94.5,"1H Cloud Score":-7,"1D Cloud Score":37,"1W Cloud Score":1,"1M Cloud Score":-39,"Cloud Score Sum":-8,"1H TKx Score":-8,"1D TKx Score":-1,"1W TKx Score":5,"1M TKx Score":4,"TKx Score Sum":0,"Total Score Sum":-8},{"Symbol":"MKC","Name":"McCormick & Company","Close":47.96,"1H Cloud Score":-125,"1D Cloud Score":-5,"1W Cloud Score":-64,"1M Cloud Score":-15,"Cloud Score Sum":-209,"1H TKx Score":-61,"1D TKx Score":-13,"1W TKx Score":3,"1M TKx Score":-10,"TKx Score Sum":-81,"Total Score Sum":-290},{"Symbol":"CLX","Name":"Clorox","Close":83.81,"1H Cloud Score":-20,"1D Cloud Score":-14,"1W Cloud Score":-30,"1M Cloud Score":-17,"Cloud Score Sum":-81,"1H TKx Score":-12,"1D TKx Score":-14,"1W TKx Score":4,"1M TKx Score":-12,"TKx Score Sum":-34,"Total Score Sum":-115},{"Symbol":"DG","Name":"Dollar General","Close":124.85,"1H Cloud Score":0,"1D Cloud Score":0,"1W Cloud Score":0,"1M Cloud Score":-30,"Cloud Score Sum":-30,"1H TKx Score":12,"1D TKx Score":-2,"1W TKx Score":4,"1M TKx Score":9,"TKx Score Sum":23,"Total Score Sum":-7},{"Symbol":"TSN","Name":"Tyson Foods","Close":50.91,"1H Cloud Score":-33,"1D Cloud Score":-23,"1W Cloud Score":-5,"1M Cloud Score":-2,"Cloud Score Sum":-63,"1H TKx Score":-30,"1D TKx Score":-33,"1W TKx Score":-12,"1M TKx Score":24,"TKx Score Sum":-51,"Total Score Sum":-114},{"Symbol":"DLTR","Name":"Dollar Tree","Close":114.04,"1H Cloud Score":0,"1D Cloud Score":-7,"1W Cloud Score":0,"1M Cloud Score":-1,"Cloud Score Sum":-8,"1H TKx Score":-9,"1D TKx Score":-14,"1W TKx Score":10,"1M TKx Score":9,"TKx Score Sum":-4,"Total Score Sum":-12},{"Symbol":"BG","Name":"Bunge Global","Close":108.94,"1H Cloud Score":-51,"1D Cloud Score":-3,"1W Cloud Score":0,"1M Cloud Score":9,"Cloud Score Sum":-45,"1H TKx Score":-72,"1D TKx Score":19,"1W TKx Score":-8,"1M TKx Score":9,"TKx Score Sum":-52,"Total Score Sum":-97},{"Symbol":"SJM","Name":"J.M. Smucker Company (The)","Close":120.98,"1H Cloud Score":-8,"1D Cloud Score":75,"1W Cloud Score":18,"1M Cloud Score":3,"Cloud Score Sum":88,"1H TKx Score":-4,"1D TKx Score":-7,"1W TKx Score":15,"1M TKx Score":-36,"TKx Score Sum":-32,"Total Score Sum":56},{"Symbol":"HRL","Name":"Hormel Foods","Close":19.7,"1H Cloud Score":-36,"1D Cloud Score":-20,"1W Cloud Score":-5,"1M Cloud Score":-36,"Cloud Score Sum":-97,"1H TKx Score":-32,"1D TKx Score":-32,"1W TKx Score":11,"1M TKx Score":-43,"TKx Score Sum":-96,"Total Score Sum":-193}];
-    const tableColumns = [{"title": "Symbol<br>&nbsp;", "field": "Symbol", "headerFilter": "input"}, {"title": "Name<br>&nbsp;", "field": "Name", "headerFilter": "input"}, {"title": "Close<br>&nbsp;", "field": "Close", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>Cloud Score", "field": "1H Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1D<br>Cloud Score", "field": "1D Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1W<br>Cloud Score", "field": "1W Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M<br>Cloud Score", "field": "1M Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "Cloud<br>Score Sum", "field": "Cloud Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>TKx Score", "field": "1H TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1D<br>TKx Score", "field": "1D TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1W<br>TKx Score", "field": "1W TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M<br>TKx Score", "field": "1M TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "TKx<br>Score Sum", "field": "TKx Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "Total Score Sum<br>&nbsp;", "field": "Total Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}];
-    const exactHeaderFilter = (headerValue, rowValue) =>
-      String(rowValue ?? "").trim() === String(headerValue ?? "").trim();
+    const tableColumns = [{"title": "Symbol<br>&nbsp;", "field": "Symbol", "headerFilter": "input"}, {"title": "Name<br>&nbsp;", "field": "Name", "headerFilter": "input"}, {"title": "Close<br>&nbsp;", "field": "Close", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>Cloud Score", "field": "1H Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1D<br>Cloud Score", "field": "1D Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1W<br>Cloud Score", "field": "1W Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M<br>Cloud Score", "field": "1M Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "Cloud<br>Score Sum", "field": "Cloud Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>TKx Score", "field": "1H TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1D<br>TKx Score", "field": "1D TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1W<br>TKx Score", "field": "1W TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M<br>TKx Score", "field": "1M TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "TKx<br>Score Sum", "field": "TKx Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "Total<br>Score Sum", "field": "Total Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}];
+    const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
+    document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
+    const textHeaderFilter = (headerValue, rowValue) =>
+      String(rowValue ?? "").toLowerCase().includes(String(headerValue ?? "").trim().toLowerCase());
+    const numericHeaderFilter = (headerValue, rowValue) => {
+      const query = String(headerValue ?? "").trim();
+      const value = Number(String(rowValue ?? "").replace(/,/g, ""));
+      if (!query) return true;
+      if (!Number.isFinite(value)) return false;
+
+      const match = query.match(/^(>=|<=|>|<|=)? *([+-]?(?:[0-9]+(?:[.][0-9]*)?|[.][0-9]+)) *([+-]?)$/);
+      if (!match) return false;
+
+      const [, operator, thresholdText, suffix] = match;
+      const threshold = Number(thresholdText.replace(/,/g, ""));
+      if (!Number.isFinite(threshold)) return false;
+      if (suffix) {
+        if (operator) return false;
+        return suffix === "+" ? value > threshold : value < threshold;
+      }
+
+      switch (operator || "=") {
+        case ">": return value > threshold;
+        case ">=": return value >= threshold;
+        case "<": return value < threshold;
+        case "<=": return value <= threshold;
+        default: return value === threshold;
+      }
+    };
     tableColumns.forEach(column => {
-      column.headerFilterFunc = exactHeaderFilter;
+      column.headerFilterFunc = column.sorter === "number"
+        ? numericHeaderFilter
+        : textHeaderFilter;
     });
     const tabulatorTable = new Tabulator("#dataTableTabulator", {
       data: tableData,
@@ -65,6 +109,7 @@
 
           const normalized = rawValue.toLowerCase();
           const field = String(cell.getColumn().getField() ?? '').toLowerCase();
+          if (field.includes('close')) return;
           if (field.includes('state')) {
             if (normalized.startsWith('above')) element.classList.add('highlight-positive');
             else if (normalized.startsWith('below')) element.classList.add('highlight-negative');

@@ -53,6 +53,7 @@ class DataChikouSignal(DataOHLC):
         )
         header = [
             date_column,
+            "Close",
             "Chikou Signal",
             "Chikou Signal Count",
             "Chikou State",

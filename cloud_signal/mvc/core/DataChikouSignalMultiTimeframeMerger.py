@@ -21,7 +21,7 @@ class Model(object):
 
     def main(self):
         merged = None
-        for path in self.input_paths:
+        for index, path in enumerate(self.input_paths):
             if not os.path.exists(path):
                 continue
             data = pd.read_csv(path)
@@ -30,6 +30,20 @@ class Model(object):
             ]
             if date_columns:
                 data = data.drop(columns=date_columns)
+            if merged is not None and "Close" in data and "Close" in merged:
+                count_column = (
+                    self.direction_count_names[index][1]
+                    if index < len(self.direction_count_names)
+                    else ""
+                )
+                use_daily_close = (
+                    count_column.startswith("1D ")
+                    and data["Close"].notna().any()
+                )
+                if use_daily_close:
+                    merged = merged.drop(columns=["Close"])
+                else:
+                    data = data.drop(columns=["Close"])
             merged = (
                 data
                 if merged is None

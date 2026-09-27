@@ -64,8 +64,8 @@ def test_chikou_aggregator_and_merger_write_csv_and_html(tmp_path):
     asset_list = tmp_path / "assets.csv"
     asset_list.write_text("symbol,name\nTEST,Test Asset\n", encoding="utf-8")
     (data_path / "TEST_chikouCount.csv").write_text(
-        "Date,Chikou Signal,Chikou Signal Count,Chikou State\n"
-        "2026-08-18,1,4,above chikou\n",
+        "Date,Close,Chikou Signal,Chikou Signal Count,Chikou State\n"
+        "2026-08-18,123.45,1,4,above chikou\n",
         encoding="utf-8",
     )
 
@@ -89,21 +89,32 @@ def test_chikou_aggregator_and_merger_write_csv_and_html(tmp_path):
     assert "tabulator-tables@6.3.1" in tabulator_source
     assert '"headerFilter": "input"' in tabulator_source
     assert "responsiveLayout: false" in tabulator_source
-    assert "exactHeaderFilter" in tabulator_source
+    assert "textHeaderFilter" in tabulator_source
+    assert (
+        '.includes(String(headerValue ?? "").trim().toLowerCase())'
+        in tabulator_source
+    )
     assert "<title>Test Chikou Scan</title>" in tabulator_source
     assert '"title": "1D<br>Direction"' in tabulator_source
     assert '"title": "1D<br>Count"' in tabulator_source
     assert '"title": "1D<br>State"' in tabulator_source
     assert '"title": "1D<br>Chikou' not in tabulator_source
     assert '<a href="../../index.html">Home</a>' in tabulator_source
+    assert "data-search-help-dialog" in tabulator_source
+    assert "Filter guide</h2>" in tabulator_source
+    assert "0+" in tabulator_source
+    assert "0-" in tabulator_source
     assert list(pd.read_csv(timeframe_csv).columns) == [
         "Date",
         "Symbol",
         "Name",
+        "Close",
         "1D Chikou Direction",
         "1D Chikou Count",
         "1D Chikou State",
     ]
+    timeframe_data = pd.read_csv(timeframe_csv)
+    assert timeframe_data.loc[0, "Close"] == 123.45
 
     merged_csv = output_path / "merged.csv"
     empty_timeframe = output_path / "empty.csv"
@@ -131,6 +142,12 @@ def test_chikou_aggregator_and_merger_write_csv_and_html(tmp_path):
     assert "Score<br>Sum" in html
     assert "<th>1D<br>Chikou" not in html
     assert '<a href="../../index.html">Home</a>' in html
+    assert "data-search-help-dialog" in html
+    assert "Filter guide</h2>" in html
+    assert "0+" in html
+    assert "0-" in html
+    merged_data = pd.read_csv(merged_csv)
+    assert merged_data.loc[0, "Close"] == 123.45
 
 
 def test_chikou_score_sum_uses_count_not_direction_or_state(tmp_path):
@@ -140,6 +157,7 @@ def test_chikou_score_sum_uses_count_not_direction_or_state(tmp_path):
     first_columns = [
         "Symbol",
         "Name",
+        "Close",
         "1H Chikou Direction",
         "1H Chikou Count",
         "1H Chikou State",
@@ -147,15 +165,17 @@ def test_chikou_score_sum_uses_count_not_direction_or_state(tmp_path):
     second_columns = [
         "Symbol",
         "Name",
+        "Close",
         "1D Chikou Direction",
         "1D Chikou Count",
         "1D Chikou State",
     ]
     pd.DataFrame(
-        [["TEST", "Test Asset", 1, 99, "below chikou"]], columns=first_columns
+        [["TEST", "Test Asset", 100, 1, 99, "below chikou"]],
+        columns=first_columns,
     ).to_csv(first_path, index=False)
     pd.DataFrame(
-        [["TEST", "Test Asset", -1, 88, "above chikou"]],
+        [["TEST", "Test Asset", 110, -1, 88, "above chikou"]],
         columns=second_columns,
     ).to_csv(second_path, index=False)
 
@@ -174,13 +194,22 @@ def test_chikou_score_sum_uses_count_not_direction_or_state(tmp_path):
 
     result = pd.read_csv(output_path)
     assert result.loc[0, "Chikou Score Sum"] == 187
+    assert result.loc[0, "Close"] == 110
 
 
 def test_scan_html_styles_wrap_headers_and_highlight_numeric_values(tmp_path):
     csv_path = tmp_path / "scan.csv"
     pd.DataFrame(
-        [["TEST", 2.5, -1.2, 0.0]],
-        columns=["Symbol", "Cloud Score", "Chikou Delta", "Neutral"],
+        [["TEST", "Test Asset", 10.5, 2.5, -1.2, 0.0, 6]],
+        columns=[
+            "Symbol",
+            "Name",
+            "Close",
+            "Cloud Score",
+            "Chikou Delta",
+            "Neutral",
+            "Total Score Sum",
+        ],
     ).to_csv(csv_path, index=False)
 
     html = TableGenerator(str(csv_path)).generate_html_table("Cloud Test")
@@ -190,5 +219,30 @@ def test_scan_html_styles_wrap_headers_and_highlight_numeric_values(tmp_path):
     assert "font-size: 1rem" in html or "font-size: 1rem" in css_text
     assert "highlight-positive" in html
     assert "highlight-negative" in html
+    assert "closeColumnIndexes" in html
+    assert "<th>Total<br>Score Sum</th>" in html
+    tabulator_html = TableGenerator(
+        str(csv_path)
+    ).generate_tabulator_html_table("Cloud Test")
+    assert "if (field.includes('close')) return;" in tabulator_html
+    assert '"title": "Total<br>Score Sum"' in tabulator_html
+    assert "data-search-help-dialog" in tabulator_html
+    assert "const numericHeaderFilter" in tabulator_html
+    assert "textHeaderFilter" in tabulator_html
+    assert (
+        '.includes(String(headerValue ?? "").trim().toLowerCase())'
+        in tabulator_html
+    )
+    assert "value > threshold" in tabulator_html
+    assert (
+        'suffix === "+" ? value > threshold : value < threshold'
+        in tabulator_html
+    )
+    assert 'case ">=": return value >= threshold;' in tabulator_html
+    assert 'case "=":' not in tabulator_html
+    assert 'column.sorter === "number"' in tabulator_html
     assert ".highlight-positive" in css_text
     assert ".highlight-negative" in css_text
+    assert (
+        "font-weight: 600" in css_text[css_text.index(".highlight-neutral") :]
+    )

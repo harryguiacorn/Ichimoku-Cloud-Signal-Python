@@ -38,6 +38,7 @@ def _wrap_header_label(label: str, column_index: int, is_chikou: bool) -> str:
                 "cloud",
                 "chikou",
                 "tkx",
+                "total",
                 "score",
                 "signal",
                 "count",
@@ -95,8 +96,20 @@ class TableGenerator:
       <body>
         <nav class="scan-navigation" aria-label="Page navigation">
           <a href="../../index.html">Home</a>
+          <button type="button" class="search-help-button" data-search-help-open>Filter guide</button>
         </nav>
         <h1>{str_title}</h1>
+        <dialog class="search-help-dialog" data-search-help-dialog aria-labelledby="search-help-title">
+          <h2 id="search-help-title">Filter guide</h2>
+          <p>For numeric columns:</p>
+          <ul>
+            <li><code>1</code> matches exactly 1</li>
+            <li><code>&gt;1</code> or <code>1+</code> matches values greater than 1</li>
+            <li><code>0+</code> matches positive values; <code>0-</code> matches negative values</li>
+          </ul>
+          <p>Comparisons such as <code>&gt;=1</code>, <code>&lt;1</code>, and <code>&lt;=1</code> are also supported. Text searches match partial values, ignoring case.</p>
+          <form method="dialog"><button type="submit">Close</button></form>
+        </dialog>
       """
         html_table = html_table_head
         html_table += df.to_html(index=False, escape=False)
@@ -106,10 +119,12 @@ class TableGenerator:
         )
         html_table += """
         <script>
-        const classifyCell = (cell, isStateColumn) => {
+        const classifyCell = (cell, isStateColumn, isCloseColumn) => {
           cell.classList.remove('highlight-positive', 'highlight-negative', 'highlight-neutral');
           const text = cell.textContent.trim();
           const normalized = text.toLowerCase();
+
+          if (isCloseColumn) return;
 
           if (isStateColumn) {
             if (normalized.startsWith('above')) {
@@ -144,7 +159,7 @@ class TableGenerator:
               if (/^(1H|4H|1D|1W|1M|3M|6M|1Y)/.test(parts[0])) {
                 return `${parts[0]}<br>${parts.slice(1).join(' ')}`;
               }
-              if (['Cloud', 'Chikou', 'TKx', 'Score', 'Signal', 'Count', 'State', 'Direction'].includes(parts[0])) {
+              if (['Cloud', 'Chikou', 'TKx', 'Total', 'Score', 'Signal', 'Count', 'State', 'Direction'].includes(parts[0])) {
                 return `${parts[0]}<br>${parts.slice(1).join(' ')}`;
               }
             }
@@ -153,6 +168,9 @@ class TableGenerator:
         };
 
         $(document).ready(function() {
+          const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
+          document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
+
           const isChikou = $('#dataTable_1 thead th').toArray().some((th) => th.textContent.includes('Chikou'));
           $('#dataTable_1 thead th').each(function(index) {
             const raw = $(this).text().trim();
@@ -169,10 +187,18 @@ class TableGenerator:
                 .toArray()
                 .map((th, index) => th.textContent.toLowerCase().includes('state') ? index : null)
                 .filter(index => index !== null);
+              const closeColumnIndexes = $('#dataTable_1 thead th')
+                .toArray()
+                .map((th, index) => th.textContent.toLowerCase().includes('close') ? index : null)
+                .filter(index => index !== null);
 
               $('#dataTable_1 tbody tr').each(function() {
                 $(this).find('td').each(function(index) {
-                  classifyCell(this, stateColumnIndexes.includes(index));
+                  classifyCell(
+                    this,
+                    stateColumnIndexes.includes(index),
+                    closeColumnIndexes.includes(index)
+                  );
                 });
               });
             },
@@ -246,6 +272,9 @@ class TableGenerator:
   <style>
     body {{ background: #eef2f4; color: #17212b; }}
     .tabulator-page {{ max-width: 100%; margin: 0 auto; padding: 24px; }}
+    .search-help-dialog {{ max-width: 440px; border: 2px solid #344955; padding: 20px; color: #17212b; }}
+    .search-help-dialog::backdrop {{ background: rgba(23, 33, 43, .45); }}
+    .search-help-dialog h2 {{ margin-top: 0; font-size: 1.25rem; }}
     .tabulator {{ border: 2px solid #344955; background: #ffffff; box-shadow: 0 8px 20px rgba(23, 33, 43, .14); }}
     .tabulator .tabulator-header, .tabulator .tabulator-header .tabulator-col {{ background: #17212b; color: #ffffff; }}
     .tabulator .tabulator-header .tabulator-col {{ border-right: 1px solid #657782; }}
@@ -265,8 +294,20 @@ class TableGenerator:
   <main class="tabulator-page">
     <nav class="scan-navigation" aria-label="Page navigation">
       <a href="../../index.html">Home</a>
+      <button type="button" class="search-help-button" data-search-help-open>Filter guide</button>
     </nav>
     <h1>{safe_title}</h1>
+    <dialog class="search-help-dialog" data-search-help-dialog aria-labelledby="search-help-title">
+      <h2 id="search-help-title">Filter guide</h2>
+      <p>For numeric columns:</p>
+      <ul>
+        <li><code>1</code> matches exactly 1</li>
+        <li><code>&gt;1</code> or <code>1+</code> matches values greater than 1</li>
+        <li><code>0+</code> matches positive values; <code>0-</code> matches negative values</li>
+      </ul>
+      <p>Comparisons such as <code>&gt;=1</code>, <code>&lt;1</code>, and <code>&lt;=1</code> are also supported. Text searches match partial values, ignoring case.</p>
+      <form method="dialog"><button type="submit">Close</button></form>
+    </dialog>
     <div id="dataTableTabulator"></div>
     <footer><p>Last updated: {time_finish_formatted} [UK]</p></footer>
   </main>
@@ -274,10 +315,39 @@ class TableGenerator:
   <script>
     const tableData = {data_json};
     const tableColumns = {columns_json};
-    const exactHeaderFilter = (headerValue, rowValue) =>
-      String(rowValue ?? "").trim() === String(headerValue ?? "").trim();
+    const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
+    document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
+    const textHeaderFilter = (headerValue, rowValue) =>
+      String(rowValue ?? "").toLowerCase().includes(String(headerValue ?? "").trim().toLowerCase());
+    const numericHeaderFilter = (headerValue, rowValue) => {{
+      const query = String(headerValue ?? "").trim();
+      const value = Number(String(rowValue ?? "").replace(/,/g, ""));
+      if (!query) return true;
+      if (!Number.isFinite(value)) return false;
+
+      const match = query.match(/^(>=|<=|>|<|=)? *([+-]?(?:[0-9]+(?:[.][0-9]*)?|[.][0-9]+)) *([+-]?)$/);
+      if (!match) return false;
+
+      const [, operator, thresholdText, suffix] = match;
+      const threshold = Number(thresholdText.replace(/,/g, ""));
+      if (!Number.isFinite(threshold)) return false;
+      if (suffix) {{
+        if (operator) return false;
+        return suffix === "+" ? value > threshold : value < threshold;
+      }}
+
+      switch (operator || "=") {{
+        case ">": return value > threshold;
+        case ">=": return value >= threshold;
+        case "<": return value < threshold;
+        case "<=": return value <= threshold;
+        default: return value === threshold;
+      }}
+    }};
     tableColumns.forEach(column => {{
-      column.headerFilterFunc = exactHeaderFilter;
+      column.headerFilterFunc = column.sorter === "number"
+        ? numericHeaderFilter
+        : textHeaderFilter;
     }});
     const tabulatorTable = new Tabulator("#dataTableTabulator", {{
       data: tableData,
@@ -301,6 +371,7 @@ class TableGenerator:
 
           const normalized = rawValue.toLowerCase();
           const field = String(cell.getColumn().getField() ?? '').toLowerCase();
+          if (field.includes('close')) return;
           if (field.includes('state')) {{
             if (normalized.startsWith('above')) element.classList.add('highlight-positive');
             else if (normalized.startsWith('below')) element.classList.add('highlight-negative');

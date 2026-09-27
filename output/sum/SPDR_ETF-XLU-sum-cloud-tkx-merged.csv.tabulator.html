@@ -10,6 +10,9 @@
   <style>
     body { background: #eef2f4; color: #17212b; }
     .tabulator-page { max-width: 100%; margin: 0 auto; padding: 24px; }
+    .search-help-dialog { max-width: 440px; border: 2px solid #344955; padding: 20px; color: #17212b; }
+    .search-help-dialog::backdrop { background: rgba(23, 33, 43, .45); }
+    .search-help-dialog h2 { margin-top: 0; font-size: 1.25rem; }
     .tabulator { border: 2px solid #344955; background: #ffffff; box-shadow: 0 8px 20px rgba(23, 33, 43, .14); }
     .tabulator .tabulator-header, .tabulator .tabulator-header .tabulator-col { background: #17212b; color: #ffffff; }
     .tabulator .tabulator-header .tabulator-col { border-right: 1px solid #657782; }
@@ -29,19 +32,60 @@
   <main class="tabulator-page">
     <nav class="scan-navigation" aria-label="Page navigation">
       <a href="../../index.html">Home</a>
+      <button type="button" class="search-help-button" data-search-help-open>Filter guide</button>
     </nav>
     <h1>XLU - Utilities Cloud Scan</h1>
+    <dialog class="search-help-dialog" data-search-help-dialog aria-labelledby="search-help-title">
+      <h2 id="search-help-title">Filter guide</h2>
+      <p>For numeric columns:</p>
+      <ul>
+        <li><code>1</code> matches exactly 1</li>
+        <li><code>&gt;1</code> or <code>1+</code> matches values greater than 1</li>
+        <li><code>0+</code> matches positive values; <code>0-</code> matches negative values</li>
+      </ul>
+      <p>Comparisons such as <code>&gt;=1</code>, <code>&lt;1</code>, and <code>&lt;=1</code> are also supported. Text searches match partial values, ignoring case.</p>
+      <form method="dialog"><button type="submit">Close</button></form>
+    </dialog>
     <div id="dataTableTabulator"></div>
-    <footer><p>Last updated: 2026-09-26 01:28:26 [UK]</p></footer>
+    <footer><p>Last updated: 2026-09-27 23:25:21 [UK]</p></footer>
   </main>
   <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
   <script>
     const tableData = [{"Symbol":"NEE","Name":"NextEra Energy","Close":76.08,"1H Cloud Score":-73,"1D Cloud Score":-36,"1W Cloud Score":-1,"1M Cloud Score":13,"Cloud Score Sum":-97,"1H TKx Score":-88,"1D TKx Score":-33,"1W TKx Score":-11,"1M TKx Score":26,"TKx Score Sum":-106,"Total Score Sum":-203},{"Symbol":"SO","Name":"Southern Company","Close":82.9,"1H Cloud Score":-83,"1D Cloud Score":-36,"1W Cloud Score":-5,"1M Cloud Score":205,"Cloud Score Sum":81,"1H TKx Score":-82,"1D TKx Score":-47,"1W TKx Score":-3,"1M TKx Score":70,"TKx Score Sum":-62,"Total Score Sum":19},{"Symbol":"DUK","Name":"Duke Energy","Close":113.3,"1H Cloud Score":-84,"1D Cloud Score":-26,"1W Cloud Score":-2,"1M Cloud Score":203,"Cloud Score Sum":91,"1H TKx Score":-92,"1D TKx Score":-33,"1W TKx Score":-4,"1M TKx Score":29,"TKx Score Sum":-100,"Total Score Sum":-9},{"Symbol":"CEG","Name":"Constellation Energy","Close":263.28,"1H Cloud Score":0,"1D Cloud Score":0,"1W Cloud Score":-3,"1M Cloud Score":0,"Cloud Score Sum":-3,"1H TKx Score":7,"1D TKx Score":-4,"1W TKx Score":2,"1M TKx Score":32,"TKx Score Sum":37,"Total Score Sum":34},{"Symbol":"SRE","Name":"Sempra","Close":77.94,"1H Cloud Score":-67,"1D Cloud Score":-41,"1W Cloud Score":0,"1M Cloud Score":194,"Cloud Score Sum":86,"1H TKx Score":-79,"1D TKx Score":-8,"1W TKx Score":-15,"1M TKx Score":12,"TKx Score Sum":-90,"Total Score Sum":-4},{"Symbol":"AEP","Name":"American Electric Power","Close":118.36,"1H Cloud Score":-72,"1D Cloud Score":-40,"1W Cloud Score":0,"1M Cloud Score":35,"Cloud Score Sum":-77,"1H TKx Score":-86,"1D TKx Score":-47,"1W TKx Score":-3,"1M TKx Score":27,"TKx Score Sum":-109,"Total Score Sum":-186},{"Symbol":"D","Name":"Dominion Energy","Close":60.7,"1H Cloud Score":-90,"1D Cloud Score":-20,"1W Cloud Score":0,"1M Cloud Score":11,"Cloud Score Sum":-99,"1H TKx Score":-97,"1D TKx Score":-38,"1W TKx Score":-1,"1M TKx Score":23,"TKx Score Sum":-113,"Total Score Sum":-212},{"Symbol":"PEG","Name":"Public Service Enterprise Group","Close":67.02,"1H Cloud Score":-91,"1D Cloud Score":-41,"1W Cloud Score":-11,"1M Cloud Score":166,"Cloud Score Sum":23,"1H TKx Score":-88,"1D TKx Score":-49,"1W TKx Score":-21,"1M TKx Score":-2,"TKx Score Sum":-160,"Total Score Sum":-137},{"Symbol":"PCG","Name":"PG&E Corporation","Close":12.32,"1H Cloud Score":-73,"1D Cloud Score":-19,"1W Cloud Score":-4,"1M Cloud Score":-1,"Cloud Score Sum":-97,"1H TKx Score":-35,"1D TKx Score":-19,"1W TKx Score":-5,"1M TKx Score":-14,"TKx Score Sum":-73,"Total Score Sum":-170},{"Symbol":"VST","Name":"Vistra Corp.","Close":138.46,"1H Cloud Score":-46,"1D Cloud Score":-37,"1W Cloud Score":-9,"1M Cloud Score":43,"Cloud Score Sum":-49,"1H TKx Score":-37,"1D TKx Score":-2,"1W TKx Score":-1,"1M TKx Score":58,"TKx Score Sum":18,"Total Score Sum":-31},{"Symbol":"EXC","Name":"Exelon","Close":40.33,"1H Cloud Score":-86,"1D Cloud Score":-28,"1W Cloud Score":-6,"1M Cloud Score":27,"Cloud Score Sum":-93,"1H TKx Score":-93,"1D TKx Score":-47,"1W TKx Score":-7,"1M TKx Score":23,"TKx Score Sum":-124,"Total Score Sum":-217},{"Symbol":"ED","Name":"Consolidated Edison","Close":103.11,"1H Cloud Score":-83,"1D Cloud Score":-12,"1W Cloud Score":-1,"1M Cloud Score":60,"Cloud Score Sum":-36,"1H TKx Score":-34,"1D TKx Score":-9,"1W TKx Score":-1,"1M TKx Score":58,"TKx Score Sum":14,"Total Score Sum":-22},{"Symbol":"XEL","Name":"Xcel Energy","Close":69.8,"1H Cloud Score":-83,"1D Cloud Score":-25,"1W Cloud Score":-2,"1M Cloud Score":25,"Cloud Score Sum":-85,"1H TKx Score":-34,"1D TKx Score":-41,"1W TKx Score":-5,"1M TKx Score":22,"TKx Score Sum":-58,"Total Score Sum":-143},{"Symbol":"EIX","Name":"Edison International","Close":52.64,"1H Cloud Score":-22,"1D Cloud Score":-19,"1W Cloud Score":-4,"1M Cloud Score":-1,"Cloud Score Sum":-46,"1H TKx Score":-35,"1D TKx Score":-33,"1W TKx Score":58,"1M TKx Score":5,"TKx Score Sum":-5,"Total Score Sum":-51},{"Symbol":"WEC","Name":"WEC Energy Group","Close":101.44,"1H Cloud Score":-83,"1D Cloud Score":-41,"1W Cloud Score":-3,"1M Cloud Score":26,"Cloud Score Sum":-101,"1H TKx Score":-34,"1D TKx Score":-48,"1W TKx Score":-3,"1M TKx Score":24,"TKx Score Sum":-61,"Total Score Sum":-162},{"Symbol":"ETR","Name":"Entergy","Close":98.58,"1H Cloud Score":-83,"1D Cloud Score":-41,"1W Cloud Score":0,"1M Cloud Score":150,"Cloud Score Sum":26,"1H TKx Score":-86,"1D TKx Score":-41,"1W TKx Score":-1,"1M TKx Score":27,"TKx Score Sum":-101,"Total Score Sum":-75},{"Symbol":"AWK","Name":"American Water Works","Close":130.92,"1H Cloud Score":-76,"1D Cloud Score":0,"1W Cloud Score":0,"1M Cloud Score":0,"Cloud Score Sum":-76,"1H TKx Score":-75,"1D TKx Score":-2,"1W TKx Score":9,"1M TKx Score":-4,"TKx Score Sum":-72,"Total Score Sum":-148},{"Symbol":"DTE","Name":"DTE Energy","Close":121.46,"1H Cloud Score":-83,"1D Cloud Score":-41,"1W Cloud Score":-3,"1M Cloud Score":202,"Cloud Score Sum":75,"1H TKx Score":-88,"1D TKx Score":-48,"1W TKx Score":-3,"1M TKx Score":26,"TKx Score Sum":-113,"Total Score Sum":-38},{"Symbol":"PPL","Name":"PPL Corporation","Close":32.04,"1H Cloud Score":-84,"1D Cloud Score":-40,"1W Cloud Score":-3,"1M Cloud Score":36,"Cloud Score Sum":-91,"1H TKx Score":-88,"1D TKx Score":-24,"1W TKx Score":-14,"1M TKx Score":27,"TKx Score Sum":-99,"Total Score Sum":-190},{"Symbol":"ES","Name":"Eversource Energy","Close":63.67,"1H Cloud Score":-84,"1D Cloud Score":-14,"1W Cloud Score":0,"1M Cloud Score":13,"Cloud Score Sum":-85,"1H TKx Score":-34,"1D TKx Score":-33,"1W TKx Score":13,"1M TKx Score":15,"TKx Score Sum":-39,"Total Score Sum":-124},{"Symbol":"AEE","Name":"Ameren","Close":99.4,"1H Cloud Score":-83,"1D Cloud Score":-38,"1W Cloud Score":-2,"1M Cloud Score":26,"Cloud Score Sum":-97,"1H TKx Score":-88,"1D TKx Score":-48,"1W TKx Score":-5,"1M TKx Score":23,"TKx Score Sum":-118,"Total Score Sum":-215},{"Symbol":"FE","Name":"FirstEnergy","Close":43.31,"1H Cloud Score":-78,"1D Cloud Score":-13,"1W Cloud Score":-1,"1M Cloud Score":68,"Cloud Score Sum":-24,"1H TKx Score":-34,"1D TKx Score":-33,"1W TKx Score":-1,"1M TKx Score":27,"TKx Score Sum":-41,"Total Score Sum":-65},{"Symbol":"ATO","Name":"Atmos Energy","Close":157.27,"1H Cloud Score":-89,"1D Cloud Score":-36,"1W Cloud Score":-2,"1M Cloud Score":58,"Cloud Score Sum":-69,"1H TKx Score":-92,"1D TKx Score":-33,"1W TKx Score":-12,"1M TKx Score":58,"TKx Score Sum":-79,"Total Score Sum":-148},{"Symbol":"CMS","Name":"CMS Energy","Close":62.96,"1H Cloud Score":-83,"1D Cloud Score":-40,"1W Cloud Score":-6,"1M Cloud Score":36,"Cloud Score Sum":-93,"1H TKx Score":-88,"1D TKx Score":-48,"1W TKx Score":-7,"1M TKx Score":27,"TKx Score Sum":-116,"Total Score Sum":-209},{"Symbol":"CNP","Name":"CenterPoint Energy","Close":36.74,"1H Cloud Score":-80,"1D Cloud Score":-40,"1W Cloud Score":-2,"1M Cloud Score":58,"Cloud Score Sum":-64,"1H TKx Score":-33,"1D TKx Score":-33,"1W TKx Score":101,"1M TKx Score":28,"TKx Score Sum":63,"Total Score Sum":-1},{"Symbol":"NRG","Name":"NRG Energy","Close":100.37,"1H Cloud Score":-72,"1D Cloud Score":-37,"1W Cloud Score":-8,"1M Cloud Score":107,"Cloud Score Sum":-10,"1H TKx Score":-40,"1D TKx Score":-47,"1W TKx Score":-22,"1M TKx Score":34,"TKx Score Sum":-75,"Total Score Sum":-85},{"Symbol":"NI","Name":"NiSource","Close":39.42,"1H Cloud Score":-66,"1D Cloud Score":-43,"1W Cloud Score":-2,"1M Cloud Score":58,"Cloud Score Sum":-53,"1H TKx Score":-75,"1D TKx Score":-52,"1W TKx Score":-4,"1M TKx Score":27,"TKx Score Sum":-104,"Total Score Sum":-157},{"Symbol":"LNT","Name":"Alliant Energy","Close":63.61,"1H Cloud Score":-83,"1D Cloud Score":-41,"1W Cloud Score":0,"1M Cloud Score":27,"Cloud Score Sum":-97,"1H TKx Score":-88,"1D TKx Score":-47,"1W TKx Score":-3,"1M TKx Score":26,"TKx Score Sum":-112,"Total Score Sum":-209},{"Symbol":"EVRG","Name":"Evergy","Close":78.01,"1H Cloud Score":-70,"1D Cloud Score":-25,"1W Cloud Score":116,"1M Cloud Score":27,"Cloud Score Sum":48,"1H TKx Score":-61,"1D TKx Score":-41,"1W TKx Score":-1,"1M TKx Score":23,"TKx Score Sum":-80,"Total Score Sum":-32},{"Symbol":"AES","Name":"AES Corporation","Close":14.87,"1H Cloud Score":10,"1D Cloud Score":67,"1W Cloud Score":0,"1M Cloud Score":-7,"Cloud Score Sum":70,"1H TKx Score":6,"1D TKx Score":49,"1W TKx Score":5,"1M TKx Score":6,"TKx Score Sum":66,"Total Score Sum":136},{"Symbol":"PNW","Name":"Pinnacle West Capital","Close":91.74,"1H Cloud Score":-86,"1D Cloud Score":-39,"1W Cloud Score":-1,"1M Cloud Score":31,"Cloud Score Sum":-95,"1H TKx Score":-47,"1D TKx Score":-40,"1W TKx Score":-2,"1M TKx Score":39,"TKx Score Sum":-50,"Total Score Sum":-145}];
-    const tableColumns = [{"title": "Symbol<br>&nbsp;", "field": "Symbol", "headerFilter": "input"}, {"title": "Name<br>&nbsp;", "field": "Name", "headerFilter": "input"}, {"title": "Close<br>&nbsp;", "field": "Close", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>Cloud Score", "field": "1H Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1D<br>Cloud Score", "field": "1D Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1W<br>Cloud Score", "field": "1W Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M<br>Cloud Score", "field": "1M Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "Cloud<br>Score Sum", "field": "Cloud Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>TKx Score", "field": "1H TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1D<br>TKx Score", "field": "1D TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1W<br>TKx Score", "field": "1W TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M<br>TKx Score", "field": "1M TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "TKx<br>Score Sum", "field": "TKx Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "Total Score Sum<br>&nbsp;", "field": "Total Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}];
-    const exactHeaderFilter = (headerValue, rowValue) =>
-      String(rowValue ?? "").trim() === String(headerValue ?? "").trim();
+    const tableColumns = [{"title": "Symbol<br>&nbsp;", "field": "Symbol", "headerFilter": "input"}, {"title": "Name<br>&nbsp;", "field": "Name", "headerFilter": "input"}, {"title": "Close<br>&nbsp;", "field": "Close", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>Cloud Score", "field": "1H Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1D<br>Cloud Score", "field": "1D Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1W<br>Cloud Score", "field": "1W Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M<br>Cloud Score", "field": "1M Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "Cloud<br>Score Sum", "field": "Cloud Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>TKx Score", "field": "1H TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1D<br>TKx Score", "field": "1D TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1W<br>TKx Score", "field": "1W TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M<br>TKx Score", "field": "1M TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "TKx<br>Score Sum", "field": "TKx Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "Total<br>Score Sum", "field": "Total Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}];
+    const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
+    document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
+    const textHeaderFilter = (headerValue, rowValue) =>
+      String(rowValue ?? "").toLowerCase().includes(String(headerValue ?? "").trim().toLowerCase());
+    const numericHeaderFilter = (headerValue, rowValue) => {
+      const query = String(headerValue ?? "").trim();
+      const value = Number(String(rowValue ?? "").replace(/,/g, ""));
+      if (!query) return true;
+      if (!Number.isFinite(value)) return false;
+
+      const match = query.match(/^(>=|<=|>|<|=)? *([+-]?(?:[0-9]+(?:[.][0-9]*)?|[.][0-9]+)) *([+-]?)$/);
+      if (!match) return false;
+
+      const [, operator, thresholdText, suffix] = match;
+      const threshold = Number(thresholdText.replace(/,/g, ""));
+      if (!Number.isFinite(threshold)) return false;
+      if (suffix) {
+        if (operator) return false;
+        return suffix === "+" ? value > threshold : value < threshold;
+      }
+
+      switch (operator || "=") {
+        case ">": return value > threshold;
+        case ">=": return value >= threshold;
+        case "<": return value < threshold;
+        case "<=": return value <= threshold;
+        default: return value === threshold;
+      }
+    };
     tableColumns.forEach(column => {
-      column.headerFilterFunc = exactHeaderFilter;
+      column.headerFilterFunc = column.sorter === "number"
+        ? numericHeaderFilter
+        : textHeaderFilter;
     });
     const tabulatorTable = new Tabulator("#dataTableTabulator", {
       data: tableData,
@@ -65,6 +109,7 @@
 
           const normalized = rawValue.toLowerCase();
           const field = String(cell.getColumn().getField() ?? '').toLowerCase();
+          if (field.includes('close')) return;
           if (field.includes('state')) {
             if (normalized.startsWith('above')) element.classList.add('highlight-positive');
             else if (normalized.startsWith('below')) element.classList.add('highlight-negative');

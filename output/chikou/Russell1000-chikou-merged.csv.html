@@ -16,13 +16,26 @@
       <body>
         <nav class="scan-navigation" aria-label="Page navigation">
           <a href="../../index.html">Home</a>
+          <button type="button" class="search-help-button" data-search-help-open>Filter guide</button>
         </nav>
         <h1>Russell 1000 Chikou Scan</h1>
+        <dialog class="search-help-dialog" data-search-help-dialog aria-labelledby="search-help-title">
+          <h2 id="search-help-title">Filter guide</h2>
+          <p>For numeric columns:</p>
+          <ul>
+            <li><code>1</code> matches exactly 1</li>
+            <li><code>&gt;1</code> or <code>1+</code> matches values greater than 1</li>
+            <li><code>0+</code> matches positive values; <code>0-</code> matches negative values</li>
+          </ul>
+          <p>Comparisons such as <code>&gt;=1</code>, <code>&lt;1</code>, and <code>&lt;=1</code> are also supported. Text searches match partial values, ignoring case.</p>
+          <form method="dialog"><button type="submit">Close</button></form>
+        </dialog>
       <table class="table table-striped table-bordered" id="dataTable_1" border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th>Symbol<br>&nbsp;</th>
       <th>Name<br>&nbsp;</th>
+      <th>Close<br>&nbsp;</th>
       <th>1H<br>Count</th>
       <th>1H<br>State</th>
       <th>1D<br>Count</th>
@@ -38,6 +51,7 @@
     <tr>
       <td>A</td>
       <td>Agilent Technologies</td>
+      <td>172.79</td>
       <td>64</td>
       <td>above chikou</td>
       <td>47</td>
@@ -51,6 +65,7 @@
     <tr>
       <td>AA</td>
       <td>Alcoa</td>
+      <td>42.85</td>
       <td>-90</td>
       <td>below chikou</td>
       <td>-8</td>
@@ -64,6 +79,7 @@
     <tr>
       <td>AAL</td>
       <td>American Airlines Group</td>
+      <td>13.87</td>
       <td>36</td>
       <td>above chikou</td>
       <td>-45</td>
@@ -77,6 +93,7 @@
     <tr>
       <td>AAOI</td>
       <td>Applied Optoelectronics</td>
+      <td>101.34</td>
       <td>-13</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -90,6 +107,7 @@
     <tr>
       <td>AAON</td>
       <td>AAON</td>
+      <td>89.10</td>
       <td>44</td>
       <td>above chikou</td>
       <td>-69</td>
@@ -103,6 +121,7 @@
     <tr>
       <td>AAPL</td>
       <td>Apple Inc.</td>
+      <td>341.04</td>
       <td>5</td>
       <td>above chikou</td>
       <td>13</td>
@@ -116,6 +135,7 @@
     <tr>
       <td>ABBV</td>
       <td>AbbVie</td>
+      <td>264.31</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>11</td>
@@ -129,6 +149,7 @@
     <tr>
       <td>ABNB</td>
       <td>Airbnb</td>
+      <td>157.48</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-7</td>
@@ -142,6 +163,7 @@
     <tr>
       <td>ABT</td>
       <td>Abbott Laboratories</td>
+      <td>101.31</td>
       <td>-13</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -155,6 +177,7 @@
     <tr>
       <td>ACGL</td>
       <td>Arch Capital Group</td>
+      <td>94.65</td>
       <td>-37</td>
       <td>below chikou</td>
       <td>-32</td>
@@ -168,6 +191,7 @@
     <tr>
       <td>ACI</td>
       <td>Albertsons</td>
+      <td>11.66</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -181,6 +205,7 @@
     <tr>
       <td>ACM</td>
       <td>AECOM</td>
+      <td>60.93</td>
       <td>-50</td>
       <td>below chikou</td>
       <td>-18</td>
@@ -194,6 +219,7 @@
     <tr>
       <td>ACN</td>
       <td>Accenture</td>
+      <td>176.07</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>42</td>
@@ -207,6 +233,7 @@
     <tr>
       <td>ADBE</td>
       <td>Adobe Inc.</td>
+      <td>235.52</td>
       <td>-47</td>
       <td>below chikou</td>
       <td>-8</td>
@@ -220,6 +247,7 @@
     <tr>
       <td>ADC</td>
       <td>Agree Realty</td>
+      <td>67.47</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-34</td>
@@ -233,6 +261,7 @@
     <tr>
       <td>ADI</td>
       <td>Analog Devices</td>
+      <td>393.83</td>
       <td>42</td>
       <td>above chikou</td>
       <td>-2</td>
@@ -246,6 +275,7 @@
     <tr>
       <td>ADM</td>
       <td>Archer Daniels Midland</td>
+      <td>81.12</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>17</td>
@@ -259,6 +289,7 @@
     <tr>
       <td>ADP</td>
       <td>Automatic Data Processing</td>
+      <td>263.19</td>
       <td>-41</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -272,6 +303,7 @@
     <tr>
       <td>ADSK</td>
       <td>Autodesk</td>
+      <td>209.34</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>-15</td>
@@ -285,6 +317,7 @@
     <tr>
       <td>ADT</td>
       <td>ADT Inc.</td>
+      <td>6.41</td>
       <td>-44</td>
       <td>below chikou</td>
       <td>-13</td>
@@ -298,6 +331,7 @@
     <tr>
       <td>AEE</td>
       <td>Ameren</td>
+      <td>99.40</td>
       <td>-84</td>
       <td>below chikou</td>
       <td>-40</td>
@@ -311,6 +345,7 @@
     <tr>
       <td>AEIS</td>
       <td>Advanced Energy</td>
+      <td>279.76</td>
       <td>40</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -324,6 +359,7 @@
     <tr>
       <td>AEP</td>
       <td>American Electric Power</td>
+      <td>118.36</td>
       <td>-83</td>
       <td>below chikou</td>
       <td>-40</td>
@@ -337,6 +373,7 @@
     <tr>
       <td>AES</td>
       <td>AES Corporation</td>
+      <td>14.87</td>
       <td>10</td>
       <td>above chikou</td>
       <td>54</td>
@@ -350,6 +387,7 @@
     <tr>
       <td>AFG</td>
       <td>American Financial Group</td>
+      <td>138.18</td>
       <td>-43</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -363,6 +401,7 @@
     <tr>
       <td>AFL</td>
       <td>Aflac</td>
+      <td>113.74</td>
       <td>-40</td>
       <td>below chikou</td>
       <td>-27</td>
@@ -376,6 +415,7 @@
     <tr>
       <td>AFRM</td>
       <td>Affirm Holdings</td>
+      <td>71.49</td>
       <td>8</td>
       <td>above chikou</td>
       <td>-12</td>
@@ -389,6 +429,7 @@
     <tr>
       <td>AGCO</td>
       <td>AGCO</td>
+      <td>118.07</td>
       <td>-13</td>
       <td>below chikou</td>
       <td>17</td>
@@ -402,6 +443,7 @@
     <tr>
       <td>AGNC</td>
       <td>AGNC Investment</td>
+      <td>9.61</td>
       <td>-20</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -415,6 +457,7 @@
     <tr>
       <td>AGO</td>
       <td>Assured Guaranty</td>
+      <td>69.43</td>
       <td>-63</td>
       <td>below chikou</td>
       <td>-34</td>
@@ -428,6 +471,7 @@
     <tr>
       <td>AHR</td>
       <td>American Healthcare REIT</td>
+      <td>52.03</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-23</td>
@@ -441,6 +485,7 @@
     <tr>
       <td>AIG</td>
       <td>American International Group</td>
+      <td>74.17</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>-32</td>
@@ -454,6 +499,7 @@
     <tr>
       <td>AIT</td>
       <td>Applied Industrial Technologies</td>
+      <td>333.33</td>
       <td>36</td>
       <td>above chikou</td>
       <td>-19</td>
@@ -467,6 +513,7 @@
     <tr>
       <td>AIZ</td>
       <td>Assurant</td>
+      <td>265.02</td>
       <td>-34</td>
       <td>below chikou</td>
       <td>-10</td>
@@ -480,6 +527,7 @@
     <tr>
       <td>AJG</td>
       <td>Arthur J. Gallagher & Co.</td>
+      <td>231.13</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-7</td>
@@ -493,6 +541,7 @@
     <tr>
       <td>AKAM</td>
       <td>Akamai Technologies</td>
+      <td>113.93</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-28</td>
@@ -506,6 +555,7 @@
     <tr>
       <td>ALAB</td>
       <td>Astera Labs</td>
+      <td>364.46</td>
       <td>44</td>
       <td>above chikou</td>
       <td>4</td>
@@ -519,6 +569,7 @@
     <tr>
       <td>ALB</td>
       <td>Albemarle Corporation</td>
+      <td>109.74</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>-10</td>
@@ -532,6 +583,7 @@
     <tr>
       <td>ALGM</td>
       <td>Allegro MicroSystems</td>
+      <td>36.74</td>
       <td>36</td>
       <td>above chikou</td>
       <td>-45</td>
@@ -545,6 +597,7 @@
     <tr>
       <td>ALGN</td>
       <td>Align Technology</td>
+      <td>146.77</td>
       <td>-20</td>
       <td>below chikou</td>
       <td>-28</td>
@@ -558,6 +611,7 @@
     <tr>
       <td>ALK</td>
       <td>Alaska Air Group</td>
+      <td>40.95</td>
       <td>-15</td>
       <td>below chikou</td>
       <td>-46</td>
@@ -571,6 +625,7 @@
     <tr>
       <td>ALL</td>
       <td>Allstate</td>
+      <td>227.65</td>
       <td>-46</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -584,6 +639,7 @@
     <tr>
       <td>ALLE</td>
       <td>Allegion</td>
+      <td>154.45</td>
       <td>24</td>
       <td>above chikou</td>
       <td>-17</td>
@@ -597,6 +653,7 @@
     <tr>
       <td>ALLY</td>
       <td>Ally Financial</td>
+      <td>38.79</td>
       <td>-92</td>
       <td>below chikou</td>
       <td>-13</td>
@@ -610,6 +667,7 @@
     <tr>
       <td>ALM</td>
       <td>Almonty Industries</td>
+      <td>13.72</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-2</td>
@@ -623,6 +681,7 @@
     <tr>
       <td>ALNY</td>
       <td>Alnylam Pharmaceuticals</td>
+      <td>255.94</td>
       <td>35</td>
       <td>above chikou</td>
       <td>14</td>
@@ -636,6 +695,7 @@
     <tr>
       <td>ALSN</td>
       <td>Allison Transmission</td>
+      <td>113.84</td>
       <td>-84</td>
       <td>below chikou</td>
       <td>-7</td>
@@ -649,6 +709,7 @@
     <tr>
       <td>AM</td>
       <td>Antero Midstream</td>
+      <td>20.93</td>
       <td>-6</td>
       <td>below chikou</td>
       <td>-7</td>
@@ -662,6 +723,7 @@
     <tr>
       <td>AMAT</td>
       <td>Applied Materials</td>
+      <td>485.05</td>
       <td>41</td>
       <td>above chikou</td>
       <td>-45</td>
@@ -675,6 +737,7 @@
     <tr>
       <td>AMCR</td>
       <td>Amcor</td>
+      <td>42.51</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -688,6 +751,7 @@
     <tr>
       <td>AMD</td>
       <td>Advanced Micro Devices</td>
+      <td>630.35</td>
       <td>56</td>
       <td>above chikou</td>
       <td>12</td>
@@ -701,6 +765,7 @@
     <tr>
       <td>AME</td>
       <td>Ametek</td>
+      <td>250.97</td>
       <td>43</td>
       <td>above chikou</td>
       <td>-18</td>
@@ -714,6 +779,7 @@
     <tr>
       <td>AMG</td>
       <td>Affiliated Managers Group</td>
+      <td>373.71</td>
       <td>41</td>
       <td>above chikou</td>
       <td>1</td>
@@ -727,6 +793,7 @@
     <tr>
       <td>AMGN</td>
       <td>Amgen</td>
+      <td>414.74</td>
       <td>47</td>
       <td>above chikou</td>
       <td>-10</td>
@@ -740,6 +807,7 @@
     <tr>
       <td>AMH</td>
       <td>American Homes 4 Rent</td>
+      <td>30.65</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -753,6 +821,7 @@
     <tr>
       <td>AMKR</td>
       <td>Amkor Technology</td>
+      <td>53.63</td>
       <td>41</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -766,6 +835,7 @@
     <tr>
       <td>AMP</td>
       <td>Ameriprise Financial</td>
+      <td>493.00</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-7</td>
@@ -779,6 +849,7 @@
     <tr>
       <td>AMT</td>
       <td>American Tower</td>
+      <td>169.05</td>
       <td>-50</td>
       <td>below chikou</td>
       <td>-1</td>
@@ -792,6 +863,7 @@
     <tr>
       <td>AMTM</td>
       <td>Amentum</td>
+      <td>19.20</td>
       <td>-35</td>
       <td>below chikou</td>
       <td>-23</td>
@@ -805,6 +877,7 @@
     <tr>
       <td>AMZN</td>
       <td>Amazon</td>
+      <td>249.74</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-13</td>
@@ -818,6 +891,7 @@
     <tr>
       <td>AN</td>
       <td>AutoNation</td>
+      <td>167.00</td>
       <td>-82</td>
       <td>below chikou</td>
       <td>-24</td>
@@ -831,6 +905,7 @@
     <tr>
       <td>ANET</td>
       <td>Arista Networks</td>
+      <td>206.51</td>
       <td>44</td>
       <td>above chikou</td>
       <td>2</td>
@@ -844,6 +919,7 @@
     <tr>
       <td>AON</td>
       <td>Aon plc</td>
+      <td>277.93</td>
       <td>-57</td>
       <td>below chikou</td>
       <td>-18</td>
@@ -857,6 +933,7 @@
     <tr>
       <td>AOS</td>
       <td>A. O. Smith</td>
+      <td>58.65</td>
       <td>28</td>
       <td>above chikou</td>
       <td>-17</td>
@@ -870,6 +947,7 @@
     <tr>
       <td>APA</td>
       <td>APA Corporation</td>
+      <td>42.73</td>
       <td>-44</td>
       <td>below chikou</td>
       <td>45</td>
@@ -883,6 +961,7 @@
     <tr>
       <td>APD</td>
       <td>Air Products</td>
+      <td>281.77</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>-10</td>
@@ -896,6 +975,7 @@
     <tr>
       <td>APG</td>
       <td>APi Group</td>
+      <td>38.47</td>
       <td>42</td>
       <td>above chikou</td>
       <td>-12</td>
@@ -909,6 +989,7 @@
     <tr>
       <td>APH</td>
       <td>Amphenol</td>
+      <td>84.10</td>
       <td>35</td>
       <td>above chikou</td>
       <td>1</td>
@@ -922,6 +1003,7 @@
     <tr>
       <td>APLD</td>
       <td>Applied Digital</td>
+      <td>26.24</td>
       <td>-13</td>
       <td>below chikou</td>
       <td>-21</td>
@@ -935,6 +1017,7 @@
     <tr>
       <td>APO</td>
       <td>Apollo Global Management</td>
+      <td>121.70</td>
       <td>-28</td>
       <td>below chikou</td>
       <td>-7</td>
@@ -948,6 +1031,7 @@
     <tr>
       <td>APP</td>
       <td>AppLovin</td>
+      <td>310.74</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>4</td>
@@ -961,6 +1045,7 @@
     <tr>
       <td>APPF</td>
       <td>AppFolio</td>
+      <td>204.40</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>59</td>
@@ -974,6 +1059,7 @@
     <tr>
       <td>APTV</td>
       <td>Aptiv</td>
+      <td>44.80</td>
       <td>5</td>
       <td>above chikou</td>
       <td>-57</td>
@@ -987,6 +1073,7 @@
     <tr>
       <td>AR</td>
       <td>Antero Resources</td>
+      <td>34.99</td>
       <td>20</td>
       <td>above chikou</td>
       <td>-6</td>
@@ -1000,6 +1087,7 @@
     <tr>
       <td>ARE</td>
       <td>Alexandria Real Estate Equities</td>
+      <td>49.92</td>
       <td>-22</td>
       <td>below chikou</td>
       <td>10</td>
@@ -1013,6 +1101,7 @@
     <tr>
       <td>ARES</td>
       <td>Ares Management</td>
+      <td>122.09</td>
       <td>-23</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -1026,6 +1115,7 @@
     <tr>
       <td>ARMK</td>
       <td>Aramark</td>
+      <td>54.94</td>
       <td>-50</td>
       <td>below chikou</td>
       <td>-6</td>
@@ -1039,6 +1129,7 @@
     <tr>
       <td>ARW</td>
       <td>Arrow Electronics</td>
+      <td>232.92</td>
       <td>41</td>
       <td>above chikou</td>
       <td>8</td>
@@ -1052,6 +1143,7 @@
     <tr>
       <td>ARWR</td>
       <td>Arrowhead Pharmaceuticals</td>
+      <td>65.92</td>
       <td>-19</td>
       <td>below chikou</td>
       <td>-19</td>
@@ -1065,6 +1157,7 @@
     <tr>
       <td>AS</td>
       <td>Amer Sports</td>
+      <td>27.76</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-32</td>
@@ -1078,6 +1171,7 @@
     <tr>
       <td>ASND</td>
       <td>Ascendis Pharma</td>
+      <td>225.72</td>
       <td>-29</td>
       <td>below chikou</td>
       <td>-8</td>
@@ -1091,6 +1185,7 @@
     <tr>
       <td>ASTS</td>
       <td>AST SpaceMobile</td>
+      <td>61.81</td>
       <td>-3</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -1104,6 +1199,7 @@
     <tr>
       <td>ATI</td>
       <td>ATI Inc.</td>
+      <td>185.56</td>
       <td>-13</td>
       <td>below chikou</td>
       <td>-10</td>
@@ -1117,6 +1213,7 @@
     <tr>
       <td>ATO</td>
       <td>Atmos Energy</td>
+      <td>157.27</td>
       <td>-91</td>
       <td>below chikou</td>
       <td>-38</td>
@@ -1130,6 +1227,7 @@
     <tr>
       <td>ATR</td>
       <td>AptarGroup</td>
+      <td>123.86</td>
       <td>-20</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -1143,6 +1241,7 @@
     <tr>
       <td>AU</td>
       <td>AngloGold Ashanti</td>
+      <td>99.03</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>36</td>
@@ -1156,6 +1255,7 @@
     <tr>
       <td>AUGO</td>
       <td>Aura Minerals</td>
+      <td>83.55</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>36</td>
@@ -1169,6 +1269,7 @@
     <tr>
       <td>AUR</td>
       <td>Aurora Innovation</td>
+      <td>6.05</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -1182,6 +1283,7 @@
     <tr>
       <td>AVAV</td>
       <td>AeroVironment</td>
+      <td>152.13</td>
       <td>-23</td>
       <td>below chikou</td>
       <td>-19</td>
@@ -1195,6 +1297,7 @@
     <tr>
       <td>AVGO</td>
       <td>Broadcom</td>
+      <td>352.82</td>
       <td>-15</td>
       <td>below chikou</td>
       <td>-28</td>
@@ -1208,6 +1311,7 @@
     <tr>
       <td>AVT</td>
       <td>Avnet</td>
+      <td>103.09</td>
       <td>39</td>
       <td>above chikou</td>
       <td>3</td>
@@ -1221,6 +1325,7 @@
     <tr>
       <td>AVTR</td>
       <td>Avantor</td>
+      <td>15.26</td>
       <td>8</td>
       <td>above chikou</td>
       <td>83</td>
@@ -1234,6 +1339,7 @@
     <tr>
       <td>AVY</td>
       <td>Avery Dennison</td>
+      <td>170.33</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-10</td>
@@ -1247,6 +1353,7 @@
     <tr>
       <td>AWI</td>
       <td>Armstrong World Industries</td>
+      <td>162.82</td>
       <td>36</td>
       <td>above chikou</td>
       <td>-16</td>
@@ -1260,6 +1367,7 @@
     <tr>
       <td>AWK</td>
       <td>American Water Works</td>
+      <td>130.92</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-4</td>
@@ -1273,6 +1381,7 @@
     <tr>
       <td>AXON</td>
       <td>Axon Enterprise</td>
+      <td>430.00</td>
       <td>-17</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -1286,6 +1395,7 @@
     <tr>
       <td>AXP</td>
       <td>American Express</td>
+      <td>308.74</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -1299,6 +1409,7 @@
     <tr>
       <td>AXS</td>
       <td>AXIS Capital</td>
+      <td>94.47</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-37</td>
@@ -1312,6 +1423,7 @@
     <tr>
       <td>AXSM</td>
       <td>Axsome Therapeutics</td>
+      <td>195.18</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-8</td>
@@ -1325,6 +1437,7 @@
     <tr>
       <td>AXTA</td>
       <td>Axalta</td>
+      <td>32.88</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -1338,6 +1451,7 @@
     <tr>
       <td>AYI</td>
       <td>Acuity Brands</td>
+      <td>319.36</td>
       <td>35</td>
       <td>above chikou</td>
       <td>-17</td>
@@ -1351,6 +1465,7 @@
     <tr>
       <td>AZO</td>
       <td>AutoZone</td>
+      <td>2873.12</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -1364,6 +1479,7 @@
     <tr>
       <td>BA</td>
       <td>Boeing</td>
+      <td>198.11</td>
       <td>-4</td>
       <td>below chikou</td>
       <td>-18</td>
@@ -1377,6 +1493,7 @@
     <tr>
       <td>BAC</td>
       <td>Bank of America</td>
+      <td>56.67</td>
       <td>-70</td>
       <td>below chikou</td>
       <td>-9</td>
@@ -1390,6 +1507,7 @@
     <tr>
       <td>BAH</td>
       <td>Booz Allen Hamilton</td>
+      <td>72.93</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -1403,6 +1521,7 @@
     <tr>
       <td>BALL</td>
       <td>Ball Corporation</td>
+      <td>56.84</td>
       <td>-39</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -1416,6 +1535,7 @@
     <tr>
       <td>BAM</td>
       <td>Brookfield Asset Management</td>
+      <td>44.60</td>
       <td>-18</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -1429,6 +1549,7 @@
     <tr>
       <td>BAX</td>
       <td>Baxter International</td>
+      <td>23.37</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>-14</td>
@@ -1442,6 +1563,7 @@
     <tr>
       <td>BBIO</td>
       <td>BridgeBio Pharma</td>
+      <td>65.52</td>
       <td>-20</td>
       <td>below chikou</td>
       <td>-29</td>
@@ -1455,6 +1577,7 @@
     <tr>
       <td>BBWI</td>
       <td>Bath & Body Works, Inc.</td>
+      <td>16.44</td>
       <td>-17</td>
       <td>below chikou</td>
       <td>-39</td>
@@ -1468,6 +1591,7 @@
     <tr>
       <td>BBY</td>
       <td>Best Buy</td>
+      <td>90.53</td>
       <td>-20</td>
       <td>below chikou</td>
       <td>14</td>
@@ -1481,6 +1605,7 @@
     <tr>
       <td>BC</td>
       <td>Brunswick Corporation</td>
+      <td>67.20</td>
       <td>5</td>
       <td>above chikou</td>
       <td>-20</td>
@@ -1494,6 +1619,7 @@
     <tr>
       <td>BDX</td>
       <td>Becton Dickinson</td>
+      <td>183.87</td>
       <td>7</td>
       <td>above chikou</td>
       <td>-1</td>
@@ -1507,6 +1633,7 @@
     <tr>
       <td>BE</td>
       <td>Bloom Energy</td>
+      <td>288.58</td>
       <td>6</td>
       <td>above chikou</td>
       <td>17</td>
@@ -1520,6 +1647,7 @@
     <tr>
       <td>BEN</td>
       <td>Franklin Templeton Investments</td>
+      <td>33.02</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -1533,6 +1661,7 @@
     <tr>
       <td>BEPC</td>
       <td>Brookfield Renewable Partners</td>
+      <td>28.48</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-60</td>
@@ -1546,6 +1675,7 @@
     <tr>
       <td>BF-A</td>
       <td>Brown–Forman (Class A)</td>
+      <td>26.66</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -1559,6 +1689,7 @@
     <tr>
       <td>BF-B</td>
       <td>Brown–Forman (Class B)</td>
+      <td>26.16</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -1572,6 +1703,7 @@
     <tr>
       <td>BFAM</td>
       <td>Bright Horizons</td>
+      <td>65.86</td>
       <td>10</td>
       <td>above chikou</td>
       <td>-18</td>
@@ -1585,6 +1717,7 @@
     <tr>
       <td>BG</td>
       <td>Bunge Global</td>
+      <td>108.94</td>
       <td>-67</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -1598,6 +1731,7 @@
     <tr>
       <td>BHF</td>
       <td>Brighthouse Financial</td>
+      <td>53.29</td>
       <td>25</td>
       <td>above chikou</td>
       <td>-41</td>
@@ -1611,6 +1745,7 @@
     <tr>
       <td>BIIB</td>
       <td>Biogen</td>
+      <td>227.93</td>
       <td>37</td>
       <td>above chikou</td>
       <td>30</td>
@@ -1624,6 +1759,7 @@
     <tr>
       <td>BILL</td>
       <td>Bill.com</td>
+      <td>44.29</td>
       <td>-43</td>
       <td>below chikou</td>
       <td>-6</td>
@@ -1637,6 +1773,7 @@
     <tr>
       <td>BIO</td>
       <td>Bio-Rad Laboratories</td>
+      <td>377.46</td>
       <td>13</td>
       <td>above chikou</td>
       <td>50</td>
@@ -1650,6 +1787,7 @@
     <tr>
       <td>BIRK</td>
       <td>Birkenstock</td>
+      <td>33.60</td>
       <td>17</td>
       <td>above chikou</td>
       <td>-48</td>
@@ -1663,6 +1801,7 @@
     <tr>
       <td>BJ</td>
       <td>BJ's Wholesale Club</td>
+      <td>93.82</td>
       <td>7</td>
       <td>above chikou</td>
       <td>-20</td>
@@ -1676,6 +1815,7 @@
     <tr>
       <td>BKNG</td>
       <td>Booking Holdings</td>
+      <td>163.93</td>
       <td>-62</td>
       <td>below chikou</td>
       <td>-15</td>
@@ -1689,6 +1829,7 @@
     <tr>
       <td>BKR</td>
       <td>Baker Hughes</td>
+      <td>57.85</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -1702,6 +1843,7 @@
     <tr>
       <td>BLDR</td>
       <td>Builders FirstSource</td>
+      <td>59.18</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-48</td>
@@ -1715,6 +1857,7 @@
     <tr>
       <td>BLK</td>
       <td>BlackRock</td>
+      <td>1086.91</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-12</td>
@@ -1728,6 +1871,7 @@
     <tr>
       <td>BLSH</td>
       <td>Bullish</td>
+      <td>37.54</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>30</td>
@@ -1741,6 +1885,7 @@
     <tr>
       <td>BMNR</td>
       <td>Bitmine Immersion Technologies</td>
+      <td>27.53</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>43</td>
@@ -1754,6 +1899,7 @@
     <tr>
       <td>BMRN</td>
       <td>BioMarin Pharmaceutical</td>
+      <td>60.22</td>
       <td>-62</td>
       <td>below chikou</td>
       <td>-6</td>
@@ -1767,6 +1913,7 @@
     <tr>
       <td>BMY</td>
       <td>Bristol Myers Squibb</td>
+      <td>62.87</td>
       <td>-48</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -1780,6 +1927,7 @@
     <tr>
       <td>BNY</td>
       <td>BNY Mellon</td>
+      <td>150.19</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-9</td>
@@ -1793,6 +1941,7 @@
     <tr>
       <td>BOKF</td>
       <td>BOK Financial Corporation</td>
+      <td>131.72</td>
       <td>-52</td>
       <td>below chikou</td>
       <td>-22</td>
@@ -1806,6 +1955,7 @@
     <tr>
       <td>BPOP</td>
       <td>Popular, Inc.</td>
+      <td>160.29</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-24</td>
@@ -1819,6 +1969,7 @@
     <tr>
       <td>BR</td>
       <td>Broadridge Financial Solutions</td>
+      <td>163.78</td>
       <td>7</td>
       <td>above chikou</td>
       <td>-6</td>
@@ -1832,6 +1983,7 @@
     <tr>
       <td>BRK-B</td>
       <td>Berkshire Hathaway</td>
+      <td>505.46</td>
       <td>1</td>
       <td>above chikou</td>
       <td>2</td>
@@ -1845,6 +1997,7 @@
     <tr>
       <td>BRKR</td>
       <td>Bruker</td>
+      <td>64.18</td>
       <td>14</td>
       <td>above chikou</td>
       <td>10</td>
@@ -1858,6 +2011,7 @@
     <tr>
       <td>BRO</td>
       <td>Brown & Brown</td>
+      <td>60.84</td>
       <td>-49</td>
       <td>below chikou</td>
       <td>-13</td>
@@ -1871,6 +2025,7 @@
     <tr>
       <td>BROS</td>
       <td>Dutch Bros Inc.</td>
+      <td>37.90</td>
       <td>-141</td>
       <td>below chikou</td>
       <td>-45</td>
@@ -1884,6 +2039,7 @@
     <tr>
       <td>BRX</td>
       <td>Brixmor Property Group</td>
+      <td>28.07</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-37</td>
@@ -1897,6 +2053,7 @@
     <tr>
       <td>BSX</td>
       <td>Boston Scientific</td>
+      <td>43.92</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -1910,6 +2067,7 @@
     <tr>
       <td>BSY</td>
       <td>Bentley Systems</td>
+      <td>31.43</td>
       <td>-12</td>
       <td>below chikou</td>
       <td>-15</td>
@@ -1923,6 +2081,7 @@
     <tr>
       <td>BURL</td>
       <td>Burlington Stores</td>
+      <td>254.76</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-25</td>
@@ -1936,6 +2095,7 @@
     <tr>
       <td>BWA</td>
       <td>BorgWarner</td>
+      <td>61.32</td>
       <td>-28</td>
       <td>below chikou</td>
       <td>-9</td>
@@ -1949,6 +2109,7 @@
     <tr>
       <td>BWXT</td>
       <td>BWX Technologies</td>
+      <td>138.43</td>
       <td>-28</td>
       <td>below chikou</td>
       <td>-62</td>
@@ -1962,6 +2123,7 @@
     <tr>
       <td>BX</td>
       <td>Blackstone Inc.</td>
+      <td>118.43</td>
       <td>-23</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -1975,6 +2137,7 @@
     <tr>
       <td>BXP</td>
       <td>BXP, Inc.</td>
+      <td>63.40</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-18</td>
@@ -1988,6 +2151,7 @@
     <tr>
       <td>BYD</td>
       <td>Boyd Gaming</td>
+      <td>71.30</td>
       <td>-52</td>
       <td>below chikou</td>
       <td>-39</td>
@@ -2001,6 +2165,7 @@
     <tr>
       <td>C</td>
       <td>Citigroup</td>
+      <td>134.29</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-7</td>
@@ -2014,6 +2179,7 @@
     <tr>
       <td>CACC</td>
       <td>Credit Acceptance</td>
+      <td>555.54</td>
       <td>-49</td>
       <td>below chikou</td>
       <td>-4</td>
@@ -2027,6 +2193,7 @@
     <tr>
       <td>CACI</td>
       <td>CACI</td>
+      <td>618.58</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-7</td>
@@ -2040,6 +2207,7 @@
     <tr>
       <td>CAG</td>
       <td>Conagra Brands</td>
+      <td>14.31</td>
       <td>-31</td>
       <td>below chikou</td>
       <td>-4</td>
@@ -2053,6 +2221,7 @@
     <tr>
       <td>CAH</td>
       <td>Cardinal Health</td>
+      <td>220.13</td>
       <td>-92</td>
       <td>below chikou</td>
       <td>-10</td>
@@ -2066,6 +2235,7 @@
     <tr>
       <td>CAI</td>
       <td>Caris Life Sciences</td>
+      <td>31.99</td>
       <td>67</td>
       <td>above chikou</td>
       <td>35</td>
@@ -2079,6 +2249,7 @@
     <tr>
       <td>CAR</td>
       <td>Avis Budget Group</td>
+      <td>108.36</td>
       <td>-105</td>
       <td>below chikou</td>
       <td>-61</td>
@@ -2092,6 +2263,7 @@
     <tr>
       <td>CARR</td>
       <td>Carrier Global</td>
+      <td>56.38</td>
       <td>27</td>
       <td>above chikou</td>
       <td>-48</td>
@@ -2105,6 +2277,7 @@
     <tr>
       <td>CART</td>
       <td>Maplebear Inc.</td>
+      <td>43.19</td>
       <td>-55</td>
       <td>below chikou</td>
       <td>-7</td>
@@ -2118,6 +2291,7 @@
     <tr>
       <td>CASY</td>
       <td>Casey's</td>
+      <td>599.52</td>
       <td>4</td>
       <td>above chikou</td>
       <td>-22</td>
@@ -2131,6 +2305,7 @@
     <tr>
       <td>CAT</td>
       <td>Caterpillar Inc.</td>
+      <td>821.31</td>
       <td>2</td>
       <td>above chikou</td>
       <td>-50</td>
@@ -2144,6 +2319,7 @@
     <tr>
       <td>CAVA</td>
       <td>Cava Group</td>
+      <td>51.62</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -2157,6 +2333,7 @@
     <tr>
       <td>CB</td>
       <td>Chubb Limited</td>
+      <td>333.48</td>
       <td>-35</td>
       <td>below chikou</td>
       <td>-23</td>
@@ -2170,6 +2347,7 @@
     <tr>
       <td>CBC</td>
       <td>Central Bancompany</td>
+      <td>32.06</td>
       <td>12</td>
       <td>above chikou</td>
       <td>-17</td>
@@ -2183,6 +2361,7 @@
     <tr>
       <td>CBOE</td>
       <td>Cboe Global Markets</td>
+      <td>257.63</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>-10</td>
@@ -2196,6 +2375,7 @@
     <tr>
       <td>CBRE</td>
       <td>CBRE Group</td>
+      <td>134.60</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -2209,6 +2389,7 @@
     <tr>
       <td>CBSH</td>
       <td>Commerce Bancshares</td>
+      <td>56.44</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-23</td>
@@ -2222,6 +2403,7 @@
     <tr>
       <td>CCC</td>
       <td>CCC Intelligent Solutions</td>
+      <td>6.91</td>
       <td>16</td>
       <td>above chikou</td>
       <td>-7</td>
@@ -2235,6 +2417,7 @@
     <tr>
       <td>CCI</td>
       <td>Crown Castle</td>
+      <td>67.84</td>
       <td>-29</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -2248,6 +2431,7 @@
     <tr>
       <td>CCK</td>
       <td>Crown Holdings</td>
+      <td>108.11</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -2261,6 +2445,7 @@
     <tr>
       <td>CCL</td>
       <td>Carnival Corporation</td>
+      <td>22.26</td>
       <td>-4</td>
       <td>below chikou</td>
       <td>-25</td>
@@ -2274,6 +2459,7 @@
     <tr>
       <td>CDE</td>
       <td>Coeur Mining</td>
+      <td>19.23</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>34</td>
@@ -2287,6 +2473,7 @@
     <tr>
       <td>CDNS</td>
       <td>Cadence Design Systems</td>
+      <td>326.16</td>
       <td>41</td>
       <td>above chikou</td>
       <td>-17</td>
@@ -2300,6 +2487,7 @@
     <tr>
       <td>CDW</td>
       <td>CDW</td>
+      <td>135.46</td>
       <td>-18</td>
       <td>below chikou</td>
       <td>10</td>
@@ -2313,6 +2501,7 @@
     <tr>
       <td>CE</td>
       <td>Celanese</td>
+      <td>47.08</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>16</td>
@@ -2326,6 +2515,7 @@
     <tr>
       <td>CEG</td>
       <td>Constellation Energy</td>
+      <td>263.28</td>
       <td>-6</td>
       <td>below chikou</td>
       <td>-8</td>
@@ -2339,6 +2529,7 @@
     <tr>
       <td>CELH</td>
       <td>Celsius Holdings</td>
+      <td>27.98</td>
       <td>-13</td>
       <td>below chikou</td>
       <td>-1</td>
@@ -2352,6 +2543,7 @@
     <tr>
       <td>CF</td>
       <td>CF Industries</td>
+      <td>114.68</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-1</td>
@@ -2365,6 +2557,7 @@
     <tr>
       <td>CFG</td>
       <td>Citizens Financial Group</td>
+      <td>65.53</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-25</td>
@@ -2378,6 +2571,7 @@
     <tr>
       <td>CFR</td>
       <td>Frost Bank</td>
+      <td>157.51</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -2391,6 +2585,7 @@
     <tr>
       <td>CG</td>
       <td>Carlyle Group (The)</td>
+      <td>40.01</td>
       <td>-23</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -2404,6 +2599,7 @@
     <tr>
       <td>CGNX</td>
       <td>Cognex Corporation</td>
+      <td>58.65</td>
       <td>-28</td>
       <td>below chikou</td>
       <td>-13</td>
@@ -2417,6 +2613,7 @@
     <tr>
       <td>CHD</td>
       <td>Church & Dwight</td>
+      <td>96.37</td>
       <td>57</td>
       <td>above chikou</td>
       <td>-12</td>
@@ -2430,6 +2627,7 @@
     <tr>
       <td>CHDN</td>
       <td>Churchill Downs Incorporated</td>
+      <td>79.78</td>
       <td>-29</td>
       <td>below chikou</td>
       <td>-10</td>
@@ -2443,6 +2641,7 @@
     <tr>
       <td>CHE</td>
       <td>Chemed Corporation</td>
+      <td>511.97</td>
       <td>7</td>
       <td>above chikou</td>
       <td>-14</td>
@@ -2456,6 +2655,7 @@
     <tr>
       <td>CHH</td>
       <td>Choice Hotels</td>
+      <td>101.78</td>
       <td>30</td>
       <td>above chikou</td>
       <td>-18</td>
@@ -2469,6 +2669,7 @@
     <tr>
       <td>CHRD</td>
       <td>Chord Energy</td>
+      <td>136.25</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>46</td>
@@ -2482,6 +2683,7 @@
     <tr>
       <td>CHRW</td>
       <td>C.H. Robinson</td>
+      <td>146.92</td>
       <td>-43</td>
       <td>below chikou</td>
       <td>12</td>
@@ -2495,6 +2697,7 @@
     <tr>
       <td>CHTR</td>
       <td>Charter Communications</td>
+      <td>112.89</td>
       <td>-55</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -2508,6 +2711,7 @@
     <tr>
       <td>CHWY</td>
       <td>Chewy</td>
+      <td>18.28</td>
       <td>-43</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -2521,6 +2725,7 @@
     <tr>
       <td>CHYM</td>
       <td>Chime Financial</td>
+      <td>26.81</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-5</td>
@@ -2534,6 +2739,7 @@
     <tr>
       <td>CI</td>
       <td>Cigna</td>
+      <td>272.15</td>
       <td>-48</td>
       <td>below chikou</td>
       <td>-4</td>
@@ -2547,6 +2753,7 @@
     <tr>
       <td>CIEN</td>
       <td>Ciena</td>
+      <td>356.83</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>-29</td>
@@ -2560,6 +2767,7 @@
     <tr>
       <td>CINF</td>
       <td>Cincinnati Financial</td>
+      <td>162.59</td>
       <td>-44</td>
       <td>below chikou</td>
       <td>-36</td>
@@ -2573,6 +2781,7 @@
     <tr>
       <td>CL</td>
       <td>Colgate-Palmolive</td>
+      <td>86.06</td>
       <td>-20</td>
       <td>below chikou</td>
       <td>-18</td>
@@ -2586,6 +2795,7 @@
     <tr>
       <td>CLF</td>
       <td>Cleveland-Cliffs</td>
+      <td>12.19</td>
       <td>15</td>
       <td>above chikou</td>
       <td>3</td>
@@ -2599,6 +2809,7 @@
     <tr>
       <td>CLH</td>
       <td>Clean Harbors</td>
+      <td>313.18</td>
       <td>-6</td>
       <td>below chikou</td>
       <td>-4</td>
@@ -2612,6 +2823,7 @@
     <tr>
       <td>CLX</td>
       <td>Clorox</td>
+      <td>83.81</td>
       <td>-13</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -2625,6 +2837,7 @@
     <tr>
       <td>CMCSA</td>
       <td>Comcast</td>
+      <td>21.93</td>
       <td>-57</td>
       <td>below chikou</td>
       <td>-8</td>
@@ -2638,6 +2851,7 @@
     <tr>
       <td>CME</td>
       <td>CME Group</td>
+      <td>264.56</td>
       <td>-15</td>
       <td>below chikou</td>
       <td>43</td>
@@ -2651,6 +2865,7 @@
     <tr>
       <td>CMG</td>
       <td>Chipotle Mexican Grill</td>
+      <td>31.33</td>
       <td>-63</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -2664,6 +2879,7 @@
     <tr>
       <td>CMI</td>
       <td>Cummins</td>
+      <td>525.46</td>
       <td>-79</td>
       <td>below chikou</td>
       <td>-45</td>
@@ -2677,6 +2893,7 @@
     <tr>
       <td>CMS</td>
       <td>CMS Energy</td>
+      <td>62.96</td>
       <td>-83</td>
       <td>below chikou</td>
       <td>-40</td>
@@ -2690,6 +2907,7 @@
     <tr>
       <td>CNA</td>
       <td>CNA Financial</td>
+      <td>45.99</td>
       <td>-29</td>
       <td>below chikou</td>
       <td>-31</td>
@@ -2703,6 +2921,7 @@
     <tr>
       <td>CNC</td>
       <td>Centene</td>
+      <td>61.81</td>
       <td>-43</td>
       <td>below chikou</td>
       <td>-4</td>
@@ -2716,6 +2935,7 @@
     <tr>
       <td>CNH</td>
       <td>CNH Industrial</td>
+      <td>13.09</td>
       <td>-13</td>
       <td>below chikou</td>
       <td>25</td>
@@ -2729,6 +2949,7 @@
     <tr>
       <td>CNM</td>
       <td>Core & Main</td>
+      <td>42.64</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -2742,6 +2963,7 @@
     <tr>
       <td>CNP</td>
       <td>Centerpoint Energy</td>
+      <td>36.74</td>
       <td>-29</td>
       <td>below chikou</td>
       <td>-40</td>
@@ -2755,6 +2977,7 @@
     <tr>
       <td>COF</td>
       <td>Capital One</td>
+      <td>200.08</td>
       <td>-52</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -2768,6 +2991,7 @@
     <tr>
       <td>COHR</td>
       <td>Coherent Corp.</td>
+      <td>295.78</td>
       <td>-16</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -2781,6 +3005,7 @@
     <tr>
       <td>COIN</td>
       <td>Coinbase</td>
+      <td>195.11</td>
       <td>-9</td>
       <td>below chikou</td>
       <td>25</td>
@@ -2794,6 +3019,7 @@
     <tr>
       <td>COKE</td>
       <td>Coca-Cola Consolidated</td>
+      <td>190.35</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>30</td>
@@ -2807,6 +3033,7 @@
     <tr>
       <td>COLB</td>
       <td>Columbia Banking System</td>
+      <td>29.64</td>
       <td>-43</td>
       <td>below chikou</td>
       <td>-26</td>
@@ -2820,6 +3047,7 @@
     <tr>
       <td>COLD</td>
       <td>Americold</td>
+      <td>14.75</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-5</td>
@@ -2833,6 +3061,7 @@
     <tr>
       <td>COLM</td>
       <td>Columbia Sportswear</td>
+      <td>57.56</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>-1</td>
@@ -2846,6 +3075,7 @@
     <tr>
       <td>COO</td>
       <td>Cooper Companies (The)</td>
+      <td>55.38</td>
       <td>10</td>
       <td>above chikou</td>
       <td>-18</td>
@@ -2859,6 +3089,7 @@
     <tr>
       <td>COP</td>
       <td>ConocoPhillips</td>
+      <td>127.30</td>
       <td>2</td>
       <td>above chikou</td>
       <td>46</td>
@@ -2872,6 +3103,7 @@
     <tr>
       <td>COR</td>
       <td>Cencora</td>
+      <td>306.93</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>-1</td>
@@ -2885,6 +3117,7 @@
     <tr>
       <td>CORT</td>
       <td>Corcept Therapeutics</td>
+      <td>116.12</td>
       <td>4</td>
       <td>above chikou</td>
       <td>-2</td>
@@ -2898,6 +3131,7 @@
     <tr>
       <td>COST</td>
       <td>Costco</td>
+      <td>922.95</td>
       <td>27</td>
       <td>above chikou</td>
       <td>-16</td>
@@ -2911,6 +3145,7 @@
     <tr>
       <td>CPAY</td>
       <td>Corpay</td>
+      <td>398.01</td>
       <td>7</td>
       <td>above chikou</td>
       <td>-5</td>
@@ -2924,6 +3159,7 @@
     <tr>
       <td>CPB</td>
       <td>Campbell Soup Company</td>
+      <td>19.36</td>
       <td>-43</td>
       <td>below chikou</td>
       <td>-15</td>
@@ -2937,6 +3173,7 @@
     <tr>
       <td>CPNG</td>
       <td>Coupang</td>
+      <td>13.89</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-13</td>
@@ -2950,6 +3187,7 @@
     <tr>
       <td>CPRT</td>
       <td>Copart</td>
+      <td>27.59</td>
       <td>-91</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -2963,6 +3201,7 @@
     <tr>
       <td>CPT</td>
       <td>Camden Property Trust</td>
+      <td>98.15</td>
       <td>-155</td>
       <td>below chikou</td>
       <td>-37</td>
@@ -2976,6 +3215,7 @@
     <tr>
       <td>CR</td>
       <td>Crane Co.</td>
+      <td>206.68</td>
       <td>35</td>
       <td>above chikou</td>
       <td>-26</td>
@@ -2989,6 +3229,7 @@
     <tr>
       <td>CRBG</td>
       <td>Corebridge Financial</td>
+      <td>34.86</td>
       <td>1</td>
       <td>above chikou</td>
       <td>1</td>
@@ -3002,6 +3243,7 @@
     <tr>
       <td>CRCL</td>
       <td>Circle Internet Group</td>
+      <td>88.96</td>
       <td>-9</td>
       <td>below chikou</td>
       <td>34</td>
@@ -3015,6 +3257,7 @@
     <tr>
       <td>CRDO</td>
       <td>Credo Technology Group</td>
+      <td>210.79</td>
       <td>49</td>
       <td>above chikou</td>
       <td>-16</td>
@@ -3028,6 +3271,7 @@
     <tr>
       <td>CRH</td>
       <td>CRH plc</td>
+      <td>85.02</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-47</td>
@@ -3041,6 +3285,7 @@
     <tr>
       <td>CRL</td>
       <td>Charles River Laboratories</td>
+      <td>293.15</td>
       <td>14</td>
       <td>above chikou</td>
       <td>1</td>
@@ -3054,6 +3299,7 @@
     <tr>
       <td>CRM</td>
       <td>Salesforce</td>
+      <td>234.07</td>
       <td>1</td>
       <td>above chikou</td>
       <td>43</td>
@@ -3067,6 +3313,7 @@
     <tr>
       <td>CROX</td>
       <td>Crocs</td>
+      <td>126.18</td>
       <td>19</td>
       <td>above chikou</td>
       <td>-27</td>
@@ -3080,6 +3327,7 @@
     <tr>
       <td>CRS</td>
       <td>Carpenter Technology Corporation</td>
+      <td>396.61</td>
       <td>-98</td>
       <td>below chikou</td>
       <td>-42</td>
@@ -3093,6 +3341,7 @@
     <tr>
       <td>CRUS</td>
       <td>Cirrus Logic</td>
+      <td>119.87</td>
       <td>6</td>
       <td>above chikou</td>
       <td>-74</td>
@@ -3106,6 +3355,7 @@
     <tr>
       <td>CRWD</td>
       <td>CrowdStrike</td>
+      <td>252.13</td>
       <td>70</td>
       <td>above chikou</td>
       <td>9</td>
@@ -3119,6 +3369,7 @@
     <tr>
       <td>CRWV</td>
       <td>CoreWeave</td>
+      <td>87.58</td>
       <td>35</td>
       <td>above chikou</td>
       <td>-10</td>
@@ -3132,6 +3383,7 @@
     <tr>
       <td>CSCO</td>
       <td>Cisco</td>
+      <td>106.68</td>
       <td>-28</td>
       <td>below chikou</td>
       <td>-29</td>
@@ -3145,6 +3397,7 @@
     <tr>
       <td>CSGP</td>
       <td>CoStar Group</td>
+      <td>28.09</td>
       <td>-48</td>
       <td>below chikou</td>
       <td>-6</td>
@@ -3158,6 +3411,7 @@
     <tr>
       <td>CSL</td>
       <td>Carlisle Companies</td>
+      <td>326.80</td>
       <td>28</td>
       <td>above chikou</td>
       <td>-14</td>
@@ -3171,6 +3425,7 @@
     <tr>
       <td>CSX</td>
       <td>CSX Corporation</td>
+      <td>46.80</td>
       <td>8</td>
       <td>above chikou</td>
       <td>-19</td>
@@ -3184,6 +3439,7 @@
     <tr>
       <td>CTAS</td>
       <td>Cintas</td>
+      <td>199.91</td>
       <td>9</td>
       <td>above chikou</td>
       <td>-17</td>
@@ -3197,6 +3453,7 @@
     <tr>
       <td>CTSH</td>
       <td>Cognizant</td>
+      <td>57.32</td>
       <td>-44</td>
       <td>below chikou</td>
       <td>42</td>
@@ -3210,6 +3467,7 @@
     <tr>
       <td>CTVA</td>
       <td>Corteva</td>
+      <td>78.49</td>
       <td>-22</td>
       <td>below chikou</td>
       <td>13</td>
@@ -3223,6 +3481,7 @@
     <tr>
       <td>CUBE</td>
       <td>CubeSmart</td>
+      <td>37.83</td>
       <td>-36</td>
       <td>below chikou</td>
       <td>-23</td>
@@ -3236,6 +3495,7 @@
     <tr>
       <td>CUZ</td>
       <td>Cousins Properties</td>
+      <td>28.66</td>
       <td>14</td>
       <td>above chikou</td>
       <td>-34</td>
@@ -3249,6 +3509,7 @@
     <tr>
       <td>CVNA</td>
       <td>Carvana</td>
+      <td>65.07</td>
       <td>-22</td>
       <td>below chikou</td>
       <td>-8</td>
@@ -3262,6 +3523,7 @@
     <tr>
       <td>CVS</td>
       <td>CVS Health</td>
+      <td>89.13</td>
       <td>5</td>
       <td>above chikou</td>
       <td>-36</td>
@@ -3275,6 +3537,7 @@
     <tr>
       <td>CVX</td>
       <td>Chevron Corporation</td>
+      <td>204.43</td>
       <td>6</td>
       <td>above chikou</td>
       <td>46</td>
@@ -3288,6 +3551,7 @@
     <tr>
       <td>CW</td>
       <td>Curtiss-Wright</td>
+      <td>539.78</td>
       <td>-28</td>
       <td>below chikou</td>
       <td>-48</td>
@@ -3301,6 +3565,7 @@
     <tr>
       <td>CWEN</td>
       <td>Clearway Energy (Class C)</td>
+      <td>29.76</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-9</td>
@@ -3314,6 +3579,7 @@
     <tr>
       <td>CZR</td>
       <td>Caesars Entertainment</td>
+      <td>29.59</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>-38</td>
@@ -3327,6 +3593,7 @@
     <tr>
       <td>D</td>
       <td>Dominion Energy</td>
+      <td>60.70</td>
       <td>-90</td>
       <td>below chikou</td>
       <td>-38</td>
@@ -3340,6 +3607,7 @@
     <tr>
       <td>DAL</td>
       <td>Delta Air Lines</td>
+      <td>84.93</td>
       <td>36</td>
       <td>above chikou</td>
       <td>-26</td>
@@ -3353,6 +3621,7 @@
     <tr>
       <td>DAR</td>
       <td>Darling Ingredients</td>
+      <td>61.31</td>
       <td>-37</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -3366,6 +3635,7 @@
     <tr>
       <td>DASH</td>
       <td>DoorDash</td>
+      <td>193.43</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -3379,6 +3649,7 @@
     <tr>
       <td>DBX</td>
       <td>Dropbox</td>
+      <td>32.32</td>
       <td>-40</td>
       <td>below chikou</td>
       <td>-1</td>
@@ -3392,6 +3663,7 @@
     <tr>
       <td>DCI</td>
       <td>Donaldson Company</td>
+      <td>87.43</td>
       <td>20</td>
       <td>above chikou</td>
       <td>-18</td>
@@ -3405,6 +3677,7 @@
     <tr>
       <td>DD</td>
       <td>DuPont</td>
+      <td>131.69</td>
       <td>50</td>
       <td>above chikou</td>
       <td>-20</td>
@@ -3418,6 +3691,7 @@
     <tr>
       <td>DDOG</td>
       <td>Datadog</td>
+      <td>268.02</td>
       <td>37</td>
       <td>above chikou</td>
       <td>1</td>
@@ -3431,6 +3705,7 @@
     <tr>
       <td>DDS</td>
       <td>Dillard's</td>
+      <td>663.53</td>
       <td>21</td>
       <td>above chikou</td>
       <td>43</td>
@@ -3444,6 +3719,7 @@
     <tr>
       <td>DE</td>
       <td>Deere & Company</td>
+      <td>690.07</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>30</td>
@@ -3457,6 +3733,7 @@
     <tr>
       <td>DECK</td>
       <td>Deckers Brands</td>
+      <td>78.66</td>
       <td>-6</td>
       <td>below chikou</td>
       <td>-59</td>
@@ -3470,6 +3747,7 @@
     <tr>
       <td>DELL</td>
       <td>Dell Technologies</td>
+      <td>562.90</td>
       <td>-28</td>
       <td>below chikou</td>
       <td>24</td>
@@ -3483,6 +3761,7 @@
     <tr>
       <td>DG</td>
       <td>Dollar General</td>
+      <td>124.85</td>
       <td>10</td>
       <td>above chikou</td>
       <td>6</td>
@@ -3496,6 +3775,7 @@
     <tr>
       <td>DGX</td>
       <td>Quest Diagnostics</td>
+      <td>236.23</td>
       <td>2</td>
       <td>above chikou</td>
       <td>77</td>
@@ -3509,6 +3789,7 @@
     <tr>
       <td>DHI</td>
       <td>D. R. Horton</td>
+      <td>141.44</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -3522,6 +3803,7 @@
     <tr>
       <td>DHR</td>
       <td>Danaher Corporation</td>
+      <td>224.59</td>
       <td>63</td>
       <td>above chikou</td>
       <td>78</td>
@@ -3535,6 +3817,7 @@
     <tr>
       <td>DINO</td>
       <td>HF Sinclair</td>
+      <td>106.84</td>
       <td>-30</td>
       <td>below chikou</td>
       <td>60</td>
@@ -3548,6 +3831,7 @@
     <tr>
       <td>DIS</td>
       <td>Walt Disney Company (The)</td>
+      <td>106.15</td>
       <td>14</td>
       <td>above chikou</td>
       <td>1</td>
@@ -3561,6 +3845,7 @@
     <tr>
       <td>DKNG</td>
       <td>DraftKings</td>
+      <td>22.05</td>
       <td>-49</td>
       <td>below chikou</td>
       <td>-6</td>
@@ -3574,6 +3859,7 @@
     <tr>
       <td>DKS</td>
       <td>Dick's Sporting Goods</td>
+      <td>136.39</td>
       <td>28</td>
       <td>above chikou</td>
       <td>-47</td>
@@ -3587,6 +3873,7 @@
     <tr>
       <td>DLB</td>
       <td>Dolby Laboratories</td>
+      <td>58.58</td>
       <td>6</td>
       <td>above chikou</td>
       <td>-8</td>
@@ -3600,6 +3887,7 @@
     <tr>
       <td>DLR</td>
       <td>Digital Realty</td>
+      <td>178.60</td>
       <td>-20</td>
       <td>below chikou</td>
       <td>-18</td>
@@ -3613,6 +3901,7 @@
     <tr>
       <td>DLTR</td>
       <td>Dollar Tree</td>
+      <td>114.04</td>
       <td>4</td>
       <td>above chikou</td>
       <td>-13</td>
@@ -3626,6 +3915,7 @@
     <tr>
       <td>DOC</td>
       <td>Healthpeak Properties</td>
+      <td>20.30</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>-35</td>
@@ -3639,6 +3929,7 @@
     <tr>
       <td>DOCN</td>
       <td>DigitalOcean</td>
+      <td>139.73</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>4</td>
@@ -3652,6 +3943,7 @@
     <tr>
       <td>DOCS</td>
       <td>Doximity</td>
+      <td>26.35</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>4</td>
@@ -3665,6 +3957,7 @@
     <tr>
       <td>DOCU</td>
       <td>DocuSign</td>
+      <td>67.50</td>
       <td>1</td>
       <td>above chikou</td>
       <td>51</td>
@@ -3678,6 +3971,7 @@
     <tr>
       <td>DOV</td>
       <td>Dover Corporation</td>
+      <td>191.87</td>
       <td>18</td>
       <td>above chikou</td>
       <td>-51</td>
@@ -3691,6 +3985,7 @@
     <tr>
       <td>DOW</td>
       <td>Dow Inc.</td>
+      <td>28.02</td>
       <td>-5</td>
       <td>below chikou</td>
       <td>-6</td>
@@ -3704,6 +3999,7 @@
     <tr>
       <td>DOX</td>
       <td>Amdocs</td>
+      <td>57.63</td>
       <td>-49</td>
       <td>below chikou</td>
       <td>42</td>
@@ -3717,6 +4013,7 @@
     <tr>
       <td>DPZ</td>
       <td>Domino's</td>
+      <td>292.17</td>
       <td>-112</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -3730,6 +4027,7 @@
     <tr>
       <td>DRI</td>
       <td>Darden Restaurants</td>
+      <td>199.71</td>
       <td>-10</td>
       <td>below chikou</td>
       <td>-8</td>
@@ -3743,6 +4041,7 @@
     <tr>
       <td>DRS</td>
       <td>Leonardo DRS</td>
+      <td>37.18</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-26</td>
@@ -3756,6 +4055,7 @@
     <tr>
       <td>DT</td>
       <td>Dynatrace</td>
+      <td>57.96</td>
       <td>71</td>
       <td>above chikou</td>
       <td>43</td>
@@ -3769,6 +4069,7 @@
     <tr>
       <td>DTE</td>
       <td>DTE Energy</td>
+      <td>121.46</td>
       <td>-85</td>
       <td>below chikou</td>
       <td>-41</td>
@@ -3782,6 +4083,7 @@
     <tr>
       <td>DTM</td>
       <td>DT Midstream</td>
+      <td>122.28</td>
       <td>-15</td>
       <td>below chikou</td>
       <td>-42</td>
@@ -3795,6 +4097,7 @@
     <tr>
       <td>DUK</td>
       <td>Duke Energy</td>
+      <td>113.30</td>
       <td>-90</td>
       <td>below chikou</td>
       <td>-38</td>
@@ -3808,6 +4111,7 @@
     <tr>
       <td>DUOL</td>
       <td>Duolingo</td>
+      <td>143.57</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>43</td>
@@ -3821,6 +4125,7 @@
     <tr>
       <td>DVA</td>
       <td>DaVita</td>
+      <td>178.46</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>-1</td>
@@ -3834,6 +4139,7 @@
     <tr>
       <td>DVN</td>
       <td>Devon Energy</td>
+      <td>47.04</td>
       <td>-5</td>
       <td>below chikou</td>
       <td>45</td>
@@ -3847,6 +4153,7 @@
     <tr>
       <td>DXCM</td>
       <td>Dexcom</td>
+      <td>86.58</td>
       <td>-15</td>
       <td>below chikou</td>
       <td>-4</td>
@@ -3860,6 +4167,7 @@
     <tr>
       <td>DY</td>
       <td>Dycom Industries</td>
+      <td>271.49</td>
       <td>-28</td>
       <td>below chikou</td>
       <td>-26</td>
@@ -3873,6 +4181,7 @@
     <tr>
       <td>EBAY</td>
       <td>eBay</td>
+      <td>107.94</td>
       <td>-22</td>
       <td>below chikou</td>
       <td>6</td>
@@ -3886,6 +4195,7 @@
     <tr>
       <td>ECG</td>
       <td>Everus Construction Group</td>
+      <td>116.99</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-27</td>
@@ -3899,6 +4209,7 @@
     <tr>
       <td>ECHO</td>
       <td>EchoStar</td>
+      <td>90.06</td>
       <td>-12</td>
       <td>below chikou</td>
       <td>16</td>
@@ -3912,6 +4223,7 @@
     <tr>
       <td>ECL</td>
       <td>Ecolab</td>
+      <td>279.70</td>
       <td>24</td>
       <td>above chikou</td>
       <td>3</td>
@@ -3925,6 +4237,7 @@
     <tr>
       <td>ED</td>
       <td>Consolidated Edison</td>
+      <td>103.11</td>
       <td>-40</td>
       <td>below chikou</td>
       <td>-5</td>
@@ -3938,6 +4251,7 @@
     <tr>
       <td>EEFT</td>
       <td>Euronet Worldwide</td>
+      <td>65.61</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-34</td>
@@ -3951,6 +4265,7 @@
     <tr>
       <td>EFX</td>
       <td>Equifax</td>
+      <td>148.14</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -3964,6 +4279,7 @@
     <tr>
       <td>EG</td>
       <td>Everest Group</td>
+      <td>370.57</td>
       <td>3</td>
       <td>above chikou</td>
       <td>11</td>
@@ -3977,6 +4293,7 @@
     <tr>
       <td>EGP</td>
       <td>EastGroup Properties</td>
+      <td>201.33</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>-36</td>
@@ -3990,6 +4307,7 @@
     <tr>
       <td>EHC</td>
       <td>Encompass Health</td>
+      <td>123.47</td>
       <td>7</td>
       <td>above chikou</td>
       <td>-8</td>
@@ -4003,6 +4321,7 @@
     <tr>
       <td>EIX</td>
       <td>Edison International</td>
+      <td>52.64</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-38</td>
@@ -4016,6 +4335,7 @@
     <tr>
       <td>EL</td>
       <td>Estée Lauder Companies (The)</td>
+      <td>94.50</td>
       <td>-6</td>
       <td>below chikou</td>
       <td>38</td>
@@ -4029,6 +4349,7 @@
     <tr>
       <td>ELAN</td>
       <td>Elanco</td>
+      <td>22.31</td>
       <td>-45</td>
       <td>below chikou</td>
       <td>-2</td>
@@ -4042,6 +4363,7 @@
     <tr>
       <td>ELF</td>
       <td>e.l.f. Beauty</td>
+      <td>99.53</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>5</td>
@@ -4055,6 +4377,7 @@
     <tr>
       <td>ELS</td>
       <td>Equity Lifestyle Properties</td>
+      <td>59.26</td>
       <td>-40</td>
       <td>below chikou</td>
       <td>-20</td>
@@ -4068,6 +4391,7 @@
     <tr>
       <td>ELV</td>
       <td>Elevance Health</td>
+      <td>396.28</td>
       <td>-48</td>
       <td>below chikou</td>
       <td>25</td>
@@ -4081,6 +4405,7 @@
     <tr>
       <td>EME</td>
       <td>Emcor</td>
+      <td>762.26</td>
       <td>5</td>
       <td>above chikou</td>
       <td>-14</td>
@@ -4094,6 +4419,7 @@
     <tr>
       <td>EMN</td>
       <td>Eastman Chemical Company</td>
+      <td>66.98</td>
       <td>28</td>
       <td>above chikou</td>
       <td>-12</td>
@@ -4107,6 +4433,7 @@
     <tr>
       <td>EMR</td>
       <td>Emerson Electric</td>
+      <td>158.11</td>
       <td>39</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -4120,6 +4447,7 @@
     <tr>
       <td>ENPH</td>
       <td>Enphase Energy</td>
+      <td>32.39</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -4133,6 +4461,7 @@
     <tr>
       <td>ENSG</td>
       <td>Ensign Group</td>
+      <td>175.19</td>
       <td>-11</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -4146,6 +4475,7 @@
     <tr>
       <td>ENTG</td>
       <td>Entegris</td>
+      <td>151.90</td>
       <td>44</td>
       <td>above chikou</td>
       <td>-10</td>
@@ -4159,6 +4489,7 @@
     <tr>
       <td>EOG</td>
       <td>EOG Resources</td>
+      <td>140.47</td>
       <td>-4</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -4172,6 +4503,7 @@
     <tr>
       <td>EPAM</td>
       <td>EPAM Systems</td>
+      <td>108.23</td>
       <td>-45</td>
       <td>below chikou</td>
       <td>42</td>
@@ -4185,6 +4517,7 @@
     <tr>
       <td>EPR</td>
       <td>EPR Properties</td>
+      <td>56.83</td>
       <td>-18</td>
       <td>below chikou</td>
       <td>-23</td>
@@ -4198,6 +4531,7 @@
     <tr>
       <td>EQH</td>
       <td>Equitable Holdings</td>
+      <td>53.86</td>
       <td>1</td>
       <td>above chikou</td>
       <td>1</td>
@@ -4211,6 +4545,7 @@
     <tr>
       <td>EQIX</td>
       <td>Equinix</td>
+      <td>1008.13</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>-9</td>
@@ -4224,6 +4559,7 @@
     <tr>
       <td>EQT</td>
       <td>EQT Corporation</td>
+      <td>50.81</td>
       <td>24</td>
       <td>above chikou</td>
       <td>-7</td>
@@ -4237,6 +4573,7 @@
     <tr>
       <td>ES</td>
       <td>Eversource Energy</td>
+      <td>63.67</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-36</td>
@@ -4250,6 +4587,7 @@
     <tr>
       <td>ESAB</td>
       <td>ESAB</td>
+      <td>71.97</td>
       <td>25</td>
       <td>above chikou</td>
       <td>-46</td>
@@ -4263,6 +4601,7 @@
     <tr>
       <td>ESI</td>
       <td>Element Solutions</td>
+      <td>35.70</td>
       <td>44</td>
       <td>above chikou</td>
       <td>-57</td>
@@ -4276,6 +4615,7 @@
     <tr>
       <td>ESS</td>
       <td>Essex Property Trust</td>
+      <td>271.49</td>
       <td>-6</td>
       <td>below chikou</td>
       <td>-36</td>
@@ -4289,6 +4629,7 @@
     <tr>
       <td>ESTC</td>
       <td>Elastic NV</td>
+      <td>88.10</td>
       <td>-3</td>
       <td>below chikou</td>
       <td>43</td>
@@ -4302,6 +4643,7 @@
     <tr>
       <td>ETN</td>
       <td>Eaton Corporation</td>
+      <td>439.99</td>
       <td>44</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -4315,6 +4657,7 @@
     <tr>
       <td>ETR</td>
       <td>Entergy</td>
+      <td>98.58</td>
       <td>-85</td>
       <td>below chikou</td>
       <td>-41</td>
@@ -4328,6 +4671,7 @@
     <tr>
       <td>ETSY</td>
       <td>Etsy</td>
+      <td>68.44</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -4341,6 +4685,7 @@
     <tr>
       <td>EVR</td>
       <td>Evercore</td>
+      <td>261.68</td>
       <td>-20</td>
       <td>below chikou</td>
       <td>-48</td>
@@ -4354,6 +4699,7 @@
     <tr>
       <td>EVRG</td>
       <td>Evergy</td>
+      <td>78.01</td>
       <td>-72</td>
       <td>below chikou</td>
       <td>-39</td>
@@ -4367,6 +4713,7 @@
     <tr>
       <td>EW</td>
       <td>Edwards Lifesciences</td>
+      <td>86.31</td>
       <td>-19</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -4380,6 +4727,7 @@
     <tr>
       <td>EWBC</td>
       <td>East West Bancorp</td>
+      <td>127.20</td>
       <td>-22</td>
       <td>below chikou</td>
       <td>-25</td>
@@ -4393,6 +4741,7 @@
     <tr>
       <td>EXC</td>
       <td>Exelon</td>
+      <td>40.33</td>
       <td>-91</td>
       <td>below chikou</td>
       <td>-40</td>
@@ -4406,6 +4755,7 @@
     <tr>
       <td>EXE</td>
       <td>Expand Energy</td>
+      <td>86.84</td>
       <td>-5</td>
       <td>below chikou</td>
       <td>-7</td>
@@ -4419,6 +4769,7 @@
     <tr>
       <td>EXEL</td>
       <td>Exelixis</td>
+      <td>58.18</td>
       <td>7</td>
       <td>above chikou</td>
       <td>17</td>
@@ -4432,6 +4783,7 @@
     <tr>
       <td>EXLS</td>
       <td>EXL Service</td>
+      <td>34.76</td>
       <td>-44</td>
       <td>below chikou</td>
       <td>42</td>
@@ -4445,6 +4797,7 @@
     <tr>
       <td>EXP</td>
       <td>Eagle Materials</td>
+      <td>178.61</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-28</td>
@@ -4458,6 +4811,7 @@
     <tr>
       <td>EXPD</td>
       <td>Expeditors International</td>
+      <td>187.45</td>
       <td>-28</td>
       <td>below chikou</td>
       <td>-1</td>
@@ -4471,6 +4825,7 @@
     <tr>
       <td>EXPE</td>
       <td>Expedia Group</td>
+      <td>264.18</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-13</td>
@@ -4484,6 +4839,7 @@
     <tr>
       <td>EXR</td>
       <td>Extra Space Storage</td>
+      <td>133.37</td>
       <td>-28</td>
       <td>below chikou</td>
       <td>-23</td>
@@ -4497,6 +4853,7 @@
     <tr>
       <td>F</td>
       <td>Ford Motor Company</td>
+      <td>12.70</td>
       <td>-89</td>
       <td>below chikou</td>
       <td>-20</td>
@@ -4510,6 +4867,7 @@
     <tr>
       <td>FAF</td>
       <td>First American Financial Corporation</td>
+      <td>66.26</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -4523,6 +4881,7 @@
     <tr>
       <td>FANG</td>
       <td>Diamondback Energy</td>
+      <td>186.56</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-5</td>
@@ -4536,6 +4895,7 @@
     <tr>
       <td>FAST</td>
       <td>Fastenal</td>
+      <td>50.44</td>
       <td>27</td>
       <td>above chikou</td>
       <td>-10</td>
@@ -4549,6 +4909,7 @@
     <tr>
       <td>FBIN</td>
       <td>Fortune Brands Innovations</td>
+      <td>39.39</td>
       <td>-15</td>
       <td>below chikou</td>
       <td>-35</td>
@@ -4562,6 +4923,7 @@
     <tr>
       <td>FCN</td>
       <td>FTI Consulting</td>
+      <td>134.29</td>
       <td>-63</td>
       <td>below chikou</td>
       <td>-31</td>
@@ -4575,6 +4937,7 @@
     <tr>
       <td>FCNCA</td>
       <td>First Citizens BancShares</td>
+      <td>2091.36</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-13</td>
@@ -4588,6 +4951,7 @@
     <tr>
       <td>FCX</td>
       <td>Freeport-McMoRan</td>
+      <td>72.30</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>38</td>
@@ -4601,6 +4965,7 @@
     <tr>
       <td>FDS</td>
       <td>FactSet</td>
+      <td>273.05</td>
       <td>-15</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -4614,6 +4979,7 @@
     <tr>
       <td>FDX</td>
       <td>FedEx</td>
+      <td>285.81</td>
       <td>-62</td>
       <td>below chikou</td>
       <td>-8</td>
@@ -4627,6 +4993,7 @@
     <tr>
       <td>FDXF</td>
       <td>FedEx Freight</td>
+      <td>113.16</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-28</td>
@@ -4640,6 +5007,7 @@
     <tr>
       <td>FE</td>
       <td>FirstEnergy</td>
+      <td>43.31</td>
       <td>-89</td>
       <td>below chikou</td>
       <td>-33</td>
@@ -4653,6 +5021,7 @@
     <tr>
       <td>FERG</td>
       <td>Ferguson Enterprises</td>
+      <td>222.75</td>
       <td>28</td>
       <td>above chikou</td>
       <td>-18</td>
@@ -4666,6 +5035,7 @@
     <tr>
       <td>FFIV</td>
       <td>F5, Inc.</td>
+      <td>442.91</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>8</td>
@@ -4679,6 +5049,7 @@
     <tr>
       <td>FHB</td>
       <td>First Hawaiian, Inc.</td>
+      <td>25.25</td>
       <td>-41</td>
       <td>below chikou</td>
       <td>-44</td>
@@ -4692,6 +5063,7 @@
     <tr>
       <td>FHN</td>
       <td>First Horizon Corporation</td>
+      <td>23.48</td>
       <td>-60</td>
       <td>below chikou</td>
       <td>-26</td>
@@ -4705,6 +5077,7 @@
     <tr>
       <td>FICO</td>
       <td>Fair Isaac</td>
+      <td>863.41</td>
       <td>-49</td>
       <td>below chikou</td>
       <td>-38</td>
@@ -4718,6 +5091,7 @@
     <tr>
       <td>FIG</td>
       <td>Figma</td>
+      <td>20.86</td>
       <td>-43</td>
       <td>below chikou</td>
       <td>-13</td>
@@ -4731,6 +5105,7 @@
     <tr>
       <td>FIGR</td>
       <td>Figure Technology Solutions</td>
+      <td>31.91</td>
       <td>-15</td>
       <td>below chikou</td>
       <td>-1</td>
@@ -4744,6 +5119,7 @@
     <tr>
       <td>FIS</td>
       <td>Fidelity National Information Services</td>
+      <td>35.42</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-17</td>
@@ -4757,6 +5133,7 @@
     <tr>
       <td>FISV</td>
       <td>Fiserv</td>
+      <td>46.46</td>
       <td>5</td>
       <td>above chikou</td>
       <td>-16</td>
@@ -4770,6 +5147,7 @@
     <tr>
       <td>FITB</td>
       <td>Fifth Third Bancorp</td>
+      <td>52.08</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-26</td>
@@ -4783,6 +5161,7 @@
     <tr>
       <td>FIVE</td>
       <td>Five Below</td>
+      <td>222.51</td>
       <td>-30</td>
       <td>below chikou</td>
       <td>-4</td>
@@ -4796,6 +5175,7 @@
     <tr>
       <td>FIX</td>
       <td>Comfort Systems USA</td>
+      <td>1657.71</td>
       <td>5</td>
       <td>above chikou</td>
       <td>-26</td>
@@ -4809,6 +5189,7 @@
     <tr>
       <td>FLEX</td>
       <td>Flex Ltd.</td>
+      <td>114.56</td>
       <td>35</td>
       <td>above chikou</td>
       <td>-58</td>
@@ -4822,6 +5203,7 @@
     <tr>
       <td>FLS</td>
       <td>Flowserve</td>
+      <td>73.84</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -4835,6 +5217,7 @@
     <tr>
       <td>FLUT</td>
       <td>Flutter Entertainment</td>
+      <td>83.63</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-6</td>
@@ -4848,6 +5231,7 @@
     <tr>
       <td>FN</td>
       <td>Fabrinet</td>
+      <td>417.76</td>
       <td>6</td>
       <td>above chikou</td>
       <td>-26</td>
@@ -4861,6 +5245,7 @@
     <tr>
       <td>FNB</td>
       <td>FNB Corporation</td>
+      <td>17.65</td>
       <td>-52</td>
       <td>below chikou</td>
       <td>-26</td>
@@ -4874,6 +5259,7 @@
     <tr>
       <td>FND</td>
       <td>Floor & Decor</td>
+      <td>47.07</td>
       <td>-13</td>
       <td>below chikou</td>
       <td>-18</td>
@@ -4887,6 +5273,7 @@
     <tr>
       <td>FNF</td>
       <td>Fidelity National Financial</td>
+      <td>41.43</td>
       <td>-105</td>
       <td>below chikou</td>
       <td>-32</td>
@@ -4900,6 +5287,7 @@
     <tr>
       <td>FORM</td>
       <td>FormFactor, Inc.</td>
+      <td>129.69</td>
       <td>44</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -4913,6 +5301,7 @@
     <tr>
       <td>FOUR</td>
       <td>Shift4</td>
+      <td>38.46</td>
       <td>-52</td>
       <td>below chikou</td>
       <td>-35</td>
@@ -4926,6 +5315,7 @@
     <tr>
       <td>FOX</td>
       <td>Fox Corporation (Class B)</td>
+      <td>56.51</td>
       <td>-44</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -4939,6 +5329,7 @@
     <tr>
       <td>FOXA</td>
       <td>Fox Corporation (Class A)</td>
+      <td>63.06</td>
       <td>-49</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -4952,6 +5343,7 @@
     <tr>
       <td>FPS</td>
       <td>Forgent Power Solutions</td>
+      <td>38.96</td>
       <td>8</td>
       <td>above chikou</td>
       <td>1</td>
@@ -4965,6 +5357,7 @@
     <tr>
       <td>FR</td>
       <td>First Industrial Realty Trust</td>
+      <td>61.19</td>
       <td>-22</td>
       <td>below chikou</td>
       <td>-30</td>
@@ -4978,6 +5371,7 @@
     <tr>
       <td>FRHC</td>
       <td>Freedom Holding</td>
+      <td>171.95</td>
       <td>49</td>
       <td>above chikou</td>
       <td>25</td>
@@ -4991,6 +5385,7 @@
     <tr>
       <td>FRMI</td>
       <td>Fermi Inc.</td>
+      <td>4.53</td>
       <td>-17</td>
       <td>below chikou</td>
       <td>-45</td>
@@ -5004,6 +5399,7 @@
     <tr>
       <td>FRPT</td>
       <td>Freshpet</td>
+      <td>57.91</td>
       <td>-29</td>
       <td>below chikou</td>
       <td>-10</td>
@@ -5017,6 +5413,7 @@
     <tr>
       <td>FRT</td>
       <td>Federal Realty Investment Trust</td>
+      <td>110.50</td>
       <td>-3</td>
       <td>below chikou</td>
       <td>-37</td>
@@ -5030,6 +5427,7 @@
     <tr>
       <td>FSLR</td>
       <td>First Solar</td>
+      <td>177.72</td>
       <td>-19</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -5043,6 +5441,7 @@
     <tr>
       <td>FTAI</td>
       <td>FTAI Aviation</td>
+      <td>175.19</td>
       <td>-23</td>
       <td>below chikou</td>
       <td>-25</td>
@@ -5056,6 +5455,7 @@
     <tr>
       <td>FTI</td>
       <td>TechnipFMC</td>
+      <td>71.00</td>
       <td>2</td>
       <td>above chikou</td>
       <td>-6</td>
@@ -5069,6 +5469,7 @@
     <tr>
       <td>FTNT</td>
       <td>Fortinet</td>
+      <td>173.42</td>
       <td>1</td>
       <td>above chikou</td>
       <td>9</td>
@@ -5082,6 +5483,7 @@
     <tr>
       <td>FTV</td>
       <td>Fortive</td>
+      <td>56.09</td>
       <td>25</td>
       <td>above chikou</td>
       <td>-41</td>
@@ -5095,6 +5497,7 @@
     <tr>
       <td>FWONA</td>
       <td>Liberty Formula 1 (Series A)</td>
+      <td>86.53</td>
       <td>-13</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -5108,6 +5511,7 @@
     <tr>
       <td>FWONK</td>
       <td>Liberty Formula 1 (Series C)</td>
+      <td>94.63</td>
       <td>-13</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -5121,6 +5525,7 @@
     <tr>
       <td>G</td>
       <td>Genpact</td>
+      <td>33.09</td>
       <td>-44</td>
       <td>below chikou</td>
       <td>-1</td>
@@ -5134,6 +5539,7 @@
     <tr>
       <td>GAP</td>
       <td>Gap Inc.</td>
+      <td>21.83</td>
       <td>35</td>
       <td>above chikou</td>
       <td>4</td>
@@ -5147,6 +5553,7 @@
     <tr>
       <td>GD</td>
       <td>General Dynamics</td>
+      <td>336.67</td>
       <td>-48</td>
       <td>below chikou</td>
       <td>-18</td>
@@ -5160,6 +5567,7 @@
     <tr>
       <td>GDDY</td>
       <td>GoDaddy</td>
+      <td>97.18</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>57</td>
@@ -5173,6 +5581,7 @@
     <tr>
       <td>GE</td>
       <td>GE Aerospace</td>
+      <td>327.08</td>
       <td>26</td>
       <td>above chikou</td>
       <td>-18</td>
@@ -5186,6 +5595,7 @@
     <tr>
       <td>GEHC</td>
       <td>GE HealthCare</td>
+      <td>66.62</td>
       <td>49</td>
       <td>above chikou</td>
       <td>-13</td>
@@ -5199,6 +5609,7 @@
     <tr>
       <td>GEN</td>
       <td>Gen Digital</td>
+      <td>21.62</td>
       <td>-44</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -5212,6 +5623,7 @@
     <tr>
       <td>GEV</td>
       <td>GE Vernova</td>
+      <td>957.25</td>
       <td>2</td>
       <td>above chikou</td>
       <td>-42</td>
@@ -5225,6 +5637,7 @@
     <tr>
       <td>GFL</td>
       <td>GFL Environmental</td>
+      <td>42.27</td>
       <td>-23</td>
       <td>below chikou</td>
       <td>61</td>
@@ -5238,6 +5651,7 @@
     <tr>
       <td>GFS</td>
       <td>GlobalFoundries</td>
+      <td>48.99</td>
       <td>6</td>
       <td>above chikou</td>
       <td>-60</td>
@@ -5251,6 +5665,7 @@
     <tr>
       <td>GGG</td>
       <td>Graco Inc.</td>
+      <td>77.85</td>
       <td>27</td>
       <td>above chikou</td>
       <td>-18</td>
@@ -5264,6 +5679,7 @@
     <tr>
       <td>GH</td>
       <td>Guardant Health</td>
+      <td>177.32</td>
       <td>7</td>
       <td>above chikou</td>
       <td>9</td>
@@ -5277,6 +5693,7 @@
     <tr>
       <td>GILD</td>
       <td>Gilead Sciences</td>
+      <td>150.95</td>
       <td>-11</td>
       <td>below chikou</td>
       <td>57</td>
@@ -5290,6 +5707,7 @@
     <tr>
       <td>GIS</td>
       <td>General Mills</td>
+      <td>33.64</td>
       <td>-34</td>
       <td>below chikou</td>
       <td>-5</td>
@@ -5303,6 +5721,7 @@
     <tr>
       <td>GL</td>
       <td>Globe Life</td>
+      <td>167.08</td>
       <td>-33</td>
       <td>below chikou</td>
       <td>-26</td>
@@ -5316,6 +5735,7 @@
     <tr>
       <td>GLPI</td>
       <td>Gaming and Leisure Properties</td>
+      <td>38.79</td>
       <td>-49</td>
       <td>below chikou</td>
       <td>-28</td>
@@ -5329,6 +5749,7 @@
     <tr>
       <td>GLW</td>
       <td>Corning Inc.</td>
+      <td>156.70</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>-9</td>
@@ -5342,6 +5763,7 @@
     <tr>
       <td>GLXY</td>
       <td>Galaxy Digital</td>
+      <td>24.23</td>
       <td>-9</td>
       <td>below chikou</td>
       <td>18</td>
@@ -5355,6 +5777,7 @@
     <tr>
       <td>GM</td>
       <td>General Motors</td>
+      <td>82.65</td>
       <td>-11</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -5368,6 +5791,7 @@
     <tr>
       <td>GME</td>
       <td>GameStop</td>
+      <td>23.40</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>11</td>
@@ -5381,6 +5805,7 @@
     <tr>
       <td>GMED</td>
       <td>Globus Medical</td>
+      <td>74.54</td>
       <td>9</td>
       <td>above chikou</td>
       <td>-15</td>
@@ -5394,6 +5819,7 @@
     <tr>
       <td>GNRC</td>
       <td>Generac</td>
+      <td>208.21</td>
       <td>5</td>
       <td>above chikou</td>
       <td>-59</td>
@@ -5407,6 +5833,7 @@
     <tr>
       <td>GNTX</td>
       <td>Gentex</td>
+      <td>22.58</td>
       <td>5</td>
       <td>above chikou</td>
       <td>-56</td>
@@ -5420,6 +5847,7 @@
     <tr>
       <td>GOOG</td>
       <td>Alphabet (Class C)</td>
+      <td>341.06</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-2</td>
@@ -5433,6 +5861,7 @@
     <tr>
       <td>GOOGL</td>
       <td>Alphabet (Class A)</td>
+      <td>343.84</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-2</td>
@@ -5446,6 +5875,7 @@
     <tr>
       <td>GPC</td>
       <td>Genuine Parts Company</td>
+      <td>129.56</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>-8</td>
@@ -5459,6 +5889,7 @@
     <tr>
       <td>GPK</td>
       <td>Graphic Packaging</td>
+      <td>9.40</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -5472,6 +5903,7 @@
     <tr>
       <td>GPN</td>
       <td>Global Payments</td>
+      <td>86.52</td>
       <td>8</td>
       <td>above chikou</td>
       <td>-4</td>
@@ -5485,6 +5917,7 @@
     <tr>
       <td>GRMN</td>
       <td>Garmin</td>
+      <td>294.13</td>
       <td>31</td>
       <td>above chikou</td>
       <td>-14</td>
@@ -5498,6 +5931,7 @@
     <tr>
       <td>GS</td>
       <td>Goldman Sachs</td>
+      <td>935.15</td>
       <td>-20</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -5511,6 +5945,7 @@
     <tr>
       <td>GSAT</td>
       <td>Globalstar</td>
+      <td>82.89</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-12</td>
@@ -5524,6 +5959,7 @@
     <tr>
       <td>GTES</td>
       <td>Gates Corporation</td>
+      <td>26.86</td>
       <td>25</td>
       <td>above chikou</td>
       <td>-13</td>
@@ -5537,6 +5973,7 @@
     <tr>
       <td>GTLB</td>
       <td>GitLab</td>
+      <td>46.84</td>
       <td>-22</td>
       <td>below chikou</td>
       <td>91</td>
@@ -5550,6 +5987,7 @@
     <tr>
       <td>GTM</td>
       <td>ZoomInfo</td>
+      <td>3.74</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-7</td>
@@ -5563,6 +6001,7 @@
     <tr>
       <td>GWRE</td>
       <td>Guidewire Software</td>
+      <td>145.67</td>
       <td>-6</td>
       <td>below chikou</td>
       <td>-13</td>
@@ -5576,6 +6015,7 @@
     <tr>
       <td>GWW</td>
       <td>W. W. Grainger</td>
+      <td>1243.07</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>-37</td>
@@ -5589,6 +6029,7 @@
     <tr>
       <td>GXO</td>
       <td>GXO Logistics</td>
+      <td>45.19</td>
       <td>-39</td>
       <td>below chikou</td>
       <td>-36</td>
@@ -5602,6 +6043,7 @@
     <tr>
       <td>H</td>
       <td>Hyatt Hotels</td>
+      <td>158.49</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-50</td>
@@ -5615,6 +6057,7 @@
     <tr>
       <td>HAL</td>
       <td>Halliburton</td>
+      <td>32.76</td>
       <td>-92</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -5628,6 +6071,7 @@
     <tr>
       <td>HALO</td>
       <td>Halozyme</td>
+      <td>113.91</td>
       <td>54</td>
       <td>above chikou</td>
       <td>79</td>
@@ -5641,6 +6085,7 @@
     <tr>
       <td>HAS</td>
       <td>Hasbro</td>
+      <td>88.13</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-15</td>
@@ -5654,6 +6099,7 @@
     <tr>
       <td>HAYW</td>
       <td>Hayward Holdings</td>
+      <td>12.63</td>
       <td>-23</td>
       <td>below chikou</td>
       <td>-18</td>
@@ -5667,6 +6113,7 @@
     <tr>
       <td>HBAN</td>
       <td>Huntington Bancshares</td>
+      <td>15.63</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-27</td>
@@ -5680,6 +6127,7 @@
     <tr>
       <td>HCA</td>
       <td>HCA Healthcare</td>
+      <td>435.73</td>
       <td>7</td>
       <td>above chikou</td>
       <td>27</td>
@@ -5693,6 +6141,7 @@
     <tr>
       <td>HD</td>
       <td>Home Depot (The)</td>
+      <td>293.07</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -5706,6 +6155,7 @@
     <tr>
       <td>HEI</td>
       <td>HEICO (Common)</td>
+      <td>308.49</td>
       <td>35</td>
       <td>above chikou</td>
       <td>-18</td>
@@ -5719,6 +6169,7 @@
     <tr>
       <td>HEI-A</td>
       <td>HEICO (Class A)</td>
+      <td>231.81</td>
       <td>34</td>
       <td>above chikou</td>
       <td>-18</td>
@@ -5732,6 +6183,7 @@
     <tr>
       <td>HHH</td>
       <td>Howard Hughes Holdings</td>
+      <td>68.43</td>
       <td>35</td>
       <td>above chikou</td>
       <td>-46</td>
@@ -5745,6 +6197,7 @@
     <tr>
       <td>HIG</td>
       <td>Hartford (The)</td>
+      <td>124.21</td>
       <td>-61</td>
       <td>below chikou</td>
       <td>-22</td>
@@ -5758,6 +6211,7 @@
     <tr>
       <td>HII</td>
       <td>Huntington Ingalls Industries</td>
+      <td>263.98</td>
       <td>-133</td>
       <td>below chikou</td>
       <td>-14</td>
@@ -5771,6 +6225,7 @@
     <tr>
       <td>HL</td>
       <td>Hecla Mining</td>
+      <td>18.19</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-2</td>
@@ -5784,6 +6239,7 @@
     <tr>
       <td>HLI</td>
       <td>Houlihan Lokey</td>
+      <td>129.11</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>14</td>
@@ -5797,6 +6253,7 @@
     <tr>
       <td>HLNE</td>
       <td>Hamilton Lane</td>
+      <td>86.30</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -5810,6 +6267,7 @@
     <tr>
       <td>HLT</td>
       <td>Hilton Worldwide</td>
+      <td>313.91</td>
       <td>25</td>
       <td>above chikou</td>
       <td>-18</td>
@@ -5823,6 +6281,7 @@
     <tr>
       <td>HON</td>
       <td>Honeywell Technologies</td>
+      <td>212.87</td>
       <td>27</td>
       <td>above chikou</td>
       <td>-25</td>
@@ -5836,6 +6295,7 @@
     <tr>
       <td>HONA</td>
       <td>Honeywell Aerospace</td>
+      <td>158.78</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-45</td>
@@ -5849,6 +6309,7 @@
     <tr>
       <td>HOOD</td>
       <td>Robinhood Markets</td>
+      <td>119.46</td>
       <td>-9</td>
       <td>below chikou</td>
       <td>22</td>
@@ -5862,6 +6323,7 @@
     <tr>
       <td>HPE</td>
       <td>Hewlett Packard Enterprise</td>
+      <td>62.95</td>
       <td>21</td>
       <td>above chikou</td>
       <td>38</td>
@@ -5875,6 +6337,7 @@
     <tr>
       <td>HPQ</td>
       <td>HP Inc.</td>
+      <td>31.30</td>
       <td>-35</td>
       <td>below chikou</td>
       <td>44</td>
@@ -5888,6 +6351,7 @@
     <tr>
       <td>HR</td>
       <td>Healthcare Realty Trust</td>
+      <td>18.05</td>
       <td>-61</td>
       <td>below chikou</td>
       <td>-37</td>
@@ -5901,6 +6365,7 @@
     <tr>
       <td>HRB</td>
       <td>H&R Block</td>
+      <td>42.21</td>
       <td>-47</td>
       <td>below chikou</td>
       <td>-6</td>
@@ -5914,6 +6379,7 @@
     <tr>
       <td>HRL</td>
       <td>Hormel Foods</td>
+      <td>19.70</td>
       <td>-33</td>
       <td>below chikou</td>
       <td>-27</td>
@@ -5927,6 +6393,7 @@
     <tr>
       <td>HSIC</td>
       <td>Schein (Henry)</td>
+      <td>86.38</td>
       <td>9</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -5940,6 +6407,7 @@
     <tr>
       <td>HST</td>
       <td>Host Hotels & Resorts</td>
+      <td>22.42</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-35</td>
@@ -5953,6 +6421,7 @@
     <tr>
       <td>HSY</td>
       <td>Hershey Company (The)</td>
+      <td>166.31</td>
       <td>-11</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -5966,6 +6435,7 @@
     <tr>
       <td>HUBB</td>
       <td>Hubbell Incorporated</td>
+      <td>466.61</td>
       <td>42</td>
       <td>above chikou</td>
       <td>-25</td>
@@ -5979,6 +6449,7 @@
     <tr>
       <td>HUBS</td>
       <td>HubSpot</td>
+      <td>213.74</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>2</td>
@@ -5992,6 +6463,7 @@
     <tr>
       <td>HUM</td>
       <td>Humana</td>
+      <td>398.13</td>
       <td>7</td>
       <td>above chikou</td>
       <td>-4</td>
@@ -6005,6 +6477,7 @@
     <tr>
       <td>HWM</td>
       <td>Howmet Aerospace</td>
+      <td>232.31</td>
       <td>21</td>
       <td>above chikou</td>
       <td>-23</td>
@@ -6018,6 +6491,7 @@
     <tr>
       <td>HXL</td>
       <td>Hexcel</td>
+      <td>85.80</td>
       <td>-49</td>
       <td>below chikou</td>
       <td>-26</td>
@@ -6031,6 +6505,7 @@
     <tr>
       <td>IBKR</td>
       <td>Interactive Brokers</td>
+      <td>89.25</td>
       <td>-13</td>
       <td>below chikou</td>
       <td>-1</td>
@@ -6044,6 +6519,7 @@
     <tr>
       <td>IBM</td>
       <td>IBM</td>
+      <td>225.47</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>-5</td>
@@ -6057,6 +6533,7 @@
     <tr>
       <td>ICE</td>
       <td>Intercontinental Exchange</td>
+      <td>154.25</td>
       <td>1</td>
       <td>above chikou</td>
       <td>50</td>
@@ -6070,6 +6547,7 @@
     <tr>
       <td>IDA</td>
       <td>Idacorp</td>
+      <td>129.82</td>
       <td>-71</td>
       <td>below chikou</td>
       <td>-40</td>
@@ -6083,6 +6561,7 @@
     <tr>
       <td>IDXX</td>
       <td>Idexx Laboratories</td>
+      <td>519.22</td>
       <td>27</td>
       <td>above chikou</td>
       <td>-17</td>
@@ -6096,6 +6575,7 @@
     <tr>
       <td>IESC</td>
       <td>IES Holdings</td>
+      <td>324.32</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-12</td>
@@ -6109,6 +6589,7 @@
     <tr>
       <td>IEX</td>
       <td>IDEX Corporation</td>
+      <td>230.21</td>
       <td>38</td>
       <td>above chikou</td>
       <td>-15</td>
@@ -6122,6 +6603,7 @@
     <tr>
       <td>IFF</td>
       <td>International Flavors & Fragrances</td>
+      <td>85.69</td>
       <td>28</td>
       <td>above chikou</td>
       <td>3</td>
@@ -6135,6 +6617,7 @@
     <tr>
       <td>ILMN</td>
       <td>Illumina, Inc.</td>
+      <td>270.00</td>
       <td>63</td>
       <td>above chikou</td>
       <td>102</td>
@@ -6148,6 +6631,7 @@
     <tr>
       <td>INCY</td>
       <td>Incyte</td>
+      <td>123.98</td>
       <td>-20</td>
       <td>below chikou</td>
       <td>67</td>
@@ -6161,6 +6645,7 @@
     <tr>
       <td>INGM</td>
       <td>Ingram Micro</td>
+      <td>26.99</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-28</td>
@@ -6174,6 +6659,7 @@
     <tr>
       <td>INGR</td>
       <td>Ingredion</td>
+      <td>96.71</td>
       <td>-116</td>
       <td>below chikou</td>
       <td>-10</td>
@@ -6187,6 +6673,7 @@
     <tr>
       <td>INSM</td>
       <td>Insmed</td>
+      <td>117.83</td>
       <td>-28</td>
       <td>below chikou</td>
       <td>-9</td>
@@ -6200,6 +6687,7 @@
     <tr>
       <td>INTC</td>
       <td>Intel</td>
+      <td>122.96</td>
       <td>49</td>
       <td>above chikou</td>
       <td>7</td>
@@ -6213,6 +6701,7 @@
     <tr>
       <td>INTU</td>
       <td>Intuit</td>
+      <td>275.72</td>
       <td>-47</td>
       <td>below chikou</td>
       <td>-7</td>
@@ -6226,6 +6715,7 @@
     <tr>
       <td>INVH</td>
       <td>Invitation Homes</td>
+      <td>26.62</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-20</td>
@@ -6239,6 +6729,7 @@
     <tr>
       <td>IONQ</td>
       <td>IonQ</td>
+      <td>45.50</td>
       <td>39</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -6252,6 +6743,7 @@
     <tr>
       <td>IONS</td>
       <td>Ionis Pharmaceuticals</td>
+      <td>44.49</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>-9</td>
@@ -6265,6 +6757,7 @@
     <tr>
       <td>IOT</td>
       <td>Samsara</td>
+      <td>37.98</td>
       <td>8</td>
       <td>above chikou</td>
       <td>-4</td>
@@ -6278,6 +6771,7 @@
     <tr>
       <td>IP</td>
       <td>International Paper</td>
+      <td>35.04</td>
       <td>-9</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -6291,6 +6785,7 @@
     <tr>
       <td>IPGP</td>
       <td>IPG Photonics</td>
+      <td>78.13</td>
       <td>5</td>
       <td>above chikou</td>
       <td>-62</td>
@@ -6304,6 +6799,7 @@
     <tr>
       <td>IQV</td>
       <td>IQVIA</td>
+      <td>269.78</td>
       <td>14</td>
       <td>above chikou</td>
       <td>65</td>
@@ -6317,6 +6813,7 @@
     <tr>
       <td>IR</td>
       <td>Ingersoll Rand</td>
+      <td>76.07</td>
       <td>36</td>
       <td>above chikou</td>
       <td>-24</td>
@@ -6330,6 +6827,7 @@
     <tr>
       <td>IRDM</td>
       <td>Iridium Communications</td>
+      <td>48.73</td>
       <td>47</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -6343,6 +6841,7 @@
     <tr>
       <td>IREN</td>
       <td>IREN</td>
+      <td>44.13</td>
       <td>-9</td>
       <td>below chikou</td>
       <td>16</td>
@@ -6356,6 +6855,7 @@
     <tr>
       <td>IRM</td>
       <td>Iron Mountain</td>
+      <td>111.38</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>-22</td>
@@ -6369,6 +6869,7 @@
     <tr>
       <td>ISRG</td>
       <td>Intuitive Surgical</td>
+      <td>405.18</td>
       <td>77</td>
       <td>above chikou</td>
       <td>2</td>
@@ -6382,6 +6883,7 @@
     <tr>
       <td>IT</td>
       <td>Gartner</td>
+      <td>187.91</td>
       <td>7</td>
       <td>above chikou</td>
       <td>9</td>
@@ -6395,6 +6897,7 @@
     <tr>
       <td>ITT</td>
       <td>ITT Inc.</td>
+      <td>206.28</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -6408,6 +6911,7 @@
     <tr>
       <td>ITW</td>
       <td>Illinois Tool Works</td>
+      <td>274.14</td>
       <td>24</td>
       <td>above chikou</td>
       <td>-18</td>
@@ -6421,6 +6925,7 @@
     <tr>
       <td>IVZ</td>
       <td>Invesco</td>
+      <td>30.93</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-8</td>
@@ -6434,6 +6939,7 @@
     <tr>
       <td>J</td>
       <td>Jacobs Solutions</td>
+      <td>138.25</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-10</td>
@@ -6447,6 +6953,7 @@
     <tr>
       <td>JAN</td>
       <td>Janus Living</td>
+      <td>30.06</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-2</td>
@@ -6460,6 +6967,7 @@
     <tr>
       <td>JAZZ</td>
       <td>Jazz Pharmaceuticals</td>
+      <td>237.96</td>
       <td>-30</td>
       <td>below chikou</td>
       <td>-19</td>
@@ -6473,6 +6981,7 @@
     <tr>
       <td>JBHT</td>
       <td>J. B. Hunt</td>
+      <td>225.33</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-7</td>
@@ -6486,6 +6995,7 @@
     <tr>
       <td>JBL</td>
       <td>Jabil</td>
+      <td>316.80</td>
       <td>26</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -6499,6 +7009,7 @@
     <tr>
       <td>JBS</td>
       <td>JBS N.V.</td>
+      <td>11.57</td>
       <td>-112</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -6512,6 +7023,7 @@
     <tr>
       <td>JCI</td>
       <td>Johnson Controls</td>
+      <td>150.15</td>
       <td>44</td>
       <td>above chikou</td>
       <td>-19</td>
@@ -6525,6 +7037,7 @@
     <tr>
       <td>JEF</td>
       <td>Jefferies Financial Group</td>
+      <td>47.67</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-10</td>
@@ -6538,6 +7051,7 @@
     <tr>
       <td>JHX</td>
       <td>James Hardie Industries</td>
+      <td>26.09</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>-8</td>
@@ -6551,6 +7065,7 @@
     <tr>
       <td>JKHY</td>
       <td>Jack Henry & Associates</td>
+      <td>147.81</td>
       <td>-59</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -6564,6 +7079,7 @@
     <tr>
       <td>JLL</td>
       <td>Jones Lang LaSalle</td>
+      <td>321.99</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-13</td>
@@ -6577,6 +7093,7 @@
     <tr>
       <td>JNJ</td>
       <td>Johnson & Johnson</td>
+      <td>271.19</td>
       <td>3</td>
       <td>above chikou</td>
       <td>28</td>
@@ -6590,6 +7107,7 @@
     <tr>
       <td>JPM</td>
       <td>JPMorgan Chase</td>
+      <td>342.92</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -6603,6 +7121,7 @@
     <tr>
       <td>KBR</td>
       <td>KBR, Inc.</td>
+      <td>34.53</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -6616,6 +7135,7 @@
     <tr>
       <td>KD</td>
       <td>Kyndryl</td>
+      <td>11.61</td>
       <td>-45</td>
       <td>below chikou</td>
       <td>-13</td>
@@ -6629,6 +7149,7 @@
     <tr>
       <td>KDP</td>
       <td>Keurig Dr Pepper</td>
+      <td>31.96</td>
       <td>16</td>
       <td>above chikou</td>
       <td>25</td>
@@ -6642,6 +7163,7 @@
     <tr>
       <td>KEX</td>
       <td>Kirby Corporation</td>
+      <td>128.87</td>
       <td>-37</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -6655,6 +7177,7 @@
     <tr>
       <td>KEY</td>
       <td>Keycorp</td>
+      <td>20.61</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-28</td>
@@ -6668,6 +7191,7 @@
     <tr>
       <td>KEYS</td>
       <td>Keysight</td>
+      <td>362.22</td>
       <td>44</td>
       <td>above chikou</td>
       <td>1</td>
@@ -6681,6 +7205,7 @@
     <tr>
       <td>KHC</td>
       <td>Kraft Heinz</td>
+      <td>23.62</td>
       <td>-33</td>
       <td>below chikou</td>
       <td>-4</td>
@@ -6694,6 +7219,7 @@
     <tr>
       <td>KIM</td>
       <td>Kimco Realty</td>
+      <td>22.44</td>
       <td>-100</td>
       <td>below chikou</td>
       <td>-37</td>
@@ -6707,6 +7233,7 @@
     <tr>
       <td>KKR</td>
       <td>KKR & Co. Inc.</td>
+      <td>96.67</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -6720,6 +7247,7 @@
     <tr>
       <td>KLAC</td>
       <td>KLA Corporation</td>
+      <td>187.91</td>
       <td>42</td>
       <td>above chikou</td>
       <td>-48</td>
@@ -6733,6 +7261,7 @@
     <tr>
       <td>KMB</td>
       <td>Kimberly-Clark</td>
+      <td>98.45</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -6746,6 +7275,7 @@
     <tr>
       <td>KMI</td>
       <td>Kinder Morgan</td>
+      <td>30.74</td>
       <td>-15</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -6759,6 +7289,7 @@
     <tr>
       <td>KMX</td>
       <td>CarMax</td>
+      <td>57.17</td>
       <td>-18</td>
       <td>below chikou</td>
       <td>-5</td>
@@ -6772,6 +7303,7 @@
     <tr>
       <td>KNSL</td>
       <td>Kinsale Capital Group</td>
+      <td>330.35</td>
       <td>-44</td>
       <td>below chikou</td>
       <td>-10</td>
@@ -6785,6 +7317,7 @@
     <tr>
       <td>KNX</td>
       <td>Knight-Swift</td>
+      <td>63.65</td>
       <td>-11</td>
       <td>below chikou</td>
       <td>-10</td>
@@ -6798,6 +7331,7 @@
     <tr>
       <td>KO</td>
       <td>Coca-Cola Company (The)</td>
+      <td>87.82</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>77</td>
@@ -6811,6 +7345,7 @@
     <tr>
       <td>KR</td>
       <td>Kroger</td>
+      <td>58.75</td>
       <td>-41</td>
       <td>below chikou</td>
       <td>10</td>
@@ -6824,6 +7359,7 @@
     <tr>
       <td>KRC</td>
       <td>Kilroy Realty</td>
+      <td>34.23</td>
       <td>-9</td>
       <td>below chikou</td>
       <td>-35</td>
@@ -6837,6 +7373,7 @@
     <tr>
       <td>KRMN</td>
       <td>Karman Holdings</td>
+      <td>35.70</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-19</td>
@@ -6850,6 +7387,7 @@
     <tr>
       <td>KTOS</td>
       <td>Kratos Defense & Security Solutions</td>
+      <td>45.64</td>
       <td>-28</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -6863,6 +7401,7 @@
     <tr>
       <td>KVUE</td>
       <td>Kenvue</td>
+      <td>17.82</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -6876,6 +7415,7 @@
     <tr>
       <td>KVYO</td>
       <td>Klaviyo</td>
+      <td>15.79</td>
       <td>21</td>
       <td>above chikou</td>
       <td>-12</td>
@@ -6889,6 +7429,7 @@
     <tr>
       <td>L</td>
       <td>Loews Corporation</td>
+      <td>104.82</td>
       <td>-49</td>
       <td>below chikou</td>
       <td>-32</td>
@@ -6902,6 +7443,7 @@
     <tr>
       <td>LAD</td>
       <td>Lithia Motors</td>
+      <td>316.09</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-14</td>
@@ -6915,6 +7457,7 @@
     <tr>
       <td>LAMR</td>
       <td>Lamar Advertising</td>
+      <td>144.05</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-33</td>
@@ -6928,6 +7471,7 @@
     <tr>
       <td>LAZ</td>
       <td>Lazard</td>
+      <td>36.72</td>
       <td>21</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -6941,6 +7485,7 @@
     <tr>
       <td>LBRDA</td>
       <td>Liberty Broadband (Series A)</td>
+      <td>36.04</td>
       <td>-3</td>
       <td>below chikou</td>
       <td>3</td>
@@ -6954,6 +7499,7 @@
     <tr>
       <td>LBRDK</td>
       <td>Liberty Broadband (Series C)</td>
+      <td>35.98</td>
       <td>-3</td>
       <td>below chikou</td>
       <td>0</td>
@@ -6967,6 +7513,7 @@
     <tr>
       <td>LBTYA</td>
       <td>Liberty Global (Series A)</td>
+      <td>9.45</td>
       <td>-57</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -6980,6 +7527,7 @@
     <tr>
       <td>LBTYK</td>
       <td>Liberty Global (Series C)</td>
+      <td>9.26</td>
       <td>-61</td>
       <td>below chikou</td>
       <td>-8</td>
@@ -6993,6 +7541,7 @@
     <tr>
       <td>LDOS</td>
       <td>Leidos</td>
+      <td>123.61</td>
       <td>-43</td>
       <td>below chikou</td>
       <td>-8</td>
@@ -7006,6 +7555,7 @@
     <tr>
       <td>LEA</td>
       <td>Lear Corporation</td>
+      <td>122.72</td>
       <td>6</td>
       <td>above chikou</td>
       <td>-2</td>
@@ -7019,6 +7569,7 @@
     <tr>
       <td>LECO</td>
       <td>Lincoln Electric</td>
+      <td>271.81</td>
       <td>56</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -7032,6 +7583,7 @@
     <tr>
       <td>LEN</td>
       <td>Lennar (Class A)</td>
+      <td>82.13</td>
       <td>28</td>
       <td>above chikou</td>
       <td>-17</td>
@@ -7045,6 +7597,7 @@
     <tr>
       <td>LEN-B</td>
       <td>Lennar (Class B)</td>
+      <td>80.50</td>
       <td>28</td>
       <td>above chikou</td>
       <td>-17</td>
@@ -7058,6 +7611,7 @@
     <tr>
       <td>LFUS</td>
       <td>Littelfuse</td>
+      <td>429.46</td>
       <td>41</td>
       <td>above chikou</td>
       <td>-14</td>
@@ -7071,6 +7625,7 @@
     <tr>
       <td>LH</td>
       <td>Labcorp</td>
+      <td>309.64</td>
       <td>-32</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -7084,6 +7639,7 @@
     <tr>
       <td>LHX</td>
       <td>L3Harris</td>
+      <td>237.58</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-40</td>
@@ -7097,6 +7653,7 @@
     <tr>
       <td>LII</td>
       <td>Lennox International</td>
+      <td>373.89</td>
       <td>33</td>
       <td>above chikou</td>
       <td>-41</td>
@@ -7110,6 +7667,7 @@
     <tr>
       <td>LIN</td>
       <td>Linde plc</td>
+      <td>469.86</td>
       <td>25</td>
       <td>above chikou</td>
       <td>-47</td>
@@ -7123,6 +7681,7 @@
     <tr>
       <td>LINE</td>
       <td>Lineage, Inc.</td>
+      <td>36.13</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-37</td>
@@ -7136,6 +7695,7 @@
     <tr>
       <td>LITE</td>
       <td>Lumentum</td>
+      <td>941.64</td>
       <td>-9</td>
       <td>below chikou</td>
       <td>6</td>
@@ -7149,6 +7709,7 @@
     <tr>
       <td>LKQ</td>
       <td>LKQ Corporation</td>
+      <td>23.30</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>-8</td>
@@ -7162,6 +7723,7 @@
     <tr>
       <td>LLY</td>
       <td>Lilly (Eli)</td>
+      <td>1184.33</td>
       <td>4</td>
       <td>above chikou</td>
       <td>-18</td>
@@ -7175,6 +7737,7 @@
     <tr>
       <td>LLYVA</td>
       <td>Liberty Live (Series A)</td>
+      <td>96.24</td>
       <td>20</td>
       <td>above chikou</td>
       <td>-16</td>
@@ -7188,6 +7751,7 @@
     <tr>
       <td>LLYVK</td>
       <td>Liberty Live (Series C)</td>
+      <td>99.41</td>
       <td>20</td>
       <td>above chikou</td>
       <td>-15</td>
@@ -7201,6 +7765,7 @@
     <tr>
       <td>LMT</td>
       <td>Lockheed Martin</td>
+      <td>519.47</td>
       <td>-20</td>
       <td>below chikou</td>
       <td>-18</td>
@@ -7214,6 +7779,7 @@
     <tr>
       <td>LNC</td>
       <td>Lincoln Financial</td>
+      <td>41.71</td>
       <td>3</td>
       <td>above chikou</td>
       <td>-13</td>
@@ -7227,6 +7793,7 @@
     <tr>
       <td>LNG</td>
       <td>Cheniere Energy</td>
+      <td>268.65</td>
       <td>-5</td>
       <td>below chikou</td>
       <td>60</td>
@@ -7240,6 +7807,7 @@
     <tr>
       <td>LNT</td>
       <td>Alliant Energy</td>
+      <td>63.61</td>
       <td>-84</td>
       <td>below chikou</td>
       <td>-41</td>
@@ -7253,6 +7821,7 @@
     <tr>
       <td>LOAR</td>
       <td>Loar Holdings</td>
+      <td>65.06</td>
       <td>5</td>
       <td>above chikou</td>
       <td>-17</td>
@@ -7266,6 +7835,7 @@
     <tr>
       <td>LOPE</td>
       <td>Grand Canyon Education</td>
+      <td>147.39</td>
       <td>-44</td>
       <td>below chikou</td>
       <td>24</td>
@@ -7279,6 +7849,7 @@
     <tr>
       <td>LOW</td>
       <td>Lowe's</td>
+      <td>189.22</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -7292,6 +7863,7 @@
     <tr>
       <td>LPLA</td>
       <td>LPL Financial</td>
+      <td>314.59</td>
       <td>-69</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -7305,6 +7877,7 @@
     <tr>
       <td>LPX</td>
       <td>Louisiana-Pacific</td>
+      <td>66.74</td>
       <td>28</td>
       <td>above chikou</td>
       <td>-23</td>
@@ -7318,6 +7891,7 @@
     <tr>
       <td>LRCX</td>
       <td>Lam Research</td>
+      <td>315.29</td>
       <td>42</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -7331,6 +7905,7 @@
     <tr>
       <td>LSCC</td>
       <td>Lattice Semiconductor</td>
+      <td>128.11</td>
       <td>42</td>
       <td>above chikou</td>
       <td>-59</td>
@@ -7344,6 +7919,7 @@
     <tr>
       <td>LSTR</td>
       <td>Landstar</td>
+      <td>163.78</td>
       <td>-27</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -7357,6 +7933,7 @@
     <tr>
       <td>LULU</td>
       <td>Lululemon Athletica</td>
+      <td>101.30</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-14</td>
@@ -7370,6 +7947,7 @@
     <tr>
       <td>LUV</td>
       <td>Southwest Airlines</td>
+      <td>42.70</td>
       <td>12</td>
       <td>above chikou</td>
       <td>-45</td>
@@ -7383,6 +7961,7 @@
     <tr>
       <td>LVS</td>
       <td>Las Vegas Sands</td>
+      <td>38.97</td>
       <td>-92</td>
       <td>below chikou</td>
       <td>-20</td>
@@ -7396,6 +7975,7 @@
     <tr>
       <td>LW</td>
       <td>Lamb Weston</td>
+      <td>43.60</td>
       <td>-48</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -7409,6 +7989,7 @@
     <tr>
       <td>LYB</td>
       <td>LyondellBasell</td>
+      <td>58.14</td>
       <td>-41</td>
       <td>below chikou</td>
       <td>-5</td>
@@ -7422,6 +8003,7 @@
     <tr>
       <td>LYFT</td>
       <td>Lyft</td>
+      <td>14.87</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -7435,6 +8017,7 @@
     <tr>
       <td>LYV</td>
       <td>Live Nation Entertainment</td>
+      <td>171.01</td>
       <td>4</td>
       <td>above chikou</td>
       <td>-17</td>
@@ -7448,6 +8031,7 @@
     <tr>
       <td>M</td>
       <td>Macy's, Inc.</td>
+      <td>22.64</td>
       <td>34</td>
       <td>above chikou</td>
       <td>-25</td>
@@ -7461,6 +8045,7 @@
     <tr>
       <td>MA</td>
       <td>Mastercard</td>
+      <td>567.80</td>
       <td>5</td>
       <td>above chikou</td>
       <td>-3</td>
@@ -7474,6 +8059,7 @@
     <tr>
       <td>MAA</td>
       <td>Mid-America Apartment Communities</td>
+      <td>118.39</td>
       <td>-100</td>
       <td>below chikou</td>
       <td>-37</td>
@@ -7487,6 +8073,7 @@
     <tr>
       <td>MANH</td>
       <td>Manhattan Associates</td>
+      <td>206.03</td>
       <td>1</td>
       <td>above chikou</td>
       <td>62</td>
@@ -7500,6 +8087,7 @@
     <tr>
       <td>MAR</td>
       <td>Marriott International</td>
+      <td>351.99</td>
       <td>36</td>
       <td>above chikou</td>
       <td>-57</td>
@@ -7513,6 +8101,7 @@
     <tr>
       <td>MAS</td>
       <td>Masco</td>
+      <td>68.86</td>
       <td>5</td>
       <td>above chikou</td>
       <td>-12</td>
@@ -7526,6 +8115,7 @@
     <tr>
       <td>MAT</td>
       <td>Mattel</td>
+      <td>13.30</td>
       <td>8</td>
       <td>above chikou</td>
       <td>-16</td>
@@ -7539,6 +8129,7 @@
     <tr>
       <td>MBGL</td>
       <td>Mobility Global</td>
+      <td>17.89</td>
       <td>-54</td>
       <td>below chikou</td>
       <td>-4</td>
@@ -7552,6 +8143,7 @@
     <tr>
       <td>MCD</td>
       <td>McDonald's</td>
+      <td>236.51</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -7565,6 +8157,7 @@
     <tr>
       <td>MCHP</td>
       <td>Microchip Technology</td>
+      <td>78.66</td>
       <td>42</td>
       <td>above chikou</td>
       <td>-66</td>
@@ -7578,6 +8171,7 @@
     <tr>
       <td>MCK</td>
       <td>McKesson Corporation</td>
+      <td>866.73</td>
       <td>-9</td>
       <td>below chikou</td>
       <td>59</td>
@@ -7591,6 +8185,7 @@
     <tr>
       <td>MCO</td>
       <td>Moody's Corporation</td>
+      <td>468.71</td>
       <td>-13</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -7604,6 +8199,7 @@
     <tr>
       <td>MDB</td>
       <td>MongoDB Inc.</td>
+      <td>410.35</td>
       <td>71</td>
       <td>above chikou</td>
       <td>-8</td>
@@ -7617,6 +8213,7 @@
     <tr>
       <td>MDGL</td>
       <td>Madrigal Pharmaceuticals</td>
+      <td>516.01</td>
       <td>-31</td>
       <td>below chikou</td>
       <td>-1</td>
@@ -7630,6 +8227,7 @@
     <tr>
       <td>MDLN</td>
       <td>Medline Inc.</td>
+      <td>34.69</td>
       <td>25</td>
       <td>above chikou</td>
       <td>-36</td>
@@ -7643,6 +8241,7 @@
     <tr>
       <td>MDLZ</td>
       <td>Mondelez International</td>
+      <td>60.26</td>
       <td>-6</td>
       <td>below chikou</td>
       <td>-5</td>
@@ -7656,6 +8255,7 @@
     <tr>
       <td>MDT</td>
       <td>Medtronic</td>
+      <td>88.62</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-2</td>
@@ -7669,6 +8269,7 @@
     <tr>
       <td>MDU</td>
       <td>MDU Resources</td>
+      <td>18.76</td>
       <td>4</td>
       <td>above chikou</td>
       <td>-48</td>
@@ -7682,6 +8283,7 @@
     <tr>
       <td>MEDP</td>
       <td>Medpace</td>
+      <td>618.39</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>15</td>
@@ -7695,6 +8297,7 @@
     <tr>
       <td>MET</td>
       <td>Metlife</td>
+      <td>97.70</td>
       <td>14</td>
       <td>above chikou</td>
       <td>-3</td>
@@ -7708,6 +8311,7 @@
     <tr>
       <td>META</td>
       <td>Meta Platforms</td>
+      <td>751.90</td>
       <td>124</td>
       <td>above chikou</td>
       <td>15</td>
@@ -7721,6 +8325,7 @@
     <tr>
       <td>MFP</td>
       <td>Midera Food Processing</td>
+      <td>42.64</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -7734,6 +8339,7 @@
     <tr>
       <td>MGM</td>
       <td>MGM Resorts International</td>
+      <td>32.58</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-55</td>
@@ -7747,6 +8353,7 @@
     <tr>
       <td>MHK</td>
       <td>Mohawk Industries</td>
+      <td>125.15</td>
       <td>7</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -7760,6 +8367,7 @@
     <tr>
       <td>MIDD</td>
       <td>Middleby</td>
+      <td>107.66</td>
       <td>-18</td>
       <td>below chikou</td>
       <td>-41</td>
@@ -7773,6 +8381,7 @@
     <tr>
       <td>MKC</td>
       <td>McCormick & Company</td>
+      <td>47.96</td>
       <td>-114</td>
       <td>below chikou</td>
       <td>-10</td>
@@ -7786,6 +8395,7 @@
     <tr>
       <td>MKL</td>
       <td>Markel</td>
+      <td>1727.18</td>
       <td>-32</td>
       <td>below chikou</td>
       <td>-39</td>
@@ -7799,6 +8409,7 @@
     <tr>
       <td>MKSI</td>
       <td>MKS Instruments</td>
+      <td>260.77</td>
       <td>42</td>
       <td>above chikou</td>
       <td>-45</td>
@@ -7812,6 +8423,7 @@
     <tr>
       <td>MKTX</td>
       <td>MarketAxess</td>
+      <td>164.20</td>
       <td>57</td>
       <td>above chikou</td>
       <td>41</td>
@@ -7825,6 +8437,7 @@
     <tr>
       <td>MLI</td>
       <td>Mueller Industries</td>
+      <td>60.53</td>
       <td>2</td>
       <td>above chikou</td>
       <td>-18</td>
@@ -7838,6 +8451,7 @@
     <tr>
       <td>MLM</td>
       <td>Martin Marietta Materials</td>
+      <td>484.24</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>-46</td>
@@ -7851,6 +8465,7 @@
     <tr>
       <td>MMM</td>
       <td>3M</td>
+      <td>169.55</td>
       <td>46</td>
       <td>above chikou</td>
       <td>-17</td>
@@ -7864,6 +8479,7 @@
     <tr>
       <td>MNST</td>
       <td>Monster Beverage</td>
+      <td>43.10</td>
       <td>-35</td>
       <td>below chikou</td>
       <td>-38</td>
@@ -7877,6 +8493,7 @@
     <tr>
       <td>MO</td>
       <td>Altria</td>
+      <td>68.81</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>11</td>
@@ -7890,6 +8507,7 @@
     <tr>
       <td>MOD</td>
       <td>Modine Manufacturing</td>
+      <td>198.31</td>
       <td>5</td>
       <td>above chikou</td>
       <td>-60</td>
@@ -7903,6 +8521,7 @@
     <tr>
       <td>MOH</td>
       <td>Molina Healthcare</td>
+      <td>190.94</td>
       <td>-43</td>
       <td>below chikou</td>
       <td>-4</td>
@@ -7916,6 +8535,7 @@
     <tr>
       <td>MORN</td>
       <td>Morningstar, Inc.</td>
+      <td>195.98</td>
       <td>-34</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -7929,6 +8549,7 @@
     <tr>
       <td>MOS</td>
       <td>Mosaic Company (The)</td>
+      <td>22.99</td>
       <td>-23</td>
       <td>below chikou</td>
       <td>25</td>
@@ -7942,6 +8563,7 @@
     <tr>
       <td>MP</td>
       <td>MP Materials</td>
+      <td>48.82</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>-7</td>
@@ -7955,6 +8577,7 @@
     <tr>
       <td>MPC</td>
       <td>Marathon Petroleum</td>
+      <td>393.05</td>
       <td>-30</td>
       <td>below chikou</td>
       <td>60</td>
@@ -7968,6 +8591,7 @@
     <tr>
       <td>MPT</td>
       <td>Medical Properties Trust</td>
+      <td>3.56</td>
       <td>-4</td>
       <td>below chikou</td>
       <td>-33</td>
@@ -7981,6 +8605,7 @@
     <tr>
       <td>MPWR</td>
       <td>Monolithic Power Systems</td>
+      <td>1366.74</td>
       <td>43</td>
       <td>above chikou</td>
       <td>-26</td>
@@ -7994,6 +8619,7 @@
     <tr>
       <td>MRK</td>
       <td>Merck & Co.</td>
+      <td>148.74</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>86</td>
@@ -8007,6 +8633,7 @@
     <tr>
       <td>MRNA</td>
       <td>Moderna</td>
+      <td>198.89</td>
       <td>68</td>
       <td>above chikou</td>
       <td>26</td>
@@ -8020,6 +8647,7 @@
     <tr>
       <td>MRP</td>
       <td>Millrose Properties</td>
+      <td>27.21</td>
       <td>-90</td>
       <td>below chikou</td>
       <td>-6</td>
@@ -8033,6 +8661,7 @@
     <tr>
       <td>MRSH</td>
       <td>Marsh McLennan</td>
+      <td>171.09</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-15</td>
@@ -8046,6 +8675,7 @@
     <tr>
       <td>MRVL</td>
       <td>Marvell Technology</td>
+      <td>261.89</td>
       <td>49</td>
       <td>above chikou</td>
       <td>26</td>
@@ -8059,6 +8689,7 @@
     <tr>
       <td>MS</td>
       <td>Morgan Stanley</td>
+      <td>196.25</td>
       <td>-28</td>
       <td>below chikou</td>
       <td>-10</td>
@@ -8072,6 +8703,7 @@
     <tr>
       <td>MSA</td>
       <td>MSA Safety</td>
+      <td>182.48</td>
       <td>21</td>
       <td>above chikou</td>
       <td>-12</td>
@@ -8085,6 +8717,7 @@
     <tr>
       <td>MSCI</td>
       <td>MSCI</td>
+      <td>551.52</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -8098,6 +8731,7 @@
     <tr>
       <td>MSFT</td>
       <td>Microsoft</td>
+      <td>516.10</td>
       <td>31</td>
       <td>above chikou</td>
       <td>4</td>
@@ -8111,6 +8745,7 @@
     <tr>
       <td>MSGS</td>
       <td>Madison Square Garden Sports</td>
+      <td>403.08</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-4</td>
@@ -8124,6 +8759,7 @@
     <tr>
       <td>MSI</td>
       <td>Motorola Solutions</td>
+      <td>456.64</td>
       <td>-9</td>
       <td>below chikou</td>
       <td>-5</td>
@@ -8137,6 +8773,7 @@
     <tr>
       <td>MSM</td>
       <td>MSC Industrial Direct</td>
+      <td>121.25</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-1</td>
@@ -8150,6 +8787,7 @@
     <tr>
       <td>MSTR</td>
       <td>MicroStrategy</td>
+      <td>158.67</td>
       <td>-9</td>
       <td>below chikou</td>
       <td>30</td>
@@ -8163,6 +8801,7 @@
     <tr>
       <td>MTB</td>
       <td>M&T Bank</td>
+      <td>221.23</td>
       <td>-62</td>
       <td>below chikou</td>
       <td>-25</td>
@@ -8176,6 +8815,7 @@
     <tr>
       <td>MTCH</td>
       <td>Match Group</td>
+      <td>40.56</td>
       <td>-33</td>
       <td>below chikou</td>
       <td>26</td>
@@ -8189,6 +8829,7 @@
     <tr>
       <td>MTD</td>
       <td>Mettler Toledo</td>
+      <td>1511.58</td>
       <td>62</td>
       <td>above chikou</td>
       <td>3</td>
@@ -8202,6 +8843,7 @@
     <tr>
       <td>MTDR</td>
       <td>Matador Resources</td>
+      <td>51.54</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -8215,6 +8857,7 @@
     <tr>
       <td>MTG</td>
       <td>MGIC Investment Corporation</td>
+      <td>28.48</td>
       <td>-22</td>
       <td>below chikou</td>
       <td>-8</td>
@@ -8228,6 +8871,7 @@
     <tr>
       <td>MTN</td>
       <td>Vail Resorts</td>
+      <td>136.11</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>-18</td>
@@ -8241,6 +8885,7 @@
     <tr>
       <td>MTSI</td>
       <td>MACOM Technology Solutions</td>
+      <td>285.41</td>
       <td>11</td>
       <td>above chikou</td>
       <td>-9</td>
@@ -8254,6 +8899,7 @@
     <tr>
       <td>MTZ</td>
       <td>MasTec</td>
+      <td>212.78</td>
       <td>-13</td>
       <td>below chikou</td>
       <td>-53</td>
@@ -8267,6 +8913,7 @@
     <tr>
       <td>MU</td>
       <td>Micron Technology</td>
+      <td>1081.69</td>
       <td>44</td>
       <td>above chikou</td>
       <td>16</td>
@@ -8280,6 +8927,7 @@
     <tr>
       <td>MUSA</td>
       <td>Murphy USA</td>
+      <td>511.54</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-34</td>
@@ -8293,6 +8941,7 @@
     <tr>
       <td>MWH</td>
       <td>SOLV Energy</td>
+      <td>25.20</td>
       <td>-18</td>
       <td>below chikou</td>
       <td>-25</td>
@@ -8306,6 +8955,7 @@
     <tr>
       <td>NBIX</td>
       <td>Neurocrine Biosciences</td>
+      <td>138.08</td>
       <td>-63</td>
       <td>below chikou</td>
       <td>-36</td>
@@ -8319,6 +8969,7 @@
     <tr>
       <td>NCLH</td>
       <td>Norwegian Cruise Line Holdings</td>
+      <td>14.60</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-28</td>
@@ -8332,6 +8983,7 @@
     <tr>
       <td>NDAQ</td>
       <td>Nasdaq, Inc.</td>
+      <td>93.56</td>
       <td>-6</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -8345,6 +8997,7 @@
     <tr>
       <td>NDSN</td>
       <td>Nordson</td>
+      <td>325.84</td>
       <td>44</td>
       <td>above chikou</td>
       <td>55</td>
@@ -8358,6 +9011,7 @@
     <tr>
       <td>NEE</td>
       <td>NextEra Energy</td>
+      <td>76.08</td>
       <td>-86</td>
       <td>below chikou</td>
       <td>-38</td>
@@ -8371,6 +9025,7 @@
     <tr>
       <td>NEM</td>
       <td>Newmont</td>
+      <td>121.42</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>36</td>
@@ -8384,6 +9039,7 @@
     <tr>
       <td>NET</td>
       <td>Cloudflare</td>
+      <td>348.89</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>70</td>
@@ -8397,6 +9053,7 @@
     <tr>
       <td>NEU</td>
       <td>NewMarket</td>
+      <td>897.69</td>
       <td>5</td>
       <td>above chikou</td>
       <td>-6</td>
@@ -8410,6 +9067,7 @@
     <tr>
       <td>NFG</td>
       <td>National Fuel Gas</td>
+      <td>79.03</td>
       <td>-90</td>
       <td>below chikou</td>
       <td>-6</td>
@@ -8423,6 +9081,7 @@
     <tr>
       <td>NFLX</td>
       <td>Netflix, Inc.</td>
+      <td>71.14</td>
       <td>-49</td>
       <td>below chikou</td>
       <td>-5</td>
@@ -8436,6 +9095,7 @@
     <tr>
       <td>NI</td>
       <td>NiSource</td>
+      <td>39.42</td>
       <td>-32</td>
       <td>below chikou</td>
       <td>-51</td>
@@ -8449,6 +9109,7 @@
     <tr>
       <td>NIQ</td>
       <td>NIQ Global Intelligence</td>
+      <td>17.84</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>62</td>
@@ -8462,6 +9123,7 @@
     <tr>
       <td>NKE</td>
       <td>Nike, Inc.</td>
+      <td>35.76</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>-33</td>
@@ -8475,6 +9137,7 @@
     <tr>
       <td>NLY</td>
       <td>Annaly Capital Management</td>
+      <td>20.61</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-15</td>
@@ -8488,6 +9151,7 @@
     <tr>
       <td>NNN</td>
       <td>NNN Reit</td>
+      <td>41.29</td>
       <td>-158</td>
       <td>below chikou</td>
       <td>-33</td>
@@ -8501,6 +9165,7 @@
     <tr>
       <td>NOC</td>
       <td>Northrop Grumman</td>
+      <td>510.45</td>
       <td>-43</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -8514,6 +9179,7 @@
     <tr>
       <td>NOV</td>
       <td>NOV Inc.</td>
+      <td>19.86</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>-6</td>
@@ -8527,6 +9193,7 @@
     <tr>
       <td>NOW</td>
       <td>ServiceNow</td>
+      <td>135.63</td>
       <td>-5</td>
       <td>below chikou</td>
       <td>43</td>
@@ -8540,6 +9207,7 @@
     <tr>
       <td>NRG</td>
       <td>NRG Energy</td>
+      <td>100.37</td>
       <td>-78</td>
       <td>below chikou</td>
       <td>-42</td>
@@ -8553,6 +9221,7 @@
     <tr>
       <td>NSC</td>
       <td>Norfolk Southern</td>
+      <td>312.98</td>
       <td>8</td>
       <td>above chikou</td>
       <td>-18</td>
@@ -8566,6 +9235,7 @@
     <tr>
       <td>NTAP</td>
       <td>Netapp</td>
+      <td>201.21</td>
       <td>15</td>
       <td>above chikou</td>
       <td>-7</td>
@@ -8579,6 +9249,7 @@
     <tr>
       <td>NTNX</td>
       <td>Nutanix</td>
+      <td>67.96</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>104</td>
@@ -8592,6 +9263,7 @@
     <tr>
       <td>NTRA</td>
       <td>Natera</td>
+      <td>412.56</td>
       <td>76</td>
       <td>above chikou</td>
       <td>34</td>
@@ -8605,6 +9277,7 @@
     <tr>
       <td>NTRS</td>
       <td>Northern Trust</td>
+      <td>175.65</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-9</td>
@@ -8618,6 +9291,7 @@
     <tr>
       <td>NU</td>
       <td>Nubank</td>
+      <td>13.57</td>
       <td>-19</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -8631,6 +9305,7 @@
     <tr>
       <td>NUE</td>
       <td>Nucor</td>
+      <td>247.30</td>
       <td>12</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -8644,6 +9319,7 @@
     <tr>
       <td>NVDA</td>
       <td>Nvidia</td>
+      <td>225.08</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>4</td>
@@ -8657,6 +9333,7 @@
     <tr>
       <td>NVR</td>
       <td>NVR, Inc.</td>
+      <td>6293.76</td>
       <td>28</td>
       <td>above chikou</td>
       <td>-17</td>
@@ -8670,6 +9347,7 @@
     <tr>
       <td>NVST</td>
       <td>Envista</td>
+      <td>23.96</td>
       <td>20</td>
       <td>above chikou</td>
       <td>-15</td>
@@ -8683,6 +9361,7 @@
     <tr>
       <td>NVT</td>
       <td>nVent Electric</td>
+      <td>164.44</td>
       <td>44</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -8696,6 +9375,7 @@
     <tr>
       <td>NWS</td>
       <td>News Corp (Class B)</td>
+      <td>31.74</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -8709,6 +9389,7 @@
     <tr>
       <td>NWSA</td>
       <td>News Corp (Class A)</td>
+      <td>28.49</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-2</td>
@@ -8722,6 +9403,7 @@
     <tr>
       <td>NXST</td>
       <td>Nexstar Media Group</td>
+      <td>162.14</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -8735,6 +9417,7 @@
     <tr>
       <td>NXT</td>
       <td>Nextpower</td>
+      <td>80.95</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>-74</td>
@@ -8748,6 +9431,7 @@
     <tr>
       <td>NYT</td>
       <td>New York Times Company</td>
+      <td>63.85</td>
       <td>-37</td>
       <td>below chikou</td>
       <td>-2</td>
@@ -8761,6 +9445,7 @@
     <tr>
       <td>O</td>
       <td>Realty Income</td>
+      <td>55.53</td>
       <td>-91</td>
       <td>below chikou</td>
       <td>-33</td>
@@ -8774,6 +9459,7 @@
     <tr>
       <td>OC</td>
       <td>Owens Corning</td>
+      <td>123.97</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -8787,6 +9473,7 @@
     <tr>
       <td>ODFL</td>
       <td>Old Dominion Freight Line</td>
+      <td>173.27</td>
       <td>-3</td>
       <td>below chikou</td>
       <td>-40</td>
@@ -8800,6 +9487,7 @@
     <tr>
       <td>OGE</td>
       <td>OGE Energy</td>
+      <td>44.81</td>
       <td>-83</td>
       <td>below chikou</td>
       <td>-39</td>
@@ -8813,6 +9501,7 @@
     <tr>
       <td>OGN</td>
       <td>Organon & Co.</td>
+      <td>13.73</td>
       <td>2</td>
       <td>above chikou</td>
       <td>116</td>
@@ -8826,6 +9515,7 @@
     <tr>
       <td>OHI</td>
       <td>Omega Healthcare Investors</td>
+      <td>46.29</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-1</td>
@@ -8839,6 +9529,7 @@
     <tr>
       <td>OKE</td>
       <td>Oneok</td>
+      <td>88.62</td>
       <td>-59</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -8852,6 +9543,7 @@
     <tr>
       <td>OKLO</td>
       <td>Oklo Inc.</td>
+      <td>38.04</td>
       <td>-9</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -8865,6 +9557,7 @@
     <tr>
       <td>OKTA</td>
       <td>Okta, Inc.</td>
+      <td>195.14</td>
       <td>31</td>
       <td>above chikou</td>
       <td>20</td>
@@ -8878,6 +9571,7 @@
     <tr>
       <td>OLED</td>
       <td>Universal Display Corporation</td>
+      <td>77.51</td>
       <td>-18</td>
       <td>below chikou</td>
       <td>-10</td>
@@ -8891,6 +9585,7 @@
     <tr>
       <td>OLLI</td>
       <td>Ollie's Bargain Outlet</td>
+      <td>84.25</td>
       <td>36</td>
       <td>above chikou</td>
       <td>4</td>
@@ -8904,6 +9599,7 @@
     <tr>
       <td>OLN</td>
       <td>Olin Corporation</td>
+      <td>16.40</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-39</td>
@@ -8917,6 +9613,7 @@
     <tr>
       <td>OMC</td>
       <td>Omnicom Group</td>
+      <td>76.15</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-12</td>
@@ -8930,6 +9627,7 @@
     <tr>
       <td>OMF</td>
       <td>OneMain Financial</td>
+      <td>57.35</td>
       <td>-63</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -8943,6 +9641,7 @@
     <tr>
       <td>ON</td>
       <td>ON Semiconductor</td>
+      <td>77.18</td>
       <td>28</td>
       <td>above chikou</td>
       <td>-63</td>
@@ -8956,6 +9655,7 @@
     <tr>
       <td>ONON</td>
       <td>On Holding AG</td>
+      <td>29.95</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>-32</td>
@@ -8969,6 +9669,7 @@
     <tr>
       <td>ONTO</td>
       <td>Onto Innovation</td>
+      <td>287.71</td>
       <td>41</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -8982,6 +9683,7 @@
     <tr>
       <td>ORCL</td>
       <td>Oracle Corporation</td>
+      <td>137.09</td>
       <td>-22</td>
       <td>below chikou</td>
       <td>-8</td>
@@ -8995,6 +9697,7 @@
     <tr>
       <td>ORI</td>
       <td>Old Republic International</td>
+      <td>37.75</td>
       <td>-46</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -9008,6 +9711,7 @@
     <tr>
       <td>ORLY</td>
       <td>O'Reilly Auto Parts</td>
+      <td>86.12</td>
       <td>28</td>
       <td>above chikou</td>
       <td>-17</td>
@@ -9021,6 +9725,7 @@
     <tr>
       <td>OSK</td>
       <td>Oshkosh Corporation</td>
+      <td>132.76</td>
       <td>-30</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -9034,6 +9739,7 @@
     <tr>
       <td>OTIS</td>
       <td>Otis Worldwide</td>
+      <td>65.94</td>
       <td>-48</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -9047,6 +9753,7 @@
     <tr>
       <td>OVV</td>
       <td>Ovintiv</td>
+      <td>60.14</td>
       <td>2</td>
       <td>above chikou</td>
       <td>-5</td>
@@ -9060,6 +9767,7 @@
     <tr>
       <td>OWL</td>
       <td>Blue Owl Capital</td>
+      <td>9.33</td>
       <td>-125</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -9073,6 +9781,7 @@
     <tr>
       <td>OXY</td>
       <td>Occidental Petroleum</td>
+      <td>56.86</td>
       <td>-5</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -9086,6 +9795,7 @@
     <tr>
       <td>OZK</td>
       <td>Bank OZK</td>
+      <td>46.90</td>
       <td>-52</td>
       <td>below chikou</td>
       <td>-26</td>
@@ -9099,6 +9809,7 @@
     <tr>
       <td>P</td>
       <td>Everpure</td>
+      <td>126.03</td>
       <td>60</td>
       <td>above chikou</td>
       <td>1</td>
@@ -9112,6 +9823,7 @@
     <tr>
       <td>PAG</td>
       <td>Penske Automotive Group</td>
+      <td>209.68</td>
       <td>-92</td>
       <td>below chikou</td>
       <td>-6</td>
@@ -9125,6 +9837,7 @@
     <tr>
       <td>PANW</td>
       <td>Palo Alto Networks</td>
+      <td>374.60</td>
       <td>20</td>
       <td>above chikou</td>
       <td>2</td>
@@ -9138,6 +9851,7 @@
     <tr>
       <td>PATH</td>
       <td>UiPath</td>
+      <td>12.46</td>
       <td>-43</td>
       <td>below chikou</td>
       <td>-7</td>
@@ -9151,6 +9865,7 @@
     <tr>
       <td>PAYC</td>
       <td>Paycom</td>
+      <td>220.37</td>
       <td>-35</td>
       <td>below chikou</td>
       <td>53</td>
@@ -9164,6 +9879,7 @@
     <tr>
       <td>PAYX</td>
       <td>Paychex</td>
+      <td>101.38</td>
       <td>-44</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -9177,6 +9893,7 @@
     <tr>
       <td>PB</td>
       <td>Prosperity Bancshares</td>
+      <td>67.78</td>
       <td>-52</td>
       <td>below chikou</td>
       <td>-23</td>
@@ -9190,6 +9907,7 @@
     <tr>
       <td>PCAR</td>
       <td>Paccar</td>
+      <td>111.32</td>
       <td>-57</td>
       <td>below chikou</td>
       <td>-19</td>
@@ -9203,6 +9921,7 @@
     <tr>
       <td>PCG</td>
       <td>PG&E Corporation</td>
+      <td>12.32</td>
       <td>-32</td>
       <td>below chikou</td>
       <td>-19</td>
@@ -9216,6 +9935,7 @@
     <tr>
       <td>PCOR</td>
       <td>Procore</td>
+      <td>49.35</td>
       <td>-60</td>
       <td>below chikou</td>
       <td>-8</td>
@@ -9229,6 +9949,7 @@
     <tr>
       <td>PCTY</td>
       <td>Paylocity</td>
+      <td>143.35</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>-10</td>
@@ -9242,6 +9963,7 @@
     <tr>
       <td>PEG</td>
       <td>Public Service Enterprise Group</td>
+      <td>67.02</td>
       <td>-91</td>
       <td>below chikou</td>
       <td>-48</td>
@@ -9255,6 +9977,7 @@
     <tr>
       <td>PEGA</td>
       <td>Pegasystems</td>
+      <td>33.74</td>
       <td>-49</td>
       <td>below chikou</td>
       <td>41</td>
@@ -9268,6 +9991,7 @@
     <tr>
       <td>PEN</td>
       <td>Penumbra, Inc.</td>
+      <td>318.85</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -9281,6 +10005,7 @@
     <tr>
       <td>PEP</td>
       <td>PepsiCo</td>
+      <td>128.62</td>
       <td>-112</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -9294,6 +10019,7 @@
     <tr>
       <td>PFE</td>
       <td>Pfizer</td>
+      <td>28.68</td>
       <td>33</td>
       <td>above chikou</td>
       <td>42</td>
@@ -9307,6 +10033,7 @@
     <tr>
       <td>PFG</td>
       <td>Principal Financial Group</td>
+      <td>114.77</td>
       <td>1</td>
       <td>above chikou</td>
       <td>15</td>
@@ -9320,6 +10047,7 @@
     <tr>
       <td>PFGC</td>
       <td>Performance Food Group</td>
+      <td>91.56</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>-31</td>
@@ -9333,6 +10061,7 @@
     <tr>
       <td>PG</td>
       <td>Procter & Gamble</td>
+      <td>146.24</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>8</td>
@@ -9346,6 +10075,7 @@
     <tr>
       <td>PGR</td>
       <td>Progressive Corporation</td>
+      <td>205.47</td>
       <td>-48</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -9359,6 +10089,7 @@
     <tr>
       <td>PH</td>
       <td>Parker Hannifin</td>
+      <td>978.33</td>
       <td>43</td>
       <td>above chikou</td>
       <td>-17</td>
@@ -9372,6 +10103,7 @@
     <tr>
       <td>PHM</td>
       <td>PulteGroup</td>
+      <td>119.86</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -9385,6 +10117,7 @@
     <tr>
       <td>PINS</td>
       <td>Pinterest</td>
+      <td>18.90</td>
       <td>-11</td>
       <td>below chikou</td>
       <td>-18</td>
@@ -9398,6 +10131,7 @@
     <tr>
       <td>PKG</td>
       <td>Packaging Corporation of America</td>
+      <td>237.23</td>
       <td>-9</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -9411,6 +10145,7 @@
     <tr>
       <td>PL</td>
       <td>Planet Labs</td>
+      <td>17.42</td>
       <td>15</td>
       <td>above chikou</td>
       <td>-77</td>
@@ -9424,6 +10159,7 @@
     <tr>
       <td>PLD</td>
       <td>Prologis</td>
+      <td>133.09</td>
       <td>-20</td>
       <td>below chikou</td>
       <td>-27</td>
@@ -9437,6 +10173,7 @@
     <tr>
       <td>PLNT</td>
       <td>Planet Fitness</td>
+      <td>42.68</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-4</td>
@@ -9450,6 +10187,7 @@
     <tr>
       <td>PLTR</td>
       <td>Palantir Technologies</td>
+      <td>189.66</td>
       <td>68</td>
       <td>above chikou</td>
       <td>40</td>
@@ -9463,6 +10201,7 @@
     <tr>
       <td>PM</td>
       <td>Philip Morris International</td>
+      <td>190.47</td>
       <td>15</td>
       <td>above chikou</td>
       <td>11</td>
@@ -9476,6 +10215,7 @@
     <tr>
       <td>PNC</td>
       <td>PNC Financial Services</td>
+      <td>225.64</td>
       <td>-62</td>
       <td>below chikou</td>
       <td>-26</td>
@@ -9489,6 +10229,7 @@
     <tr>
       <td>PNFP</td>
       <td>Pinnacle Financial Partners</td>
+      <td>94.98</td>
       <td>-52</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -9502,6 +10243,7 @@
     <tr>
       <td>PNR</td>
       <td>Pentair</td>
+      <td>53.67</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-18</td>
@@ -9515,6 +10257,7 @@
     <tr>
       <td>PNW</td>
       <td>Pinnacle West Capital</td>
+      <td>91.74</td>
       <td>-91</td>
       <td>below chikou</td>
       <td>-41</td>
@@ -9528,6 +10271,7 @@
     <tr>
       <td>PODD</td>
       <td>Insulet</td>
+      <td>136.12</td>
       <td>-29</td>
       <td>below chikou</td>
       <td>-36</td>
@@ -9541,6 +10285,7 @@
     <tr>
       <td>POOL</td>
       <td>Pool Corporation</td>
+      <td>164.98</td>
       <td>-19</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -9554,6 +10299,7 @@
     <tr>
       <td>POST</td>
       <td>Post Holdings</td>
+      <td>73.13</td>
       <td>-98</td>
       <td>below chikou</td>
       <td>-34</td>
@@ -9567,6 +10313,7 @@
     <tr>
       <td>POWL</td>
       <td>Powell Industries</td>
+      <td>189.60</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>-60</td>
@@ -9580,6 +10327,7 @@
     <tr>
       <td>PPC</td>
       <td>Pilgrim's Pride</td>
+      <td>27.82</td>
       <td>-63</td>
       <td>below chikou</td>
       <td>-1</td>
@@ -9593,6 +10341,7 @@
     <tr>
       <td>PPG</td>
       <td>PPG Industries</td>
+      <td>107.54</td>
       <td>28</td>
       <td>above chikou</td>
       <td>-46</td>
@@ -9606,6 +10355,7 @@
     <tr>
       <td>PPL</td>
       <td>PPL Corporation</td>
+      <td>32.04</td>
       <td>-86</td>
       <td>below chikou</td>
       <td>-27</td>
@@ -9619,6 +10369,7 @@
     <tr>
       <td>PPLI</td>
       <td>People Inc.</td>
+      <td>40.01</td>
       <td>7</td>
       <td>above chikou</td>
       <td>-36</td>
@@ -9632,6 +10383,7 @@
     <tr>
       <td>PR</td>
       <td>Permian Resources</td>
+      <td>21.36</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-1</td>
@@ -9645,6 +10397,7 @@
     <tr>
       <td>PRI</td>
       <td>Primerica</td>
+      <td>275.58</td>
       <td>-44</td>
       <td>below chikou</td>
       <td>-26</td>
@@ -9658,6 +10411,7 @@
     <tr>
       <td>PRIM</td>
       <td>Primoris Services Corporation</td>
+      <td>72.65</td>
       <td>-28</td>
       <td>below chikou</td>
       <td>-98</td>
@@ -9671,6 +10425,7 @@
     <tr>
       <td>PRMB</td>
       <td>Primo Brands</td>
+      <td>19.50</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -9684,6 +10439,7 @@
     <tr>
       <td>PRU</td>
       <td>Prudential Financial</td>
+      <td>119.44</td>
       <td>3</td>
       <td>above chikou</td>
       <td>-13</td>
@@ -9697,6 +10453,7 @@
     <tr>
       <td>PSA</td>
       <td>Public Storage</td>
+      <td>287.98</td>
       <td>-28</td>
       <td>below chikou</td>
       <td>-18</td>
@@ -9710,6 +10467,7 @@
     <tr>
       <td>PSN</td>
       <td>Parsons Corporation</td>
+      <td>43.08</td>
       <td>-43</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -9723,6 +10481,7 @@
     <tr>
       <td>PSX</td>
       <td>Phillips 66</td>
+      <td>255.70</td>
       <td>-28</td>
       <td>below chikou</td>
       <td>58</td>
@@ -9736,6 +10495,7 @@
     <tr>
       <td>PTC</td>
       <td>PTC Inc.</td>
+      <td>138.16</td>
       <td>32</td>
       <td>above chikou</td>
       <td>-12</td>
@@ -9749,6 +10509,7 @@
     <tr>
       <td>PVH</td>
       <td>PVH Corp.</td>
+      <td>76.01</td>
       <td>68</td>
       <td>above chikou</td>
       <td>-23</td>
@@ -9762,6 +10523,7 @@
     <tr>
       <td>PWR</td>
       <td>Quanta Services</td>
+      <td>649.16</td>
       <td>42</td>
       <td>above chikou</td>
       <td>-14</td>
@@ -9775,6 +10537,7 @@
     <tr>
       <td>PYPL</td>
       <td>PayPal</td>
+      <td>55.04</td>
       <td>7</td>
       <td>above chikou</td>
       <td>-19</td>
@@ -9788,6 +10551,7 @@
     <tr>
       <td>Q</td>
       <td>Qnity Electronics</td>
+      <td>124.75</td>
       <td>41</td>
       <td>above chikou</td>
       <td>-59</td>
@@ -9801,6 +10565,7 @@
     <tr>
       <td>QCOM</td>
       <td>Qualcomm</td>
+      <td>201.95</td>
       <td>33</td>
       <td>above chikou</td>
       <td>16</td>
@@ -9814,6 +10579,7 @@
     <tr>
       <td>QGEN</td>
       <td>Qiagen</td>
+      <td>44.16</td>
       <td>1</td>
       <td>above chikou</td>
       <td>6</td>
@@ -9827,6 +10593,7 @@
     <tr>
       <td>QRVO</td>
       <td>Qorvo</td>
+      <td>117.89</td>
       <td>6</td>
       <td>above chikou</td>
       <td>37</td>
@@ -9840,6 +10607,7 @@
     <tr>
       <td>QS</td>
       <td>QuantumScape</td>
+      <td>4.93</td>
       <td>-23</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -9853,6 +10621,7 @@
     <tr>
       <td>QSR</td>
       <td>Restaurant Brands International</td>
+      <td>71.65</td>
       <td>-63</td>
       <td>below chikou</td>
       <td>-4</td>
@@ -9866,6 +10635,7 @@
     <tr>
       <td>QXO</td>
       <td>QXO, Inc.</td>
+      <td>12.43</td>
       <td>34</td>
       <td>above chikou</td>
       <td>-59</td>
@@ -9879,6 +10649,7 @@
     <tr>
       <td>R</td>
       <td>Ryder</td>
+      <td>235.50</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-32</td>
@@ -9892,6 +10663,7 @@
     <tr>
       <td>RAL</td>
       <td>Ralliant</td>
+      <td>70.07</td>
       <td>44</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -9905,6 +10677,7 @@
     <tr>
       <td>RBA</td>
       <td>RB Global</td>
+      <td>82.47</td>
       <td>-36</td>
       <td>below chikou</td>
       <td>-37</td>
@@ -9918,6 +10691,7 @@
     <tr>
       <td>RBC</td>
       <td>RBC Bearings</td>
+      <td>506.15</td>
       <td>44</td>
       <td>above chikou</td>
       <td>-50</td>
@@ -9931,6 +10705,7 @@
     <tr>
       <td>RBLX</td>
       <td>Roblox Corporation</td>
+      <td>46.46</td>
       <td>-9</td>
       <td>below chikou</td>
       <td>13</td>
@@ -9944,6 +10719,7 @@
     <tr>
       <td>RBRK</td>
       <td>Rubrik</td>
+      <td>109.55</td>
       <td>-5</td>
       <td>below chikou</td>
       <td>38</td>
@@ -9957,6 +10733,7 @@
     <tr>
       <td>RCL</td>
       <td>Royal Caribbean Group</td>
+      <td>242.77</td>
       <td>-24</td>
       <td>below chikou</td>
       <td>-18</td>
@@ -9970,6 +10747,7 @@
     <tr>
       <td>RDDT</td>
       <td>Reddit</td>
+      <td>149.88</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>-7</td>
@@ -9983,6 +10761,7 @@
     <tr>
       <td>REG</td>
       <td>Regency Centers</td>
+      <td>73.24</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-37</td>
@@ -9996,6 +10775,7 @@
     <tr>
       <td>REGN</td>
       <td>Regeneron Pharmaceuticals</td>
+      <td>787.33</td>
       <td>-6</td>
       <td>below chikou</td>
       <td>-7</td>
@@ -10009,6 +10789,7 @@
     <tr>
       <td>REXR</td>
       <td>Rexford Industrial</td>
+      <td>37.47</td>
       <td>-36</td>
       <td>below chikou</td>
       <td>10</td>
@@ -10022,6 +10803,7 @@
     <tr>
       <td>REYN</td>
       <td>Reynolds Consumer Products</td>
+      <td>21.67</td>
       <td>-26</td>
       <td>below chikou</td>
       <td>-27</td>
@@ -10035,6 +10817,7 @@
     <tr>
       <td>RF</td>
       <td>Regions Financial Corporation</td>
+      <td>27.63</td>
       <td>-60</td>
       <td>below chikou</td>
       <td>-26</td>
@@ -10048,6 +10831,7 @@
     <tr>
       <td>RGA</td>
       <td>Reinsurance Group of America</td>
+      <td>248.68</td>
       <td>7</td>
       <td>above chikou</td>
       <td>-4</td>
@@ -10061,6 +10845,7 @@
     <tr>
       <td>RGEN</td>
       <td>Repligen</td>
+      <td>189.67</td>
       <td>64</td>
       <td>above chikou</td>
       <td>81</td>
@@ -10074,6 +10859,7 @@
     <tr>
       <td>RGLD</td>
       <td>Royal Gold</td>
+      <td>252.45</td>
       <td>11</td>
       <td>above chikou</td>
       <td>36</td>
@@ -10087,6 +10873,7 @@
     <tr>
       <td>RHI</td>
       <td>Robert Half</td>
+      <td>36.91</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>-10</td>
@@ -10100,6 +10887,7 @@
     <tr>
       <td>RITM</td>
       <td>Rithm Capital</td>
+      <td>9.13</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -10113,6 +10901,7 @@
     <tr>
       <td>RIVN</td>
       <td>Rivian</td>
+      <td>15.47</td>
       <td>1</td>
       <td>above chikou</td>
       <td>1</td>
@@ -10126,6 +10915,7 @@
     <tr>
       <td>RJF</td>
       <td>Raymond James Financial</td>
+      <td>159.82</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-12</td>
@@ -10139,6 +10929,7 @@
     <tr>
       <td>RKLB</td>
       <td>Rocket Lab</td>
+      <td>73.95</td>
       <td>49</td>
       <td>above chikou</td>
       <td>-68</td>
@@ -10152,6 +10943,7 @@
     <tr>
       <td>RKT</td>
       <td>Rocket Companies</td>
+      <td>12.18</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -10165,6 +10957,7 @@
     <tr>
       <td>RL</td>
       <td>Ralph Lauren Corporation</td>
+      <td>357.08</td>
       <td>25</td>
       <td>above chikou</td>
       <td>-28</td>
@@ -10178,6 +10971,7 @@
     <tr>
       <td>RLI</td>
       <td>RLI Corp.</td>
+      <td>55.69</td>
       <td>-46</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -10191,6 +10985,7 @@
     <tr>
       <td>RMBS</td>
       <td>Rambus</td>
+      <td>105.11</td>
       <td>44</td>
       <td>above chikou</td>
       <td>3</td>
@@ -10204,6 +10999,7 @@
     <tr>
       <td>RMD</td>
       <td>Resmed</td>
+      <td>222.03</td>
       <td>-36</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -10217,6 +11013,7 @@
     <tr>
       <td>RNG</td>
       <td>RingCentral</td>
+      <td>76.15</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>49</td>
@@ -10230,6 +11027,7 @@
     <tr>
       <td>RNR</td>
       <td>RenaissanceRe</td>
+      <td>325.60</td>
       <td>20</td>
       <td>above chikou</td>
       <td>15</td>
@@ -10243,6 +11041,7 @@
     <tr>
       <td>ROIV</td>
       <td>Roivant Sciences</td>
+      <td>35.81</td>
       <td>-70</td>
       <td>below chikou</td>
       <td>15</td>
@@ -10256,6 +11055,7 @@
     <tr>
       <td>ROK</td>
       <td>Rockwell Automation</td>
+      <td>434.28</td>
       <td>35</td>
       <td>above chikou</td>
       <td>-37</td>
@@ -10269,6 +11069,7 @@
     <tr>
       <td>ROKU</td>
       <td>Roku, Inc.</td>
+      <td>152.60</td>
       <td>-49</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -10282,6 +11083,7 @@
     <tr>
       <td>ROL</td>
       <td>Rollins, Inc.</td>
+      <td>30.03</td>
       <td>-62</td>
       <td>below chikou</td>
       <td>-95</td>
@@ -10295,6 +11097,7 @@
     <tr>
       <td>ROP</td>
       <td>Roper Technologies</td>
+      <td>358.77</td>
       <td>-63</td>
       <td>below chikou</td>
       <td>-10</td>
@@ -10308,6 +11111,7 @@
     <tr>
       <td>ROST</td>
       <td>Ross Stores</td>
+      <td>236.12</td>
       <td>35</td>
       <td>above chikou</td>
       <td>-20</td>
@@ -10321,6 +11125,7 @@
     <tr>
       <td>RPM</td>
       <td>RPM International</td>
+      <td>100.46</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-18</td>
@@ -10334,6 +11139,7 @@
     <tr>
       <td>RPRX</td>
       <td>Royalty Pharma</td>
+      <td>58.23</td>
       <td>-11</td>
       <td>below chikou</td>
       <td>-2</td>
@@ -10347,6 +11153,7 @@
     <tr>
       <td>RRC</td>
       <td>Range Resources</td>
+      <td>38.62</td>
       <td>13</td>
       <td>above chikou</td>
       <td>-6</td>
@@ -10360,6 +11167,7 @@
     <tr>
       <td>RRX</td>
       <td>Regal Rexnord</td>
+      <td>156.24</td>
       <td>24</td>
       <td>above chikou</td>
       <td>-45</td>
@@ -10373,6 +11181,7 @@
     <tr>
       <td>RS</td>
       <td>Reliance, Inc.</td>
+      <td>387.40</td>
       <td>5</td>
       <td>above chikou</td>
       <td>-18</td>
@@ -10386,6 +11195,7 @@
     <tr>
       <td>RSG</td>
       <td>Republic Services</td>
+      <td>212.07</td>
       <td>-50</td>
       <td>below chikou</td>
       <td>-4</td>
@@ -10399,6 +11209,7 @@
     <tr>
       <td>RTX</td>
       <td>RTX Corporation</td>
+      <td>189.39</td>
       <td>-13</td>
       <td>below chikou</td>
       <td>-18</td>
@@ -10412,6 +11223,7 @@
     <tr>
       <td>RVMD</td>
       <td>Revolution Medicines</td>
+      <td>204.99</td>
       <td>14</td>
       <td>above chikou</td>
       <td>-7</td>
@@ -10425,6 +11237,7 @@
     <tr>
       <td>RVTY</td>
       <td>Revvity</td>
+      <td>151.11</td>
       <td>14</td>
       <td>above chikou</td>
       <td>36</td>
@@ -10438,6 +11251,7 @@
     <tr>
       <td>RYAN</td>
       <td>Ryan Specialty</td>
+      <td>37.89</td>
       <td>-28</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -10451,6 +11265,7 @@
     <tr>
       <td>RYN</td>
       <td>Rayonier</td>
+      <td>18.89</td>
       <td>-15</td>
       <td>below chikou</td>
       <td>-27</td>
@@ -10464,6 +11279,7 @@
     <tr>
       <td>S</td>
       <td>SentinelOne</td>
+      <td>22.38</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>9</td>
@@ -10477,6 +11293,7 @@
     <tr>
       <td>SAIA</td>
       <td>Saia</td>
+      <td>324.30</td>
       <td>-11</td>
       <td>below chikou</td>
       <td>-69</td>
@@ -10490,6 +11307,7 @@
     <tr>
       <td>SAIC</td>
       <td>SAIC</td>
+      <td>132.68</td>
       <td>1</td>
       <td>above chikou</td>
       <td>46</td>
@@ -10503,6 +11321,7 @@
     <tr>
       <td>SAIL</td>
       <td>SailPoint</td>
+      <td>20.63</td>
       <td>29</td>
       <td>above chikou</td>
       <td>9</td>
@@ -10516,6 +11335,7 @@
     <tr>
       <td>SANM</td>
       <td>Sanmina Corporation</td>
+      <td>224.78</td>
       <td>36</td>
       <td>above chikou</td>
       <td>3</td>
@@ -10529,6 +11349,7 @@
     <tr>
       <td>SARO</td>
       <td>StandardAero</td>
+      <td>22.74</td>
       <td>-3</td>
       <td>below chikou</td>
       <td>-34</td>
@@ -10542,6 +11363,7 @@
     <tr>
       <td>SBAC</td>
       <td>SBA Communications</td>
+      <td>166.10</td>
       <td>-50</td>
       <td>below chikou</td>
       <td>-5</td>
@@ -10555,6 +11377,7 @@
     <tr>
       <td>SBUX</td>
       <td>Starbucks</td>
+      <td>94.89</td>
       <td>-114</td>
       <td>below chikou</td>
       <td>-13</td>
@@ -10568,6 +11391,7 @@
     <tr>
       <td>SCCO</td>
       <td>Southern Copper</td>
+      <td>203.85</td>
       <td>49</td>
       <td>above chikou</td>
       <td>4</td>
@@ -10581,6 +11405,7 @@
     <tr>
       <td>SCHW</td>
       <td>Charles Schwab Corporation</td>
+      <td>99.02</td>
       <td>-54</td>
       <td>below chikou</td>
       <td>-7</td>
@@ -10594,6 +11419,7 @@
     <tr>
       <td>SCI</td>
       <td>Service Corporation International</td>
+      <td>77.84</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -10607,6 +11433,7 @@
     <tr>
       <td>SEB</td>
       <td>Seaboard Corporation</td>
+      <td>3969.18</td>
       <td>-33</td>
       <td>below chikou</td>
       <td>-4</td>
@@ -10620,6 +11447,7 @@
     <tr>
       <td>SEIC</td>
       <td>SEI Investments Company</td>
+      <td>105.66</td>
       <td>5</td>
       <td>above chikou</td>
       <td>-3</td>
@@ -10633,6 +11461,7 @@
     <tr>
       <td>SF</td>
       <td>Stifel</td>
+      <td>70.36</td>
       <td>-86</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -10646,6 +11475,7 @@
     <tr>
       <td>SFD</td>
       <td>Smithfield Foods</td>
+      <td>19.03</td>
       <td>-92</td>
       <td>below chikou</td>
       <td>-32</td>
@@ -10659,6 +11489,7 @@
     <tr>
       <td>SFM</td>
       <td>Sprouts Farmers Market</td>
+      <td>62.49</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-14</td>
@@ -10672,6 +11503,7 @@
     <tr>
       <td>SGI</td>
       <td>Somnigroup International</td>
+      <td>63.94</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-5</td>
@@ -10685,6 +11517,7 @@
     <tr>
       <td>SHC</td>
       <td>Sotera Health</td>
+      <td>18.35</td>
       <td>-34</td>
       <td>below chikou</td>
       <td>-5</td>
@@ -10698,6 +11531,7 @@
     <tr>
       <td>SHW</td>
       <td>Sherwin-Williams</td>
+      <td>328.97</td>
       <td>5</td>
       <td>above chikou</td>
       <td>-16</td>
@@ -10711,6 +11545,7 @@
     <tr>
       <td>SIRI</td>
       <td>SiriusXM</td>
+      <td>25.85</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-33</td>
@@ -10724,6 +11559,7 @@
     <tr>
       <td>SITE</td>
       <td>SiteOne Landscape Supply</td>
+      <td>91.35</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -10737,6 +11573,7 @@
     <tr>
       <td>SITM</td>
       <td>SiTime</td>
+      <td>661.81</td>
       <td>43</td>
       <td>above chikou</td>
       <td>-9</td>
@@ -10750,6 +11587,7 @@
     <tr>
       <td>SJM</td>
       <td>J.M. Smucker Company (The)</td>
+      <td>120.98</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>100</td>
@@ -10763,6 +11601,7 @@
     <tr>
       <td>SLB</td>
       <td>Schlumberger</td>
+      <td>51.54</td>
       <td>-4</td>
       <td>below chikou</td>
       <td>-6</td>
@@ -10776,6 +11615,7 @@
     <tr>
       <td>SLGN</td>
       <td>Silgan Holdings</td>
+      <td>35.92</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-40</td>
@@ -10789,6 +11629,7 @@
     <tr>
       <td>SLM</td>
       <td>Sallie Mae</td>
+      <td>23.66</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -10802,6 +11643,7 @@
     <tr>
       <td>SMCI</td>
       <td>Supermicro</td>
+      <td>43.26</td>
       <td>48</td>
       <td>above chikou</td>
       <td>34</td>
@@ -10815,6 +11657,7 @@
     <tr>
       <td>SMG</td>
       <td>Scotts Miracle-Gro Company</td>
+      <td>50.90</td>
       <td>-52</td>
       <td>below chikou</td>
       <td>-37</td>
@@ -10828,6 +11671,7 @@
     <tr>
       <td>SMMT</td>
       <td>Summit Therapeutics</td>
+      <td>15.60</td>
       <td>-44</td>
       <td>below chikou</td>
       <td>16</td>
@@ -10841,6 +11685,7 @@
     <tr>
       <td>SMTC</td>
       <td>Semtech</td>
+      <td>182.17</td>
       <td>6</td>
       <td>above chikou</td>
       <td>17</td>
@@ -10854,6 +11699,7 @@
     <tr>
       <td>SN</td>
       <td>SharkNinja</td>
+      <td>177.81</td>
       <td>22</td>
       <td>above chikou</td>
       <td>-10</td>
@@ -10867,6 +11713,7 @@
     <tr>
       <td>SNA</td>
       <td>Snap-on</td>
+      <td>369.15</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-27</td>
@@ -10880,6 +11727,7 @@
     <tr>
       <td>SNDK</td>
       <td>SanDisk</td>
+      <td>1777.59</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>17</td>
@@ -10893,6 +11741,7 @@
     <tr>
       <td>SNDR</td>
       <td>Schneider National</td>
+      <td>31.24</td>
       <td>-12</td>
       <td>below chikou</td>
       <td>-27</td>
@@ -10906,6 +11755,7 @@
     <tr>
       <td>SNOW</td>
       <td>Snowflake Inc.</td>
+      <td>335.97</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>93</td>
@@ -10919,6 +11769,7 @@
     <tr>
       <td>SNPS</td>
       <td>Synopsys</td>
+      <td>425.76</td>
       <td>37</td>
       <td>above chikou</td>
       <td>1</td>
@@ -10932,6 +11783,7 @@
     <tr>
       <td>SNX</td>
       <td>TD Synnex</td>
+      <td>262.80</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>10</td>
@@ -10945,6 +11797,7 @@
     <tr>
       <td>SO</td>
       <td>Southern Company</td>
+      <td>82.90</td>
       <td>-85</td>
       <td>below chikou</td>
       <td>-38</td>
@@ -10958,6 +11811,7 @@
     <tr>
       <td>SOFI</td>
       <td>SoFi</td>
+      <td>16.57</td>
       <td>-18</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -10971,6 +11825,7 @@
     <tr>
       <td>SOLS</td>
       <td>Solstice Advanced Materials</td>
+      <td>56.66</td>
       <td>-19</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -10984,6 +11839,7 @@
     <tr>
       <td>SOLV</td>
       <td>Solventum</td>
+      <td>89.51</td>
       <td>3</td>
       <td>above chikou</td>
       <td>44</td>
@@ -10997,6 +11853,7 @@
     <tr>
       <td>SON</td>
       <td>Sonoco</td>
+      <td>50.07</td>
       <td>56</td>
       <td>above chikou</td>
       <td>-17</td>
@@ -11010,6 +11867,7 @@
     <tr>
       <td>SPCX</td>
       <td>SpaceX</td>
+      <td>148.73</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>23</td>
@@ -11023,6 +11881,7 @@
     <tr>
       <td>SPG</td>
       <td>Simon Property Group</td>
+      <td>204.87</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>-25</td>
@@ -11036,6 +11895,7 @@
     <tr>
       <td>SPGI</td>
       <td>S&P Global</td>
+      <td>403.35</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>-6</td>
@@ -11049,6 +11909,7 @@
     <tr>
       <td>SPOT</td>
       <td>Spotify</td>
+      <td>509.68</td>
       <td>-44</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -11062,6 +11923,7 @@
     <tr>
       <td>SPXC</td>
       <td>SPX Technologies</td>
+      <td>172.82</td>
       <td>-28</td>
       <td>below chikou</td>
       <td>-53</td>
@@ -11075,6 +11937,7 @@
     <tr>
       <td>SRE</td>
       <td>Sempra</td>
+      <td>77.94</td>
       <td>-83</td>
       <td>below chikou</td>
       <td>-41</td>
@@ -11088,6 +11951,7 @@
     <tr>
       <td>SSB</td>
       <td>SouthState Corporation</td>
+      <td>102.46</td>
       <td>-52</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -11101,6 +11965,7 @@
     <tr>
       <td>SSD</td>
       <td>Simpson Manufacturing Company</td>
+      <td>176.53</td>
       <td>35</td>
       <td>above chikou</td>
       <td>-23</td>
@@ -11114,6 +11979,7 @@
     <tr>
       <td>SSNC</td>
       <td>SS&C Technologies</td>
+      <td>78.60</td>
       <td>-44</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -11127,6 +11993,7 @@
     <tr>
       <td>ST</td>
       <td>Sensata Technologies</td>
+      <td>42.20</td>
       <td>5</td>
       <td>above chikou</td>
       <td>-27</td>
@@ -11140,6 +12007,7 @@
     <tr>
       <td>STAG</td>
       <td>STAG Industrial</td>
+      <td>36.81</td>
       <td>-20</td>
       <td>below chikou</td>
       <td>6</td>
@@ -11153,6 +12021,7 @@
     <tr>
       <td>STE</td>
       <td>Steris</td>
+      <td>208.91</td>
       <td>21</td>
       <td>above chikou</td>
       <td>-15</td>
@@ -11166,6 +12035,7 @@
     <tr>
       <td>STLD</td>
       <td>Steel Dynamics</td>
+      <td>233.70</td>
       <td>14</td>
       <td>above chikou</td>
       <td>-26</td>
@@ -11179,6 +12049,7 @@
     <tr>
       <td>STRL</td>
       <td>Sterling Infrastructure</td>
+      <td>512.82</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>-59</td>
@@ -11192,6 +12063,7 @@
     <tr>
       <td>STT</td>
       <td>State Street Corporation</td>
+      <td>181.07</td>
       <td>-32</td>
       <td>below chikou</td>
       <td>-7</td>
@@ -11205,6 +12077,7 @@
     <tr>
       <td>STWD</td>
       <td>Starwood Property Trust</td>
+      <td>14.37</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-31</td>
@@ -11218,6 +12091,7 @@
     <tr>
       <td>STZ</td>
       <td>Constellation Brands</td>
+      <td>113.64</td>
       <td>-44</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -11231,6 +12105,7 @@
     <tr>
       <td>SUI</td>
       <td>Sun Communities</td>
+      <td>112.31</td>
       <td>-44</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -11244,6 +12119,7 @@
     <tr>
       <td>SUNB</td>
       <td>Sunbelt Rentals</td>
+      <td>75.07</td>
       <td>7</td>
       <td>above chikou</td>
       <td>-18</td>
@@ -11257,6 +12133,7 @@
     <tr>
       <td>SW</td>
       <td>Smurfit Westrock</td>
+      <td>46.42</td>
       <td>63</td>
       <td>above chikou</td>
       <td>-17</td>
@@ -11270,6 +12147,7 @@
     <tr>
       <td>SWK</td>
       <td>Stanley Black & Decker</td>
+      <td>91.39</td>
       <td>28</td>
       <td>above chikou</td>
       <td>-12</td>
@@ -11283,6 +12161,7 @@
     <tr>
       <td>SWKS</td>
       <td>Skyworks Solutions</td>
+      <td>89.33</td>
       <td>6</td>
       <td>above chikou</td>
       <td>34</td>
@@ -11296,6 +12175,7 @@
     <tr>
       <td>SYF</td>
       <td>Synchrony Financial</td>
+      <td>72.96</td>
       <td>-33</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -11309,6 +12189,7 @@
     <tr>
       <td>SYK</td>
       <td>Stryker Corporation</td>
+      <td>272.36</td>
       <td>-3</td>
       <td>below chikou</td>
       <td>-18</td>
@@ -11322,6 +12203,7 @@
     <tr>
       <td>SYY</td>
       <td>Sysco</td>
+      <td>78.46</td>
       <td>-63</td>
       <td>below chikou</td>
       <td>-18</td>
@@ -11335,6 +12217,7 @@
     <tr>
       <td>T</td>
       <td>AT&T</td>
+      <td>25.40</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>44</td>
@@ -11348,6 +12231,7 @@
     <tr>
       <td>TAP</td>
       <td>Molson Coors</td>
+      <td>35.96</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -11361,6 +12245,7 @@
     <tr>
       <td>TDG</td>
       <td>TransDigm Group</td>
+      <td>1116.56</td>
       <td>5</td>
       <td>above chikou</td>
       <td>-52</td>
@@ -11374,6 +12259,7 @@
     <tr>
       <td>TDY</td>
       <td>Teledyne Technologies</td>
+      <td>614.13</td>
       <td>44</td>
       <td>above chikou</td>
       <td>-19</td>
@@ -11387,6 +12273,7 @@
     <tr>
       <td>TEAM</td>
       <td>Atlassian</td>
+      <td>187.70</td>
       <td>-9</td>
       <td>below chikou</td>
       <td>43</td>
@@ -11400,6 +12287,7 @@
     <tr>
       <td>TECH</td>
       <td>Bio-Techne</td>
+      <td>72.62</td>
       <td>55</td>
       <td>above chikou</td>
       <td>71</td>
@@ -11413,6 +12301,7 @@
     <tr>
       <td>TEM</td>
       <td>Tempus AI</td>
+      <td>85.05</td>
       <td>10</td>
       <td>above chikou</td>
       <td>26</td>
@@ -11426,6 +12315,7 @@
     <tr>
       <td>TER</td>
       <td>Teradyne</td>
+      <td>398.32</td>
       <td>44</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -11439,6 +12329,7 @@
     <tr>
       <td>TFC</td>
       <td>Truist Financial</td>
+      <td>47.65</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-26</td>
@@ -11452,6 +12343,7 @@
     <tr>
       <td>TFSL</td>
       <td>Third Federal S&L</td>
+      <td>16.73</td>
       <td>-22</td>
       <td>below chikou</td>
       <td>-33</td>
@@ -11465,6 +12357,7 @@
     <tr>
       <td>TFX</td>
       <td>Teleflex</td>
+      <td>122.12</td>
       <td>-103</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -11478,6 +12371,7 @@
     <tr>
       <td>TGT</td>
       <td>Target Corporation</td>
+      <td>157.41</td>
       <td>-11</td>
       <td>below chikou</td>
       <td>56</td>
@@ -11491,6 +12385,7 @@
     <tr>
       <td>THC</td>
       <td>Tenet Healthcare</td>
+      <td>259.76</td>
       <td>-30</td>
       <td>below chikou</td>
       <td>-4</td>
@@ -11504,6 +12399,7 @@
     <tr>
       <td>THG</td>
       <td>Hanover Insurance</td>
+      <td>217.46</td>
       <td>-43</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -11517,6 +12413,7 @@
     <tr>
       <td>THO</td>
       <td>Thor Industries</td>
+      <td>72.10</td>
       <td>28</td>
       <td>above chikou</td>
       <td>-17</td>
@@ -11530,6 +12427,7 @@
     <tr>
       <td>TIGO</td>
       <td>Millicom</td>
+      <td>92.58</td>
       <td>-34</td>
       <td>below chikou</td>
       <td>-9</td>
@@ -11543,6 +12441,7 @@
     <tr>
       <td>TJX</td>
       <td>TJX Companies</td>
+      <td>130.10</td>
       <td>-3</td>
       <td>below chikou</td>
       <td>-26</td>
@@ -11556,6 +12455,7 @@
     <tr>
       <td>TKO</td>
       <td>TKO Group Holdings</td>
+      <td>182.76</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>-5</td>
@@ -11569,6 +12469,7 @@
     <tr>
       <td>TKR</td>
       <td>Timken Company</td>
+      <td>117.42</td>
       <td>10</td>
       <td>above chikou</td>
       <td>-42</td>
@@ -11582,6 +12483,7 @@
     <tr>
       <td>TLN</td>
       <td>Talen Energy</td>
+      <td>304.44</td>
       <td>19</td>
       <td>above chikou</td>
       <td>-44</td>
@@ -11595,6 +12497,7 @@
     <tr>
       <td>TMO</td>
       <td>Thermo Fisher Scientific</td>
+      <td>674.55</td>
       <td>72</td>
       <td>above chikou</td>
       <td>81</td>
@@ -11608,6 +12511,7 @@
     <tr>
       <td>TMUS</td>
       <td>T-Mobile US</td>
+      <td>165.39</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-6</td>
@@ -11621,6 +12525,7 @@
     <tr>
       <td>TNL</td>
       <td>Travel + Leisure Co.</td>
+      <td>63.69</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-28</td>
@@ -11634,6 +12539,7 @@
     <tr>
       <td>TOL</td>
       <td>Toll Brothers</td>
+      <td>137.34</td>
       <td>33</td>
       <td>above chikou</td>
       <td>-20</td>
@@ -11647,6 +12553,7 @@
     <tr>
       <td>TOST</td>
       <td>Toast, Inc.</td>
+      <td>30.61</td>
       <td>10</td>
       <td>above chikou</td>
       <td>-12</td>
@@ -11660,6 +12567,7 @@
     <tr>
       <td>TPG</td>
       <td>TPG Inc.</td>
+      <td>44.39</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-8</td>
@@ -11673,6 +12581,7 @@
     <tr>
       <td>TPL</td>
       <td>Texas Pacific Land Corporation</td>
+      <td>341.15</td>
       <td>-19</td>
       <td>below chikou</td>
       <td>-2</td>
@@ -11686,6 +12595,7 @@
     <tr>
       <td>TPR</td>
       <td>Tapestry, Inc.</td>
+      <td>113.87</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-30</td>
@@ -11699,6 +12609,7 @@
     <tr>
       <td>TREX</td>
       <td>Trex Company, Inc.</td>
+      <td>44.79</td>
       <td>28</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -11712,6 +12623,7 @@
     <tr>
       <td>TRGP</td>
       <td>Targa Resources</td>
+      <td>277.89</td>
       <td>-16</td>
       <td>below chikou</td>
       <td>-1</td>
@@ -11725,6 +12637,7 @@
     <tr>
       <td>TRMB</td>
       <td>Trimble Inc.</td>
+      <td>57.84</td>
       <td>-4</td>
       <td>below chikou</td>
       <td>3</td>
@@ -11738,6 +12651,7 @@
     <tr>
       <td>TROW</td>
       <td>T. Rowe Price</td>
+      <td>105.44</td>
       <td>24</td>
       <td>above chikou</td>
       <td>-33</td>
@@ -11751,6 +12665,7 @@
     <tr>
       <td>TRU</td>
       <td>TransUnion</td>
+      <td>69.17</td>
       <td>-55</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -11764,6 +12679,7 @@
     <tr>
       <td>TRV</td>
       <td>Travelers Companies (The)</td>
+      <td>363.04</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -11777,6 +12693,7 @@
     <tr>
       <td>TSCO</td>
       <td>Tractor Supply Company</td>
+      <td>32.28</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-8</td>
@@ -11790,6 +12707,7 @@
     <tr>
       <td>TSLA</td>
       <td>Tesla, Inc.</td>
+      <td>372.08</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>19</td>
@@ -11803,6 +12721,7 @@
     <tr>
       <td>TSN</td>
       <td>Tyson Foods</td>
+      <td>50.91</td>
       <td>-36</td>
       <td>below chikou</td>
       <td>-22</td>
@@ -11816,6 +12735,7 @@
     <tr>
       <td>TT</td>
       <td>Trane Technologies</td>
+      <td>454.53</td>
       <td>36</td>
       <td>above chikou</td>
       <td>-27</td>
@@ -11829,6 +12749,7 @@
     <tr>
       <td>TTC</td>
       <td>Toro Company (The)</td>
+      <td>97.14</td>
       <td>31</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -11842,6 +12763,7 @@
     <tr>
       <td>TTD</td>
       <td>Trade Desk (The)</td>
+      <td>12.60</td>
       <td>-44</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -11855,6 +12777,7 @@
     <tr>
       <td>TTEK</td>
       <td>Tetra Tech</td>
+      <td>33.92</td>
       <td>-45</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -11868,6 +12791,7 @@
     <tr>
       <td>TTMI</td>
       <td>TTM Technologies</td>
+      <td>129.23</td>
       <td>40</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -11881,6 +12805,7 @@
     <tr>
       <td>TTWO</td>
       <td>Take-Two Interactive</td>
+      <td>201.43</td>
       <td>-57</td>
       <td>below chikou</td>
       <td>-18</td>
@@ -11894,6 +12819,7 @@
     <tr>
       <td>TW</td>
       <td>Tradeweb</td>
+      <td>101.16</td>
       <td>-24</td>
       <td>below chikou</td>
       <td>-8</td>
@@ -11907,6 +12833,7 @@
     <tr>
       <td>TWLO</td>
       <td>Twilio</td>
+      <td>275.81</td>
       <td>72</td>
       <td>above chikou</td>
       <td>4</td>
@@ -11920,6 +12847,7 @@
     <tr>
       <td>TXN</td>
       <td>Texas Instruments</td>
+      <td>278.01</td>
       <td>36</td>
       <td>above chikou</td>
       <td>-46</td>
@@ -11933,6 +12861,7 @@
     <tr>
       <td>TXRH</td>
       <td>Texas Roadhouse</td>
+      <td>159.74</td>
       <td>-147</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -11946,6 +12875,7 @@
     <tr>
       <td>TXT</td>
       <td>Textron</td>
+      <td>76.57</td>
       <td>-43</td>
       <td>below chikou</td>
       <td>-41</td>
@@ -11959,6 +12889,7 @@
     <tr>
       <td>TYL</td>
       <td>Tyler Technologies</td>
+      <td>325.60</td>
       <td>-44</td>
       <td>below chikou</td>
       <td>-1</td>
@@ -11972,6 +12903,7 @@
     <tr>
       <td>U</td>
       <td>Unity Technologies</td>
+      <td>41.56</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>-6</td>
@@ -11985,6 +12917,7 @@
     <tr>
       <td>UAL</td>
       <td>United Airlines Holdings</td>
+      <td>114.00</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>-39</td>
@@ -11998,6 +12931,7 @@
     <tr>
       <td>UBER</td>
       <td>Uber</td>
+      <td>69.60</td>
       <td>-53</td>
       <td>below chikou</td>
       <td>-7</td>
@@ -12011,6 +12945,7 @@
     <tr>
       <td>UDR</td>
       <td>UDR, Inc.</td>
+      <td>33.87</td>
       <td>-147</td>
       <td>below chikou</td>
       <td>-37</td>
@@ -12024,6 +12959,7 @@
     <tr>
       <td>UGI</td>
       <td>UGI Corporation</td>
+      <td>36.52</td>
       <td>-33</td>
       <td>below chikou</td>
       <td>27</td>
@@ -12037,6 +12973,7 @@
     <tr>
       <td>UHAL</td>
       <td>U-Haul</td>
+      <td>60.96</td>
       <td>-29</td>
       <td>below chikou</td>
       <td>-22</td>
@@ -12050,6 +12987,7 @@
     <tr>
       <td>UHAL-B</td>
       <td>U-Haul (Series N)</td>
+      <td>53.44</td>
       <td>-30</td>
       <td>below chikou</td>
       <td>-22</td>
@@ -12063,6 +13001,7 @@
     <tr>
       <td>UHS</td>
       <td>Universal Health Services</td>
+      <td>178.82</td>
       <td>21</td>
       <td>above chikou</td>
       <td>57</td>
@@ -12076,6 +13015,7 @@
     <tr>
       <td>UI</td>
       <td>Ubiquiti</td>
+      <td>560.84</td>
       <td>-22</td>
       <td>below chikou</td>
       <td>-1</td>
@@ -12089,6 +13029,7 @@
     <tr>
       <td>ULS</td>
       <td>UL Solutions</td>
+      <td>66.06</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>-38</td>
@@ -12102,6 +13043,7 @@
     <tr>
       <td>ULTA</td>
       <td>Ulta Beauty</td>
+      <td>545.20</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>5</td>
@@ -12115,6 +13057,7 @@
     <tr>
       <td>UNH</td>
       <td>UnitedHealth Group</td>
+      <td>376.64</td>
       <td>5</td>
       <td>above chikou</td>
       <td>-37</td>
@@ -12128,6 +13071,7 @@
     <tr>
       <td>UNM</td>
       <td>Unum</td>
+      <td>92.10</td>
       <td>-34</td>
       <td>below chikou</td>
       <td>22</td>
@@ -12141,6 +13085,7 @@
     <tr>
       <td>UNP</td>
       <td>Union Pacific Corporation</td>
+      <td>273.77</td>
       <td>8</td>
       <td>above chikou</td>
       <td>-18</td>
@@ -12154,6 +13099,7 @@
     <tr>
       <td>UPS</td>
       <td>United Parcel Service</td>
+      <td>93.95</td>
       <td>-43</td>
       <td>below chikou</td>
       <td>-41</td>
@@ -12167,6 +13113,7 @@
     <tr>
       <td>URI</td>
       <td>United Rentals</td>
+      <td>1046.75</td>
       <td>55</td>
       <td>above chikou</td>
       <td>-19</td>
@@ -12180,6 +13127,7 @@
     <tr>
       <td>USB</td>
       <td>U.S. Bancorp</td>
+      <td>59.33</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-13</td>
@@ -12193,6 +13141,7 @@
     <tr>
       <td>USFD</td>
       <td>US Foods</td>
+      <td>93.33</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -12206,6 +13155,7 @@
     <tr>
       <td>UTHR</td>
       <td>United Therapeutics</td>
+      <td>475.51</td>
       <td>-62</td>
       <td>below chikou</td>
       <td>-53</td>
@@ -12219,6 +13169,7 @@
     <tr>
       <td>UWMC</td>
       <td>United Wholesale Mortgage</td>
+      <td>1.23</td>
       <td>-18</td>
       <td>below chikou</td>
       <td>-7</td>
@@ -12232,6 +13183,7 @@
     <tr>
       <td>V</td>
       <td>Visa Inc.</td>
+      <td>367.30</td>
       <td>1</td>
       <td>above chikou</td>
       <td>1</td>
@@ -12245,6 +13197,7 @@
     <tr>
       <td>VEEV</td>
       <td>Veeva Systems</td>
+      <td>280.75</td>
       <td>21</td>
       <td>above chikou</td>
       <td>66</td>
@@ -12258,6 +13211,7 @@
     <tr>
       <td>VFC</td>
       <td>VF Corporation</td>
+      <td>14.14</td>
       <td>35</td>
       <td>above chikou</td>
       <td>-41</td>
@@ -12271,6 +13225,7 @@
     <tr>
       <td>VIAV</td>
       <td>Viavi Solutions</td>
+      <td>40.69</td>
       <td>39</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -12284,6 +13239,7 @@
     <tr>
       <td>VICI</td>
       <td>Vici Properties</td>
+      <td>23.52</td>
       <td>-52</td>
       <td>below chikou</td>
       <td>-27</td>
@@ -12297,6 +13253,7 @@
     <tr>
       <td>VICR</td>
       <td>Vicor Corporation</td>
+      <td>281.62</td>
       <td>49</td>
       <td>above chikou</td>
       <td>3</td>
@@ -12310,6 +13267,7 @@
     <tr>
       <td>VIK</td>
       <td>Viking Holdings</td>
+      <td>80.30</td>
       <td>-28</td>
       <td>below chikou</td>
       <td>-29</td>
@@ -12323,6 +13281,7 @@
     <tr>
       <td>VIRT</td>
       <td>Virtu Financial</td>
+      <td>53.42</td>
       <td>-28</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -12336,6 +13295,7 @@
     <tr>
       <td>VKTX</td>
       <td>Viking Therapeutics</td>
+      <td>35.54</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>3</td>
@@ -12349,6 +13309,7 @@
     <tr>
       <td>VLO</td>
       <td>Valero Energy</td>
+      <td>387.23</td>
       <td>2</td>
       <td>above chikou</td>
       <td>62</td>
@@ -12362,6 +13323,7 @@
     <tr>
       <td>VLTO</td>
       <td>Veralto</td>
+      <td>97.13</td>
       <td>23</td>
       <td>above chikou</td>
       <td>-11</td>
@@ -12375,6 +13337,7 @@
     <tr>
       <td>VMC</td>
       <td>Vulcan Materials</td>
+      <td>244.99</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>-46</td>
@@ -12388,6 +13351,7 @@
     <tr>
       <td>VMI</td>
       <td>Valmont Industries</td>
+      <td>466.62</td>
       <td>-18</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -12401,6 +13365,7 @@
     <tr>
       <td>VMRK</td>
       <td>Vivmark Residential</td>
+      <td>61.51</td>
       <td>-55</td>
       <td>below chikou</td>
       <td>-35</td>
@@ -12414,6 +13379,7 @@
     <tr>
       <td>VNO</td>
       <td>Vornado Realty Trust</td>
+      <td>34.72</td>
       <td>-20</td>
       <td>below chikou</td>
       <td>-27</td>
@@ -12427,6 +13393,7 @@
     <tr>
       <td>VNOM</td>
       <td>Viper Energy</td>
+      <td>40.95</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -12440,6 +13407,7 @@
     <tr>
       <td>VNT</td>
       <td>Vontier</td>
+      <td>31.50</td>
       <td>1</td>
       <td>above chikou</td>
       <td>-12</td>
@@ -12453,6 +13421,7 @@
     <tr>
       <td>VOYA</td>
       <td>Voya Financial</td>
+      <td>97.28</td>
       <td>-57</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -12466,6 +13435,7 @@
     <tr>
       <td>VRSK</td>
       <td>Verisk Analytics</td>
+      <td>169.39</td>
       <td>-44</td>
       <td>below chikou</td>
       <td>-33</td>
@@ -12479,6 +13449,7 @@
     <tr>
       <td>VRSN</td>
       <td>Verisign</td>
+      <td>287.15</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>9</td>
@@ -12492,6 +13463,7 @@
     <tr>
       <td>VRT</td>
       <td>Vertiv</td>
+      <td>253.31</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -12505,6 +13477,7 @@
     <tr>
       <td>VRTX</td>
       <td>Vertex Pharmaceuticals</td>
+      <td>526.44</td>
       <td>15</td>
       <td>above chikou</td>
       <td>3</td>
@@ -12518,6 +13491,7 @@
     <tr>
       <td>VSNT</td>
       <td>Versant</td>
+      <td>32.81</td>
       <td>-49</td>
       <td>below chikou</td>
       <td>-9</td>
@@ -12531,6 +13505,7 @@
     <tr>
       <td>VST</td>
       <td>Vistra Corp.</td>
+      <td>138.46</td>
       <td>-28</td>
       <td>below chikou</td>
       <td>-7</td>
@@ -12544,6 +13519,7 @@
     <tr>
       <td>VTR</td>
       <td>Ventas, Inc.</td>
+      <td>86.61</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>-32</td>
@@ -12557,6 +13533,7 @@
     <tr>
       <td>VTRS</td>
       <td>Viatris</td>
+      <td>17.82</td>
       <td>15</td>
       <td>above chikou</td>
       <td>7</td>
@@ -12570,6 +13547,7 @@
     <tr>
       <td>VVV</td>
       <td>Valvoline</td>
+      <td>28.93</td>
       <td>25</td>
       <td>above chikou</td>
       <td>-39</td>
@@ -12583,6 +13561,7 @@
     <tr>
       <td>VZ</td>
       <td>Verizon</td>
+      <td>47.09</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -12596,6 +13575,7 @@
     <tr>
       <td>W</td>
       <td>Wayfair</td>
+      <td>98.12</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>-1</td>
@@ -12609,6 +13589,7 @@
     <tr>
       <td>WAB</td>
       <td>Wabtec</td>
+      <td>287.93</td>
       <td>36</td>
       <td>above chikou</td>
       <td>-18</td>
@@ -12622,6 +13603,7 @@
     <tr>
       <td>WAL</td>
       <td>Western Alliance Bancorporation</td>
+      <td>77.69</td>
       <td>-22</td>
       <td>below chikou</td>
       <td>-25</td>
@@ -12635,6 +13617,7 @@
     <tr>
       <td>WAT</td>
       <td>Waters Corporation</td>
+      <td>433.73</td>
       <td>14</td>
       <td>above chikou</td>
       <td>47</td>
@@ -12648,6 +13631,7 @@
     <tr>
       <td>WBD</td>
       <td>Warner Bros. Discovery</td>
+      <td>30.85</td>
       <td>35</td>
       <td>above chikou</td>
       <td>33</td>
@@ -12661,6 +13645,7 @@
     <tr>
       <td>WBS</td>
       <td>Webster Bank</td>
+      <td>77.60</td>
       <td>-20</td>
       <td>below chikou</td>
       <td>0</td>
@@ -12674,6 +13659,7 @@
     <tr>
       <td>WCC</td>
       <td>Wesco International</td>
+      <td>367.44</td>
       <td>43</td>
       <td>above chikou</td>
       <td>3</td>
@@ -12687,6 +13673,7 @@
     <tr>
       <td>WDAY</td>
       <td>Workday, Inc.</td>
+      <td>189.41</td>
       <td>-22</td>
       <td>below chikou</td>
       <td>-3</td>
@@ -12700,6 +13687,7 @@
     <tr>
       <td>WDC</td>
       <td>Western Digital</td>
+      <td>456.49</td>
       <td>41</td>
       <td>above chikou</td>
       <td>-45</td>
@@ -12713,6 +13701,7 @@
     <tr>
       <td>WEC</td>
       <td>WEC Energy Group</td>
+      <td>101.44</td>
       <td>-84</td>
       <td>below chikou</td>
       <td>-41</td>
@@ -12726,6 +13715,7 @@
     <tr>
       <td>WELL</td>
       <td>Welltower</td>
+      <td>231.41</td>
       <td>-6</td>
       <td>below chikou</td>
       <td>-8</td>
@@ -12739,6 +13729,7 @@
     <tr>
       <td>WEX</td>
       <td>WEX Inc.</td>
+      <td>178.28</td>
       <td>-43</td>
       <td>below chikou</td>
       <td>-4</td>
@@ -12752,6 +13743,7 @@
     <tr>
       <td>WFC</td>
       <td>Wells Fargo</td>
+      <td>82.97</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-6</td>
@@ -12765,6 +13757,7 @@
     <tr>
       <td>WFRD</td>
       <td>Weatherford International</td>
+      <td>85.09</td>
       <td>28</td>
       <td>above chikou</td>
       <td>-9</td>
@@ -12778,6 +13771,7 @@
     <tr>
       <td>WH</td>
       <td>Wyndham Hotels & Resorts</td>
+      <td>70.03</td>
       <td>16</td>
       <td>above chikou</td>
       <td>-17</td>
@@ -12791,6 +13785,7 @@
     <tr>
       <td>WHR</td>
       <td>Whirlpool Corporation</td>
+      <td>31.70</td>
       <td>-4</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -12804,6 +13799,7 @@
     <tr>
       <td>WING</td>
       <td>Wingstop</td>
+      <td>99.08</td>
       <td>-22</td>
       <td>below chikou</td>
       <td>-48</td>
@@ -12817,6 +13813,7 @@
     <tr>
       <td>WLK</td>
       <td>Westlake Corporation</td>
+      <td>67.71</td>
       <td>-35</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -12830,6 +13827,7 @@
     <tr>
       <td>WM</td>
       <td>Waste Management, Inc.</td>
+      <td>206.83</td>
       <td>-49</td>
       <td>below chikou</td>
       <td>-31</td>
@@ -12843,6 +13841,7 @@
     <tr>
       <td>WMB</td>
       <td>Williams Companies</td>
+      <td>69.28</td>
       <td>-17</td>
       <td>below chikou</td>
       <td>-4</td>
@@ -12856,6 +13855,7 @@
     <tr>
       <td>WMS</td>
       <td>Advanced Drainage Systems</td>
+      <td>133.12</td>
       <td>28</td>
       <td>above chikou</td>
       <td>-28</td>
@@ -12869,6 +13869,7 @@
     <tr>
       <td>WMT</td>
       <td>Walmart</td>
+      <td>107.98</td>
       <td>27</td>
       <td>above chikou</td>
       <td>-25</td>
@@ -12882,6 +13883,7 @@
     <tr>
       <td>WPC</td>
       <td>W. P. Carey</td>
+      <td>66.10</td>
       <td>-15</td>
       <td>below chikou</td>
       <td>-27</td>
@@ -12895,6 +13897,7 @@
     <tr>
       <td>WRB</td>
       <td>W. R. Berkley Corporation</td>
+      <td>66.82</td>
       <td>-44</td>
       <td>below chikou</td>
       <td>-32</td>
@@ -12908,6 +13911,7 @@
     <tr>
       <td>WSC</td>
       <td>WillScot Mobile Mini</td>
+      <td>18.16</td>
       <td>5</td>
       <td>above chikou</td>
       <td>-48</td>
@@ -12921,6 +13925,7 @@
     <tr>
       <td>WSM</td>
       <td>Williams-Sonoma, Inc.</td>
+      <td>231.47</td>
       <td>34</td>
       <td>above chikou</td>
       <td>-17</td>
@@ -12934,6 +13939,7 @@
     <tr>
       <td>WSO</td>
       <td>Watsco</td>
+      <td>317.16</td>
       <td>-1</td>
       <td>below chikou</td>
       <td>4</td>
@@ -12947,6 +13953,7 @@
     <tr>
       <td>WST</td>
       <td>West Pharmaceutical Services</td>
+      <td>370.38</td>
       <td>28</td>
       <td>above chikou</td>
       <td>9</td>
@@ -12960,6 +13967,7 @@
     <tr>
       <td>WTFC</td>
       <td>Wintrust Financial</td>
+      <td>146.03</td>
       <td>-52</td>
       <td>below chikou</td>
       <td>-27</td>
@@ -12973,6 +13981,7 @@
     <tr>
       <td>WTM</td>
       <td>White Mountains Insurance Group</td>
+      <td>2029.18</td>
       <td>-15</td>
       <td>below chikou</td>
       <td>-32</td>
@@ -12986,6 +13995,7 @@
     <tr>
       <td>WTRG</td>
       <td>Essential Utilities</td>
+      <td>39.54</td>
       <td>-42</td>
       <td>below chikou</td>
       <td>-1</td>
@@ -12999,6 +14009,7 @@
     <tr>
       <td>WTS</td>
       <td>Watts Water Technologies</td>
+      <td>358.08</td>
       <td>25</td>
       <td>above chikou</td>
       <td>-9</td>
@@ -13012,6 +14023,7 @@
     <tr>
       <td>WTW</td>
       <td>Willis Towers Watson</td>
+      <td>294.04</td>
       <td>-55</td>
       <td>below chikou</td>
       <td>-13</td>
@@ -13025,6 +14037,7 @@
     <tr>
       <td>WU</td>
       <td>Western Union</td>
+      <td>6.19</td>
       <td>-4</td>
       <td>below chikou</td>
       <td>-10</td>
@@ -13038,6 +14051,7 @@
     <tr>
       <td>WULF</td>
       <td>TeraWulf</td>
+      <td>15.74</td>
       <td>-13</td>
       <td>below chikou</td>
       <td>-59</td>
@@ -13051,6 +14065,7 @@
     <tr>
       <td>WWD</td>
       <td>Woodward, Inc.</td>
+      <td>330.38</td>
       <td>24</td>
       <td>above chikou</td>
       <td>-42</td>
@@ -13064,6 +14079,7 @@
     <tr>
       <td>WY</td>
       <td>Weyerhaeuser</td>
+      <td>20.01</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-18</td>
@@ -13077,6 +14093,7 @@
     <tr>
       <td>WYNN</td>
       <td>Wynn Resorts</td>
+      <td>81.11</td>
       <td>-92</td>
       <td>below chikou</td>
       <td>-20</td>
@@ -13090,6 +14107,7 @@
     <tr>
       <td>XE</td>
       <td>X-energy</td>
+      <td>15.08</td>
       <td>-9</td>
       <td>below chikou</td>
       <td>-11</td>
@@ -13103,6 +14121,7 @@
     <tr>
       <td>XEL</td>
       <td>Xcel Energy</td>
+      <td>69.80</td>
       <td>-83</td>
       <td>below chikou</td>
       <td>-40</td>
@@ -13116,6 +14135,7 @@
     <tr>
       <td>XOM</td>
       <td>ExxonMobil</td>
+      <td>160.56</td>
       <td>9</td>
       <td>above chikou</td>
       <td>-1</td>
@@ -13129,6 +14149,7 @@
     <tr>
       <td>XP</td>
       <td>XP Inc.</td>
+      <td>20.51</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>23</td>
@@ -13142,6 +14163,7 @@
     <tr>
       <td>XPO</td>
       <td>XPO, Inc.</td>
+      <td>173.09</td>
       <td>-3</td>
       <td>below chikou</td>
       <td>-27</td>
@@ -13155,6 +14177,7 @@
     <tr>
       <td>XYL</td>
       <td>Xylem Inc.</td>
+      <td>102.60</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>-28</td>
@@ -13168,6 +14191,7 @@
     <tr>
       <td>XYZ</td>
       <td>Block, Inc.</td>
+      <td>76.42</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>-17</td>
@@ -13181,6 +14205,7 @@
     <tr>
       <td>YETI</td>
       <td>Yeti Holdings</td>
+      <td>42.27</td>
       <td>-15</td>
       <td>below chikou</td>
       <td>-30</td>
@@ -13194,6 +14219,7 @@
     <tr>
       <td>YUM</td>
       <td>Yum! Brands</td>
+      <td>138.70</td>
       <td>-8</td>
       <td>below chikou</td>
       <td>-14</td>
@@ -13207,6 +14233,7 @@
     <tr>
       <td>Z</td>
       <td>Zillow (Class C)</td>
+      <td>28.43</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-13</td>
@@ -13220,6 +14247,7 @@
     <tr>
       <td>ZBH</td>
       <td>Zimmer Biomet</td>
+      <td>91.02</td>
       <td>-43</td>
       <td>below chikou</td>
       <td>-6</td>
@@ -13233,6 +14261,7 @@
     <tr>
       <td>ZBRA</td>
       <td>Zebra Technologies</td>
+      <td>370.02</td>
       <td>35</td>
       <td>above chikou</td>
       <td>-10</td>
@@ -13246,6 +14275,7 @@
     <tr>
       <td>ZG</td>
       <td>Zillow (Class A)</td>
+      <td>29.29</td>
       <td>-51</td>
       <td>below chikou</td>
       <td>-13</td>
@@ -13259,6 +14289,7 @@
     <tr>
       <td>ZION</td>
       <td>Zions Bancorporation</td>
+      <td>63.81</td>
       <td>-56</td>
       <td>below chikou</td>
       <td>-26</td>
@@ -13272,6 +14303,7 @@
     <tr>
       <td>ZM</td>
       <td>Zoom Communications</td>
+      <td>89.74</td>
       <td>-3</td>
       <td>below chikou</td>
       <td>-12</td>
@@ -13285,6 +14317,7 @@
     <tr>
       <td>ZS</td>
       <td>Zscaler</td>
+      <td>193.03</td>
       <td>-7</td>
       <td>below chikou</td>
       <td>52</td>
@@ -13298,6 +14331,7 @@
     <tr>
       <td>ZTS</td>
       <td>Zoetis</td>
+      <td>70.64</td>
       <td>-20</td>
       <td>below chikou</td>
       <td>-16</td>
@@ -13311,10 +14345,12 @@
   </tbody>
 </table>
         <script>
-        const classifyCell = (cell, isStateColumn) => {
+        const classifyCell = (cell, isStateColumn, isCloseColumn) => {
           cell.classList.remove('highlight-positive', 'highlight-negative', 'highlight-neutral');
           const text = cell.textContent.trim();
           const normalized = text.toLowerCase();
+
+          if (isCloseColumn) return;
 
           if (isStateColumn) {
             if (normalized.startsWith('above')) {
@@ -13349,7 +14385,7 @@
               if (/^(1H|4H|1D|1W|1M|3M|6M|1Y)/.test(parts[0])) {
                 return `${parts[0]}<br>${parts.slice(1).join(' ')}`;
               }
-              if (['Cloud', 'Chikou', 'TKx', 'Score', 'Signal', 'Count', 'State', 'Direction'].includes(parts[0])) {
+              if (['Cloud', 'Chikou', 'TKx', 'Total', 'Score', 'Signal', 'Count', 'State', 'Direction'].includes(parts[0])) {
                 return `${parts[0]}<br>${parts.slice(1).join(' ')}`;
               }
             }
@@ -13358,6 +14394,9 @@
         };
 
         $(document).ready(function() {
+          const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
+          document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
+
           const isChikou = $('#dataTable_1 thead th').toArray().some((th) => th.textContent.includes('Chikou'));
           $('#dataTable_1 thead th').each(function(index) {
             const raw = $(this).text().trim();
@@ -13374,10 +14413,18 @@
                 .toArray()
                 .map((th, index) => th.textContent.toLowerCase().includes('state') ? index : null)
                 .filter(index => index !== null);
+              const closeColumnIndexes = $('#dataTable_1 thead th')
+                .toArray()
+                .map((th, index) => th.textContent.toLowerCase().includes('close') ? index : null)
+                .filter(index => index !== null);
 
               $('#dataTable_1 tbody tr').each(function() {
                 $(this).find('td').each(function(index) {
-                  classifyCell(this, stateColumnIndexes.includes(index));
+                  classifyCell(
+                    this,
+                    stateColumnIndexes.includes(index),
+                    closeColumnIndexes.includes(index)
+                  );
                 });
               });
             },
@@ -13390,7 +14437,7 @@
         </table>
         
         <footer>
-          <p>Last updated: 2026-09-26 02:09:58 [UK]<br></p>
+          <p>Last updated: 2026-09-27 23:25:22 [UK]<br></p>
         </footer>
         </body>
         </html>

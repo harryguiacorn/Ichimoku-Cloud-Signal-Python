@@ -10,6 +10,9 @@
   <style>
     body { background: #eef2f4; color: #17212b; }
     .tabulator-page { max-width: 100%; margin: 0 auto; padding: 24px; }
+    .search-help-dialog { max-width: 440px; border: 2px solid #344955; padding: 20px; color: #17212b; }
+    .search-help-dialog::backdrop { background: rgba(23, 33, 43, .45); }
+    .search-help-dialog h2 { margin-top: 0; font-size: 1.25rem; }
     .tabulator { border: 2px solid #344955; background: #ffffff; box-shadow: 0 8px 20px rgba(23, 33, 43, .14); }
     .tabulator .tabulator-header, .tabulator .tabulator-header .tabulator-col { background: #17212b; color: #ffffff; }
     .tabulator .tabulator-header .tabulator-col { border-right: 1px solid #657782; }
@@ -29,19 +32,60 @@
   <main class="tabulator-page">
     <nav class="scan-navigation" aria-label="Page navigation">
       <a href="../../index.html">Home</a>
+      <button type="button" class="search-help-button" data-search-help-open>Filter guide</button>
     </nav>
     <h1>Futures Currency Cloud Scan</h1>
+    <dialog class="search-help-dialog" data-search-help-dialog aria-labelledby="search-help-title">
+      <h2 id="search-help-title">Filter guide</h2>
+      <p>For numeric columns:</p>
+      <ul>
+        <li><code>1</code> matches exactly 1</li>
+        <li><code>&gt;1</code> or <code>1+</code> matches values greater than 1</li>
+        <li><code>0+</code> matches positive values; <code>0-</code> matches negative values</li>
+      </ul>
+      <p>Comparisons such as <code>&gt;=1</code>, <code>&lt;1</code>, and <code>&lt;=1</code> are also supported. Text searches match partial values, ignoring case.</p>
+      <form method="dialog"><button type="submit">Close</button></form>
+    </dialog>
     <div id="dataTableTabulator"></div>
-    <footer><p>Last updated: 2026-09-26 02:13:02 [UK]</p></footer>
+    <footer><p>Last updated: 2026-09-27 23:25:21 [UK]</p></footer>
   </main>
   <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
   <script>
     const tableData = [{"Symbol":"6A=F","Name":"Australian Dollar Futures","Close":0.7,"1H Cloud Score":0,"1D Cloud Score":0,"1W Cloud Score":57,"1M Cloud Score":3,"Cloud Score Sum":60,"1H TKx Score":10,"1D TKx Score":-3,"1W TKx Score":4,"1M TKx Score":6,"TKx Score Sum":17,"Total Score Sum":77},{"Symbol":"6B=F","Name":"British Pound Futures","Close":1.33,"1H Cloud Score":0,"1D Cloud Score":-4,"1W Cloud Score":-1,"1M Cloud Score":16,"Cloud Score Sum":11,"1H TKx Score":11,"1D TKx Score":-13,"1W TKx Score":5,"1M TKx Score":31,"TKx Score Sum":34,"Total Score Sum":45},{"Symbol":"6E=F","Name":"Euro FX Futures","Close":1.14,"1H Cloud Score":0,"1D Cloud Score":-7,"1W Cloud Score":-1,"1M Cloud Score":15,"Cloud Score Sum":7,"1H TKx Score":13,"1D TKx Score":-11,"1W TKx Score":-26,"1M TKx Score":29,"TKx Score Sum":5,"Total Score Sum":12},{"Symbol":"6J=F","Name":"Japanese Yen Futures","Close":0.01,"1H Cloud Score":10,"1D Cloud Score":19,"1W Cloud Score":-2,"1M Cloud Score":-53,"Cloud Score Sum":-26,"1H TKx Score":15,"1D TKx Score":34,"1W TKx Score":-59,"1M TKx Score":-6,"TKx Score Sum":-16,"Total Score Sum":-42},{"Symbol":"6S=F","Name":"Swiss Franc Futures","Close":1.22,"1H Cloud Score":-56,"1D Cloud Score":-15,"1W Cloud Score":-3,"1M Cloud Score":40,"Cloud Score Sum":-34,"1H TKx Score":1,"1D TKx Score":-17,"1W TKx Score":-23,"1M TKx Score":31,"TKx Score Sum":-8,"Total Score Sum":-42},{"Symbol":"6N=F","Name":"New Zealand Dollar Futures","Close":0.57,"1H Cloud Score":-1,"1D Cloud Score":-12,"1W Cloud Score":-3,"1M Cloud Score":-46,"Cloud Score Sum":-62,"1H TKx Score":10,"1D TKx Score":-16,"1W TKx Score":4,"1M TKx Score":-18,"TKx Score Sum":-20,"Total Score Sum":-82},{"Symbol":"6C=F","Name":"Canadian Dollar Futures","Close":0.71,"1H Cloud Score":-220,"1D Cloud Score":-5,"1W Cloud Score":-2,"1M Cloud Score":-32,"Cloud Score Sum":-259,"1H TKx Score":-108,"1D TKx Score":-10,"1W TKx Score":-18,"1M TKx Score":6,"TKx Score Sum":-130,"Total Score Sum":-389}];
-    const tableColumns = [{"title": "Symbol<br>&nbsp;", "field": "Symbol", "headerFilter": "input"}, {"title": "Name<br>&nbsp;", "field": "Name", "headerFilter": "input"}, {"title": "Close<br>&nbsp;", "field": "Close", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>Cloud Score", "field": "1H Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1D<br>Cloud Score", "field": "1D Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1W<br>Cloud Score", "field": "1W Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M<br>Cloud Score", "field": "1M Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "Cloud<br>Score Sum", "field": "Cloud Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>TKx Score", "field": "1H TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1D<br>TKx Score", "field": "1D TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1W<br>TKx Score", "field": "1W TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M<br>TKx Score", "field": "1M TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "TKx<br>Score Sum", "field": "TKx Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "Total Score Sum<br>&nbsp;", "field": "Total Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}];
-    const exactHeaderFilter = (headerValue, rowValue) =>
-      String(rowValue ?? "").trim() === String(headerValue ?? "").trim();
+    const tableColumns = [{"title": "Symbol<br>&nbsp;", "field": "Symbol", "headerFilter": "input"}, {"title": "Name<br>&nbsp;", "field": "Name", "headerFilter": "input"}, {"title": "Close<br>&nbsp;", "field": "Close", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>Cloud Score", "field": "1H Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1D<br>Cloud Score", "field": "1D Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1W<br>Cloud Score", "field": "1W Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M<br>Cloud Score", "field": "1M Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "Cloud<br>Score Sum", "field": "Cloud Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>TKx Score", "field": "1H TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1D<br>TKx Score", "field": "1D TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1W<br>TKx Score", "field": "1W TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M<br>TKx Score", "field": "1M TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "TKx<br>Score Sum", "field": "TKx Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "Total<br>Score Sum", "field": "Total Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}];
+    const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
+    document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
+    const textHeaderFilter = (headerValue, rowValue) =>
+      String(rowValue ?? "").toLowerCase().includes(String(headerValue ?? "").trim().toLowerCase());
+    const numericHeaderFilter = (headerValue, rowValue) => {
+      const query = String(headerValue ?? "").trim();
+      const value = Number(String(rowValue ?? "").replace(/,/g, ""));
+      if (!query) return true;
+      if (!Number.isFinite(value)) return false;
+
+      const match = query.match(/^(>=|<=|>|<|=)? *([+-]?(?:[0-9]+(?:[.][0-9]*)?|[.][0-9]+)) *([+-]?)$/);
+      if (!match) return false;
+
+      const [, operator, thresholdText, suffix] = match;
+      const threshold = Number(thresholdText.replace(/,/g, ""));
+      if (!Number.isFinite(threshold)) return false;
+      if (suffix) {
+        if (operator) return false;
+        return suffix === "+" ? value > threshold : value < threshold;
+      }
+
+      switch (operator || "=") {
+        case ">": return value > threshold;
+        case ">=": return value >= threshold;
+        case "<": return value < threshold;
+        case "<=": return value <= threshold;
+        default: return value === threshold;
+      }
+    };
     tableColumns.forEach(column => {
-      column.headerFilterFunc = exactHeaderFilter;
+      column.headerFilterFunc = column.sorter === "number"
+        ? numericHeaderFilter
+        : textHeaderFilter;
     });
     const tabulatorTable = new Tabulator("#dataTableTabulator", {
       data: tableData,
@@ -65,6 +109,7 @@
 
           const normalized = rawValue.toLowerCase();
           const field = String(cell.getColumn().getField() ?? '').toLowerCase();
+          if (field.includes('close')) return;
           if (field.includes('state')) {
             if (normalized.startsWith('above')) element.classList.add('highlight-positive');
             else if (normalized.startsWith('below')) element.classList.add('highlight-negative');

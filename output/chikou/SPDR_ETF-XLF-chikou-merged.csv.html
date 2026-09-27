@@ -16,8 +16,20 @@
       <body>
         <nav class="scan-navigation" aria-label="Page navigation">
           <a href="../../index.html">Home</a>
+          <button type="button" class="search-help-button" data-search-help-open>Filter guide</button>
         </nav>
         <h1>XLF - Financials Chikou Scan</h1>
+        <dialog class="search-help-dialog" data-search-help-dialog aria-labelledby="search-help-title">
+          <h2 id="search-help-title">Filter guide</h2>
+          <p>For numeric columns:</p>
+          <ul>
+            <li><code>1</code> matches exactly 1</li>
+            <li><code>&gt;1</code> or <code>1+</code> matches values greater than 1</li>
+            <li><code>0+</code> matches positive values; <code>0-</code> matches negative values</li>
+          </ul>
+          <p>Comparisons such as <code>&gt;=1</code>, <code>&lt;1</code>, and <code>&lt;=1</code> are also supported. Text searches match partial values, ignoring case.</p>
+          <form method="dialog"><button type="submit">Close</button></form>
+        </dialog>
       <table class="table table-striped table-bordered" id="dataTable_1" border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -25,6 +37,7 @@
       <th>Name<br>&nbsp;</th>
       <th>1H<br>Count</th>
       <th>1H<br>State</th>
+      <th>Close<br>&nbsp;</th>
       <th>1D<br>Count</th>
       <th>1D<br>State</th>
       <th>1W<br>Count</th>
@@ -38,868 +51,936 @@
     <tr>
       <td>ACGL</td>
       <td>Arch Capital Group</td>
-      <td>-37</td>
-      <td>below chikou</td>
-      <td>-32</td>
-      <td>below chikou</td>
-      <td>13</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>101.364998</td>
+      <td>3</td>
       <td>above chikou</td>
-      <td>75</td>
+      <td>8</td>
       <td>above chikou</td>
-      <td>19</td>
+      <td>68</td>
+      <td>above chikou</td>
+      <td>79.0</td>
     </tr>
     <tr>
       <td>AFL</td>
       <td>Aflac</td>
-      <td>-40</td>
-      <td>below chikou</td>
-      <td>-27</td>
-      <td>below chikou</td>
-      <td>59</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>116.000000</td>
+      <td>6</td>
       <td>above chikou</td>
-      <td>69</td>
+      <td>26</td>
       <td>above chikou</td>
-      <td>61</td>
+      <td>62</td>
+      <td>above chikou</td>
+      <td>94.0</td>
     </tr>
     <tr>
       <td>AIG</td>
       <td>American International Group</td>
-      <td>-14</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>76.150002</td>
+      <td>-20</td>
       <td>below chikou</td>
-      <td>-32</td>
+      <td>-5</td>
       <td>below chikou</td>
-      <td>-6</td>
-      <td>below chikou</td>
-      <td>68</td>
+      <td>61</td>
       <td>above chikou</td>
-      <td>16</td>
+      <td>36.0</td>
     </tr>
     <tr>
       <td>AIZ</td>
       <td>Assurant</td>
-      <td>-34</td>
-      <td>below chikou</td>
-      <td>-10</td>
-      <td>below chikou</td>
-      <td>58</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>242.880005</td>
+      <td>2</td>
       <td>above chikou</td>
-      <td>26</td>
+      <td>25</td>
       <td>above chikou</td>
-      <td>40</td>
+      <td>19</td>
+      <td>above chikou</td>
+      <td>46.0</td>
     </tr>
     <tr>
       <td>AJG</td>
       <td>Arthur J. Gallagher & Co.</td>
-      <td>1</td>
-      <td>above chikou</td>
-      <td>-7</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>240.070007</td>
+      <td>-9</td>
       <td>below chikou</td>
-      <td>7</td>
-      <td>above chikou</td>
-      <td>-1</td>
+      <td>-28</td>
       <td>below chikou</td>
-      <td>0</td>
+      <td>119</td>
+      <td>above chikou</td>
+      <td>82.0</td>
     </tr>
     <tr>
       <td>ALL</td>
       <td>Allstate</td>
-      <td>-46</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>206.020004</td>
+      <td>-1</td>
       <td>below chikou</td>
-      <td>-16</td>
-      <td>below chikou</td>
-      <td>17</td>
+      <td>9</td>
       <td>above chikou</td>
-      <td>35</td>
+      <td>28</td>
       <td>above chikou</td>
-      <td>-10</td>
+      <td>36.0</td>
     </tr>
     <tr>
       <td>AMP</td>
       <td>Ameriprise Financial</td>
-      <td>-56</td>
-      <td>below chikou</td>
-      <td>-7</td>
-      <td>below chikou</td>
-      <td>11</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>543.609924</td>
+      <td>42</td>
       <td>above chikou</td>
-      <td>76</td>
+      <td>2</td>
       <td>above chikou</td>
-      <td>24</td>
+      <td>69</td>
+      <td>above chikou</td>
+      <td>113.0</td>
     </tr>
     <tr>
       <td>AON</td>
       <td>Aon plc</td>
-      <td>-57</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>341.899994</td>
+      <td>-13</td>
       <td>below chikou</td>
-      <td>-18</td>
+      <td>-28</td>
       <td>below chikou</td>
-      <td>-4</td>
-      <td>below chikou</td>
-      <td>-1</td>
-      <td>below chikou</td>
-      <td>-80</td>
+      <td>182</td>
+      <td>above chikou</td>
+      <td>141.0</td>
     </tr>
     <tr>
       <td>AXP</td>
       <td>American Express</td>
-      <td>-56</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>360.864990</td>
+      <td>-19</td>
       <td>below chikou</td>
-      <td>-17</td>
-      <td>below chikou</td>
-      <td>4</td>
+      <td>25</td>
       <td>above chikou</td>
-      <td>34</td>
+      <td>27</td>
       <td>above chikou</td>
-      <td>-35</td>
+      <td>33.0</td>
     </tr>
     <tr>
       <td>BAC</td>
       <td>Bank of America</td>
-      <td>-70</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>54.939999</td>
+      <td>-16</td>
       <td>below chikou</td>
-      <td>-9</td>
-      <td>below chikou</td>
-      <td>16</td>
+      <td>34</td>
       <td>above chikou</td>
-      <td>28</td>
+      <td>21</td>
       <td>above chikou</td>
-      <td>-35</td>
+      <td>39.0</td>
     </tr>
     <tr>
       <td>BEN</td>
       <td>Franklin Resources</td>
-      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>27.045000</td>
+      <td>43</td>
       <td>above chikou</td>
-      <td>-11</td>
-      <td>below chikou</td>
-      <td>72</td>
+      <td>39</td>
       <td>above chikou</td>
-      <td>14</td>
+      <td>7</td>
       <td>above chikou</td>
-      <td>76</td>
+      <td>89.0</td>
     </tr>
     <tr>
       <td>BLK</td>
       <td>BlackRock</td>
-      <td>1</td>
-      <td>above chikou</td>
-      <td>-12</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1054.239990</td>
+      <td>-4</td>
       <td>below chikou</td>
-      <td>8</td>
+      <td>-1</td>
+      <td>below chikou</td>
+      <td>22</td>
       <td>above chikou</td>
-      <td>29</td>
-      <td>above chikou</td>
-      <td>26</td>
+      <td>17.0</td>
     </tr>
     <tr>
       <td>BRO</td>
       <td>Brown & Brown</td>
-      <td>-49</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>73.779999</td>
+      <td>-12</td>
       <td>below chikou</td>
-      <td>-13</td>
+      <td>-28</td>
       <td>below chikou</td>
-      <td>-3</td>
-      <td>below chikou</td>
-      <td>-7</td>
-      <td>below chikou</td>
-      <td>-72</td>
+      <td>124</td>
+      <td>above chikou</td>
+      <td>84.0</td>
     </tr>
     <tr>
       <td>BX</td>
       <td>Blackstone Inc.</td>
-      <td>-23</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>126.830002</td>
+      <td>-9</td>
       <td>below chikou</td>
-      <td>-11</td>
+      <td>-3</td>
       <td>below chikou</td>
-      <td>7</td>
+      <td>24</td>
       <td>above chikou</td>
-      <td>31</td>
-      <td>above chikou</td>
-      <td>4</td>
+      <td>12.0</td>
     </tr>
     <tr>
       <td>C</td>
       <td>Citigroup</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>122.459999</td>
       <td>1</td>
       <td>above chikou</td>
-      <td>-7</td>
-      <td>below chikou</td>
-      <td>75</td>
+      <td>42</td>
       <td>above chikou</td>
-      <td>31</td>
+      <td>24</td>
       <td>above chikou</td>
-      <td>100</td>
+      <td>67.0</td>
     </tr>
     <tr>
       <td>CB</td>
       <td>Chubb Limited</td>
-      <td>-35</td>
-      <td>below chikou</td>
-      <td>-23</td>
-      <td>below chikou</td>
-      <td>46</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>329.725006</td>
+      <td>3</td>
       <td>above chikou</td>
-      <td>71</td>
+      <td>13</td>
       <td>above chikou</td>
-      <td>59</td>
+      <td>64</td>
+      <td>above chikou</td>
+      <td>80.0</td>
     </tr>
     <tr>
       <td>CBOE</td>
       <td>Cboe Global Markets</td>
-      <td>-14</td>
-      <td>below chikou</td>
-      <td>-10</td>
-      <td>below chikou</td>
-      <td>-2</td>
-      <td>below chikou</td>
-      <td>67</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>269.500000</td>
+      <td>21</td>
       <td>above chikou</td>
-      <td>41</td>
+      <td>80</td>
+      <td>above chikou</td>
+      <td>60</td>
+      <td>above chikou</td>
+      <td>161.0</td>
     </tr>
     <tr>
       <td>CFG</td>
       <td>Citizens Financial Group</td>
-      <td>-56</td>
-      <td>below chikou</td>
-      <td>-25</td>
-      <td>below chikou</td>
-      <td>66</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>68.065002</td>
+      <td>55</td>
       <td>above chikou</td>
-      <td>17</td>
+      <td>33</td>
       <td>above chikou</td>
-      <td>2</td>
+      <td>10</td>
+      <td>above chikou</td>
+      <td>98.0</td>
     </tr>
     <tr>
       <td>CINF</td>
       <td>Cincinnati Financial</td>
-      <td>-44</td>
-      <td>below chikou</td>
-      <td>-36</td>
-      <td>below chikou</td>
-      <td>16</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>172.669998</td>
+      <td>3</td>
       <td>above chikou</td>
-      <td>32</td>
+      <td>33</td>
       <td>above chikou</td>
-      <td>-32</td>
+      <td>25</td>
+      <td>above chikou</td>
+      <td>61.0</td>
     </tr>
     <tr>
       <td>CME</td>
       <td>CME Group</td>
-      <td>-15</td>
-      <td>below chikou</td>
-      <td>43</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>299.415314</td>
+      <td>17</td>
       <td>above chikou</td>
-      <td>-15</td>
-      <td>below chikou</td>
-      <td>37</td>
+      <td>4</td>
       <td>above chikou</td>
-      <td>50</td>
+      <td>30</td>
+      <td>above chikou</td>
+      <td>51.0</td>
     </tr>
     <tr>
       <td>COF</td>
       <td>Capital One</td>
-      <td>-52</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>224.250000</td>
+      <td>-14</td>
       <td>below chikou</td>
-      <td>-11</td>
-      <td>below chikou</td>
-      <td>7</td>
+      <td>120</td>
       <td>above chikou</td>
-      <td>28</td>
+      <td>21</td>
       <td>above chikou</td>
-      <td>-28</td>
+      <td>127.0</td>
     </tr>
     <tr>
       <td>CPAY</td>
       <td>Corpay</td>
-      <td>7</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>346.570007</td>
+      <td>2</td>
       <td>above chikou</td>
-      <td>-5</td>
-      <td>below chikou</td>
-      <td>25</td>
+      <td>1</td>
       <td>above chikou</td>
-      <td>34</td>
+      <td>27</td>
       <td>above chikou</td>
-      <td>61</td>
+      <td>30.0</td>
     </tr>
     <tr>
       <td>EG</td>
       <td>Everest Group</td>
-      <td>3</td>
-      <td>above chikou</td>
-      <td>11</td>
-      <td>above chikou</td>
-      <td>22</td>
-      <td>above chikou</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>328.459991</td>
       <td>-12</td>
       <td>below chikou</td>
-      <td>24</td>
+      <td>-23</td>
+      <td>below chikou</td>
+      <td>-5</td>
+      <td>below chikou</td>
+      <td>-40.0</td>
     </tr>
     <tr>
       <td>ERIE</td>
       <td>Erie Indemnity</td>
-      <td>-44</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>285.619995</td>
+      <td>3</td>
+      <td>above chikou</td>
+      <td>-54</td>
       <td>below chikou</td>
-      <td>-7</td>
-      <td>below chikou</td>
-      <td>-87</td>
-      <td>below chikou</td>
-      <td>-8</td>
-      <td>below chikou</td>
-      <td>-146</td>
+      <td>32</td>
+      <td>above chikou</td>
+      <td>-19.0</td>
     </tr>
     <tr>
       <td>FDS</td>
       <td>FactSet</td>
-      <td>-15</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>208.580093</td>
+      <td>-14</td>
       <td>below chikou</td>
-      <td>-3</td>
+      <td>-47</td>
       <td>below chikou</td>
-      <td>8</td>
-      <td>above chikou</td>
-      <td>-13</td>
+      <td>-7</td>
       <td>below chikou</td>
-      <td>-23</td>
+      <td>-68.0</td>
     </tr>
     <tr>
       <td>FIS</td>
       <td>Fidelity National Information Services</td>
-      <td>1</td>
-      <td>above chikou</td>
-      <td>-17</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>51.400002</td>
+      <td>-18</td>
       <td>below chikou</td>
-      <td>-54</td>
+      <td>-21</td>
       <td>below chikou</td>
-      <td>-8</td>
+      <td>-1</td>
       <td>below chikou</td>
-      <td>-78</td>
+      <td>-40.0</td>
     </tr>
     <tr>
       <td>FITB</td>
       <td>Fifth Third Bancorp</td>
-      <td>-21</td>
-      <td>below chikou</td>
-      <td>-26</td>
-      <td>below chikou</td>
-      <td>26</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>55.279999</td>
+      <td>51</td>
       <td>above chikou</td>
-      <td>27</td>
+      <td>25</td>
       <td>above chikou</td>
-      <td>6</td>
+      <td>20</td>
+      <td>above chikou</td>
+      <td>96.0</td>
     </tr>
     <tr>
       <td>GL</td>
       <td>Globe Life</td>
-      <td>-33</td>
-      <td>below chikou</td>
-      <td>-26</td>
-      <td>below chikou</td>
-      <td>25</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>145.860001</td>
+      <td>7</td>
       <td>above chikou</td>
-      <td>26</td>
+      <td>69</td>
       <td>above chikou</td>
-      <td>-8</td>
+      <td>19</td>
+      <td>above chikou</td>
+      <td>95.0</td>
     </tr>
     <tr>
       <td>GPN</td>
       <td>Global Payments</td>
-      <td>8</td>
-      <td>above chikou</td>
-      <td>-4</td>
-      <td>below chikou</td>
-      <td>10</td>
-      <td>above chikou</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>72.709999</td>
       <td>-18</td>
       <td>below chikou</td>
-      <td>-4</td>
+      <td>-6</td>
+      <td>below chikou</td>
+      <td>-11</td>
+      <td>below chikou</td>
+      <td>-35.0</td>
     </tr>
     <tr>
       <td>GS</td>
       <td>Goldman Sachs</td>
-      <td>-20</td>
-      <td>below chikou</td>
-      <td>-11</td>
-      <td>below chikou</td>
-      <td>75</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>927.289978</td>
+      <td>1</td>
       <td>above chikou</td>
-      <td>32</td>
+      <td>42</td>
       <td>above chikou</td>
-      <td>76</td>
+      <td>25</td>
+      <td>above chikou</td>
+      <td>68.0</td>
     </tr>
     <tr>
       <td>HBAN</td>
       <td>Huntington Bancshares</td>
-      <td>-56</td>
-      <td>below chikou</td>
-      <td>-27</td>
-      <td>below chikou</td>
-      <td>14</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>19.020000</td>
+      <td>3</td>
       <td>above chikou</td>
-      <td>27</td>
+      <td>25</td>
       <td>above chikou</td>
-      <td>-42</td>
+      <td>20</td>
+      <td>above chikou</td>
+      <td>48.0</td>
     </tr>
     <tr>
       <td>HIG</td>
       <td>Hartford (The)</td>
-      <td>-61</td>
-      <td>below chikou</td>
-      <td>-22</td>
-      <td>below chikou</td>
-      <td>-6</td>
-      <td>below chikou</td>
-      <td>70</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>141.619995</td>
+      <td>3</td>
       <td>above chikou</td>
-      <td>-19</td>
+      <td>41</td>
+      <td>above chikou</td>
+      <td>63</td>
+      <td>above chikou</td>
+      <td>107.0</td>
     </tr>
     <tr>
       <td>ICE</td>
       <td>Intercontinental Exchange</td>
-      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>167.774994</td>
+      <td>43</td>
       <td>above chikou</td>
-      <td>50</td>
+      <td>-20</td>
+      <td>below chikou</td>
+      <td>25</td>
       <td>above chikou</td>
-      <td>6</td>
-      <td>above chikou</td>
-      <td>3</td>
-      <td>above chikou</td>
-      <td>60</td>
+      <td>48.0</td>
     </tr>
     <tr>
       <td>IVZ</td>
       <td>Invesco</td>
-      <td>1</td>
-      <td>above chikou</td>
-      <td>-8</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>26.520000</td>
+      <td>-4</td>
       <td>below chikou</td>
-      <td>13</td>
+      <td>30</td>
       <td>above chikou</td>
-      <td>16</td>
+      <td>9</td>
       <td>above chikou</td>
-      <td>22</td>
+      <td>35.0</td>
     </tr>
     <tr>
       <td>JKHY</td>
       <td>Jack Henry & Associates</td>
-      <td>-59</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>171.639999</td>
+      <td>-11</td>
       <td>below chikou</td>
-      <td>-3</td>
-      <td>below chikou</td>
-      <td>-3</td>
-      <td>below chikou</td>
-      <td>-1</td>
-      <td>below chikou</td>
-      <td>-66</td>
+      <td>9</td>
+      <td>above chikou</td>
+      <td>4</td>
+      <td>above chikou</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <td>JPM</td>
       <td>JPMorgan Chase</td>
-      <td>1</td>
-      <td>above chikou</td>
-      <td>-11</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>323.114990</td>
+      <td>-18</td>
       <td>below chikou</td>
-      <td>16</td>
+      <td>172</td>
       <td>above chikou</td>
-      <td>34</td>
+      <td>27</td>
       <td>above chikou</td>
-      <td>40</td>
+      <td>181.0</td>
     </tr>
     <tr>
       <td>KEY</td>
       <td>KeyCorp</td>
-      <td>-56</td>
-      <td>below chikou</td>
-      <td>-28</td>
-      <td>below chikou</td>
-      <td>66</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>23.245001</td>
+      <td>52</td>
       <td>above chikou</td>
-      <td>16</td>
+      <td>33</td>
       <td>above chikou</td>
-      <td>-2</td>
+      <td>9</td>
+      <td>above chikou</td>
+      <td>94.0</td>
     </tr>
     <tr>
       <td>KKR</td>
       <td>KKR & Co.</td>
-      <td>-21</td>
-      <td>below chikou</td>
-      <td>-11</td>
-      <td>below chikou</td>
-      <td>7</td>
-      <td>above chikou</td>
-      <td>-1</td>
-      <td>below chikou</td>
-      <td>-26</td>
-    </tr>
-    <tr>
-      <td>L</td>
-      <td>Loews Corporation</td>
-      <td>-49</td>
-      <td>below chikou</td>
-      <td>-32</td>
-      <td>below chikou</td>
-      <td>16</td>
-      <td>above chikou</td>
-      <td>67</td>
-      <td>above chikou</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <td>MA</td>
-      <td>Mastercard</td>
-      <td>5</td>
-      <td>above chikou</td>
-      <td>-3</td>
-      <td>below chikou</td>
-      <td>10</td>
-      <td>above chikou</td>
-      <td>45</td>
-      <td>above chikou</td>
-      <td>57</td>
-    </tr>
-    <tr>
-      <td>MCO</td>
-      <td>Moody's Corporation</td>
-      <td>-13</td>
-      <td>below chikou</td>
-      <td>-12</td>
-      <td>below chikou</td>
-      <td>7</td>
-      <td>above chikou</td>
-      <td>31</td>
-      <td>above chikou</td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <td>MET</td>
-      <td>MetLife</td>
-      <td>14</td>
-      <td>above chikou</td>
-      <td>-3</td>
-      <td>below chikou</td>
-      <td>22</td>
-      <td>above chikou</td>
-      <td>38</td>
-      <td>above chikou</td>
-      <td>71</td>
-    </tr>
-    <tr>
-      <td>MS</td>
-      <td>Morgan Stanley</td>
-      <td>-28</td>
-      <td>below chikou</td>
-      <td>-10</td>
-      <td>below chikou</td>
-      <td>69</td>
-      <td>above chikou</td>
-      <td>29</td>
-      <td>above chikou</td>
-      <td>60</td>
-    </tr>
-    <tr>
-      <td>MSCI</td>
-      <td>MSCI</td>
-      <td>-7</td>
-      <td>below chikou</td>
-      <td>-16</td>
-      <td>below chikou</td>
-      <td>7</td>
-      <td>above chikou</td>
-      <td>27</td>
-      <td>above chikou</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <td>MTB</td>
-      <td>M&T Bank</td>
-      <td>-62</td>
-      <td>below chikou</td>
-      <td>-25</td>
-      <td>below chikou</td>
-      <td>58</td>
-      <td>above chikou</td>
-      <td>27</td>
-      <td>above chikou</td>
-      <td>-2</td>
-    </tr>
-    <tr>
-      <td>NDAQ</td>
-      <td>Nasdaq, Inc.</td>
-      <td>-6</td>
-      <td>below chikou</td>
-      <td>-11</td>
-      <td>below chikou</td>
-      <td>7</td>
-      <td>above chikou</td>
-      <td>30</td>
-      <td>above chikou</td>
-      <td>20</td>
-    </tr>
-    <tr>
-      <td>NTRS</td>
-      <td>Northern Trust</td>
-      <td>1</td>
-      <td>above chikou</td>
-      <td>-9</td>
-      <td>below chikou</td>
-      <td>67</td>
-      <td>above chikou</td>
-      <td>24</td>
-      <td>above chikou</td>
-      <td>83</td>
-    </tr>
-    <tr>
-      <td>PFG</td>
-      <td>Principal Financial Group</td>
-      <td>1</td>
-      <td>above chikou</td>
-      <td>15</td>
-      <td>above chikou</td>
-      <td>51</td>
-      <td>above chikou</td>
-      <td>16</td>
-      <td>above chikou</td>
-      <td>83</td>
-    </tr>
-    <tr>
-      <td>PGR</td>
-      <td>Progressive Corporation</td>
-      <td>-48</td>
-      <td>below chikou</td>
-      <td>-3</td>
-      <td>below chikou</td>
-      <td>14</td>
-      <td>above chikou</td>
-      <td>198</td>
-      <td>above chikou</td>
-      <td>161</td>
-    </tr>
-    <tr>
-      <td>PNC</td>
-      <td>PNC Financial Services</td>
-      <td>-62</td>
-      <td>below chikou</td>
-      <td>-26</td>
-      <td>below chikou</td>
-      <td>58</td>
-      <td>above chikou</td>
-      <td>27</td>
-      <td>above chikou</td>
-      <td>-3</td>
-    </tr>
-    <tr>
-      <td>PRU</td>
-      <td>Prudential Financial</td>
-      <td>3</td>
-      <td>above chikou</td>
-      <td>-13</td>
-      <td>below chikou</td>
-      <td>13</td>
-      <td>above chikou</td>
-      <td>68</td>
-      <td>above chikou</td>
-      <td>71</td>
-    </tr>
-    <tr>
-      <td>PYPL</td>
-      <td>PayPal</td>
-      <td>7</td>
-      <td>above chikou</td>
-      <td>-19</td>
-      <td>below chikou</td>
-      <td>9</td>
-      <td>above chikou</td>
-      <td>-8</td>
-      <td>below chikou</td>
-      <td>-11</td>
-    </tr>
-    <tr>
-      <td>RF</td>
-      <td>Regions Financial Corporation</td>
-      <td>-60</td>
-      <td>below chikou</td>
-      <td>-26</td>
-      <td>below chikou</td>
-      <td>26</td>
-      <td>above chikou</td>
-      <td>16</td>
-      <td>above chikou</td>
-      <td>-44</td>
-    </tr>
-    <tr>
-      <td>RJF</td>
-      <td>Raymond James Financial</td>
-      <td>1</td>
-      <td>above chikou</td>
-      <td>-12</td>
-      <td>below chikou</td>
-      <td>9</td>
-      <td>above chikou</td>
-      <td>70</td>
-      <td>above chikou</td>
-      <td>68</td>
-    </tr>
-    <tr>
-      <td>SCHW</td>
-      <td>Charles Schwab Corporation</td>
-      <td>-54</td>
-      <td>below chikou</td>
-      <td>-7</td>
-      <td>below chikou</td>
-      <td>9</td>
-      <td>above chikou</td>
-      <td>23</td>
-      <td>above chikou</td>
-      <td>-29</td>
-    </tr>
-    <tr>
-      <td>SPGI</td>
-      <td>S&P Global</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>103.019997</td>
       <td>-14</td>
       <td>below chikou</td>
       <td>-6</td>
       <td>below chikou</td>
-      <td>6</td>
+      <td>28</td>
       <td>above chikou</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <td>L</td>
+      <td>Loews Corporation</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>111.315002</td>
+      <td>3</td>
+      <td>above chikou</td>
+      <td>150</td>
+      <td>above chikou</td>
+      <td>60</td>
+      <td>above chikou</td>
+      <td>213.0</td>
+    </tr>
+    <tr>
+      <td>MA</td>
+      <td>Mastercard</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>542.229980</td>
+      <td>-14</td>
+      <td>below chikou</td>
+      <td>-4</td>
+      <td>below chikou</td>
+      <td>38</td>
+      <td>above chikou</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <td>MCO</td>
+      <td>Moody's Corporation</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>449.484985</td>
+      <td>-4</td>
+      <td>below chikou</td>
       <td>-1</td>
       <td>below chikou</td>
-      <td>-15</td>
+      <td>24</td>
+      <td>above chikou</td>
+      <td>19.0</td>
+    </tr>
+    <tr>
+      <td>MET</td>
+      <td>MetLife</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>76.184998</td>
+      <td>-18</td>
+      <td>below chikou</td>
+      <td>22</td>
+      <td>above chikou</td>
+      <td>31</td>
+      <td>above chikou</td>
+      <td>35.0</td>
+    </tr>
+    <tr>
+      <td>MS</td>
+      <td>Morgan Stanley</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>180.669998</td>
+      <td>1</td>
+      <td>above chikou</td>
+      <td>36</td>
+      <td>above chikou</td>
+      <td>22</td>
+      <td>above chikou</td>
+      <td>59.0</td>
+    </tr>
+    <tr>
+      <td>MSCI</td>
+      <td>MSCI</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>555.955017</td>
+      <td>-3</td>
+      <td>below chikou</td>
+      <td>4</td>
+      <td>above chikou</td>
+      <td>20</td>
+      <td>above chikou</td>
+      <td>21.0</td>
+    </tr>
+    <tr>
+      <td>MTB</td>
+      <td>M&T Bank</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>238.210007</td>
+      <td>52</td>
+      <td>above chikou</td>
+      <td>25</td>
+      <td>above chikou</td>
+      <td>20</td>
+      <td>above chikou</td>
+      <td>97.0</td>
+    </tr>
+    <tr>
+      <td>NDAQ</td>
+      <td>Nasdaq, Inc.</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>84.589996</td>
+      <td>-5</td>
+      <td>below chikou</td>
+      <td>-1</td>
+      <td>below chikou</td>
+      <td>23</td>
+      <td>above chikou</td>
+      <td>17.0</td>
+    </tr>
+    <tr>
+      <td>NTRS</td>
+      <td>Northern Trust</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>151.500000</td>
+      <td>51</td>
+      <td>above chikou</td>
+      <td>34</td>
+      <td>above chikou</td>
+      <td>17</td>
+      <td>above chikou</td>
+      <td>102.0</td>
+    </tr>
+    <tr>
+      <td>PFG</td>
+      <td>Principal Financial Group</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>95.500000</td>
+      <td>58</td>
+      <td>above chikou</td>
+      <td>18</td>
+      <td>above chikou</td>
+      <td>9</td>
+      <td>above chikou</td>
+      <td>85.0</td>
+    </tr>
+    <tr>
+      <td>PGR</td>
+      <td>Progressive Corporation</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>202.429993</td>
+      <td>-18</td>
+      <td>below chikou</td>
+      <td>-26</td>
+      <td>below chikou</td>
+      <td>192</td>
+      <td>above chikou</td>
+      <td>148.0</td>
+    </tr>
+    <tr>
+      <td>PNC</td>
+      <td>PNC Financial Services</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>243.429993</td>
+      <td>52</td>
+      <td>above chikou</td>
+      <td>25</td>
+      <td>above chikou</td>
+      <td>20</td>
+      <td>above chikou</td>
+      <td>97.0</td>
+    </tr>
+    <tr>
+      <td>PRU</td>
+      <td>Prudential Financial</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>102.849998</td>
+      <td>-14</td>
+      <td>below chikou</td>
+      <td>17</td>
+      <td>above chikou</td>
+      <td>30</td>
+      <td>above chikou</td>
+      <td>33.0</td>
+    </tr>
+    <tr>
+      <td>PYPL</td>
+      <td>PayPal</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>40.230999</td>
+      <td>-65</td>
+      <td>below chikou</td>
+      <td>-14</td>
+      <td>below chikou</td>
+      <td>-1</td>
+      <td>below chikou</td>
+      <td>-80.0</td>
+    </tr>
+    <tr>
+      <td>RF</td>
+      <td>Regions Financial Corporation</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>30.500000</td>
+      <td>51</td>
+      <td>above chikou</td>
+      <td>32</td>
+      <td>above chikou</td>
+      <td>10</td>
+      <td>above chikou</td>
+      <td>93.0</td>
+    </tr>
+    <tr>
+      <td>RJF</td>
+      <td>Raymond James Financial</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>171.820007</td>
+      <td>31</td>
+      <td>above chikou</td>
+      <td>32</td>
+      <td>above chikou</td>
+      <td>63</td>
+      <td>above chikou</td>
+      <td>126.0</td>
+    </tr>
+    <tr>
+      <td>SCHW</td>
+      <td>Charles Schwab Corporation</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>104.739998</td>
+      <td>44</td>
+      <td>above chikou</td>
+      <td>65</td>
+      <td>above chikou</td>
+      <td>16</td>
+      <td>above chikou</td>
+      <td>125.0</td>
+    </tr>
+    <tr>
+      <td>SPGI</td>
+      <td>S&P Global</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>440.179993</td>
+      <td>-4</td>
+      <td>below chikou</td>
+      <td>-1</td>
+      <td>below chikou</td>
+      <td>23</td>
+      <td>above chikou</td>
+      <td>18.0</td>
     </tr>
     <tr>
       <td>STT</td>
       <td>State Street Corporation</td>
-      <td>-33</td>
-      <td>below chikou</td>
-      <td>-7</td>
-      <td>below chikou</td>
-      <td>66</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>132.750000</td>
+      <td>1</td>
       <td>above chikou</td>
-      <td>27</td>
+      <td>33</td>
       <td>above chikou</td>
-      <td>53</td>
+      <td>20</td>
+      <td>above chikou</td>
+      <td>54.0</td>
     </tr>
     <tr>
       <td>SYF</td>
       <td>Synchrony Financial</td>
-      <td>-33</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>75.735001</td>
+      <td>-18</td>
       <td>below chikou</td>
-      <td>-11</td>
-      <td>below chikou</td>
-      <td>8</td>
+      <td>32</td>
       <td>above chikou</td>
-      <td>30</td>
+      <td>23</td>
       <td>above chikou</td>
-      <td>-6</td>
+      <td>37.0</td>
     </tr>
     <tr>
       <td>TFC</td>
       <td>Truist Financial</td>
-      <td>-56</td>
-      <td>below chikou</td>
-      <td>-26</td>
-      <td>below chikou</td>
-      <td>26</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>55.814999</td>
+      <td>10</td>
       <td>above chikou</td>
-      <td>16</td>
+      <td>24</td>
       <td>above chikou</td>
-      <td>-40</td>
+      <td>9</td>
+      <td>above chikou</td>
+      <td>43.0</td>
     </tr>
     <tr>
       <td>TROW</td>
       <td>T. Rowe Price</td>
-      <td>24</td>
-      <td>above chikou</td>
-      <td>-33</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>95.059998</td>
+      <td>-4</td>
       <td>below chikou</td>
-      <td>22</td>
+      <td>-1</td>
+      <td>below chikou</td>
+      <td>7</td>
       <td>above chikou</td>
-      <td>6</td>
-      <td>above chikou</td>
-      <td>19</td>
+      <td>2.0</td>
     </tr>
     <tr>
       <td>TRV</td>
       <td>Travelers Companies (The)</td>
-      <td>-42</td>
-      <td>below chikou</td>
-      <td>-3</td>
-      <td>below chikou</td>
-      <td>148</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>301.200012</td>
+      <td>3</td>
       <td>above chikou</td>
-      <td>71</td>
+      <td>115</td>
       <td>above chikou</td>
-      <td>174</td>
+      <td>64</td>
+      <td>above chikou</td>
+      <td>182.0</td>
     </tr>
     <tr>
       <td>USB</td>
       <td>U.S. Bancorp</td>
-      <td>-56</td>
-      <td>below chikou</td>
-      <td>-13</td>
-      <td>below chikou</td>
-      <td>58</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>60.845001</td>
+      <td>52</td>
       <td>above chikou</td>
-      <td>17</td>
+      <td>25</td>
       <td>above chikou</td>
-      <td>6</td>
+      <td>10</td>
+      <td>above chikou</td>
+      <td>87.0</td>
     </tr>
     <tr>
       <td>V</td>
       <td>Visa Inc.</td>
-      <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>328.420013</td>
+      <td>-13</td>
+      <td>below chikou</td>
+      <td>-6</td>
+      <td>below chikou</td>
+      <td>28</td>
       <td>above chikou</td>
-      <td>1</td>
-      <td>above chikou</td>
-      <td>13</td>
-      <td>above chikou</td>
-      <td>35</td>
-      <td>above chikou</td>
-      <td>50</td>
+      <td>9.0</td>
     </tr>
     <tr>
       <td>WFC</td>
       <td>Wells Fargo</td>
-      <td>-56</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>94.474998</td>
+      <td>-17</td>
       <td>below chikou</td>
-      <td>-6</td>
-      <td>below chikou</td>
-      <td>4</td>
+      <td>36</td>
       <td>above chikou</td>
-      <td>34</td>
+      <td>27</td>
       <td>above chikou</td>
-      <td>-24</td>
+      <td>46.0</td>
     </tr>
     <tr>
       <td>WRB</td>
       <td>W. R. Berkley Corporation</td>
-      <td>-44</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>70.415001</td>
+      <td>-1</td>
       <td>below chikou</td>
-      <td>-32</td>
-      <td>below chikou</td>
-      <td>3</td>
+      <td>1</td>
       <td>above chikou</td>
-      <td>193</td>
+      <td>186</td>
       <td>above chikou</td>
-      <td>120</td>
+      <td>186.0</td>
     </tr>
     <tr>
       <td>WTW</td>
       <td>Willis Towers Watson</td>
-      <td>-55</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>329.709991</td>
+      <td>-2</td>
       <td>below chikou</td>
-      <td>-13</td>
-      <td>below chikou</td>
-      <td>9</td>
+      <td>26</td>
       <td>above chikou</td>
-      <td>3</td>
+      <td>29</td>
       <td>above chikou</td>
-      <td>-56</td>
+      <td>53.0</td>
     </tr>
   </tbody>
 </table>
         <script>
-        const classifyCell = (cell, isStateColumn) => {
+        const classifyCell = (cell, isStateColumn, isCloseColumn) => {
           cell.classList.remove('highlight-positive', 'highlight-negative', 'highlight-neutral');
           const text = cell.textContent.trim();
           const normalized = text.toLowerCase();
+
+          if (isCloseColumn) return;
 
           if (isStateColumn) {
             if (normalized.startsWith('above')) {
@@ -934,7 +1015,7 @@
               if (/^(1H|4H|1D|1W|1M|3M|6M|1Y)/.test(parts[0])) {
                 return `${parts[0]}<br>${parts.slice(1).join(' ')}`;
               }
-              if (['Cloud', 'Chikou', 'TKx', 'Score', 'Signal', 'Count', 'State', 'Direction'].includes(parts[0])) {
+              if (['Cloud', 'Chikou', 'TKx', 'Total', 'Score', 'Signal', 'Count', 'State', 'Direction'].includes(parts[0])) {
                 return `${parts[0]}<br>${parts.slice(1).join(' ')}`;
               }
             }
@@ -943,6 +1024,9 @@
         };
 
         $(document).ready(function() {
+          const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
+          document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
+
           const isChikou = $('#dataTable_1 thead th').toArray().some((th) => th.textContent.includes('Chikou'));
           $('#dataTable_1 thead th').each(function(index) {
             const raw = $(this).text().trim();
@@ -959,10 +1043,18 @@
                 .toArray()
                 .map((th, index) => th.textContent.toLowerCase().includes('state') ? index : null)
                 .filter(index => index !== null);
+              const closeColumnIndexes = $('#dataTable_1 thead th')
+                .toArray()
+                .map((th, index) => th.textContent.toLowerCase().includes('close') ? index : null)
+                .filter(index => index !== null);
 
               $('#dataTable_1 tbody tr').each(function() {
                 $(this).find('td').each(function(index) {
-                  classifyCell(this, stateColumnIndexes.includes(index));
+                  classifyCell(
+                    this,
+                    stateColumnIndexes.includes(index),
+                    closeColumnIndexes.includes(index)
+                  );
                 });
               });
             },
@@ -975,7 +1067,7 @@
         </table>
         
         <footer>
-          <p>Last updated: 2026-09-26 01:28:26 [UK]<br></p>
+          <p>Last updated: 2026-09-27 23:25:22 [UK]<br></p>
         </footer>
         </body>
         </html>

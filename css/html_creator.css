@@ -8,15 +8,47 @@ body {
     text-align: left;
 }
 
-.scan-navigation a {
+.scan-navigation a,
+.scan-navigation button {
     color: #0b4f71;
     font-weight: 700;
     text-decoration: none;
 }
 
+.scan-navigation button {
+    margin-left: 1rem;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+}
+
 .scan-navigation a:hover,
-.scan-navigation a:focus {
+.scan-navigation a:focus,
+.scan-navigation button:hover,
+.scan-navigation button:focus {
     text-decoration: underline;
+}
+
+.search-help-dialog {
+    max-width: 440px;
+    border: 2px solid #344955;
+    padding: 20px;
+    color: #17212b;
+}
+
+.search-help-dialog::backdrop {
+    background: rgba(23, 33, 43, 0.45);
+}
+
+.search-help-dialog h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+}
+
+.search-help-dialog ul {
+    padding-left: 1.25rem;
 }
 
 #dataTable_1,
@@ -124,4 +156,5 @@ body {
 .highlight-neutral {
     background-color: #e6e7e8 !important;
     color: #4a4a4a !important;
+    font-weight: 600;
 }

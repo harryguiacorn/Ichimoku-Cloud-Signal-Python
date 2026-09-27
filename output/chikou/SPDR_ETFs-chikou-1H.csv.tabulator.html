@@ -10,6 +10,9 @@
   <style>
     body { background: #eef2f4; color: #17212b; }
     .tabulator-page { max-width: 100%; margin: 0 auto; padding: 24px; }
+    .search-help-dialog { max-width: 440px; border: 2px solid #344955; padding: 20px; color: #17212b; }
+    .search-help-dialog::backdrop { background: rgba(23, 33, 43, .45); }
+    .search-help-dialog h2 { margin-top: 0; font-size: 1.25rem; }
     .tabulator { border: 2px solid #344955; background: #ffffff; box-shadow: 0 8px 20px rgba(23, 33, 43, .14); }
     .tabulator .tabulator-header, .tabulator .tabulator-header .tabulator-col { background: #17212b; color: #ffffff; }
     .tabulator .tabulator-header .tabulator-col { border-right: 1px solid #657782; }
@@ -29,19 +32,60 @@
   <main class="tabulator-page">
     <nav class="scan-navigation" aria-label="Page navigation">
       <a href="../../index.html">Home</a>
+      <button type="button" class="search-help-button" data-search-help-open>Filter guide</button>
     </nav>
     <h1>SPDR_ETFs Chikou Scan</h1>
+    <dialog class="search-help-dialog" data-search-help-dialog aria-labelledby="search-help-title">
+      <h2 id="search-help-title">Filter guide</h2>
+      <p>For numeric columns:</p>
+      <ul>
+        <li><code>1</code> matches exactly 1</li>
+        <li><code>&gt;1</code> or <code>1+</code> matches values greater than 1</li>
+        <li><code>0+</code> matches positive values; <code>0-</code> matches negative values</li>
+      </ul>
+      <p>Comparisons such as <code>&gt;=1</code>, <code>&lt;1</code>, and <code>&lt;=1</code> are also supported. Text searches match partial values, ignoring case.</p>
+      <form method="dialog"><button type="submit">Close</button></form>
+    </dialog>
     <div id="dataTableTabulator"></div>
-    <footer><p>Last updated: 2026-09-26 01:28:26 [UK]</p></footer>
+    <footer><p>Last updated: 2026-09-27 23:25:22 [UK]</p></footer>
   </main>
   <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
   <script>
-    const tableData = [{"Datetime":"2026-09-25 15:30:00-04:00","Symbol":"XLF","Name":"Financials","1H Chikou Direction":0,"1H Chikou Count":-92,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-25 15:30:00-04:00","Symbol":"XLU","Name":"Utilities","1H Chikou Direction":-1,"1H Chikou Count":-84,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-25 15:30:00-04:00","Symbol":"XLE","Name":"Energy","1H Chikou Direction":0,"1H Chikou Count":-56,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-25 15:30:00-04:00","Symbol":"XLRE","Name":"Real Estate","1H Chikou Direction":-1,"1H Chikou Count":-51,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-25 15:30:00-04:00","Symbol":"XLP","Name":"Consumer Staples","1H Chikou Direction":-1,"1H Chikou Count":-48,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-25 15:30:00-04:00","Symbol":"XLY","Name":"Consumer Discretionary","1H Chikou Direction":-1,"1H Chikou Count":-21,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-25 15:30:00-04:00","Symbol":"XLB","Name":"Materials","1H Chikou Direction":-1,"1H Chikou Count":-13,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-25 15:30:00-04:00","Symbol":"XLC","Name":"Communication Services","1H Chikou Direction":-1,"1H Chikou Count":-7,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-25 15:30:00-04:00","Symbol":"XLI","Name":"Industrials","1H Chikou Direction":1,"1H Chikou Count":5,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-25 15:30:00-04:00","Symbol":"XLV","Name":"Health Care","1H Chikou Direction":1,"1H Chikou Count":15,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-25 15:30:00-04:00","Symbol":"XLK","Name":"Technology","1H Chikou Direction":1,"1H Chikou Count":45,"1H Chikou State":"above chikou"}];
-    const tableColumns = [{"title": "Datetime<br>&nbsp;", "field": "Datetime", "headerFilter": "input"}, {"title": "Symbol<br>&nbsp;", "field": "Symbol", "headerFilter": "input"}, {"title": "Name<br>&nbsp;", "field": "Name", "headerFilter": "input"}, {"title": "1H<br>Direction", "field": "1H Chikou Direction", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>Count", "field": "1H Chikou Count", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>State", "field": "1H Chikou State", "headerFilter": "input"}];
-    const exactHeaderFilter = (headerValue, rowValue) =>
-      String(rowValue ?? "").trim() === String(headerValue ?? "").trim();
+    const tableData = [{"Datetime":"2026-09-08 15:30:00-04:00","Symbol":"XLY","Name":"Consumer Discretionary","Close":110.54,"1H Chikou Direction":-1,"1H Chikou Count":-57,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-08 15:30:00-04:00","Symbol":"XLP","Name":"Consumer Staples","Close":82.08,"1H Chikou Direction":-1,"1H Chikou Count":-14,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-08 15:30:00-04:00","Symbol":"XLV","Name":"Health Care","Close":170.74,"1H Chikou Direction":-1,"1H Chikou Count":-7,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-08 15:30:00-04:00","Symbol":"XLB","Name":"Materials","Close":49.79,"1H Chikou Direction":-1,"1H Chikou Count":-2,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-08 15:30:00-04:00","Symbol":"XLC","Name":"Communication Services","Close":112.93,"1H Chikou Direction":-1,"1H Chikou Count":-1,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-08 15:30:00-04:00","Symbol":"XLF","Name":"Financials","Close":54.83,"1H Chikou Direction":-1,"1H Chikou Count":-1,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-08 15:30:00-04:00","Symbol":"XLE","Name":"Energy","Close":62.05,"1H Chikou Direction":0,"1H Chikou Count":3,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-08 15:30:00-04:00","Symbol":"XLRE","Name":"Real Estate","Close":41.56,"1H Chikou Direction":1,"1H Chikou Count":4,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-08 15:30:00-04:00","Symbol":"XLI","Name":"Industrials","Close":170.43,"1H Chikou Direction":1,"1H Chikou Count":8,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-08 15:30:00-04:00","Symbol":"XLK","Name":"Technology","Close":196.27,"1H Chikou Direction":1,"1H Chikou Count":17,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-08 15:30:00-04:00","Symbol":"XLU","Name":"Utilities","Close":39.53,"1H Chikou Direction":1,"1H Chikou Count":20,"1H Chikou State":"above chikou"}];
+    const tableColumns = [{"title": "Datetime<br>&nbsp;", "field": "Datetime", "headerFilter": "input"}, {"title": "Symbol<br>&nbsp;", "field": "Symbol", "headerFilter": "input"}, {"title": "Name<br>&nbsp;", "field": "Name", "headerFilter": "input"}, {"title": "Close<br>&nbsp;", "field": "Close", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>Direction", "field": "1H Chikou Direction", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>Count", "field": "1H Chikou Count", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>State", "field": "1H Chikou State", "headerFilter": "input"}];
+    const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
+    document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
+    const textHeaderFilter = (headerValue, rowValue) =>
+      String(rowValue ?? "").toLowerCase().includes(String(headerValue ?? "").trim().toLowerCase());
+    const numericHeaderFilter = (headerValue, rowValue) => {
+      const query = String(headerValue ?? "").trim();
+      const value = Number(String(rowValue ?? "").replace(/,/g, ""));
+      if (!query) return true;
+      if (!Number.isFinite(value)) return false;
+
+      const match = query.match(/^(>=|<=|>|<|=)? *([+-]?(?:[0-9]+(?:[.][0-9]*)?|[.][0-9]+)) *([+-]?)$/);
+      if (!match) return false;
+
+      const [, operator, thresholdText, suffix] = match;
+      const threshold = Number(thresholdText.replace(/,/g, ""));
+      if (!Number.isFinite(threshold)) return false;
+      if (suffix) {
+        if (operator) return false;
+        return suffix === "+" ? value > threshold : value < threshold;
+      }
+
+      switch (operator || "=") {
+        case ">": return value > threshold;
+        case ">=": return value >= threshold;
+        case "<": return value < threshold;
+        case "<=": return value <= threshold;
+        default: return value === threshold;
+      }
+    };
     tableColumns.forEach(column => {
-      column.headerFilterFunc = exactHeaderFilter;
+      column.headerFilterFunc = column.sorter === "number"
+        ? numericHeaderFilter
+        : textHeaderFilter;
     });
     const tabulatorTable = new Tabulator("#dataTableTabulator", {
       data: tableData,
@@ -65,6 +109,7 @@
 
           const normalized = rawValue.toLowerCase();
           const field = String(cell.getColumn().getField() ?? '').toLowerCase();
+          if (field.includes('close')) return;
           if (field.includes('state')) {
             if (normalized.startsWith('above')) element.classList.add('highlight-positive');
             else if (normalized.startsWith('below')) element.classList.add('highlight-negative');

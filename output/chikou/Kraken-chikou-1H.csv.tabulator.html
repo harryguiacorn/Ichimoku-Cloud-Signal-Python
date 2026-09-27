@@ -10,6 +10,9 @@
   <style>
     body { background: #eef2f4; color: #17212b; }
     .tabulator-page { max-width: 100%; margin: 0 auto; padding: 24px; }
+    .search-help-dialog { max-width: 440px; border: 2px solid #344955; padding: 20px; color: #17212b; }
+    .search-help-dialog::backdrop { background: rgba(23, 33, 43, .45); }
+    .search-help-dialog h2 { margin-top: 0; font-size: 1.25rem; }
     .tabulator { border: 2px solid #344955; background: #ffffff; box-shadow: 0 8px 20px rgba(23, 33, 43, .14); }
     .tabulator .tabulator-header, .tabulator .tabulator-header .tabulator-col { background: #17212b; color: #ffffff; }
     .tabulator .tabulator-header .tabulator-col { border-right: 1px solid #657782; }
@@ -29,19 +32,60 @@
   <main class="tabulator-page">
     <nav class="scan-navigation" aria-label="Page navigation">
       <a href="../../index.html">Home</a>
+      <button type="button" class="search-help-button" data-search-help-open>Filter guide</button>
     </nav>
     <h1>Kraken Cryptocurrency Chikou Scan</h1>
+    <dialog class="search-help-dialog" data-search-help-dialog aria-labelledby="search-help-title">
+      <h2 id="search-help-title">Filter guide</h2>
+      <p>For numeric columns:</p>
+      <ul>
+        <li><code>1</code> matches exactly 1</li>
+        <li><code>&gt;1</code> or <code>1+</code> matches values greater than 1</li>
+        <li><code>0+</code> matches positive values; <code>0-</code> matches negative values</li>
+      </ul>
+      <p>Comparisons such as <code>&gt;=1</code>, <code>&lt;1</code>, and <code>&lt;=1</code> are also supported. Text searches match partial values, ignoring case.</p>
+      <form method="dialog"><button type="submit">Close</button></form>
+    </dialog>
     <div id="dataTableTabulator"></div>
-    <footer><p>Last updated: 2026-09-26 02:16:08 [UK]</p></footer>
+    <footer><p>Last updated: 2026-09-27 23:25:21 [UK]</p></footer>
   </main>
   <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
   <script>
-    const tableData = [{"Datetime":"2026-09-26 01:00:00","Symbol":"TRXUSD","Name":"TRXUSD","1H Chikou Direction":-1,"1H Chikou Count":-27,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"ETCUSD","Name":"Ethereum Classic","1H Chikou Direction":0,"1H Chikou Count":-11,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"BTCUSD","Name":"BTCUSD","1H Chikou Direction":-1,"1H Chikou Count":-8,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"XMRUSD","Name":"Monero ","1H Chikou Direction":-1,"1H Chikou Count":-2,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"DAIUSD","Name":"DAIUSD","1H Chikou Direction":-1,"1H Chikou Count":-1,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"PEPEUSD","Name":"PEPE\/USD","1H Chikou Direction":1,"1H Chikou Count":4,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"LTCUSD","Name":"LTCUSD","1H Chikou Direction":1,"1H Chikou Count":4,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"LTCUSD","Name":"LTCUSD","1H Chikou Direction":1,"1H Chikou Count":4,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"TONUSD","Name":"TONUSD","1H Chikou Direction":1,"1H Chikou Count":15,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"UNIUSD","Name":"UNIUSD","1H Chikou Direction":1,"1H Chikou Count":16,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"AVAXUSD","Name":"AVAXUSD","1H Chikou Direction":1,"1H Chikou Count":18,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"ETHUSD","Name":"ETHUSD","1H Chikou Direction":0,"1H Chikou Count":18,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"STXUSD","Name":"STXUSD","1H Chikou Direction":1,"1H Chikou Count":29,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"NEARUSD","Name":"NEAR\/USD","1H Chikou Direction":1,"1H Chikou Count":32,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"XRPUSD","Name":"XRPUSD","1H Chikou Direction":1,"1H Chikou Count":32,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"DOGEUSD","Name":"DOGEUSD","1H Chikou Direction":1,"1H Chikou Count":33,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"SHIBUSD","Name":"SHIBUSD","1H Chikou Direction":1,"1H Chikou Count":33,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"KASUSD","Name":"KASUSD","1H Chikou Direction":1,"1H Chikou Count":33,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"ADAUSD","Name":"ADAUSD","1H Chikou Direction":1,"1H Chikou Count":33,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"SHIBUSD","Name":"SHIB\/USD","1H Chikou Direction":1,"1H Chikou Count":33,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"XLMUSD","Name":"Stellar ","1H Chikou Direction":1,"1H Chikou Count":33,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"SOLUSD","Name":"SOLUSD","1H Chikou Direction":1,"1H Chikou Count":34,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"ICPUSD","Name":"ICPUSD","1H Chikou Direction":1,"1H Chikou Count":34,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"APTUSD","Name":"Aptos","1H Chikou Direction":1,"1H Chikou Count":34,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"LINKUSD","Name":"LINK\/USD","1H Chikou Direction":1,"1H Chikou Count":35,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"DOTUSD","Name":"DOTUSD","1H Chikou Direction":1,"1H Chikou Count":35,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-26 01:00:00","Symbol":"FETUSD","Name":"FETUSD","1H Chikou Direction":0,"1H Chikou Count":36,"1H Chikou State":"above chikou"}];
-    const tableColumns = [{"title": "Datetime<br>&nbsp;", "field": "Datetime", "headerFilter": "input"}, {"title": "Symbol<br>&nbsp;", "field": "Symbol", "headerFilter": "input"}, {"title": "Name<br>&nbsp;", "field": "Name", "headerFilter": "input"}, {"title": "1H<br>Direction", "field": "1H Chikou Direction", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>Count", "field": "1H Chikou Count", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>State", "field": "1H Chikou State", "headerFilter": "input"}];
-    const exactHeaderFilter = (headerValue, rowValue) =>
-      String(rowValue ?? "").trim() === String(headerValue ?? "").trim();
+    const tableData = [{"Datetime":"2026-08-24 16:00:00","Symbol":"XMRUSD","Name":"Monero ","Close":425.86,"1H Chikou Direction":0,"1H Chikou Count":-18,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"ICPUSD","Name":"ICPUSD","Close":2.436,"1H Chikou Direction":0,"1H Chikou Count":-4,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"ETCUSD","Name":"Ethereum Classic","Close":7.878,"1H Chikou Direction":0,"1H Chikou Count":-4,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"DOGEUSD","Name":"DOGEUSD","Close":0.0917451,"1H Chikou Direction":0,"1H Chikou Count":-4,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"TONUSD","Name":"TONUSD","Close":1.486,"1H Chikou Direction":-1,"1H Chikou Count":-4,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"APTUSD","Name":"Aptos","Close":0.6165,"1H Chikou Direction":-1,"1H Chikou Count":-4,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"LTCUSD","Name":"LTCUSD","Close":52.73,"1H Chikou Direction":0,"1H Chikou Count":-2,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"XLMUSD","Name":"Stellar ","Close":0.197171,"1H Chikou Direction":0,"1H Chikou Count":-2,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"UNIUSD","Name":"UNIUSD","Close":4.3392,"1H Chikou Direction":-1,"1H Chikou Count":-2,"1H Chikou State":"below chikou"},{"Datetime":"2024-09-02 23:00:00","Symbol":"MATICUSD","Name":"MATIC\/USD","Close":0.4118,"1H Chikou Direction":0,"1H Chikou Count":-2,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"DOTUSD","Name":"DOTUSD","Close":0.9172,"1H Chikou Direction":0,"1H Chikou Count":-2,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"SHIBUSD","Name":"SHIBUSD","Close":0.00000551,"1H Chikou Direction":0,"1H Chikou Count":-2,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"AVAXUSD","Name":"AVAXUSD","Close":7.583,"1H Chikou Direction":0,"1H Chikou Count":-2,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"TRXUSD","Name":"TRXUSD","Close":0.343521,"1H Chikou Direction":0,"1H Chikou Count":-2,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"ADAUSD","Name":"ADAUSD","Close":0.223234,"1H Chikou Direction":0,"1H Chikou Count":-2,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"LTCUSD","Name":"LTCUSD","Close":52.73,"1H Chikou Direction":0,"1H Chikou Count":-2,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"SHIBUSD","Name":"SHIB\/USD","Close":0.00000551,"1H Chikou Direction":0,"1H Chikou Count":-2,"1H Chikou State":"below chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"DAIUSD","Name":"DAIUSD","Close":0.99991,"1H Chikou Direction":0,"1H Chikou Count":2,"1H Chikou State":"above chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"KASUSD","Name":"KASUSD","Close":0.02964,"1H Chikou Direction":1,"1H Chikou Count":8,"1H Chikou State":"above chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"XRPUSD","Name":"XRPUSD","Close":1.51633,"1H Chikou Direction":0,"1H Chikou Count":8,"1H Chikou State":"above chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"PEPEUSD","Name":"PEPE\/USD","Close":0.000004153,"1H Chikou Direction":1,"1H Chikou Count":9,"1H Chikou State":"above chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"SOLUSD","Name":"SOLUSD","Close":96.83,"1H Chikou Direction":1,"1H Chikou Count":11,"1H Chikou State":"above chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"LINKUSD","Name":"LINK\/USD","Close":11.64251,"1H Chikou Direction":0,"1H Chikou Count":11,"1H Chikou State":"above chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"BTCUSD","Name":"BTCUSD","Close":79544.2,"1H Chikou Direction":1,"1H Chikou Count":12,"1H Chikou State":"above chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"FETUSD","Name":"FETUSD","Close":0.1767,"1H Chikou Direction":1,"1H Chikou Count":30,"1H Chikou State":"above chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"ETHUSD","Name":"ETHUSD","Close":2492.93,"1H Chikou Direction":1,"1H Chikou Count":30,"1H Chikou State":"above chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"NEARUSD","Name":"NEAR\/USD","Close":2.0127,"1H Chikou Direction":1,"1H Chikou Count":30,"1H Chikou State":"above chikou"},{"Datetime":"2026-08-24 16:00:00","Symbol":"STXUSD","Name":"STXUSD","Close":0.2333,"1H Chikou Direction":0,"1H Chikou Count":126,"1H Chikou State":"above chikou"}];
+    const tableColumns = [{"title": "Datetime<br>&nbsp;", "field": "Datetime", "headerFilter": "input"}, {"title": "Symbol<br>&nbsp;", "field": "Symbol", "headerFilter": "input"}, {"title": "Name<br>&nbsp;", "field": "Name", "headerFilter": "input"}, {"title": "Close<br>&nbsp;", "field": "Close", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>Direction", "field": "1H Chikou Direction", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>Count", "field": "1H Chikou Count", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>State", "field": "1H Chikou State", "headerFilter": "input"}];
+    const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
+    document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
+    const textHeaderFilter = (headerValue, rowValue) =>
+      String(rowValue ?? "").toLowerCase().includes(String(headerValue ?? "").trim().toLowerCase());
+    const numericHeaderFilter = (headerValue, rowValue) => {
+      const query = String(headerValue ?? "").trim();
+      const value = Number(String(rowValue ?? "").replace(/,/g, ""));
+      if (!query) return true;
+      if (!Number.isFinite(value)) return false;
+
+      const match = query.match(/^(>=|<=|>|<|=)? *([+-]?(?:[0-9]+(?:[.][0-9]*)?|[.][0-9]+)) *([+-]?)$/);
+      if (!match) return false;
+
+      const [, operator, thresholdText, suffix] = match;
+      const threshold = Number(thresholdText.replace(/,/g, ""));
+      if (!Number.isFinite(threshold)) return false;
+      if (suffix) {
+        if (operator) return false;
+        return suffix === "+" ? value > threshold : value < threshold;
+      }
+
+      switch (operator || "=") {
+        case ">": return value > threshold;
+        case ">=": return value >= threshold;
+        case "<": return value < threshold;
+        case "<=": return value <= threshold;
+        default: return value === threshold;
+      }
+    };
     tableColumns.forEach(column => {
-      column.headerFilterFunc = exactHeaderFilter;
+      column.headerFilterFunc = column.sorter === "number"
+        ? numericHeaderFilter
+        : textHeaderFilter;
     });
     const tabulatorTable = new Tabulator("#dataTableTabulator", {
       data: tableData,
@@ -65,6 +109,7 @@
 
           const normalized = rawValue.toLowerCase();
           const field = String(cell.getColumn().getField() ?? '').toLowerCase();
+          if (field.includes('close')) return;
           if (field.includes('state')) {
             if (normalized.startsWith('above')) element.classList.add('highlight-positive');
             else if (normalized.startsWith('below')) element.classList.add('highlight-negative');
