@@ -1,6 +1,7 @@
 import html
 import json
 import logging
+import math
 import re
 from datetime import datetime
 
@@ -11,6 +12,27 @@ from pytz import timezone
 from cloud_signal.mvc import Util
 
 logger = logging.getLogger(__name__)
+
+
+def _move_close_after_name(df: pd.DataFrame) -> pd.DataFrame:
+    if "Name" not in df.columns or "Close" not in df.columns:
+        return df
+
+    columns = list(df.columns)
+    columns.remove("Close")
+    columns.insert(columns.index("Name") + 1, "Close")
+    return df[columns]
+
+
+def _format_close_value(value):
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return value
+
+    if math.isfinite(number) and number != round(number, 2):
+        return f"{number:.2f}"
+    return value
 
 
 def _wrap_header_label(label: str, column_index: int, is_chikou: bool) -> str:
@@ -69,13 +91,22 @@ class TableGenerator:
         self._title = str_title
         if hidden_columns:
             df = df.drop(columns=hidden_columns, errors="ignore")
+        df = _move_close_after_name(df)
 
         is_chikou_page = any("Chikou" in str(column) for column in df.columns)
+        close_column_index = (
+            df.columns.get_loc("Close") if "Close" in df.columns else None
+        )
         df = df.copy()
         df.columns = [
             _wrap_header_label(column, idx, is_chikou_page)
             for idx, column in enumerate(df.columns)
         ]
+        if close_column_index is not None:
+            close_column_label = df.columns[close_column_index]
+            df[close_column_label] = df[close_column_label].map(
+                _format_close_value
+            )
 
         logger.debug("HTML title: %s", str_title)
         html_table_head = f"""
@@ -106,6 +137,7 @@ class TableGenerator:
             <li><code>1</code> matches exactly 1</li>
             <li><code>&gt;1</code> or <code>1+</code> matches values greater than 1</li>
             <li><code>0+</code> matches positive values; <code>0-</code> matches negative values</li>
+            <li><code>0-3</code> matches values from 0 through 3, inclusive</li>
           </ul>
           <p>Comparisons such as <code>&gt;=1</code>, <code>&lt;1</code>, and <code>&lt;=1</code> are also supported. Text searches match partial values, ignoring case.</p>
           <form method="dialog"><button type="submit">Close</button></form>
@@ -170,6 +202,16 @@ class TableGenerator:
         $(document).ready(function() {
           const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
           document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
+          searchHelpDialog.addEventListener('click', (event) => {
+            if (event.target !== searchHelpDialog) return;
+            const bounds = searchHelpDialog.getBoundingClientRect();
+            if (
+              event.clientX < bounds.left || event.clientX > bounds.right ||
+              event.clientY < bounds.top || event.clientY > bounds.bottom
+            ) {
+              searchHelpDialog.close();
+            }
+          });
 
           const isChikou = $('#dataTable_1 thead th').toArray().some((th) => th.textContent.includes('Chikou'));
           $('#dataTable_1 thead th').each(function(index) {
@@ -237,6 +279,7 @@ class TableGenerator:
         df = pd.read_csv(self.csv_file_path)
         if hidden_columns:
             df = df.drop(columns=hidden_columns, errors="ignore")
+        df = _move_close_after_name(df)
 
         columns = []
         is_chikou_page = any("Chikou" in str(column) for column in df.columns)
@@ -304,6 +347,7 @@ class TableGenerator:
         <li><code>1</code> matches exactly 1</li>
         <li><code>&gt;1</code> or <code>1+</code> matches values greater than 1</li>
         <li><code>0+</code> matches positive values; <code>0-</code> matches negative values</li>
+        <li><code>0-3</code> matches values from 0 through 3, inclusive</li>
       </ul>
       <p>Comparisons such as <code>&gt;=1</code>, <code>&lt;1</code>, and <code>&lt;=1</code> are also supported. Text searches match partial values, ignoring case.</p>
       <form method="dialog"><button type="submit">Close</button></form>
@@ -317,6 +361,16 @@ class TableGenerator:
     const tableColumns = {columns_json};
     const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
     document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
+    searchHelpDialog.addEventListener('click', (event) => {{
+      if (event.target !== searchHelpDialog) return;
+      const bounds = searchHelpDialog.getBoundingClientRect();
+      if (
+        event.clientX < bounds.left || event.clientX > bounds.right ||
+        event.clientY < bounds.top || event.clientY > bounds.bottom
+      ) {{
+        searchHelpDialog.close();
+      }}
+    }});
     const textHeaderFilter = (headerValue, rowValue) =>
       String(rowValue ?? "").toLowerCase().includes(String(headerValue ?? "").trim().toLowerCase());
     const numericHeaderFilter = (headerValue, rowValue) => {{
@@ -324,6 +378,14 @@ class TableGenerator:
       const value = Number(String(rowValue ?? "").replace(/,/g, ""));
       if (!query) return true;
       if (!Number.isFinite(value)) return false;
+
+      const rangeMatch = query.match(/^([+-]?(?:[0-9]+(?:[.][0-9]*)?|[.][0-9]+)) *- *([+-]?(?:[0-9]+(?:[.][0-9]*)?|[.][0-9]+))$/);
+      if (rangeMatch) {{
+        const lowerBound = Number(rangeMatch[1].replace(/,/g, ""));
+        const upperBound = Number(rangeMatch[2].replace(/,/g, ""));
+        return Number.isFinite(lowerBound) && Number.isFinite(upperBound)
+          && value >= lowerBound && value <= upperBound;
+      }}
 
       const match = query.match(/^(>=|<=|>|<|=)? *([+-]?(?:[0-9]+(?:[.][0-9]*)?|[.][0-9]+)) *([+-]?)$/);
       if (!match) return false;
@@ -349,6 +411,15 @@ class TableGenerator:
         ? numericHeaderFilter
         : textHeaderFilter;
     }});
+    const closeColumn = tableColumns.find(column => column.field === "Close");
+    if (closeColumn) {{
+      closeColumn.formatter = cell => {{
+        const value = cell.getValue();
+        if (typeof value !== "number" || !Number.isFinite(value)) return value;
+        const roundedValue = Number(value.toFixed(2));
+        return roundedValue === value ? value : value.toFixed(2);
+      }};
+    }}
     const tabulatorTable = new Tabulator("#dataTableTabulator", {{
       data: tableData,
       columns: tableColumns,

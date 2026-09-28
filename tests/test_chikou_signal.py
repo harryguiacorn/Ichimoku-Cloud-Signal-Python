@@ -200,12 +200,12 @@ def test_chikou_score_sum_uses_count_not_direction_or_state(tmp_path):
 def test_scan_html_styles_wrap_headers_and_highlight_numeric_values(tmp_path):
     csv_path = tmp_path / "scan.csv"
     pd.DataFrame(
-        [["TEST", "Test Asset", 10.5, 2.5, -1.2, 0.0, 6]],
+        [["TEST", "Test Asset", 2.5, 7.7049999237, -1.2, 0.0, 6]],
         columns=[
             "Symbol",
             "Name",
-            "Close",
             "Cloud Score",
+            "Close",
             "Chikou Delta",
             "Neutral",
             "Total Score Sum",
@@ -220,14 +220,44 @@ def test_scan_html_styles_wrap_headers_and_highlight_numeric_values(tmp_path):
     assert "highlight-positive" in html
     assert "highlight-negative" in html
     assert "closeColumnIndexes" in html
+    assert "event.target !== searchHelpDialog" in html
+    assert "event.clientX < bounds.left" in html
+    assert (
+        "<code>0-3</code> matches values from 0 through 3, inclusive" in html
+    )
     assert "<th>Total<br>Score Sum</th>" in html
+    assert (
+        html.index("<th>Name<br>&nbsp;</th>")
+        < html.index("<th>Close<br>&nbsp;</th>")
+        < html.index("<th>Cloud<br>Score</th>")
+    )
+    assert "<td>7.70</td>" in html
+    assert "<td>7.705000</td>" not in html
     tabulator_html = TableGenerator(
         str(csv_path)
     ).generate_tabulator_html_table("Cloud Test")
     assert "if (field.includes('close')) return;" in tabulator_html
     assert '"title": "Total<br>Score Sum"' in tabulator_html
     assert "data-search-help-dialog" in tabulator_html
+    assert "event.target !== searchHelpDialog" in tabulator_html
+    assert "event.clientY > bounds.bottom" in tabulator_html
+    assert (
+        "<code>0-3</code> matches values from 0 through 3, inclusive"
+        in tabulator_html
+    )
     assert "const numericHeaderFilter" in tabulator_html
+    assert "value >= lowerBound && value <= upperBound" in tabulator_html
+    assert "closeColumn.formatter = cell =>" in tabulator_html
+    assert (
+        "return roundedValue === value ? value : value.toFixed(2);"
+        in tabulator_html
+    )
+    assert '"Close":7.7049999237' in tabulator_html
+    assert (
+        tabulator_html.index('"field": "Name"')
+        < tabulator_html.index('"field": "Close"')
+        < tabulator_html.index('"field": "Cloud Score"')
+    )
     assert "textHeaderFilter" in tabulator_html
     assert (
         '.includes(String(headerValue ?? "").trim().toLowerCase())'
