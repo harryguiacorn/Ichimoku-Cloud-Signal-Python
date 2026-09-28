@@ -26,6 +26,7 @@
             <li><code>1</code> matches exactly 1</li>
             <li><code>&gt;1</code> or <code>1+</code> matches values greater than 1</li>
             <li><code>0+</code> matches positive values; <code>0-</code> matches negative values</li>
+            <li><code>0-3</code> matches values from 0 through 3, inclusive</li>
           </ul>
           <p>Comparisons such as <code>&gt;=1</code>, <code>&lt;1</code>, and <code>&lt;=1</code> are also supported. Text searches match partial values, ignoring case.</p>
           <form method="dialog"><button type="submit">Close</button></form>
@@ -35,9 +36,9 @@
     <tr style="text-align: right;">
       <th>Symbol<br>&nbsp;</th>
       <th>Name<br>&nbsp;</th>
+      <th>Close<br>&nbsp;</th>
       <th>1H<br>Count</th>
       <th>1H<br>State</th>
-      <th>Close<br>&nbsp;</th>
       <th>1D<br>Count</th>
       <th>1D<br>State</th>
       <th>1W<br>Count</th>
@@ -51,9 +52,9 @@
     <tr>
       <td>XLB</td>
       <td>Materials</td>
+      <td>49.47</td>
       <td>-20</td>
       <td>below chikou</td>
-      <td>49.470001</td>
       <td>-13</td>
       <td>below chikou</td>
       <td>60</td>
@@ -65,9 +66,9 @@
     <tr>
       <td>XLC</td>
       <td>Communication Services</td>
+      <td>111.18</td>
       <td>-14</td>
       <td>below chikou</td>
-      <td>111.180000</td>
       <td>25</td>
       <td>above chikou</td>
       <td>2</td>
@@ -79,9 +80,9 @@
     <tr>
       <td>XLE</td>
       <td>Energy</td>
+      <td>62.10</td>
       <td>-1</td>
       <td>below chikou</td>
-      <td>62.099998</td>
       <td>-3</td>
       <td>below chikou</td>
       <td>58</td>
@@ -93,9 +94,9 @@
     <tr>
       <td>XLF</td>
       <td>Financials</td>
+      <td>54.19</td>
       <td>-99</td>
       <td>below chikou</td>
-      <td>54.189999</td>
       <td>-13</td>
       <td>below chikou</td>
       <td>14</td>
@@ -107,9 +108,9 @@
     <tr>
       <td>XLI</td>
       <td>Industrials</td>
+      <td>168.78</td>
       <td>-6</td>
       <td>below chikou</td>
-      <td>168.779999</td>
       <td>-21</td>
       <td>below chikou</td>
       <td>73</td>
@@ -121,9 +122,9 @@
     <tr>
       <td>XLK</td>
       <td>Technology</td>
+      <td>194.53</td>
       <td>-7</td>
       <td>below chikou</td>
-      <td>194.529999</td>
       <td>8</td>
       <td>above chikou</td>
       <td>25</td>
@@ -135,9 +136,9 @@
     <tr>
       <td>XLP</td>
       <td>Consumer Staples</td>
+      <td>82.28</td>
       <td>-55</td>
       <td>below chikou</td>
-      <td>82.279999</td>
       <td>-18</td>
       <td>below chikou</td>
       <td>2</td>
@@ -149,9 +150,9 @@
     <tr>
       <td>XLRE</td>
       <td>Real Estate</td>
+      <td>41.35</td>
       <td>-58</td>
       <td>below chikou</td>
-      <td>41.349998</td>
       <td>-22</td>
       <td>below chikou</td>
       <td>26</td>
@@ -163,9 +164,9 @@
     <tr>
       <td>XLU</td>
       <td>Utilities</td>
+      <td>39.25</td>
       <td>-91</td>
       <td>below chikou</td>
-      <td>39.250000</td>
       <td>-41</td>
       <td>below chikou</td>
       <td>-7</td>
@@ -177,9 +178,9 @@
     <tr>
       <td>XLV</td>
       <td>Health Care</td>
+      <td>171.26</td>
       <td>22</td>
       <td>above chikou</td>
-      <td>171.259995</td>
       <td>-2</td>
       <td>below chikou</td>
       <td>15</td>
@@ -191,9 +192,9 @@
     <tr>
       <td>XLY</td>
       <td>Consumer Discretionary</td>
+      <td>109.0</td>
       <td>-28</td>
       <td>below chikou</td>
-      <td>109.000000</td>
       <td>-15</td>
       <td>below chikou</td>
       <td>7</td>
@@ -256,6 +257,16 @@
         $(document).ready(function() {
           const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
           document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
+          searchHelpDialog.addEventListener('click', (event) => {
+            if (event.target !== searchHelpDialog) return;
+            const bounds = searchHelpDialog.getBoundingClientRect();
+            if (
+              event.clientX < bounds.left || event.clientX > bounds.right ||
+              event.clientY < bounds.top || event.clientY > bounds.bottom
+            ) {
+              searchHelpDialog.close();
+            }
+          });
 
           const isChikou = $('#dataTable_1 thead th').toArray().some((th) => th.textContent.includes('Chikou'));
           $('#dataTable_1 thead th').each(function(index) {
@@ -297,7 +308,7 @@
         </table>
         
         <footer>
-          <p>Last updated: 2026-09-28 21:46:56 [UK]<br></p>
+          <p>Last updated: 2026-09-29 00:34:39 [UK]<br></p>
         </footer>
         </body>
         </html>

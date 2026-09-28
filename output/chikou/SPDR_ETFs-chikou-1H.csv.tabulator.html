@@ -42,12 +42,13 @@
         <li><code>1</code> matches exactly 1</li>
         <li><code>&gt;1</code> or <code>1+</code> matches values greater than 1</li>
         <li><code>0+</code> matches positive values; <code>0-</code> matches negative values</li>
+        <li><code>0-3</code> matches values from 0 through 3, inclusive</li>
       </ul>
       <p>Comparisons such as <code>&gt;=1</code>, <code>&lt;1</code>, and <code>&lt;=1</code> are also supported. Text searches match partial values, ignoring case.</p>
       <form method="dialog"><button type="submit">Close</button></form>
     </dialog>
     <div id="dataTableTabulator"></div>
-    <footer><p>Last updated: 2026-09-28 21:46:56 [UK]</p></footer>
+    <footer><p>Last updated: 2026-09-29 00:34:39 [UK]</p></footer>
   </main>
   <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
   <script>
@@ -55,6 +56,16 @@
     const tableColumns = [{"title": "Datetime<br>&nbsp;", "field": "Datetime", "headerFilter": "input"}, {"title": "Symbol<br>&nbsp;", "field": "Symbol", "headerFilter": "input"}, {"title": "Name<br>&nbsp;", "field": "Name", "headerFilter": "input"}, {"title": "Close<br>&nbsp;", "field": "Close", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>Direction", "field": "1H Chikou Direction", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>Count", "field": "1H Chikou Count", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>State", "field": "1H Chikou State", "headerFilter": "input"}];
     const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
     document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
+    searchHelpDialog.addEventListener('click', (event) => {
+      if (event.target !== searchHelpDialog) return;
+      const bounds = searchHelpDialog.getBoundingClientRect();
+      if (
+        event.clientX < bounds.left || event.clientX > bounds.right ||
+        event.clientY < bounds.top || event.clientY > bounds.bottom
+      ) {
+        searchHelpDialog.close();
+      }
+    });
     const textHeaderFilter = (headerValue, rowValue) =>
       String(rowValue ?? "").toLowerCase().includes(String(headerValue ?? "").trim().toLowerCase());
     const numericHeaderFilter = (headerValue, rowValue) => {
@@ -62,6 +73,14 @@
       const value = Number(String(rowValue ?? "").replace(/,/g, ""));
       if (!query) return true;
       if (!Number.isFinite(value)) return false;
+
+      const rangeMatch = query.match(/^([+-]?(?:[0-9]+(?:[.][0-9]*)?|[.][0-9]+)) *- *([+-]?(?:[0-9]+(?:[.][0-9]*)?|[.][0-9]+))$/);
+      if (rangeMatch) {
+        const lowerBound = Number(rangeMatch[1].replace(/,/g, ""));
+        const upperBound = Number(rangeMatch[2].replace(/,/g, ""));
+        return Number.isFinite(lowerBound) && Number.isFinite(upperBound)
+          && value >= lowerBound && value <= upperBound;
+      }
 
       const match = query.match(/^(>=|<=|>|<|=)? *([+-]?(?:[0-9]+(?:[.][0-9]*)?|[.][0-9]+)) *([+-]?)$/);
       if (!match) return false;
@@ -87,6 +106,15 @@
         ? numericHeaderFilter
         : textHeaderFilter;
     });
+    const closeColumn = tableColumns.find(column => column.field === "Close");
+    if (closeColumn) {
+      closeColumn.formatter = cell => {
+        const value = cell.getValue();
+        if (typeof value !== "number" || !Number.isFinite(value)) return value;
+        const roundedValue = Number(value.toFixed(2));
+        return roundedValue === value ? value : value.toFixed(2);
+      };
+    }
     const tabulatorTable = new Tabulator("#dataTableTabulator", {
       data: tableData,
       columns: tableColumns,
