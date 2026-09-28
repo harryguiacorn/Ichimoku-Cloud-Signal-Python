@@ -26,6 +26,7 @@
             <li><code>1</code> matches exactly 1</li>
             <li><code>&gt;1</code> or <code>1+</code> matches values greater than 1</li>
             <li><code>0+</code> matches positive values; <code>0-</code> matches negative values</li>
+            <li><code>0-3</code> matches values from 0 through 3, inclusive</li>
           </ul>
           <p>Comparisons such as <code>&gt;=1</code>, <code>&lt;1</code>, and <code>&lt;=1</code> are also supported. Text searches match partial values, ignoring case.</p>
           <form method="dialog"><button type="submit">Close</button></form>
@@ -803,6 +804,22 @@
       <td>66</td>
     </tr>
     <tr>
+      <td>PCAR</td>
+      <td>Paccar</td>
+      <td>111.61</td>
+      <td>-65</td>
+      <td>-10</td>
+      <td>0</td>
+      <td>172</td>
+      <td>97</td>
+      <td>-63</td>
+      <td>-28</td>
+      <td>9</td>
+      <td>47</td>
+      <td>-35</td>
+      <td>62</td>
+    </tr>
+    <tr>
       <td>ISRG</td>
       <td>Intuitive Surgical</td>
       <td>414.91</td>
@@ -1139,6 +1156,22 @@
       <td>-10</td>
     </tr>
     <tr>
+      <td>AEP</td>
+      <td>American Electric Power</td>
+      <td>118.21</td>
+      <td>-79</td>
+      <td>0</td>
+      <td>0</td>
+      <td>35</td>
+      <td>-44</td>
+      <td>1</td>
+      <td>0</td>
+      <td>-4</td>
+      <td>27</td>
+      <td>24</td>
+      <td>-20</td>
+    </tr>
+    <tr>
       <td>ALNY</td>
       <td>Alnylam Pharmaceuticals</td>
       <td>255.36</td>
@@ -1315,22 +1348,6 @@
       <td>-66</td>
     </tr>
     <tr>
-      <td>PCAR</td>
-      <td>Paccar</td>
-      <td>111.61</td>
-      <td>-65</td>
-      <td>-10</td>
-      <td>0</td>
-      <td>78</td>
-      <td>3</td>
-      <td>-63</td>
-      <td>-28</td>
-      <td>9</td>
-      <td>9</td>
-      <td>-73</td>
-      <td>-70</td>
-    </tr>
-    <tr>
       <td>BKNG</td>
       <td>Booking Holdings</td>
       <td>163.91</td>
@@ -1347,22 +1364,6 @@
       <td>-84</td>
     </tr>
     <tr>
-      <td>ADP</td>
-      <td>Automatic Data Processing</td>
-      <td>261.98</td>
-      <td>-43</td>
-      <td>0</td>
-      <td>8</td>
-      <td>5</td>
-      <td>-30</td>
-      <td>-51</td>
-      <td>-10</td>
-      <td>13</td>
-      <td>-7</td>
-      <td>-55</td>
-      <td>-85</td>
-    </tr>
-    <tr>
       <td>ABNB</td>
       <td>Airbnb</td>
       <td>156.10</td>
@@ -1376,6 +1377,22 @@
       <td>37</td>
       <td>3</td>
       <td>34</td>
+      <td>-85</td>
+    </tr>
+    <tr>
+      <td>ADP</td>
+      <td>Automatic Data Processing</td>
+      <td>261.98</td>
+      <td>-43</td>
+      <td>0</td>
+      <td>8</td>
+      <td>5</td>
+      <td>-30</td>
+      <td>-51</td>
+      <td>-10</td>
+      <td>13</td>
+      <td>-7</td>
+      <td>-55</td>
       <td>-85</td>
     </tr>
     <tr>
@@ -1441,22 +1458,6 @@
       <td>-5</td>
       <td>-30</td>
       <td>-105</td>
-    </tr>
-    <tr>
-      <td>AEP</td>
-      <td>American Electric Power</td>
-      <td>118.21</td>
-      <td>-79</td>
-      <td>-42</td>
-      <td>0</td>
-      <td>35</td>
-      <td>-86</td>
-      <td>1</td>
-      <td>-49</td>
-      <td>-4</td>
-      <td>27</td>
-      <td>-25</td>
-      <td>-111</td>
     </tr>
     <tr>
       <td>PAYX</td>
@@ -1720,6 +1721,16 @@
         $(document).ready(function() {
           const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
           document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
+          searchHelpDialog.addEventListener('click', (event) => {
+            if (event.target !== searchHelpDialog) return;
+            const bounds = searchHelpDialog.getBoundingClientRect();
+            if (
+              event.clientX < bounds.left || event.clientX > bounds.right ||
+              event.clientY < bounds.top || event.clientY > bounds.bottom
+            ) {
+              searchHelpDialog.close();
+            }
+          });
 
           const isChikou = $('#dataTable_1 thead th').toArray().some((th) => th.textContent.includes('Chikou'));
           $('#dataTable_1 thead th').each(function(index) {
@@ -1761,7 +1772,7 @@
         </table>
         
         <footer>
-          <p>Last updated: 2026-09-28 21:45:25 [UK]<br></p>
+          <p>Last updated: 2026-09-29 00:33:12 [UK]<br></p>
         </footer>
         </body>
         </html>
