@@ -26,6 +26,7 @@
             <li><code>1</code> matches exactly 1</li>
             <li><code>&gt;1</code> or <code>1+</code> matches values greater than 1</li>
             <li><code>0+</code> matches positive values; <code>0-</code> matches negative values</li>
+            <li><code>0-3</code> matches values from 0 through 3, inclusive</li>
           </ul>
           <p>Comparisons such as <code>&gt;=1</code>, <code>&lt;1</code>, and <code>&lt;=1</code> are also supported. Text searches match partial values, ignoring case.</p>
           <form method="dialog"><button type="submit">Close</button></form>
@@ -197,7 +198,7 @@
     <tr>
       <td>CVX</td>
       <td>Chevron</td>
-      <td>206.37</td>
+      <td>206.25</td>
       <td>0</td>
       <td>47</td>
       <td>66</td>
@@ -245,7 +246,7 @@
     <tr>
       <td>PG</td>
       <td>Procter & Gamble</td>
-      <td>149.03</td>
+      <td>149.04</td>
       <td>7</td>
       <td>1</td>
       <td>-9</td>
@@ -293,7 +294,7 @@
     <tr>
       <td>MRK</td>
       <td>Merck</td>
-      <td>148.69</td>
+      <td>148.73</td>
       <td>0</td>
       <td>69</td>
       <td>42</td>
@@ -373,7 +374,7 @@
     <tr>
       <td>AXP</td>
       <td>American Express</td>
-      <td>306.33</td>
+      <td>306.28</td>
       <td>-63</td>
       <td>-20</td>
       <td>0</td>
@@ -584,6 +585,16 @@
         $(document).ready(function() {
           const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
           document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
+          searchHelpDialog.addEventListener('click', (event) => {
+            if (event.target !== searchHelpDialog) return;
+            const bounds = searchHelpDialog.getBoundingClientRect();
+            if (
+              event.clientX < bounds.left || event.clientX > bounds.right ||
+              event.clientY < bounds.top || event.clientY > bounds.bottom
+            ) {
+              searchHelpDialog.close();
+            }
+          });
 
           const isChikou = $('#dataTable_1 thead th').toArray().some((th) => th.textContent.includes('Chikou'));
           $('#dataTable_1 thead th').each(function(index) {
@@ -625,7 +636,7 @@
         </table>
         
         <footer>
-          <p>Last updated: 2026-09-28 21:17:18 [UK]<br></p>
+          <p>Last updated: 2026-09-29 00:11:19 [UK]<br></p>
         </footer>
         </body>
         </html>
