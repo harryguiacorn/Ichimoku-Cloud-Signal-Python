@@ -276,3 +276,49 @@ def test_scan_html_styles_wrap_headers_and_highlight_numeric_values(tmp_path):
     assert (
         "font-weight: 600" in css_text[css_text.index(".highlight-neutral") :]
     )
+
+
+def test_spdr_sector_symbols_link_to_matching_cloud_and_chikou_scans(tmp_path):
+    cloud_csv = tmp_path / "SPDR_ETFS-sum-cloud-tkx-merged.csv"
+    pd.DataFrame(
+        [["XLV", "Health Care", 10.0, 3], ["AAPL", "Apple", 20.0, 4]],
+        columns=["Symbol", "Name", "Close", "Cloud Score Sum"],
+    ).to_csv(cloud_csv, index=False)
+
+    chikou_csv = tmp_path / "SPDR_ETFs-chikou-merged.csv"
+    pd.DataFrame(
+        [["XLV", "Health Care", 10.0, 2, "above chikou"]],
+        columns=[
+            "Symbol",
+            "Name",
+            "Close",
+            "1H Chikou Count",
+            "1H Chikou State",
+        ],
+    ).to_csv(chikou_csv, index=False)
+
+    cloud_generator = TableGenerator(str(cloud_csv))
+    cloud_html = cloud_generator.generate_html_table("SPDR ETFs Cloud Scan")
+    cloud_tabulator_html = cloud_generator.generate_tabulator_html_table(
+        "SPDR ETFs Cloud Scan"
+    )
+    chikou_generator = TableGenerator(str(chikou_csv))
+    chikou_html = chikou_generator.generate_html_table("SPDR ETFs Chikou Scan")
+    chikou_tabulator_html = chikou_generator.generate_tabulator_html_table(
+        "SPDR ETFs Chikou Scan"
+    )
+
+    assert (
+        '<a href="SPDR_ETF-XLV-sum-cloud-tkx-merged.csv.html">XLV</a>'
+        in cloud_html
+    )
+    assert "AAPL</a>" not in cloud_html
+    assert '"sum-cloud-tkx-merged"' in cloud_tabulator_html
+    assert "SPDR_ETF-${symbol}-${spdrSectorPageSuffix}.csv.tabulator.html" in cloud_tabulator_html
+
+    assert (
+        '<a href="SPDR_ETF-XLV-chikou-merged.csv.html">XLV</a>'
+        in chikou_html
+    )
+    assert '"chikou-merged"' in chikou_tabulator_html
+    assert "SPDR_ETF-${symbol}-${spdrSectorPageSuffix}.csv.tabulator.html" in chikou_tabulator_html

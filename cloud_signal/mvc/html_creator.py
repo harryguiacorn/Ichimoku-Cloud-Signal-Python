@@ -4,6 +4,7 @@ import logging
 import math
 import re
 from datetime import datetime
+from pathlib import Path
 
 import pandas as pd
 from pytz import timezone
@@ -12,6 +13,44 @@ from pytz import timezone
 from cloud_signal.mvc import Util
 
 logger = logging.getLogger(__name__)
+
+SPDR_SECTOR_SYMBOLS = {
+  "XLB",
+  "XLC",
+  "XLE",
+  "XLF",
+  "XLI",
+  "XLK",
+  "XLP",
+  "XLRE",
+  "XLU",
+  "XLV",
+  "XLY",
+}
+
+
+def _spdr_sector_scan_suffix(csv_file_path: str):
+  return {
+    "SPDR_ETFS-sum-cloud-tkx-merged.csv": "sum-cloud-tkx-merged",
+    "SPDR_ETFs-chikou-merged.csv": "chikou-merged",
+  }.get(Path(csv_file_path).name)
+
+
+def _spdr_sector_page_href(symbol, suffix: str, tabulator: bool = False):
+  symbol = str(symbol).strip()
+  if symbol not in SPDR_SECTOR_SYMBOLS:
+    return None
+
+  page_extension = ".tabulator.html" if tabulator else ".html"
+  return f"SPDR_ETF-{symbol}-{suffix}.csv{page_extension}"
+
+
+def _spdr_sector_symbol_html(symbol, suffix: str) -> str:
+  symbol_text = html.escape(str(symbol))
+  href = _spdr_sector_page_href(symbol, suffix)
+  if href is None:
+    return symbol_text
+  return f'<a href="{html.escape(href, quote=True)}">{symbol_text}</a>'
 
 
 def _move_close_after_name(df: pd.DataFrame) -> pd.DataFrame:
@@ -91,6 +130,13 @@ class TableGenerator:
         self._title = str_title
         if hidden_columns:
             df = df.drop(columns=hidden_columns, errors="ignore")
+        spdr_sector_suffix = _spdr_sector_scan_suffix(self.csv_file_path)
+        if spdr_sector_suffix and "Symbol" in df.columns:
+          df["Symbol"] = df["Symbol"].map(
+            lambda symbol: _spdr_sector_symbol_html(
+              symbol, spdr_sector_suffix
+            )
+          )
         df = _move_close_after_name(df)
 
         is_chikou_page = any("Chikou" in str(column) for column in df.columns)
@@ -298,6 +344,8 @@ class TableGenerator:
         data_json = df.to_json(orient="records", date_format="iso")
         data_json = data_json.replace("<", "\\u003c")
         columns_json = json.dumps(columns)
+        spdr_sector_suffix = _spdr_sector_scan_suffix(self.csv_file_path)
+        spdr_sector_symbols_json = json.dumps(sorted(SPDR_SECTOR_SYMBOLS))
         safe_title = html.escape(str_title, quote=True)
         london_tz_finish = timezone("Europe/London")
         time_finish = datetime.now(london_tz_finish)
@@ -359,6 +407,8 @@ class TableGenerator:
   <script>
     const tableData = {data_json};
     const tableColumns = {columns_json};
+    const spdrSectorPageSuffix = {json.dumps(spdr_sector_suffix)};
+    const spdrSectorSymbols = new Set({spdr_sector_symbols_json});
     const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
     document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
     searchHelpDialog.addEventListener('click', (event) => {{
@@ -418,6 +468,17 @@ class TableGenerator:
         if (typeof value !== "number" || !Number.isFinite(value)) return value;
         const roundedValue = Number(value.toFixed(2));
         return roundedValue === value ? value : value.toFixed(2);
+      }};
+    }}
+    const symbolColumn = tableColumns.find(column => column.field === "Symbol");
+    if (symbolColumn && spdrSectorPageSuffix) {{
+      symbolColumn.formatter = cell => {{
+        const symbol = String(cell.getValue() ?? "").trim();
+        if (!spdrSectorSymbols.has(symbol)) return cell.getValue();
+        const link = document.createElement("a");
+        link.href = `SPDR_ETF-${{symbol}}-${{spdrSectorPageSuffix}}.csv.tabulator.html`;
+        link.textContent = symbol;
+        return link;
       }};
     }}
     const tabulatorTable = new Tabulator("#dataTableTabulator", {{
