@@ -42,19 +42,30 @@
         <li><code>1</code> matches exactly 1</li>
         <li><code>&gt;1</code> or <code>1+</code> matches values greater than 1</li>
         <li><code>0+</code> matches positive values; <code>0-</code> matches negative values</li>
+        <li><code>0-3</code> matches values from 0 through 3, inclusive</li>
       </ul>
       <p>Comparisons such as <code>&gt;=1</code>, <code>&lt;1</code>, and <code>&lt;=1</code> are also supported. Text searches match partial values, ignoring case.</p>
       <form method="dialog"><button type="submit">Close</button></form>
     </dialog>
     <div id="dataTableTabulator"></div>
-    <footer><p>Last updated: 2026-09-28 23:53:50 [UK]</p></footer>
+    <footer><p>Last updated: 2026-09-29 01:22:36 [UK]</p></footer>
   </main>
   <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
   <script>
-    const tableData = [{"Symbol":"6A=F","Name":"Australian Dollar Futures","Close":0.7,"1H Cloud Score":-4,"1D Cloud Score":0,"1W Cloud Score":58,"1M Cloud Score":3,"Cloud Score Sum":57,"1H TKx Score":3,"1D TKx Score":-4,"1W TKx Score":5,"1M TKx Score":6,"TKx Score Sum":10,"Total Score Sum":67},{"Symbol":"6B=F","Name":"British Pound Futures","Close":1.33,"1H Cloud Score":2,"1D Cloud Score":-5,"1W Cloud Score":-2,"1M Cloud Score":16,"Cloud Score Sum":11,"1H TKx Score":15,"1D TKx Score":-14,"1W TKx Score":6,"1M TKx Score":31,"TKx Score Sum":38,"Total Score Sum":49},{"Symbol":"6J=F","Name":"Japanese Yen Futures","Close":0.01,"1H Cloud Score":34,"1D Cloud Score":20,"1W Cloud Score":-3,"1M Cloud Score":-53,"Cloud Score Sum":-2,"1H TKx Score":-5,"1D TKx Score":-1,"1W TKx Score":1,"1M TKx Score":-6,"TKx Score Sum":-11,"Total Score Sum":-13},{"Symbol":"6E=F","Name":"Euro FX Futures","Close":1.14,"1H Cloud Score":-14,"1D Cloud Score":-8,"1W Cloud Score":-2,"1M Cloud Score":15,"Cloud Score Sum":-9,"1H TKx Score":-20,"1D TKx Score":-12,"1W TKx Score":-27,"1M TKx Score":29,"TKx Score Sum":-30,"Total Score Sum":-39},{"Symbol":"6N=F","Name":"New Zealand Dollar Futures","Close":0.57,"1H Cloud Score":0,"1D Cloud Score":-13,"1W Cloud Score":-4,"1M Cloud Score":-46,"Cloud Score Sum":-63,"1H TKx Score":13,"1D TKx Score":-17,"1W TKx Score":5,"1M TKx Score":-18,"TKx Score Sum":-17,"Total Score Sum":-80},{"Symbol":"6S=F","Name":"Swiss Franc Futures","Close":1.21,"1H Cloud Score":-80,"1D Cloud Score":-16,"1W Cloud Score":-4,"1M Cloud Score":40,"Cloud Score Sum":-60,"1H TKx Score":-20,"1D TKx Score":-18,"1W TKx Score":-24,"1M TKx Score":31,"TKx Score Sum":-31,"Total Score Sum":-91},{"Symbol":"6C=F","Name":"Canadian Dollar Futures","Close":0.71,"1H Cloud Score":-244,"1D Cloud Score":-6,"1W Cloud Score":-3,"1M Cloud Score":-32,"Cloud Score Sum":-285,"1H TKx Score":-132,"1D TKx Score":-11,"1W TKx Score":-19,"1M TKx Score":6,"TKx Score Sum":-156,"Total Score Sum":-441}];
+    const tableData = [{"Symbol":"6A=F","Name":"Australian Dollar Futures","Close":0.7,"1H Cloud Score":-6,"1D Cloud Score":0,"1W Cloud Score":57,"1M Cloud Score":3,"Cloud Score Sum":54,"1H TKx Score":5,"1D TKx Score":-4,"1W TKx Score":4,"1M TKx Score":6,"TKx Score Sum":11,"Total Score Sum":65},{"Symbol":"6B=F","Name":"British Pound Futures","Close":1.33,"1H Cloud Score":4,"1D Cloud Score":-5,"1W Cloud Score":-1,"1M Cloud Score":16,"Cloud Score Sum":14,"1H TKx Score":17,"1D TKx Score":-14,"1W TKx Score":5,"1M TKx Score":31,"TKx Score Sum":39,"Total Score Sum":53},{"Symbol":"6E=F","Name":"Euro FX Futures","Close":1.14,"1H Cloud Score":-16,"1D Cloud Score":-8,"1W Cloud Score":-1,"1M Cloud Score":15,"Cloud Score Sum":-10,"1H TKx Score":1,"1D TKx Score":-12,"1W TKx Score":-26,"1M TKx Score":29,"TKx Score Sum":-8,"Total Score Sum":-18},{"Symbol":"6J=F","Name":"Japanese Yen Futures","Close":0.01,"1H Cloud Score":36,"1D Cloud Score":20,"1W Cloud Score":-2,"1M Cloud Score":-53,"Cloud Score Sum":1,"1H TKx Score":-7,"1D TKx Score":-1,"1W TKx Score":-59,"1M TKx Score":-6,"TKx Score Sum":-73,"Total Score Sum":-72},{"Symbol":"6N=F","Name":"New Zealand Dollar Futures","Close":0.57,"1H Cloud Score":-2,"1D Cloud Score":-13,"1W Cloud Score":-3,"1M Cloud Score":-46,"Cloud Score Sum":-64,"1H TKx Score":15,"1D TKx Score":-17,"1W TKx Score":4,"1M TKx Score":-18,"TKx Score Sum":-16,"Total Score Sum":-80},{"Symbol":"6S=F","Name":"Swiss Franc Futures","Close":1.21,"1H Cloud Score":-82,"1D Cloud Score":-16,"1W Cloud Score":-3,"1M Cloud Score":40,"Cloud Score Sum":-61,"1H TKx Score":-22,"1D TKx Score":-18,"1W TKx Score":-23,"1M TKx Score":31,"TKx Score Sum":-32,"Total Score Sum":-93},{"Symbol":"6C=F","Name":"Canadian Dollar Futures","Close":0.71,"1H Cloud Score":-246,"1D Cloud Score":-6,"1W Cloud Score":-2,"1M Cloud Score":-32,"Cloud Score Sum":-286,"1H TKx Score":-134,"1D TKx Score":-11,"1W TKx Score":-18,"1M TKx Score":6,"TKx Score Sum":-157,"Total Score Sum":-443}];
     const tableColumns = [{"title": "Symbol<br>&nbsp;", "field": "Symbol", "headerFilter": "input"}, {"title": "Name<br>&nbsp;", "field": "Name", "headerFilter": "input"}, {"title": "Close<br>&nbsp;", "field": "Close", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>Cloud Score", "field": "1H Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1D<br>Cloud Score", "field": "1D Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1W<br>Cloud Score", "field": "1W Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M<br>Cloud Score", "field": "1M Cloud Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "Cloud<br>Score Sum", "field": "Cloud Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>TKx Score", "field": "1H TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1D<br>TKx Score", "field": "1D TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1W<br>TKx Score", "field": "1W TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1M<br>TKx Score", "field": "1M TKx Score", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "TKx<br>Score Sum", "field": "TKx Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "Total<br>Score Sum", "field": "Total Score Sum", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}];
     const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
     document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
+    searchHelpDialog.addEventListener('click', (event) => {
+      if (event.target !== searchHelpDialog) return;
+      const bounds = searchHelpDialog.getBoundingClientRect();
+      if (
+        event.clientX < bounds.left || event.clientX > bounds.right ||
+        event.clientY < bounds.top || event.clientY > bounds.bottom
+      ) {
+        searchHelpDialog.close();
+      }
+    });
     const textHeaderFilter = (headerValue, rowValue) =>
       String(rowValue ?? "").toLowerCase().includes(String(headerValue ?? "").trim().toLowerCase());
     const numericHeaderFilter = (headerValue, rowValue) => {
@@ -62,6 +73,14 @@
       const value = Number(String(rowValue ?? "").replace(/,/g, ""));
       if (!query) return true;
       if (!Number.isFinite(value)) return false;
+
+      const rangeMatch = query.match(/^([+-]?(?:[0-9]+(?:[.][0-9]*)?|[.][0-9]+)) *- *([+-]?(?:[0-9]+(?:[.][0-9]*)?|[.][0-9]+))$/);
+      if (rangeMatch) {
+        const lowerBound = Number(rangeMatch[1].replace(/,/g, ""));
+        const upperBound = Number(rangeMatch[2].replace(/,/g, ""));
+        return Number.isFinite(lowerBound) && Number.isFinite(upperBound)
+          && value >= lowerBound && value <= upperBound;
+      }
 
       const match = query.match(/^(>=|<=|>|<|=)? *([+-]?(?:[0-9]+(?:[.][0-9]*)?|[.][0-9]+)) *([+-]?)$/);
       if (!match) return false;
@@ -87,6 +106,15 @@
         ? numericHeaderFilter
         : textHeaderFilter;
     });
+    const closeColumn = tableColumns.find(column => column.field === "Close");
+    if (closeColumn) {
+      closeColumn.formatter = cell => {
+        const value = cell.getValue();
+        if (typeof value !== "number" || !Number.isFinite(value)) return value;
+        const roundedValue = Number(value.toFixed(2));
+        return roundedValue === value ? value : value.toFixed(2);
+      };
+    }
     const tabulatorTable = new Tabulator("#dataTableTabulator", {
       data: tableData,
       columns: tableColumns,

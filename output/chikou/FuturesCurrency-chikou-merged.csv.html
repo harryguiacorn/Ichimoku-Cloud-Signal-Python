@@ -26,6 +26,7 @@
             <li><code>1</code> matches exactly 1</li>
             <li><code>&gt;1</code> or <code>1+</code> matches values greater than 1</li>
             <li><code>0+</code> matches positive values; <code>0-</code> matches negative values</li>
+            <li><code>0-3</code> matches values from 0 through 3, inclusive</li>
           </ul>
           <p>Comparisons such as <code>&gt;=1</code>, <code>&lt;1</code>, and <code>&lt;=1</code> are also supported. Text searches match partial values, ignoring case.</p>
           <form method="dialog"><button type="submit">Close</button></form>
@@ -35,9 +36,9 @@
     <tr style="text-align: right;">
       <th>Symbol<br>&nbsp;</th>
       <th>Name<br>&nbsp;</th>
+      <th>Close<br>&nbsp;</th>
       <th>1H<br>Count</th>
       <th>1H<br>State</th>
-      <th>Close<br>&nbsp;</th>
       <th>1D<br>Count</th>
       <th>1D<br>State</th>
       <th>1W<br>Count</th>
@@ -51,100 +52,100 @@
     <tr>
       <td>6A=F</td>
       <td>Australian Dollar Futures</td>
-      <td>-13</td>
+      <td>0.70</td>
+      <td>-15</td>
       <td>below chikou</td>
-      <td>0.700900</td>
       <td>-4</td>
       <td>below chikou</td>
-      <td>69</td>
+      <td>68</td>
       <td>above chikou</td>
       <td>7</td>
       <td>above chikou</td>
-      <td>59</td>
+      <td>56</td>
     </tr>
     <tr>
       <td>6B=F</td>
       <td>British Pound Futures</td>
-      <td>33</td>
+      <td>1.33</td>
+      <td>35</td>
       <td>above chikou</td>
-      <td>1.326000</td>
       <td>-9</td>
       <td>below chikou</td>
-      <td>-2</td>
+      <td>-1</td>
       <td>below chikou</td>
       <td>19</td>
       <td>above chikou</td>
-      <td>41</td>
+      <td>44</td>
     </tr>
     <tr>
       <td>6C=F</td>
       <td>Canadian Dollar Futures</td>
-      <td>-154</td>
+      <td>0.71</td>
+      <td>-156</td>
       <td>below chikou</td>
-      <td>0.708050</td>
       <td>-9</td>
       <td>below chikou</td>
-      <td>-17</td>
+      <td>-16</td>
       <td>below chikou</td>
       <td>-38</td>
       <td>below chikou</td>
-      <td>-218</td>
+      <td>-219</td>
     </tr>
     <tr>
       <td>6E=F</td>
       <td>Euro FX Futures</td>
-      <td>-12</td>
+      <td>1.14</td>
+      <td>-14</td>
       <td>below chikou</td>
-      <td>1.140850</td>
       <td>-9</td>
       <td>below chikou</td>
-      <td>-18</td>
+      <td>-17</td>
       <td>below chikou</td>
       <td>17</td>
       <td>above chikou</td>
-      <td>-22</td>
+      <td>-23</td>
     </tr>
     <tr>
       <td>6J=F</td>
       <td>Japanese Yen Futures</td>
-      <td>-3</td>
+      <td>0.01</td>
+      <td>-5</td>
       <td>below chikou</td>
-      <td>0.006392</td>
       <td>42</td>
       <td>above chikou</td>
-      <td>4</td>
+      <td>3</td>
       <td>above chikou</td>
       <td>-13</td>
       <td>below chikou</td>
-      <td>30</td>
+      <td>27</td>
     </tr>
     <tr>
       <td>6N=F</td>
       <td>New Zealand Dollar Futures</td>
-      <td>6</td>
-      <td>above chikou</td>
-      <td>0.568100</td>
+      <td>0.57</td>
+      <td>-2</td>
+      <td>below chikou</td>
       <td>-14</td>
       <td>below chikou</td>
-      <td>-10</td>
+      <td>-9</td>
       <td>below chikou</td>
       <td>-13</td>
       <td>below chikou</td>
-      <td>-31</td>
+      <td>-38</td>
     </tr>
     <tr>
       <td>6S=F</td>
       <td>Swiss Franc Futures</td>
-      <td>-24</td>
+      <td>1.21</td>
+      <td>-26</td>
       <td>below chikou</td>
-      <td>1.212950</td>
       <td>-14</td>
       <td>below chikou</td>
-      <td>-16</td>
+      <td>-15</td>
       <td>below chikou</td>
       <td>33</td>
       <td>above chikou</td>
-      <td>-21</td>
+      <td>-22</td>
     </tr>
   </tbody>
 </table>
@@ -200,6 +201,16 @@
         $(document).ready(function() {
           const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
           document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
+          searchHelpDialog.addEventListener('click', (event) => {
+            if (event.target !== searchHelpDialog) return;
+            const bounds = searchHelpDialog.getBoundingClientRect();
+            if (
+              event.clientX < bounds.left || event.clientX > bounds.right ||
+              event.clientY < bounds.top || event.clientY > bounds.bottom
+            ) {
+              searchHelpDialog.close();
+            }
+          });
 
           const isChikou = $('#dataTable_1 thead th').toArray().some((th) => th.textContent.includes('Chikou'));
           $('#dataTable_1 thead th').each(function(index) {
@@ -241,7 +252,7 @@
         </table>
         
         <footer>
-          <p>Last updated: 2026-09-28 23:53:52 [UK]<br></p>
+          <p>Last updated: 2026-09-29 01:22:37 [UK]<br></p>
         </footer>
         </body>
         </html>
