@@ -48,12 +48,14 @@
       <form method="dialog"><button type="submit">Close</button></form>
     </dialog>
     <div id="dataTableTabulator"></div>
-    <footer><p>Last updated: 2026-09-29 01:58:50 [UK]</p></footer>
+    <footer><p>Last updated: 2026-09-29 03:15:48 [UK]</p></footer>
   </main>
   <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
   <script>
-    const tableData = [{"Datetime":"2026-09-28 20:00:00-04:00","Symbol":"6C=F","Name":"Canadian Dollar Futures","Close":0.7077000141,"1H Chikou Direction":-1,"1H Chikou Count":-156,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-28 20:00:00-04:00","Symbol":"6S=F","Name":"Swiss Franc Futures","Close":1.2122000456,"1H Chikou Direction":-1,"1H Chikou Count":-26,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-28 20:00:00-04:00","Symbol":"6A=F","Name":"Australian Dollar Futures","Close":0.7003499866,"1H Chikou Direction":-1,"1H Chikou Count":-15,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-28 20:00:00-04:00","Symbol":"6E=F","Name":"Euro FX Futures","Close":1.140149951,"1H Chikou Direction":-1,"1H Chikou Count":-14,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-28 20:00:00-04:00","Symbol":"6J=F","Name":"Japanese Yen Futures","Close":0.006389,"1H Chikou Direction":-1,"1H Chikou Count":-5,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-28 20:00:00-04:00","Symbol":"6N=F","Name":"New Zealand Dollar Futures","Close":0.5672500134,"1H Chikou Direction":-1,"1H Chikou Count":-2,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-28 20:00:00-04:00","Symbol":"6B=F","Name":"British Pound Futures","Close":1.3250000477,"1H Chikou Direction":0,"1H Chikou Count":35,"1H Chikou State":"above chikou"}];
+    const tableData = [{"Datetime":"2026-09-28 22:00:00-04:00","Symbol":"6C=F","Name":"Canadian Dollar Futures","Close":0.7080000043,"1H Chikou Direction":-1,"1H Chikou Count":-158,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-28 22:00:00-04:00","Symbol":"6S=F","Name":"Swiss Franc Futures","Close":1.212299943,"1H Chikou Direction":-1,"1H Chikou Count":-28,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-28 22:00:00-04:00","Symbol":"6E=F","Name":"Euro FX Futures","Close":1.1404000521,"1H Chikou Direction":-1,"1H Chikou Count":-16,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-28 22:00:00-04:00","Symbol":"6J=F","Name":"Japanese Yen Futures","Close":0.0063895001,"1H Chikou Direction":0,"1H Chikou Count":-7,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-28 22:00:00-04:00","Symbol":"6A=F","Name":"Australian Dollar Futures","Close":0.7008500099,"1H Chikou Direction":1,"1H Chikou Count":1,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-28 22:00:00-04:00","Symbol":"6N=F","Name":"New Zealand Dollar Futures","Close":0.5678499937,"1H Chikou Direction":1,"1H Chikou Count":2,"1H Chikou State":"above chikou"},{"Datetime":"2026-09-28 22:00:00-04:00","Symbol":"6B=F","Name":"British Pound Futures","Close":1.3255000114,"1H Chikou Direction":1,"1H Chikou Count":37,"1H Chikou State":"above chikou"}];
     const tableColumns = [{"title": "Datetime<br>&nbsp;", "field": "Datetime", "headerFilter": "input"}, {"title": "Symbol<br>&nbsp;", "field": "Symbol", "headerFilter": "input"}, {"title": "Name<br>&nbsp;", "field": "Name", "headerFilter": "input"}, {"title": "Close<br>&nbsp;", "field": "Close", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>Direction", "field": "1H Chikou Direction", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>Count", "field": "1H Chikou Count", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>State", "field": "1H Chikou State", "headerFilter": "input"}];
+    const spdrSectorPageSuffix = null;
+    const spdrSectorSymbols = new Set(["XLB", "XLC", "XLE", "XLF", "XLI", "XLK", "XLP", "XLRE", "XLU", "XLV", "XLY"]);
     const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
     document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
     searchHelpDialog.addEventListener('click', (event) => {
@@ -113,6 +115,17 @@
         if (typeof value !== "number" || !Number.isFinite(value)) return value;
         const roundedValue = Number(value.toFixed(2));
         return roundedValue === value ? value : value.toFixed(2);
+      };
+    }
+    const symbolColumn = tableColumns.find(column => column.field === "Symbol");
+    if (symbolColumn && spdrSectorPageSuffix) {
+      symbolColumn.formatter = cell => {
+        const symbol = String(cell.getValue() ?? "").trim();
+        if (!spdrSectorSymbols.has(symbol)) return cell.getValue();
+        const link = document.createElement("a");
+        link.href = `SPDR_ETF-${symbol}-${spdrSectorPageSuffix}.csv.tabulator.html`;
+        link.textContent = symbol;
+        return link;
       };
     }
     const tabulatorTable = new Tabulator("#dataTableTabulator", {
