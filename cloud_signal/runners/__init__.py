@@ -8,6 +8,7 @@ __all__ = [
     "runBitfinex",
     "runSPX500",
     "runSPDR_ETFs",
+    "runMajorETFs",
     "runRussell1000",
     "runOanda",
     "runNas100",

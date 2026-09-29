@@ -284,6 +284,15 @@ DEFAULT_MARKETS: List[Dict[str, Any]] = [
         fetch_symbols=False,
     ),
     _build_default_market(
+        "MajorETFs",
+        "runMajorETFs",
+        "asset_list/MajorETFs.csv",
+        "data/major_etfs",
+        "output/major_etfs",
+        ["1h", "d", "w", "m"],
+        fetch_symbols=False,
+    ),
+    _build_default_market(
         "Kraken",
         "runKraken",
         "asset_list/Kraken.csv",

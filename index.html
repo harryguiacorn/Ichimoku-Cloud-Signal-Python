@@ -153,6 +153,9 @@
         <h2>Sector Scans</h2>
         <div id="sector-scans"></div>
 
+        <h2>Major ETFs</h2>
+        <div id="major-etf-scans"></div>
+
         <footer></footer>
     </main>
     <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
@@ -190,6 +193,14 @@
             chikou: `output/chikou/${chikou}-chikou-merged.csv.tabulator.html`
         }));
 
+        const majorEtfRows = [
+            {
+                universe: "Institutional ETF & Index Basket",
+                cloud: "output/sum/MajorETFs-sum-cloud-tkx-merged.csv.tabulator.html",
+                chikou: "output/chikou/MajorETFs-chikou-merged.csv.tabulator.html"
+            }
+        ];
+
         const linkFormatter = cell => `<a href="${cell.getValue()}">Open</a>`;
         const makeTable = (selector, data, firstColumn) => new Tabulator(selector, {
             data,
@@ -205,6 +216,7 @@
         });
         makeTable("#market-scans", marketRows, "Market");
         makeTable("#sector-scans", sectorRows, "Sector");
+        makeTable("#major-etf-scans", majorEtfRows, "Universe");
     </script>
 </body>
 

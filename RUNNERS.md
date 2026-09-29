@@ -3,6 +3,7 @@
 Runner implementations live under the installable `cloud_signal.runners` package. Lightweight root-level shims and the legacy `scripts` package remain only for backwards compatibility.
 
 - Canonical modules: `cloud_signal/runners/runDJ30.py`, `cloud_signal/runners/runSPX500.py`, etc.
+- Major ETF module: `cloud_signal/runners/runMajorETFs.py`.
 - Root-level shims: `runDJ30.py`, `runSPX500.py`, `runNas100.py`, `runFTSE100.py`, `runFTSE250.py`, `runFutures.py`, `runHSI.py`, `runKraken.py`, `runBitfinex.py`, `runOanda.py`, `runCurrencyFutures.py`, `runRussell1000.py`, `runSPDR_ETFs.py`, `runDJ30_source_russell.py`, `main.py`
 
 How the shims work
@@ -24,6 +25,8 @@ Run examples (with venv activated)
 ```powershell
 python runDJ30.py
 python -m cloud_signal.runners.runSPX500
+python -m cloud_signal.runners.runMajorETFs
+python -m cloud_signal.runners.run_market --market MajorETFs
 cloud-signal-dj30
 ```
 

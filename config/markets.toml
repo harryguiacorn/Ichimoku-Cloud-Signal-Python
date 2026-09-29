@@ -320,3 +320,17 @@ fetch_kijun_analysis = false
 fetch_Kicker_use_datetime_format = false
 run_Multi_TimeFrame_Merger_Russell1000 = true
 fetch_kicker = false
+
+[[market]]
+name = "MajorETFs"
+module = "runMajorETFs"
+asset_list = "asset_list/MajorETFs.csv"
+data_dir = "data/major_etfs"
+output_dir = "output/major_etfs"
+timeframes = ["1h", "d", "w", "m"]
+fetch_symbols = false
+merge_multitimeframe = true
+fetch_kijun = false
+fetch_kicker = false
+symbol_key = ""
+enabled = true
