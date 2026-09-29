@@ -48,12 +48,14 @@
       <form method="dialog"><button type="submit">Close</button></form>
     </dialog>
     <div id="dataTableTabulator"></div>
-    <footer><p>Last updated: 2026-09-29 00:34:39 [UK]</p></footer>
+    <footer><p>Last updated: 2026-09-29 02:31:54 [UK]</p></footer>
   </main>
   <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
   <script>
     const tableData = [{"Date":"2026-09-28","Symbol":"XLU","Name":"Utilities","Close":39.25,"1W Chikou Direction":-1,"1W Chikou Count":-7,"1W Chikou State":"below chikou"},{"Date":"2026-09-28","Symbol":"XLC","Name":"Communication Services","Close":111.1800003052,"1W Chikou Direction":0,"1W Chikou Count":2,"1W Chikou State":"above chikou"},{"Date":"2026-09-28","Symbol":"XLP","Name":"Consumer Staples","Close":82.2799987793,"1W Chikou Direction":1,"1W Chikou Count":2,"1W Chikou State":"above chikou"},{"Date":"2026-09-28","Symbol":"XLY","Name":"Consumer Discretionary","Close":109.0,"1W Chikou Direction":0,"1W Chikou Count":7,"1W Chikou State":"above chikou"},{"Date":"2026-09-28","Symbol":"XLF","Name":"Financials","Close":54.1899986267,"1W Chikou Direction":1,"1W Chikou Count":14,"1W Chikou State":"above chikou"},{"Date":"2026-09-28","Symbol":"XLV","Name":"Health Care","Close":171.2599945068,"1W Chikou Direction":1,"1W Chikou Count":15,"1W Chikou State":"above chikou"},{"Date":"2026-09-28","Symbol":"XLK","Name":"Technology","Close":194.5299987793,"1W Chikou Direction":1,"1W Chikou Count":25,"1W Chikou State":"above chikou"},{"Date":"2026-09-28","Symbol":"XLRE","Name":"Real Estate","Close":41.3499984741,"1W Chikou Direction":1,"1W Chikou Count":26,"1W Chikou State":"above chikou"},{"Date":"2026-09-28","Symbol":"XLE","Name":"Energy","Close":62.0999984741,"1W Chikou Direction":0,"1W Chikou Count":58,"1W Chikou State":"above chikou"},{"Date":"2026-09-28","Symbol":"XLB","Name":"Materials","Close":49.4700012207,"1W Chikou Direction":0,"1W Chikou Count":60,"1W Chikou State":"above chikou"},{"Date":"2026-09-28","Symbol":"XLI","Name":"Industrials","Close":168.7799987793,"1W Chikou Direction":1,"1W Chikou Count":73,"1W Chikou State":"above chikou"}];
     const tableColumns = [{"title": "Date<br>&nbsp;", "field": "Date", "headerFilter": "input"}, {"title": "Symbol<br>&nbsp;", "field": "Symbol", "headerFilter": "input"}, {"title": "Name<br>&nbsp;", "field": "Name", "headerFilter": "input"}, {"title": "Close<br>&nbsp;", "field": "Close", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1W<br>Direction", "field": "1W Chikou Direction", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1W<br>Count", "field": "1W Chikou Count", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1W<br>State", "field": "1W Chikou State", "headerFilter": "input"}];
+    const spdrSectorPageSuffix = null;
+    const spdrSectorSymbols = new Set(["XLB", "XLC", "XLE", "XLF", "XLI", "XLK", "XLP", "XLRE", "XLU", "XLV", "XLY"]);
     const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
     document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
     searchHelpDialog.addEventListener('click', (event) => {
@@ -113,6 +115,17 @@
         if (typeof value !== "number" || !Number.isFinite(value)) return value;
         const roundedValue = Number(value.toFixed(2));
         return roundedValue === value ? value : value.toFixed(2);
+      };
+    }
+    const symbolColumn = tableColumns.find(column => column.field === "Symbol");
+    if (symbolColumn && spdrSectorPageSuffix) {
+      symbolColumn.formatter = cell => {
+        const symbol = String(cell.getValue() ?? "").trim();
+        if (!spdrSectorSymbols.has(symbol)) return cell.getValue();
+        const link = document.createElement("a");
+        link.href = `SPDR_ETF-${symbol}-${spdrSectorPageSuffix}.csv.tabulator.html`;
+        link.textContent = symbol;
+        return link;
       };
     }
     const tabulatorTable = new Tabulator("#dataTableTabulator", {

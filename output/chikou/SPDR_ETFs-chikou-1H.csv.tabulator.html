@@ -48,12 +48,14 @@
       <form method="dialog"><button type="submit">Close</button></form>
     </dialog>
     <div id="dataTableTabulator"></div>
-    <footer><p>Last updated: 2026-09-29 00:34:39 [UK]</p></footer>
+    <footer><p>Last updated: 2026-09-29 02:31:54 [UK]</p></footer>
   </main>
   <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
   <script>
     const tableData = [{"Datetime":"2026-09-28 15:30:00-04:00","Symbol":"XLF","Name":"Financials","Close":54.2000007629,"1H Chikou Direction":-1,"1H Chikou Count":-99,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-28 15:30:00-04:00","Symbol":"XLU","Name":"Utilities","Close":39.2599983215,"1H Chikou Direction":-1,"1H Chikou Count":-91,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-28 15:30:00-04:00","Symbol":"XLRE","Name":"Real Estate","Close":41.3549995422,"1H Chikou Direction":-1,"1H Chikou Count":-58,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-28 15:30:00-04:00","Symbol":"XLP","Name":"Consumer Staples","Close":82.2900009155,"1H Chikou Direction":0,"1H Chikou Count":-55,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-28 15:30:00-04:00","Symbol":"XLY","Name":"Consumer Discretionary","Close":108.9899978638,"1H Chikou Direction":-1,"1H Chikou Count":-28,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-28 15:30:00-04:00","Symbol":"XLB","Name":"Materials","Close":49.4599990845,"1H Chikou Direction":-1,"1H Chikou Count":-20,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-28 15:30:00-04:00","Symbol":"XLC","Name":"Communication Services","Close":111.1900024414,"1H Chikou Direction":-1,"1H Chikou Count":-14,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-28 15:30:00-04:00","Symbol":"XLK","Name":"Technology","Close":194.5099945068,"1H Chikou Direction":0,"1H Chikou Count":-7,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-28 15:30:00-04:00","Symbol":"XLI","Name":"Industrials","Close":168.7599945068,"1H Chikou Direction":-1,"1H Chikou Count":-6,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-28 15:30:00-04:00","Symbol":"XLE","Name":"Energy","Close":62.1150016785,"1H Chikou Direction":-1,"1H Chikou Count":-1,"1H Chikou State":"below chikou"},{"Datetime":"2026-09-28 15:30:00-04:00","Symbol":"XLV","Name":"Health Care","Close":171.2599945068,"1H Chikou Direction":1,"1H Chikou Count":22,"1H Chikou State":"above chikou"}];
     const tableColumns = [{"title": "Datetime<br>&nbsp;", "field": "Datetime", "headerFilter": "input"}, {"title": "Symbol<br>&nbsp;", "field": "Symbol", "headerFilter": "input"}, {"title": "Name<br>&nbsp;", "field": "Name", "headerFilter": "input"}, {"title": "Close<br>&nbsp;", "field": "Close", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>Direction", "field": "1H Chikou Direction", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>Count", "field": "1H Chikou Count", "headerFilter": "input", "sorter": "number", "hozAlign": "right"}, {"title": "1H<br>State", "field": "1H Chikou State", "headerFilter": "input"}];
+    const spdrSectorPageSuffix = null;
+    const spdrSectorSymbols = new Set(["XLB", "XLC", "XLE", "XLF", "XLI", "XLK", "XLP", "XLRE", "XLU", "XLV", "XLY"]);
     const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
     document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
     searchHelpDialog.addEventListener('click', (event) => {
@@ -113,6 +115,17 @@
         if (typeof value !== "number" || !Number.isFinite(value)) return value;
         const roundedValue = Number(value.toFixed(2));
         return roundedValue === value ? value : value.toFixed(2);
+      };
+    }
+    const symbolColumn = tableColumns.find(column => column.field === "Symbol");
+    if (symbolColumn && spdrSectorPageSuffix) {
+      symbolColumn.formatter = cell => {
+        const symbol = String(cell.getValue() ?? "").trim();
+        if (!spdrSectorSymbols.has(symbol)) return cell.getValue();
+        const link = document.createElement("a");
+        link.href = `SPDR_ETF-${symbol}-${spdrSectorPageSuffix}.csv.tabulator.html`;
+        link.textContent = symbol;
+        return link;
       };
     }
     const tabulatorTable = new Tabulator("#dataTableTabulator", {
