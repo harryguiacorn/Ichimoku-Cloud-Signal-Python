@@ -48,12 +48,14 @@
       <form method="dialog"><button type="submit">Close</button></form>
     </dialog>
     <div id="dataTableTabulator"></div>
-    <footer><p>Last updated: 2026-09-29 02:02:21 [UK]</p></footer>
+    <footer><p>Last updated: 2026-09-29 03:19:32 [UK]</p></footer>
   </main>
   <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
   <script>
     const tableData = [];
     const tableColumns = [{"title": "Date<br>&nbsp;", "field": "Date", "headerFilter": "input"}, {"title": "Symbol<br>&nbsp;", "field": "Symbol", "headerFilter": "input"}, {"title": "Name<br>&nbsp;", "field": "Name", "headerFilter": "input"}, {"title": "Close<br>&nbsp;", "field": "Close", "headerFilter": "input"}, {"title": "1D<br>Direction", "field": "1D Chikou Direction", "headerFilter": "input"}, {"title": "1D<br>Count", "field": "1D Chikou Count", "headerFilter": "input"}, {"title": "1D<br>State", "field": "1D Chikou State", "headerFilter": "input"}];
+    const spdrSectorPageSuffix = null;
+    const spdrSectorSymbols = new Set(["XLB", "XLC", "XLE", "XLF", "XLI", "XLK", "XLP", "XLRE", "XLU", "XLV", "XLY"]);
     const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
     document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
     searchHelpDialog.addEventListener('click', (event) => {
@@ -113,6 +115,17 @@
         if (typeof value !== "number" || !Number.isFinite(value)) return value;
         const roundedValue = Number(value.toFixed(2));
         return roundedValue === value ? value : value.toFixed(2);
+      };
+    }
+    const symbolColumn = tableColumns.find(column => column.field === "Symbol");
+    if (symbolColumn && spdrSectorPageSuffix) {
+      symbolColumn.formatter = cell => {
+        const symbol = String(cell.getValue() ?? "").trim();
+        if (!spdrSectorSymbols.has(symbol)) return cell.getValue();
+        const link = document.createElement("a");
+        link.href = `SPDR_ETF-${symbol}-${spdrSectorPageSuffix}.csv.tabulator.html`;
+        link.textContent = symbol;
+        return link;
       };
     }
     const tabulatorTable = new Tabulator("#dataTableTabulator", {
