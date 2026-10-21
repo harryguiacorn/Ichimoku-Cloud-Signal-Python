@@ -1,17 +1,22 @@
+# ruff: noqa: N999
+
+from cloud_signal.runners._bootstrap import (
+    ensure_repo_root,
+    setup_runner_logging,
+)
 from cloud_signal.mvc.controllers import (
+    GetDataKraken,
     GetIchimokuChikouData,
     GetIchimokuChikouDataAggregator,
     GetIchimokuChikouDataMultiTFMerger,
-    GetDataKraken,
     GetIchimokuCloudDataKraken,
     GetIchimokuCloudDataKrakenAggregator,
     GetIchimokuCloudDataKrakenMultiTFMerger,
+    GetIchimokuSumCloudTKxDataKrakenMultiTFMerger,
     GetIchimokuTKxDataKraken,
     GetIchimokuTKxDataKrakenAggregator,
     GetIchimokuTKxDataKrakenMultiTFMerger,
-    GetIchimokuSumCloudTKxDataKrakenMultiTFMerger,
 )
-from cloud_signal.runners._bootstrap import ensure_repo_root, setup_runner_logging
 
 ensure_repo_root()
 RUNNER_CLASS = ""

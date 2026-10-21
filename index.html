@@ -66,6 +66,19 @@
             font-size: .9rem;
         }
 
+        .header-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-family: "Trebuchet MS", sans-serif;
+            font-size: .9rem;
+        }
+
+        .subscribe-link {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
         .tabulator {
             border: 1px solid var(--line);
             background: white;
@@ -129,8 +142,7 @@
                 display: block;
             }
 
-            .back-link {
-                display: inline-block;
+            .header-links {
                 margin-top: 18px;
             }
         }
@@ -144,7 +156,12 @@
                 <h1>Apex Investor System</h1>
                 <p>Market scan reports</p>
             </div>
-            <a class="back-link" href="index_legacy.html">Legacy index</a>
+            <nav class="header-links" aria-label="Site links">
+                <a class="subscribe-link" href="https://apex-investor-system.kit.com/3f49b45822" data-formkit-toggle="fdcdb5aa03">
+                    Subscribe to email digest
+                </a>
+                <a class="back-link" href="index_legacy.html">Legacy index</a>
+            </nav>
         </header>
 
         <h2>Market Scans</h2>
@@ -218,6 +235,47 @@
         makeTable("#sector-scans", sectorRows, "Sector");
         makeTable("#major-etf-scans", majorEtfRows, "Universe");
     </script>
+    <script>
+        (() => {
+            const formUid = "fdcdb5aa03";
+            let initialFields = null;
+
+            const cacheInitialFields = () => {
+                if (initialFields) return;
+                const form = document.querySelector(
+                    `form[data-uid="${formUid}"]`
+                );
+                const fields = form?.querySelector("[data-element='fields']");
+                if (!fields) return;
+
+                initialFields = fields.cloneNode(true);
+                observer.disconnect();
+            };
+
+            const observer = new MutationObserver(cacheInitialFields);
+            observer.observe(document.documentElement, {
+                childList: true,
+                subtree: true
+            });
+            cacheInitialFields();
+
+            document.addEventListener("ckjs:overlay:hide", event => {
+                if (!initialFields || !(event.target instanceof Element)) return;
+
+                const form = event.target.querySelector(
+                    `form[data-uid="${formUid}"]`
+                );
+                const success = form?.querySelector(
+                    "[data-element='success']"
+                );
+                if (!success) return;
+
+                success.removeAttribute("id");
+                success.replaceWith(initialFields.cloneNode(true));
+            });
+        })();
+    </script>
+    <script async data-uid="fdcdb5aa03" src="https://apex-investor-system.kit.com/fdcdb5aa03/index.js"></script>
 </body>
 
 </html>

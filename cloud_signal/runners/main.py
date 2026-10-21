@@ -4,6 +4,9 @@ from cloud_signal.runners._bootstrap import (
 )
 from cloud_signal.runners.market_registry import get_market_configs
 from cloud_signal.runners.run_market import run_market
+from cloud_signal.mvc.controllers.EmailDigestController import (
+    create_email_digest_controller,
+)
 
 ensure_repo_root()
 RUNNER_CLASS = None
@@ -22,6 +25,14 @@ def main():
         run_market(market["name"])
 
     logger.info("All configured market runners completed.")
+    controller = create_email_digest_controller()
+    result = controller.send_digest()
+    logger.info(
+        "Email digest completed: %s matches, %s Kit broadcasts scheduled, %s already scheduled",
+        result["matches"],
+        result["scheduled"],
+        result["skipped"],
+    )
 
 
 if __name__ == "__main__":

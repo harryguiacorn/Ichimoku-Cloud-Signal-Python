@@ -11,6 +11,7 @@ numpy = "^1.22.2"
 replit = "^3.2.4"
 Flask = "^3.1.3"
 urllib3 = "^2.6.0"
+python-dotenv = "^1.0"
 
 [tool.poetry.dev-dependencies]
 debugpy = "^1.6.2"
@@ -23,6 +24,7 @@ cloud-signal-nas100 = "cloud_signal.runners.runNas100:main"
 cloud-signal-sp500 = "cloud_signal.runners.runSPX500:main"
 cloud-signal-oanda = "cloud_signal.runners.runOanda:main"
 cloud-signal-validate-assets = "cloud_signal.runners.validate_asset_lists:main"
+cloud-signal-email-digest = "cloud_signal.runners.send_email_digest:main"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
