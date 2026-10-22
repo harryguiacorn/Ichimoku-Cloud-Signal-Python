@@ -29,7 +29,7 @@ class DataChikouSignal(DataOHLC):
         data = pd.read_csv(path, header=[0, 1])
         data.columns = data.columns.droplevel(1)
         first_cell_third_row = pd.read_csv(path, skiprows=2).columns[0]
-        data.columns.values[0] = first_cell_third_row
+        data.columns = [first_cell_third_row, *data.columns[1:]]
         return data.drop(data.index[0])
 
     def setup(self, first_column, date_column, output_suffix):

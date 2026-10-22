@@ -57,6 +57,25 @@ def test_chikou_bearish_direction_has_negative_count():
     assert states == ["below chikou"]
 
 
+def test_chikou_reads_yfinance_multiindex_csv_headers(tmp_path):
+    csv_path = tmp_path / "TEST_ichimokuTapy.csv"
+    csv_path.write_text(
+        "Price,Close,High,Low\n"
+        "Ticker,TEST,TEST,TEST\n"
+        "Date,,,\n"
+        "2026-01-01,10,12,5\n"
+        "2026-01-02,11,13,6\n",
+        encoding="utf-8",
+    )
+
+    data = DataChikouSignal("TEST", str(tmp_path) + "/").check_yfinance_format(
+        str(csv_path), "Date"
+    )
+
+    assert list(data.columns) == ["Date", "Close", "High", "Low"]
+    assert data["Date"].tolist() == ["2026-01-01", "2026-01-02"]
+
+
 def test_chikou_aggregator_and_merger_write_csv_and_html(tmp_path):
     data_path = tmp_path / "data"
     output_path = tmp_path / "output"

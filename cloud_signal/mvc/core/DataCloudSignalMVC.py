@@ -57,7 +57,10 @@ class DataCloudSignal(DataOHLC):
             first_cell_third_row = pd.read_csv(__path, skiprows=2).columns[
                 0
             ]  # Read third row to get the first cell
-            __data.columns.values[0] = first_cell_third_row
+            __data.columns = [
+                first_cell_third_row,
+                *__data.columns[1:],
+            ]
 
             # Remove the second row of data (now the first row of the DataFrame after setting index)
             __data = __data.drop(__data.index[0])
