@@ -1,13 +1,9 @@
 from __future__ import annotations
 
 import os
+import tomllib
 from pathlib import Path
 from typing import Any, Dict, List
-
-try:
-    import tomllib
-except ModuleNotFoundError:  # pragma: no cover
-    import tomli as tomllib
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 DEFAULT_CONFIG_PATH = PROJECT_ROOT / "config" / "markets.toml"

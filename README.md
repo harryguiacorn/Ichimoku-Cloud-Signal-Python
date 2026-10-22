@@ -54,5 +54,6 @@ Uncover market movers with ease! This application analyses data silently and gen
 
 
 ## Steps to get it up and running ##
+- Requires Python 3.14.8 or newer.
 - Open main.py file it contains commands for creating Ichimoku signals and candlestick kicker signals for S&P 500, Dow Jones 30, Nasdaq 100, FTSE 100, FTSE 250, Futures and Currency Futures markets.
 - Comment out the commands not required to run and run this file. Note indices such as S&P 500 which has around 500 stocks therefore would take some time to download its historical data from Yahoo Finance.
