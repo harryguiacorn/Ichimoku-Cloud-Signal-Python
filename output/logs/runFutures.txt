@@ -1,8 +1,8 @@
-2026-10-22 23:41:37,782 INFO __main__: Shim: launching scripts.runFutures
-2026-10-22 23:41:37,791 INFO cloud_signal.runners.runFutures: Futures task begins at: 2026-10-23 00:41:37 [UK]
-2026-10-22 23:41:37,791 INFO cloud_signal.mvc.controllers.GetSymbolFutures: Reading symbols from source: https://finance.yahoo.com/markets/commodities/
-2026-10-22 23:41:38,430 INFO cloud_signal.mvc.controllers.GetSymbolFutures: response.status_code:200
-2026-10-22 23:41:38,450 INFO cloud_signal.mvc.controllers.GetSymbolFutures: Web Content::
+2026-10-22 23:56:33,104 INFO __main__: Shim: launching scripts.runFutures
+2026-10-22 23:56:33,115 INFO cloud_signal.runners.runFutures: Futures task begins at: 2026-10-23 00:56:33 [UK]
+2026-10-22 23:56:33,115 INFO cloud_signal.mvc.controllers.GetSymbolFutures: Reading symbols from source: https://finance.yahoo.com/markets/commodities/
+2026-10-22 23:56:33,321 INFO cloud_signal.mvc.controllers.GetSymbolFutures: response.status_code:200
+2026-10-22 23:56:33,345 INFO cloud_signal.mvc.controllers.GetSymbolFutures: Web Content::
 [   Symbol  ... Open Interest
 0    ES=F  ...        1.918M
 1    YM=F  ...         90113
@@ -42,8 +42,8 @@
 35   SB=F  ...        655595
 
 [36 rows x 9 columns]]
-2026-10-22 23:41:38,451 INFO cloud_signal.mvc.controllers.GetSymbolFutures: Total symbols: 36
-2026-10-22 23:41:38,453 INFO cloud_signal.mvc.controllers.GetSymbolFutures: cleanData::
+2026-10-22 23:56:33,346 INFO cloud_signal.mvc.controllers.GetSymbolFutures: Total symbols: 36
+2026-10-22 23:56:33,349 INFO cloud_signal.mvc.controllers.GetSymbolFutures: cleanData::
    symbol                                        name
 0    ES=F                       E-Mini S&P 500 Dec 26
 1    YM=F             Mini Dow Jones Indus.-$5 Dec 26
@@ -81,7 +81,7 @@
 33   CT=F                                          --
 34   OJ=F                         Orange Juice Jan 27
 35   SB=F                            Sugar #11 Mar 27
-2026-10-22 23:41:38,455 INFO cloud_signal.mvc.controllers.GetSymbolFutures: Table:
+2026-10-22 23:56:33,350 INFO cloud_signal.mvc.controllers.GetSymbolFutures: Table:
    symbol                                        name
 0    ES=F                       E-Mini S&P 500 Dec 26
 1    YM=F             Mini Dow Jones Indus.-$5 Dec 26
@@ -119,521 +119,521 @@
 33   CT=F                                          --
 34   OJ=F                         Orange Juice Jan 27
 35   SB=F                            Sugar #11 Mar 27
-2026-10-22 23:41:38,458 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
-2026-10-22 23:41:38,458 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/Futures.csv
-2026-10-22 23:41:38,458 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Downloading from Yahoo -----------
-2026-10-22 23:41:42,551 INFO cloud_signal.mvc.core.DataPandasMVC: 0 ES=F -> data/futures/1h/ES=F.csv
-2026-10-22 23:41:42,582 INFO cloud_signal.mvc.core.DataPandasMVC: 1 YM=F -> data/futures/1h/YM=F.csv
-2026-10-22 23:41:42,615 INFO cloud_signal.mvc.core.DataPandasMVC: 2 NQ=F -> data/futures/1h/NQ=F.csv
-2026-10-22 23:41:42,655 INFO cloud_signal.mvc.core.DataPandasMVC: 3 RTY=F -> data/futures/1h/RTY=F.csv
-2026-10-22 23:41:42,689 INFO cloud_signal.mvc.core.DataPandasMVC: 4 ZB=F -> data/futures/1h/ZB=F.csv
-2026-10-22 23:41:42,724 INFO cloud_signal.mvc.core.DataPandasMVC: 5 ZN=F -> data/futures/1h/ZN=F.csv
-2026-10-22 23:41:42,761 INFO cloud_signal.mvc.core.DataPandasMVC: 6 ZF=F -> data/futures/1h/ZF=F.csv
-2026-10-22 23:41:42,797 INFO cloud_signal.mvc.core.DataPandasMVC: 7 ZT=F -> data/futures/1h/ZT=F.csv
-2026-10-22 23:41:42,836 INFO cloud_signal.mvc.core.DataPandasMVC: 8 GC=F -> data/futures/1h/GC=F.csv
-2026-10-22 23:41:42,875 INFO cloud_signal.mvc.core.DataPandasMVC: 9 MGC=F -> data/futures/1h/MGC=F.csv
-2026-10-22 23:41:42,916 INFO cloud_signal.mvc.core.DataPandasMVC: 10 SI=F -> data/futures/1h/SI=F.csv
-2026-10-22 23:41:42,958 INFO cloud_signal.mvc.core.DataPandasMVC: 11 SIL=F -> data/futures/1h/SIL=F.csv
-2026-10-22 23:41:42,998 INFO cloud_signal.mvc.core.DataPandasMVC: 12 PL=F -> data/futures/1h/PL=F.csv
-2026-10-22 23:41:43,039 INFO cloud_signal.mvc.core.DataPandasMVC: 13 HG=F -> data/futures/1h/HG=F.csv
-2026-10-22 23:41:43,070 INFO cloud_signal.mvc.core.DataPandasMVC: 14 PA=F -> data/futures/1h/PA=F.csv
-2026-10-22 23:41:43,112 INFO cloud_signal.mvc.core.DataPandasMVC: 15 CL=F -> data/futures/1h/CL=F.csv
-2026-10-22 23:41:43,153 INFO cloud_signal.mvc.core.DataPandasMVC: 16 HO=F -> data/futures/1h/HO=F.csv
-2026-10-22 23:41:43,195 INFO cloud_signal.mvc.core.DataPandasMVC: 17 NG=F -> data/futures/1h/NG=F.csv
-2026-10-22 23:41:43,237 INFO cloud_signal.mvc.core.DataPandasMVC: 18 RB=F -> data/futures/1h/RB=F.csv
-2026-10-22 23:41:43,279 INFO cloud_signal.mvc.core.DataPandasMVC: 19 BZ=F -> data/futures/1h/BZ=F.csv
-2026-10-22 23:41:46,341 INFO cloud_signal.mvc.core.DataPandasMVC: 20 B0=F -> data/futures/1h/B0=F.csv
-2026-10-22 23:41:46,367 INFO cloud_signal.mvc.core.DataPandasMVC: 21 ZC=F -> data/futures/1h/ZC=F.csv
-2026-10-22 23:41:46,387 INFO cloud_signal.mvc.core.DataPandasMVC: 22 ZO=F -> data/futures/1h/ZO=F.csv
-2026-10-22 23:41:46,413 INFO cloud_signal.mvc.core.DataPandasMVC: 23 KE=F -> data/futures/1h/KE=F.csv
-2026-10-22 23:41:46,427 INFO cloud_signal.mvc.core.DataPandasMVC: 24 ZR=F -> data/futures/1h/ZR=F.csv
-2026-10-22 23:41:46,460 INFO cloud_signal.mvc.core.DataPandasMVC: 25 ZM=F -> data/futures/1h/ZM=F.csv
-2026-10-22 23:41:46,494 INFO cloud_signal.mvc.core.DataPandasMVC: 26 ZL=F -> data/futures/1h/ZL=F.csv
-2026-10-22 23:41:46,521 INFO cloud_signal.mvc.core.DataPandasMVC: 27 ZS=F -> data/futures/1h/ZS=F.csv
-2026-10-22 23:41:46,532 INFO cloud_signal.mvc.core.DataPandasMVC: 28 GF=F -> data/futures/1h/GF=F.csv
-2026-10-22 23:41:46,543 INFO cloud_signal.mvc.core.DataPandasMVC: 29 HE=F -> data/futures/1h/HE=F.csv
-2026-10-22 23:41:46,554 INFO cloud_signal.mvc.core.DataPandasMVC: 30 LE=F -> data/futures/1h/LE=F.csv
-2026-10-22 23:41:46,568 INFO cloud_signal.mvc.core.DataPandasMVC: 31 CC=F -> data/futures/1h/CC=F.csv
-2026-10-22 23:41:46,585 INFO cloud_signal.mvc.core.DataPandasMVC: 32 KC=F -> data/futures/1h/KC=F.csv
-2026-10-22 23:41:46,596 INFO cloud_signal.mvc.core.DataPandasMVC: 33 CT=F -> data/futures/1h/CT=F.csv
-2026-10-22 23:41:46,606 INFO cloud_signal.mvc.core.DataPandasMVC: 34 OJ=F -> data/futures/1h/OJ=F.csv
-2026-10-22 23:41:46,624 INFO cloud_signal.mvc.core.DataPandasMVC: 35 SB=F -> data/futures/1h/SB=F.csv
-2026-10-22 23:41:46,624 INFO cloud_signal.mvc.core.DataPandasMVC: 
+2026-10-22 23:56:33,355 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
+2026-10-22 23:56:33,355 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/Futures.csv
+2026-10-22 23:56:33,355 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Downloading from Yahoo -----------
+2026-10-22 23:56:36,586 INFO cloud_signal.mvc.core.DataPandasMVC: 0 ES=F -> data/futures/1h/ES=F.csv
+2026-10-22 23:56:36,628 INFO cloud_signal.mvc.core.DataPandasMVC: 1 YM=F -> data/futures/1h/YM=F.csv
+2026-10-22 23:56:36,672 INFO cloud_signal.mvc.core.DataPandasMVC: 2 NQ=F -> data/futures/1h/NQ=F.csv
+2026-10-22 23:56:36,723 INFO cloud_signal.mvc.core.DataPandasMVC: 3 RTY=F -> data/futures/1h/RTY=F.csv
+2026-10-22 23:56:36,767 INFO cloud_signal.mvc.core.DataPandasMVC: 4 ZB=F -> data/futures/1h/ZB=F.csv
+2026-10-22 23:56:36,812 INFO cloud_signal.mvc.core.DataPandasMVC: 5 ZN=F -> data/futures/1h/ZN=F.csv
+2026-10-22 23:56:36,858 INFO cloud_signal.mvc.core.DataPandasMVC: 6 ZF=F -> data/futures/1h/ZF=F.csv
+2026-10-22 23:56:36,905 INFO cloud_signal.mvc.core.DataPandasMVC: 7 ZT=F -> data/futures/1h/ZT=F.csv
+2026-10-22 23:56:36,955 INFO cloud_signal.mvc.core.DataPandasMVC: 8 GC=F -> data/futures/1h/GC=F.csv
+2026-10-22 23:56:37,004 INFO cloud_signal.mvc.core.DataPandasMVC: 9 MGC=F -> data/futures/1h/MGC=F.csv
+2026-10-22 23:56:37,058 INFO cloud_signal.mvc.core.DataPandasMVC: 10 SI=F -> data/futures/1h/SI=F.csv
+2026-10-22 23:56:37,112 INFO cloud_signal.mvc.core.DataPandasMVC: 11 SIL=F -> data/futures/1h/SIL=F.csv
+2026-10-22 23:56:37,164 INFO cloud_signal.mvc.core.DataPandasMVC: 12 PL=F -> data/futures/1h/PL=F.csv
+2026-10-22 23:56:37,218 INFO cloud_signal.mvc.core.DataPandasMVC: 13 HG=F -> data/futures/1h/HG=F.csv
+2026-10-22 23:56:37,259 INFO cloud_signal.mvc.core.DataPandasMVC: 14 PA=F -> data/futures/1h/PA=F.csv
+2026-10-22 23:56:37,314 INFO cloud_signal.mvc.core.DataPandasMVC: 15 CL=F -> data/futures/1h/CL=F.csv
+2026-10-22 23:56:37,368 INFO cloud_signal.mvc.core.DataPandasMVC: 16 HO=F -> data/futures/1h/HO=F.csv
+2026-10-22 23:56:37,422 INFO cloud_signal.mvc.core.DataPandasMVC: 17 NG=F -> data/futures/1h/NG=F.csv
+2026-10-22 23:56:37,476 INFO cloud_signal.mvc.core.DataPandasMVC: 18 RB=F -> data/futures/1h/RB=F.csv
+2026-10-22 23:56:37,529 INFO cloud_signal.mvc.core.DataPandasMVC: 19 BZ=F -> data/futures/1h/BZ=F.csv
+2026-10-22 23:56:39,769 INFO cloud_signal.mvc.core.DataPandasMVC: 20 B0=F -> data/futures/1h/B0=F.csv
+2026-10-22 23:56:39,804 INFO cloud_signal.mvc.core.DataPandasMVC: 21 ZC=F -> data/futures/1h/ZC=F.csv
+2026-10-22 23:56:39,830 INFO cloud_signal.mvc.core.DataPandasMVC: 22 ZO=F -> data/futures/1h/ZO=F.csv
+2026-10-22 23:56:39,864 INFO cloud_signal.mvc.core.DataPandasMVC: 23 KE=F -> data/futures/1h/KE=F.csv
+2026-10-22 23:56:39,883 INFO cloud_signal.mvc.core.DataPandasMVC: 24 ZR=F -> data/futures/1h/ZR=F.csv
+2026-10-22 23:56:39,926 INFO cloud_signal.mvc.core.DataPandasMVC: 25 ZM=F -> data/futures/1h/ZM=F.csv
+2026-10-22 23:56:39,970 INFO cloud_signal.mvc.core.DataPandasMVC: 26 ZL=F -> data/futures/1h/ZL=F.csv
+2026-10-22 23:56:40,006 INFO cloud_signal.mvc.core.DataPandasMVC: 27 ZS=F -> data/futures/1h/ZS=F.csv
+2026-10-22 23:56:40,021 INFO cloud_signal.mvc.core.DataPandasMVC: 28 GF=F -> data/futures/1h/GF=F.csv
+2026-10-22 23:56:40,036 INFO cloud_signal.mvc.core.DataPandasMVC: 29 HE=F -> data/futures/1h/HE=F.csv
+2026-10-22 23:56:40,050 INFO cloud_signal.mvc.core.DataPandasMVC: 30 LE=F -> data/futures/1h/LE=F.csv
+2026-10-22 23:56:40,068 INFO cloud_signal.mvc.core.DataPandasMVC: 31 CC=F -> data/futures/1h/CC=F.csv
+2026-10-22 23:56:40,091 INFO cloud_signal.mvc.core.DataPandasMVC: 32 KC=F -> data/futures/1h/KC=F.csv
+2026-10-22 23:56:40,105 INFO cloud_signal.mvc.core.DataPandasMVC: 33 CT=F -> data/futures/1h/CT=F.csv
+2026-10-22 23:56:40,118 INFO cloud_signal.mvc.core.DataPandasMVC: 34 OJ=F -> data/futures/1h/OJ=F.csv
+2026-10-22 23:56:40,142 INFO cloud_signal.mvc.core.DataPandasMVC: 35 SB=F -> data/futures/1h/SB=F.csv
+2026-10-22 23:56:40,142 INFO cloud_signal.mvc.core.DataPandasMVC: 
 ----------- Creating Ichimoku Data -----------
-2026-10-22 23:41:48,371 INFO cloud_signal.mvc.core.DataPandasMVC: Ichimoku columns added to csv
-2026-10-22 23:41:48,373 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
-2026-10-22 23:41:48,373 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/Futures.csv
-2026-10-22 23:41:48,373 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Downloading from Yahoo -----------
-2026-10-22 23:41:51,113 INFO cloud_signal.mvc.core.DataPandasMVC: 0 ES=F -> data/futures/d/ES=F.csv
-2026-10-22 23:41:51,149 INFO cloud_signal.mvc.core.DataPandasMVC: 1 YM=F -> data/futures/d/YM=F.csv
-2026-10-22 23:41:51,186 INFO cloud_signal.mvc.core.DataPandasMVC: 2 NQ=F -> data/futures/d/NQ=F.csv
-2026-10-22 23:41:51,204 INFO cloud_signal.mvc.core.DataPandasMVC: 3 RTY=F -> data/futures/d/RTY=F.csv
-2026-10-22 23:41:51,245 INFO cloud_signal.mvc.core.DataPandasMVC: 4 ZB=F -> data/futures/d/ZB=F.csv
-2026-10-22 23:41:51,287 INFO cloud_signal.mvc.core.DataPandasMVC: 5 ZN=F -> data/futures/d/ZN=F.csv
-2026-10-22 23:41:51,329 INFO cloud_signal.mvc.core.DataPandasMVC: 6 ZF=F -> data/futures/d/ZF=F.csv
-2026-10-22 23:41:51,372 INFO cloud_signal.mvc.core.DataPandasMVC: 7 ZT=F -> data/futures/d/ZT=F.csv
-2026-10-22 23:41:51,417 INFO cloud_signal.mvc.core.DataPandasMVC: 8 GC=F -> data/futures/d/GC=F.csv
-2026-10-22 23:41:51,446 INFO cloud_signal.mvc.core.DataPandasMVC: 9 MGC=F -> data/futures/d/MGC=F.csv
-2026-10-22 23:41:51,494 INFO cloud_signal.mvc.core.DataPandasMVC: 10 SI=F -> data/futures/d/SI=F.csv
-2026-10-22 23:41:51,519 INFO cloud_signal.mvc.core.DataPandasMVC: 11 SIL=F -> data/futures/d/SIL=F.csv
-2026-10-22 23:41:51,562 INFO cloud_signal.mvc.core.DataPandasMVC: 12 PL=F -> data/futures/d/PL=F.csv
-2026-10-22 23:41:51,610 INFO cloud_signal.mvc.core.DataPandasMVC: 13 HG=F -> data/futures/d/HG=F.csv
-2026-10-22 23:41:51,653 INFO cloud_signal.mvc.core.DataPandasMVC: 14 PA=F -> data/futures/d/PA=F.csv
-2026-10-22 23:41:51,701 INFO cloud_signal.mvc.core.DataPandasMVC: 15 CL=F -> data/futures/d/CL=F.csv
-2026-10-22 23:41:51,750 INFO cloud_signal.mvc.core.DataPandasMVC: 16 HO=F -> data/futures/d/HO=F.csv
-2026-10-22 23:41:51,799 INFO cloud_signal.mvc.core.DataPandasMVC: 17 NG=F -> data/futures/d/NG=F.csv
-2026-10-22 23:41:51,847 INFO cloud_signal.mvc.core.DataPandasMVC: 18 RB=F -> data/futures/d/RB=F.csv
-2026-10-22 23:41:51,882 INFO cloud_signal.mvc.core.DataPandasMVC: 19 BZ=F -> data/futures/d/BZ=F.csv
-2026-10-22 23:41:53,121 ERROR yfinance: B0=F: Period 'max' is invalid, must be one of: 1d, 5d
-2026-10-22 23:41:53,944 ERROR yfinance: 
+2026-10-22 23:56:42,432 INFO cloud_signal.mvc.core.DataPandasMVC: Ichimoku columns added to csv
+2026-10-22 23:56:42,435 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
+2026-10-22 23:56:42,435 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/Futures.csv
+2026-10-22 23:56:42,435 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Downloading from Yahoo -----------
+2026-10-22 23:56:44,763 INFO cloud_signal.mvc.core.DataPandasMVC: 0 ES=F -> data/futures/d/ES=F.csv
+2026-10-22 23:56:44,810 INFO cloud_signal.mvc.core.DataPandasMVC: 1 YM=F -> data/futures/d/YM=F.csv
+2026-10-22 23:56:44,861 INFO cloud_signal.mvc.core.DataPandasMVC: 2 NQ=F -> data/futures/d/NQ=F.csv
+2026-10-22 23:56:44,883 INFO cloud_signal.mvc.core.DataPandasMVC: 3 RTY=F -> data/futures/d/RTY=F.csv
+2026-10-22 23:56:44,936 INFO cloud_signal.mvc.core.DataPandasMVC: 4 ZB=F -> data/futures/d/ZB=F.csv
+2026-10-22 23:56:44,990 INFO cloud_signal.mvc.core.DataPandasMVC: 5 ZN=F -> data/futures/d/ZN=F.csv
+2026-10-22 23:56:45,045 INFO cloud_signal.mvc.core.DataPandasMVC: 6 ZF=F -> data/futures/d/ZF=F.csv
+2026-10-22 23:56:45,100 INFO cloud_signal.mvc.core.DataPandasMVC: 7 ZT=F -> data/futures/d/ZT=F.csv
+2026-10-22 23:56:45,158 INFO cloud_signal.mvc.core.DataPandasMVC: 8 GC=F -> data/futures/d/GC=F.csv
+2026-10-22 23:56:45,194 INFO cloud_signal.mvc.core.DataPandasMVC: 9 MGC=F -> data/futures/d/MGC=F.csv
+2026-10-22 23:56:45,256 INFO cloud_signal.mvc.core.DataPandasMVC: 10 SI=F -> data/futures/d/SI=F.csv
+2026-10-22 23:56:45,288 INFO cloud_signal.mvc.core.DataPandasMVC: 11 SIL=F -> data/futures/d/SIL=F.csv
+2026-10-22 23:56:45,344 INFO cloud_signal.mvc.core.DataPandasMVC: 12 PL=F -> data/futures/d/PL=F.csv
+2026-10-22 23:56:45,406 INFO cloud_signal.mvc.core.DataPandasMVC: 13 HG=F -> data/futures/d/HG=F.csv
+2026-10-22 23:56:45,463 INFO cloud_signal.mvc.core.DataPandasMVC: 14 PA=F -> data/futures/d/PA=F.csv
+2026-10-22 23:56:45,525 INFO cloud_signal.mvc.core.DataPandasMVC: 15 CL=F -> data/futures/d/CL=F.csv
+2026-10-22 23:56:45,587 INFO cloud_signal.mvc.core.DataPandasMVC: 16 HO=F -> data/futures/d/HO=F.csv
+2026-10-22 23:56:45,650 INFO cloud_signal.mvc.core.DataPandasMVC: 17 NG=F -> data/futures/d/NG=F.csv
+2026-10-22 23:56:45,712 INFO cloud_signal.mvc.core.DataPandasMVC: 18 RB=F -> data/futures/d/RB=F.csv
+2026-10-22 23:56:45,757 INFO cloud_signal.mvc.core.DataPandasMVC: 19 BZ=F -> data/futures/d/BZ=F.csv
+2026-10-22 23:56:45,817 ERROR yfinance: B0=F: Period 'max' is invalid, must be one of: 1d, 5d
+2026-10-22 23:56:47,544 ERROR yfinance: 
 1 Failed download:
-2026-10-22 23:41:53,944 ERROR yfinance: ['B0=F']: Period 'max' is invalid, must be one of: 1d, 5d
-2026-10-22 23:41:53,962 INFO cloud_signal.mvc.core.DataPandasMVC: 20 B0=F -> data/futures/d/B0=F.csv
-2026-10-22 23:41:53,999 INFO cloud_signal.mvc.core.DataPandasMVC: 21 ZC=F -> data/futures/d/ZC=F.csv
-2026-10-22 23:41:54,035 INFO cloud_signal.mvc.core.DataPandasMVC: 22 ZO=F -> data/futures/d/ZO=F.csv
-2026-10-22 23:41:54,071 INFO cloud_signal.mvc.core.DataPandasMVC: 23 KE=F -> data/futures/d/KE=F.csv
-2026-10-22 23:41:54,120 INFO cloud_signal.mvc.core.DataPandasMVC: 24 ZR=F -> data/futures/d/ZR=F.csv
-2026-10-22 23:41:54,165 INFO cloud_signal.mvc.core.DataPandasMVC: 25 ZM=F -> data/futures/d/ZM=F.csv
-2026-10-22 23:41:54,213 INFO cloud_signal.mvc.core.DataPandasMVC: 26 ZL=F -> data/futures/d/ZL=F.csv
-2026-10-22 23:41:54,249 INFO cloud_signal.mvc.core.DataPandasMVC: 27 ZS=F -> data/futures/d/ZS=F.csv
-2026-10-22 23:41:54,294 INFO cloud_signal.mvc.core.DataPandasMVC: 28 GF=F -> data/futures/d/GF=F.csv
-2026-10-22 23:41:54,339 INFO cloud_signal.mvc.core.DataPandasMVC: 29 HE=F -> data/futures/d/HE=F.csv
-2026-10-22 23:41:54,384 INFO cloud_signal.mvc.core.DataPandasMVC: 30 LE=F -> data/futures/d/LE=F.csv
-2026-10-22 23:41:54,420 INFO cloud_signal.mvc.core.DataPandasMVC: 31 CC=F -> data/futures/d/CC=F.csv
-2026-10-22 23:41:54,465 INFO cloud_signal.mvc.core.DataPandasMVC: 32 KC=F -> data/futures/d/KC=F.csv
-2026-10-22 23:41:54,513 INFO cloud_signal.mvc.core.DataPandasMVC: 33 CT=F -> data/futures/d/CT=F.csv
-2026-10-22 23:41:54,556 INFO cloud_signal.mvc.core.DataPandasMVC: 34 OJ=F -> data/futures/d/OJ=F.csv
-2026-10-22 23:41:54,605 INFO cloud_signal.mvc.core.DataPandasMVC: 35 SB=F -> data/futures/d/SB=F.csv
-2026-10-22 23:41:54,605 INFO cloud_signal.mvc.core.DataPandasMVC: 
+2026-10-22 23:56:47,544 ERROR yfinance: ['B0=F']: Period 'max' is invalid, must be one of: 1d, 5d
+2026-10-22 23:56:47,568 INFO cloud_signal.mvc.core.DataPandasMVC: 20 B0=F -> data/futures/d/B0=F.csv
+2026-10-22 23:56:47,617 INFO cloud_signal.mvc.core.DataPandasMVC: 21 ZC=F -> data/futures/d/ZC=F.csv
+2026-10-22 23:56:47,665 INFO cloud_signal.mvc.core.DataPandasMVC: 22 ZO=F -> data/futures/d/ZO=F.csv
+2026-10-22 23:56:47,713 INFO cloud_signal.mvc.core.DataPandasMVC: 23 KE=F -> data/futures/d/KE=F.csv
+2026-10-22 23:56:47,778 INFO cloud_signal.mvc.core.DataPandasMVC: 24 ZR=F -> data/futures/d/ZR=F.csv
+2026-10-22 23:56:47,837 INFO cloud_signal.mvc.core.DataPandasMVC: 25 ZM=F -> data/futures/d/ZM=F.csv
+2026-10-22 23:56:47,899 INFO cloud_signal.mvc.core.DataPandasMVC: 26 ZL=F -> data/futures/d/ZL=F.csv
+2026-10-22 23:56:47,948 INFO cloud_signal.mvc.core.DataPandasMVC: 27 ZS=F -> data/futures/d/ZS=F.csv
+2026-10-22 23:56:48,007 INFO cloud_signal.mvc.core.DataPandasMVC: 28 GF=F -> data/futures/d/GF=F.csv
+2026-10-22 23:56:48,067 INFO cloud_signal.mvc.core.DataPandasMVC: 29 HE=F -> data/futures/d/HE=F.csv
+2026-10-22 23:56:48,125 INFO cloud_signal.mvc.core.DataPandasMVC: 30 LE=F -> data/futures/d/LE=F.csv
+2026-10-22 23:56:48,173 INFO cloud_signal.mvc.core.DataPandasMVC: 31 CC=F -> data/futures/d/CC=F.csv
+2026-10-22 23:56:48,234 INFO cloud_signal.mvc.core.DataPandasMVC: 32 KC=F -> data/futures/d/KC=F.csv
+2026-10-22 23:56:48,297 INFO cloud_signal.mvc.core.DataPandasMVC: 33 CT=F -> data/futures/d/CT=F.csv
+2026-10-22 23:56:48,355 INFO cloud_signal.mvc.core.DataPandasMVC: 34 OJ=F -> data/futures/d/OJ=F.csv
+2026-10-22 23:56:48,420 INFO cloud_signal.mvc.core.DataPandasMVC: 35 SB=F -> data/futures/d/SB=F.csv
+2026-10-22 23:56:48,420 INFO cloud_signal.mvc.core.DataPandasMVC: 
 ----------- Creating Ichimoku Data -----------
-2026-10-22 23:41:57,022 INFO cloud_signal.mvc.core.DataPandasMVC: Ichimoku columns added to csv
-2026-10-22 23:41:57,025 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
-2026-10-22 23:41:57,025 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/Futures.csv
-2026-10-22 23:41:57,025 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Downloading from Yahoo -----------
-2026-10-22 23:41:59,110 INFO cloud_signal.mvc.core.DataPandasMVC: 0 ES=F -> data/futures/w/ES=F.csv
-2026-10-22 23:41:59,118 INFO cloud_signal.mvc.core.DataPandasMVC: 1 YM=F -> data/futures/w/YM=F.csv
-2026-10-22 23:41:59,127 INFO cloud_signal.mvc.core.DataPandasMVC: 2 NQ=F -> data/futures/w/NQ=F.csv
-2026-10-22 23:41:59,131 INFO cloud_signal.mvc.core.DataPandasMVC: 3 RTY=F -> data/futures/w/RTY=F.csv
-2026-10-22 23:41:59,140 INFO cloud_signal.mvc.core.DataPandasMVC: 4 ZB=F -> data/futures/w/ZB=F.csv
-2026-10-22 23:41:59,149 INFO cloud_signal.mvc.core.DataPandasMVC: 5 ZN=F -> data/futures/w/ZN=F.csv
-2026-10-22 23:41:59,159 INFO cloud_signal.mvc.core.DataPandasMVC: 6 ZF=F -> data/futures/w/ZF=F.csv
-2026-10-22 23:41:59,168 INFO cloud_signal.mvc.core.DataPandasMVC: 7 ZT=F -> data/futures/w/ZT=F.csv
-2026-10-22 23:41:59,178 INFO cloud_signal.mvc.core.DataPandasMVC: 8 GC=F -> data/futures/w/GC=F.csv
-2026-10-22 23:41:59,185 INFO cloud_signal.mvc.core.DataPandasMVC: 9 MGC=F -> data/futures/w/MGC=F.csv
-2026-10-22 23:41:59,196 INFO cloud_signal.mvc.core.DataPandasMVC: 10 SI=F -> data/futures/w/SI=F.csv
-2026-10-22 23:41:59,202 INFO cloud_signal.mvc.core.DataPandasMVC: 11 SIL=F -> data/futures/w/SIL=F.csv
-2026-10-22 23:41:59,212 INFO cloud_signal.mvc.core.DataPandasMVC: 12 PL=F -> data/futures/w/PL=F.csv
-2026-10-22 23:41:59,222 INFO cloud_signal.mvc.core.DataPandasMVC: 13 HG=F -> data/futures/w/HG=F.csv
-2026-10-22 23:41:59,232 INFO cloud_signal.mvc.core.DataPandasMVC: 14 PA=F -> data/futures/w/PA=F.csv
-2026-10-22 23:41:59,243 INFO cloud_signal.mvc.core.DataPandasMVC: 15 CL=F -> data/futures/w/CL=F.csv
-2026-10-22 23:41:59,254 INFO cloud_signal.mvc.core.DataPandasMVC: 16 HO=F -> data/futures/w/HO=F.csv
-2026-10-22 23:41:59,264 INFO cloud_signal.mvc.core.DataPandasMVC: 17 NG=F -> data/futures/w/NG=F.csv
-2026-10-22 23:41:59,275 INFO cloud_signal.mvc.core.DataPandasMVC: 18 RB=F -> data/futures/w/RB=F.csv
-2026-10-22 23:41:59,284 INFO cloud_signal.mvc.core.DataPandasMVC: 19 BZ=F -> data/futures/w/BZ=F.csv
-2026-10-22 23:42:00,208 ERROR yfinance: B0=F: Period 'max' is invalid, must be one of: 1d, 5d
-2026-10-22 23:42:00,691 ERROR yfinance: 
+2026-10-22 23:56:51,619 INFO cloud_signal.mvc.core.DataPandasMVC: Ichimoku columns added to csv
+2026-10-22 23:56:51,622 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
+2026-10-22 23:56:51,622 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/Futures.csv
+2026-10-22 23:56:51,622 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Downloading from Yahoo -----------
+2026-10-22 23:56:53,123 INFO cloud_signal.mvc.core.DataPandasMVC: 0 ES=F -> data/futures/w/ES=F.csv
+2026-10-22 23:56:53,134 INFO cloud_signal.mvc.core.DataPandasMVC: 1 YM=F -> data/futures/w/YM=F.csv
+2026-10-22 23:56:53,145 INFO cloud_signal.mvc.core.DataPandasMVC: 2 NQ=F -> data/futures/w/NQ=F.csv
+2026-10-22 23:56:53,151 INFO cloud_signal.mvc.core.DataPandasMVC: 3 RTY=F -> data/futures/w/RTY=F.csv
+2026-10-22 23:56:53,163 INFO cloud_signal.mvc.core.DataPandasMVC: 4 ZB=F -> data/futures/w/ZB=F.csv
+2026-10-22 23:56:53,175 INFO cloud_signal.mvc.core.DataPandasMVC: 5 ZN=F -> data/futures/w/ZN=F.csv
+2026-10-22 23:56:53,188 INFO cloud_signal.mvc.core.DataPandasMVC: 6 ZF=F -> data/futures/w/ZF=F.csv
+2026-10-22 23:56:53,200 INFO cloud_signal.mvc.core.DataPandasMVC: 7 ZT=F -> data/futures/w/ZT=F.csv
+2026-10-22 23:56:53,213 INFO cloud_signal.mvc.core.DataPandasMVC: 8 GC=F -> data/futures/w/GC=F.csv
+2026-10-22 23:56:53,222 INFO cloud_signal.mvc.core.DataPandasMVC: 9 MGC=F -> data/futures/w/MGC=F.csv
+2026-10-22 23:56:53,236 INFO cloud_signal.mvc.core.DataPandasMVC: 10 SI=F -> data/futures/w/SI=F.csv
+2026-10-22 23:56:53,244 INFO cloud_signal.mvc.core.DataPandasMVC: 11 SIL=F -> data/futures/w/SIL=F.csv
+2026-10-22 23:56:53,256 INFO cloud_signal.mvc.core.DataPandasMVC: 12 PL=F -> data/futures/w/PL=F.csv
+2026-10-22 23:56:53,270 INFO cloud_signal.mvc.core.DataPandasMVC: 13 HG=F -> data/futures/w/HG=F.csv
+2026-10-22 23:56:53,283 INFO cloud_signal.mvc.core.DataPandasMVC: 14 PA=F -> data/futures/w/PA=F.csv
+2026-10-22 23:56:53,297 INFO cloud_signal.mvc.core.DataPandasMVC: 15 CL=F -> data/futures/w/CL=F.csv
+2026-10-22 23:56:53,311 INFO cloud_signal.mvc.core.DataPandasMVC: 16 HO=F -> data/futures/w/HO=F.csv
+2026-10-22 23:56:53,326 INFO cloud_signal.mvc.core.DataPandasMVC: 17 NG=F -> data/futures/w/NG=F.csv
+2026-10-22 23:56:53,340 INFO cloud_signal.mvc.core.DataPandasMVC: 18 RB=F -> data/futures/w/RB=F.csv
+2026-10-22 23:56:53,350 INFO cloud_signal.mvc.core.DataPandasMVC: 19 BZ=F -> data/futures/w/BZ=F.csv
+2026-10-22 23:56:53,401 ERROR yfinance: B0=F: Period 'max' is invalid, must be one of: 1d, 5d
+2026-10-22 23:56:54,548 ERROR yfinance: 
 1 Failed download:
-2026-10-22 23:42:00,691 ERROR yfinance: ['B0=F']: Period 'max' is invalid, must be one of: 1d, 5d
-2026-10-22 23:42:00,701 INFO cloud_signal.mvc.core.DataPandasMVC: 20 B0=F -> data/futures/w/B0=F.csv
-2026-10-22 23:42:00,710 INFO cloud_signal.mvc.core.DataPandasMVC: 21 ZC=F -> data/futures/w/ZC=F.csv
-2026-10-22 23:42:00,718 INFO cloud_signal.mvc.core.DataPandasMVC: 22 ZO=F -> data/futures/w/ZO=F.csv
-2026-10-22 23:42:00,726 INFO cloud_signal.mvc.core.DataPandasMVC: 23 KE=F -> data/futures/w/KE=F.csv
-2026-10-22 23:42:00,737 INFO cloud_signal.mvc.core.DataPandasMVC: 24 ZR=F -> data/futures/w/ZR=F.csv
-2026-10-22 23:42:00,747 INFO cloud_signal.mvc.core.DataPandasMVC: 25 ZM=F -> data/futures/w/ZM=F.csv
-2026-10-22 23:42:00,758 INFO cloud_signal.mvc.core.DataPandasMVC: 26 ZL=F -> data/futures/w/ZL=F.csv
-2026-10-22 23:42:00,767 INFO cloud_signal.mvc.core.DataPandasMVC: 27 ZS=F -> data/futures/w/ZS=F.csv
-2026-10-22 23:42:00,777 INFO cloud_signal.mvc.core.DataPandasMVC: 28 GF=F -> data/futures/w/GF=F.csv
-2026-10-22 23:42:00,787 INFO cloud_signal.mvc.core.DataPandasMVC: 29 HE=F -> data/futures/w/HE=F.csv
-2026-10-22 23:42:00,797 INFO cloud_signal.mvc.core.DataPandasMVC: 30 LE=F -> data/futures/w/LE=F.csv
-2026-10-22 23:42:00,805 INFO cloud_signal.mvc.core.DataPandasMVC: 31 CC=F -> data/futures/w/CC=F.csv
-2026-10-22 23:42:00,815 INFO cloud_signal.mvc.core.DataPandasMVC: 32 KC=F -> data/futures/w/KC=F.csv
-2026-10-22 23:42:00,826 INFO cloud_signal.mvc.core.DataPandasMVC: 33 CT=F -> data/futures/w/CT=F.csv
-2026-10-22 23:42:00,836 INFO cloud_signal.mvc.core.DataPandasMVC: 34 OJ=F -> data/futures/w/OJ=F.csv
-2026-10-22 23:42:00,847 INFO cloud_signal.mvc.core.DataPandasMVC: 35 SB=F -> data/futures/w/SB=F.csv
-2026-10-22 23:42:00,847 INFO cloud_signal.mvc.core.DataPandasMVC: 
+2026-10-22 23:56:54,548 ERROR yfinance: ['B0=F']: Period 'max' is invalid, must be one of: 1d, 5d
+2026-10-22 23:56:54,563 INFO cloud_signal.mvc.core.DataPandasMVC: 20 B0=F -> data/futures/w/B0=F.csv
+2026-10-22 23:56:54,574 INFO cloud_signal.mvc.core.DataPandasMVC: 21 ZC=F -> data/futures/w/ZC=F.csv
+2026-10-22 23:56:54,584 INFO cloud_signal.mvc.core.DataPandasMVC: 22 ZO=F -> data/futures/w/ZO=F.csv
+2026-10-22 23:56:54,595 INFO cloud_signal.mvc.core.DataPandasMVC: 23 KE=F -> data/futures/w/KE=F.csv
+2026-10-22 23:56:54,609 INFO cloud_signal.mvc.core.DataPandasMVC: 24 ZR=F -> data/futures/w/ZR=F.csv
+2026-10-22 23:56:54,622 INFO cloud_signal.mvc.core.DataPandasMVC: 25 ZM=F -> data/futures/w/ZM=F.csv
+2026-10-22 23:56:54,636 INFO cloud_signal.mvc.core.DataPandasMVC: 26 ZL=F -> data/futures/w/ZL=F.csv
+2026-10-22 23:56:54,647 INFO cloud_signal.mvc.core.DataPandasMVC: 27 ZS=F -> data/futures/w/ZS=F.csv
+2026-10-22 23:56:54,660 INFO cloud_signal.mvc.core.DataPandasMVC: 28 GF=F -> data/futures/w/GF=F.csv
+2026-10-22 23:56:54,674 INFO cloud_signal.mvc.core.DataPandasMVC: 29 HE=F -> data/futures/w/HE=F.csv
+2026-10-22 23:56:54,686 INFO cloud_signal.mvc.core.DataPandasMVC: 30 LE=F -> data/futures/w/LE=F.csv
+2026-10-22 23:56:54,697 INFO cloud_signal.mvc.core.DataPandasMVC: 31 CC=F -> data/futures/w/CC=F.csv
+2026-10-22 23:56:54,711 INFO cloud_signal.mvc.core.DataPandasMVC: 32 KC=F -> data/futures/w/KC=F.csv
+2026-10-22 23:56:54,724 INFO cloud_signal.mvc.core.DataPandasMVC: 33 CT=F -> data/futures/w/CT=F.csv
+2026-10-22 23:56:54,737 INFO cloud_signal.mvc.core.DataPandasMVC: 34 OJ=F -> data/futures/w/OJ=F.csv
+2026-10-22 23:56:54,751 INFO cloud_signal.mvc.core.DataPandasMVC: 35 SB=F -> data/futures/w/SB=F.csv
+2026-10-22 23:56:54,751 INFO cloud_signal.mvc.core.DataPandasMVC: 
 ----------- Creating Ichimoku Data -----------
-2026-10-22 23:42:01,464 INFO cloud_signal.mvc.core.DataPandasMVC: Ichimoku columns added to csv
-2026-10-22 23:42:01,466 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
-2026-10-22 23:42:01,466 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/Futures.csv
-2026-10-22 23:42:01,468 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
-2026-10-22 23:42:01,468 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/Futures.csv
-2026-10-22 23:42:01,468 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Downloading from Yahoo -----------
-2026-10-22 23:42:02,810 INFO cloud_signal.mvc.core.DataPandasMVC: 0 ES=F -> data/futures/m/ES=F.csv
-2026-10-22 23:42:02,812 INFO cloud_signal.mvc.core.DataPandasMVC: 1 YM=F -> data/futures/m/YM=F.csv
-2026-10-22 23:42:02,815 INFO cloud_signal.mvc.core.DataPandasMVC: 2 NQ=F -> data/futures/m/NQ=F.csv
-2026-10-22 23:42:02,816 INFO cloud_signal.mvc.core.DataPandasMVC: 3 RTY=F -> data/futures/m/RTY=F.csv
-2026-10-22 23:42:02,819 INFO cloud_signal.mvc.core.DataPandasMVC: 4 ZB=F -> data/futures/m/ZB=F.csv
-2026-10-22 23:42:02,821 INFO cloud_signal.mvc.core.DataPandasMVC: 5 ZN=F -> data/futures/m/ZN=F.csv
-2026-10-22 23:42:02,824 INFO cloud_signal.mvc.core.DataPandasMVC: 6 ZF=F -> data/futures/m/ZF=F.csv
-2026-10-22 23:42:02,826 INFO cloud_signal.mvc.core.DataPandasMVC: 7 ZT=F -> data/futures/m/ZT=F.csv
-2026-10-22 23:42:02,829 INFO cloud_signal.mvc.core.DataPandasMVC: 8 GC=F -> data/futures/m/GC=F.csv
-2026-10-22 23:42:02,831 INFO cloud_signal.mvc.core.DataPandasMVC: 9 MGC=F -> data/futures/m/MGC=F.csv
-2026-10-22 23:42:02,834 INFO cloud_signal.mvc.core.DataPandasMVC: 10 SI=F -> data/futures/m/SI=F.csv
-2026-10-22 23:42:02,836 INFO cloud_signal.mvc.core.DataPandasMVC: 11 SIL=F -> data/futures/m/SIL=F.csv
-2026-10-22 23:42:02,839 INFO cloud_signal.mvc.core.DataPandasMVC: 12 PL=F -> data/futures/m/PL=F.csv
-2026-10-22 23:42:02,841 INFO cloud_signal.mvc.core.DataPandasMVC: 13 HG=F -> data/futures/m/HG=F.csv
-2026-10-22 23:42:02,844 INFO cloud_signal.mvc.core.DataPandasMVC: 14 PA=F -> data/futures/m/PA=F.csv
-2026-10-22 23:42:02,847 INFO cloud_signal.mvc.core.DataPandasMVC: 15 CL=F -> data/futures/m/CL=F.csv
-2026-10-22 23:42:02,850 INFO cloud_signal.mvc.core.DataPandasMVC: 16 HO=F -> data/futures/m/HO=F.csv
-2026-10-22 23:42:02,853 INFO cloud_signal.mvc.core.DataPandasMVC: 17 NG=F -> data/futures/m/NG=F.csv
-2026-10-22 23:42:02,855 INFO cloud_signal.mvc.core.DataPandasMVC: 18 RB=F -> data/futures/m/RB=F.csv
-2026-10-22 23:42:02,858 INFO cloud_signal.mvc.core.DataPandasMVC: 19 BZ=F -> data/futures/m/BZ=F.csv
-2026-10-22 23:42:03,545 ERROR yfinance: B0=F: Period 'max' is invalid, must be one of: 1d, 5d
-2026-10-22 23:42:03,966 ERROR yfinance: 
+2026-10-22 23:56:55,573 INFO cloud_signal.mvc.core.DataPandasMVC: Ichimoku columns added to csv
+2026-10-22 23:56:55,575 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
+2026-10-22 23:56:55,575 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/Futures.csv
+2026-10-22 23:56:55,578 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
+2026-10-22 23:56:55,578 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/Futures.csv
+2026-10-22 23:56:55,578 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Downloading from Yahoo -----------
+2026-10-22 23:56:56,641 INFO cloud_signal.mvc.core.DataPandasMVC: 0 ES=F -> data/futures/m/ES=F.csv
+2026-10-22 23:56:56,644 INFO cloud_signal.mvc.core.DataPandasMVC: 1 YM=F -> data/futures/m/YM=F.csv
+2026-10-22 23:56:56,647 INFO cloud_signal.mvc.core.DataPandasMVC: 2 NQ=F -> data/futures/m/NQ=F.csv
+2026-10-22 23:56:56,649 INFO cloud_signal.mvc.core.DataPandasMVC: 3 RTY=F -> data/futures/m/RTY=F.csv
+2026-10-22 23:56:56,653 INFO cloud_signal.mvc.core.DataPandasMVC: 4 ZB=F -> data/futures/m/ZB=F.csv
+2026-10-22 23:56:56,656 INFO cloud_signal.mvc.core.DataPandasMVC: 5 ZN=F -> data/futures/m/ZN=F.csv
+2026-10-22 23:56:56,660 INFO cloud_signal.mvc.core.DataPandasMVC: 6 ZF=F -> data/futures/m/ZF=F.csv
+2026-10-22 23:56:56,663 INFO cloud_signal.mvc.core.DataPandasMVC: 7 ZT=F -> data/futures/m/ZT=F.csv
+2026-10-22 23:56:56,667 INFO cloud_signal.mvc.core.DataPandasMVC: 8 GC=F -> data/futures/m/GC=F.csv
+2026-10-22 23:56:56,669 INFO cloud_signal.mvc.core.DataPandasMVC: 9 MGC=F -> data/futures/m/MGC=F.csv
+2026-10-22 23:56:56,673 INFO cloud_signal.mvc.core.DataPandasMVC: 10 SI=F -> data/futures/m/SI=F.csv
+2026-10-22 23:56:56,675 INFO cloud_signal.mvc.core.DataPandasMVC: 11 SIL=F -> data/futures/m/SIL=F.csv
+2026-10-22 23:56:56,679 INFO cloud_signal.mvc.core.DataPandasMVC: 12 PL=F -> data/futures/m/PL=F.csv
+2026-10-22 23:56:56,683 INFO cloud_signal.mvc.core.DataPandasMVC: 13 HG=F -> data/futures/m/HG=F.csv
+2026-10-22 23:56:56,686 INFO cloud_signal.mvc.core.DataPandasMVC: 14 PA=F -> data/futures/m/PA=F.csv
+2026-10-22 23:56:56,690 INFO cloud_signal.mvc.core.DataPandasMVC: 15 CL=F -> data/futures/m/CL=F.csv
+2026-10-22 23:56:56,694 INFO cloud_signal.mvc.core.DataPandasMVC: 16 HO=F -> data/futures/m/HO=F.csv
+2026-10-22 23:56:56,698 INFO cloud_signal.mvc.core.DataPandasMVC: 17 NG=F -> data/futures/m/NG=F.csv
+2026-10-22 23:56:56,701 INFO cloud_signal.mvc.core.DataPandasMVC: 18 RB=F -> data/futures/m/RB=F.csv
+2026-10-22 23:56:56,704 INFO cloud_signal.mvc.core.DataPandasMVC: 19 BZ=F -> data/futures/m/BZ=F.csv
+2026-10-22 23:56:56,769 ERROR yfinance: B0=F: Period 'max' is invalid, must be one of: 1d, 5d
+2026-10-22 23:56:57,579 ERROR yfinance: 
 1 Failed download:
-2026-10-22 23:42:03,966 ERROR yfinance: ['B0=F']: Period 'max' is invalid, must be one of: 1d, 5d
-2026-10-22 23:42:03,975 INFO cloud_signal.mvc.core.DataPandasMVC: 20 B0=F -> data/futures/m/B0=F.csv
-2026-10-22 23:42:03,977 INFO cloud_signal.mvc.core.DataPandasMVC: 21 ZC=F -> data/futures/m/ZC=F.csv
-2026-10-22 23:42:03,980 INFO cloud_signal.mvc.core.DataPandasMVC: 22 ZO=F -> data/futures/m/ZO=F.csv
-2026-10-22 23:42:03,982 INFO cloud_signal.mvc.core.DataPandasMVC: 23 KE=F -> data/futures/m/KE=F.csv
-2026-10-22 23:42:03,985 INFO cloud_signal.mvc.core.DataPandasMVC: 24 ZR=F -> data/futures/m/ZR=F.csv
-2026-10-22 23:42:03,987 INFO cloud_signal.mvc.core.DataPandasMVC: 25 ZM=F -> data/futures/m/ZM=F.csv
-2026-10-22 23:42:03,990 INFO cloud_signal.mvc.core.DataPandasMVC: 26 ZL=F -> data/futures/m/ZL=F.csv
-2026-10-22 23:42:03,993 INFO cloud_signal.mvc.core.DataPandasMVC: 27 ZS=F -> data/futures/m/ZS=F.csv
-2026-10-22 23:42:03,996 INFO cloud_signal.mvc.core.DataPandasMVC: 28 GF=F -> data/futures/m/GF=F.csv
-2026-10-22 23:42:03,998 INFO cloud_signal.mvc.core.DataPandasMVC: 29 HE=F -> data/futures/m/HE=F.csv
-2026-10-22 23:42:04,001 INFO cloud_signal.mvc.core.DataPandasMVC: 30 LE=F -> data/futures/m/LE=F.csv
-2026-10-22 23:42:04,003 INFO cloud_signal.mvc.core.DataPandasMVC: 31 CC=F -> data/futures/m/CC=F.csv
-2026-10-22 23:42:04,006 INFO cloud_signal.mvc.core.DataPandasMVC: 32 KC=F -> data/futures/m/KC=F.csv
-2026-10-22 23:42:04,010 INFO cloud_signal.mvc.core.DataPandasMVC: 33 CT=F -> data/futures/m/CT=F.csv
-2026-10-22 23:42:04,012 INFO cloud_signal.mvc.core.DataPandasMVC: 34 OJ=F -> data/futures/m/OJ=F.csv
-2026-10-22 23:42:04,015 INFO cloud_signal.mvc.core.DataPandasMVC: 35 SB=F -> data/futures/m/SB=F.csv
-2026-10-22 23:42:04,015 INFO cloud_signal.mvc.core.DataPandasMVC: 
+2026-10-22 23:56:57,579 ERROR yfinance: ['B0=F']: Period 'max' is invalid, must be one of: 1d, 5d
+2026-10-22 23:56:57,592 INFO cloud_signal.mvc.core.DataPandasMVC: 20 B0=F -> data/futures/m/B0=F.csv
+2026-10-22 23:56:57,596 INFO cloud_signal.mvc.core.DataPandasMVC: 21 ZC=F -> data/futures/m/ZC=F.csv
+2026-10-22 23:56:57,599 INFO cloud_signal.mvc.core.DataPandasMVC: 22 ZO=F -> data/futures/m/ZO=F.csv
+2026-10-22 23:56:57,602 INFO cloud_signal.mvc.core.DataPandasMVC: 23 KE=F -> data/futures/m/KE=F.csv
+2026-10-22 23:56:57,606 INFO cloud_signal.mvc.core.DataPandasMVC: 24 ZR=F -> data/futures/m/ZR=F.csv
+2026-10-22 23:56:57,609 INFO cloud_signal.mvc.core.DataPandasMVC: 25 ZM=F -> data/futures/m/ZM=F.csv
+2026-10-22 23:56:57,613 INFO cloud_signal.mvc.core.DataPandasMVC: 26 ZL=F -> data/futures/m/ZL=F.csv
+2026-10-22 23:56:57,616 INFO cloud_signal.mvc.core.DataPandasMVC: 27 ZS=F -> data/futures/m/ZS=F.csv
+2026-10-22 23:56:57,619 INFO cloud_signal.mvc.core.DataPandasMVC: 28 GF=F -> data/futures/m/GF=F.csv
+2026-10-22 23:56:57,623 INFO cloud_signal.mvc.core.DataPandasMVC: 29 HE=F -> data/futures/m/HE=F.csv
+2026-10-22 23:56:57,626 INFO cloud_signal.mvc.core.DataPandasMVC: 30 LE=F -> data/futures/m/LE=F.csv
+2026-10-22 23:56:57,630 INFO cloud_signal.mvc.core.DataPandasMVC: 31 CC=F -> data/futures/m/CC=F.csv
+2026-10-22 23:56:57,633 INFO cloud_signal.mvc.core.DataPandasMVC: 32 KC=F -> data/futures/m/KC=F.csv
+2026-10-22 23:56:57,637 INFO cloud_signal.mvc.core.DataPandasMVC: 33 CT=F -> data/futures/m/CT=F.csv
+2026-10-22 23:56:57,641 INFO cloud_signal.mvc.core.DataPandasMVC: 34 OJ=F -> data/futures/m/OJ=F.csv
+2026-10-22 23:56:57,645 INFO cloud_signal.mvc.core.DataPandasMVC: 35 SB=F -> data/futures/m/SB=F.csv
+2026-10-22 23:56:57,645 INFO cloud_signal.mvc.core.DataPandasMVC: 
 ----------- Creating Ichimoku Data -----------
-2026-10-22 23:42:04,237 INFO cloud_signal.mvc.core.DataPandasMVC: Ichimoku columns added to csv
-2026-10-22 23:42:04,239 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
-2026-10-22 23:42:04,239 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/Futures.csv
-2026-10-22 23:42:04,240 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/futures/1h/ -----------
-2026-10-22 23:42:04,309 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ES=F - File is already in the correct format.
-2026-10-22 23:42:04,327 INFO cloud_signal.mvc.core.DataCloudSignalMVC: YM=F - File is already in the correct format.
-2026-10-22 23:42:04,345 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NQ=F - File is already in the correct format.
-2026-10-22 23:42:04,363 INFO cloud_signal.mvc.core.DataCloudSignalMVC: RTY=F - File is already in the correct format.
-2026-10-22 23:42:04,381 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZB=F - File is already in the correct format.
-2026-10-22 23:42:04,399 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZN=F - File is already in the correct format.
-2026-10-22 23:42:04,417 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZF=F - File is already in the correct format.
-2026-10-22 23:42:04,435 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZT=F - File is already in the correct format.
-2026-10-22 23:42:04,454 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GC=F - File is already in the correct format.
-2026-10-22 23:42:04,472 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MGC=F - File is already in the correct format.
-2026-10-22 23:42:04,491 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SI=F - File is already in the correct format.
-2026-10-22 23:42:04,509 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SIL=F - File is already in the correct format.
-2026-10-22 23:42:04,527 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PL=F - File is already in the correct format.
-2026-10-22 23:42:04,546 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HG=F - File is already in the correct format.
-2026-10-22 23:42:04,563 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PA=F - File is already in the correct format.
-2026-10-22 23:42:04,581 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CL=F - File is already in the correct format.
-2026-10-22 23:42:04,599 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HO=F - File is already in the correct format.
-2026-10-22 23:42:04,617 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NG=F - File is already in the correct format.
-2026-10-22 23:42:04,634 INFO cloud_signal.mvc.core.DataCloudSignalMVC: RB=F - File is already in the correct format.
-2026-10-22 23:42:04,652 INFO cloud_signal.mvc.core.DataCloudSignalMVC: BZ=F - File is already in the correct format.
-2026-10-22 23:42:04,666 INFO cloud_signal.mvc.core.DataCloudSignalMVC: B0=F - File is already in the correct format.
-2026-10-22 23:42:04,674 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZC=F - File is already in the correct format.
-2026-10-22 23:42:04,688 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZO=F - File is already in the correct format.
-2026-10-22 23:42:04,702 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KE=F - File is already in the correct format.
-2026-10-22 23:42:04,715 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZR=F - File is already in the correct format.
-2026-10-22 23:42:04,727 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZM=F - File is already in the correct format.
-2026-10-22 23:42:04,743 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZL=F - File is already in the correct format.
-2026-10-22 23:42:04,758 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZS=F - File is already in the correct format.
-2026-10-22 23:42:04,771 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GF=F - File is already in the correct format.
-2026-10-22 23:42:04,780 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HE=F - File is already in the correct format.
-2026-10-22 23:42:04,788 INFO cloud_signal.mvc.core.DataCloudSignalMVC: LE=F - File is already in the correct format.
-2026-10-22 23:42:04,796 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CC=F - File is already in the correct format.
-2026-10-22 23:42:04,807 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KC=F - File is already in the correct format.
-2026-10-22 23:42:04,816 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CT=F - File is already in the correct format.
-2026-10-22 23:42:04,824 INFO cloud_signal.mvc.core.DataCloudSignalMVC: OJ=F - File is already in the correct format.
-2026-10-22 23:42:04,833 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SB=F - File is already in the correct format.
-2026-10-22 23:42:04,840 INFO cloud_signal.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
-2026-10-22 23:42:04,844 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/futures/d/ -----------
-2026-10-22 23:42:04,938 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ES=F - File is already in the correct format.
-2026-10-22 23:42:04,956 INFO cloud_signal.mvc.core.DataCloudSignalMVC: YM=F - File is already in the correct format.
-2026-10-22 23:42:04,975 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NQ=F - File is already in the correct format.
-2026-10-22 23:42:04,991 INFO cloud_signal.mvc.core.DataCloudSignalMVC: RTY=F - File is already in the correct format.
-2026-10-22 23:42:05,005 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZB=F - File is already in the correct format.
-2026-10-22 23:42:05,025 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZN=F - File is already in the correct format.
-2026-10-22 23:42:05,045 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZF=F - File is already in the correct format.
-2026-10-22 23:42:05,064 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZT=F - File is already in the correct format.
-2026-10-22 23:42:05,085 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GC=F - File is already in the correct format.
-2026-10-22 23:42:05,103 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MGC=F - File is already in the correct format.
-2026-10-22 23:42:05,119 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SI=F - File is already in the correct format.
-2026-10-22 23:42:05,136 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SIL=F - File is already in the correct format.
-2026-10-22 23:42:05,151 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PL=F - File is already in the correct format.
-2026-10-22 23:42:05,171 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HG=F - File is already in the correct format.
-2026-10-22 23:42:05,190 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PA=F - File is already in the correct format.
-2026-10-22 23:42:05,210 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CL=F - File is already in the correct format.
-2026-10-22 23:42:05,230 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HO=F - File is already in the correct format.
-2026-10-22 23:42:05,250 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NG=F - File is already in the correct format.
-2026-10-22 23:42:05,270 INFO cloud_signal.mvc.core.DataCloudSignalMVC: RB=F - File is already in the correct format.
-2026-10-22 23:42:05,287 INFO cloud_signal.mvc.core.DataCloudSignalMVC: BZ=F - File is already in the correct format.
-2026-10-22 23:42:05,297 WARNING cloud_signal.mvc.core.DataCloudSignalMVC: CSV file is empty: data/futures/d/B0=F_ichimokuTapy.csv
-2026-10-22 23:42:05,304 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZC=F - File is already in the correct format.
-2026-10-22 23:42:05,323 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZO=F - File is already in the correct format.
-2026-10-22 23:42:05,342 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KE=F - File is already in the correct format.
-2026-10-22 23:42:05,362 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZR=F - File is already in the correct format.
-2026-10-22 23:42:05,382 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZM=F - File is already in the correct format.
-2026-10-22 23:42:05,402 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZL=F - File is already in the correct format.
-2026-10-22 23:42:05,421 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZS=F - File is already in the correct format.
-2026-10-22 23:42:05,441 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GF=F - File is already in the correct format.
-2026-10-22 23:42:05,461 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HE=F - File is already in the correct format.
-2026-10-22 23:42:05,481 INFO cloud_signal.mvc.core.DataCloudSignalMVC: LE=F - File is already in the correct format.
-2026-10-22 23:42:05,499 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CC=F - File is already in the correct format.
-2026-10-22 23:42:05,520 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KC=F - File is already in the correct format.
-2026-10-22 23:42:05,540 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CT=F - File is already in the correct format.
-2026-10-22 23:42:05,559 INFO cloud_signal.mvc.core.DataCloudSignalMVC: OJ=F - File is already in the correct format.
-2026-10-22 23:42:05,579 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SB=F - File is already in the correct format.
-2026-10-22 23:42:05,591 INFO cloud_signal.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
-2026-10-22 23:42:05,595 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/futures/w/ -----------
-2026-10-22 23:42:05,626 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ES=F - File is already in the correct format.
-2026-10-22 23:42:05,633 INFO cloud_signal.mvc.core.DataCloudSignalMVC: YM=F - File is already in the correct format.
-2026-10-22 23:42:05,641 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NQ=F - File is already in the correct format.
-2026-10-22 23:42:05,647 INFO cloud_signal.mvc.core.DataCloudSignalMVC: RTY=F - File is already in the correct format.
-2026-10-22 23:42:05,653 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZB=F - File is already in the correct format.
-2026-10-22 23:42:05,660 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZN=F - File is already in the correct format.
-2026-10-22 23:42:05,667 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZF=F - File is already in the correct format.
-2026-10-22 23:42:05,675 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZT=F - File is already in the correct format.
-2026-10-22 23:42:05,682 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GC=F - File is already in the correct format.
-2026-10-22 23:42:05,689 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MGC=F - File is already in the correct format.
-2026-10-22 23:42:05,695 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SI=F - File is already in the correct format.
-2026-10-22 23:42:05,703 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SIL=F - File is already in the correct format.
-2026-10-22 23:42:05,710 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PL=F - File is already in the correct format.
-2026-10-22 23:42:05,717 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HG=F - File is already in the correct format.
-2026-10-22 23:42:05,724 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PA=F - File is already in the correct format.
-2026-10-22 23:42:05,732 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CL=F - File is already in the correct format.
-2026-10-22 23:42:05,739 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HO=F - File is already in the correct format.
-2026-10-22 23:42:05,746 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NG=F - File is already in the correct format.
-2026-10-22 23:42:05,753 INFO cloud_signal.mvc.core.DataCloudSignalMVC: RB=F - File is already in the correct format.
-2026-10-22 23:42:05,760 INFO cloud_signal.mvc.core.DataCloudSignalMVC: BZ=F - File is already in the correct format.
-2026-10-22 23:42:05,764 WARNING cloud_signal.mvc.core.DataCloudSignalMVC: CSV file is empty: data/futures/w/B0=F_ichimokuTapy.csv
-2026-10-22 23:42:05,767 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZC=F - File is already in the correct format.
-2026-10-22 23:42:05,774 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZO=F - File is already in the correct format.
-2026-10-22 23:42:05,781 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KE=F - File is already in the correct format.
-2026-10-22 23:42:05,789 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZR=F - File is already in the correct format.
-2026-10-22 23:42:05,796 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZM=F - File is already in the correct format.
-2026-10-22 23:42:05,803 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZL=F - File is already in the correct format.
-2026-10-22 23:42:05,811 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZS=F - File is already in the correct format.
-2026-10-22 23:42:05,818 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GF=F - File is already in the correct format.
-2026-10-22 23:42:05,825 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HE=F - File is already in the correct format.
-2026-10-22 23:42:05,832 INFO cloud_signal.mvc.core.DataCloudSignalMVC: LE=F - File is already in the correct format.
-2026-10-22 23:42:05,839 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CC=F - File is already in the correct format.
-2026-10-22 23:42:05,847 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KC=F - File is already in the correct format.
-2026-10-22 23:42:05,854 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CT=F - File is already in the correct format.
-2026-10-22 23:42:05,862 INFO cloud_signal.mvc.core.DataCloudSignalMVC: OJ=F - File is already in the correct format.
-2026-10-22 23:42:05,869 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SB=F - File is already in the correct format.
-2026-10-22 23:42:05,873 INFO cloud_signal.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
-2026-10-22 23:42:05,874 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/futures/m/ -----------
-2026-10-22 23:42:05,893 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ES=F - File is already in the correct format.
-2026-10-22 23:42:05,898 INFO cloud_signal.mvc.core.DataCloudSignalMVC: YM=F - File is already in the correct format.
-2026-10-22 23:42:05,903 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NQ=F - File is already in the correct format.
-2026-10-22 23:42:05,907 INFO cloud_signal.mvc.core.DataCloudSignalMVC: RTY=F - File is already in the correct format.
-2026-10-22 23:42:05,911 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZB=F - File is already in the correct format.
-2026-10-22 23:42:05,916 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZN=F - File is already in the correct format.
-2026-10-22 23:42:05,921 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZF=F - File is already in the correct format.
-2026-10-22 23:42:05,925 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZT=F - File is already in the correct format.
-2026-10-22 23:42:05,930 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GC=F - File is already in the correct format.
-2026-10-22 23:42:05,934 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MGC=F - File is already in the correct format.
-2026-10-22 23:42:05,939 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SI=F - File is already in the correct format.
-2026-10-22 23:42:05,943 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SIL=F - File is already in the correct format.
-2026-10-22 23:42:05,948 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PL=F - File is already in the correct format.
-2026-10-22 23:42:05,952 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HG=F - File is already in the correct format.
-2026-10-22 23:42:05,957 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PA=F - File is already in the correct format.
-2026-10-22 23:42:05,962 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CL=F - File is already in the correct format.
-2026-10-22 23:42:05,966 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HO=F - File is already in the correct format.
-2026-10-22 23:42:05,971 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NG=F - File is already in the correct format.
-2026-10-22 23:42:05,976 INFO cloud_signal.mvc.core.DataCloudSignalMVC: RB=F - File is already in the correct format.
-2026-10-22 23:42:05,980 INFO cloud_signal.mvc.core.DataCloudSignalMVC: BZ=F - File is already in the correct format.
-2026-10-22 23:42:05,983 WARNING cloud_signal.mvc.core.DataCloudSignalMVC: CSV file is empty: data/futures/m/B0=F_ichimokuTapy.csv
-2026-10-22 23:42:05,986 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZC=F - File is already in the correct format.
-2026-10-22 23:42:05,990 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZO=F - File is already in the correct format.
-2026-10-22 23:42:05,995 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KE=F - File is already in the correct format.
-2026-10-22 23:42:06,000 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZR=F - File is already in the correct format.
-2026-10-22 23:42:06,004 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZM=F - File is already in the correct format.
-2026-10-22 23:42:06,009 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZL=F - File is already in the correct format.
-2026-10-22 23:42:06,014 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZS=F - File is already in the correct format.
-2026-10-22 23:42:06,019 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GF=F - File is already in the correct format.
-2026-10-22 23:42:06,023 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HE=F - File is already in the correct format.
-2026-10-22 23:42:06,028 INFO cloud_signal.mvc.core.DataCloudSignalMVC: LE=F - File is already in the correct format.
-2026-10-22 23:42:06,033 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CC=F - File is already in the correct format.
-2026-10-22 23:42:06,037 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KC=F - File is already in the correct format.
-2026-10-22 23:42:06,042 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CT=F - File is already in the correct format.
-2026-10-22 23:42:06,047 INFO cloud_signal.mvc.core.DataCloudSignalMVC: OJ=F - File is already in the correct format.
-2026-10-22 23:42:06,051 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SB=F - File is already in the correct format.
-2026-10-22 23:42:06,054 INFO cloud_signal.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
-2026-10-22 23:42:06,054 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
-2026-10-22 23:42:06,054 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::True
-2026-10-22 23:42:06,068 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ES=F entries:1]
-2026-10-22 23:42:06,068 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:YM=F entries:1]
-2026-10-22 23:42:06,068 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NQ=F entries:1]
-2026-10-22 23:42:06,068 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RTY=F entries:1]
-2026-10-22 23:42:06,069 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZB=F entries:1]
-2026-10-22 23:42:06,069 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZN=F entries:1]
-2026-10-22 23:42:06,069 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZF=F entries:1]
-2026-10-22 23:42:06,069 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZT=F entries:1]
-2026-10-22 23:42:06,069 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GC=F entries:1]
-2026-10-22 23:42:06,069 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MGC=F entries:1]
-2026-10-22 23:42:06,069 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SI=F entries:1]
-2026-10-22 23:42:06,069 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SIL=F entries:1]
-2026-10-22 23:42:06,070 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PL=F entries:1]
-2026-10-22 23:42:06,070 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HG=F entries:1]
-2026-10-22 23:42:06,070 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PA=F entries:1]
-2026-10-22 23:42:06,070 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CL=F entries:1]
-2026-10-22 23:42:06,070 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HO=F entries:1]
-2026-10-22 23:42:06,070 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NG=F entries:1]
-2026-10-22 23:42:06,070 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RB=F entries:1]
-2026-10-22 23:42:06,070 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BZ=F entries:1]
-2026-10-22 23:42:06,071 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:B0=F entries:1]
-2026-10-22 23:42:06,071 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZC=F entries:1]
-2026-10-22 23:42:06,071 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZO=F entries:1]
-2026-10-22 23:42:06,071 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KE=F entries:1]
-2026-10-22 23:42:06,071 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZR=F entries:1]
-2026-10-22 23:42:06,071 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZM=F entries:1]
-2026-10-22 23:42:06,071 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZL=F entries:1]
-2026-10-22 23:42:06,071 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZS=F entries:1]
-2026-10-22 23:42:06,072 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GF=F entries:1]
-2026-10-22 23:42:06,072 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HE=F entries:1]
-2026-10-22 23:42:06,072 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LE=F entries:1]
-2026-10-22 23:42:06,072 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CC=F entries:1]
-2026-10-22 23:42:06,072 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KC=F entries:1]
-2026-10-22 23:42:06,072 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CT=F entries:1]
-2026-10-22 23:42:06,072 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:OJ=F entries:1]
-2026-10-22 23:42:06,072 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SB=F entries:1]
-2026-10-22 23:42:06,074 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Aggregator Futures-cloud-1H.csv and .xml are created
+2026-10-22 23:56:57,959 INFO cloud_signal.mvc.core.DataPandasMVC: Ichimoku columns added to csv
+2026-10-22 23:56:57,961 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
+2026-10-22 23:56:57,961 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/Futures.csv
+2026-10-22 23:56:57,962 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/futures/1h/ -----------
+2026-10-22 23:56:58,047 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ES=F - File is already in the correct format.
+2026-10-22 23:56:58,070 INFO cloud_signal.mvc.core.DataCloudSignalMVC: YM=F - File is already in the correct format.
+2026-10-22 23:56:58,093 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NQ=F - File is already in the correct format.
+2026-10-22 23:56:58,118 INFO cloud_signal.mvc.core.DataCloudSignalMVC: RTY=F - File is already in the correct format.
+2026-10-22 23:56:58,141 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZB=F - File is already in the correct format.
+2026-10-22 23:56:58,165 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZN=F - File is already in the correct format.
+2026-10-22 23:56:58,188 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZF=F - File is already in the correct format.
+2026-10-22 23:56:58,212 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZT=F - File is already in the correct format.
+2026-10-22 23:56:58,236 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GC=F - File is already in the correct format.
+2026-10-22 23:56:58,259 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MGC=F - File is already in the correct format.
+2026-10-22 23:56:58,283 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SI=F - File is already in the correct format.
+2026-10-22 23:56:58,306 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SIL=F - File is already in the correct format.
+2026-10-22 23:56:58,330 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PL=F - File is already in the correct format.
+2026-10-22 23:56:58,353 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HG=F - File is already in the correct format.
+2026-10-22 23:56:58,375 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PA=F - File is already in the correct format.
+2026-10-22 23:56:58,399 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CL=F - File is already in the correct format.
+2026-10-22 23:56:58,422 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HO=F - File is already in the correct format.
+2026-10-22 23:56:58,445 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NG=F - File is already in the correct format.
+2026-10-22 23:56:58,468 INFO cloud_signal.mvc.core.DataCloudSignalMVC: RB=F - File is already in the correct format.
+2026-10-22 23:56:58,491 INFO cloud_signal.mvc.core.DataCloudSignalMVC: BZ=F - File is already in the correct format.
+2026-10-22 23:56:58,509 INFO cloud_signal.mvc.core.DataCloudSignalMVC: B0=F - File is already in the correct format.
+2026-10-22 23:56:58,520 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZC=F - File is already in the correct format.
+2026-10-22 23:56:58,542 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZO=F - File is already in the correct format.
+2026-10-22 23:56:58,560 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KE=F - File is already in the correct format.
+2026-10-22 23:56:58,577 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZR=F - File is already in the correct format.
+2026-10-22 23:56:58,592 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZM=F - File is already in the correct format.
+2026-10-22 23:56:58,613 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZL=F - File is already in the correct format.
+2026-10-22 23:56:58,633 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZS=F - File is already in the correct format.
+2026-10-22 23:56:58,651 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GF=F - File is already in the correct format.
+2026-10-22 23:56:58,662 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HE=F - File is already in the correct format.
+2026-10-22 23:56:58,673 INFO cloud_signal.mvc.core.DataCloudSignalMVC: LE=F - File is already in the correct format.
+2026-10-22 23:56:58,684 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CC=F - File is already in the correct format.
+2026-10-22 23:56:58,698 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KC=F - File is already in the correct format.
+2026-10-22 23:56:58,711 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CT=F - File is already in the correct format.
+2026-10-22 23:56:58,722 INFO cloud_signal.mvc.core.DataCloudSignalMVC: OJ=F - File is already in the correct format.
+2026-10-22 23:56:58,734 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SB=F - File is already in the correct format.
+2026-10-22 23:56:58,743 INFO cloud_signal.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
+2026-10-22 23:56:58,746 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/futures/d/ -----------
+2026-10-22 23:56:58,862 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ES=F - File is already in the correct format.
+2026-10-22 23:56:58,887 INFO cloud_signal.mvc.core.DataCloudSignalMVC: YM=F - File is already in the correct format.
+2026-10-22 23:56:58,911 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NQ=F - File is already in the correct format.
+2026-10-22 23:56:58,933 INFO cloud_signal.mvc.core.DataCloudSignalMVC: RTY=F - File is already in the correct format.
+2026-10-22 23:56:58,951 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZB=F - File is already in the correct format.
+2026-10-22 23:56:58,977 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZN=F - File is already in the correct format.
+2026-10-22 23:56:59,002 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZF=F - File is already in the correct format.
+2026-10-22 23:56:59,028 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZT=F - File is already in the correct format.
+2026-10-22 23:56:59,055 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GC=F - File is already in the correct format.
+2026-10-22 23:56:59,078 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MGC=F - File is already in the correct format.
+2026-10-22 23:56:59,100 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SI=F - File is already in the correct format.
+2026-10-22 23:56:59,122 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SIL=F - File is already in the correct format.
+2026-10-22 23:56:59,142 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PL=F - File is already in the correct format.
+2026-10-22 23:56:59,168 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HG=F - File is already in the correct format.
+2026-10-22 23:56:59,193 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PA=F - File is already in the correct format.
+2026-10-22 23:56:59,219 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CL=F - File is already in the correct format.
+2026-10-22 23:56:59,245 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HO=F - File is already in the correct format.
+2026-10-22 23:56:59,270 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NG=F - File is already in the correct format.
+2026-10-22 23:56:59,295 INFO cloud_signal.mvc.core.DataCloudSignalMVC: RB=F - File is already in the correct format.
+2026-10-22 23:56:59,318 INFO cloud_signal.mvc.core.DataCloudSignalMVC: BZ=F - File is already in the correct format.
+2026-10-22 23:56:59,332 WARNING cloud_signal.mvc.core.DataCloudSignalMVC: CSV file is empty: data/futures/d/B0=F_ichimokuTapy.csv
+2026-10-22 23:56:59,341 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZC=F - File is already in the correct format.
+2026-10-22 23:56:59,366 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZO=F - File is already in the correct format.
+2026-10-22 23:56:59,391 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KE=F - File is already in the correct format.
+2026-10-22 23:56:59,417 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZR=F - File is already in the correct format.
+2026-10-22 23:56:59,444 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZM=F - File is already in the correct format.
+2026-10-22 23:56:59,470 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZL=F - File is already in the correct format.
+2026-10-22 23:56:59,495 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZS=F - File is already in the correct format.
+2026-10-22 23:56:59,521 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GF=F - File is already in the correct format.
+2026-10-22 23:56:59,547 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HE=F - File is already in the correct format.
+2026-10-22 23:56:59,574 INFO cloud_signal.mvc.core.DataCloudSignalMVC: LE=F - File is already in the correct format.
+2026-10-22 23:56:59,598 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CC=F - File is already in the correct format.
+2026-10-22 23:56:59,625 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KC=F - File is already in the correct format.
+2026-10-22 23:56:59,651 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CT=F - File is already in the correct format.
+2026-10-22 23:56:59,677 INFO cloud_signal.mvc.core.DataCloudSignalMVC: OJ=F - File is already in the correct format.
+2026-10-22 23:56:59,702 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SB=F - File is already in the correct format.
+2026-10-22 23:56:59,719 INFO cloud_signal.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
+2026-10-22 23:56:59,723 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/futures/w/ -----------
+2026-10-22 23:56:59,764 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ES=F - File is already in the correct format.
+2026-10-22 23:56:59,774 INFO cloud_signal.mvc.core.DataCloudSignalMVC: YM=F - File is already in the correct format.
+2026-10-22 23:56:59,783 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NQ=F - File is already in the correct format.
+2026-10-22 23:56:59,792 INFO cloud_signal.mvc.core.DataCloudSignalMVC: RTY=F - File is already in the correct format.
+2026-10-22 23:56:59,800 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZB=F - File is already in the correct format.
+2026-10-22 23:56:59,810 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZN=F - File is already in the correct format.
+2026-10-22 23:56:59,820 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZF=F - File is already in the correct format.
+2026-10-22 23:56:59,829 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZT=F - File is already in the correct format.
+2026-10-22 23:56:59,839 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GC=F - File is already in the correct format.
+2026-10-22 23:56:59,849 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MGC=F - File is already in the correct format.
+2026-10-22 23:56:59,857 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SI=F - File is already in the correct format.
+2026-10-22 23:56:59,866 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SIL=F - File is already in the correct format.
+2026-10-22 23:56:59,875 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PL=F - File is already in the correct format.
+2026-10-22 23:56:59,885 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HG=F - File is already in the correct format.
+2026-10-22 23:56:59,894 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PA=F - File is already in the correct format.
+2026-10-22 23:56:59,904 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CL=F - File is already in the correct format.
+2026-10-22 23:56:59,914 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HO=F - File is already in the correct format.
+2026-10-22 23:56:59,924 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NG=F - File is already in the correct format.
+2026-10-22 23:56:59,933 INFO cloud_signal.mvc.core.DataCloudSignalMVC: RB=F - File is already in the correct format.
+2026-10-22 23:56:59,942 INFO cloud_signal.mvc.core.DataCloudSignalMVC: BZ=F - File is already in the correct format.
+2026-10-22 23:56:59,948 WARNING cloud_signal.mvc.core.DataCloudSignalMVC: CSV file is empty: data/futures/w/B0=F_ichimokuTapy.csv
+2026-10-22 23:56:59,952 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZC=F - File is already in the correct format.
+2026-10-22 23:56:59,962 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZO=F - File is already in the correct format.
+2026-10-22 23:56:59,971 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KE=F - File is already in the correct format.
+2026-10-22 23:56:59,981 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZR=F - File is already in the correct format.
+2026-10-22 23:56:59,991 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZM=F - File is already in the correct format.
+2026-10-22 23:57:00,001 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZL=F - File is already in the correct format.
+2026-10-22 23:57:00,010 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZS=F - File is already in the correct format.
+2026-10-22 23:57:00,020 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GF=F - File is already in the correct format.
+2026-10-22 23:57:00,030 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HE=F - File is already in the correct format.
+2026-10-22 23:57:00,039 INFO cloud_signal.mvc.core.DataCloudSignalMVC: LE=F - File is already in the correct format.
+2026-10-22 23:57:00,049 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CC=F - File is already in the correct format.
+2026-10-22 23:57:00,059 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KC=F - File is already in the correct format.
+2026-10-22 23:57:00,069 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CT=F - File is already in the correct format.
+2026-10-22 23:57:00,079 INFO cloud_signal.mvc.core.DataCloudSignalMVC: OJ=F - File is already in the correct format.
+2026-10-22 23:57:00,088 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SB=F - File is already in the correct format.
+2026-10-22 23:57:00,094 INFO cloud_signal.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
+2026-10-22 23:57:00,095 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/futures/m/ -----------
+2026-10-22 23:57:00,122 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ES=F - File is already in the correct format.
+2026-10-22 23:57:00,128 INFO cloud_signal.mvc.core.DataCloudSignalMVC: YM=F - File is already in the correct format.
+2026-10-22 23:57:00,134 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NQ=F - File is already in the correct format.
+2026-10-22 23:57:00,141 INFO cloud_signal.mvc.core.DataCloudSignalMVC: RTY=F - File is already in the correct format.
+2026-10-22 23:57:00,147 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZB=F - File is already in the correct format.
+2026-10-22 23:57:00,153 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZN=F - File is already in the correct format.
+2026-10-22 23:57:00,159 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZF=F - File is already in the correct format.
+2026-10-22 23:57:00,166 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZT=F - File is already in the correct format.
+2026-10-22 23:57:00,172 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GC=F - File is already in the correct format.
+2026-10-22 23:57:00,179 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MGC=F - File is already in the correct format.
+2026-10-22 23:57:00,185 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SI=F - File is already in the correct format.
+2026-10-22 23:57:00,191 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SIL=F - File is already in the correct format.
+2026-10-22 23:57:00,197 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PL=F - File is already in the correct format.
+2026-10-22 23:57:00,204 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HG=F - File is already in the correct format.
+2026-10-22 23:57:00,210 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PA=F - File is already in the correct format.
+2026-10-22 23:57:00,217 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CL=F - File is already in the correct format.
+2026-10-22 23:57:00,223 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HO=F - File is already in the correct format.
+2026-10-22 23:57:00,230 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NG=F - File is already in the correct format.
+2026-10-22 23:57:00,236 INFO cloud_signal.mvc.core.DataCloudSignalMVC: RB=F - File is already in the correct format.
+2026-10-22 23:57:00,242 INFO cloud_signal.mvc.core.DataCloudSignalMVC: BZ=F - File is already in the correct format.
+2026-10-22 23:57:00,247 WARNING cloud_signal.mvc.core.DataCloudSignalMVC: CSV file is empty: data/futures/m/B0=F_ichimokuTapy.csv
+2026-10-22 23:57:00,250 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZC=F - File is already in the correct format.
+2026-10-22 23:57:00,256 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZO=F - File is already in the correct format.
+2026-10-22 23:57:00,263 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KE=F - File is already in the correct format.
+2026-10-22 23:57:00,269 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZR=F - File is already in the correct format.
+2026-10-22 23:57:00,275 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZM=F - File is already in the correct format.
+2026-10-22 23:57:00,282 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZL=F - File is already in the correct format.
+2026-10-22 23:57:00,288 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ZS=F - File is already in the correct format.
+2026-10-22 23:57:00,294 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GF=F - File is already in the correct format.
+2026-10-22 23:57:00,301 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HE=F - File is already in the correct format.
+2026-10-22 23:57:00,307 INFO cloud_signal.mvc.core.DataCloudSignalMVC: LE=F - File is already in the correct format.
+2026-10-22 23:57:00,313 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CC=F - File is already in the correct format.
+2026-10-22 23:57:00,320 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KC=F - File is already in the correct format.
+2026-10-22 23:57:00,326 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CT=F - File is already in the correct format.
+2026-10-22 23:57:00,333 INFO cloud_signal.mvc.core.DataCloudSignalMVC: OJ=F - File is already in the correct format.
+2026-10-22 23:57:00,339 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SB=F - File is already in the correct format.
+2026-10-22 23:57:00,343 INFO cloud_signal.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
+2026-10-22 23:57:00,344 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
+2026-10-22 23:57:00,344 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::True
+2026-10-22 23:57:00,363 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ES=F entries:1]
+2026-10-22 23:57:00,363 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:YM=F entries:1]
+2026-10-22 23:57:00,363 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NQ=F entries:1]
+2026-10-22 23:57:00,364 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RTY=F entries:1]
+2026-10-22 23:57:00,364 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZB=F entries:1]
+2026-10-22 23:57:00,364 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZN=F entries:1]
+2026-10-22 23:57:00,364 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZF=F entries:1]
+2026-10-22 23:57:00,365 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZT=F entries:1]
+2026-10-22 23:57:00,365 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GC=F entries:1]
+2026-10-22 23:57:00,365 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MGC=F entries:1]
+2026-10-22 23:57:00,366 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SI=F entries:1]
+2026-10-22 23:57:00,366 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SIL=F entries:1]
+2026-10-22 23:57:00,366 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PL=F entries:1]
+2026-10-22 23:57:00,366 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HG=F entries:1]
+2026-10-22 23:57:00,367 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PA=F entries:1]
+2026-10-22 23:57:00,367 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CL=F entries:1]
+2026-10-22 23:57:00,367 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HO=F entries:1]
+2026-10-22 23:57:00,367 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NG=F entries:1]
+2026-10-22 23:57:00,368 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RB=F entries:1]
+2026-10-22 23:57:00,368 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BZ=F entries:1]
+2026-10-22 23:57:00,368 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:B0=F entries:1]
+2026-10-22 23:57:00,368 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZC=F entries:1]
+2026-10-22 23:57:00,369 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZO=F entries:1]
+2026-10-22 23:57:00,369 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KE=F entries:1]
+2026-10-22 23:57:00,369 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZR=F entries:1]
+2026-10-22 23:57:00,369 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZM=F entries:1]
+2026-10-22 23:57:00,370 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZL=F entries:1]
+2026-10-22 23:57:00,370 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZS=F entries:1]
+2026-10-22 23:57:00,370 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GF=F entries:1]
+2026-10-22 23:57:00,370 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HE=F entries:1]
+2026-10-22 23:57:00,371 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LE=F entries:1]
+2026-10-22 23:57:00,371 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CC=F entries:1]
+2026-10-22 23:57:00,371 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KC=F entries:1]
+2026-10-22 23:57:00,372 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CT=F entries:1]
+2026-10-22 23:57:00,372 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:OJ=F entries:1]
+2026-10-22 23:57:00,372 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SB=F entries:1]
+2026-10-22 23:57:00,374 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Aggregator Futures-cloud-1H.csv and .xml are created
 
-2026-10-22 23:42:06,074 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
-2026-10-22 23:42:06,074 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::False
-2026-10-22 23:42:06,082 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Error: data/futures/d/B0=F_cloudCount.csv not found
+2026-10-22 23:57:00,374 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
+2026-10-22 23:57:00,374 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::False
+2026-10-22 23:57:00,385 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Error: data/futures/d/B0=F_cloudCount.csv not found
 
-2026-10-22 23:42:06,087 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Missing CSV files: [PosixPath('data/futures/d/B0=F_cloudCount.csv')]
-2026-10-22 23:42:06,087 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ES=F entries:1]
-2026-10-22 23:42:06,087 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:YM=F entries:1]
-2026-10-22 23:42:06,087 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NQ=F entries:1]
-2026-10-22 23:42:06,087 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RTY=F entries:1]
-2026-10-22 23:42:06,088 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZB=F entries:1]
-2026-10-22 23:42:06,088 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZN=F entries:1]
-2026-10-22 23:42:06,088 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZF=F entries:1]
-2026-10-22 23:42:06,088 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZT=F entries:1]
-2026-10-22 23:42:06,088 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GC=F entries:1]
-2026-10-22 23:42:06,088 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MGC=F entries:1]
-2026-10-22 23:42:06,088 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SI=F entries:1]
-2026-10-22 23:42:06,088 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SIL=F entries:1]
-2026-10-22 23:42:06,089 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PL=F entries:1]
-2026-10-22 23:42:06,089 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HG=F entries:1]
-2026-10-22 23:42:06,089 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PA=F entries:1]
-2026-10-22 23:42:06,089 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CL=F entries:1]
-2026-10-22 23:42:06,089 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HO=F entries:1]
-2026-10-22 23:42:06,089 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NG=F entries:1]
-2026-10-22 23:42:06,089 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RB=F entries:1]
-2026-10-22 23:42:06,089 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BZ=F entries:1]
-2026-10-22 23:42:06,090 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZC=F entries:1]
-2026-10-22 23:42:06,090 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZO=F entries:1]
-2026-10-22 23:42:06,090 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KE=F entries:1]
-2026-10-22 23:42:06,090 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZR=F entries:1]
-2026-10-22 23:42:06,090 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZM=F entries:1]
-2026-10-22 23:42:06,090 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZL=F entries:1]
-2026-10-22 23:42:06,090 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZS=F entries:1]
-2026-10-22 23:42:06,090 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GF=F entries:1]
-2026-10-22 23:42:06,090 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HE=F entries:1]
-2026-10-22 23:42:06,091 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LE=F entries:1]
-2026-10-22 23:42:06,091 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CC=F entries:1]
-2026-10-22 23:42:06,091 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KC=F entries:1]
-2026-10-22 23:42:06,091 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CT=F entries:1]
-2026-10-22 23:42:06,091 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:OJ=F entries:1]
-2026-10-22 23:42:06,091 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SB=F entries:1]
-2026-10-22 23:42:06,092 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Aggregator Futures-cloud-D.csv and .xml are created
+2026-10-22 23:57:00,393 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Missing CSV files: [PosixPath('data/futures/d/B0=F_cloudCount.csv')]
+2026-10-22 23:57:00,393 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ES=F entries:1]
+2026-10-22 23:57:00,393 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:YM=F entries:1]
+2026-10-22 23:57:00,393 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NQ=F entries:1]
+2026-10-22 23:57:00,394 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RTY=F entries:1]
+2026-10-22 23:57:00,394 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZB=F entries:1]
+2026-10-22 23:57:00,394 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZN=F entries:1]
+2026-10-22 23:57:00,394 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZF=F entries:1]
+2026-10-22 23:57:00,395 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZT=F entries:1]
+2026-10-22 23:57:00,395 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GC=F entries:1]
+2026-10-22 23:57:00,395 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MGC=F entries:1]
+2026-10-22 23:57:00,395 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SI=F entries:1]
+2026-10-22 23:57:00,395 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SIL=F entries:1]
+2026-10-22 23:57:00,396 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PL=F entries:1]
+2026-10-22 23:57:00,396 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HG=F entries:1]
+2026-10-22 23:57:00,396 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PA=F entries:1]
+2026-10-22 23:57:00,396 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CL=F entries:1]
+2026-10-22 23:57:00,397 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HO=F entries:1]
+2026-10-22 23:57:00,397 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NG=F entries:1]
+2026-10-22 23:57:00,397 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RB=F entries:1]
+2026-10-22 23:57:00,397 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BZ=F entries:1]
+2026-10-22 23:57:00,397 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZC=F entries:1]
+2026-10-22 23:57:00,398 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZO=F entries:1]
+2026-10-22 23:57:00,398 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KE=F entries:1]
+2026-10-22 23:57:00,398 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZR=F entries:1]
+2026-10-22 23:57:00,398 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZM=F entries:1]
+2026-10-22 23:57:00,398 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZL=F entries:1]
+2026-10-22 23:57:00,399 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZS=F entries:1]
+2026-10-22 23:57:00,399 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GF=F entries:1]
+2026-10-22 23:57:00,399 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HE=F entries:1]
+2026-10-22 23:57:00,399 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LE=F entries:1]
+2026-10-22 23:57:00,400 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CC=F entries:1]
+2026-10-22 23:57:00,400 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KC=F entries:1]
+2026-10-22 23:57:00,400 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CT=F entries:1]
+2026-10-22 23:57:00,400 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:OJ=F entries:1]
+2026-10-22 23:57:00,400 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SB=F entries:1]
+2026-10-22 23:57:00,402 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Aggregator Futures-cloud-D.csv and .xml are created
 
-2026-10-22 23:42:06,092 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
-2026-10-22 23:42:06,093 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::False
-2026-10-22 23:42:06,100 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Error: data/futures/w/B0=F_cloudCount.csv not found
+2026-10-22 23:57:00,402 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
+2026-10-22 23:57:00,402 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::False
+2026-10-22 23:57:00,413 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Error: data/futures/w/B0=F_cloudCount.csv not found
 
-2026-10-22 23:42:06,106 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Missing CSV files: [PosixPath('data/futures/w/B0=F_cloudCount.csv')]
-2026-10-22 23:42:06,106 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ES=F entries:1]
-2026-10-22 23:42:06,106 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:YM=F entries:1]
-2026-10-22 23:42:06,106 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NQ=F entries:1]
-2026-10-22 23:42:06,106 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RTY=F entries:1]
-2026-10-22 23:42:06,106 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZB=F entries:1]
-2026-10-22 23:42:06,106 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZN=F entries:1]
-2026-10-22 23:42:06,106 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZF=F entries:1]
-2026-10-22 23:42:06,107 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZT=F entries:1]
-2026-10-22 23:42:06,107 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GC=F entries:1]
-2026-10-22 23:42:06,107 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MGC=F entries:1]
-2026-10-22 23:42:06,107 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SI=F entries:1]
-2026-10-22 23:42:06,107 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SIL=F entries:1]
-2026-10-22 23:42:06,107 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PL=F entries:1]
-2026-10-22 23:42:06,107 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HG=F entries:1]
-2026-10-22 23:42:06,107 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PA=F entries:1]
-2026-10-22 23:42:06,108 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CL=F entries:1]
-2026-10-22 23:42:06,108 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HO=F entries:1]
-2026-10-22 23:42:06,108 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NG=F entries:1]
-2026-10-22 23:42:06,108 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RB=F entries:1]
-2026-10-22 23:42:06,108 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BZ=F entries:1]
-2026-10-22 23:42:06,108 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZC=F entries:1]
-2026-10-22 23:42:06,108 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZO=F entries:1]
-2026-10-22 23:42:06,108 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KE=F entries:1]
-2026-10-22 23:42:06,108 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZR=F entries:1]
-2026-10-22 23:42:06,109 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZM=F entries:1]
-2026-10-22 23:42:06,109 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZL=F entries:1]
-2026-10-22 23:42:06,109 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZS=F entries:1]
-2026-10-22 23:42:06,109 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GF=F entries:1]
-2026-10-22 23:42:06,109 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HE=F entries:1]
-2026-10-22 23:42:06,109 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LE=F entries:1]
-2026-10-22 23:42:06,109 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CC=F entries:1]
-2026-10-22 23:42:06,109 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KC=F entries:1]
-2026-10-22 23:42:06,110 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CT=F entries:1]
-2026-10-22 23:42:06,110 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:OJ=F entries:1]
-2026-10-22 23:42:06,110 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SB=F entries:1]
-2026-10-22 23:42:06,111 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Aggregator Futures-cloud-W.csv and .xml are created
+2026-10-22 23:57:00,421 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Missing CSV files: [PosixPath('data/futures/w/B0=F_cloudCount.csv')]
+2026-10-22 23:57:00,421 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ES=F entries:1]
+2026-10-22 23:57:00,421 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:YM=F entries:1]
+2026-10-22 23:57:00,421 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NQ=F entries:1]
+2026-10-22 23:57:00,422 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RTY=F entries:1]
+2026-10-22 23:57:00,422 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZB=F entries:1]
+2026-10-22 23:57:00,422 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZN=F entries:1]
+2026-10-22 23:57:00,422 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZF=F entries:1]
+2026-10-22 23:57:00,423 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZT=F entries:1]
+2026-10-22 23:57:00,423 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GC=F entries:1]
+2026-10-22 23:57:00,423 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MGC=F entries:1]
+2026-10-22 23:57:00,423 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SI=F entries:1]
+2026-10-22 23:57:00,423 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SIL=F entries:1]
+2026-10-22 23:57:00,424 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PL=F entries:1]
+2026-10-22 23:57:00,424 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HG=F entries:1]
+2026-10-22 23:57:00,424 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PA=F entries:1]
+2026-10-22 23:57:00,424 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CL=F entries:1]
+2026-10-22 23:57:00,425 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HO=F entries:1]
+2026-10-22 23:57:00,425 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NG=F entries:1]
+2026-10-22 23:57:00,425 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RB=F entries:1]
+2026-10-22 23:57:00,425 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BZ=F entries:1]
+2026-10-22 23:57:00,425 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZC=F entries:1]
+2026-10-22 23:57:00,426 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZO=F entries:1]
+2026-10-22 23:57:00,426 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KE=F entries:1]
+2026-10-22 23:57:00,426 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZR=F entries:1]
+2026-10-22 23:57:00,426 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZM=F entries:1]
+2026-10-22 23:57:00,426 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZL=F entries:1]
+2026-10-22 23:57:00,427 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZS=F entries:1]
+2026-10-22 23:57:00,427 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GF=F entries:1]
+2026-10-22 23:57:00,427 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HE=F entries:1]
+2026-10-22 23:57:00,427 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LE=F entries:1]
+2026-10-22 23:57:00,428 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CC=F entries:1]
+2026-10-22 23:57:00,428 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KC=F entries:1]
+2026-10-22 23:57:00,428 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CT=F entries:1]
+2026-10-22 23:57:00,428 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:OJ=F entries:1]
+2026-10-22 23:57:00,428 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SB=F entries:1]
+2026-10-22 23:57:00,430 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Aggregator Futures-cloud-W.csv and .xml are created
 
-2026-10-22 23:42:06,111 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
-2026-10-22 23:42:06,111 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::False
-2026-10-22 23:42:06,119 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Error: data/futures/m/B0=F_cloudCount.csv not found
+2026-10-22 23:57:00,430 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
+2026-10-22 23:57:00,430 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::False
+2026-10-22 23:57:00,441 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Error: data/futures/m/B0=F_cloudCount.csv not found
 
-2026-10-22 23:42:06,124 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Missing CSV files: [PosixPath('data/futures/m/B0=F_cloudCount.csv')]
-2026-10-22 23:42:06,124 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ES=F entries:1]
-2026-10-22 23:42:06,124 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:YM=F entries:1]
-2026-10-22 23:42:06,125 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NQ=F entries:1]
-2026-10-22 23:42:06,125 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RTY=F entries:1]
-2026-10-22 23:42:06,125 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZB=F entries:1]
-2026-10-22 23:42:06,125 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZN=F entries:1]
-2026-10-22 23:42:06,125 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZF=F entries:1]
-2026-10-22 23:42:06,125 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZT=F entries:1]
-2026-10-22 23:42:06,125 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GC=F entries:1]
-2026-10-22 23:42:06,125 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MGC=F entries:1]
-2026-10-22 23:42:06,125 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SI=F entries:1]
-2026-10-22 23:42:06,126 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SIL=F entries:1]
-2026-10-22 23:42:06,126 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PL=F entries:1]
-2026-10-22 23:42:06,126 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HG=F entries:1]
-2026-10-22 23:42:06,126 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PA=F entries:1]
-2026-10-22 23:42:06,126 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CL=F entries:1]
-2026-10-22 23:42:06,126 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HO=F entries:1]
-2026-10-22 23:42:06,126 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NG=F entries:1]
-2026-10-22 23:42:06,126 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RB=F entries:1]
-2026-10-22 23:42:06,127 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BZ=F entries:1]
-2026-10-22 23:42:06,127 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZC=F entries:1]
-2026-10-22 23:42:06,127 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZO=F entries:1]
-2026-10-22 23:42:06,127 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KE=F entries:1]
-2026-10-22 23:42:06,127 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZR=F entries:1]
-2026-10-22 23:42:06,127 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZM=F entries:1]
-2026-10-22 23:42:06,127 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZL=F entries:1]
-2026-10-22 23:42:06,127 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZS=F entries:1]
-2026-10-22 23:42:06,128 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GF=F entries:1]
-2026-10-22 23:42:06,128 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HE=F entries:1]
-2026-10-22 23:42:06,128 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LE=F entries:1]
-2026-10-22 23:42:06,128 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CC=F entries:1]
-2026-10-22 23:42:06,128 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KC=F entries:1]
-2026-10-22 23:42:06,128 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CT=F entries:1]
-2026-10-22 23:42:06,128 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:OJ=F entries:1]
-2026-10-22 23:42:06,128 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SB=F entries:1]
-2026-10-22 23:42:06,129 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Aggregator Futures-cloud-M.csv and .xml are created
+2026-10-22 23:57:00,449 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Missing CSV files: [PosixPath('data/futures/m/B0=F_cloudCount.csv')]
+2026-10-22 23:57:00,449 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ES=F entries:1]
+2026-10-22 23:57:00,449 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:YM=F entries:1]
+2026-10-22 23:57:00,449 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NQ=F entries:1]
+2026-10-22 23:57:00,449 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RTY=F entries:1]
+2026-10-22 23:57:00,450 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZB=F entries:1]
+2026-10-22 23:57:00,450 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZN=F entries:1]
+2026-10-22 23:57:00,450 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZF=F entries:1]
+2026-10-22 23:57:00,450 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZT=F entries:1]
+2026-10-22 23:57:00,450 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GC=F entries:1]
+2026-10-22 23:57:00,451 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MGC=F entries:1]
+2026-10-22 23:57:00,451 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SI=F entries:1]
+2026-10-22 23:57:00,451 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SIL=F entries:1]
+2026-10-22 23:57:00,451 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PL=F entries:1]
+2026-10-22 23:57:00,452 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HG=F entries:1]
+2026-10-22 23:57:00,452 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PA=F entries:1]
+2026-10-22 23:57:00,452 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CL=F entries:1]
+2026-10-22 23:57:00,452 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HO=F entries:1]
+2026-10-22 23:57:00,452 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NG=F entries:1]
+2026-10-22 23:57:00,453 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:RB=F entries:1]
+2026-10-22 23:57:00,453 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BZ=F entries:1]
+2026-10-22 23:57:00,453 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZC=F entries:1]
+2026-10-22 23:57:00,453 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZO=F entries:1]
+2026-10-22 23:57:00,454 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KE=F entries:1]
+2026-10-22 23:57:00,454 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZR=F entries:1]
+2026-10-22 23:57:00,454 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZM=F entries:1]
+2026-10-22 23:57:00,454 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZL=F entries:1]
+2026-10-22 23:57:00,454 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:ZS=F entries:1]
+2026-10-22 23:57:00,455 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GF=F entries:1]
+2026-10-22 23:57:00,455 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HE=F entries:1]
+2026-10-22 23:57:00,455 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:LE=F entries:1]
+2026-10-22 23:57:00,455 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CC=F entries:1]
+2026-10-22 23:57:00,455 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KC=F entries:1]
+2026-10-22 23:57:00,456 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CT=F entries:1]
+2026-10-22 23:57:00,456 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:OJ=F entries:1]
+2026-10-22 23:57:00,456 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SB=F entries:1]
+2026-10-22 23:57:00,458 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Aggregator Futures-cloud-M.csv and .xml are created
 
-2026-10-22 23:42:06,130 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: ------------- Merging Multi Timeframe Cloud -------------
-2026-10-22 23:42:06,130 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Check files for merging: ['output/cloud/Futures-cloud-1H.csv', 'output/cloud/Futures-cloud-D.csv', 'output/cloud/Futures-cloud-W.csv', 'output/cloud/Futures-cloud-M.csv']
-2026-10-22 23:42:06,130 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/Futures-cloud-1H.csv
-2026-10-22 23:42:06,130 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/Futures-cloud-D.csv
-2026-10-22 23:42:06,132 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/Futures-cloud-W.csv
-2026-10-22 23:42:06,134 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/Futures-cloud-M.csv
-2026-10-22 23:42:06,136 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Multi Timeframe Cloud Signals Merged: output/cloud/Futures-cloud-merged.csv
-2026-10-22 23:42:06,136 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: combined_csv size::(35, 11)
-2026-10-22 23:42:06,136 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1H Cloud Direction', '1H Cloud Count']
-2026-10-22 23:42:06,136 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1D Cloud Direction', '1D Cloud Count']
-2026-10-22 23:42:06,136 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1W Cloud Direction', '1W Cloud Count']
-2026-10-22 23:42:06,137 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1M Cloud Direction', '1M Cloud Count']
-2026-10-22 23:42:06,138 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: 
+2026-10-22 23:57:00,458 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: ------------- Merging Multi Timeframe Cloud -------------
+2026-10-22 23:57:00,458 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Check files for merging: ['output/cloud/Futures-cloud-1H.csv', 'output/cloud/Futures-cloud-D.csv', 'output/cloud/Futures-cloud-W.csv', 'output/cloud/Futures-cloud-M.csv']
+2026-10-22 23:57:00,458 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/Futures-cloud-1H.csv
+2026-10-22 23:57:00,459 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/Futures-cloud-D.csv
+2026-10-22 23:57:00,462 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/Futures-cloud-W.csv
+2026-10-22 23:57:00,464 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/Futures-cloud-M.csv
+2026-10-22 23:57:00,466 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Multi Timeframe Cloud Signals Merged: output/cloud/Futures-cloud-merged.csv
+2026-10-22 23:57:00,466 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: combined_csv size::(35, 11)
+2026-10-22 23:57:00,467 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1H Cloud Direction', '1H Cloud Count']
+2026-10-22 23:57:00,467 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1D Cloud Direction', '1D Cloud Count']
+2026-10-22 23:57:00,467 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1W Cloud Direction', '1W Cloud Count']
+2026-10-22 23:57:00,468 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1M Cloud Direction', '1M Cloud Count']
+2026-10-22 23:57:00,470 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: 
 -------------------- Cloud Score Multi Timeframe Raw --------------------
     Symbol  ...  1M Cloud Score
 0    ZS=F  ...              -1
@@ -673,17 +673,17 @@
 34   NG=F  ...             -31
 
 [35 rows x 15 columns]
-2026-10-22 23:42:06,138 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: create_sum_column self.list_score_names: ['1H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score', 'Cloud Score Sum'] 
+2026-10-22 23:57:00,470 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: create_sum_column self.list_score_names: ['1H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score', 'Cloud Score Sum'] 
 create_sum_column df.columns Index(['Symbol', 'Name', 'Close', '1H Cloud Direction', '1H Cloud Count',
        '1D Cloud Direction', '1D Cloud Count', '1W Cloud Direction',
        '1W Cloud Count', '1M Cloud Direction', '1M Cloud Count',
        '1H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score'],
       dtype='str')
-2026-10-22 23:42:06,139 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: ------ Cleaning columns ------
-2026-10-22 23:42:06,139 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Available columns: ['Symbol', 'Name', 'Close', '1H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score', 'Cloud Score Sum']
-2026-10-22 23:42:06,140 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Saved data to: output/cloud/Futures-cloud-merged.csv output/cloud/Futures-cloud-merged.csv.html
+2026-10-22 23:57:00,471 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: ------ Cleaning columns ------
+2026-10-22 23:57:00,471 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Available columns: ['Symbol', 'Name', 'Close', '1H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score', 'Cloud Score Sum']
+2026-10-22 23:57:00,472 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Saved data to: output/cloud/Futures-cloud-merged.csv output/cloud/Futures-cloud-merged.csv.html
 
-2026-10-22 23:42:06,141 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: ----------- Cloud Score Multi Timeframe Final View -----------
+2026-10-22 23:57:00,474 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: ----------- Cloud Score Multi Timeframe Final View -----------
     Symbol  ...  Cloud Score Sum
 29   YM=F  ...              281
 16   ES=F  ...              240
@@ -700,17 +700,17 @@ create_sum_column df.columns Index(['Symbol', 'Name', 'Close', '1H Cloud Directi
 6    HO=F  ...               46
 9    RB=F  ...               45
 0    ZS=F  ...               41
-21  MGC=F  ...               38
+21  MGC=F  ...               36
 22   GC=F  ...               27
 5    KC=F  ...               25
-11   CT=F  ...               24
+11   CT=F  ...               22
 1    ZL=F  ...               18
 10   CC=F  ...               -9
 4    ZC=F  ...              -21
 28   ZO=F  ...              -26
 19  SIL=F  ...              -31
 20   SI=F  ...              -31
-26   PL=F  ...              -54
+26   PL=F  ...              -55
 12   ZT=F  ...              -62
 33   KE=F  ...              -66
 2    OJ=F  ...              -96
@@ -722,329 +722,329 @@ create_sum_column df.columns Index(['Symbol', 'Name', 'Close', '1H Cloud Directi
 14   ZF=F  ...             -217
 
 [35 rows x 8 columns]
-2026-10-22 23:42:06,141 INFO cloud_signal.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/futures/1h/asset_list/Futures.csv
-2026-10-22 23:42:06,209 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ES=F - File is already in the correct format.
-2026-10-22 23:42:06,224 INFO cloud_signal.mvc.core.DataTKxSignalMVC: YM=F - File is already in the correct format.
-2026-10-22 23:42:06,238 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NQ=F - File is already in the correct format.
-2026-10-22 23:42:06,254 INFO cloud_signal.mvc.core.DataTKxSignalMVC: RTY=F - File is already in the correct format.
-2026-10-22 23:42:06,269 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZB=F - File is already in the correct format.
-2026-10-22 23:42:06,284 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZN=F - File is already in the correct format.
-2026-10-22 23:42:06,299 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZF=F - File is already in the correct format.
-2026-10-22 23:42:06,314 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZT=F - File is already in the correct format.
-2026-10-22 23:42:06,329 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GC=F - File is already in the correct format.
-2026-10-22 23:42:06,344 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MGC=F - File is already in the correct format.
-2026-10-22 23:42:06,359 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SI=F - File is already in the correct format.
-2026-10-22 23:42:06,375 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SIL=F - File is already in the correct format.
-2026-10-22 23:42:06,390 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PL=F - File is already in the correct format.
-2026-10-22 23:42:06,405 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HG=F - File is already in the correct format.
-2026-10-22 23:42:06,420 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PA=F - File is already in the correct format.
-2026-10-22 23:42:06,435 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CL=F - File is already in the correct format.
-2026-10-22 23:42:06,450 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HO=F - File is already in the correct format.
-2026-10-22 23:42:06,465 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NG=F - File is already in the correct format.
-2026-10-22 23:42:06,480 INFO cloud_signal.mvc.core.DataTKxSignalMVC: RB=F - File is already in the correct format.
-2026-10-22 23:42:06,496 INFO cloud_signal.mvc.core.DataTKxSignalMVC: BZ=F - File is already in the correct format.
-2026-10-22 23:42:06,506 INFO cloud_signal.mvc.core.DataTKxSignalMVC: B0=F - File is already in the correct format.
-2026-10-22 23:42:06,514 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZC=F - File is already in the correct format.
-2026-10-22 23:42:06,526 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZO=F - File is already in the correct format.
-2026-10-22 23:42:06,537 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KE=F - File is already in the correct format.
-2026-10-22 23:42:06,548 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZR=F - File is already in the correct format.
-2026-10-22 23:42:06,559 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZM=F - File is already in the correct format.
-2026-10-22 23:42:06,572 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZL=F - File is already in the correct format.
-2026-10-22 23:42:06,585 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZS=F - File is already in the correct format.
-2026-10-22 23:42:06,596 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GF=F - File is already in the correct format.
-2026-10-22 23:42:06,603 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HE=F - File is already in the correct format.
-2026-10-22 23:42:06,610 INFO cloud_signal.mvc.core.DataTKxSignalMVC: LE=F - File is already in the correct format.
-2026-10-22 23:42:06,617 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CC=F - File is already in the correct format.
-2026-10-22 23:42:06,626 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KC=F - File is already in the correct format.
-2026-10-22 23:42:06,634 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CT=F - File is already in the correct format.
-2026-10-22 23:42:06,641 INFO cloud_signal.mvc.core.DataTKxSignalMVC: OJ=F - File is already in the correct format.
-2026-10-22 23:42:06,649 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SB=F - File is already in the correct format.
-2026-10-22 23:42:06,654 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TKx count csv files are created
-2026-10-22 23:42:06,657 INFO cloud_signal.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/futures/d/asset_list/Futures.csv
-2026-10-22 23:42:06,749 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ES=F - File is already in the correct format.
-2026-10-22 23:42:06,765 INFO cloud_signal.mvc.core.DataTKxSignalMVC: YM=F - File is already in the correct format.
-2026-10-22 23:42:06,781 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NQ=F - File is already in the correct format.
-2026-10-22 23:42:06,794 INFO cloud_signal.mvc.core.DataTKxSignalMVC: RTY=F - File is already in the correct format.
-2026-10-22 23:42:06,807 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZB=F - File is already in the correct format.
-2026-10-22 23:42:06,824 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZN=F - File is already in the correct format.
-2026-10-22 23:42:06,841 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZF=F - File is already in the correct format.
-2026-10-22 23:42:06,858 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZT=F - File is already in the correct format.
-2026-10-22 23:42:06,875 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GC=F - File is already in the correct format.
-2026-10-22 23:42:06,890 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MGC=F - File is already in the correct format.
-2026-10-22 23:42:06,905 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SI=F - File is already in the correct format.
-2026-10-22 23:42:06,919 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SIL=F - File is already in the correct format.
-2026-10-22 23:42:06,933 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PL=F - File is already in the correct format.
-2026-10-22 23:42:06,950 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HG=F - File is already in the correct format.
-2026-10-22 23:42:06,968 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PA=F - File is already in the correct format.
-2026-10-22 23:42:06,985 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CL=F - File is already in the correct format.
-2026-10-22 23:42:07,002 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HO=F - File is already in the correct format.
-2026-10-22 23:42:07,020 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NG=F - File is already in the correct format.
-2026-10-22 23:42:07,037 INFO cloud_signal.mvc.core.DataTKxSignalMVC: RB=F - File is already in the correct format.
-2026-10-22 23:42:07,053 INFO cloud_signal.mvc.core.DataTKxSignalMVC: BZ=F - File is already in the correct format.
-2026-10-22 23:42:07,061 WARNING cloud_signal.mvc.core.DataTKxSignalMVC: CSV file is empty data/futures/d/B0=F_ichimokuTapy.csv
-2026-10-22 23:42:07,068 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZC=F - File is already in the correct format.
-2026-10-22 23:42:07,084 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZO=F - File is already in the correct format.
-2026-10-22 23:42:07,101 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KE=F - File is already in the correct format.
-2026-10-22 23:42:07,118 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZR=F - File is already in the correct format.
-2026-10-22 23:42:07,136 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZM=F - File is already in the correct format.
-2026-10-22 23:42:07,154 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZL=F - File is already in the correct format.
-2026-10-22 23:42:07,170 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZS=F - File is already in the correct format.
-2026-10-22 23:42:07,188 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GF=F - File is already in the correct format.
-2026-10-22 23:42:07,205 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HE=F - File is already in the correct format.
-2026-10-22 23:42:07,222 INFO cloud_signal.mvc.core.DataTKxSignalMVC: LE=F - File is already in the correct format.
-2026-10-22 23:42:07,238 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CC=F - File is already in the correct format.
-2026-10-22 23:42:07,257 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KC=F - File is already in the correct format.
-2026-10-22 23:42:07,275 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CT=F - File is already in the correct format.
-2026-10-22 23:42:07,293 INFO cloud_signal.mvc.core.DataTKxSignalMVC: OJ=F - File is already in the correct format.
-2026-10-22 23:42:07,310 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SB=F - File is already in the correct format.
-2026-10-22 23:42:07,319 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TKx count csv files are created
-2026-10-22 23:42:07,323 INFO cloud_signal.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/futures/w/asset_list/Futures.csv
-2026-10-22 23:42:07,355 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ES=F - File is already in the correct format.
-2026-10-22 23:42:07,361 INFO cloud_signal.mvc.core.DataTKxSignalMVC: YM=F - File is already in the correct format.
-2026-10-22 23:42:07,368 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NQ=F - File is already in the correct format.
-2026-10-22 23:42:07,375 INFO cloud_signal.mvc.core.DataTKxSignalMVC: RTY=F - File is already in the correct format.
-2026-10-22 23:42:07,381 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZB=F - File is already in the correct format.
-2026-10-22 23:42:07,387 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZN=F - File is already in the correct format.
-2026-10-22 23:42:07,394 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZF=F - File is already in the correct format.
-2026-10-22 23:42:07,401 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZT=F - File is already in the correct format.
-2026-10-22 23:42:07,408 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GC=F - File is already in the correct format.
-2026-10-22 23:42:07,414 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MGC=F - File is already in the correct format.
-2026-10-22 23:42:07,421 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SI=F - File is already in the correct format.
-2026-10-22 23:42:07,427 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SIL=F - File is already in the correct format.
-2026-10-22 23:42:07,433 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PL=F - File is already in the correct format.
-2026-10-22 23:42:07,440 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HG=F - File is already in the correct format.
-2026-10-22 23:42:07,447 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PA=F - File is already in the correct format.
-2026-10-22 23:42:07,454 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CL=F - File is already in the correct format.
-2026-10-22 23:42:07,461 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HO=F - File is already in the correct format.
-2026-10-22 23:42:07,468 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NG=F - File is already in the correct format.
-2026-10-22 23:42:07,475 INFO cloud_signal.mvc.core.DataTKxSignalMVC: RB=F - File is already in the correct format.
-2026-10-22 23:42:07,482 INFO cloud_signal.mvc.core.DataTKxSignalMVC: BZ=F - File is already in the correct format.
-2026-10-22 23:42:07,486 WARNING cloud_signal.mvc.core.DataTKxSignalMVC: CSV file is empty data/futures/w/B0=F_ichimokuTapy.csv
-2026-10-22 23:42:07,489 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZC=F - File is already in the correct format.
-2026-10-22 23:42:07,496 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZO=F - File is already in the correct format.
-2026-10-22 23:42:07,503 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KE=F - File is already in the correct format.
-2026-10-22 23:42:07,510 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZR=F - File is already in the correct format.
-2026-10-22 23:42:07,517 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZM=F - File is already in the correct format.
-2026-10-22 23:42:07,524 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZL=F - File is already in the correct format.
-2026-10-22 23:42:07,531 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZS=F - File is already in the correct format.
-2026-10-22 23:42:07,538 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GF=F - File is already in the correct format.
-2026-10-22 23:42:07,544 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HE=F - File is already in the correct format.
-2026-10-22 23:42:07,551 INFO cloud_signal.mvc.core.DataTKxSignalMVC: LE=F - File is already in the correct format.
-2026-10-22 23:42:07,558 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CC=F - File is already in the correct format.
-2026-10-22 23:42:07,565 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KC=F - File is already in the correct format.
-2026-10-22 23:42:07,572 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CT=F - File is already in the correct format.
-2026-10-22 23:42:07,579 INFO cloud_signal.mvc.core.DataTKxSignalMVC: OJ=F - File is already in the correct format.
-2026-10-22 23:42:07,586 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SB=F - File is already in the correct format.
-2026-10-22 23:42:07,590 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TKx count csv files are created
-2026-10-22 23:42:07,591 INFO cloud_signal.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/futures/m/asset_list/Futures.csv
-2026-10-22 23:42:07,610 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ES=F - File is already in the correct format.
-2026-10-22 23:42:07,615 INFO cloud_signal.mvc.core.DataTKxSignalMVC: YM=F - File is already in the correct format.
-2026-10-22 23:42:07,620 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NQ=F - File is already in the correct format.
-2026-10-22 23:42:07,625 INFO cloud_signal.mvc.core.DataTKxSignalMVC: RTY=F - File is already in the correct format.
-2026-10-22 23:42:07,629 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZB=F - File is already in the correct format.
-2026-10-22 23:42:07,634 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZN=F - File is already in the correct format.
-2026-10-22 23:42:07,638 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZF=F - File is already in the correct format.
-2026-10-22 23:42:07,643 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZT=F - File is already in the correct format.
-2026-10-22 23:42:07,648 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GC=F - File is already in the correct format.
-2026-10-22 23:42:07,652 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MGC=F - File is already in the correct format.
-2026-10-22 23:42:07,657 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SI=F - File is already in the correct format.
-2026-10-22 23:42:07,661 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SIL=F - File is already in the correct format.
-2026-10-22 23:42:07,666 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PL=F - File is already in the correct format.
-2026-10-22 23:42:07,671 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HG=F - File is already in the correct format.
-2026-10-22 23:42:07,675 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PA=F - File is already in the correct format.
-2026-10-22 23:42:07,680 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CL=F - File is already in the correct format.
-2026-10-22 23:42:07,685 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HO=F - File is already in the correct format.
-2026-10-22 23:42:07,689 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NG=F - File is already in the correct format.
-2026-10-22 23:42:07,694 INFO cloud_signal.mvc.core.DataTKxSignalMVC: RB=F - File is already in the correct format.
-2026-10-22 23:42:07,699 INFO cloud_signal.mvc.core.DataTKxSignalMVC: BZ=F - File is already in the correct format.
-2026-10-22 23:42:07,702 WARNING cloud_signal.mvc.core.DataTKxSignalMVC: CSV file is empty data/futures/m/B0=F_ichimokuTapy.csv
-2026-10-22 23:42:07,704 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZC=F - File is already in the correct format.
-2026-10-22 23:42:07,709 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZO=F - File is already in the correct format.
-2026-10-22 23:42:07,714 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KE=F - File is already in the correct format.
-2026-10-22 23:42:07,719 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZR=F - File is already in the correct format.
-2026-10-22 23:42:07,723 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZM=F - File is already in the correct format.
-2026-10-22 23:42:07,728 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZL=F - File is already in the correct format.
-2026-10-22 23:42:07,733 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZS=F - File is already in the correct format.
-2026-10-22 23:42:07,737 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GF=F - File is already in the correct format.
-2026-10-22 23:42:07,742 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HE=F - File is already in the correct format.
-2026-10-22 23:42:07,747 INFO cloud_signal.mvc.core.DataTKxSignalMVC: LE=F - File is already in the correct format.
-2026-10-22 23:42:07,751 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CC=F - File is already in the correct format.
-2026-10-22 23:42:07,756 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KC=F - File is already in the correct format.
-2026-10-22 23:42:07,761 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CT=F - File is already in the correct format.
-2026-10-22 23:42:07,766 INFO cloud_signal.mvc.core.DataTKxSignalMVC: OJ=F - File is already in the correct format.
-2026-10-22 23:42:07,770 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SB=F - File is already in the correct format.
-2026-10-22 23:42:07,773 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TKx count csv files are created
-2026-10-22 23:42:07,774 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/futures/1h/ -----------
-2026-10-22 23:42:07,774 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::True
-2026-10-22 23:42:07,790 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Aggregator Futures-tkx-1H.csv and .xml are created
+2026-10-22 23:57:00,474 INFO cloud_signal.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/futures/1h/asset_list/Futures.csv
+2026-10-22 23:57:00,558 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ES=F - File is already in the correct format.
+2026-10-22 23:57:00,576 INFO cloud_signal.mvc.core.DataTKxSignalMVC: YM=F - File is already in the correct format.
+2026-10-22 23:57:00,595 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NQ=F - File is already in the correct format.
+2026-10-22 23:57:00,615 INFO cloud_signal.mvc.core.DataTKxSignalMVC: RTY=F - File is already in the correct format.
+2026-10-22 23:57:00,634 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZB=F - File is already in the correct format.
+2026-10-22 23:57:00,653 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZN=F - File is already in the correct format.
+2026-10-22 23:57:00,671 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZF=F - File is already in the correct format.
+2026-10-22 23:57:00,691 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZT=F - File is already in the correct format.
+2026-10-22 23:57:00,710 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GC=F - File is already in the correct format.
+2026-10-22 23:57:00,730 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MGC=F - File is already in the correct format.
+2026-10-22 23:57:00,749 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SI=F - File is already in the correct format.
+2026-10-22 23:57:00,769 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SIL=F - File is already in the correct format.
+2026-10-22 23:57:00,789 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PL=F - File is already in the correct format.
+2026-10-22 23:57:00,808 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HG=F - File is already in the correct format.
+2026-10-22 23:57:00,827 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PA=F - File is already in the correct format.
+2026-10-22 23:57:00,847 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CL=F - File is already in the correct format.
+2026-10-22 23:57:00,866 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HO=F - File is already in the correct format.
+2026-10-22 23:57:00,885 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NG=F - File is already in the correct format.
+2026-10-22 23:57:00,905 INFO cloud_signal.mvc.core.DataTKxSignalMVC: RB=F - File is already in the correct format.
+2026-10-22 23:57:00,924 INFO cloud_signal.mvc.core.DataTKxSignalMVC: BZ=F - File is already in the correct format.
+2026-10-22 23:57:00,938 INFO cloud_signal.mvc.core.DataTKxSignalMVC: B0=F - File is already in the correct format.
+2026-10-22 23:57:00,948 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZC=F - File is already in the correct format.
+2026-10-22 23:57:00,963 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZO=F - File is already in the correct format.
+2026-10-22 23:57:00,978 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KE=F - File is already in the correct format.
+2026-10-22 23:57:00,992 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZR=F - File is already in the correct format.
+2026-10-22 23:57:01,006 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZM=F - File is already in the correct format.
+2026-10-22 23:57:01,024 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZL=F - File is already in the correct format.
+2026-10-22 23:57:01,041 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZS=F - File is already in the correct format.
+2026-10-22 23:57:01,055 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GF=F - File is already in the correct format.
+2026-10-22 23:57:01,064 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HE=F - File is already in the correct format.
+2026-10-22 23:57:01,074 INFO cloud_signal.mvc.core.DataTKxSignalMVC: LE=F - File is already in the correct format.
+2026-10-22 23:57:01,084 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CC=F - File is already in the correct format.
+2026-10-22 23:57:01,095 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KC=F - File is already in the correct format.
+2026-10-22 23:57:01,106 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CT=F - File is already in the correct format.
+2026-10-22 23:57:01,115 INFO cloud_signal.mvc.core.DataTKxSignalMVC: OJ=F - File is already in the correct format.
+2026-10-22 23:57:01,125 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SB=F - File is already in the correct format.
+2026-10-22 23:57:01,132 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TKx count csv files are created
+2026-10-22 23:57:01,135 INFO cloud_signal.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/futures/d/asset_list/Futures.csv
+2026-10-22 23:57:01,249 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ES=F - File is already in the correct format.
+2026-10-22 23:57:01,269 INFO cloud_signal.mvc.core.DataTKxSignalMVC: YM=F - File is already in the correct format.
+2026-10-22 23:57:01,290 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NQ=F - File is already in the correct format.
+2026-10-22 23:57:01,308 INFO cloud_signal.mvc.core.DataTKxSignalMVC: RTY=F - File is already in the correct format.
+2026-10-22 23:57:01,324 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZB=F - File is already in the correct format.
+2026-10-22 23:57:01,346 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZN=F - File is already in the correct format.
+2026-10-22 23:57:01,367 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZF=F - File is already in the correct format.
+2026-10-22 23:57:01,389 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZT=F - File is already in the correct format.
+2026-10-22 23:57:01,411 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GC=F - File is already in the correct format.
+2026-10-22 23:57:01,431 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MGC=F - File is already in the correct format.
+2026-10-22 23:57:01,449 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SI=F - File is already in the correct format.
+2026-10-22 23:57:01,468 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SIL=F - File is already in the correct format.
+2026-10-22 23:57:01,486 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PL=F - File is already in the correct format.
+2026-10-22 23:57:01,508 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HG=F - File is already in the correct format.
+2026-10-22 23:57:01,530 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PA=F - File is already in the correct format.
+2026-10-22 23:57:01,552 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CL=F - File is already in the correct format.
+2026-10-22 23:57:01,574 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HO=F - File is already in the correct format.
+2026-10-22 23:57:01,596 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NG=F - File is already in the correct format.
+2026-10-22 23:57:01,618 INFO cloud_signal.mvc.core.DataTKxSignalMVC: RB=F - File is already in the correct format.
+2026-10-22 23:57:01,638 INFO cloud_signal.mvc.core.DataTKxSignalMVC: BZ=F - File is already in the correct format.
+2026-10-22 23:57:01,649 WARNING cloud_signal.mvc.core.DataTKxSignalMVC: CSV file is empty data/futures/d/B0=F_ichimokuTapy.csv
+2026-10-22 23:57:01,658 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZC=F - File is already in the correct format.
+2026-10-22 23:57:01,680 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZO=F - File is already in the correct format.
+2026-10-22 23:57:01,701 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KE=F - File is already in the correct format.
+2026-10-22 23:57:01,724 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZR=F - File is already in the correct format.
+2026-10-22 23:57:01,747 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZM=F - File is already in the correct format.
+2026-10-22 23:57:01,769 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZL=F - File is already in the correct format.
+2026-10-22 23:57:01,790 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZS=F - File is already in the correct format.
+2026-10-22 23:57:01,813 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GF=F - File is already in the correct format.
+2026-10-22 23:57:01,835 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HE=F - File is already in the correct format.
+2026-10-22 23:57:01,858 INFO cloud_signal.mvc.core.DataTKxSignalMVC: LE=F - File is already in the correct format.
+2026-10-22 23:57:01,879 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CC=F - File is already in the correct format.
+2026-10-22 23:57:01,902 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KC=F - File is already in the correct format.
+2026-10-22 23:57:01,924 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CT=F - File is already in the correct format.
+2026-10-22 23:57:01,947 INFO cloud_signal.mvc.core.DataTKxSignalMVC: OJ=F - File is already in the correct format.
+2026-10-22 23:57:01,969 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SB=F - File is already in the correct format.
+2026-10-22 23:57:01,981 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TKx count csv files are created
+2026-10-22 23:57:01,986 INFO cloud_signal.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/futures/w/asset_list/Futures.csv
+2026-10-22 23:57:02,027 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ES=F - File is already in the correct format.
+2026-10-22 23:57:02,036 INFO cloud_signal.mvc.core.DataTKxSignalMVC: YM=F - File is already in the correct format.
+2026-10-22 23:57:02,045 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NQ=F - File is already in the correct format.
+2026-10-22 23:57:02,054 INFO cloud_signal.mvc.core.DataTKxSignalMVC: RTY=F - File is already in the correct format.
+2026-10-22 23:57:02,062 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZB=F - File is already in the correct format.
+2026-10-22 23:57:02,071 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZN=F - File is already in the correct format.
+2026-10-22 23:57:02,080 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZF=F - File is already in the correct format.
+2026-10-22 23:57:02,089 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZT=F - File is already in the correct format.
+2026-10-22 23:57:02,099 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GC=F - File is already in the correct format.
+2026-10-22 23:57:02,108 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MGC=F - File is already in the correct format.
+2026-10-22 23:57:02,116 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SI=F - File is already in the correct format.
+2026-10-22 23:57:02,125 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SIL=F - File is already in the correct format.
+2026-10-22 23:57:02,133 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PL=F - File is already in the correct format.
+2026-10-22 23:57:02,142 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HG=F - File is already in the correct format.
+2026-10-22 23:57:02,152 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PA=F - File is already in the correct format.
+2026-10-22 23:57:02,161 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CL=F - File is already in the correct format.
+2026-10-22 23:57:02,170 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HO=F - File is already in the correct format.
+2026-10-22 23:57:02,180 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NG=F - File is already in the correct format.
+2026-10-22 23:57:02,189 INFO cloud_signal.mvc.core.DataTKxSignalMVC: RB=F - File is already in the correct format.
+2026-10-22 23:57:02,198 INFO cloud_signal.mvc.core.DataTKxSignalMVC: BZ=F - File is already in the correct format.
+2026-10-22 23:57:02,204 WARNING cloud_signal.mvc.core.DataTKxSignalMVC: CSV file is empty data/futures/w/B0=F_ichimokuTapy.csv
+2026-10-22 23:57:02,208 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZC=F - File is already in the correct format.
+2026-10-22 23:57:02,217 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZO=F - File is already in the correct format.
+2026-10-22 23:57:02,226 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KE=F - File is already in the correct format.
+2026-10-22 23:57:02,235 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZR=F - File is already in the correct format.
+2026-10-22 23:57:02,244 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZM=F - File is already in the correct format.
+2026-10-22 23:57:02,254 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZL=F - File is already in the correct format.
+2026-10-22 23:57:02,263 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZS=F - File is already in the correct format.
+2026-10-22 23:57:02,272 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GF=F - File is already in the correct format.
+2026-10-22 23:57:02,282 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HE=F - File is already in the correct format.
+2026-10-22 23:57:02,291 INFO cloud_signal.mvc.core.DataTKxSignalMVC: LE=F - File is already in the correct format.
+2026-10-22 23:57:02,300 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CC=F - File is already in the correct format.
+2026-10-22 23:57:02,309 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KC=F - File is already in the correct format.
+2026-10-22 23:57:02,319 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CT=F - File is already in the correct format.
+2026-10-22 23:57:02,328 INFO cloud_signal.mvc.core.DataTKxSignalMVC: OJ=F - File is already in the correct format.
+2026-10-22 23:57:02,338 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SB=F - File is already in the correct format.
+2026-10-22 23:57:02,343 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TKx count csv files are created
+2026-10-22 23:57:02,344 INFO cloud_signal.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/futures/m/asset_list/Futures.csv
+2026-10-22 23:57:02,371 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ES=F - File is already in the correct format.
+2026-10-22 23:57:02,378 INFO cloud_signal.mvc.core.DataTKxSignalMVC: YM=F - File is already in the correct format.
+2026-10-22 23:57:02,385 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NQ=F - File is already in the correct format.
+2026-10-22 23:57:02,391 INFO cloud_signal.mvc.core.DataTKxSignalMVC: RTY=F - File is already in the correct format.
+2026-10-22 23:57:02,397 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZB=F - File is already in the correct format.
+2026-10-22 23:57:02,404 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZN=F - File is already in the correct format.
+2026-10-22 23:57:02,410 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZF=F - File is already in the correct format.
+2026-10-22 23:57:02,416 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZT=F - File is already in the correct format.
+2026-10-22 23:57:02,423 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GC=F - File is already in the correct format.
+2026-10-22 23:57:02,429 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MGC=F - File is already in the correct format.
+2026-10-22 23:57:02,436 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SI=F - File is already in the correct format.
+2026-10-22 23:57:02,442 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SIL=F - File is already in the correct format.
+2026-10-22 23:57:02,448 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PL=F - File is already in the correct format.
+2026-10-22 23:57:02,455 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HG=F - File is already in the correct format.
+2026-10-22 23:57:02,461 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PA=F - File is already in the correct format.
+2026-10-22 23:57:02,468 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CL=F - File is already in the correct format.
+2026-10-22 23:57:02,474 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HO=F - File is already in the correct format.
+2026-10-22 23:57:02,481 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NG=F - File is already in the correct format.
+2026-10-22 23:57:02,488 INFO cloud_signal.mvc.core.DataTKxSignalMVC: RB=F - File is already in the correct format.
+2026-10-22 23:57:02,494 INFO cloud_signal.mvc.core.DataTKxSignalMVC: BZ=F - File is already in the correct format.
+2026-10-22 23:57:02,498 WARNING cloud_signal.mvc.core.DataTKxSignalMVC: CSV file is empty data/futures/m/B0=F_ichimokuTapy.csv
+2026-10-22 23:57:02,501 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZC=F - File is already in the correct format.
+2026-10-22 23:57:02,508 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZO=F - File is already in the correct format.
+2026-10-22 23:57:02,514 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KE=F - File is already in the correct format.
+2026-10-22 23:57:02,521 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZR=F - File is already in the correct format.
+2026-10-22 23:57:02,527 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZM=F - File is already in the correct format.
+2026-10-22 23:57:02,534 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZL=F - File is already in the correct format.
+2026-10-22 23:57:02,540 INFO cloud_signal.mvc.core.DataTKxSignalMVC: ZS=F - File is already in the correct format.
+2026-10-22 23:57:02,547 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GF=F - File is already in the correct format.
+2026-10-22 23:57:02,553 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HE=F - File is already in the correct format.
+2026-10-22 23:57:02,560 INFO cloud_signal.mvc.core.DataTKxSignalMVC: LE=F - File is already in the correct format.
+2026-10-22 23:57:02,566 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CC=F - File is already in the correct format.
+2026-10-22 23:57:02,573 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KC=F - File is already in the correct format.
+2026-10-22 23:57:02,579 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CT=F - File is already in the correct format.
+2026-10-22 23:57:02,586 INFO cloud_signal.mvc.core.DataTKxSignalMVC: OJ=F - File is already in the correct format.
+2026-10-22 23:57:02,593 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SB=F - File is already in the correct format.
+2026-10-22 23:57:02,596 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TKx count csv files are created
+2026-10-22 23:57:02,597 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/futures/1h/ -----------
+2026-10-22 23:57:02,597 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::True
+2026-10-22 23:57:02,620 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Aggregator Futures-tkx-1H.csv and .xml are created
 
-2026-10-22 23:42:07,790 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/futures/d/ -----------
-2026-10-22 23:42:07,790 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::False
-2026-10-22 23:42:07,798 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Error: data/futures/d/B0=F_tkxCount.csv not found
-2026-10-22 23:42:07,803 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ES=F entries:1]
-2026-10-22 23:42:07,804 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:YM=F entries:1]
-2026-10-22 23:42:07,804 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NQ=F entries:1]
-2026-10-22 23:42:07,804 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:RTY=F entries:1]
-2026-10-22 23:42:07,804 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZB=F entries:1]
-2026-10-22 23:42:07,804 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZN=F entries:1]
-2026-10-22 23:42:07,804 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZF=F entries:1]
-2026-10-22 23:42:07,804 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZT=F entries:1]
-2026-10-22 23:42:07,805 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GC=F entries:1]
-2026-10-22 23:42:07,805 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MGC=F entries:1]
-2026-10-22 23:42:07,805 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SI=F entries:1]
-2026-10-22 23:42:07,805 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SIL=F entries:1]
-2026-10-22 23:42:07,805 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PL=F entries:1]
-2026-10-22 23:42:07,805 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HG=F entries:1]
-2026-10-22 23:42:07,805 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PA=F entries:1]
-2026-10-22 23:42:07,805 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CL=F entries:1]
-2026-10-22 23:42:07,806 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HO=F entries:1]
-2026-10-22 23:42:07,806 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NG=F entries:1]
-2026-10-22 23:42:07,806 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:RB=F entries:1]
-2026-10-22 23:42:07,806 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:BZ=F entries:1]
-2026-10-22 23:42:07,806 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZC=F entries:1]
-2026-10-22 23:42:07,806 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZO=F entries:1]
-2026-10-22 23:42:07,806 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KE=F entries:1]
-2026-10-22 23:42:07,806 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZR=F entries:1]
-2026-10-22 23:42:07,807 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZM=F entries:1]
-2026-10-22 23:42:07,807 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZL=F entries:1]
-2026-10-22 23:42:07,807 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZS=F entries:1]
-2026-10-22 23:42:07,807 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GF=F entries:1]
-2026-10-22 23:42:07,807 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HE=F entries:1]
-2026-10-22 23:42:07,807 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:LE=F entries:1]
-2026-10-22 23:42:07,807 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CC=F entries:1]
-2026-10-22 23:42:07,807 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KC=F entries:1]
-2026-10-22 23:42:07,808 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CT=F entries:1]
-2026-10-22 23:42:07,808 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:OJ=F entries:1]
-2026-10-22 23:42:07,808 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SB=F entries:1]
-2026-10-22 23:42:07,809 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Aggregator Futures-tkx-D.csv and .xml are created
+2026-10-22 23:57:02,620 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/futures/d/ -----------
+2026-10-22 23:57:02,621 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::False
+2026-10-22 23:57:02,633 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Error: data/futures/d/B0=F_tkxCount.csv not found
+2026-10-22 23:57:02,640 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ES=F entries:1]
+2026-10-22 23:57:02,640 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:YM=F entries:1]
+2026-10-22 23:57:02,641 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NQ=F entries:1]
+2026-10-22 23:57:02,641 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:RTY=F entries:1]
+2026-10-22 23:57:02,641 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZB=F entries:1]
+2026-10-22 23:57:02,641 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZN=F entries:1]
+2026-10-22 23:57:02,641 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZF=F entries:1]
+2026-10-22 23:57:02,642 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZT=F entries:1]
+2026-10-22 23:57:02,642 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GC=F entries:1]
+2026-10-22 23:57:02,642 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MGC=F entries:1]
+2026-10-22 23:57:02,642 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SI=F entries:1]
+2026-10-22 23:57:02,643 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SIL=F entries:1]
+2026-10-22 23:57:02,643 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PL=F entries:1]
+2026-10-22 23:57:02,643 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HG=F entries:1]
+2026-10-22 23:57:02,643 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PA=F entries:1]
+2026-10-22 23:57:02,644 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CL=F entries:1]
+2026-10-22 23:57:02,644 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HO=F entries:1]
+2026-10-22 23:57:02,644 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NG=F entries:1]
+2026-10-22 23:57:02,644 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:RB=F entries:1]
+2026-10-22 23:57:02,644 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:BZ=F entries:1]
+2026-10-22 23:57:02,645 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZC=F entries:1]
+2026-10-22 23:57:02,645 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZO=F entries:1]
+2026-10-22 23:57:02,645 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KE=F entries:1]
+2026-10-22 23:57:02,645 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZR=F entries:1]
+2026-10-22 23:57:02,646 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZM=F entries:1]
+2026-10-22 23:57:02,646 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZL=F entries:1]
+2026-10-22 23:57:02,646 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZS=F entries:1]
+2026-10-22 23:57:02,646 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GF=F entries:1]
+2026-10-22 23:57:02,646 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HE=F entries:1]
+2026-10-22 23:57:02,647 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:LE=F entries:1]
+2026-10-22 23:57:02,647 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CC=F entries:1]
+2026-10-22 23:57:02,647 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KC=F entries:1]
+2026-10-22 23:57:02,647 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CT=F entries:1]
+2026-10-22 23:57:02,648 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:OJ=F entries:1]
+2026-10-22 23:57:02,648 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SB=F entries:1]
+2026-10-22 23:57:02,649 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Aggregator Futures-tkx-D.csv and .xml are created
 
-2026-10-22 23:42:07,809 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/futures/w/ -----------
-2026-10-22 23:42:07,809 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::False
-2026-10-22 23:42:07,817 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Error: data/futures/w/B0=F_tkxCount.csv not found
-2026-10-22 23:42:07,822 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ES=F entries:1]
-2026-10-22 23:42:07,823 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:YM=F entries:1]
-2026-10-22 23:42:07,823 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NQ=F entries:1]
-2026-10-22 23:42:07,823 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:RTY=F entries:1]
-2026-10-22 23:42:07,823 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZB=F entries:1]
-2026-10-22 23:42:07,823 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZN=F entries:1]
-2026-10-22 23:42:07,823 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZF=F entries:1]
-2026-10-22 23:42:07,823 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZT=F entries:1]
-2026-10-22 23:42:07,824 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GC=F entries:1]
-2026-10-22 23:42:07,824 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MGC=F entries:1]
-2026-10-22 23:42:07,824 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SI=F entries:1]
-2026-10-22 23:42:07,824 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SIL=F entries:1]
-2026-10-22 23:42:07,824 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PL=F entries:1]
-2026-10-22 23:42:07,824 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HG=F entries:1]
-2026-10-22 23:42:07,824 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PA=F entries:1]
-2026-10-22 23:42:07,824 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CL=F entries:1]
-2026-10-22 23:42:07,825 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HO=F entries:1]
-2026-10-22 23:42:07,825 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NG=F entries:1]
-2026-10-22 23:42:07,825 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:RB=F entries:1]
-2026-10-22 23:42:07,825 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:BZ=F entries:1]
-2026-10-22 23:42:07,825 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZC=F entries:1]
-2026-10-22 23:42:07,825 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZO=F entries:1]
-2026-10-22 23:42:07,825 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KE=F entries:1]
-2026-10-22 23:42:07,825 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZR=F entries:1]
-2026-10-22 23:42:07,826 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZM=F entries:1]
-2026-10-22 23:42:07,826 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZL=F entries:1]
-2026-10-22 23:42:07,826 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZS=F entries:1]
-2026-10-22 23:42:07,826 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GF=F entries:1]
-2026-10-22 23:42:07,826 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HE=F entries:1]
-2026-10-22 23:42:07,826 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:LE=F entries:1]
-2026-10-22 23:42:07,826 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CC=F entries:1]
-2026-10-22 23:42:07,826 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KC=F entries:1]
-2026-10-22 23:42:07,827 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CT=F entries:1]
-2026-10-22 23:42:07,827 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:OJ=F entries:1]
-2026-10-22 23:42:07,827 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SB=F entries:1]
-2026-10-22 23:42:07,828 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Aggregator Futures-tkx-W.csv and .xml are created
+2026-10-22 23:57:02,650 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/futures/w/ -----------
+2026-10-22 23:57:02,650 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::False
+2026-10-22 23:57:02,662 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Error: data/futures/w/B0=F_tkxCount.csv not found
+2026-10-22 23:57:02,669 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ES=F entries:1]
+2026-10-22 23:57:02,669 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:YM=F entries:1]
+2026-10-22 23:57:02,670 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NQ=F entries:1]
+2026-10-22 23:57:02,670 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:RTY=F entries:1]
+2026-10-22 23:57:02,670 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZB=F entries:1]
+2026-10-22 23:57:02,670 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZN=F entries:1]
+2026-10-22 23:57:02,670 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZF=F entries:1]
+2026-10-22 23:57:02,671 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZT=F entries:1]
+2026-10-22 23:57:02,671 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GC=F entries:1]
+2026-10-22 23:57:02,671 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MGC=F entries:1]
+2026-10-22 23:57:02,671 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SI=F entries:1]
+2026-10-22 23:57:02,672 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SIL=F entries:1]
+2026-10-22 23:57:02,672 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PL=F entries:1]
+2026-10-22 23:57:02,672 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HG=F entries:1]
+2026-10-22 23:57:02,672 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PA=F entries:1]
+2026-10-22 23:57:02,672 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CL=F entries:1]
+2026-10-22 23:57:02,673 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HO=F entries:1]
+2026-10-22 23:57:02,673 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NG=F entries:1]
+2026-10-22 23:57:02,673 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:RB=F entries:1]
+2026-10-22 23:57:02,673 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:BZ=F entries:1]
+2026-10-22 23:57:02,674 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZC=F entries:1]
+2026-10-22 23:57:02,674 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZO=F entries:1]
+2026-10-22 23:57:02,674 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KE=F entries:1]
+2026-10-22 23:57:02,674 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZR=F entries:1]
+2026-10-22 23:57:02,674 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZM=F entries:1]
+2026-10-22 23:57:02,675 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZL=F entries:1]
+2026-10-22 23:57:02,675 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZS=F entries:1]
+2026-10-22 23:57:02,675 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GF=F entries:1]
+2026-10-22 23:57:02,675 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HE=F entries:1]
+2026-10-22 23:57:02,676 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:LE=F entries:1]
+2026-10-22 23:57:02,676 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CC=F entries:1]
+2026-10-22 23:57:02,676 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KC=F entries:1]
+2026-10-22 23:57:02,676 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CT=F entries:1]
+2026-10-22 23:57:02,676 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:OJ=F entries:1]
+2026-10-22 23:57:02,677 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SB=F entries:1]
+2026-10-22 23:57:02,678 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Aggregator Futures-tkx-W.csv and .xml are created
 
-2026-10-22 23:42:07,828 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/futures/m/ -----------
-2026-10-22 23:42:07,828 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::False
-2026-10-22 23:42:07,836 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Error: data/futures/m/B0=F_tkxCount.csv not found
-2026-10-22 23:42:07,841 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ES=F entries:1]
-2026-10-22 23:42:07,842 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:YM=F entries:1]
-2026-10-22 23:42:07,842 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NQ=F entries:1]
-2026-10-22 23:42:07,842 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:RTY=F entries:1]
-2026-10-22 23:42:07,842 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZB=F entries:1]
-2026-10-22 23:42:07,842 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZN=F entries:1]
-2026-10-22 23:42:07,842 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZF=F entries:1]
-2026-10-22 23:42:07,843 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZT=F entries:1]
-2026-10-22 23:42:07,843 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GC=F entries:1]
-2026-10-22 23:42:07,843 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MGC=F entries:1]
-2026-10-22 23:42:07,843 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SI=F entries:1]
-2026-10-22 23:42:07,843 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SIL=F entries:1]
-2026-10-22 23:42:07,843 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PL=F entries:1]
-2026-10-22 23:42:07,843 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HG=F entries:1]
-2026-10-22 23:42:07,843 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PA=F entries:1]
-2026-10-22 23:42:07,844 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CL=F entries:1]
-2026-10-22 23:42:07,844 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HO=F entries:1]
-2026-10-22 23:42:07,844 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NG=F entries:1]
-2026-10-22 23:42:07,844 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:RB=F entries:1]
-2026-10-22 23:42:07,844 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:BZ=F entries:1]
-2026-10-22 23:42:07,844 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZC=F entries:1]
-2026-10-22 23:42:07,844 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZO=F entries:1]
-2026-10-22 23:42:07,844 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KE=F entries:1]
-2026-10-22 23:42:07,845 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZR=F entries:1]
-2026-10-22 23:42:07,845 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZM=F entries:1]
-2026-10-22 23:42:07,845 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZL=F entries:1]
-2026-10-22 23:42:07,845 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZS=F entries:1]
-2026-10-22 23:42:07,845 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GF=F entries:1]
-2026-10-22 23:42:07,845 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HE=F entries:1]
-2026-10-22 23:42:07,845 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:LE=F entries:1]
-2026-10-22 23:42:07,845 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CC=F entries:1]
-2026-10-22 23:42:07,846 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KC=F entries:1]
-2026-10-22 23:42:07,846 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CT=F entries:1]
-2026-10-22 23:42:07,846 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:OJ=F entries:1]
-2026-10-22 23:42:07,846 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SB=F entries:1]
-2026-10-22 23:42:07,847 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Aggregator Futures-tkx-M.csv and .xml are created
+2026-10-22 23:57:02,678 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/futures/m/ -----------
+2026-10-22 23:57:02,678 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::False
+2026-10-22 23:57:02,691 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Error: data/futures/m/B0=F_tkxCount.csv not found
+2026-10-22 23:57:02,698 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ES=F entries:1]
+2026-10-22 23:57:02,698 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:YM=F entries:1]
+2026-10-22 23:57:02,698 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NQ=F entries:1]
+2026-10-22 23:57:02,699 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:RTY=F entries:1]
+2026-10-22 23:57:02,699 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZB=F entries:1]
+2026-10-22 23:57:02,699 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZN=F entries:1]
+2026-10-22 23:57:02,699 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZF=F entries:1]
+2026-10-22 23:57:02,700 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZT=F entries:1]
+2026-10-22 23:57:02,700 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GC=F entries:1]
+2026-10-22 23:57:02,700 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MGC=F entries:1]
+2026-10-22 23:57:02,700 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SI=F entries:1]
+2026-10-22 23:57:02,701 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SIL=F entries:1]
+2026-10-22 23:57:02,701 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PL=F entries:1]
+2026-10-22 23:57:02,701 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HG=F entries:1]
+2026-10-22 23:57:02,701 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PA=F entries:1]
+2026-10-22 23:57:02,701 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CL=F entries:1]
+2026-10-22 23:57:02,702 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HO=F entries:1]
+2026-10-22 23:57:02,702 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NG=F entries:1]
+2026-10-22 23:57:02,702 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:RB=F entries:1]
+2026-10-22 23:57:02,702 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:BZ=F entries:1]
+2026-10-22 23:57:02,703 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZC=F entries:1]
+2026-10-22 23:57:02,703 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZO=F entries:1]
+2026-10-22 23:57:02,703 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KE=F entries:1]
+2026-10-22 23:57:02,703 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZR=F entries:1]
+2026-10-22 23:57:02,703 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZM=F entries:1]
+2026-10-22 23:57:02,704 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZL=F entries:1]
+2026-10-22 23:57:02,704 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:ZS=F entries:1]
+2026-10-22 23:57:02,704 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GF=F entries:1]
+2026-10-22 23:57:02,704 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HE=F entries:1]
+2026-10-22 23:57:02,705 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:LE=F entries:1]
+2026-10-22 23:57:02,705 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CC=F entries:1]
+2026-10-22 23:57:02,705 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KC=F entries:1]
+2026-10-22 23:57:02,705 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CT=F entries:1]
+2026-10-22 23:57:02,705 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:OJ=F entries:1]
+2026-10-22 23:57:02,706 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SB=F entries:1]
+2026-10-22 23:57:02,707 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Aggregator Futures-tkx-M.csv and .xml are created
 
-2026-10-22 23:42:07,847 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: ------------- Merging Multi Timeframe TKx -------------
-2026-10-22 23:42:07,852 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Multi Timeframe TKx Signals Merged: output/tkx/Futures-tkx-merged.csv
-2026-10-22 23:42:07,853 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1H TKx Direction', '1H TKx Count']
-2026-10-22 23:42:07,853 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1D TKx Direction', '1D TKx Count']
-2026-10-22 23:42:07,853 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1W TKx Direction', '1W TKx Count']
-2026-10-22 23:42:07,853 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1M TKx Direction', '1M TKx Count']
-2026-10-22 23:42:07,854 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: ------ Cleaning columns ------
-2026-10-22 23:42:07,855 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Saved data to: output/tkx/Futures-tkx-merged.csv.html
-2026-10-22 23:42:07,855 INFO cloud_signal.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: 
+2026-10-22 23:57:02,707 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: ------------- Merging Multi Timeframe TKx -------------
+2026-10-22 23:57:02,715 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Multi Timeframe TKx Signals Merged: output/tkx/Futures-tkx-merged.csv
+2026-10-22 23:57:02,715 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1H TKx Direction', '1H TKx Count']
+2026-10-22 23:57:02,716 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1D TKx Direction', '1D TKx Count']
+2026-10-22 23:57:02,716 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1W TKx Direction', '1W TKx Count']
+2026-10-22 23:57:02,716 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1M TKx Direction', '1M TKx Count']
+2026-10-22 23:57:02,718 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: ------ Cleaning columns ------
+2026-10-22 23:57:02,719 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Saved data to: output/tkx/Futures-tkx-merged.csv.html
+2026-10-22 23:57:02,719 INFO cloud_signal.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: 
 ------------- Merging Multi Timeframe Cloud and TKx Sum -------------
-2026-10-22 23:42:07,857 INFO cloud_signal.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: Multi Timeframe Cloud and TKx Signals Merged
-2026-10-22 23:42:07,859 INFO cloud_signal.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: Saved data to: output/sum/Futures-sum-cloud-tkx-merged.csv output/sum/Futures-sum-cloud-tkx-merged.csv.html
-2026-10-22 23:42:07,859 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
-2026-10-22 23:42:07,863 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-23 00:42:07
-2026-10-22 23:42:07,863 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
-2026-10-22 23:42:07,863 INFO cloud_signal.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: generate_html output/sum/Futures-sum-cloud-tkx-merged.csv
-2026-10-22 23:42:07,863 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/sum/Futures-sum-cloud-tkx-merged.csv.html
-2026-10-22 23:42:07,863 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
-2026-10-22 23:42:07,865 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/sum/Futures-sum-cloud-tkx-merged.csv.tabulator.html
-2026-10-22 23:42:09,328 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
-2026-10-22 23:42:09,331 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-23 00:42:09
-2026-10-22 23:42:09,331 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
-2026-10-22 23:42:09,331 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/chikou/Futures-chikou-1H.csv.html
-2026-10-22 23:42:09,331 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
-2026-10-22 23:42:09,333 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/chikou/Futures-chikou-1H.csv.tabulator.html
-2026-10-22 23:42:09,353 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
-2026-10-22 23:42:09,355 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-23 00:42:09
-2026-10-22 23:42:09,356 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
-2026-10-22 23:42:09,356 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/chikou/Futures-chikou-D.csv.html
-2026-10-22 23:42:09,356 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
-2026-10-22 23:42:09,357 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/chikou/Futures-chikou-D.csv.tabulator.html
-2026-10-22 23:42:09,377 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
-2026-10-22 23:42:09,380 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-23 00:42:09
-2026-10-22 23:42:09,380 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
-2026-10-22 23:42:09,380 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/chikou/Futures-chikou-W.csv.html
-2026-10-22 23:42:09,380 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
-2026-10-22 23:42:09,382 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/chikou/Futures-chikou-W.csv.tabulator.html
-2026-10-22 23:42:09,402 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
-2026-10-22 23:42:09,404 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-23 00:42:09
-2026-10-22 23:42:09,404 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
-2026-10-22 23:42:09,404 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/chikou/Futures-chikou-M.csv.html
-2026-10-22 23:42:09,405 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
-2026-10-22 23:42:09,406 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/chikou/Futures-chikou-M.csv.tabulator.html
-2026-10-22 23:42:09,414 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
-2026-10-22 23:42:09,418 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-23 00:42:09
-2026-10-22 23:42:09,418 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
-2026-10-22 23:42:09,419 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/chikou/Futures-chikou-merged.csv.html
-2026-10-22 23:42:09,419 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
-2026-10-22 23:42:09,421 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/chikou/Futures-chikou-merged.csv.tabulator.html
-2026-10-22 23:42:09,421 INFO cloud_signal.runners.runFutures: Futures tasks completed at 2026-10-23 00:42:09 [UK] (Time elapsed: 0:00:31.629774)
+2026-10-22 23:57:02,722 INFO cloud_signal.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: Multi Timeframe Cloud and TKx Signals Merged
+2026-10-22 23:57:02,724 INFO cloud_signal.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: Saved data to: output/sum/Futures-sum-cloud-tkx-merged.csv output/sum/Futures-sum-cloud-tkx-merged.csv.html
+2026-10-22 23:57:02,724 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
+2026-10-22 23:57:02,729 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-23 00:57:02
+2026-10-22 23:57:02,729 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
+2026-10-22 23:57:02,729 INFO cloud_signal.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: generate_html output/sum/Futures-sum-cloud-tkx-merged.csv
+2026-10-22 23:57:02,729 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/sum/Futures-sum-cloud-tkx-merged.csv.html
+2026-10-22 23:57:02,729 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
+2026-10-22 23:57:02,731 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/sum/Futures-sum-cloud-tkx-merged.csv.tabulator.html
+2026-10-22 23:57:04,670 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
+2026-10-22 23:57:04,674 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-23 00:57:04
+2026-10-22 23:57:04,674 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
+2026-10-22 23:57:04,674 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/chikou/Futures-chikou-1H.csv.html
+2026-10-22 23:57:04,674 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
+2026-10-22 23:57:04,676 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/chikou/Futures-chikou-1H.csv.tabulator.html
+2026-10-22 23:57:04,705 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
+2026-10-22 23:57:04,709 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-23 00:57:04
+2026-10-22 23:57:04,709 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
+2026-10-22 23:57:04,709 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/chikou/Futures-chikou-D.csv.html
+2026-10-22 23:57:04,709 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
+2026-10-22 23:57:04,711 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/chikou/Futures-chikou-D.csv.tabulator.html
+2026-10-22 23:57:04,740 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
+2026-10-22 23:57:04,743 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-23 00:57:04
+2026-10-22 23:57:04,743 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
+2026-10-22 23:57:04,744 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/chikou/Futures-chikou-W.csv.html
+2026-10-22 23:57:04,744 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
+2026-10-22 23:57:04,746 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/chikou/Futures-chikou-W.csv.tabulator.html
+2026-10-22 23:57:04,775 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
+2026-10-22 23:57:04,778 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-23 00:57:04
+2026-10-22 23:57:04,778 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
+2026-10-22 23:57:04,778 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/chikou/Futures-chikou-M.csv.html
+2026-10-22 23:57:04,779 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
+2026-10-22 23:57:04,780 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/chikou/Futures-chikou-M.csv.tabulator.html
+2026-10-22 23:57:04,792 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
+2026-10-22 23:57:04,798 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-23 00:57:04
+2026-10-22 23:57:04,798 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
+2026-10-22 23:57:04,798 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/chikou/Futures-chikou-merged.csv.html
+2026-10-22 23:57:04,798 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
+2026-10-22 23:57:04,800 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/chikou/Futures-chikou-merged.csv.tabulator.html
+2026-10-22 23:57:04,801 INFO cloud_signal.runners.runFutures: Futures tasks completed at 2026-10-23 00:57:04 [UK] (Time elapsed: 0:00:31.685541)
