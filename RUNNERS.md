@@ -31,5 +31,9 @@ cloud-signal-dj30
 ```
 
 Notes
+- Yahoo-enabled runs reuse each symbol's existing raw-data CSV, normalize timestamps to UTC, refresh an overlapping recent window in batches of up to 20 symbols, and merge updated rows. If a batch request fails, the runner retries its symbols individually. The first run for a symbol still downloads the configured lookback; remove its raw-data CSV to force a full refetch.
+- The Major ETFs runner processes one symbol at a time and passes its Ichimoku DataFrame through the Cloud, TKx, and Chikou controllers. Each controller also retains standalone file-backed execution; both paths persist the established per-symbol CSV outputs.
+- Signal writers preserve the full per-symbol history CSV and also write a `_latest.csv` sidecar containing its final row. Aggregators use the sidecar when present and fall back to the historical CSV for older data.
+- The market dispatcher logs elapsed time for each configured market. Runs remain sequential; use these timings to identify bottlenecks before considering concurrency.
 - The Flask-based `scripts/index_flask.py` is deprecated and intentionally ignored by smoke tests.
 - If you prefer to preserve original git history for a given entrypoint, use `git mv` to relocate that single file out of `scripts/` instead of adding a shim.

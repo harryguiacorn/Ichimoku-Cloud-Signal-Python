@@ -110,8 +110,10 @@ class Model(object):
             __df.to_html(f"{self.outputMergePath}.html", index=False)
 
         logger.info(f"Saved data to: {self.outputMergePath}.html")
-        logger.info(
-            f"----------- %s Cloud and TKx Sum Score Multi Timeframe Final View -----------\n%s {self.html_title} {__df}"
+        logger.debug(
+            "----------- %s Cloud and TKx Sum Score Multi Timeframe Final View -----------\n%s",
+            self.html_title,
+            __df,
         )
         return __df
 

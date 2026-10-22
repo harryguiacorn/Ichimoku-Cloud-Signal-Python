@@ -105,8 +105,9 @@ class Model(object):
 
         logger.info(f"Saved data to: {self.outputMergePath}.html")
 
-        logger.info(
-            f"----------- TKx Score Multi Timeframe Final View -----------\n%s {__df}"
+        logger.debug(
+            "----------- TKx Score Multi Timeframe Final View -----------\n%s",
+            __df,
         )
         return __df
 
@@ -125,8 +126,9 @@ class Model(object):
     def create_score_columns(self, df: pd.DataFrame):
         for i, __list in enumerate(self.list_direction_count_names):
             df = self.create_score_column(df, __list, self.list_score_names[i])
-        logger.info(
-            f"-------------------- TKx Score Multi Timeframe Raw --------------------\n%s {df}"
+        logger.debug(
+            "-------------------- TKx Score Multi Timeframe Raw --------------------\n%s",
+            df,
         )
 
     def create_sum_column(self, df: pd.DataFrame):

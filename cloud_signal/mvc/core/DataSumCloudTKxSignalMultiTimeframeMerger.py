@@ -109,8 +109,9 @@ class Model(object):
             self.outputMergePath,
             self.outputMergePath,
         )
-        logger.info(
-            f"----------- Cloud and TKx Sum Score Multi Timeframe Final View -----------\n%s {__df}"
+        logger.debug(
+            "----------- Cloud and TKx Sum Score Multi Timeframe Final View -----------\n%s",
+            __df,
         )
         return __df
 

@@ -1,6 +1,9 @@
+import numpy as np
 import pandas as pd
 from abc import abstractclassmethod, ABC
 import logging
+
+from cloud_signal.mvc.core._csv_utils import write_latest_row
 
 logger = logging.getLogger(__name__)
 
@@ -177,22 +180,22 @@ class DataTKxSignal(DataOHLC):
         __newList = []
         __tkxDirectionCount = None
         __cur_tkxDirection = None
-        for __i in range(len(__tkxDirectionList)):
+        for direction in __tkxDirectionList.to_numpy():
 
             # if empty data is retrived from yahoo finance
-            if pd.isna(__tkxDirectionList.iloc[__i]):
+            if pd.isna(direction):
                 # print("-----------1")
                 __tkxDirectionCount = 0
 
             # initiate current direction
             elif __cur_tkxDirection is None:
-                __cur_tkxDirection = __tkxDirectionList.iloc[__i]
+                __cur_tkxDirection = direction
                 __tkxDirectionCount = 0
                 # print("-----------2", __cur_tkxDirection)
 
             # tk crosses
-            elif not __tkxDirectionList.iloc[__i] == __cur_tkxDirection:
-                __cur_tkxDirection = __tkxDirectionList.iloc[__i]
+            elif direction != __cur_tkxDirection:
+                __cur_tkxDirection = direction
                 __tkxDirectionCount = 0 if __cur_tkxDirection == 0 else 1
                 # print("-----------3", __cur_tkxDirection)
 
@@ -206,35 +209,45 @@ class DataTKxSignal(DataOHLC):
         return __newList
 
     def getTKxDirection(self, __tenkan, __kijun):
-        __data = []
-        __curDirection = None
-        for __i in range(len(__kijun)):
+        tenkan = __tenkan.to_numpy()
+        kijun = __kijun.to_numpy()
+        valid = ~pd.isna(tenkan) & ~pd.isna(kijun)
+        updates = np.full(len(kijun), np.nan)
+        updates[valid & (tenkan > kijun)] = 1
+        updates[valid & (tenkan < kijun)] = -1
+        direction = (
+            pd.Series(updates)
+            .ffill()
+            .fillna(0)
+            .to_numpy(dtype="int64")
+        )
+        return np.where(valid, direction, 0).tolist()
 
-            # if either kijun or tenkan is nan, put it as 0
-            if pd.isna(__kijun.iloc[__i]) or pd.isna(__tenkan.iloc[__i]):
-                # print("-----------1")
-                __data.append(0)
+    def process_dataframe(self, data):
+        date_column = "Datetime" if self.use_datetime_format else "Date"
+        if date_column not in data.columns:
+            raise ValueError(
+                f"Input DataFrame must include a {date_column!r} column"
+            )
 
-            # tenkan crosses above kijun
-            elif __tenkan.iloc[__i] > __kijun.iloc[__i]:
-                # print("-----------3")
-                __curDirection = 1
-                __data.append(1)
+        data = data.copy()
+        data.index = data[date_column]
+        data["TKx Signal"] = self.getTKxDirection(
+            data["tenkan_sen"], data["kijun_sen"]
+        )
+        data["TKx Signal Count"] = self.getTKxSignalCount(
+            data["TKx Signal"]
+        )
+        data["TKx Signal"] = data["TKx Signal"].astype("int64")
+        data["TKx Signal Count"] = data["TKx Signal Count"].astype(
+            "int64"
+        )
 
-            # tenkan crosses below  kijun
-            elif __tenkan.iloc[__i] < __kijun.iloc[__i]:
-                # print("-----------4")
-                __curDirection = -1
-                __data.append(-1)
-
-            elif __curDirection == None:
-                # print("-----------5")
-                __data.append(0)
-            else:
-                # print("-----------6")
-                __data.append(__curDirection)
-        # logger.debug("getTKxDirection::__data: %s", __data)
-        return __data
+        if self.use_datetime_format:
+            self.setColumnsSaveCsv_use_datetime_format(data)
+        else:
+            self.setColumnsSaveCsv(data)
+        return data
 
     def getReturn(self, __curClose, __preClose):
         return __curClose / __preClose - 1
@@ -244,6 +257,9 @@ class DataTKxSignal(DataOHLC):
         __data.to_csv(
             self.csvPath + self.symbol + csvSuffix, columns=header, index=False
         )
+        write_latest_row(
+            __data[header], self.csvPath + self.symbol + csvSuffix
+        )
 
     def setColumnsSaveCsv_use_datetime_format(
         self, __data, csvSuffix="_tkxCount.csv"
@@ -251,6 +267,9 @@ class DataTKxSignal(DataOHLC):
         header = ["Datetime", "TKx Signal", "TKx Signal Count"]
         __data.to_csv(
             self.csvPath + self.symbol + csvSuffix, columns=header, index=False
+        )
+        write_latest_row(
+            __data[header], self.csvPath + self.symbol + csvSuffix
         )
 
     def readLocalCsvData(self, symbols, __csvPath):
@@ -382,6 +401,14 @@ class Control(object):
 
     def getDataOHLC(self):
         self.model.getDataOHLC()
+
+    def process_dataframe(self, symbol, data):
+        processor = DataTKxSignal(
+            symbol,
+            self.model.csvPath,
+            self.model.use_datetime_format,
+        )
+        return processor.process_dataframe(data)
 
     def getBatchLocalData(self):
         self.model.getBatchLocalData()

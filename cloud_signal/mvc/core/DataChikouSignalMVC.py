@@ -1,7 +1,10 @@
 import logging
 from abc import ABC, abstractmethod
 
+import numpy as np
 import pandas as pd
+
+from cloud_signal.mvc.core._csv_utils import write_latest_row
 
 logger = logging.getLogger(__name__)
 
@@ -63,20 +66,61 @@ class DataChikouSignal(DataOHLC):
             columns=header,
             index=False,
         )
+        write_latest_row(
+            data[header], self.csvPath + self.symbol + output_suffix
+        )
 
     def getChikouSignal(self, close, high, low, kijun_period=26):
-        signal = []
-        for index in range(len(close)):
-            historical_index = index - kijun_period
-            if historical_index < 0:
-                signal.append(0)
-            elif close.iloc[index] > high.iloc[historical_index]:
-                signal.append(1)
-            elif close.iloc[index] < low.iloc[historical_index]:
-                signal.append(-1)
-            else:
-                signal.append(0)
-        return signal
+        close_values = close.to_numpy()
+        high_values = high.to_numpy()
+        low_values = low.to_numpy()
+        signal = np.zeros(len(close_values), dtype="int64")
+        if len(close_values) > kijun_period:
+            current_close = close_values[kijun_period:]
+            historical_high = high_values[:-kijun_period]
+            historical_low = low_values[:-kijun_period]
+            signal[kijun_period:] = np.where(
+                current_close > historical_high,
+                1,
+                np.where(current_close < historical_low, -1, 0),
+            )
+        return signal.tolist()
+
+    def process_dataframe(self, data):
+        date_column = "Datetime" if self.use_datetime_format else "Date"
+        if date_column not in data.columns:
+            raise ValueError(
+                f"Input DataFrame must include a {date_column!r} column"
+            )
+
+        data = data.copy()
+        data["Chikou Signal"] = self.getChikouSignal(
+            data["Close"], data["High"], data["Low"]
+        )
+        (
+            data["Chikou Signal Count"],
+            data["Chikou State"],
+        ) = self.getChikouState(data["Chikou Signal"])
+        data["Chikou Signal"] = data["Chikou Signal"].astype("int64")
+        data["Chikou Signal Count"] = data["Chikou Signal Count"].astype(
+            "int64"
+        )
+        header = [
+            date_column,
+            "Close",
+            "Chikou Signal",
+            "Chikou Signal Count",
+            "Chikou State",
+        ]
+        data.to_csv(
+            self.csvPath + self.symbol + "_chikouCount.csv",
+            columns=header,
+            index=False,
+        )
+        write_latest_row(
+            data[header], self.csvPath + self.symbol + "_chikouCount.csv"
+        )
+        return data
 
     def getChikouState(self, signals):
         counts = []
@@ -140,6 +184,14 @@ class Control(object):
             DataChikouSignal(
                 symbol, self.model.csvPath, self.model.use_datetime_format
             ).main()
+
+    def process_dataframe(self, symbol, data):
+        processor = DataChikouSignal(
+            symbol,
+            self.model.csvPath,
+            self.model.use_datetime_format,
+        )
+        return processor.process_dataframe(data)
 
 
 class View(object):

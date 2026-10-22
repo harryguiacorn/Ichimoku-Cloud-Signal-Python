@@ -8,9 +8,9 @@ from cloud_signal.mvc.core.DataChikouSignalAggregatorMVC import (
     View as ChikouAggregatorView,
 )
 from cloud_signal.mvc.core.DataChikouSignalMVC import (
-    Control as ChikouControl,
-    Model as ChikouModel,
-    View as ChikouView,
+    Control as ChikouSignalControl,
+    Model as ChikouSignalModel,
+    View as ChikouSignalView,
 )
 from cloud_signal.mvc.core.DataChikouSignalMultiTimeframeMerger import (
     Control as ChikouMergerControl,
@@ -23,9 +23,9 @@ from cloud_signal.mvc.core.DataCloudSignalAggregatorMVC import (
     View as CloudAggregatorView,
 )
 from cloud_signal.mvc.core.DataCloudSignalMVC import (
-    Control as CloudControl,
+    Control as CloudSignalControl,
     Model as CloudModel,
-    View as CloudView,
+    View as CloudSignalView,
 )
 from cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger import (
     Control as CloudMergerControl,
@@ -48,9 +48,9 @@ from cloud_signal.mvc.core.DataTKxSignalAggregatorMVC import (
     View as TKxAggregatorView,
 )
 from cloud_signal.mvc.core.DataTKxSignalMVC import (
-    Control as TKxControl,
-    Model as TKxModel,
-    View as TKxView,
+    Control as TKxSignalControl,
+    Model as TKxSignalModel,
+    View as TKxSignalView,
 )
 from cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger import (
     Control as TKxMergerControl,
@@ -78,9 +78,27 @@ def _run_timeframe(suffix, folder, interval, lookback, prefix, use_datetime):
         MarketDataModel(data_path, ASSET_LIST, interval, lookback, True),
         MarketDataView(),
     )
-    data_control.main()
+    cloud_signal_control = CloudSignalControl(
+        CloudModel(data_path, ASSET_LIST, use_datetime),
+        CloudSignalView(),
+    )
+    tkx_signal_control = TKxSignalControl(
+        TKxSignalModel(data_path, ASSET_LIST, use_datetime),
+        TKxSignalView(),
+    )
+    chikou_signal_control = ChikouSignalControl(
+        ChikouSignalModel(data_path, ASSET_LIST, use_datetime),
+        ChikouSignalView(),
+    )
 
-    CloudControl(CloudModel(data_path, ASSET_LIST, use_datetime), CloudView()).main()
+    for symbol in data_control.getAssetList():
+        ichimoku_data = data_control.process_symbol(symbol)
+        if ichimoku_data is None:
+            continue
+        cloud_signal_control.process_dataframe(symbol, ichimoku_data)
+        tkx_signal_control.process_dataframe(symbol, ichimoku_data)
+        chikou_signal_control.process_dataframe(symbol, ichimoku_data)
+
     CloudAggregatorControl(
         CloudAggregatorModel(
             data_path,
@@ -93,7 +111,6 @@ def _run_timeframe(suffix, folder, interval, lookback, prefix, use_datetime):
         CloudAggregatorView(),
     ).main()
 
-    TKxControl(TKxModel(data_path, ASSET_LIST, use_datetime), TKxView()).main()
     TKxAggregatorControl(
         TKxAggregatorModel(
             data_path,
@@ -106,7 +123,6 @@ def _run_timeframe(suffix, folder, interval, lookback, prefix, use_datetime):
         TKxAggregatorView(),
     ).main()
 
-    ChikouControl(ChikouModel(data_path, ASSET_LIST, use_datetime), ChikouView()).main()
     ChikouAggregatorControl(
         ChikouAggregatorModel(
             data_path,

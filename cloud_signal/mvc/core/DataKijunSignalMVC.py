@@ -1,6 +1,10 @@
 import pandas as pd
+import numpy as np
 from abc import abstractclassmethod, ABC
 import logging
+
+from cloud_signal.mvc.core._csv_utils import write_latest_row
+
 logger = logging.getLogger(__name__)
 
 
@@ -126,22 +130,17 @@ class DataKijunSignal(DataOHLC):
         return __newList
 
     def getKijunDirection(self, __curKijun, __preKijun):
-        __data = []
-        __curDirection = None
-        for __i in range(len(__preKijun)):
-            if pd.isna(__preKijun.iloc[__i]):
-                __data.append(__preKijun.iloc[__i])
-            elif pd.isna(__curKijun.iloc[__i]):
-                __data.append(__curKijun.iloc[__i])
-            elif __curKijun.iloc[__i] > __preKijun.iloc[__i]:
-                __curDirection = 1
-                __data.append(1)
-            elif __curKijun.iloc[__i] < __preKijun.iloc[__i]:
-                __curDirection = -1
-                __data.append(-1)
-            else:
-                __data.append(__curDirection)
-        return __data
+        current = __curKijun.to_numpy()
+        previous = __preKijun.to_numpy()
+        valid = ~pd.isna(current) & ~pd.isna(previous)
+        direction_updates = np.full(len(current), np.nan)
+        direction_updates[valid & (current > previous)] = 1
+        direction_updates[valid & (current < previous)] = -1
+        directions = (
+            pd.Series(direction_updates).ffill().to_numpy(copy=True)
+        )
+        directions[~valid] = np.nan
+        return directions.tolist()
 
     def getReturn(self, __curClose, __preClose):
         return __curClose / __preClose - 1
@@ -151,6 +150,9 @@ class DataKijunSignal(DataOHLC):
         __data.to_csv(
             self.csvPath + self.symbol + csvSuffix, columns=header, index=False
         )
+        write_latest_row(
+            __data[header], self.csvPath + self.symbol + csvSuffix
+        )
 
     def setColumnsSaveCsv_use_datetime_format(
         self, __data, csvSuffix="_kijunCount.csv"
@@ -158,6 +160,9 @@ class DataKijunSignal(DataOHLC):
         header = ["Datetime", "Kijun Direction", "Kijun Signal Count"]
         __data.to_csv(
             self.csvPath + self.symbol + csvSuffix, columns=header, index=False
+        )
+        write_latest_row(
+            __data[header], self.csvPath + self.symbol + csvSuffix
         )
 
     def readLocalCsvData(self, symbols, __csvPath):

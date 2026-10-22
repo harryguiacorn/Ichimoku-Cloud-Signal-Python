@@ -1,6 +1,9 @@
+import numpy as np
 import pandas as pd
 from abc import abstractclassmethod, ABC
 import logging
+
+from cloud_signal.mvc.core._csv_utils import write_latest_row
 
 logger = logging.getLogger(__name__)
 
@@ -220,24 +223,24 @@ class DataCloudSignal(DataOHLC):
         __newList = []
         __cloudDirectionCount = None
         __curCloudDirection = None
-        for __i in range(len(__cloudDirectionList)):
-            if pd.isna(__cloudDirectionList.iloc[__i]):
+        for direction in __cloudDirectionList.to_numpy():
+            if pd.isna(direction):
                 # print(
                 #     "--------- __cloudDirectionList.iloc[__i] ---------",
                 #     __cloudDirectionList.iloc[__i],
                 # )
-                __cloudDirectionCount = __cloudDirectionList.iloc[__i]
+                __cloudDirectionCount = direction
             elif __curCloudDirection is None:
                 # print("--------- __curCloudDirection is None ---------")
-                __curCloudDirection = __cloudDirectionList.iloc[__i]
+                __curCloudDirection = direction
                 __cloudDirectionCount = 0 if __curCloudDirection == 0 else 1
-            elif not __cloudDirectionList.iloc[__i] == __curCloudDirection:
+            elif direction != __curCloudDirection:
                 # print(
                 #     "--------- not __cloudDirectionList.iloc[__i] == __curCloudDirection ---------",
-                #     __cloudDirectionList.iloc[__i],
+                #     direction,
                 #     __curCloudDirection,
                 # )
-                __curCloudDirection = __cloudDirectionList.iloc[__i]
+                __curCloudDirection = direction
                 __cloudDirectionCount = 0 if __curCloudDirection == 0 else 1
             elif __curCloudDirection == 0:
                 __cloudDirectionCount = 0
@@ -251,41 +254,42 @@ class DataCloudSignal(DataOHLC):
         return __newList
 
     def getCloudDirection(self, __close, __senkou_span_a, __senkou_span_b):
-        __data = []
-        __curDirection = None
-        # print(__senkou_span_a)
-        for __i in range(len(__senkou_span_b)):
-            if pd.isna(__senkou_span_b.iloc[__i]):
-                # pass alone senkou span b NaN back to column
-                # __data.append(__senkou_span_b.iloc[__i])
+        close = __close.to_numpy()
+        span_a = __senkou_span_a.to_numpy()
+        span_b = __senkou_span_b.to_numpy()
+        valid = ~pd.isna(span_a) & ~pd.isna(span_b)
+        above = valid & (close > span_a) & (close > span_b)
+        below = valid & (close < span_a) & (close < span_b)
+        return np.select([above, below], [1, -1], default=0).tolist()
 
-                # pass na as 0 if lack of data, e.g. monthly data
-                __data.append(0)
-            elif pd.isna(__senkou_span_a.iloc[__i]):
-                # __data.append(__senkou_span_b.iloc[__i])
+    def process_dataframe(self, data):
+        date_column = "Datetime" if self.use_datetime_format else "Date"
+        if date_column not in data.columns:
+            raise ValueError(
+                f"Input DataFrame must include a {date_column!r} column"
+            )
 
-                # pass na as 0 if lack of data, e.g. monthly data
-                __data.append(0)
-            elif (
-                # Close is above the cloud
-                __close.iloc[__i] > __senkou_span_a.iloc[__i]
-                and __close.iloc[__i] > __senkou_span_b.iloc[__i]
-            ):
-                __curDirection = 1
-                __data.append(__curDirection)
-            elif (
-                # Close is below the cloud
-                __close.iloc[__i] < __senkou_span_a.iloc[__i]
-                and __close.iloc[__i] < __senkou_span_b.iloc[__i]
-            ):
-                __curDirection = -1
-                __data.append(__curDirection)
-            else:
-                # Close is within cloud
-                __curDirection = 0
-                __data.append(__curDirection)
-        # print("getCloudDirection :: Cloud direction::", __data)
-        return __data
+        data = data.copy()
+        data.index = data[date_column]
+        data["Cloud Signal"] = self.getCloudDirection(
+            data["Close"], data["senkou_span_a"], data["senkou_span_b"]
+        )
+        data["Close"] = data["Close"].round(2)
+        data["Cloud Signal Count"] = self.getCloudSignalCount(
+            data["Cloud Signal"]
+        )
+        data["Cloud Signal"] = data["Cloud Signal"].astype("int64")
+        data["Cloud Signal Count"] = data["Cloud Signal Count"].astype(
+            "int64"
+        )
+        if "chikou_span" in data.columns:
+            data.drop("chikou_span", axis=1, inplace=True)
+
+        if self.use_datetime_format:
+            self.setColumnsSaveCsv_use_datetime_format(data)
+        else:
+            self.setColumnsSaveCsv(data)
+        return data
 
     def setColumnsSaveCsv(
         self, __data: pd.DataFrame, csvSuffix="_cloudCount.csv"
@@ -302,6 +306,9 @@ class DataCloudSignal(DataOHLC):
         __data.to_csv(
             self.csvPath + self.symbol + csvSuffix, columns=header, index=False
         )
+        write_latest_row(
+            __data[header], self.csvPath + self.symbol + csvSuffix
+        )
 
     def setColumnsSaveCsv_use_datetime_format(
         self, __data, csvSuffix="_cloudCount.csv"
@@ -317,6 +324,9 @@ class DataCloudSignal(DataOHLC):
         ]
         __data.to_csv(
             self.csvPath + self.symbol + csvSuffix, columns=header, index=False
+        )
+        write_latest_row(
+            __data[header], self.csvPath + self.symbol + csvSuffix
         )
 
     def readLocalCsvData(self, symbols, __csvPath):
@@ -441,6 +451,14 @@ class Control(object):
 
     def getDataOHLC(self):
         self.model.getDataOHLC()
+
+    def process_dataframe(self, symbol, data):
+        processor = DataCloudSignal(
+            symbol,
+            self.model.csvPath,
+            self.model.use_datetime_format,
+        )
+        return processor.process_dataframe(data)
 
     def getBatchLocalData(self):
         self.model.getBatchLocalData()

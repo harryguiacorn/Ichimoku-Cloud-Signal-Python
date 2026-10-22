@@ -38,7 +38,7 @@ class Model(object):
             usecols=["symbol"],
         )  # CSV with stock symbols and names
 
-        logger.info(f"{self.html_title} Symbols:\n {df_symbols}")
+        logger.debug("%s Symbols:\n%s", self.html_title, df_symbols)
 
         # return
 
@@ -46,7 +46,7 @@ class Model(object):
             self.dataFilePathList
         )  # CSV with additional data
 
-        logger.info(f"Data:\n{df_data}")
+        logger.debug("Data:\n%s", df_data)
 
         # # Assuming the stock symbol is in a column named 'symbol' in both dataframes
         # # Perform a merge to match rows based on the 'symbol' column
@@ -62,7 +62,7 @@ class Model(object):
 
         logger.info(f"Multi Timeframe Cloud and TKx Signals Merged\n\n")
 
-        logger.info(f"{self.symbolPathList}\n{df_merged}")
+        logger.debug("%s\n%s", self.symbolPathList, df_merged)
 
         return df_merged
 
@@ -112,8 +112,10 @@ class Model(object):
         logger.info(
             f"Saved data to: {self.outputMergePath} {self.outputMergePath}.html\n"
         )
-        logger.info(
-            f"----------- {self.html_title} Cloud and TKx Sum Score Multi Timeframe Final View -----------\n {__df}"
+        logger.debug(
+            "----------- %s Cloud and TKx Sum Score Multi Timeframe Final View -----------\n%s",
+            self.html_title,
+            __df,
         )
         return __df
 

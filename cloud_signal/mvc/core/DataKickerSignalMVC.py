@@ -1,6 +1,9 @@
+import numpy as np
 import pandas as pd
 from abc import abstractclassmethod, ABC
 import logging
+
+from cloud_signal.mvc.core._csv_utils import write_latest_row
 
 logger = logging.getLogger(__name__)
 
@@ -59,7 +62,7 @@ class DataKickerSignal(DataOHLC):
                 # Try parsing dates; if parsing fails, leave values as-is but avoid AttributeError
                 try:
                     __data["Date"] = pd.to_datetime(
-                        __data["Date"], errors="coerce", infer_datetime_format=True
+                        __data["Date"], errors="coerce", format="mixed"
                     )
                 except Exception:
                     logger.debug(
@@ -96,49 +99,43 @@ class DataKickerSignal(DataOHLC):
         __data.drop(__data[(__data["Kicker"] == 0)].index, inplace=True)
 
     def getKickerSignal(self, __data, minBodyPerc1=0, minBodyPerc2=0):
-        __lKicker = []
-        for i in range(len(__data)):
-            __signal = 0
-            if i > 0:
-                __preClose = __data["Close"].iloc[i - 1]
-                __preOpen = __data["Open"].iloc[i - 1]
-                __preHigh = __data["High"].iloc[i - 1]
-                __preLow = __data["Low"].iloc[i - 1]
-                __curClose = __data["Close"].iloc[i]
-                __curOpen = __data["Open"].iloc[i]
-                __curHigh = __data["High"].iloc[i]
-                __curLow = __data["Low"].iloc[i]
-                # print("----------", __preClose, __preOpen, __preHigh, __preLow)
-                __preBodyPerc = (
-                    abs((__preClose - __preOpen) / (__preHigh - __preLow))
-                    if (__preHigh - __preLow) != 0
-                    else 0
-                )
-                __curBodyPerc = abs(
-                    (__curClose - __curOpen) / (__curHigh - __curLow)
-                    if (__curHigh - __curLow) != 0
-                    else 0
-                )
-                # print(__preBodyPerc, __curBodyPerc)
-                if (
-                    __preClose < __preOpen
-                    and __curClose > __curOpen
-                    and __preOpen < __curOpen
-                    and __preBodyPerc > minBodyPerc1
-                    and __curBodyPerc > minBodyPerc2
-                ):
-                    __signal = 1
-                elif (
-                    __preClose > __preOpen
-                    and __curClose < __curOpen
-                    and __preOpen > __curOpen
-                    and __preBodyPerc > minBodyPerc1
-                    and __curBodyPerc > minBodyPerc2
-                ):
-                    __signal = -1
-            __lKicker.append(__signal)
-        # print(__lKicker)
-        return __lKicker
+        close = __data["Close"].to_numpy()
+        open_ = __data["Open"].to_numpy()
+        high = __data["High"].to_numpy()
+        low = __data["Low"].to_numpy()
+
+        previous_range = high[:-1] - low[:-1]
+        current_range = high[1:] - low[1:]
+        previous_body = np.divide(
+            np.abs(close[:-1] - open_[:-1]),
+            previous_range,
+            out=np.zeros_like(previous_range, dtype=float),
+            where=previous_range != 0,
+        )
+        current_body = np.divide(
+            np.abs(close[1:] - open_[1:]),
+            current_range,
+            out=np.zeros_like(current_range, dtype=float),
+            where=current_range != 0,
+        )
+
+        bullish = (
+            (close[:-1] < open_[:-1])
+            & (close[1:] > open_[1:])
+            & (open_[:-1] < open_[1:])
+            & (previous_body > minBodyPerc1)
+            & (current_body > minBodyPerc2)
+        )
+        bearish = (
+            (close[:-1] > open_[:-1])
+            & (close[1:] < open_[1:])
+            & (open_[:-1] > open_[1:])
+            & (previous_body > minBodyPerc1)
+            & (current_body > minBodyPerc2)
+        )
+        signals = np.zeros(len(close), dtype="int64")
+        signals[1:] = np.where(bullish, 1, np.where(bearish, -1, 0))
+        return signals.tolist()
 
     def getReturn(self, __curClose, __nxtClose):
         # print(__curClose, __nxtClose)
@@ -148,6 +145,9 @@ class DataKickerSignal(DataOHLC):
         header = ["Date", "Kicker"]
         __data.to_csv(
             self.csvPath + self.symbol + csvSuffix, columns=header, index=False
+        )
+        write_latest_row(
+            __data[header], self.csvPath + self.symbol + csvSuffix
         )
 
     def readLocalCsvData(self, symbols, __csvPath):

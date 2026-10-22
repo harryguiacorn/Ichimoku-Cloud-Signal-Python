@@ -2,6 +2,7 @@ import os
 
 import pandas as pd
 from cloud_signal.mvc.html_creator import TableGenerator
+from cloud_signal.mvc.core._csv_utils import latest_csv_path
 
 
 class Model(object):
@@ -23,9 +24,11 @@ class Model(object):
             .str.strip()
         )
         rows = []
+        date_column = "Date"
         for _, asset in assets.iterrows():
             symbol = asset["symbol"]
             path = os.path.join(self.csvPath, f"{symbol}_chikouCount.csv")
+            path = latest_csv_path(path)
             if not os.path.exists(path):
                 continue
             data = pd.read_csv(path)
@@ -54,15 +57,7 @@ class Model(object):
             f"{self.prefix} Chikou Count",
             f"{self.prefix} Chikou State",
         ]
-        if (
-            rows
-            and isinstance(rows[0][0], str)
-            and "Datetime"
-            in pd.read_csv(
-                os.path.join(self.csvPath, f"{rows[0][1]}_chikouCount.csv"),
-                nrows=0,
-            ).columns
-        ):
+        if date_column == "Datetime":
             columns[0] = "Datetime"
         result = pd.DataFrame(rows, columns=columns)
         if not result.empty:

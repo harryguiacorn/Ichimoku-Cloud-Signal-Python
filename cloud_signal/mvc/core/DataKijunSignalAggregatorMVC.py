@@ -2,6 +2,7 @@ import pandas as pd
 from cloud_signal.mvc import Util
 from typing import Dict
 import logging
+from cloud_signal.mvc.core._csv_utils import latest_csv_path
 
 logger = logging.getLogger(__name__)
 
@@ -45,6 +46,7 @@ class Model(object):
         for __symbol in symbols:
             try:
                 __filePath = __csvPath + __symbol + __suffix + ".csv"
+                __filePath = latest_csv_path(__filePath)
                 __df = pd.read_csv(__filePath)
             except FileNotFoundError:
                 logger.info(f"Error: {__filePath} not found")
@@ -68,6 +70,7 @@ class Model(object):
 
     def getLatestResultFromEachDataFrame(self):
         symbols = self.readAssetList(self.assetListPath)
+        symbol_names = dict(zip(symbols["symbol"], symbols["name"]))
         # print("------------------",symbols)
         dict_df = self.readLocalCsvData(
             symbols["symbol"], self.csvPath, "_kijunCount"
@@ -95,8 +98,7 @@ class Model(object):
                 __kijunConsecutiveCount = __value["Kijun Signal Count"].iloc[
                     -1
                 ]
-                __index = symbols["symbol"].index(__symbol)
-                __symbolName = symbols["name"][__index]
+                __symbolName = symbol_names[__symbol]
                 __date = __value["Date"].iloc[-1]
 
             except KeyError as e:
@@ -115,6 +117,7 @@ class Model(object):
 
     def getLatestResultFromEachDataFrame_use_datetime_format(self):
         symbols = self.readAssetList(self.assetListPath)
+        symbol_names = dict(zip(symbols["symbol"], symbols["name"]))
         # print("------------------",symbols)
         dict_df = self.readLocalCsvData(
             symbols["symbol"], self.csvPath, "_kijunCount"
@@ -134,8 +137,7 @@ class Model(object):
                 __kijunConsecutiveCount = __value["Kijun Signal Count"].iloc[
                     -1
                 ]
-                __index = symbols["symbol"].index(__symbol)
-                __symbolName = symbols["name"][__index]
+                __symbolName = symbol_names[__symbol]
                 __date = __value["Datetime"].iloc[-1]
 
             except KeyError as e:

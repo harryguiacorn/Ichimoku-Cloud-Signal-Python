@@ -65,14 +65,20 @@ class Model(object):
                     df_csv_each,
                     on=["Symbol", "Name"],  # , "Close"
                 )
-            logger.info(f"merge::df_csv1::\n{df_csv_each}")
-            logger.info(f"merge::combined_csv::\n {combined_csv} \n")
+            logger.debug(
+                "Merged timeframe %s rows=%s columns=%s; combined rows=%s columns=%s",
+                x,
+                len(df_csv_each),
+                len(df_csv_each.columns),
+                len(combined_csv),
+                len(combined_csv.columns),
+            )
 
         logger.info(
             f"Multi Timeframe Cloud Signals Merged: {self.outputMergePath}"
         )
         logger.info(f"combined_csv size::{combined_csv.shape}")
-        logger.info(f"combined_csv::\n{combined_csv}")
+        logger.debug("Merged timeframe result:\n%s", combined_csv)
 
         return combined_csv
 

@@ -2,6 +2,7 @@ import pandas as pd
 from typing import Dict
 from cloud_signal.mvc import Util
 import logging
+from cloud_signal.mvc.core._csv_utils import latest_csv_path
 
 logger = logging.getLogger(__name__)
 
@@ -56,6 +57,7 @@ class Model(object):
             __symbol_str = str(__symbol)
             try:
                 __filePath = __csvPath + __symbol_str + __suffix + ".csv"
+                __filePath = latest_csv_path(__filePath)
                 __df = pd.read_csv(__filePath)
             except FileNotFoundError:
                 missing_files.append(__filePath)
@@ -85,6 +87,7 @@ class Model(object):
 
     def getLatestResultFromEachDataFrame(self):
         symbols = self.readAssetList(self.assetListPath)
+        symbol_names = dict(zip(symbols["symbol"], symbols["name"]))
         # print("Table:\n:",symbols)
         dict_df = self.readLocalCsvData(
             symbols["symbol"], self.csvPath, "_cloudCount"
@@ -112,8 +115,7 @@ class Model(object):
                 __cloudConsecutiveCount = __value["Cloud Signal Count"].iloc[
                     -1
                 ]
-                __index = symbols["symbol"].index(__symbol)
-                __symbolName = symbols["name"][__index]
+                __symbolName = symbol_names[__symbol]
                 __date = __value["Date"].iloc[-1]
                 __close = __value["Close"].iloc[-1]
 
@@ -134,6 +136,7 @@ class Model(object):
 
     def getLatestResultFromEachDataFrame_use_datetime_format(self):
         symbols = self.readAssetList(self.assetListPath)
+        symbol_names = dict(zip(symbols["symbol"], symbols["name"]))
         # print("------------------",symbols)
         dict_df = self.readLocalCsvData(
             symbols["symbol"], self.csvPath, "_cloudCount"
@@ -161,8 +164,7 @@ class Model(object):
                 __cloudConsecutiveCount = __value["Cloud Signal Count"].iloc[
                     -1
                 ]
-                __index = symbols["symbol"].index(__symbol)
-                __symbolName = symbols["name"][__index]
+                __symbolName = symbol_names[__symbol]
                 __date = __value["Datetime"].iloc[-1]
                 __close = __value["Close"].iloc[-1]
 
