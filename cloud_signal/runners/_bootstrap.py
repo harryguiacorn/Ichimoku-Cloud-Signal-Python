@@ -9,6 +9,7 @@ Provides:
 
 from __future__ import annotations
 
+import atexit
 from collections.abc import Iterator
 from contextlib import contextmanager
 from functools import wraps
@@ -16,6 +17,7 @@ import logging
 import os
 import sys
 from os import path as os_path
+from threading import Lock
 from time import perf_counter
 from types import ModuleType
 from typing import Callable, Iterable, Optional, TypeVar
@@ -23,6 +25,67 @@ from typing import Callable, Iterable, Optional, TypeVar
 from cloud_signal.paths import LOG_DIR, PROJECT_ROOT
 
 _Result = TypeVar("_Result")
+_stage_timings: dict[str, tuple[int, float]] = {}
+_stage_timings_lock = Lock()
+_summary_registered = False
+
+
+def _record_stage_time(stage: str, elapsed: float) -> None:
+    with _stage_timings_lock:
+        calls, total = _stage_timings.get(stage, (0, 0.0))
+        _stage_timings[stage] = calls + 1, total + elapsed
+
+
+def _log_stage_summary() -> None:
+    logger = logging.getLogger(__name__)
+    with _stage_timings_lock:
+        timings = sorted(
+            _stage_timings.items(),
+            key=lambda item: item[1][1],
+            reverse=True,
+        )
+
+    if not timings:
+        logger.info("Workflow stage timing summary: no timed stages recorded")
+        return
+
+    stage_width = max(len("Stage"), *(len(stage) for stage, _ in timings))
+    calls_width = max(len("Calls"), 5)
+    time_width = max(len("Total time"), 10)
+    border = (
+        f"+-{'-' * stage_width}-+-{'-' * calls_width}-+-"
+        f"{'-' * time_width}-+"
+    )
+    rows = [
+        border,
+        f"| {'Stage'.ljust(stage_width)} "
+        f"| {'Calls'.rjust(calls_width)} "
+        f"| {'Total time'.rjust(time_width)} |",
+        border,
+    ]
+    total_elapsed = 0.0
+    for stage, (calls, elapsed) in timings:
+        total_elapsed += elapsed
+        rows.append(
+            f"| {stage.ljust(stage_width)} "
+            f"| {calls:>{calls_width}} "
+            f"| {elapsed:>{time_width}.2f}s |"
+        )
+    rows.append(border)
+    rows.append(
+        f"| {'TOTAL'.ljust(stage_width)} "
+        f"| {'':>{calls_width}} "
+        f"| {total_elapsed:>{time_width}.2f}s |"
+    )
+    rows.append(border)
+    logger.info("Workflow stage timing summary:\n%s", "\n".join(rows))
+
+
+def _register_stage_summary() -> None:
+    global _summary_registered
+    if not _summary_registered:
+        atexit.register(_log_stage_summary)
+        _summary_registered = True
 
 
 @contextmanager
@@ -31,10 +94,12 @@ def timed_stage(logger: logging.Logger, stage: str) -> Iterator[None]:
     try:
         yield
     finally:
+        elapsed = perf_counter() - started_at
+        _record_stage_time(stage, elapsed)
         logger.info(
             "%s finished in %.2f seconds",
             stage,
-            perf_counter() - started_at,
+            elapsed,
         )
 
 
@@ -120,6 +185,7 @@ def setup_runner_logging(
     # e.g. numexpr prints a startup INFO line about thread defaults.
     logging.getLogger("numexpr").setLevel(logging.WARNING)
 
+    _register_stage_summary()
     instrument_controller_mains(root)
 
     # If logging is already configured (root has handlers), do not reconfigure.

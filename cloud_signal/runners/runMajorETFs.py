@@ -65,7 +65,7 @@ from cloud_signal.runners._bootstrap import (
 )
 
 ensure_repo_root()
-setup_runner_logging(__name__, "MajorETFs")
+setup_runner_logging(__name__)
 logger = logging.getLogger(__name__)
 
 ASSET_LIST = "asset_list/MajorETFs.csv"
@@ -215,7 +215,7 @@ def _merge_chikou():
                 f"output/chikou/MajorETFs-chikou-{suffix}.csv"
                 for suffix in suffixes
             ],
-            "output/chikou/MajorETFs-chikou-merged.csv",
+            "output/sum/MajorETFs-chikou-merged.csv",
             [
                 [f"{prefix} Chikou Direction", f"{prefix} Chikou Count"]
                 for prefix in prefixes

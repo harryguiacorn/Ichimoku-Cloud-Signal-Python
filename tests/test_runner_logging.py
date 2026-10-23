@@ -3,8 +3,10 @@ import sys
 from types import ModuleType
 
 from cloud_signal.runners._bootstrap import (
+    _log_stage_summary,
     instrument_controller_mains,
     setup_runner_logging,
+    timed_stage,
 )
 
 
@@ -26,6 +28,31 @@ def test_controller_main_is_timed_once_and_keeps_return_value(caplog):
         in record.getMessage()
         for record in caplog.records
     ) == 1
+
+
+def test_stage_summary_logs_a_table(caplog):
+    logger = logging.getLogger("test.runner.summary")
+    with caplog.at_level(logging.INFO):
+        with timed_stage(logger, "market data fetch"):
+            pass
+        with timed_stage(logger, "signal aggregation"):
+            pass
+        _log_stage_summary()
+
+    summary = next(
+        record.getMessage()
+        for record in caplog.records
+        if "Workflow stage timing summary:" in record.getMessage()
+    )
+    assert "| Stage" in summary
+    assert "| Calls" in summary
+    assert "| Total time" in summary
+    assert "| market data fetch" in summary
+    assert "| signal aggregation" in summary
+    total_row = next(
+        line for line in summary.splitlines() if "| TOTAL" in line
+    )
+    assert total_row.rstrip().endswith("s |")
 
 
 def test_setup_runner_logging_adds_file_when_console_handler_exists(

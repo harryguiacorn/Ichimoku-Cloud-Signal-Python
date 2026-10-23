@@ -110,3 +110,45 @@ def test_partial_major_etfs_run_skips_multitimeframe_merges(monkeypatch):
 
     assert processed == ["1H", "D"]
     assert merged == []
+
+
+def test_chikou_final_merge_is_written_to_sum_directory(monkeypatch):
+    captured = {}
+
+    class FakeMergerModel:
+        def __init__(
+            self,
+            input_paths,
+            output_path,
+            direction_count_names,
+            score_names,
+            title,
+        ):
+            captured["input_paths"] = input_paths
+            captured["output_path"] = output_path
+            captured["title"] = title
+
+    class FakeMergerControl:
+        def __init__(self, model, view):
+            captured["model"] = model
+
+        def main(self):
+            pass
+
+    monkeypatch.setattr(
+        runMajorETFs, "ChikouMergerModel", FakeMergerModel
+    )
+    monkeypatch.setattr(
+        runMajorETFs, "ChikouMergerControl", FakeMergerControl
+    )
+
+    runMajorETFs._merge_chikou()
+
+    assert (
+        captured["output_path"]
+        == "output/sum/MajorETFs-chikou-merged.csv"
+    )
+    assert all(
+        path.startswith("output/chikou/")
+        for path in captured["input_paths"]
+    )

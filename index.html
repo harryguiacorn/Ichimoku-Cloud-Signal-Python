@@ -186,17 +186,17 @@
     <script src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
     <script>
         const marketRows = [
-            ["S&P 500", "output/sum/SPX500-sum-cloud-tkx-merged.csv.tabulator.html", "output/chikou/SPX500-chikou-merged.csv.tabulator.html"],
-            ["Nasdaq 100", "output/sum/Nasdaq100-sum-cloud-tkx-merged.csv.tabulator.html", "output/chikou/Nasdaq100-chikou-merged.csv.tabulator.html"],
-            ["Dow Jones 30", "output/sum/DowJones30-sum-cloud-tkx-merged.csv.tabulator.html", "output/chikou/DowJones30-chikou-merged.csv.tabulator.html"],
-            ["Russell 1000", "output/sum/Russell1000-sum-cloud-tkx-merged.csv.tabulator.html", "output/chikou/Russell1000-chikou-merged.csv.tabulator.html"],
-            ["Oanda", "output/sum/Oanda-sum-cloud-tkx-merged.csv.tabulator.html", "output/chikou/Oanda-chikou-merged.csv.tabulator.html"],
-            ["Kraken Cryptocurrency", "output/sum/Kraken-sum-cloud-tkx-merged.csv.tabulator.html", "output/chikou/Kraken-chikou-merged.csv.tabulator.html"],
-            ["FTSE 100", "output/sum/FTSE100-sum-cloud-tkx-merged.csv.tabulator.html", "output/chikou/FTSE100-chikou-merged.csv.tabulator.html"],
-            ["FTSE 250", "output/sum/FTSE250-sum-cloud-tkx-merged.csv.tabulator.html", "output/chikou/FTSE250-chikou-merged.csv.tabulator.html"],
-            ["Futures", "output/sum/Futures-sum-cloud-tkx-merged.csv.tabulator.html", "output/chikou/Futures-chikou-merged.csv.tabulator.html"],
-            ["Futures Currency", "output/sum/FuturesCurrency-sum-cloud-tkx-merged.csv.tabulator.html", "output/chikou/FuturesCurrency-chikou-merged.csv.tabulator.html"],
-            ["Hang Seng Index", "output/sum/HSI-sum-cloud-tkx-merged.csv.tabulator.html", "output/chikou/HSI-chikou-merged.csv.tabulator.html"]
+            ["S&P 500", "output/sum/SPX500-sum-cloud-tkx-merged.csv.tabulator.html", "output/sum/SPX500-chikou-merged.csv.tabulator.html"],
+            ["Nasdaq 100", "output/sum/Nasdaq100-sum-cloud-tkx-merged.csv.tabulator.html", "output/sum/Nasdaq100-chikou-merged.csv.tabulator.html"],
+            ["Dow Jones 30", "output/sum/DowJones30-sum-cloud-tkx-merged.csv.tabulator.html", "output/sum/DowJones30-chikou-merged.csv.tabulator.html"],
+            ["Russell 1000", "output/sum/Russell1000-sum-cloud-tkx-merged.csv.tabulator.html", "output/sum/Russell1000-chikou-merged.csv.tabulator.html"],
+            ["Oanda", "output/sum/Oanda-sum-cloud-tkx-merged.csv.tabulator.html", "output/sum/Oanda-chikou-merged.csv.tabulator.html"],
+            ["Kraken Cryptocurrency", "output/sum/Kraken-sum-cloud-tkx-merged.csv.tabulator.html", "output/sum/Kraken-chikou-merged.csv.tabulator.html"],
+            ["FTSE 100", "output/sum/FTSE100-sum-cloud-tkx-merged.csv.tabulator.html", "output/sum/FTSE100-chikou-merged.csv.tabulator.html"],
+            ["FTSE 250", "output/sum/FTSE250-sum-cloud-tkx-merged.csv.tabulator.html", "output/sum/FTSE250-chikou-merged.csv.tabulator.html"],
+            ["Futures", "output/sum/Futures-sum-cloud-tkx-merged.csv.tabulator.html", "output/sum/Futures-chikou-merged.csv.tabulator.html"],
+            ["Futures Currency", "output/sum/FuturesCurrency-sum-cloud-tkx-merged.csv.tabulator.html", "output/sum/FuturesCurrency-chikou-merged.csv.tabulator.html"],
+            ["Hang Seng Index", "output/sum/HSI-sum-cloud-tkx-merged.csv.tabulator.html", "output/sum/HSI-chikou-merged.csv.tabulator.html"]
         ].map(([market, cloud, chikou]) => ({ market, cloud, chikou }));
 
         const sectorRows = [
@@ -215,14 +215,14 @@
         ].map(([sector, cloud, chikou]) => ({
             sector,
             cloud: `output/sum/${cloud}-sum-cloud-tkx-merged.csv.tabulator.html`,
-            chikou: `output/chikou/${chikou}-chikou-merged.csv.tabulator.html`
+            chikou: `output/sum/${chikou}-chikou-merged.csv.tabulator.html`
         }));
 
         const majorEtfRows = [
             {
                 universe: "Institutional ETF & Index Basket",
                 cloud: "output/sum/MajorETFs-sum-cloud-tkx-merged.csv.tabulator.html",
-                chikou: "output/chikou/MajorETFs-chikou-merged.csv.tabulator.html"
+                chikou: "output/sum/MajorETFs-chikou-merged.csv.tabulator.html"
             }
         ];
 
