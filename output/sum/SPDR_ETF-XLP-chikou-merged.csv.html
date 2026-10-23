@@ -1,0 +1,595 @@
+
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="../../css/html_creator.css">
+          <title>XLP - Consumer Staples Chikou Scan</title>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+          <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+          <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
+          <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+          <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+          <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+      </head>
+      <body>
+        <nav class="scan-navigation" aria-label="Page navigation">
+          <a href="../../index.html">Home</a>
+          <button type="button" class="search-help-button" data-search-help-open>Filter guide</button>
+        </nav>
+        <h1>XLP - Consumer Staples Chikou Scan</h1>
+        <dialog class="search-help-dialog" data-search-help-dialog aria-labelledby="search-help-title">
+          <h2 id="search-help-title">Filter guide</h2>
+          <p>For numeric columns:</p>
+          <ul>
+            <li><code>1</code> matches exactly 1</li>
+            <li><code>&gt;1</code> or <code>1+</code> matches values greater than 1</li>
+            <li><code>0+</code> matches positive values; <code>0-</code> matches negative values</li>
+            <li><code>0-3</code> matches values from 0 through 3, inclusive</li>
+          </ul>
+          <p>Comparisons such as <code>&gt;=1</code>, <code>&lt;1</code>, and <code>&lt;=1</code> are also supported. Text searches match partial values, ignoring case.</p>
+          <form method="dialog"><button type="submit">Close</button></form>
+        </dialog>
+      <table class="table table-striped table-bordered" id="dataTable_1" border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Symbol<br>&nbsp;</th>
+      <th>Name<br>&nbsp;</th>
+      <th>Close<br>&nbsp;</th>
+      <th>1H<br>Count</th>
+      <th>1H<br>State</th>
+      <th>1D<br>Count</th>
+      <th>1D<br>State</th>
+      <th>1W<br>Count</th>
+      <th>1W<br>State</th>
+      <th>1M<br>Count</th>
+      <th>1M<br>State</th>
+      <th>Score<br>Sum</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ADM</td>
+      <td>Archer Daniels Midland</td>
+      <td>79.36</td>
+      <td>-27</td>
+      <td>below chikou</td>
+      <td>-9</td>
+      <td>below chikou</td>
+      <td>71</td>
+      <td>above chikou</td>
+      <td>8</td>
+      <td>above chikou</td>
+      <td>43</td>
+    </tr>
+    <tr>
+      <td>BG</td>
+      <td>Bunge Global</td>
+      <td>102.23</td>
+      <td>-29</td>
+      <td>below chikou</td>
+      <td>-22</td>
+      <td>below chikou</td>
+      <td>-13</td>
+      <td>below chikou</td>
+      <td>10</td>
+      <td>above chikou</td>
+      <td>-54</td>
+    </tr>
+    <tr>
+      <td>CHD</td>
+      <td>Church & Dwight</td>
+      <td>105.0</td>
+      <td>96</td>
+      <td>above chikou</td>
+      <td>8</td>
+      <td>above chikou</td>
+      <td>5</td>
+      <td>above chikou</td>
+      <td>1</td>
+      <td>above chikou</td>
+      <td>110</td>
+    </tr>
+    <tr>
+      <td>CL</td>
+      <td>Colgate-Palmolive</td>
+      <td>93.40</td>
+      <td>91</td>
+      <td>above chikou</td>
+      <td>6</td>
+      <td>above chikou</td>
+      <td>5</td>
+      <td>above chikou</td>
+      <td>-2</td>
+      <td>below chikou</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>CLX</td>
+      <td>Clorox</td>
+      <td>84.77</td>
+      <td>6</td>
+      <td>above chikou</td>
+      <td>-35</td>
+      <td>below chikou</td>
+      <td>-15</td>
+      <td>below chikou</td>
+      <td>-18</td>
+      <td>below chikou</td>
+      <td>-62</td>
+    </tr>
+    <tr>
+      <td>COST</td>
+      <td>Costco</td>
+      <td>998.31</td>
+      <td>13</td>
+      <td>above chikou</td>
+      <td>9</td>
+      <td>above chikou</td>
+      <td>1</td>
+      <td>above chikou</td>
+      <td>191</td>
+      <td>above chikou</td>
+      <td>214</td>
+    </tr>
+    <tr>
+      <td>DG</td>
+      <td>Dollar General</td>
+      <td>132.12</td>
+      <td>7</td>
+      <td>above chikou</td>
+      <td>5</td>
+      <td>above chikou</td>
+      <td>3</td>
+      <td>above chikou</td>
+      <td>1</td>
+      <td>above chikou</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>DLTR</td>
+      <td>Dollar Tree</td>
+      <td>125.48</td>
+      <td>46</td>
+      <td>above chikou</td>
+      <td>5</td>
+      <td>above chikou</td>
+      <td>12</td>
+      <td>above chikou</td>
+      <td>4</td>
+      <td>above chikou</td>
+      <td>67</td>
+    </tr>
+    <tr>
+      <td>EL</td>
+      <td>Estée Lauder Companies (The)</td>
+      <td>103.66</td>
+      <td>5</td>
+      <td>above chikou</td>
+      <td>5</td>
+      <td>above chikou</td>
+      <td>7</td>
+      <td>above chikou</td>
+      <td>1</td>
+      <td>above chikou</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td>GIS</td>
+      <td>General Mills</td>
+      <td>32.57</td>
+      <td>7</td>
+      <td>above chikou</td>
+      <td>-24</td>
+      <td>below chikou</td>
+      <td>1</td>
+      <td>above chikou</td>
+      <td>-25</td>
+      <td>below chikou</td>
+      <td>-41</td>
+    </tr>
+    <tr>
+      <td>HRL</td>
+      <td>Hormel Foods</td>
+      <td>20.44</td>
+      <td>7</td>
+      <td>above chikou</td>
+      <td>-46</td>
+      <td>below chikou</td>
+      <td>-9</td>
+      <td>below chikou</td>
+      <td>-49</td>
+      <td>below chikou</td>
+      <td>-97</td>
+    </tr>
+    <tr>
+      <td>HSY</td>
+      <td>Hershey Company (The)</td>
+      <td>167.81</td>
+      <td>7</td>
+      <td>above chikou</td>
+      <td>-35</td>
+      <td>below chikou</td>
+      <td>-16</td>
+      <td>below chikou</td>
+      <td>-4</td>
+      <td>below chikou</td>
+      <td>-48</td>
+    </tr>
+    <tr>
+      <td>KDP</td>
+      <td>Keurig Dr Pepper</td>
+      <td>34.47</td>
+      <td>91</td>
+      <td>above chikou</td>
+      <td>7</td>
+      <td>above chikou</td>
+      <td>29</td>
+      <td>above chikou</td>
+      <td>6</td>
+      <td>above chikou</td>
+      <td>133</td>
+    </tr>
+    <tr>
+      <td>KHC</td>
+      <td>Kraft Heinz</td>
+      <td>23.5</td>
+      <td>74</td>
+      <td>above chikou</td>
+      <td>-23</td>
+      <td>below chikou</td>
+      <td>18</td>
+      <td>above chikou</td>
+      <td>-25</td>
+      <td>below chikou</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <td>KMB</td>
+      <td>Kimberly-Clark</td>
+      <td>106.64</td>
+      <td>85</td>
+      <td>above chikou</td>
+      <td>5</td>
+      <td>above chikou</td>
+      <td>20</td>
+      <td>above chikou</td>
+      <td>-12</td>
+      <td>below chikou</td>
+      <td>98</td>
+    </tr>
+    <tr>
+      <td>KO</td>
+      <td>Coca-Cola Company (The)</td>
+      <td>92.68</td>
+      <td>7</td>
+      <td>above chikou</td>
+      <td>8</td>
+      <td>above chikou</td>
+      <td>49</td>
+      <td>above chikou</td>
+      <td>195</td>
+      <td>above chikou</td>
+      <td>259</td>
+    </tr>
+    <tr>
+      <td>KR</td>
+      <td>Kroger</td>
+      <td>64.13</td>
+      <td>12</td>
+      <td>above chikou</td>
+      <td>29</td>
+      <td>above chikou</td>
+      <td>-19</td>
+      <td>below chikou</td>
+      <td>28</td>
+      <td>above chikou</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>KVUE</td>
+      <td>Kenvue</td>
+      <td>19.04</td>
+      <td>85</td>
+      <td>above chikou</td>
+      <td>5</td>
+      <td>above chikou</td>
+      <td>30</td>
+      <td>above chikou</td>
+      <td>3</td>
+      <td>above chikou</td>
+      <td>123</td>
+    </tr>
+    <tr>
+      <td>MDLZ</td>
+      <td>Mondelez International</td>
+      <td>62.74</td>
+      <td>6</td>
+      <td>above chikou</td>
+      <td>8</td>
+      <td>above chikou</td>
+      <td>26</td>
+      <td>above chikou</td>
+      <td>-16</td>
+      <td>below chikou</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <td>MKC</td>
+      <td>McCormick & Company</td>
+      <td>46.32</td>
+      <td>42</td>
+      <td>above chikou</td>
+      <td>-29</td>
+      <td>below chikou</td>
+      <td>-34</td>
+      <td>below chikou</td>
+      <td>-8</td>
+      <td>below chikou</td>
+      <td>-29</td>
+    </tr>
+    <tr>
+      <td>MNST</td>
+      <td>Monster Beverage</td>
+      <td>46.63</td>
+      <td>45</td>
+      <td>above chikou</td>
+      <td>6</td>
+      <td>above chikou</td>
+      <td>89</td>
+      <td>above chikou</td>
+      <td>78</td>
+      <td>above chikou</td>
+      <td>218</td>
+    </tr>
+    <tr>
+      <td>MO</td>
+      <td>Altria</td>
+      <td>73.83</td>
+      <td>7</td>
+      <td>above chikou</td>
+      <td>30</td>
+      <td>above chikou</td>
+      <td>136</td>
+      <td>above chikou</td>
+      <td>68</td>
+      <td>above chikou</td>
+      <td>241</td>
+    </tr>
+    <tr>
+      <td>PEP</td>
+      <td>PepsiCo</td>
+      <td>134.70</td>
+      <td>61</td>
+      <td>above chikou</td>
+      <td>-35</td>
+      <td>below chikou</td>
+      <td>-14</td>
+      <td>below chikou</td>
+      <td>-6</td>
+      <td>below chikou</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>PG</td>
+      <td>Procter & Gamble</td>
+      <td>156.84</td>
+      <td>7</td>
+      <td>above chikou</td>
+      <td>13</td>
+      <td>above chikou</td>
+      <td>5</td>
+      <td>above chikou</td>
+      <td>1</td>
+      <td>above chikou</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <td>PM</td>
+      <td>Philip Morris International</td>
+      <td>197.46</td>
+      <td>-22</td>
+      <td>below chikou</td>
+      <td>11</td>
+      <td>above chikou</td>
+      <td>39</td>
+      <td>above chikou</td>
+      <td>76</td>
+      <td>above chikou</td>
+      <td>104</td>
+    </tr>
+    <tr>
+      <td>SJM</td>
+      <td>J.M. Smucker Company (The)</td>
+      <td>127.81</td>
+      <td>85</td>
+      <td>above chikou</td>
+      <td>5</td>
+      <td>above chikou</td>
+      <td>22</td>
+      <td>above chikou</td>
+      <td>4</td>
+      <td>above chikou</td>
+      <td>116</td>
+    </tr>
+    <tr>
+      <td>STZ</td>
+      <td>Constellation Brands</td>
+      <td>132.02</td>
+      <td>96</td>
+      <td>above chikou</td>
+      <td>5</td>
+      <td>above chikou</td>
+      <td>-16</td>
+      <td>below chikou</td>
+      <td>-22</td>
+      <td>below chikou</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <td>SYY</td>
+      <td>Sysco</td>
+      <td>82.06</td>
+      <td>7</td>
+      <td>above chikou</td>
+      <td>1</td>
+      <td>above chikou</td>
+      <td>4</td>
+      <td>above chikou</td>
+      <td>17</td>
+      <td>above chikou</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <td>TGT</td>
+      <td>Target Corporation</td>
+      <td>152.38</td>
+      <td>6</td>
+      <td>above chikou</td>
+      <td>-17</td>
+      <td>below chikou</td>
+      <td>45</td>
+      <td>above chikou</td>
+      <td>3</td>
+      <td>above chikou</td>
+      <td>37</td>
+    </tr>
+    <tr>
+      <td>TSN</td>
+      <td>Tyson Foods</td>
+      <td>55.90</td>
+      <td>105</td>
+      <td>above chikou</td>
+      <td>8</td>
+      <td>above chikou</td>
+      <td>-14</td>
+      <td>below chikou</td>
+      <td>-2</td>
+      <td>below chikou</td>
+      <td>97</td>
+    </tr>
+    <tr>
+      <td>WMT</td>
+      <td>Walmart</td>
+      <td>117.80</td>
+      <td>7</td>
+      <td>above chikou</td>
+      <td>13</td>
+      <td>above chikou</td>
+      <td>-15</td>
+      <td>below chikou</td>
+      <td>112</td>
+      <td>above chikou</td>
+      <td>117</td>
+    </tr>
+  </tbody>
+</table>
+        <script>
+        const classifyCell = (cell, isStateColumn, isCloseColumn) => {
+          cell.classList.remove('highlight-positive', 'highlight-negative', 'highlight-neutral');
+          const text = cell.textContent.trim();
+          const normalized = text.toLowerCase();
+
+          if (isCloseColumn) return;
+
+          if (isStateColumn) {
+            if (normalized.startsWith('above')) {
+              cell.classList.add('highlight-positive');
+            } else if (normalized.startsWith('below')) {
+              cell.classList.add('highlight-negative');
+            }
+            return;
+          }
+
+          const numericText = text.replace(/,/g, '');
+          if (/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(numericText)) {
+            const value = Number(numericText);
+            if (value > 0) {
+              cell.classList.add('highlight-positive');
+            } else if (value < 0) {
+              cell.classList.add('highlight-negative');
+            } else {
+              cell.classList.add('highlight-neutral');
+            }
+          }
+        };
+
+        const wrapHeaderLabel = (label, columnIndex, isChikou) => {
+          const cleaned = String(label).trim();
+          if (!cleaned) return cleaned;
+
+          const firstWrapIndex = isChikou ? 1 : 2;
+          if (columnIndex >= firstWrapIndex) {
+            const parts = cleaned.split(/\s+/);
+            if (parts.length >= 2 && !['Symbol', 'Name', 'Close', 'Date'].includes(parts[0])) {
+              if (/^(1H|4H|1D|1W|1M|3M|6M|1Y)/.test(parts[0])) {
+                return `${parts[0]}<br>${parts.slice(1).join(' ')}`;
+              }
+              if (['Cloud', 'Chikou', 'TKx', 'Total', 'Score', 'Signal', 'Count', 'State', 'Direction'].includes(parts[0])) {
+                return `${parts[0]}<br>${parts.slice(1).join(' ')}`;
+              }
+            }
+          }
+          return cleaned;
+        };
+
+        $(document).ready(function() {
+          const searchHelpDialog = document.querySelector('[data-search-help-dialog]');
+          document.querySelector('[data-search-help-open]').addEventListener('click', () => searchHelpDialog.showModal());
+          searchHelpDialog.addEventListener('click', (event) => {
+            if (event.target !== searchHelpDialog) return;
+            const bounds = searchHelpDialog.getBoundingClientRect();
+            if (
+              event.clientX < bounds.left || event.clientX > bounds.right ||
+              event.clientY < bounds.top || event.clientY > bounds.bottom
+            ) {
+              searchHelpDialog.close();
+            }
+          });
+
+          const isChikou = $('#dataTable_1 thead th').toArray().some((th) => th.textContent.includes('Chikou'));
+          $('#dataTable_1 thead th').each(function(index) {
+            const raw = $(this).text().trim();
+            const wrapped = wrapHeaderLabel(raw, index, isChikou);
+            if (wrapped !== raw) {
+              $(this).html(wrapped);
+            }
+          });
+
+          const table = $('#dataTable_1').DataTable({
+            order: [[$('#dataTable_1 thead th').length - 1, 'desc']],
+            drawCallback: function() {
+              const stateColumnIndexes = $('#dataTable_1 thead th')
+                .toArray()
+                .map((th, index) => th.textContent.toLowerCase().includes('state') ? index : null)
+                .filter(index => index !== null);
+              const closeColumnIndexes = $('#dataTable_1 thead th')
+                .toArray()
+                .map((th, index) => th.textContent.toLowerCase().includes('close') ? index : null)
+                .filter(index => index !== null);
+
+              $('#dataTable_1 tbody tr').each(function() {
+                $(this).find('td').each(function(index) {
+                  classifyCell(
+                    this,
+                    stateColumnIndexes.includes(index),
+                    closeColumnIndexes.includes(index)
+                  );
+                });
+              });
+            },
+            initComplete: function() {
+              this.api().draw(false);
+            }
+          });
+        });
+        </script>
+        </table>
+        
+        <footer>
+          <p>Last updated: 2026-10-23 23:05:23 [UK]<br></p>
+        </footer>
+        </body>
+        </html>
+        

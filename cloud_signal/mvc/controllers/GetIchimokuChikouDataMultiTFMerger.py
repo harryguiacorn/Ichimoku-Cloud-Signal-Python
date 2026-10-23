@@ -42,7 +42,7 @@ def main(asset_name, timeframes, run_merger=True):
 
     model = Model(
         input_paths,
-        f"output/chikou/{asset_name}-chikou-merged.csv",
+        f"output/sum/{asset_name}-chikou-merged.csv",
         direction_count_names,
         ["Chikou Score Sum"],
         f"{MARKET_NAMES.get(asset_name, asset_name)} Chikou Scan",

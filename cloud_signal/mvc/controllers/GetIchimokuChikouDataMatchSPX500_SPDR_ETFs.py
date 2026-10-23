@@ -24,7 +24,7 @@ def main(run_scan=True):
     if not run_scan:
         return
 
-    source_path = "output/chikou/SPX500-chikou-merged.csv"
+    source_path = "output/sum/SPX500-chikou-merged.csv"
     for ticker, sector_name in ETF_SECTORS:
         holdings_path = f"asset_list/SPDR_ETF/index-holdings-{ticker.lower()}.csv"
         if not os.path.exists(holdings_path) or not os.path.exists(source_path):
@@ -33,7 +33,7 @@ def main(run_scan=True):
         holdings = pd.read_csv(holdings_path, skiprows=1, usecols=["Symbol"])
         scan = pd.read_csv(source_path)
         result = scan[scan["Symbol"].isin(holdings["Symbol"])]
-        output_path = f"output/chikou/SPDR_ETF-{ticker}-chikou-merged.csv"
+        output_path = f"output/sum/SPDR_ETF-{ticker}-chikou-merged.csv"
         result.to_csv(output_path, index=False)
 
         hidden_columns = [

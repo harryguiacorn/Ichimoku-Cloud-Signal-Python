@@ -14,7 +14,7 @@ def main(run_merger=True):
                 "output/chikou/DowJones30-chikou-W.csv",
                 "output/chikou/DowJones30-chikou-M.csv",
             ],
-            "output/chikou/DowJones30-chikou-merged.csv",
+            "output/sum/DowJones30-chikou-merged.csv",
             [
                 ["1H Chikou Direction", "1H Chikou Count"],
                 ["1D Chikou Direction", "1D Chikou Count"],
