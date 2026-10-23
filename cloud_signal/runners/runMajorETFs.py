@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+from collections.abc import Iterable
 
 from cloud_signal.mvc.core.DataChikouSignalAggregatorMVC import (
     Control as ChikouAggregatorControl,
@@ -57,7 +58,11 @@ from cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger import (
     Model as TKxMergerModel,
     View as TKxMergerView,
 )
-from cloud_signal.runners._bootstrap import ensure_repo_root, setup_runner_logging
+from cloud_signal.runners._bootstrap import (
+    ensure_repo_root,
+    setup_runner_logging,
+    timed_stage,
+)
 
 ensure_repo_root()
 setup_runner_logging(__name__, "MajorETFs")
@@ -91,48 +96,59 @@ def _run_timeframe(suffix, folder, interval, lookback, prefix, use_datetime):
         ChikouSignalView(),
     )
 
-    for symbol in data_control.getAssetList():
-        ichimoku_data = data_control.process_symbol(symbol)
-        if ichimoku_data is None:
-            continue
-        cloud_signal_control.process_dataframe(symbol, ichimoku_data)
-        tkx_signal_control.process_dataframe(symbol, ichimoku_data)
-        chikou_signal_control.process_dataframe(symbol, ichimoku_data)
+    symbols = data_control.getAssetList()
+    with timed_stage(logger, f"{prefix} market data fetch"):
+        market_data = data_control.model.getDataOHLC()
 
-    CloudAggregatorControl(
-        CloudAggregatorModel(
-            data_path,
-            ASSET_LIST,
-            "output/cloud/",
-            f"MajorETFs-cloud-{suffix}",
-            prefix,
-            use_datetime,
-        ),
-        CloudAggregatorView(),
-    ).main()
+    processed_symbols = 0
+    with timed_stage(logger, f"{prefix} indicator and signal processing"):
+        for symbol in symbols:
+            ichimoku_data = data_control.process_data(
+                symbol, market_data.get(symbol)
+            )
+            if ichimoku_data is None:
+                continue
+            cloud_signal_control.process_dataframe(symbol, ichimoku_data)
+            tkx_signal_control.process_dataframe(symbol, ichimoku_data)
+            chikou_signal_control.process_dataframe(symbol, ichimoku_data)
+            processed_symbols += 1
+    logger.info("%s processed %d symbols", prefix, processed_symbols)
 
-    TKxAggregatorControl(
-        TKxAggregatorModel(
-            data_path,
-            ASSET_LIST,
-            "output/tkx/",
-            f"MajorETFs-tkx-{suffix}",
-            prefix,
-            use_datetime,
-        ),
-        TKxAggregatorView(),
-    ).main()
+    with timed_stage(logger, f"{prefix} signal aggregation"):
+        CloudAggregatorControl(
+            CloudAggregatorModel(
+                data_path,
+                ASSET_LIST,
+                "output/cloud/",
+                f"MajorETFs-cloud-{suffix}",
+                prefix,
+                use_datetime,
+            ),
+            CloudAggregatorView(),
+        ).main()
 
-    ChikouAggregatorControl(
-        ChikouAggregatorModel(
-            data_path,
-            ASSET_LIST,
-            "output/chikou/",
-            f"MajorETFs-chikou-{suffix}",
-            prefix,
-        ),
-        ChikouAggregatorView(),
-    ).main()
+        TKxAggregatorControl(
+            TKxAggregatorModel(
+                data_path,
+                ASSET_LIST,
+                "output/tkx/",
+                f"MajorETFs-tkx-{suffix}",
+                prefix,
+                use_datetime,
+            ),
+            TKxAggregatorView(),
+        ).main()
+
+        ChikouAggregatorControl(
+            ChikouAggregatorModel(
+                data_path,
+                ASSET_LIST,
+                "output/chikou/",
+                f"MajorETFs-chikou-{suffix}",
+                prefix,
+            ),
+            ChikouAggregatorView(),
+        ).main()
 
 
 def _merge_cloud_and_tkx():
@@ -195,7 +211,10 @@ def _merge_chikou():
     prefixes = [prefix for *_, prefix, _ in TIMEFRAMES]
     ChikouMergerControl(
         ChikouMergerModel(
-            [f"output/chikou/MajorETFs-chikou-{suffix}.csv" for suffix in suffixes],
+            [
+                f"output/chikou/MajorETFs-chikou-{suffix}.csv"
+                for suffix in suffixes
+            ],
             "output/chikou/MajorETFs-chikou-merged.csv",
             [
                 [f"{prefix} Chikou Direction", f"{prefix} Chikou Count"]
@@ -208,13 +227,44 @@ def _merge_chikou():
     ).main()
 
 
-def main():
+def main(timeframes: Iterable[str] | None = None):
     logger.info("Major ETFs scan begins")
-    for timeframe in TIMEFRAMES:
+    selected = _select_timeframes(timeframes)
+    for timeframe in selected:
         _run_timeframe(*timeframe)
-    _merge_cloud_and_tkx()
-    _merge_chikou()
+    if len(selected) == len(TIMEFRAMES):
+        with timed_stage(logger, "Major ETFs cloud and TKx merge"):
+            _merge_cloud_and_tkx()
+        with timed_stage(logger, "Major ETFs Chikou merge"):
+            _merge_chikou()
+    else:
+        logger.info(
+            "Skipping multi-timeframe merges because only a subset of "
+            "timeframes was selected"
+        )
     logger.info("Major ETFs Cloud and Chikou scans completed")
+
+
+def _select_timeframes(timeframes: Iterable[str] | None):
+    if timeframes is None:
+        return TIMEFRAMES
+
+    if isinstance(timeframes, str):
+        timeframes = [timeframes]
+    requested = {timeframe.lower() for timeframe in timeframes}
+    available = {timeframe[1].lower() for timeframe in TIMEFRAMES}
+    unknown = requested - available
+    if unknown:
+        raise ValueError(
+            f"Unknown Major ETFs timeframe(s): {', '.join(sorted(unknown))}"
+        )
+    if not requested:
+        raise ValueError("At least one timeframe must be selected")
+    return tuple(
+        timeframe
+        for timeframe in TIMEFRAMES
+        if timeframe[1].lower() in requested
+    )
 
 
 if __name__ == "__main__":

@@ -28,22 +28,27 @@
         }
 
         main {
-            width: min(1180px, calc(100% - 32px));
+            width: min(520px, calc(100% - 32px));
             margin: 0 auto;
             padding: 48px 0 64px;
         }
 
         header {
             display: flex;
+            flex-wrap: wrap;
             align-items: end;
             justify-content: space-between;
             gap: 24px;
             margin-bottom: 30px;
         }
 
+        header > div {
+            flex: 1 0 100%;
+        }
+
         h1 {
             margin: 0;
-            font-size: clamp(2rem, 5vw, 4rem);
+            font-size: clamp(2rem, 5vw, 2.875rem);
             line-height: .95;
             letter-spacing: 0;
         }
@@ -70,6 +75,7 @@
             display: flex;
             align-items: center;
             gap: 20px;
+            margin-left: auto;
             font-family: "Trebuchet MS", sans-serif;
             font-size: .9rem;
         }
@@ -134,7 +140,7 @@
 
         @media (max-width: 650px) {
             main {
-                width: calc(100% - 20px);
+                width: min(520px, calc(100% - 20px));
                 padding-top: 28px;
             }
 
@@ -143,6 +149,8 @@
             }
 
             .header-links {
+                width: 100%;
+                justify-content: flex-end;
                 margin-top: 18px;
             }
         }
@@ -226,9 +234,9 @@
             pagination: true,
             paginationSize: 25,
             columns: [
-                { title: firstColumn, field: firstColumn.toLowerCase(), headerSort: false, minWidth: 240 },
-                { title: "Cloud Scan", field: "cloud", formatter: linkFormatter, headerSort: false },
-                { title: "Chikou Scan", field: "chikou", formatter: linkFormatter, headerSort: false }
+                { title: firstColumn, field: firstColumn.toLowerCase(), headerSort: false, minWidth: 240, widthGrow: 1 },
+                { title: "Cloud Scan", field: "cloud", formatter: linkFormatter, headerSort: false, widthGrow: 2 },
+                { title: "Chikou Scan", field: "chikou", formatter: linkFormatter, headerSort: false, widthGrow: 2 }
             ]
         });
         makeTable("#market-scans", marketRows, "Market");

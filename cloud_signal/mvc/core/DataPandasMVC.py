@@ -464,6 +464,9 @@ class Control(object):
 
     def process_symbol(self, symbol):
         data = self.model.getSymbolData(symbol)
+        return self.process_data(symbol, data)
+
+    def process_data(self, symbol, data):
         if data is None:
             return None
         ichimoku_data = self.model.calculateIchimokuData(data)
