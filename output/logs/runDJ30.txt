@@ -1,9 +1,9 @@
-2026-10-29 01:00:08,485 INFO __main__: Shim: launching scripts.runDJ30
-2026-10-29 01:00:08,496 INFO cloud_signal.runners.runDJ30: Dow Jones 30 task begins at: 2026-10-29 01:00:08 [UK]
-2026-10-29 01:00:08,496 INFO cloud_signal.mvc.controllers.GetSymbolDowJones30: Reading symbols from source: https://en.wikipedia.org/wiki/List_of_Dow_Jones_Industrial_Average_companies
-2026-10-29 01:00:08,734 INFO cloud_signal.mvc.controllers.GetSymbolDowJones30: Reading symbols from source: https://en.wikipedia.org/wiki/List_of_Dow_Jones_Industrial_Average_companies
-2026-10-29 01:00:08,734 INFO cloud_signal.mvc.controllers.GetSymbolDowJones30: Total symbols: 30
-2026-10-29 01:00:08,737 INFO cloud_signal.mvc.controllers.GetSymbolDowJones30: Table:
+2026-10-29 20:15:44,526 INFO __main__: Shim: launching scripts.runDJ30
+2026-10-29 20:15:44,533 INFO cloud_signal.runners.runDJ30: Dow Jones 30 task begins at: 2026-10-29 20:15:44 [UK]
+2026-10-29 20:15:44,533 INFO cloud_signal.mvc.controllers.GetSymbolDowJones30: Reading symbols from source: https://en.wikipedia.org/wiki/List_of_Dow_Jones_Industrial_Average_companies
+2026-10-29 20:15:44,718 INFO cloud_signal.mvc.controllers.GetSymbolDowJones30: Reading symbols from source: https://en.wikipedia.org/wiki/List_of_Dow_Jones_Industrial_Average_companies
+2026-10-29 20:15:44,718 INFO cloud_signal.mvc.controllers.GetSymbolDowJones30: Total symbols: 30
+2026-10-29 20:15:44,722 INFO cloud_signal.mvc.controllers.GetSymbolDowJones30: Table:
    symbol                    name
 0     MMM                      3M
 1   GOOGL      Alphabet (Class A)
@@ -35,819 +35,819 @@
 27    UNH      UnitedHealth Group
 28      V                    Visa
 29    WMT                 Walmart
-2026-10-29 01:00:08,740 INFO root: Workflow stage cloud_signal.mvc.controllers.GetSymbolDowJones30.main finished in 0.24 seconds
-2026-10-29 01:00:08,742 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
-2026-10-29 01:00:08,742 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/DowJones30.csv
-2026-10-29 01:00:08,742 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Downloading from Yahoo -----------
-2026-10-29 01:00:14,126 INFO cloud_signal.mvc.core.DataPandasMVC: 0 MMM -> data/dowjones30/1h/MMM.csv
-2026-10-29 01:00:14,142 INFO cloud_signal.mvc.core.DataPandasMVC: 1 GOOGL -> data/dowjones30/1h/GOOGL.csv
-2026-10-29 01:00:14,158 INFO cloud_signal.mvc.core.DataPandasMVC: 2 AXP -> data/dowjones30/1h/AXP.csv
-2026-10-29 01:00:14,173 INFO cloud_signal.mvc.core.DataPandasMVC: 3 AMGN -> data/dowjones30/1h/AMGN.csv
-2026-10-29 01:00:14,189 INFO cloud_signal.mvc.core.DataPandasMVC: 4 AMZN -> data/dowjones30/1h/AMZN.csv
-2026-10-29 01:00:14,204 INFO cloud_signal.mvc.core.DataPandasMVC: 5 AAPL -> data/dowjones30/1h/AAPL.csv
-2026-10-29 01:00:14,221 INFO cloud_signal.mvc.core.DataPandasMVC: 6 BA -> data/dowjones30/1h/BA.csv
-2026-10-29 01:00:14,237 INFO cloud_signal.mvc.core.DataPandasMVC: 7 CAT -> data/dowjones30/1h/CAT.csv
-2026-10-29 01:00:14,253 INFO cloud_signal.mvc.core.DataPandasMVC: 8 CVX -> data/dowjones30/1h/CVX.csv
-2026-10-29 01:00:14,269 INFO cloud_signal.mvc.core.DataPandasMVC: 9 CSCO -> data/dowjones30/1h/CSCO.csv
-2026-10-29 01:00:14,285 INFO cloud_signal.mvc.core.DataPandasMVC: 10 KO -> data/dowjones30/1h/KO.csv
-2026-10-29 01:00:14,302 INFO cloud_signal.mvc.core.DataPandasMVC: 11 DIS -> data/dowjones30/1h/DIS.csv
-2026-10-29 01:00:14,318 INFO cloud_signal.mvc.core.DataPandasMVC: 12 GS -> data/dowjones30/1h/GS.csv
-2026-10-29 01:00:14,334 INFO cloud_signal.mvc.core.DataPandasMVC: 13 HD -> data/dowjones30/1h/HD.csv
-2026-10-29 01:00:14,350 INFO cloud_signal.mvc.core.DataPandasMVC: 14 HON -> data/dowjones30/1h/HON.csv
-2026-10-29 01:00:14,366 INFO cloud_signal.mvc.core.DataPandasMVC: 15 IBM -> data/dowjones30/1h/IBM.csv
-2026-10-29 01:00:14,383 INFO cloud_signal.mvc.core.DataPandasMVC: 16 JNJ -> data/dowjones30/1h/JNJ.csv
-2026-10-29 01:00:14,399 INFO cloud_signal.mvc.core.DataPandasMVC: 17 JPM -> data/dowjones30/1h/JPM.csv
-2026-10-29 01:00:14,416 INFO cloud_signal.mvc.core.DataPandasMVC: 18 MCD -> data/dowjones30/1h/MCD.csv
-2026-10-29 01:00:14,432 INFO cloud_signal.mvc.core.DataPandasMVC: 19 MRK -> data/dowjones30/1h/MRK.csv
-2026-10-29 01:00:16,603 INFO cloud_signal.mvc.core.DataPandasMVC: 20 MSFT -> data/dowjones30/1h/MSFT.csv
-2026-10-29 01:00:16,619 INFO cloud_signal.mvc.core.DataPandasMVC: 21 NKE -> data/dowjones30/1h/NKE.csv
-2026-10-29 01:00:16,635 INFO cloud_signal.mvc.core.DataPandasMVC: 22 NVDA -> data/dowjones30/1h/NVDA.csv
-2026-10-29 01:00:16,651 INFO cloud_signal.mvc.core.DataPandasMVC: 23 PG -> data/dowjones30/1h/PG.csv
-2026-10-29 01:00:16,668 INFO cloud_signal.mvc.core.DataPandasMVC: 24 CRM -> data/dowjones30/1h/CRM.csv
-2026-10-29 01:00:16,684 INFO cloud_signal.mvc.core.DataPandasMVC: 25 SHW -> data/dowjones30/1h/SHW.csv
-2026-10-29 01:00:16,700 INFO cloud_signal.mvc.core.DataPandasMVC: 26 TRV -> data/dowjones30/1h/TRV.csv
-2026-10-29 01:00:16,716 INFO cloud_signal.mvc.core.DataPandasMVC: 27 UNH -> data/dowjones30/1h/UNH.csv
-2026-10-29 01:00:16,733 INFO cloud_signal.mvc.core.DataPandasMVC: 28 V -> data/dowjones30/1h/V.csv
-2026-10-29 01:00:16,749 INFO cloud_signal.mvc.core.DataPandasMVC: 29 WMT -> data/dowjones30/1h/WMT.csv
-2026-10-29 01:00:16,749 INFO cloud_signal.mvc.core.DataPandasMVC: 
+2026-10-29 20:15:44,725 INFO root: Workflow stage cloud_signal.mvc.controllers.GetSymbolDowJones30.main finished in 0.19 seconds
+2026-10-29 20:15:44,726 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
+2026-10-29 20:15:44,727 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/DowJones30.csv
+2026-10-29 20:15:44,727 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Downloading from Yahoo -----------
+2026-10-29 20:15:51,656 INFO cloud_signal.mvc.core.DataPandasMVC: 0 MMM -> data/dowjones30/1h/MMM.csv
+2026-10-29 20:15:51,673 INFO cloud_signal.mvc.core.DataPandasMVC: 1 GOOGL -> data/dowjones30/1h/GOOGL.csv
+2026-10-29 20:15:51,689 INFO cloud_signal.mvc.core.DataPandasMVC: 2 AXP -> data/dowjones30/1h/AXP.csv
+2026-10-29 20:15:51,705 INFO cloud_signal.mvc.core.DataPandasMVC: 3 AMGN -> data/dowjones30/1h/AMGN.csv
+2026-10-29 20:15:51,722 INFO cloud_signal.mvc.core.DataPandasMVC: 4 AMZN -> data/dowjones30/1h/AMZN.csv
+2026-10-29 20:15:51,738 INFO cloud_signal.mvc.core.DataPandasMVC: 5 AAPL -> data/dowjones30/1h/AAPL.csv
+2026-10-29 20:15:51,754 INFO cloud_signal.mvc.core.DataPandasMVC: 6 BA -> data/dowjones30/1h/BA.csv
+2026-10-29 20:15:51,770 INFO cloud_signal.mvc.core.DataPandasMVC: 7 CAT -> data/dowjones30/1h/CAT.csv
+2026-10-29 20:15:51,787 INFO cloud_signal.mvc.core.DataPandasMVC: 8 CVX -> data/dowjones30/1h/CVX.csv
+2026-10-29 20:15:51,803 INFO cloud_signal.mvc.core.DataPandasMVC: 9 CSCO -> data/dowjones30/1h/CSCO.csv
+2026-10-29 20:15:51,820 INFO cloud_signal.mvc.core.DataPandasMVC: 10 KO -> data/dowjones30/1h/KO.csv
+2026-10-29 20:15:51,836 INFO cloud_signal.mvc.core.DataPandasMVC: 11 DIS -> data/dowjones30/1h/DIS.csv
+2026-10-29 20:15:51,852 INFO cloud_signal.mvc.core.DataPandasMVC: 12 GS -> data/dowjones30/1h/GS.csv
+2026-10-29 20:15:51,869 INFO cloud_signal.mvc.core.DataPandasMVC: 13 HD -> data/dowjones30/1h/HD.csv
+2026-10-29 20:15:51,885 INFO cloud_signal.mvc.core.DataPandasMVC: 14 HON -> data/dowjones30/1h/HON.csv
+2026-10-29 20:15:51,901 INFO cloud_signal.mvc.core.DataPandasMVC: 15 IBM -> data/dowjones30/1h/IBM.csv
+2026-10-29 20:15:51,918 INFO cloud_signal.mvc.core.DataPandasMVC: 16 JNJ -> data/dowjones30/1h/JNJ.csv
+2026-10-29 20:15:51,935 INFO cloud_signal.mvc.core.DataPandasMVC: 17 JPM -> data/dowjones30/1h/JPM.csv
+2026-10-29 20:15:51,951 INFO cloud_signal.mvc.core.DataPandasMVC: 18 MCD -> data/dowjones30/1h/MCD.csv
+2026-10-29 20:15:51,967 INFO cloud_signal.mvc.core.DataPandasMVC: 19 MRK -> data/dowjones30/1h/MRK.csv
+2026-10-29 20:15:55,165 INFO cloud_signal.mvc.core.DataPandasMVC: 20 MSFT -> data/dowjones30/1h/MSFT.csv
+2026-10-29 20:15:55,183 INFO cloud_signal.mvc.core.DataPandasMVC: 21 NKE -> data/dowjones30/1h/NKE.csv
+2026-10-29 20:15:55,200 INFO cloud_signal.mvc.core.DataPandasMVC: 22 NVDA -> data/dowjones30/1h/NVDA.csv
+2026-10-29 20:15:55,217 INFO cloud_signal.mvc.core.DataPandasMVC: 23 PG -> data/dowjones30/1h/PG.csv
+2026-10-29 20:15:55,233 INFO cloud_signal.mvc.core.DataPandasMVC: 24 CRM -> data/dowjones30/1h/CRM.csv
+2026-10-29 20:15:55,250 INFO cloud_signal.mvc.core.DataPandasMVC: 25 SHW -> data/dowjones30/1h/SHW.csv
+2026-10-29 20:15:55,266 INFO cloud_signal.mvc.core.DataPandasMVC: 26 TRV -> data/dowjones30/1h/TRV.csv
+2026-10-29 20:15:55,282 INFO cloud_signal.mvc.core.DataPandasMVC: 27 UNH -> data/dowjones30/1h/UNH.csv
+2026-10-29 20:15:55,299 INFO cloud_signal.mvc.core.DataPandasMVC: 28 V -> data/dowjones30/1h/V.csv
+2026-10-29 20:15:55,315 INFO cloud_signal.mvc.core.DataPandasMVC: 29 WMT -> data/dowjones30/1h/WMT.csv
+2026-10-29 20:15:55,315 INFO cloud_signal.mvc.core.DataPandasMVC: 
 ----------- Creating Ichimoku Data -----------
-2026-10-29 01:00:17,653 INFO cloud_signal.mvc.core.DataPandasMVC: Ichimoku columns added to csv
-2026-10-29 01:00:17,656 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
-2026-10-29 01:00:17,656 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/DowJones30.csv
-2026-10-29 01:00:17,656 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Downloading from Yahoo -----------
-2026-10-29 01:00:25,724 INFO cloud_signal.mvc.core.DataPandasMVC: 0 MMM -> data/dowjones30/d/MMM.csv
-2026-10-29 01:00:25,778 INFO cloud_signal.mvc.core.DataPandasMVC: 1 GOOGL -> data/dowjones30/d/GOOGL.csv
-2026-10-29 01:00:25,903 INFO cloud_signal.mvc.core.DataPandasMVC: 2 AXP -> data/dowjones30/d/AXP.csv
-2026-10-29 01:00:26,003 INFO cloud_signal.mvc.core.DataPandasMVC: 3 AMGN -> data/dowjones30/d/AMGN.csv
-2026-10-29 01:00:26,070 INFO cloud_signal.mvc.core.DataPandasMVC: 4 AMZN -> data/dowjones30/d/AMZN.csv
-2026-10-29 01:00:26,177 INFO cloud_signal.mvc.core.DataPandasMVC: 5 AAPL -> data/dowjones30/d/AAPL.csv
-2026-10-29 01:00:26,319 INFO cloud_signal.mvc.core.DataPandasMVC: 6 BA -> data/dowjones30/d/BA.csv
-2026-10-29 01:00:26,459 INFO cloud_signal.mvc.core.DataPandasMVC: 7 CAT -> data/dowjones30/d/CAT.csv
-2026-10-29 01:00:26,598 INFO cloud_signal.mvc.core.DataPandasMVC: 8 CVX -> data/dowjones30/d/CVX.csv
-2026-10-29 01:00:26,681 INFO cloud_signal.mvc.core.DataPandasMVC: 9 CSCO -> data/dowjones30/d/CSCO.csv
-2026-10-29 01:00:26,821 INFO cloud_signal.mvc.core.DataPandasMVC: 10 KO -> data/dowjones30/d/KO.csv
-2026-10-29 01:00:26,960 INFO cloud_signal.mvc.core.DataPandasMVC: 11 DIS -> data/dowjones30/d/DIS.csv
-2026-10-29 01:00:27,021 INFO cloud_signal.mvc.core.DataPandasMVC: 12 GS -> data/dowjones30/d/GS.csv
-2026-10-29 01:00:27,123 INFO cloud_signal.mvc.core.DataPandasMVC: 13 HD -> data/dowjones30/d/HD.csv
-2026-10-29 01:00:27,265 INFO cloud_signal.mvc.core.DataPandasMVC: 14 HON -> data/dowjones30/d/HON.csv
-2026-10-29 01:00:27,405 INFO cloud_signal.mvc.core.DataPandasMVC: 15 IBM -> data/dowjones30/d/IBM.csv
-2026-10-29 01:00:27,547 INFO cloud_signal.mvc.core.DataPandasMVC: 16 JNJ -> data/dowjones30/d/JNJ.csv
-2026-10-29 01:00:27,653 INFO cloud_signal.mvc.core.DataPandasMVC: 17 JPM -> data/dowjones30/d/JPM.csv
-2026-10-29 01:00:27,791 INFO cloud_signal.mvc.core.DataPandasMVC: 18 MCD -> data/dowjones30/d/MCD.csv
-2026-10-29 01:00:27,933 INFO cloud_signal.mvc.core.DataPandasMVC: 19 MRK -> data/dowjones30/d/MRK.csv
-2026-10-29 01:00:31,214 INFO cloud_signal.mvc.core.DataPandasMVC: 20 MSFT -> data/dowjones30/d/MSFT.csv
-2026-10-29 01:00:31,318 INFO cloud_signal.mvc.core.DataPandasMVC: 21 NKE -> data/dowjones30/d/NKE.csv
-2026-10-29 01:00:31,382 INFO cloud_signal.mvc.core.DataPandasMVC: 22 NVDA -> data/dowjones30/d/NVDA.csv
-2026-10-29 01:00:31,522 INFO cloud_signal.mvc.core.DataPandasMVC: 23 PG -> data/dowjones30/d/PG.csv
-2026-10-29 01:00:31,572 INFO cloud_signal.mvc.core.DataPandasMVC: 24 CRM -> data/dowjones30/d/CRM.csv
-2026-10-29 01:00:31,676 INFO cloud_signal.mvc.core.DataPandasMVC: 25 SHW -> data/dowjones30/d/SHW.csv
-2026-10-29 01:00:31,790 INFO cloud_signal.mvc.core.DataPandasMVC: 26 TRV -> data/dowjones30/d/TRV.csv
-2026-10-29 01:00:31,884 INFO cloud_signal.mvc.core.DataPandasMVC: 27 UNH -> data/dowjones30/d/UNH.csv
-2026-10-29 01:00:31,927 INFO cloud_signal.mvc.core.DataPandasMVC: 28 V -> data/dowjones30/d/V.csv
-2026-10-29 01:00:32,049 INFO cloud_signal.mvc.core.DataPandasMVC: 29 WMT -> data/dowjones30/d/WMT.csv
-2026-10-29 01:00:32,050 INFO cloud_signal.mvc.core.DataPandasMVC: 
+2026-10-29 20:15:56,242 INFO cloud_signal.mvc.core.DataPandasMVC: Ichimoku columns added to csv
+2026-10-29 20:15:56,245 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
+2026-10-29 20:15:56,245 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/DowJones30.csv
+2026-10-29 20:15:56,245 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Downloading from Yahoo -----------
+2026-10-29 20:16:04,775 INFO cloud_signal.mvc.core.DataPandasMVC: 0 MMM -> data/dowjones30/d/MMM.csv
+2026-10-29 20:16:04,826 INFO cloud_signal.mvc.core.DataPandasMVC: 1 GOOGL -> data/dowjones30/d/GOOGL.csv
+2026-10-29 20:16:04,947 INFO cloud_signal.mvc.core.DataPandasMVC: 2 AXP -> data/dowjones30/d/AXP.csv
+2026-10-29 20:16:05,044 INFO cloud_signal.mvc.core.DataPandasMVC: 3 AMGN -> data/dowjones30/d/AMGN.csv
+2026-10-29 20:16:05,109 INFO cloud_signal.mvc.core.DataPandasMVC: 4 AMZN -> data/dowjones30/d/AMZN.csv
+2026-10-29 20:16:05,214 INFO cloud_signal.mvc.core.DataPandasMVC: 5 AAPL -> data/dowjones30/d/AAPL.csv
+2026-10-29 20:16:05,350 INFO cloud_signal.mvc.core.DataPandasMVC: 6 BA -> data/dowjones30/d/BA.csv
+2026-10-29 20:16:05,487 INFO cloud_signal.mvc.core.DataPandasMVC: 7 CAT -> data/dowjones30/d/CAT.csv
+2026-10-29 20:16:05,626 INFO cloud_signal.mvc.core.DataPandasMVC: 8 CVX -> data/dowjones30/d/CVX.csv
+2026-10-29 20:16:05,710 INFO cloud_signal.mvc.core.DataPandasMVC: 9 CSCO -> data/dowjones30/d/CSCO.csv
+2026-10-29 20:16:05,849 INFO cloud_signal.mvc.core.DataPandasMVC: 10 KO -> data/dowjones30/d/KO.csv
+2026-10-29 20:16:05,986 INFO cloud_signal.mvc.core.DataPandasMVC: 11 DIS -> data/dowjones30/d/DIS.csv
+2026-10-29 20:16:06,050 INFO cloud_signal.mvc.core.DataPandasMVC: 12 GS -> data/dowjones30/d/GS.csv
+2026-10-29 20:16:06,155 INFO cloud_signal.mvc.core.DataPandasMVC: 13 HD -> data/dowjones30/d/HD.csv
+2026-10-29 20:16:06,293 INFO cloud_signal.mvc.core.DataPandasMVC: 14 HON -> data/dowjones30/d/HON.csv
+2026-10-29 20:16:06,429 INFO cloud_signal.mvc.core.DataPandasMVC: 15 IBM -> data/dowjones30/d/IBM.csv
+2026-10-29 20:16:06,570 INFO cloud_signal.mvc.core.DataPandasMVC: 16 JNJ -> data/dowjones30/d/JNJ.csv
+2026-10-29 20:16:06,684 INFO cloud_signal.mvc.core.DataPandasMVC: 17 JPM -> data/dowjones30/d/JPM.csv
+2026-10-29 20:16:06,818 INFO cloud_signal.mvc.core.DataPandasMVC: 18 MCD -> data/dowjones30/d/MCD.csv
+2026-10-29 20:16:06,957 INFO cloud_signal.mvc.core.DataPandasMVC: 19 MRK -> data/dowjones30/d/MRK.csv
+2026-10-29 20:16:10,939 INFO cloud_signal.mvc.core.DataPandasMVC: 20 MSFT -> data/dowjones30/d/MSFT.csv
+2026-10-29 20:16:11,044 INFO cloud_signal.mvc.core.DataPandasMVC: 21 NKE -> data/dowjones30/d/NKE.csv
+2026-10-29 20:16:11,109 INFO cloud_signal.mvc.core.DataPandasMVC: 22 NVDA -> data/dowjones30/d/NVDA.csv
+2026-10-29 20:16:11,247 INFO cloud_signal.mvc.core.DataPandasMVC: 23 PG -> data/dowjones30/d/PG.csv
+2026-10-29 20:16:11,300 INFO cloud_signal.mvc.core.DataPandasMVC: 24 CRM -> data/dowjones30/d/CRM.csv
+2026-10-29 20:16:11,405 INFO cloud_signal.mvc.core.DataPandasMVC: 25 SHW -> data/dowjones30/d/SHW.csv
+2026-10-29 20:16:11,519 INFO cloud_signal.mvc.core.DataPandasMVC: 26 TRV -> data/dowjones30/d/TRV.csv
+2026-10-29 20:16:11,615 INFO cloud_signal.mvc.core.DataPandasMVC: 27 UNH -> data/dowjones30/d/UNH.csv
+2026-10-29 20:16:11,659 INFO cloud_signal.mvc.core.DataPandasMVC: 28 V -> data/dowjones30/d/V.csv
+2026-10-29 20:16:11,783 INFO cloud_signal.mvc.core.DataPandasMVC: 29 WMT -> data/dowjones30/d/WMT.csv
+2026-10-29 20:16:11,783 INFO cloud_signal.mvc.core.DataPandasMVC: 
 ----------- Creating Ichimoku Data -----------
-2026-10-29 01:00:37,687 INFO cloud_signal.mvc.core.DataPandasMVC: Ichimoku columns added to csv
-2026-10-29 01:00:37,690 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
-2026-10-29 01:00:37,690 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/DowJones30.csv
-2026-10-29 01:00:37,690 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Downloading from Yahoo -----------
-2026-10-29 01:00:42,369 INFO cloud_signal.mvc.core.DataPandasMVC: 0 MMM -> data/dowjones30/w/MMM.csv
-2026-10-29 01:00:42,381 INFO cloud_signal.mvc.core.DataPandasMVC: 1 GOOGL -> data/dowjones30/w/GOOGL.csv
-2026-10-29 01:00:42,409 INFO cloud_signal.mvc.core.DataPandasMVC: 2 AXP -> data/dowjones30/w/AXP.csv
-2026-10-29 01:00:42,432 INFO cloud_signal.mvc.core.DataPandasMVC: 3 AMGN -> data/dowjones30/w/AMGN.csv
-2026-10-29 01:00:42,447 INFO cloud_signal.mvc.core.DataPandasMVC: 4 AMZN -> data/dowjones30/w/AMZN.csv
-2026-10-29 01:00:42,470 INFO cloud_signal.mvc.core.DataPandasMVC: 5 AAPL -> data/dowjones30/w/AAPL.csv
-2026-10-29 01:00:42,499 INFO cloud_signal.mvc.core.DataPandasMVC: 6 BA -> data/dowjones30/w/BA.csv
-2026-10-29 01:00:42,528 INFO cloud_signal.mvc.core.DataPandasMVC: 7 CAT -> data/dowjones30/w/CAT.csv
-2026-10-29 01:00:42,558 INFO cloud_signal.mvc.core.DataPandasMVC: 8 CVX -> data/dowjones30/w/CVX.csv
-2026-10-29 01:00:42,576 INFO cloud_signal.mvc.core.DataPandasMVC: 9 CSCO -> data/dowjones30/w/CSCO.csv
-2026-10-29 01:00:42,605 INFO cloud_signal.mvc.core.DataPandasMVC: 10 KO -> data/dowjones30/w/KO.csv
-2026-10-29 01:00:42,635 INFO cloud_signal.mvc.core.DataPandasMVC: 11 DIS -> data/dowjones30/w/DIS.csv
-2026-10-29 01:00:42,649 INFO cloud_signal.mvc.core.DataPandasMVC: 12 GS -> data/dowjones30/w/GS.csv
-2026-10-29 01:00:42,671 INFO cloud_signal.mvc.core.DataPandasMVC: 13 HD -> data/dowjones30/w/HD.csv
-2026-10-29 01:00:42,700 INFO cloud_signal.mvc.core.DataPandasMVC: 14 HON -> data/dowjones30/w/HON.csv
-2026-10-29 01:00:42,729 INFO cloud_signal.mvc.core.DataPandasMVC: 15 IBM -> data/dowjones30/w/IBM.csv
-2026-10-29 01:00:42,759 INFO cloud_signal.mvc.core.DataPandasMVC: 16 JNJ -> data/dowjones30/w/JNJ.csv
-2026-10-29 01:00:42,781 INFO cloud_signal.mvc.core.DataPandasMVC: 17 JPM -> data/dowjones30/w/JPM.csv
-2026-10-29 01:00:42,810 INFO cloud_signal.mvc.core.DataPandasMVC: 18 MCD -> data/dowjones30/w/MCD.csv
-2026-10-29 01:00:42,840 INFO cloud_signal.mvc.core.DataPandasMVC: 19 MRK -> data/dowjones30/w/MRK.csv
-2026-10-29 01:00:44,682 INFO cloud_signal.mvc.core.DataPandasMVC: 20 MSFT -> data/dowjones30/w/MSFT.csv
-2026-10-29 01:00:44,705 INFO cloud_signal.mvc.core.DataPandasMVC: 21 NKE -> data/dowjones30/w/NKE.csv
-2026-10-29 01:00:44,719 INFO cloud_signal.mvc.core.DataPandasMVC: 22 NVDA -> data/dowjones30/w/NVDA.csv
-2026-10-29 01:00:44,749 INFO cloud_signal.mvc.core.DataPandasMVC: 23 PG -> data/dowjones30/w/PG.csv
-2026-10-29 01:00:44,761 INFO cloud_signal.mvc.core.DataPandasMVC: 24 CRM -> data/dowjones30/w/CRM.csv
-2026-10-29 01:00:44,785 INFO cloud_signal.mvc.core.DataPandasMVC: 25 SHW -> data/dowjones30/w/SHW.csv
-2026-10-29 01:00:44,810 INFO cloud_signal.mvc.core.DataPandasMVC: 26 TRV -> data/dowjones30/w/TRV.csv
-2026-10-29 01:00:44,830 INFO cloud_signal.mvc.core.DataPandasMVC: 27 UNH -> data/dowjones30/w/UNH.csv
-2026-10-29 01:00:44,840 INFO cloud_signal.mvc.core.DataPandasMVC: 28 V -> data/dowjones30/w/V.csv
-2026-10-29 01:00:44,867 INFO cloud_signal.mvc.core.DataPandasMVC: 29 WMT -> data/dowjones30/w/WMT.csv
-2026-10-29 01:00:44,867 INFO cloud_signal.mvc.core.DataPandasMVC: 
+2026-10-29 20:16:17,605 INFO cloud_signal.mvc.core.DataPandasMVC: Ichimoku columns added to csv
+2026-10-29 20:16:17,608 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
+2026-10-29 20:16:17,608 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/DowJones30.csv
+2026-10-29 20:16:17,608 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Downloading from Yahoo -----------
+2026-10-29 20:16:22,711 INFO cloud_signal.mvc.core.DataPandasMVC: 0 MMM -> data/dowjones30/w/MMM.csv
+2026-10-29 20:16:22,723 INFO cloud_signal.mvc.core.DataPandasMVC: 1 GOOGL -> data/dowjones30/w/GOOGL.csv
+2026-10-29 20:16:22,750 INFO cloud_signal.mvc.core.DataPandasMVC: 2 AXP -> data/dowjones30/w/AXP.csv
+2026-10-29 20:16:22,772 INFO cloud_signal.mvc.core.DataPandasMVC: 3 AMGN -> data/dowjones30/w/AMGN.csv
+2026-10-29 20:16:22,787 INFO cloud_signal.mvc.core.DataPandasMVC: 4 AMZN -> data/dowjones30/w/AMZN.csv
+2026-10-29 20:16:22,811 INFO cloud_signal.mvc.core.DataPandasMVC: 5 AAPL -> data/dowjones30/w/AAPL.csv
+2026-10-29 20:16:22,841 INFO cloud_signal.mvc.core.DataPandasMVC: 6 BA -> data/dowjones30/w/BA.csv
+2026-10-29 20:16:22,871 INFO cloud_signal.mvc.core.DataPandasMVC: 7 CAT -> data/dowjones30/w/CAT.csv
+2026-10-29 20:16:22,901 INFO cloud_signal.mvc.core.DataPandasMVC: 8 CVX -> data/dowjones30/w/CVX.csv
+2026-10-29 20:16:22,920 INFO cloud_signal.mvc.core.DataPandasMVC: 9 CSCO -> data/dowjones30/w/CSCO.csv
+2026-10-29 20:16:22,950 INFO cloud_signal.mvc.core.DataPandasMVC: 10 KO -> data/dowjones30/w/KO.csv
+2026-10-29 20:16:22,980 INFO cloud_signal.mvc.core.DataPandasMVC: 11 DIS -> data/dowjones30/w/DIS.csv
+2026-10-29 20:16:22,995 INFO cloud_signal.mvc.core.DataPandasMVC: 12 GS -> data/dowjones30/w/GS.csv
+2026-10-29 20:16:23,017 INFO cloud_signal.mvc.core.DataPandasMVC: 13 HD -> data/dowjones30/w/HD.csv
+2026-10-29 20:16:23,047 INFO cloud_signal.mvc.core.DataPandasMVC: 14 HON -> data/dowjones30/w/HON.csv
+2026-10-29 20:16:23,077 INFO cloud_signal.mvc.core.DataPandasMVC: 15 IBM -> data/dowjones30/w/IBM.csv
+2026-10-29 20:16:23,107 INFO cloud_signal.mvc.core.DataPandasMVC: 16 JNJ -> data/dowjones30/w/JNJ.csv
+2026-10-29 20:16:23,131 INFO cloud_signal.mvc.core.DataPandasMVC: 17 JPM -> data/dowjones30/w/JPM.csv
+2026-10-29 20:16:23,160 INFO cloud_signal.mvc.core.DataPandasMVC: 18 MCD -> data/dowjones30/w/MCD.csv
+2026-10-29 20:16:23,190 INFO cloud_signal.mvc.core.DataPandasMVC: 19 MRK -> data/dowjones30/w/MRK.csv
+2026-10-29 20:16:25,569 INFO cloud_signal.mvc.core.DataPandasMVC: 20 MSFT -> data/dowjones30/w/MSFT.csv
+2026-10-29 20:16:25,593 INFO cloud_signal.mvc.core.DataPandasMVC: 21 NKE -> data/dowjones30/w/NKE.csv
+2026-10-29 20:16:25,609 INFO cloud_signal.mvc.core.DataPandasMVC: 22 NVDA -> data/dowjones30/w/NVDA.csv
+2026-10-29 20:16:25,641 INFO cloud_signal.mvc.core.DataPandasMVC: 23 PG -> data/dowjones30/w/PG.csv
+2026-10-29 20:16:25,653 INFO cloud_signal.mvc.core.DataPandasMVC: 24 CRM -> data/dowjones30/w/CRM.csv
+2026-10-29 20:16:25,682 INFO cloud_signal.mvc.core.DataPandasMVC: 25 SHW -> data/dowjones30/w/SHW.csv
+2026-10-29 20:16:25,708 INFO cloud_signal.mvc.core.DataPandasMVC: 26 TRV -> data/dowjones30/w/TRV.csv
+2026-10-29 20:16:25,730 INFO cloud_signal.mvc.core.DataPandasMVC: 27 UNH -> data/dowjones30/w/UNH.csv
+2026-10-29 20:16:25,741 INFO cloud_signal.mvc.core.DataPandasMVC: 28 V -> data/dowjones30/w/V.csv
+2026-10-29 20:16:25,768 INFO cloud_signal.mvc.core.DataPandasMVC: 29 WMT -> data/dowjones30/w/WMT.csv
+2026-10-29 20:16:25,769 INFO cloud_signal.mvc.core.DataPandasMVC: 
 ----------- Creating Ichimoku Data -----------
-2026-10-29 01:00:46,145 INFO cloud_signal.mvc.core.DataPandasMVC: Ichimoku columns added to csv
-2026-10-29 01:00:46,146 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
-2026-10-29 01:00:46,146 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/DowJones30.csv
-2026-10-29 01:00:46,148 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
-2026-10-29 01:00:46,148 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/DowJones30.csv
-2026-10-29 01:00:46,149 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Downloading from Yahoo -----------
-2026-10-29 01:00:49,298 INFO cloud_signal.mvc.core.DataPandasMVC: 0 MMM -> data/dowjones30/m/MMM.csv
-2026-10-29 01:00:49,302 INFO cloud_signal.mvc.core.DataPandasMVC: 1 GOOGL -> data/dowjones30/m/GOOGL.csv
-2026-10-29 01:00:49,308 INFO cloud_signal.mvc.core.DataPandasMVC: 2 AXP -> data/dowjones30/m/AXP.csv
-2026-10-29 01:00:49,313 INFO cloud_signal.mvc.core.DataPandasMVC: 3 AMGN -> data/dowjones30/m/AMGN.csv
-2026-10-29 01:00:49,318 INFO cloud_signal.mvc.core.DataPandasMVC: 4 AMZN -> data/dowjones30/m/AMZN.csv
-2026-10-29 01:00:49,323 INFO cloud_signal.mvc.core.DataPandasMVC: 5 AAPL -> data/dowjones30/m/AAPL.csv
-2026-10-29 01:00:49,329 INFO cloud_signal.mvc.core.DataPandasMVC: 6 BA -> data/dowjones30/m/BA.csv
-2026-10-29 01:00:49,335 INFO cloud_signal.mvc.core.DataPandasMVC: 7 CAT -> data/dowjones30/m/CAT.csv
-2026-10-29 01:00:49,340 INFO cloud_signal.mvc.core.DataPandasMVC: 8 CVX -> data/dowjones30/m/CVX.csv
-2026-10-29 01:00:49,345 INFO cloud_signal.mvc.core.DataPandasMVC: 9 CSCO -> data/dowjones30/m/CSCO.csv
-2026-10-29 01:00:49,351 INFO cloud_signal.mvc.core.DataPandasMVC: 10 KO -> data/dowjones30/m/KO.csv
-2026-10-29 01:00:49,357 INFO cloud_signal.mvc.core.DataPandasMVC: 11 DIS -> data/dowjones30/m/DIS.csv
-2026-10-29 01:00:49,361 INFO cloud_signal.mvc.core.DataPandasMVC: 12 GS -> data/dowjones30/m/GS.csv
-2026-10-29 01:00:49,366 INFO cloud_signal.mvc.core.DataPandasMVC: 13 HD -> data/dowjones30/m/HD.csv
-2026-10-29 01:00:49,374 INFO cloud_signal.mvc.core.DataPandasMVC: 14 HON -> data/dowjones30/m/HON.csv
-2026-10-29 01:00:49,381 INFO cloud_signal.mvc.core.DataPandasMVC: 15 IBM -> data/dowjones30/m/IBM.csv
-2026-10-29 01:00:49,387 INFO cloud_signal.mvc.core.DataPandasMVC: 16 JNJ -> data/dowjones30/m/JNJ.csv
-2026-10-29 01:00:49,393 INFO cloud_signal.mvc.core.DataPandasMVC: 17 JPM -> data/dowjones30/m/JPM.csv
-2026-10-29 01:00:49,398 INFO cloud_signal.mvc.core.DataPandasMVC: 18 MCD -> data/dowjones30/m/MCD.csv
-2026-10-29 01:00:49,404 INFO cloud_signal.mvc.core.DataPandasMVC: 19 MRK -> data/dowjones30/m/MRK.csv
-2026-10-29 01:00:50,684 INFO cloud_signal.mvc.core.DataPandasMVC: 20 MSFT -> data/dowjones30/m/MSFT.csv
-2026-10-29 01:00:50,690 INFO cloud_signal.mvc.core.DataPandasMVC: 21 NKE -> data/dowjones30/m/NKE.csv
-2026-10-29 01:00:50,694 INFO cloud_signal.mvc.core.DataPandasMVC: 22 NVDA -> data/dowjones30/m/NVDA.csv
-2026-10-29 01:00:50,700 INFO cloud_signal.mvc.core.DataPandasMVC: 23 PG -> data/dowjones30/m/PG.csv
-2026-10-29 01:00:50,704 INFO cloud_signal.mvc.core.DataPandasMVC: 24 CRM -> data/dowjones30/m/CRM.csv
-2026-10-29 01:00:50,709 INFO cloud_signal.mvc.core.DataPandasMVC: 25 SHW -> data/dowjones30/m/SHW.csv
-2026-10-29 01:00:50,715 INFO cloud_signal.mvc.core.DataPandasMVC: 26 TRV -> data/dowjones30/m/TRV.csv
-2026-10-29 01:00:50,720 INFO cloud_signal.mvc.core.DataPandasMVC: 27 UNH -> data/dowjones30/m/UNH.csv
-2026-10-29 01:00:50,724 INFO cloud_signal.mvc.core.DataPandasMVC: 28 V -> data/dowjones30/m/V.csv
-2026-10-29 01:00:50,730 INFO cloud_signal.mvc.core.DataPandasMVC: 29 WMT -> data/dowjones30/m/WMT.csv
-2026-10-29 01:00:50,730 INFO cloud_signal.mvc.core.DataPandasMVC: 
+2026-10-29 20:16:27,103 INFO cloud_signal.mvc.core.DataPandasMVC: Ichimoku columns added to csv
+2026-10-29 20:16:27,105 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
+2026-10-29 20:16:27,105 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/DowJones30.csv
+2026-10-29 20:16:27,107 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
+2026-10-29 20:16:27,107 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/DowJones30.csv
+2026-10-29 20:16:27,107 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Downloading from Yahoo -----------
+2026-10-29 20:16:31,032 INFO cloud_signal.mvc.core.DataPandasMVC: 0 MMM -> data/dowjones30/m/MMM.csv
+2026-10-29 20:16:31,037 INFO cloud_signal.mvc.core.DataPandasMVC: 1 GOOGL -> data/dowjones30/m/GOOGL.csv
+2026-10-29 20:16:31,043 INFO cloud_signal.mvc.core.DataPandasMVC: 2 AXP -> data/dowjones30/m/AXP.csv
+2026-10-29 20:16:31,049 INFO cloud_signal.mvc.core.DataPandasMVC: 3 AMGN -> data/dowjones30/m/AMGN.csv
+2026-10-29 20:16:31,053 INFO cloud_signal.mvc.core.DataPandasMVC: 4 AMZN -> data/dowjones30/m/AMZN.csv
+2026-10-29 20:16:31,059 INFO cloud_signal.mvc.core.DataPandasMVC: 5 AAPL -> data/dowjones30/m/AAPL.csv
+2026-10-29 20:16:31,065 INFO cloud_signal.mvc.core.DataPandasMVC: 6 BA -> data/dowjones30/m/BA.csv
+2026-10-29 20:16:31,070 INFO cloud_signal.mvc.core.DataPandasMVC: 7 CAT -> data/dowjones30/m/CAT.csv
+2026-10-29 20:16:31,076 INFO cloud_signal.mvc.core.DataPandasMVC: 8 CVX -> data/dowjones30/m/CVX.csv
+2026-10-29 20:16:31,081 INFO cloud_signal.mvc.core.DataPandasMVC: 9 CSCO -> data/dowjones30/m/CSCO.csv
+2026-10-29 20:16:31,087 INFO cloud_signal.mvc.core.DataPandasMVC: 10 KO -> data/dowjones30/m/KO.csv
+2026-10-29 20:16:31,092 INFO cloud_signal.mvc.core.DataPandasMVC: 11 DIS -> data/dowjones30/m/DIS.csv
+2026-10-29 20:16:31,096 INFO cloud_signal.mvc.core.DataPandasMVC: 12 GS -> data/dowjones30/m/GS.csv
+2026-10-29 20:16:31,102 INFO cloud_signal.mvc.core.DataPandasMVC: 13 HD -> data/dowjones30/m/HD.csv
+2026-10-29 20:16:31,110 INFO cloud_signal.mvc.core.DataPandasMVC: 14 HON -> data/dowjones30/m/HON.csv
+2026-10-29 20:16:31,117 INFO cloud_signal.mvc.core.DataPandasMVC: 15 IBM -> data/dowjones30/m/IBM.csv
+2026-10-29 20:16:31,123 INFO cloud_signal.mvc.core.DataPandasMVC: 16 JNJ -> data/dowjones30/m/JNJ.csv
+2026-10-29 20:16:31,128 INFO cloud_signal.mvc.core.DataPandasMVC: 17 JPM -> data/dowjones30/m/JPM.csv
+2026-10-29 20:16:31,134 INFO cloud_signal.mvc.core.DataPandasMVC: 18 MCD -> data/dowjones30/m/MCD.csv
+2026-10-29 20:16:31,139 INFO cloud_signal.mvc.core.DataPandasMVC: 19 MRK -> data/dowjones30/m/MRK.csv
+2026-10-29 20:16:32,652 INFO cloud_signal.mvc.core.DataPandasMVC: 20 MSFT -> data/dowjones30/m/MSFT.csv
+2026-10-29 20:16:32,658 INFO cloud_signal.mvc.core.DataPandasMVC: 21 NKE -> data/dowjones30/m/NKE.csv
+2026-10-29 20:16:32,662 INFO cloud_signal.mvc.core.DataPandasMVC: 22 NVDA -> data/dowjones30/m/NVDA.csv
+2026-10-29 20:16:32,668 INFO cloud_signal.mvc.core.DataPandasMVC: 23 PG -> data/dowjones30/m/PG.csv
+2026-10-29 20:16:32,671 INFO cloud_signal.mvc.core.DataPandasMVC: 24 CRM -> data/dowjones30/m/CRM.csv
+2026-10-29 20:16:32,677 INFO cloud_signal.mvc.core.DataPandasMVC: 25 SHW -> data/dowjones30/m/SHW.csv
+2026-10-29 20:16:32,682 INFO cloud_signal.mvc.core.DataPandasMVC: 26 TRV -> data/dowjones30/m/TRV.csv
+2026-10-29 20:16:32,688 INFO cloud_signal.mvc.core.DataPandasMVC: 27 UNH -> data/dowjones30/m/UNH.csv
+2026-10-29 20:16:32,691 INFO cloud_signal.mvc.core.DataPandasMVC: 28 V -> data/dowjones30/m/V.csv
+2026-10-29 20:16:32,697 INFO cloud_signal.mvc.core.DataPandasMVC: 29 WMT -> data/dowjones30/m/WMT.csv
+2026-10-29 20:16:32,697 INFO cloud_signal.mvc.core.DataPandasMVC: 
 ----------- Creating Ichimoku Data -----------
-2026-10-29 01:00:51,125 INFO cloud_signal.mvc.core.DataPandasMVC: Ichimoku columns added to csv
-2026-10-29 01:00:51,126 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
-2026-10-29 01:00:51,126 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/DowJones30.csv
-2026-10-29 01:00:51,127 INFO root: Workflow stage cloud_signal.mvc.controllers.GetDataDJ30.main finished in 42.39 seconds
-2026-10-29 01:00:51,127 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/dowjones30/1h/ -----------
-2026-10-29 01:00:51,169 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MMM - File is already in the correct format.
-2026-10-29 01:00:51,181 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GOOGL - File is already in the correct format.
-2026-10-29 01:00:51,193 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AXP - File is already in the correct format.
-2026-10-29 01:00:51,205 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AMGN - File is already in the correct format.
-2026-10-29 01:00:51,217 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AMZN - File is already in the correct format.
-2026-10-29 01:00:51,228 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AAPL - File is already in the correct format.
-2026-10-29 01:00:51,240 INFO cloud_signal.mvc.core.DataCloudSignalMVC: BA - File is already in the correct format.
-2026-10-29 01:00:51,252 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CAT - File is already in the correct format.
-2026-10-29 01:00:51,264 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CVX - File is already in the correct format.
-2026-10-29 01:00:51,275 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CSCO - File is already in the correct format.
-2026-10-29 01:00:51,287 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KO - File is already in the correct format.
-2026-10-29 01:00:51,299 INFO cloud_signal.mvc.core.DataCloudSignalMVC: DIS - File is already in the correct format.
-2026-10-29 01:00:51,311 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GS - File is already in the correct format.
-2026-10-29 01:00:51,323 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HD - File is already in the correct format.
-2026-10-29 01:00:51,334 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HON - File is already in the correct format.
-2026-10-29 01:00:51,346 INFO cloud_signal.mvc.core.DataCloudSignalMVC: IBM - File is already in the correct format.
-2026-10-29 01:00:51,358 INFO cloud_signal.mvc.core.DataCloudSignalMVC: JNJ - File is already in the correct format.
-2026-10-29 01:00:51,370 INFO cloud_signal.mvc.core.DataCloudSignalMVC: JPM - File is already in the correct format.
-2026-10-29 01:00:51,381 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MCD - File is already in the correct format.
-2026-10-29 01:00:51,393 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MRK - File is already in the correct format.
-2026-10-29 01:00:51,405 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MSFT - File is already in the correct format.
-2026-10-29 01:00:51,417 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NKE - File is already in the correct format.
-2026-10-29 01:00:51,428 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NVDA - File is already in the correct format.
-2026-10-29 01:00:51,440 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PG - File is already in the correct format.
-2026-10-29 01:00:51,452 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CRM - File is already in the correct format.
-2026-10-29 01:00:51,464 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SHW - File is already in the correct format.
-2026-10-29 01:00:51,476 INFO cloud_signal.mvc.core.DataCloudSignalMVC: TRV - File is already in the correct format.
-2026-10-29 01:00:51,487 INFO cloud_signal.mvc.core.DataCloudSignalMVC: UNH - File is already in the correct format.
-2026-10-29 01:00:51,499 INFO cloud_signal.mvc.core.DataCloudSignalMVC: V - File is already in the correct format.
-2026-10-29 01:00:51,511 INFO cloud_signal.mvc.core.DataCloudSignalMVC: WMT - File is already in the correct format.
-2026-10-29 01:00:51,518 INFO cloud_signal.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
-2026-10-29 01:00:51,519 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/dowjones30/d/ -----------
-2026-10-29 01:00:51,703 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MMM - File is already in the correct format.
-2026-10-29 01:00:51,746 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GOOGL - File is already in the correct format.
-2026-10-29 01:00:51,777 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AXP - File is already in the correct format.
-2026-10-29 01:00:51,820 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AMGN - File is already in the correct format.
-2026-10-29 01:00:51,854 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AMZN - File is already in the correct format.
-2026-10-29 01:00:51,886 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AAPL - File is already in the correct format.
-2026-10-29 01:00:51,932 INFO cloud_signal.mvc.core.DataCloudSignalMVC: BA - File is already in the correct format.
-2026-10-29 01:00:51,986 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CAT - File is already in the correct format.
-2026-10-29 01:00:52,040 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CVX - File is already in the correct format.
-2026-10-29 01:00:52,086 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CSCO - File is already in the correct format.
-2026-10-29 01:00:52,127 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KO - File is already in the correct format.
-2026-10-29 01:00:52,180 INFO cloud_signal.mvc.core.DataCloudSignalMVC: DIS - File is already in the correct format.
-2026-10-29 01:00:52,224 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GS - File is already in the correct format.
-2026-10-29 01:00:52,255 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HD - File is already in the correct format.
-2026-10-29 01:00:52,300 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HON - File is already in the correct format.
-2026-10-29 01:00:52,354 INFO cloud_signal.mvc.core.DataCloudSignalMVC: IBM - File is already in the correct format.
-2026-10-29 01:00:52,408 INFO cloud_signal.mvc.core.DataCloudSignalMVC: JNJ - File is already in the correct format.
-2026-10-29 01:00:52,457 INFO cloud_signal.mvc.core.DataCloudSignalMVC: JPM - File is already in the correct format.
-2026-10-29 01:00:52,501 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MCD - File is already in the correct format.
-2026-10-29 01:00:52,553 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MRK - File is already in the correct format.
-2026-10-29 01:00:52,600 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MSFT - File is already in the correct format.
-2026-10-29 01:00:52,637 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NKE - File is already in the correct format.
-2026-10-29 01:00:52,671 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NVDA - File is already in the correct format.
-2026-10-29 01:00:52,707 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PG - File is already in the correct format.
-2026-10-29 01:00:52,749 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CRM - File is already in the correct format.
-2026-10-29 01:00:52,778 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SHW - File is already in the correct format.
-2026-10-29 01:00:52,820 INFO cloud_signal.mvc.core.DataCloudSignalMVC: TRV - File is already in the correct format.
-2026-10-29 01:00:52,861 INFO cloud_signal.mvc.core.DataCloudSignalMVC: UNH - File is already in the correct format.
-2026-10-29 01:00:52,891 INFO cloud_signal.mvc.core.DataCloudSignalMVC: V - File is already in the correct format.
-2026-10-29 01:00:52,921 INFO cloud_signal.mvc.core.DataCloudSignalMVC: WMT - File is already in the correct format.
-2026-10-29 01:00:52,950 INFO cloud_signal.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
-2026-10-29 01:00:52,957 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/dowjones30/w/ -----------
-2026-10-29 01:00:53,009 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MMM - File is already in the correct format.
-2026-10-29 01:00:53,022 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GOOGL - File is already in the correct format.
-2026-10-29 01:00:53,033 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AXP - File is already in the correct format.
-2026-10-29 01:00:53,046 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AMGN - File is already in the correct format.
-2026-10-29 01:00:53,058 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AMZN - File is already in the correct format.
-2026-10-29 01:00:53,069 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AAPL - File is already in the correct format.
-2026-10-29 01:00:53,082 INFO cloud_signal.mvc.core.DataCloudSignalMVC: BA - File is already in the correct format.
-2026-10-29 01:00:53,098 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CAT - File is already in the correct format.
-2026-10-29 01:00:53,113 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CVX - File is already in the correct format.
-2026-10-29 01:00:53,127 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CSCO - File is already in the correct format.
-2026-10-29 01:00:53,140 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KO - File is already in the correct format.
-2026-10-29 01:00:53,155 INFO cloud_signal.mvc.core.DataCloudSignalMVC: DIS - File is already in the correct format.
-2026-10-29 01:00:53,170 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GS - File is already in the correct format.
-2026-10-29 01:00:53,181 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HD - File is already in the correct format.
-2026-10-29 01:00:53,195 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HON - File is already in the correct format.
-2026-10-29 01:00:53,210 INFO cloud_signal.mvc.core.DataCloudSignalMVC: IBM - File is already in the correct format.
-2026-10-29 01:00:53,226 INFO cloud_signal.mvc.core.DataCloudSignalMVC: JNJ - File is already in the correct format.
-2026-10-29 01:00:53,240 INFO cloud_signal.mvc.core.DataCloudSignalMVC: JPM - File is already in the correct format.
-2026-10-29 01:00:53,254 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MCD - File is already in the correct format.
-2026-10-29 01:00:53,269 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MRK - File is already in the correct format.
-2026-10-29 01:00:53,283 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MSFT - File is already in the correct format.
-2026-10-29 01:00:53,296 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NKE - File is already in the correct format.
-2026-10-29 01:00:53,307 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NVDA - File is already in the correct format.
-2026-10-29 01:00:53,319 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PG - File is already in the correct format.
-2026-10-29 01:00:53,332 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CRM - File is already in the correct format.
-2026-10-29 01:00:53,343 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SHW - File is already in the correct format.
-2026-10-29 01:00:53,356 INFO cloud_signal.mvc.core.DataCloudSignalMVC: TRV - File is already in the correct format.
-2026-10-29 01:00:53,369 INFO cloud_signal.mvc.core.DataCloudSignalMVC: UNH - File is already in the correct format.
-2026-10-29 01:00:53,380 INFO cloud_signal.mvc.core.DataCloudSignalMVC: V - File is already in the correct format.
-2026-10-29 01:00:53,390 INFO cloud_signal.mvc.core.DataCloudSignalMVC: WMT - File is already in the correct format.
-2026-10-29 01:00:53,398 INFO cloud_signal.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
-2026-10-29 01:00:53,400 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/dowjones30/m/ -----------
-2026-10-29 01:00:53,425 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MMM - File is already in the correct format.
-2026-10-29 01:00:53,433 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GOOGL - File is already in the correct format.
-2026-10-29 01:00:53,439 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AXP - File is already in the correct format.
-2026-10-29 01:00:53,446 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AMGN - File is already in the correct format.
-2026-10-29 01:00:53,454 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AMZN - File is already in the correct format.
-2026-10-29 01:00:53,461 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AAPL - File is already in the correct format.
-2026-10-29 01:00:53,468 INFO cloud_signal.mvc.core.DataCloudSignalMVC: BA - File is already in the correct format.
-2026-10-29 01:00:53,475 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CAT - File is already in the correct format.
-2026-10-29 01:00:53,482 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CVX - File is already in the correct format.
-2026-10-29 01:00:53,489 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CSCO - File is already in the correct format.
-2026-10-29 01:00:53,495 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KO - File is already in the correct format.
-2026-10-29 01:00:53,502 INFO cloud_signal.mvc.core.DataCloudSignalMVC: DIS - File is already in the correct format.
-2026-10-29 01:00:53,509 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GS - File is already in the correct format.
-2026-10-29 01:00:53,516 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HD - File is already in the correct format.
-2026-10-29 01:00:53,523 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HON - File is already in the correct format.
-2026-10-29 01:00:53,531 INFO cloud_signal.mvc.core.DataCloudSignalMVC: IBM - File is already in the correct format.
-2026-10-29 01:00:53,539 INFO cloud_signal.mvc.core.DataCloudSignalMVC: JNJ - File is already in the correct format.
-2026-10-29 01:00:53,546 INFO cloud_signal.mvc.core.DataCloudSignalMVC: JPM - File is already in the correct format.
-2026-10-29 01:00:53,553 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MCD - File is already in the correct format.
-2026-10-29 01:00:53,560 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MRK - File is already in the correct format.
-2026-10-29 01:00:53,567 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MSFT - File is already in the correct format.
-2026-10-29 01:00:53,574 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NKE - File is already in the correct format.
-2026-10-29 01:00:53,581 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NVDA - File is already in the correct format.
-2026-10-29 01:00:53,587 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PG - File is already in the correct format.
-2026-10-29 01:00:53,594 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CRM - File is already in the correct format.
-2026-10-29 01:00:53,601 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SHW - File is already in the correct format.
-2026-10-29 01:00:53,608 INFO cloud_signal.mvc.core.DataCloudSignalMVC: TRV - File is already in the correct format.
-2026-10-29 01:00:53,615 INFO cloud_signal.mvc.core.DataCloudSignalMVC: UNH - File is already in the correct format.
-2026-10-29 01:00:53,621 INFO cloud_signal.mvc.core.DataCloudSignalMVC: V - File is already in the correct format.
-2026-10-29 01:00:53,628 INFO cloud_signal.mvc.core.DataCloudSignalMVC: WMT - File is already in the correct format.
-2026-10-29 01:00:53,632 INFO cloud_signal.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
-2026-10-29 01:00:53,633 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuCloudDataDJ30.main finished in 2.51 seconds
-2026-10-29 01:00:53,633 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
-2026-10-29 01:00:53,633 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::True
-2026-10-29 01:00:53,649 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MMM entries:1]
-2026-10-29 01:00:53,649 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GOOGL entries:1]
-2026-10-29 01:00:53,650 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AXP entries:1]
-2026-10-29 01:00:53,650 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AMGN entries:1]
-2026-10-29 01:00:53,650 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AMZN entries:1]
-2026-10-29 01:00:53,650 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AAPL entries:1]
-2026-10-29 01:00:53,651 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BA entries:1]
-2026-10-29 01:00:53,651 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CAT entries:1]
-2026-10-29 01:00:53,651 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CVX entries:1]
-2026-10-29 01:00:53,651 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CSCO entries:1]
-2026-10-29 01:00:53,652 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KO entries:1]
-2026-10-29 01:00:53,652 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DIS entries:1]
-2026-10-29 01:00:53,652 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GS entries:1]
-2026-10-29 01:00:53,653 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HD entries:1]
-2026-10-29 01:00:53,653 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HON entries:1]
-2026-10-29 01:00:53,653 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:IBM entries:1]
-2026-10-29 01:00:53,653 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:JNJ entries:1]
-2026-10-29 01:00:53,654 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:JPM entries:1]
-2026-10-29 01:00:53,654 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MCD entries:1]
-2026-10-29 01:00:53,654 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MRK entries:1]
-2026-10-29 01:00:53,654 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MSFT entries:1]
-2026-10-29 01:00:53,654 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NKE entries:1]
-2026-10-29 01:00:53,655 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NVDA entries:1]
-2026-10-29 01:00:53,655 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PG entries:1]
-2026-10-29 01:00:53,655 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CRM entries:1]
-2026-10-29 01:00:53,655 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SHW entries:1]
-2026-10-29 01:00:53,655 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:TRV entries:1]
-2026-10-29 01:00:53,656 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:UNH entries:1]
-2026-10-29 01:00:53,656 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:V entries:1]
-2026-10-29 01:00:53,656 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:WMT entries:1]
-2026-10-29 01:00:53,658 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Aggregator DowJones30-cloud-1H.csv and .xml are created
+2026-10-29 20:16:33,087 INFO cloud_signal.mvc.core.DataPandasMVC: Ichimoku columns added to csv
+2026-10-29 20:16:33,089 INFO cloud_signal.mvc.core.DataPandasMVC: ----------- Reading symbols -----------
+2026-10-29 20:16:33,089 INFO cloud_signal.mvc.core.DataPandasMVC: readAssetList path: asset_list/DowJones30.csv
+2026-10-29 20:16:33,089 INFO root: Workflow stage cloud_signal.mvc.controllers.GetDataDJ30.main finished in 48.36 seconds
+2026-10-29 20:16:33,089 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/dowjones30/1h/ -----------
+2026-10-29 20:16:33,131 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MMM - File is already in the correct format.
+2026-10-29 20:16:33,143 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GOOGL - File is already in the correct format.
+2026-10-29 20:16:33,154 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AXP - File is already in the correct format.
+2026-10-29 20:16:33,165 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AMGN - File is already in the correct format.
+2026-10-29 20:16:33,177 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AMZN - File is already in the correct format.
+2026-10-29 20:16:33,188 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AAPL - File is already in the correct format.
+2026-10-29 20:16:33,200 INFO cloud_signal.mvc.core.DataCloudSignalMVC: BA - File is already in the correct format.
+2026-10-29 20:16:33,211 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CAT - File is already in the correct format.
+2026-10-29 20:16:33,222 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CVX - File is already in the correct format.
+2026-10-29 20:16:33,233 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CSCO - File is already in the correct format.
+2026-10-29 20:16:33,244 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KO - File is already in the correct format.
+2026-10-29 20:16:33,256 INFO cloud_signal.mvc.core.DataCloudSignalMVC: DIS - File is already in the correct format.
+2026-10-29 20:16:33,267 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GS - File is already in the correct format.
+2026-10-29 20:16:33,278 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HD - File is already in the correct format.
+2026-10-29 20:16:33,290 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HON - File is already in the correct format.
+2026-10-29 20:16:33,301 INFO cloud_signal.mvc.core.DataCloudSignalMVC: IBM - File is already in the correct format.
+2026-10-29 20:16:33,312 INFO cloud_signal.mvc.core.DataCloudSignalMVC: JNJ - File is already in the correct format.
+2026-10-29 20:16:33,323 INFO cloud_signal.mvc.core.DataCloudSignalMVC: JPM - File is already in the correct format.
+2026-10-29 20:16:33,334 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MCD - File is already in the correct format.
+2026-10-29 20:16:33,345 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MRK - File is already in the correct format.
+2026-10-29 20:16:33,356 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MSFT - File is already in the correct format.
+2026-10-29 20:16:33,367 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NKE - File is already in the correct format.
+2026-10-29 20:16:33,379 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NVDA - File is already in the correct format.
+2026-10-29 20:16:33,390 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PG - File is already in the correct format.
+2026-10-29 20:16:33,401 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CRM - File is already in the correct format.
+2026-10-29 20:16:33,412 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SHW - File is already in the correct format.
+2026-10-29 20:16:33,423 INFO cloud_signal.mvc.core.DataCloudSignalMVC: TRV - File is already in the correct format.
+2026-10-29 20:16:33,434 INFO cloud_signal.mvc.core.DataCloudSignalMVC: UNH - File is already in the correct format.
+2026-10-29 20:16:33,446 INFO cloud_signal.mvc.core.DataCloudSignalMVC: V - File is already in the correct format.
+2026-10-29 20:16:33,457 INFO cloud_signal.mvc.core.DataCloudSignalMVC: WMT - File is already in the correct format.
+2026-10-29 20:16:33,464 INFO cloud_signal.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
+2026-10-29 20:16:33,465 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/dowjones30/d/ -----------
+2026-10-29 20:16:33,651 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MMM - File is already in the correct format.
+2026-10-29 20:16:33,694 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GOOGL - File is already in the correct format.
+2026-10-29 20:16:33,728 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AXP - File is already in the correct format.
+2026-10-29 20:16:33,773 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AMGN - File is already in the correct format.
+2026-10-29 20:16:33,808 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AMZN - File is already in the correct format.
+2026-10-29 20:16:33,840 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AAPL - File is already in the correct format.
+2026-10-29 20:16:33,889 INFO cloud_signal.mvc.core.DataCloudSignalMVC: BA - File is already in the correct format.
+2026-10-29 20:16:33,950 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CAT - File is already in the correct format.
+2026-10-29 20:16:34,009 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CVX - File is already in the correct format.
+2026-10-29 20:16:34,057 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CSCO - File is already in the correct format.
+2026-10-29 20:16:34,105 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KO - File is already in the correct format.
+2026-10-29 20:16:34,167 INFO cloud_signal.mvc.core.DataCloudSignalMVC: DIS - File is already in the correct format.
+2026-10-29 20:16:34,213 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GS - File is already in the correct format.
+2026-10-29 20:16:34,247 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HD - File is already in the correct format.
+2026-10-29 20:16:34,298 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HON - File is already in the correct format.
+2026-10-29 20:16:34,359 INFO cloud_signal.mvc.core.DataCloudSignalMVC: IBM - File is already in the correct format.
+2026-10-29 20:16:34,419 INFO cloud_signal.mvc.core.DataCloudSignalMVC: JNJ - File is already in the correct format.
+2026-10-29 20:16:34,469 INFO cloud_signal.mvc.core.DataCloudSignalMVC: JPM - File is already in the correct format.
+2026-10-29 20:16:34,521 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MCD - File is already in the correct format.
+2026-10-29 20:16:34,581 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MRK - File is already in the correct format.
+2026-10-29 20:16:34,630 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MSFT - File is already in the correct format.
+2026-10-29 20:16:34,667 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NKE - File is already in the correct format.
+2026-10-29 20:16:34,702 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NVDA - File is already in the correct format.
+2026-10-29 20:16:34,743 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PG - File is already in the correct format.
+2026-10-29 20:16:34,787 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CRM - File is already in the correct format.
+2026-10-29 20:16:34,816 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SHW - File is already in the correct format.
+2026-10-29 20:16:34,861 INFO cloud_signal.mvc.core.DataCloudSignalMVC: TRV - File is already in the correct format.
+2026-10-29 20:16:34,904 INFO cloud_signal.mvc.core.DataCloudSignalMVC: UNH - File is already in the correct format.
+2026-10-29 20:16:34,936 INFO cloud_signal.mvc.core.DataCloudSignalMVC: V - File is already in the correct format.
+2026-10-29 20:16:34,967 INFO cloud_signal.mvc.core.DataCloudSignalMVC: WMT - File is already in the correct format.
+2026-10-29 20:16:34,996 INFO cloud_signal.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
+2026-10-29 20:16:35,002 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/dowjones30/w/ -----------
+2026-10-29 20:16:35,054 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MMM - File is already in the correct format.
+2026-10-29 20:16:35,067 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GOOGL - File is already in the correct format.
+2026-10-29 20:16:35,078 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AXP - File is already in the correct format.
+2026-10-29 20:16:35,091 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AMGN - File is already in the correct format.
+2026-10-29 20:16:35,102 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AMZN - File is already in the correct format.
+2026-10-29 20:16:35,112 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AAPL - File is already in the correct format.
+2026-10-29 20:16:35,124 INFO cloud_signal.mvc.core.DataCloudSignalMVC: BA - File is already in the correct format.
+2026-10-29 20:16:35,139 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CAT - File is already in the correct format.
+2026-10-29 20:16:35,154 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CVX - File is already in the correct format.
+2026-10-29 20:16:35,167 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CSCO - File is already in the correct format.
+2026-10-29 20:16:35,180 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KO - File is already in the correct format.
+2026-10-29 20:16:35,194 INFO cloud_signal.mvc.core.DataCloudSignalMVC: DIS - File is already in the correct format.
+2026-10-29 20:16:35,208 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GS - File is already in the correct format.
+2026-10-29 20:16:35,218 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HD - File is already in the correct format.
+2026-10-29 20:16:35,232 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HON - File is already in the correct format.
+2026-10-29 20:16:35,247 INFO cloud_signal.mvc.core.DataCloudSignalMVC: IBM - File is already in the correct format.
+2026-10-29 20:16:35,263 INFO cloud_signal.mvc.core.DataCloudSignalMVC: JNJ - File is already in the correct format.
+2026-10-29 20:16:35,278 INFO cloud_signal.mvc.core.DataCloudSignalMVC: JPM - File is already in the correct format.
+2026-10-29 20:16:35,291 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MCD - File is already in the correct format.
+2026-10-29 20:16:35,306 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MRK - File is already in the correct format.
+2026-10-29 20:16:35,321 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MSFT - File is already in the correct format.
+2026-10-29 20:16:35,334 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NKE - File is already in the correct format.
+2026-10-29 20:16:35,345 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NVDA - File is already in the correct format.
+2026-10-29 20:16:35,359 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PG - File is already in the correct format.
+2026-10-29 20:16:35,375 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CRM - File is already in the correct format.
+2026-10-29 20:16:35,385 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SHW - File is already in the correct format.
+2026-10-29 20:16:35,397 INFO cloud_signal.mvc.core.DataCloudSignalMVC: TRV - File is already in the correct format.
+2026-10-29 20:16:35,410 INFO cloud_signal.mvc.core.DataCloudSignalMVC: UNH - File is already in the correct format.
+2026-10-29 20:16:35,420 INFO cloud_signal.mvc.core.DataCloudSignalMVC: V - File is already in the correct format.
+2026-10-29 20:16:35,429 INFO cloud_signal.mvc.core.DataCloudSignalMVC: WMT - File is already in the correct format.
+2026-10-29 20:16:35,437 INFO cloud_signal.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
+2026-10-29 20:16:35,439 INFO cloud_signal.mvc.core.DataCloudSignalMVC: ----------- Generating Cloud Signals: data/dowjones30/m/ -----------
+2026-10-29 20:16:35,463 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MMM - File is already in the correct format.
+2026-10-29 20:16:35,470 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GOOGL - File is already in the correct format.
+2026-10-29 20:16:35,476 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AXP - File is already in the correct format.
+2026-10-29 20:16:35,482 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AMGN - File is already in the correct format.
+2026-10-29 20:16:35,489 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AMZN - File is already in the correct format.
+2026-10-29 20:16:35,495 INFO cloud_signal.mvc.core.DataCloudSignalMVC: AAPL - File is already in the correct format.
+2026-10-29 20:16:35,502 INFO cloud_signal.mvc.core.DataCloudSignalMVC: BA - File is already in the correct format.
+2026-10-29 20:16:35,508 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CAT - File is already in the correct format.
+2026-10-29 20:16:35,514 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CVX - File is already in the correct format.
+2026-10-29 20:16:35,521 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CSCO - File is already in the correct format.
+2026-10-29 20:16:35,527 INFO cloud_signal.mvc.core.DataCloudSignalMVC: KO - File is already in the correct format.
+2026-10-29 20:16:35,534 INFO cloud_signal.mvc.core.DataCloudSignalMVC: DIS - File is already in the correct format.
+2026-10-29 20:16:35,540 INFO cloud_signal.mvc.core.DataCloudSignalMVC: GS - File is already in the correct format.
+2026-10-29 20:16:35,546 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HD - File is already in the correct format.
+2026-10-29 20:16:35,552 INFO cloud_signal.mvc.core.DataCloudSignalMVC: HON - File is already in the correct format.
+2026-10-29 20:16:35,560 INFO cloud_signal.mvc.core.DataCloudSignalMVC: IBM - File is already in the correct format.
+2026-10-29 20:16:35,567 INFO cloud_signal.mvc.core.DataCloudSignalMVC: JNJ - File is already in the correct format.
+2026-10-29 20:16:35,573 INFO cloud_signal.mvc.core.DataCloudSignalMVC: JPM - File is already in the correct format.
+2026-10-29 20:16:35,579 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MCD - File is already in the correct format.
+2026-10-29 20:16:35,585 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MRK - File is already in the correct format.
+2026-10-29 20:16:35,592 INFO cloud_signal.mvc.core.DataCloudSignalMVC: MSFT - File is already in the correct format.
+2026-10-29 20:16:35,598 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NKE - File is already in the correct format.
+2026-10-29 20:16:35,604 INFO cloud_signal.mvc.core.DataCloudSignalMVC: NVDA - File is already in the correct format.
+2026-10-29 20:16:35,610 INFO cloud_signal.mvc.core.DataCloudSignalMVC: PG - File is already in the correct format.
+2026-10-29 20:16:35,616 INFO cloud_signal.mvc.core.DataCloudSignalMVC: CRM - File is already in the correct format.
+2026-10-29 20:16:35,622 INFO cloud_signal.mvc.core.DataCloudSignalMVC: SHW - File is already in the correct format.
+2026-10-29 20:16:35,628 INFO cloud_signal.mvc.core.DataCloudSignalMVC: TRV - File is already in the correct format.
+2026-10-29 20:16:35,634 INFO cloud_signal.mvc.core.DataCloudSignalMVC: UNH - File is already in the correct format.
+2026-10-29 20:16:35,640 INFO cloud_signal.mvc.core.DataCloudSignalMVC: V - File is already in the correct format.
+2026-10-29 20:16:35,646 INFO cloud_signal.mvc.core.DataCloudSignalMVC: WMT - File is already in the correct format.
+2026-10-29 20:16:35,650 INFO cloud_signal.mvc.core.DataCloudSignalMVC: Cloud signal count csv files are created
+2026-10-29 20:16:35,651 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuCloudDataDJ30.main finished in 2.56 seconds
+2026-10-29 20:16:35,651 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
+2026-10-29 20:16:35,651 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::True
+2026-10-29 20:16:35,663 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MMM entries:1]
+2026-10-29 20:16:35,664 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GOOGL entries:1]
+2026-10-29 20:16:35,664 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AXP entries:1]
+2026-10-29 20:16:35,664 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AMGN entries:1]
+2026-10-29 20:16:35,664 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AMZN entries:1]
+2026-10-29 20:16:35,664 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AAPL entries:1]
+2026-10-29 20:16:35,665 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BA entries:1]
+2026-10-29 20:16:35,665 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CAT entries:1]
+2026-10-29 20:16:35,665 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CVX entries:1]
+2026-10-29 20:16:35,665 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CSCO entries:1]
+2026-10-29 20:16:35,665 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KO entries:1]
+2026-10-29 20:16:35,665 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DIS entries:1]
+2026-10-29 20:16:35,665 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GS entries:1]
+2026-10-29 20:16:35,666 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HD entries:1]
+2026-10-29 20:16:35,666 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HON entries:1]
+2026-10-29 20:16:35,666 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:IBM entries:1]
+2026-10-29 20:16:35,666 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:JNJ entries:1]
+2026-10-29 20:16:35,666 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:JPM entries:1]
+2026-10-29 20:16:35,666 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MCD entries:1]
+2026-10-29 20:16:35,667 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MRK entries:1]
+2026-10-29 20:16:35,667 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MSFT entries:1]
+2026-10-29 20:16:35,667 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NKE entries:1]
+2026-10-29 20:16:35,667 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NVDA entries:1]
+2026-10-29 20:16:35,667 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PG entries:1]
+2026-10-29 20:16:35,667 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CRM entries:1]
+2026-10-29 20:16:35,667 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SHW entries:1]
+2026-10-29 20:16:35,667 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:TRV entries:1]
+2026-10-29 20:16:35,668 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:UNH entries:1]
+2026-10-29 20:16:35,668 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:V entries:1]
+2026-10-29 20:16:35,668 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:WMT entries:1]
+2026-10-29 20:16:35,669 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Aggregator DowJones30-cloud-1H.csv and .xml are created
 
-2026-10-29 01:00:53,658 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
-2026-10-29 01:00:53,658 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::False
-2026-10-29 01:00:53,673 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MMM entries:1]
-2026-10-29 01:00:53,674 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GOOGL entries:1]
-2026-10-29 01:00:53,674 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AXP entries:1]
-2026-10-29 01:00:53,674 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AMGN entries:1]
-2026-10-29 01:00:53,674 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AMZN entries:1]
-2026-10-29 01:00:53,675 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AAPL entries:1]
-2026-10-29 01:00:53,675 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BA entries:1]
-2026-10-29 01:00:53,675 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CAT entries:1]
-2026-10-29 01:00:53,675 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CVX entries:1]
-2026-10-29 01:00:53,675 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CSCO entries:1]
-2026-10-29 01:00:53,676 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KO entries:1]
-2026-10-29 01:00:53,676 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DIS entries:1]
-2026-10-29 01:00:53,676 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GS entries:1]
-2026-10-29 01:00:53,676 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HD entries:1]
-2026-10-29 01:00:53,676 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HON entries:1]
-2026-10-29 01:00:53,677 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:IBM entries:1]
-2026-10-29 01:00:53,677 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:JNJ entries:1]
-2026-10-29 01:00:53,677 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:JPM entries:1]
-2026-10-29 01:00:53,677 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MCD entries:1]
-2026-10-29 01:00:53,677 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MRK entries:1]
-2026-10-29 01:00:53,678 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MSFT entries:1]
-2026-10-29 01:00:53,678 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NKE entries:1]
-2026-10-29 01:00:53,678 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NVDA entries:1]
-2026-10-29 01:00:53,678 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PG entries:1]
-2026-10-29 01:00:53,678 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CRM entries:1]
-2026-10-29 01:00:53,679 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SHW entries:1]
-2026-10-29 01:00:53,679 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:TRV entries:1]
-2026-10-29 01:00:53,679 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:UNH entries:1]
-2026-10-29 01:00:53,679 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:V entries:1]
-2026-10-29 01:00:53,679 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:WMT entries:1]
-2026-10-29 01:00:53,681 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Aggregator DowJones30-cloud-D.csv and .xml are created
+2026-10-29 20:16:35,670 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
+2026-10-29 20:16:35,670 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::False
+2026-10-29 20:16:35,682 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MMM entries:1]
+2026-10-29 20:16:35,682 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GOOGL entries:1]
+2026-10-29 20:16:35,683 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AXP entries:1]
+2026-10-29 20:16:35,683 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AMGN entries:1]
+2026-10-29 20:16:35,683 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AMZN entries:1]
+2026-10-29 20:16:35,683 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AAPL entries:1]
+2026-10-29 20:16:35,683 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BA entries:1]
+2026-10-29 20:16:35,683 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CAT entries:1]
+2026-10-29 20:16:35,684 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CVX entries:1]
+2026-10-29 20:16:35,684 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CSCO entries:1]
+2026-10-29 20:16:35,684 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KO entries:1]
+2026-10-29 20:16:35,684 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DIS entries:1]
+2026-10-29 20:16:35,684 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GS entries:1]
+2026-10-29 20:16:35,684 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HD entries:1]
+2026-10-29 20:16:35,684 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HON entries:1]
+2026-10-29 20:16:35,685 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:IBM entries:1]
+2026-10-29 20:16:35,685 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:JNJ entries:1]
+2026-10-29 20:16:35,685 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:JPM entries:1]
+2026-10-29 20:16:35,685 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MCD entries:1]
+2026-10-29 20:16:35,685 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MRK entries:1]
+2026-10-29 20:16:35,685 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MSFT entries:1]
+2026-10-29 20:16:35,685 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NKE entries:1]
+2026-10-29 20:16:35,686 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NVDA entries:1]
+2026-10-29 20:16:35,686 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PG entries:1]
+2026-10-29 20:16:35,686 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CRM entries:1]
+2026-10-29 20:16:35,686 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SHW entries:1]
+2026-10-29 20:16:35,686 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:TRV entries:1]
+2026-10-29 20:16:35,686 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:UNH entries:1]
+2026-10-29 20:16:35,686 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:V entries:1]
+2026-10-29 20:16:35,687 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:WMT entries:1]
+2026-10-29 20:16:35,688 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Aggregator DowJones30-cloud-D.csv and .xml are created
 
-2026-10-29 01:00:53,681 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
-2026-10-29 01:00:53,681 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::False
-2026-10-29 01:00:53,697 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MMM entries:1]
-2026-10-29 01:00:53,697 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GOOGL entries:1]
-2026-10-29 01:00:53,697 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AXP entries:1]
-2026-10-29 01:00:53,697 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AMGN entries:1]
-2026-10-29 01:00:53,697 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AMZN entries:1]
-2026-10-29 01:00:53,698 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AAPL entries:1]
-2026-10-29 01:00:53,698 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BA entries:1]
-2026-10-29 01:00:53,698 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CAT entries:1]
-2026-10-29 01:00:53,698 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CVX entries:1]
-2026-10-29 01:00:53,699 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CSCO entries:1]
-2026-10-29 01:00:53,699 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KO entries:1]
-2026-10-29 01:00:53,699 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DIS entries:1]
-2026-10-29 01:00:53,699 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GS entries:1]
-2026-10-29 01:00:53,699 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HD entries:1]
-2026-10-29 01:00:53,700 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HON entries:1]
-2026-10-29 01:00:53,700 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:IBM entries:1]
-2026-10-29 01:00:53,700 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:JNJ entries:1]
-2026-10-29 01:00:53,700 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:JPM entries:1]
-2026-10-29 01:00:53,700 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MCD entries:1]
-2026-10-29 01:00:53,701 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MRK entries:1]
-2026-10-29 01:00:53,701 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MSFT entries:1]
-2026-10-29 01:00:53,701 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NKE entries:1]
-2026-10-29 01:00:53,701 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NVDA entries:1]
-2026-10-29 01:00:53,701 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PG entries:1]
-2026-10-29 01:00:53,702 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CRM entries:1]
-2026-10-29 01:00:53,702 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SHW entries:1]
-2026-10-29 01:00:53,702 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:TRV entries:1]
-2026-10-29 01:00:53,702 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:UNH entries:1]
-2026-10-29 01:00:53,702 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:V entries:1]
-2026-10-29 01:00:53,703 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:WMT entries:1]
-2026-10-29 01:00:53,704 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Aggregator DowJones30-cloud-W.csv and .xml are created
+2026-10-29 20:16:35,688 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
+2026-10-29 20:16:35,688 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::False
+2026-10-29 20:16:35,701 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MMM entries:1]
+2026-10-29 20:16:35,702 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GOOGL entries:1]
+2026-10-29 20:16:35,702 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AXP entries:1]
+2026-10-29 20:16:35,702 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AMGN entries:1]
+2026-10-29 20:16:35,702 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AMZN entries:1]
+2026-10-29 20:16:35,702 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AAPL entries:1]
+2026-10-29 20:16:35,702 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BA entries:1]
+2026-10-29 20:16:35,702 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CAT entries:1]
+2026-10-29 20:16:35,703 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CVX entries:1]
+2026-10-29 20:16:35,703 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CSCO entries:1]
+2026-10-29 20:16:35,703 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KO entries:1]
+2026-10-29 20:16:35,703 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DIS entries:1]
+2026-10-29 20:16:35,703 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GS entries:1]
+2026-10-29 20:16:35,703 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HD entries:1]
+2026-10-29 20:16:35,703 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HON entries:1]
+2026-10-29 20:16:35,704 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:IBM entries:1]
+2026-10-29 20:16:35,704 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:JNJ entries:1]
+2026-10-29 20:16:35,704 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:JPM entries:1]
+2026-10-29 20:16:35,704 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MCD entries:1]
+2026-10-29 20:16:35,704 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MRK entries:1]
+2026-10-29 20:16:35,704 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MSFT entries:1]
+2026-10-29 20:16:35,704 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NKE entries:1]
+2026-10-29 20:16:35,705 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NVDA entries:1]
+2026-10-29 20:16:35,705 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PG entries:1]
+2026-10-29 20:16:35,705 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CRM entries:1]
+2026-10-29 20:16:35,705 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SHW entries:1]
+2026-10-29 20:16:35,705 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:TRV entries:1]
+2026-10-29 20:16:35,705 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:UNH entries:1]
+2026-10-29 20:16:35,706 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:V entries:1]
+2026-10-29 20:16:35,706 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:WMT entries:1]
+2026-10-29 20:16:35,707 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Aggregator DowJones30-cloud-W.csv and .xml are created
 
-2026-10-29 01:00:53,704 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
-2026-10-29 01:00:53,704 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::False
-2026-10-29 01:00:53,720 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MMM entries:1]
-2026-10-29 01:00:53,720 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GOOGL entries:1]
-2026-10-29 01:00:53,720 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AXP entries:1]
-2026-10-29 01:00:53,720 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AMGN entries:1]
-2026-10-29 01:00:53,721 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AMZN entries:1]
-2026-10-29 01:00:53,721 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AAPL entries:1]
-2026-10-29 01:00:53,721 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BA entries:1]
-2026-10-29 01:00:53,721 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CAT entries:1]
-2026-10-29 01:00:53,721 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CVX entries:1]
-2026-10-29 01:00:53,722 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CSCO entries:1]
-2026-10-29 01:00:53,722 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KO entries:1]
-2026-10-29 01:00:53,722 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DIS entries:1]
-2026-10-29 01:00:53,722 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GS entries:1]
-2026-10-29 01:00:53,722 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HD entries:1]
-2026-10-29 01:00:53,723 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HON entries:1]
-2026-10-29 01:00:53,723 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:IBM entries:1]
-2026-10-29 01:00:53,723 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:JNJ entries:1]
-2026-10-29 01:00:53,723 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:JPM entries:1]
-2026-10-29 01:00:53,724 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MCD entries:1]
-2026-10-29 01:00:53,724 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MRK entries:1]
-2026-10-29 01:00:53,724 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MSFT entries:1]
-2026-10-29 01:00:53,724 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NKE entries:1]
-2026-10-29 01:00:53,724 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NVDA entries:1]
-2026-10-29 01:00:53,725 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PG entries:1]
-2026-10-29 01:00:53,725 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CRM entries:1]
-2026-10-29 01:00:53,725 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SHW entries:1]
-2026-10-29 01:00:53,725 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:TRV entries:1]
-2026-10-29 01:00:53,725 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:UNH entries:1]
-2026-10-29 01:00:53,726 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:V entries:1]
-2026-10-29 01:00:53,726 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:WMT entries:1]
-2026-10-29 01:00:53,727 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Aggregator DowJones30-cloud-M.csv and .xml are created
+2026-10-29 20:16:35,707 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: ----------- Creating Cloud Signal Aggregator -----------
+2026-10-29 20:16:35,707 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: self.model.use_datetime_format::False
+2026-10-29 20:16:35,720 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MMM entries:1]
+2026-10-29 20:16:35,720 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GOOGL entries:1]
+2026-10-29 20:16:35,720 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AXP entries:1]
+2026-10-29 20:16:35,720 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AMGN entries:1]
+2026-10-29 20:16:35,720 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AMZN entries:1]
+2026-10-29 20:16:35,721 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:AAPL entries:1]
+2026-10-29 20:16:35,721 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:BA entries:1]
+2026-10-29 20:16:35,721 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CAT entries:1]
+2026-10-29 20:16:35,721 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CVX entries:1]
+2026-10-29 20:16:35,721 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CSCO entries:1]
+2026-10-29 20:16:35,721 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:KO entries:1]
+2026-10-29 20:16:35,722 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:DIS entries:1]
+2026-10-29 20:16:35,722 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:GS entries:1]
+2026-10-29 20:16:35,722 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HD entries:1]
+2026-10-29 20:16:35,722 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:HON entries:1]
+2026-10-29 20:16:35,722 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:IBM entries:1]
+2026-10-29 20:16:35,722 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:JNJ entries:1]
+2026-10-29 20:16:35,723 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:JPM entries:1]
+2026-10-29 20:16:35,723 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MCD entries:1]
+2026-10-29 20:16:35,723 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MRK entries:1]
+2026-10-29 20:16:35,723 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:MSFT entries:1]
+2026-10-29 20:16:35,723 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NKE entries:1]
+2026-10-29 20:16:35,723 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:NVDA entries:1]
+2026-10-29 20:16:35,724 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:PG entries:1]
+2026-10-29 20:16:35,724 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:CRM entries:1]
+2026-10-29 20:16:35,724 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:SHW entries:1]
+2026-10-29 20:16:35,724 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:TRV entries:1]
+2026-10-29 20:16:35,724 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:UNH entries:1]
+2026-10-29 20:16:35,724 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:V entries:1]
+2026-10-29 20:16:35,725 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: [symbol:WMT entries:1]
+2026-10-29 20:16:35,726 INFO cloud_signal.mvc.core.DataCloudSignalAggregatorMVC: Aggregator DowJones30-cloud-M.csv and .xml are created
 
-2026-10-29 01:00:53,727 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuCloudDataDJ30Aggregator.main finished in 0.09 seconds
-2026-10-29 01:00:53,727 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: ------------- Merging Multi Timeframe Cloud -------------
-2026-10-29 01:00:53,727 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Check files for merging: ['output/cloud/DowJones30-cloud-1H.csv', 'output/cloud/DowJones30-cloud-D.csv', 'output/cloud/DowJones30-cloud-W.csv', 'output/cloud/DowJones30-cloud-M.csv']
-2026-10-29 01:00:53,728 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/DowJones30-cloud-1H.csv
-2026-10-29 01:00:53,729 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/DowJones30-cloud-D.csv
-2026-10-29 01:00:53,731 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/DowJones30-cloud-W.csv
-2026-10-29 01:00:53,733 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/DowJones30-cloud-M.csv
-2026-10-29 01:00:53,736 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Multi Timeframe Cloud Signals Merged: output/cloud/DowJones30-cloud-merged.csv
-2026-10-29 01:00:53,736 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: combined_csv size::(30, 11)
-2026-10-29 01:00:53,736 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1H Cloud Direction', '1H Cloud Count']
-2026-10-29 01:00:53,736 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1D Cloud Direction', '1D Cloud Count']
-2026-10-29 01:00:53,737 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1W Cloud Direction', '1W Cloud Count']
-2026-10-29 01:00:53,737 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1M Cloud Direction', '1M Cloud Count']
-2026-10-29 01:00:53,739 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: 
+2026-10-29 20:16:35,726 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuCloudDataDJ30Aggregator.main finished in 0.08 seconds
+2026-10-29 20:16:35,726 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: ------------- Merging Multi Timeframe Cloud -------------
+2026-10-29 20:16:35,726 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Check files for merging: ['output/cloud/DowJones30-cloud-1H.csv', 'output/cloud/DowJones30-cloud-D.csv', 'output/cloud/DowJones30-cloud-W.csv', 'output/cloud/DowJones30-cloud-M.csv']
+2026-10-29 20:16:35,726 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/DowJones30-cloud-1H.csv
+2026-10-29 20:16:35,727 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/DowJones30-cloud-D.csv
+2026-10-29 20:16:35,730 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/DowJones30-cloud-W.csv
+2026-10-29 20:16:35,732 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: merge path:output/cloud/DowJones30-cloud-M.csv
+2026-10-29 20:16:35,734 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Multi Timeframe Cloud Signals Merged: output/cloud/DowJones30-cloud-merged.csv
+2026-10-29 20:16:35,734 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: combined_csv size::(30, 11)
+2026-10-29 20:16:35,734 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1H Cloud Direction', '1H Cloud Count']
+2026-10-29 20:16:35,734 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1D Cloud Direction', '1D Cloud Count']
+2026-10-29 20:16:35,735 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1W Cloud Direction', '1W Cloud Count']
+2026-10-29 20:16:35,735 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Columns exist: ['1M Cloud Direction', '1M Cloud Count']
+2026-10-29 20:16:35,737 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: 
 -------------------- Cloud Score Multi Timeframe Raw --------------------
     Symbol                    Name  ...  1W Cloud Score  1M Cloud Score
-0     AXP        American Express  ...              -2             113
-1    AMZN                  Amazon  ...              14              35
-2     CAT             Caterpillar  ...               0              78
-3      HD              Home Depot  ...             -35               0
-4     UNH      UnitedHealth Group  ...               3               0
-5     TRV               Travelers  ...             154              72
-6     NKE                    Nike  ...             -46             -35
-7    NVDA                  Nvidia  ...              77             148
-8     WMT                 Walmart  ...               0             115
-9       V                    Visa  ...              18             147
-10   MSFT               Microsoft  ...              13             187
-11   AAPL                   Apple  ...              61             265
-12   CSCO                   Cisco  ...             111              28
-13    DIS                  Disney  ...               6               0
-14     PG        Procter & Gamble  ...               4             193
-15    CRM              Salesforce  ...              10               1
-16     KO               Coca-Cola  ...              57             196
-17    JPM          JPMorgan Chase  ...             186             172
-18    SHW        Sherwin-Williams  ...              -1             204
-19     GS           Goldman Sachs  ...             155              72
-20     BA                  Boeing  ...              -4              -2
-21    MRK                   Merck  ...              46              12
+0    CSCO                   Cisco  ...             111              28
+1     TRV               Travelers  ...             154              72
+2     UNH      UnitedHealth Group  ...               3               0
+3     MRK                   Merck  ...              46              12
+4    MSFT               Microsoft  ...              13             187
+5     DIS                  Disney  ...               6               0
+6       V                    Visa  ...              18             147
+7     AXP        American Express  ...              -2             113
+8    NVDA                  Nvidia  ...              77             148
+9     NKE                    Nike  ...             -46             -35
+10    WMT                 Walmart  ...               1             115
+11    CAT             Caterpillar  ...               0              78
+12   AAPL                   Apple  ...              61             265
+13     HD              Home Depot  ...             -35               1
+14   AMZN                  Amazon  ...              14              35
+15    CRM              Salesforce  ...              10               0
+16     PG        Procter & Gamble  ...               4             193
+17     KO               Coca-Cola  ...              57             196
+18    JPM          JPMorgan Chase  ...             186             172
+19    SHW        Sherwin-Williams  ...              -1             204
+20     GS           Goldman Sachs  ...             155              72
+21     BA                  Boeing  ...              -4              -2
 22    JNJ       Johnson & Johnson  ...              71              21
 23    HON  Honeywell Technologies  ...              -9              36
 24  GOOGL      Alphabet (Class A)  ...               0             190
 25    MMM                      3M  ...              15              28
 26    IBM                     IBM  ...               0              68
-27    MCD              McDonald's  ...             -27               0
+27    MCD              McDonald's  ...             -27               1
 28   AMGN                   Amgen  ...              53             179
 29    CVX                 Chevron  ...              70              62
 
 [30 rows x 15 columns]
-2026-10-29 01:00:53,739 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: create_sum_column self.list_score_names: ['1H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score', 'Cloud Score Sum'] 
+2026-10-29 20:16:35,737 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: create_sum_column self.list_score_names: ['1H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score', 'Cloud Score Sum'] 
 create_sum_column df.columns Index(['Symbol', 'Name', 'Close', '1H Cloud Direction', '1H Cloud Count',
        '1D Cloud Direction', '1D Cloud Count', '1W Cloud Direction',
        '1W Cloud Count', '1M Cloud Direction', '1M Cloud Count',
        '1H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score'],
       dtype='str')
-2026-10-29 01:00:53,740 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: ------ Cleaning columns ------
-2026-10-29 01:00:53,740 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Available columns: ['Symbol', 'Name', 'Close', '1H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score', 'Cloud Score Sum']
-2026-10-29 01:00:53,741 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Saved data to: output/cloud/DowJones30-cloud-merged.csv output/cloud/DowJones30-cloud-merged.csv.html
+2026-10-29 20:16:35,738 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: ------ Cleaning columns ------
+2026-10-29 20:16:35,738 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Available columns: ['Symbol', 'Name', 'Close', '1H Cloud Score', '1D Cloud Score', '1W Cloud Score', '1M Cloud Score', 'Cloud Score Sum']
+2026-10-29 20:16:35,740 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: Saved data to: output/cloud/DowJones30-cloud-merged.csv output/cloud/DowJones30-cloud-merged.csv.html
 
-2026-10-29 01:00:53,743 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: ----------- Cloud Score Multi Timeframe Final View -----------
+2026-10-29 20:16:35,741 INFO cloud_signal.mvc.core.DataCloudSignalMultiTimeframeMerger: ----------- Cloud Score Multi Timeframe Final View -----------
     Symbol                    Name  ...  1M Cloud Score  Cloud Score Sum
-11   AAPL                   Apple  ...             265              358
-17    JPM          JPMorgan Chase  ...             172              347
-28   AMGN                   Amgen  ...             179              338
-29    CVX                 Chevron  ...              62              305
-10   MSFT               Microsoft  ...             187              264
-16     KO               Coca-Cola  ...             196              255
-5     TRV               Travelers  ...              72              238
-7    NVDA                  Nvidia  ...             148              225
-19     GS           Goldman Sachs  ...              72              206
-14     PG        Procter & Gamble  ...             193              204
-18    SHW        Sherwin-Williams  ...             204              190
-9       V                    Visa  ...             147              178
-26    IBM                     IBM  ...              68              156
-12   CSCO                   Cisco  ...              28              142
-22    JNJ       Johnson & Johnson  ...              21              131
-8     WMT                 Walmart  ...             115              128
-24  GOOGL      Alphabet (Class A)  ...             190              121
-25    MMM                      3M  ...              28              119
-0     AXP        American Express  ...             113              108
-23    HON  Honeywell Technologies  ...              36               79
-15    CRM              Salesforce  ...               1               67
-2     CAT             Caterpillar  ...              78               63
-1    AMZN                  Amazon  ...              35               45
-21    MRK                   Merck  ...              12               30
-13    DIS                  Disney  ...               0               12
-4     UNH      UnitedHealth Group  ...               0                3
-27    MCD              McDonald's  ...               0              -24
-3      HD              Home Depot  ...               0              -35
-20     BA                  Boeing  ...              -2              -72
-6     NKE                    Nike  ...             -35              -81
+12   AAPL                   Apple  ...             265              369
+18    JPM          JPMorgan Chase  ...             172              352
+28   AMGN                   Amgen  ...             179              347
+29    CVX                 Chevron  ...              62              314
+4    MSFT               Microsoft  ...             187              266
+17     KO               Coca-Cola  ...             196              250
+1     TRV               Travelers  ...              72              240
+8    NVDA                  Nvidia  ...             148              218
+20     GS           Goldman Sachs  ...              72              211
+16     PG        Procter & Gamble  ...             193              199
+6       V                    Visa  ...             147              184
+19    SHW        Sherwin-Williams  ...             204              184
+26    IBM                     IBM  ...              68              165
+22    JNJ       Johnson & Johnson  ...              21              140
+0    CSCO                   Cisco  ...              28              139
+10    WMT                 Walmart  ...             115              138
+25    MMM                      3M  ...              28              128
+7     AXP        American Express  ...             113              118
+24  GOOGL      Alphabet (Class A)  ...             190              112
+23    HON  Honeywell Technologies  ...              36               86
+27    MCD              McDonald's  ...               1               77
+3     MRK                   Merck  ...              12               58
+11    CAT             Caterpillar  ...              78               54
+14   AMZN                  Amazon  ...              35               41
+5     DIS                  Disney  ...               0               21
+2     UNH      UnitedHealth Group  ...               0                3
+15    CRM              Salesforce  ...               0               -6
+13     HD              Home Depot  ...               1              -26
+9     NKE                    Nike  ...             -35              -74
+21     BA                  Boeing  ...              -2              -81
 
 [30 rows x 8 columns]
-2026-10-29 01:00:53,743 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuCloudDataDJ30MultiTFMerger.main finished in 0.02 seconds
-2026-10-29 01:00:53,743 INFO cloud_signal.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/dowjones30/1h/asset_list/DowJones30.csv
-2026-10-29 01:00:53,785 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MMM - File is already in the correct format.
-2026-10-29 01:00:53,795 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GOOGL - File is already in the correct format.
-2026-10-29 01:00:53,805 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AXP - File is already in the correct format.
-2026-10-29 01:00:53,815 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AMGN - File is already in the correct format.
-2026-10-29 01:00:53,826 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AMZN - File is already in the correct format.
-2026-10-29 01:00:53,836 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AAPL - File is already in the correct format.
-2026-10-29 01:00:53,846 INFO cloud_signal.mvc.core.DataTKxSignalMVC: BA - File is already in the correct format.
-2026-10-29 01:00:53,856 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CAT - File is already in the correct format.
-2026-10-29 01:00:53,866 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CVX - File is already in the correct format.
-2026-10-29 01:00:53,876 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CSCO - File is already in the correct format.
-2026-10-29 01:00:53,886 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KO - File is already in the correct format.
-2026-10-29 01:00:53,897 INFO cloud_signal.mvc.core.DataTKxSignalMVC: DIS - File is already in the correct format.
-2026-10-29 01:00:53,907 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GS - File is already in the correct format.
-2026-10-29 01:00:53,917 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HD - File is already in the correct format.
-2026-10-29 01:00:53,927 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HON - File is already in the correct format.
-2026-10-29 01:00:53,937 INFO cloud_signal.mvc.core.DataTKxSignalMVC: IBM - File is already in the correct format.
-2026-10-29 01:00:53,947 INFO cloud_signal.mvc.core.DataTKxSignalMVC: JNJ - File is already in the correct format.
-2026-10-29 01:00:53,958 INFO cloud_signal.mvc.core.DataTKxSignalMVC: JPM - File is already in the correct format.
-2026-10-29 01:00:53,968 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MCD - File is already in the correct format.
-2026-10-29 01:00:53,978 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MRK - File is already in the correct format.
-2026-10-29 01:00:53,988 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MSFT - File is already in the correct format.
-2026-10-29 01:00:53,998 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NKE - File is already in the correct format.
-2026-10-29 01:00:54,009 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NVDA - File is already in the correct format.
-2026-10-29 01:00:54,019 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PG - File is already in the correct format.
-2026-10-29 01:00:54,029 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CRM - File is already in the correct format.
-2026-10-29 01:00:54,039 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SHW - File is already in the correct format.
-2026-10-29 01:00:54,050 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TRV - File is already in the correct format.
-2026-10-29 01:00:54,060 INFO cloud_signal.mvc.core.DataTKxSignalMVC: UNH - File is already in the correct format.
-2026-10-29 01:00:54,070 INFO cloud_signal.mvc.core.DataTKxSignalMVC: V - File is already in the correct format.
-2026-10-29 01:00:54,080 INFO cloud_signal.mvc.core.DataTKxSignalMVC: WMT - File is already in the correct format.
-2026-10-29 01:00:54,086 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TKx count csv files are created
-2026-10-29 01:00:54,087 INFO cloud_signal.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/dowjones30/d/asset_list/DowJones30.csv
-2026-10-29 01:00:54,274 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MMM - File is already in the correct format.
-2026-10-29 01:00:54,308 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GOOGL - File is already in the correct format.
-2026-10-29 01:00:54,337 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AXP - File is already in the correct format.
-2026-10-29 01:00:54,375 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AMGN - File is already in the correct format.
-2026-10-29 01:00:54,404 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AMZN - File is already in the correct format.
-2026-10-29 01:00:54,432 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AAPL - File is already in the correct format.
-2026-10-29 01:00:54,476 INFO cloud_signal.mvc.core.DataTKxSignalMVC: BA - File is already in the correct format.
-2026-10-29 01:00:54,522 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CAT - File is already in the correct format.
-2026-10-29 01:00:54,568 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CVX - File is already in the correct format.
-2026-10-29 01:00:54,606 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CSCO - File is already in the correct format.
-2026-10-29 01:00:54,648 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KO - File is already in the correct format.
-2026-10-29 01:00:54,695 INFO cloud_signal.mvc.core.DataTKxSignalMVC: DIS - File is already in the correct format.
-2026-10-29 01:00:54,731 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GS - File is already in the correct format.
-2026-10-29 01:00:54,758 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HD - File is already in the correct format.
-2026-10-29 01:00:54,804 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HON - File is already in the correct format.
-2026-10-29 01:00:54,850 INFO cloud_signal.mvc.core.DataTKxSignalMVC: IBM - File is already in the correct format.
-2026-10-29 01:00:54,900 INFO cloud_signal.mvc.core.DataTKxSignalMVC: JNJ - File is already in the correct format.
-2026-10-29 01:00:54,943 INFO cloud_signal.mvc.core.DataTKxSignalMVC: JPM - File is already in the correct format.
-2026-10-29 01:00:54,986 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MCD - File is already in the correct format.
-2026-10-29 01:00:55,035 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MRK - File is already in the correct format.
-2026-10-29 01:00:55,075 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MSFT - File is already in the correct format.
-2026-10-29 01:00:55,109 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NKE - File is already in the correct format.
-2026-10-29 01:00:55,138 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NVDA - File is already in the correct format.
-2026-10-29 01:00:55,174 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PG - File is already in the correct format.
-2026-10-29 01:00:55,208 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CRM - File is already in the correct format.
-2026-10-29 01:00:55,236 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SHW - File is already in the correct format.
-2026-10-29 01:00:55,272 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TRV - File is already in the correct format.
-2026-10-29 01:00:55,308 INFO cloud_signal.mvc.core.DataTKxSignalMVC: UNH - File is already in the correct format.
-2026-10-29 01:00:55,333 INFO cloud_signal.mvc.core.DataTKxSignalMVC: V - File is already in the correct format.
-2026-10-29 01:00:55,361 INFO cloud_signal.mvc.core.DataTKxSignalMVC: WMT - File is already in the correct format.
-2026-10-29 01:00:55,383 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TKx count csv files are created
-2026-10-29 01:00:55,390 INFO cloud_signal.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/dowjones30/w/asset_list/DowJones30.csv
-2026-10-29 01:00:55,442 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MMM - File is already in the correct format.
-2026-10-29 01:00:55,454 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GOOGL - File is already in the correct format.
-2026-10-29 01:00:55,464 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AXP - File is already in the correct format.
-2026-10-29 01:00:55,477 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AMGN - File is already in the correct format.
-2026-10-29 01:00:55,487 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AMZN - File is already in the correct format.
-2026-10-29 01:00:55,498 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AAPL - File is already in the correct format.
-2026-10-29 01:00:55,511 INFO cloud_signal.mvc.core.DataTKxSignalMVC: BA - File is already in the correct format.
-2026-10-29 01:00:55,525 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CAT - File is already in the correct format.
-2026-10-29 01:00:55,539 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CVX - File is already in the correct format.
-2026-10-29 01:00:55,551 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CSCO - File is already in the correct format.
-2026-10-29 01:00:55,563 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KO - File is already in the correct format.
-2026-10-29 01:00:55,577 INFO cloud_signal.mvc.core.DataTKxSignalMVC: DIS - File is already in the correct format.
-2026-10-29 01:00:55,589 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GS - File is already in the correct format.
-2026-10-29 01:00:55,600 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HD - File is already in the correct format.
-2026-10-29 01:00:55,612 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HON - File is already in the correct format.
-2026-10-29 01:00:55,627 INFO cloud_signal.mvc.core.DataTKxSignalMVC: IBM - File is already in the correct format.
-2026-10-29 01:00:55,641 INFO cloud_signal.mvc.core.DataTKxSignalMVC: JNJ - File is already in the correct format.
-2026-10-29 01:00:55,654 INFO cloud_signal.mvc.core.DataTKxSignalMVC: JPM - File is already in the correct format.
-2026-10-29 01:00:55,666 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MCD - File is already in the correct format.
-2026-10-29 01:00:55,680 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MRK - File is already in the correct format.
-2026-10-29 01:00:55,693 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MSFT - File is already in the correct format.
-2026-10-29 01:00:55,704 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NKE - File is already in the correct format.
-2026-10-29 01:00:55,715 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NVDA - File is already in the correct format.
-2026-10-29 01:00:55,726 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PG - File is already in the correct format.
-2026-10-29 01:00:55,738 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CRM - File is already in the correct format.
-2026-10-29 01:00:55,748 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SHW - File is already in the correct format.
-2026-10-29 01:00:55,760 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TRV - File is already in the correct format.
-2026-10-29 01:00:55,772 INFO cloud_signal.mvc.core.DataTKxSignalMVC: UNH - File is already in the correct format.
-2026-10-29 01:00:55,781 INFO cloud_signal.mvc.core.DataTKxSignalMVC: V - File is already in the correct format.
-2026-10-29 01:00:55,792 INFO cloud_signal.mvc.core.DataTKxSignalMVC: WMT - File is already in the correct format.
-2026-10-29 01:00:55,799 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TKx count csv files are created
-2026-10-29 01:00:55,800 INFO cloud_signal.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/dowjones30/m/asset_list/DowJones30.csv
-2026-10-29 01:00:55,826 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MMM - File is already in the correct format.
-2026-10-29 01:00:55,833 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GOOGL - File is already in the correct format.
-2026-10-29 01:00:55,840 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AXP - File is already in the correct format.
-2026-10-29 01:00:55,847 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AMGN - File is already in the correct format.
-2026-10-29 01:00:55,853 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AMZN - File is already in the correct format.
-2026-10-29 01:00:55,860 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AAPL - File is already in the correct format.
-2026-10-29 01:00:55,867 INFO cloud_signal.mvc.core.DataTKxSignalMVC: BA - File is already in the correct format.
-2026-10-29 01:00:55,874 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CAT - File is already in the correct format.
-2026-10-29 01:00:55,881 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CVX - File is already in the correct format.
-2026-10-29 01:00:55,888 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CSCO - File is already in the correct format.
-2026-10-29 01:00:55,895 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KO - File is already in the correct format.
-2026-10-29 01:00:55,902 INFO cloud_signal.mvc.core.DataTKxSignalMVC: DIS - File is already in the correct format.
-2026-10-29 01:00:55,909 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GS - File is already in the correct format.
-2026-10-29 01:00:55,915 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HD - File is already in the correct format.
-2026-10-29 01:00:55,923 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HON - File is already in the correct format.
-2026-10-29 01:00:55,930 INFO cloud_signal.mvc.core.DataTKxSignalMVC: IBM - File is already in the correct format.
-2026-10-29 01:00:55,937 INFO cloud_signal.mvc.core.DataTKxSignalMVC: JNJ - File is already in the correct format.
-2026-10-29 01:00:55,944 INFO cloud_signal.mvc.core.DataTKxSignalMVC: JPM - File is already in the correct format.
-2026-10-29 01:00:55,951 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MCD - File is already in the correct format.
-2026-10-29 01:00:55,958 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MRK - File is already in the correct format.
-2026-10-29 01:00:55,965 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MSFT - File is already in the correct format.
-2026-10-29 01:00:55,972 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NKE - File is already in the correct format.
-2026-10-29 01:00:55,979 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NVDA - File is already in the correct format.
-2026-10-29 01:00:55,986 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PG - File is already in the correct format.
-2026-10-29 01:00:55,993 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CRM - File is already in the correct format.
-2026-10-29 01:00:55,999 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SHW - File is already in the correct format.
-2026-10-29 01:00:56,006 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TRV - File is already in the correct format.
-2026-10-29 01:00:56,013 INFO cloud_signal.mvc.core.DataTKxSignalMVC: UNH - File is already in the correct format.
-2026-10-29 01:00:56,020 INFO cloud_signal.mvc.core.DataTKxSignalMVC: V - File is already in the correct format.
-2026-10-29 01:00:56,027 INFO cloud_signal.mvc.core.DataTKxSignalMVC: WMT - File is already in the correct format.
-2026-10-29 01:00:56,031 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TKx count csv files are created
-2026-10-29 01:00:56,032 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuTKxDataDJ30.main finished in 2.29 seconds
-2026-10-29 01:00:56,032 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/dowjones30/1h/ -----------
-2026-10-29 01:00:56,032 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::True
-2026-10-29 01:00:56,051 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Aggregator DowJones30-tkx-1H.csv and .xml are created
+2026-10-29 20:16:35,741 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuCloudDataDJ30MultiTFMerger.main finished in 0.02 seconds
+2026-10-29 20:16:35,742 INFO cloud_signal.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/dowjones30/1h/asset_list/DowJones30.csv
+2026-10-29 20:16:35,784 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MMM - File is already in the correct format.
+2026-10-29 20:16:35,795 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GOOGL - File is already in the correct format.
+2026-10-29 20:16:35,805 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AXP - File is already in the correct format.
+2026-10-29 20:16:35,815 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AMGN - File is already in the correct format.
+2026-10-29 20:16:35,825 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AMZN - File is already in the correct format.
+2026-10-29 20:16:35,835 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AAPL - File is already in the correct format.
+2026-10-29 20:16:35,845 INFO cloud_signal.mvc.core.DataTKxSignalMVC: BA - File is already in the correct format.
+2026-10-29 20:16:35,855 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CAT - File is already in the correct format.
+2026-10-29 20:16:35,864 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CVX - File is already in the correct format.
+2026-10-29 20:16:35,874 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CSCO - File is already in the correct format.
+2026-10-29 20:16:35,884 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KO - File is already in the correct format.
+2026-10-29 20:16:35,893 INFO cloud_signal.mvc.core.DataTKxSignalMVC: DIS - File is already in the correct format.
+2026-10-29 20:16:35,903 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GS - File is already in the correct format.
+2026-10-29 20:16:35,913 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HD - File is already in the correct format.
+2026-10-29 20:16:35,922 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HON - File is already in the correct format.
+2026-10-29 20:16:35,932 INFO cloud_signal.mvc.core.DataTKxSignalMVC: IBM - File is already in the correct format.
+2026-10-29 20:16:35,941 INFO cloud_signal.mvc.core.DataTKxSignalMVC: JNJ - File is already in the correct format.
+2026-10-29 20:16:35,951 INFO cloud_signal.mvc.core.DataTKxSignalMVC: JPM - File is already in the correct format.
+2026-10-29 20:16:35,961 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MCD - File is already in the correct format.
+2026-10-29 20:16:35,970 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MRK - File is already in the correct format.
+2026-10-29 20:16:35,980 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MSFT - File is already in the correct format.
+2026-10-29 20:16:35,990 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NKE - File is already in the correct format.
+2026-10-29 20:16:35,999 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NVDA - File is already in the correct format.
+2026-10-29 20:16:36,009 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PG - File is already in the correct format.
+2026-10-29 20:16:36,019 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CRM - File is already in the correct format.
+2026-10-29 20:16:36,028 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SHW - File is already in the correct format.
+2026-10-29 20:16:36,038 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TRV - File is already in the correct format.
+2026-10-29 20:16:36,048 INFO cloud_signal.mvc.core.DataTKxSignalMVC: UNH - File is already in the correct format.
+2026-10-29 20:16:36,057 INFO cloud_signal.mvc.core.DataTKxSignalMVC: V - File is already in the correct format.
+2026-10-29 20:16:36,067 INFO cloud_signal.mvc.core.DataTKxSignalMVC: WMT - File is already in the correct format.
+2026-10-29 20:16:36,073 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TKx count csv files are created
+2026-10-29 20:16:36,074 INFO cloud_signal.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/dowjones30/d/asset_list/DowJones30.csv
+2026-10-29 20:16:36,259 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MMM - File is already in the correct format.
+2026-10-29 20:16:36,297 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GOOGL - File is already in the correct format.
+2026-10-29 20:16:36,327 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AXP - File is already in the correct format.
+2026-10-29 20:16:36,364 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AMGN - File is already in the correct format.
+2026-10-29 20:16:36,394 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AMZN - File is already in the correct format.
+2026-10-29 20:16:36,422 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AAPL - File is already in the correct format.
+2026-10-29 20:16:36,464 INFO cloud_signal.mvc.core.DataTKxSignalMVC: BA - File is already in the correct format.
+2026-10-29 20:16:36,511 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CAT - File is already in the correct format.
+2026-10-29 20:16:36,559 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CVX - File is already in the correct format.
+2026-10-29 20:16:36,599 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CSCO - File is already in the correct format.
+2026-10-29 20:16:36,637 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KO - File is already in the correct format.
+2026-10-29 20:16:36,685 INFO cloud_signal.mvc.core.DataTKxSignalMVC: DIS - File is already in the correct format.
+2026-10-29 20:16:36,722 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GS - File is already in the correct format.
+2026-10-29 20:16:36,751 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HD - File is already in the correct format.
+2026-10-29 20:16:36,792 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HON - File is already in the correct format.
+2026-10-29 20:16:36,841 INFO cloud_signal.mvc.core.DataTKxSignalMVC: IBM - File is already in the correct format.
+2026-10-29 20:16:36,890 INFO cloud_signal.mvc.core.DataTKxSignalMVC: JNJ - File is already in the correct format.
+2026-10-29 20:16:36,933 INFO cloud_signal.mvc.core.DataTKxSignalMVC: JPM - File is already in the correct format.
+2026-10-29 20:16:36,974 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MCD - File is already in the correct format.
+2026-10-29 20:16:37,021 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MRK - File is already in the correct format.
+2026-10-29 20:16:37,063 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MSFT - File is already in the correct format.
+2026-10-29 20:16:37,096 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NKE - File is already in the correct format.
+2026-10-29 20:16:37,126 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NVDA - File is already in the correct format.
+2026-10-29 20:16:37,161 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PG - File is already in the correct format.
+2026-10-29 20:16:37,197 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CRM - File is already in the correct format.
+2026-10-29 20:16:37,223 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SHW - File is already in the correct format.
+2026-10-29 20:16:37,261 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TRV - File is already in the correct format.
+2026-10-29 20:16:37,298 INFO cloud_signal.mvc.core.DataTKxSignalMVC: UNH - File is already in the correct format.
+2026-10-29 20:16:37,324 INFO cloud_signal.mvc.core.DataTKxSignalMVC: V - File is already in the correct format.
+2026-10-29 20:16:37,352 INFO cloud_signal.mvc.core.DataTKxSignalMVC: WMT - File is already in the correct format.
+2026-10-29 20:16:37,375 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TKx count csv files are created
+2026-10-29 20:16:37,382 INFO cloud_signal.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/dowjones30/w/asset_list/DowJones30.csv
+2026-10-29 20:16:37,435 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MMM - File is already in the correct format.
+2026-10-29 20:16:37,447 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GOOGL - File is already in the correct format.
+2026-10-29 20:16:37,457 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AXP - File is already in the correct format.
+2026-10-29 20:16:37,469 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AMGN - File is already in the correct format.
+2026-10-29 20:16:37,480 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AMZN - File is already in the correct format.
+2026-10-29 20:16:37,490 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AAPL - File is already in the correct format.
+2026-10-29 20:16:37,502 INFO cloud_signal.mvc.core.DataTKxSignalMVC: BA - File is already in the correct format.
+2026-10-29 20:16:37,516 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CAT - File is already in the correct format.
+2026-10-29 20:16:37,529 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CVX - File is already in the correct format.
+2026-10-29 20:16:37,541 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CSCO - File is already in the correct format.
+2026-10-29 20:16:37,553 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KO - File is already in the correct format.
+2026-10-29 20:16:37,566 INFO cloud_signal.mvc.core.DataTKxSignalMVC: DIS - File is already in the correct format.
+2026-10-29 20:16:37,578 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GS - File is already in the correct format.
+2026-10-29 20:16:37,588 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HD - File is already in the correct format.
+2026-10-29 20:16:37,600 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HON - File is already in the correct format.
+2026-10-29 20:16:37,614 INFO cloud_signal.mvc.core.DataTKxSignalMVC: IBM - File is already in the correct format.
+2026-10-29 20:16:37,627 INFO cloud_signal.mvc.core.DataTKxSignalMVC: JNJ - File is already in the correct format.
+2026-10-29 20:16:37,640 INFO cloud_signal.mvc.core.DataTKxSignalMVC: JPM - File is already in the correct format.
+2026-10-29 20:16:37,652 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MCD - File is already in the correct format.
+2026-10-29 20:16:37,665 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MRK - File is already in the correct format.
+2026-10-29 20:16:37,677 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MSFT - File is already in the correct format.
+2026-10-29 20:16:37,688 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NKE - File is already in the correct format.
+2026-10-29 20:16:37,698 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NVDA - File is already in the correct format.
+2026-10-29 20:16:37,709 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PG - File is already in the correct format.
+2026-10-29 20:16:37,720 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CRM - File is already in the correct format.
+2026-10-29 20:16:37,730 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SHW - File is already in the correct format.
+2026-10-29 20:16:37,742 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TRV - File is already in the correct format.
+2026-10-29 20:16:37,753 INFO cloud_signal.mvc.core.DataTKxSignalMVC: UNH - File is already in the correct format.
+2026-10-29 20:16:37,763 INFO cloud_signal.mvc.core.DataTKxSignalMVC: V - File is already in the correct format.
+2026-10-29 20:16:37,772 INFO cloud_signal.mvc.core.DataTKxSignalMVC: WMT - File is already in the correct format.
+2026-10-29 20:16:37,779 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TKx count csv files are created
+2026-10-29 20:16:37,781 INFO cloud_signal.mvc.core.DataTKxSignalMVC: -------------------- Generating TKx Signals from %s %s --------------------data/dowjones30/m/asset_list/DowJones30.csv
+2026-10-29 20:16:37,804 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MMM - File is already in the correct format.
+2026-10-29 20:16:37,811 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GOOGL - File is already in the correct format.
+2026-10-29 20:16:37,817 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AXP - File is already in the correct format.
+2026-10-29 20:16:37,824 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AMGN - File is already in the correct format.
+2026-10-29 20:16:37,830 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AMZN - File is already in the correct format.
+2026-10-29 20:16:37,837 INFO cloud_signal.mvc.core.DataTKxSignalMVC: AAPL - File is already in the correct format.
+2026-10-29 20:16:37,843 INFO cloud_signal.mvc.core.DataTKxSignalMVC: BA - File is already in the correct format.
+2026-10-29 20:16:37,850 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CAT - File is already in the correct format.
+2026-10-29 20:16:37,856 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CVX - File is already in the correct format.
+2026-10-29 20:16:37,863 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CSCO - File is already in the correct format.
+2026-10-29 20:16:37,869 INFO cloud_signal.mvc.core.DataTKxSignalMVC: KO - File is already in the correct format.
+2026-10-29 20:16:37,876 INFO cloud_signal.mvc.core.DataTKxSignalMVC: DIS - File is already in the correct format.
+2026-10-29 20:16:37,882 INFO cloud_signal.mvc.core.DataTKxSignalMVC: GS - File is already in the correct format.
+2026-10-29 20:16:37,888 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HD - File is already in the correct format.
+2026-10-29 20:16:37,895 INFO cloud_signal.mvc.core.DataTKxSignalMVC: HON - File is already in the correct format.
+2026-10-29 20:16:37,902 INFO cloud_signal.mvc.core.DataTKxSignalMVC: IBM - File is already in the correct format.
+2026-10-29 20:16:37,909 INFO cloud_signal.mvc.core.DataTKxSignalMVC: JNJ - File is already in the correct format.
+2026-10-29 20:16:37,915 INFO cloud_signal.mvc.core.DataTKxSignalMVC: JPM - File is already in the correct format.
+2026-10-29 20:16:37,922 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MCD - File is already in the correct format.
+2026-10-29 20:16:37,928 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MRK - File is already in the correct format.
+2026-10-29 20:16:37,935 INFO cloud_signal.mvc.core.DataTKxSignalMVC: MSFT - File is already in the correct format.
+2026-10-29 20:16:37,942 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NKE - File is already in the correct format.
+2026-10-29 20:16:37,948 INFO cloud_signal.mvc.core.DataTKxSignalMVC: NVDA - File is already in the correct format.
+2026-10-29 20:16:37,954 INFO cloud_signal.mvc.core.DataTKxSignalMVC: PG - File is already in the correct format.
+2026-10-29 20:16:37,961 INFO cloud_signal.mvc.core.DataTKxSignalMVC: CRM - File is already in the correct format.
+2026-10-29 20:16:37,967 INFO cloud_signal.mvc.core.DataTKxSignalMVC: SHW - File is already in the correct format.
+2026-10-29 20:16:37,973 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TRV - File is already in the correct format.
+2026-10-29 20:16:37,979 INFO cloud_signal.mvc.core.DataTKxSignalMVC: UNH - File is already in the correct format.
+2026-10-29 20:16:37,986 INFO cloud_signal.mvc.core.DataTKxSignalMVC: V - File is already in the correct format.
+2026-10-29 20:16:37,992 INFO cloud_signal.mvc.core.DataTKxSignalMVC: WMT - File is already in the correct format.
+2026-10-29 20:16:37,996 INFO cloud_signal.mvc.core.DataTKxSignalMVC: TKx count csv files are created
+2026-10-29 20:16:37,996 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuTKxDataDJ30.main finished in 2.25 seconds
+2026-10-29 20:16:37,996 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/dowjones30/1h/ -----------
+2026-10-29 20:16:37,996 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::True
+2026-10-29 20:16:38,013 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Aggregator DowJones30-tkx-1H.csv and .xml are created
 
-2026-10-29 01:00:56,051 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/dowjones30/d/ -----------
-2026-10-29 01:00:56,051 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::False
-2026-10-29 01:00:56,068 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MMM entries:1]
-2026-10-29 01:00:56,068 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GOOGL entries:1]
-2026-10-29 01:00:56,068 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AXP entries:1]
-2026-10-29 01:00:56,068 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AMGN entries:1]
-2026-10-29 01:00:56,068 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AMZN entries:1]
-2026-10-29 01:00:56,069 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AAPL entries:1]
-2026-10-29 01:00:56,069 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:BA entries:1]
-2026-10-29 01:00:56,069 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CAT entries:1]
-2026-10-29 01:00:56,069 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CVX entries:1]
-2026-10-29 01:00:56,070 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CSCO entries:1]
-2026-10-29 01:00:56,070 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KO entries:1]
-2026-10-29 01:00:56,070 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:DIS entries:1]
-2026-10-29 01:00:56,070 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GS entries:1]
-2026-10-29 01:00:56,070 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HD entries:1]
-2026-10-29 01:00:56,071 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HON entries:1]
-2026-10-29 01:00:56,071 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:IBM entries:1]
-2026-10-29 01:00:56,071 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:JNJ entries:1]
-2026-10-29 01:00:56,071 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:JPM entries:1]
-2026-10-29 01:00:56,071 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MCD entries:1]
-2026-10-29 01:00:56,072 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MRK entries:1]
-2026-10-29 01:00:56,072 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MSFT entries:1]
-2026-10-29 01:00:56,072 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NKE entries:1]
-2026-10-29 01:00:56,072 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NVDA entries:1]
-2026-10-29 01:00:56,072 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PG entries:1]
-2026-10-29 01:00:56,073 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CRM entries:1]
-2026-10-29 01:00:56,073 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SHW entries:1]
-2026-10-29 01:00:56,073 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:TRV entries:1]
-2026-10-29 01:00:56,073 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:UNH entries:1]
-2026-10-29 01:00:56,074 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:V entries:1]
-2026-10-29 01:00:56,074 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:WMT entries:1]
-2026-10-29 01:00:56,075 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Aggregator DowJones30-tkx-D.csv and .xml are created
+2026-10-29 20:16:38,013 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/dowjones30/d/ -----------
+2026-10-29 20:16:38,013 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::False
+2026-10-29 20:16:38,027 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MMM entries:1]
+2026-10-29 20:16:38,027 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GOOGL entries:1]
+2026-10-29 20:16:38,027 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AXP entries:1]
+2026-10-29 20:16:38,027 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AMGN entries:1]
+2026-10-29 20:16:38,027 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AMZN entries:1]
+2026-10-29 20:16:38,028 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AAPL entries:1]
+2026-10-29 20:16:38,028 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:BA entries:1]
+2026-10-29 20:16:38,028 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CAT entries:1]
+2026-10-29 20:16:38,028 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CVX entries:1]
+2026-10-29 20:16:38,028 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CSCO entries:1]
+2026-10-29 20:16:38,028 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KO entries:1]
+2026-10-29 20:16:38,028 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:DIS entries:1]
+2026-10-29 20:16:38,028 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GS entries:1]
+2026-10-29 20:16:38,029 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HD entries:1]
+2026-10-29 20:16:38,029 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HON entries:1]
+2026-10-29 20:16:38,029 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:IBM entries:1]
+2026-10-29 20:16:38,029 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:JNJ entries:1]
+2026-10-29 20:16:38,029 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:JPM entries:1]
+2026-10-29 20:16:38,029 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MCD entries:1]
+2026-10-29 20:16:38,029 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MRK entries:1]
+2026-10-29 20:16:38,029 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MSFT entries:1]
+2026-10-29 20:16:38,030 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NKE entries:1]
+2026-10-29 20:16:38,030 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NVDA entries:1]
+2026-10-29 20:16:38,030 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PG entries:1]
+2026-10-29 20:16:38,030 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CRM entries:1]
+2026-10-29 20:16:38,030 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SHW entries:1]
+2026-10-29 20:16:38,030 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:TRV entries:1]
+2026-10-29 20:16:38,030 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:UNH entries:1]
+2026-10-29 20:16:38,030 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:V entries:1]
+2026-10-29 20:16:38,031 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:WMT entries:1]
+2026-10-29 20:16:38,032 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Aggregator DowJones30-tkx-D.csv and .xml are created
 
-2026-10-29 01:00:56,075 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/dowjones30/w/ -----------
-2026-10-29 01:00:56,075 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::False
-2026-10-29 01:00:56,091 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MMM entries:1]
-2026-10-29 01:00:56,092 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GOOGL entries:1]
-2026-10-29 01:00:56,092 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AXP entries:1]
-2026-10-29 01:00:56,092 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AMGN entries:1]
-2026-10-29 01:00:56,092 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AMZN entries:1]
-2026-10-29 01:00:56,093 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AAPL entries:1]
-2026-10-29 01:00:56,093 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:BA entries:1]
-2026-10-29 01:00:56,093 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CAT entries:1]
-2026-10-29 01:00:56,093 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CVX entries:1]
-2026-10-29 01:00:56,093 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CSCO entries:1]
-2026-10-29 01:00:56,094 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KO entries:1]
-2026-10-29 01:00:56,094 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:DIS entries:1]
-2026-10-29 01:00:56,094 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GS entries:1]
-2026-10-29 01:00:56,094 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HD entries:1]
-2026-10-29 01:00:56,095 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HON entries:1]
-2026-10-29 01:00:56,095 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:IBM entries:1]
-2026-10-29 01:00:56,095 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:JNJ entries:1]
-2026-10-29 01:00:56,095 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:JPM entries:1]
-2026-10-29 01:00:56,095 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MCD entries:1]
-2026-10-29 01:00:56,096 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MRK entries:1]
-2026-10-29 01:00:56,096 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MSFT entries:1]
-2026-10-29 01:00:56,096 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NKE entries:1]
-2026-10-29 01:00:56,096 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NVDA entries:1]
-2026-10-29 01:00:56,096 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PG entries:1]
-2026-10-29 01:00:56,097 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CRM entries:1]
-2026-10-29 01:00:56,097 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SHW entries:1]
-2026-10-29 01:00:56,097 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:TRV entries:1]
-2026-10-29 01:00:56,097 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:UNH entries:1]
-2026-10-29 01:00:56,097 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:V entries:1]
-2026-10-29 01:00:56,098 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:WMT entries:1]
-2026-10-29 01:00:56,099 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Aggregator DowJones30-tkx-W.csv and .xml are created
+2026-10-29 20:16:38,032 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/dowjones30/w/ -----------
+2026-10-29 20:16:38,032 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::False
+2026-10-29 20:16:38,045 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MMM entries:1]
+2026-10-29 20:16:38,045 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GOOGL entries:1]
+2026-10-29 20:16:38,045 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AXP entries:1]
+2026-10-29 20:16:38,045 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AMGN entries:1]
+2026-10-29 20:16:38,046 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AMZN entries:1]
+2026-10-29 20:16:38,046 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AAPL entries:1]
+2026-10-29 20:16:38,046 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:BA entries:1]
+2026-10-29 20:16:38,046 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CAT entries:1]
+2026-10-29 20:16:38,046 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CVX entries:1]
+2026-10-29 20:16:38,046 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CSCO entries:1]
+2026-10-29 20:16:38,046 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KO entries:1]
+2026-10-29 20:16:38,047 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:DIS entries:1]
+2026-10-29 20:16:38,047 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GS entries:1]
+2026-10-29 20:16:38,047 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HD entries:1]
+2026-10-29 20:16:38,047 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HON entries:1]
+2026-10-29 20:16:38,047 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:IBM entries:1]
+2026-10-29 20:16:38,047 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:JNJ entries:1]
+2026-10-29 20:16:38,047 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:JPM entries:1]
+2026-10-29 20:16:38,047 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MCD entries:1]
+2026-10-29 20:16:38,048 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MRK entries:1]
+2026-10-29 20:16:38,048 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MSFT entries:1]
+2026-10-29 20:16:38,048 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NKE entries:1]
+2026-10-29 20:16:38,048 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NVDA entries:1]
+2026-10-29 20:16:38,048 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PG entries:1]
+2026-10-29 20:16:38,048 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CRM entries:1]
+2026-10-29 20:16:38,048 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SHW entries:1]
+2026-10-29 20:16:38,048 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:TRV entries:1]
+2026-10-29 20:16:38,049 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:UNH entries:1]
+2026-10-29 20:16:38,049 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:V entries:1]
+2026-10-29 20:16:38,049 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:WMT entries:1]
+2026-10-29 20:16:38,050 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Aggregator DowJones30-tkx-W.csv and .xml are created
 
-2026-10-29 01:00:56,099 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/dowjones30/m/ -----------
-2026-10-29 01:00:56,099 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::False
-2026-10-29 01:00:56,115 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MMM entries:1]
-2026-10-29 01:00:56,115 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GOOGL entries:1]
-2026-10-29 01:00:56,116 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AXP entries:1]
-2026-10-29 01:00:56,116 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AMGN entries:1]
-2026-10-29 01:00:56,116 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AMZN entries:1]
-2026-10-29 01:00:56,116 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AAPL entries:1]
-2026-10-29 01:00:56,117 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:BA entries:1]
-2026-10-29 01:00:56,117 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CAT entries:1]
-2026-10-29 01:00:56,117 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CVX entries:1]
-2026-10-29 01:00:56,117 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CSCO entries:1]
-2026-10-29 01:00:56,117 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KO entries:1]
-2026-10-29 01:00:56,118 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:DIS entries:1]
-2026-10-29 01:00:56,118 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GS entries:1]
-2026-10-29 01:00:56,118 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HD entries:1]
-2026-10-29 01:00:56,118 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HON entries:1]
-2026-10-29 01:00:56,118 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:IBM entries:1]
-2026-10-29 01:00:56,119 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:JNJ entries:1]
-2026-10-29 01:00:56,119 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:JPM entries:1]
-2026-10-29 01:00:56,119 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MCD entries:1]
-2026-10-29 01:00:56,119 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MRK entries:1]
-2026-10-29 01:00:56,120 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MSFT entries:1]
-2026-10-29 01:00:56,120 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NKE entries:1]
-2026-10-29 01:00:56,120 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NVDA entries:1]
-2026-10-29 01:00:56,120 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PG entries:1]
-2026-10-29 01:00:56,120 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CRM entries:1]
-2026-10-29 01:00:56,121 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SHW entries:1]
-2026-10-29 01:00:56,121 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:TRV entries:1]
-2026-10-29 01:00:56,121 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:UNH entries:1]
-2026-10-29 01:00:56,121 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:V entries:1]
-2026-10-29 01:00:56,121 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:WMT entries:1]
-2026-10-29 01:00:56,123 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Aggregator DowJones30-tkx-M.csv and .xml are created
+2026-10-29 20:16:38,050 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: ----------- Creating TKx Signal Aggregator data/dowjones30/m/ -----------
+2026-10-29 20:16:38,050 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: self.model.use_datetime_format::False
+2026-10-29 20:16:38,064 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MMM entries:1]
+2026-10-29 20:16:38,064 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GOOGL entries:1]
+2026-10-29 20:16:38,064 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AXP entries:1]
+2026-10-29 20:16:38,064 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AMGN entries:1]
+2026-10-29 20:16:38,064 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AMZN entries:1]
+2026-10-29 20:16:38,064 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:AAPL entries:1]
+2026-10-29 20:16:38,065 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:BA entries:1]
+2026-10-29 20:16:38,065 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CAT entries:1]
+2026-10-29 20:16:38,065 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CVX entries:1]
+2026-10-29 20:16:38,065 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CSCO entries:1]
+2026-10-29 20:16:38,065 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:KO entries:1]
+2026-10-29 20:16:38,065 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:DIS entries:1]
+2026-10-29 20:16:38,065 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:GS entries:1]
+2026-10-29 20:16:38,066 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HD entries:1]
+2026-10-29 20:16:38,066 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:HON entries:1]
+2026-10-29 20:16:38,066 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:IBM entries:1]
+2026-10-29 20:16:38,066 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:JNJ entries:1]
+2026-10-29 20:16:38,066 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:JPM entries:1]
+2026-10-29 20:16:38,066 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MCD entries:1]
+2026-10-29 20:16:38,066 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MRK entries:1]
+2026-10-29 20:16:38,066 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:MSFT entries:1]
+2026-10-29 20:16:38,067 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NKE entries:1]
+2026-10-29 20:16:38,067 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:NVDA entries:1]
+2026-10-29 20:16:38,067 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:PG entries:1]
+2026-10-29 20:16:38,067 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:CRM entries:1]
+2026-10-29 20:16:38,067 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:SHW entries:1]
+2026-10-29 20:16:38,067 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:TRV entries:1]
+2026-10-29 20:16:38,067 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:UNH entries:1]
+2026-10-29 20:16:38,068 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:V entries:1]
+2026-10-29 20:16:38,068 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: [symbol:WMT entries:1]
+2026-10-29 20:16:38,069 INFO cloud_signal.mvc.core.DataTKxSignalAggregatorMVC: Aggregator DowJones30-tkx-M.csv and .xml are created
 
-2026-10-29 01:00:56,123 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuTKxDataDJ30Aggregator.main finished in 0.09 seconds
-2026-10-29 01:00:56,123 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: ------------- Merging Multi Timeframe TKx -------------
-2026-10-29 01:00:56,130 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Multi Timeframe TKx Signals Merged: output/tkx/DowJones30-tkx-merged.csv
-2026-10-29 01:00:56,130 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1H TKx Direction', '1H TKx Count']
-2026-10-29 01:00:56,131 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1D TKx Direction', '1D TKx Count']
-2026-10-29 01:00:56,131 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1W TKx Direction', '1W TKx Count']
-2026-10-29 01:00:56,131 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1M TKx Direction', '1M TKx Count']
-2026-10-29 01:00:56,132 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: ------ Cleaning columns ------
-2026-10-29 01:00:56,134 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Saved data to: output/tkx/DowJones30-tkx-merged.csv.html
-2026-10-29 01:00:56,134 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuTKxDataDJ30MultiTFMerger.main finished in 0.01 seconds
-2026-10-29 01:00:56,134 INFO cloud_signal.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: 
+2026-10-29 20:16:38,069 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuTKxDataDJ30Aggregator.main finished in 0.07 seconds
+2026-10-29 20:16:38,069 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: ------------- Merging Multi Timeframe TKx -------------
+2026-10-29 20:16:38,075 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Multi Timeframe TKx Signals Merged: output/tkx/DowJones30-tkx-merged.csv
+2026-10-29 20:16:38,076 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1H TKx Direction', '1H TKx Count']
+2026-10-29 20:16:38,076 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1D TKx Direction', '1D TKx Count']
+2026-10-29 20:16:38,076 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1W TKx Direction', '1W TKx Count']
+2026-10-29 20:16:38,077 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Columns exist: ['1M TKx Direction', '1M TKx Count']
+2026-10-29 20:16:38,077 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: ------ Cleaning columns ------
+2026-10-29 20:16:38,079 INFO cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger: Saved data to: output/tkx/DowJones30-tkx-merged.csv.html
+2026-10-29 20:16:38,079 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuTKxDataDJ30MultiTFMerger.main finished in 0.01 seconds
+2026-10-29 20:16:38,079 INFO cloud_signal.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: 
 ------------- Merging Multi Timeframe Cloud and TKx Sum -------------
-2026-10-29 01:00:56,136 INFO cloud_signal.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: Multi Timeframe Cloud and TKx Signals Merged
-2026-10-29 01:00:56,138 INFO cloud_signal.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: Saved data to: output/sum/DowJones30-sum-cloud-tkx-merged.csv output/sum/DowJones30-sum-cloud-tkx-merged.csv.html
-2026-10-29 01:00:56,138 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
-2026-10-29 01:00:56,143 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-29 01:00:56
-2026-10-29 01:00:56,143 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
-2026-10-29 01:00:56,143 INFO cloud_signal.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: generate_html output/sum/DowJones30-sum-cloud-tkx-merged.csv
-2026-10-29 01:00:56,143 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/sum/DowJones30-sum-cloud-tkx-merged.csv.html
-2026-10-29 01:00:56,143 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
-2026-10-29 01:00:56,145 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/sum/DowJones30-sum-cloud-tkx-merged.csv.tabulator.html
-2026-10-29 01:00:56,145 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuSumCloudTKxDataDJ30MultiTFMerger.main finished in 0.01 seconds
-2026-10-29 01:00:58,350 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuChikouDataDJ30.main finished in 2.20 seconds
-2026-10-29 01:00:58,374 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
-2026-10-29 01:00:58,377 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-29 01:00:58
-2026-10-29 01:00:58,377 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
-2026-10-29 01:00:58,377 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/chikou/DowJones30-chikou-1H.csv.html
-2026-10-29 01:00:58,377 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
-2026-10-29 01:00:58,379 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/chikou/DowJones30-chikou-1H.csv.tabulator.html
-2026-10-29 01:00:58,403 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
-2026-10-29 01:00:58,406 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-29 01:00:58
-2026-10-29 01:00:58,406 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
-2026-10-29 01:00:58,406 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/chikou/DowJones30-chikou-D.csv.html
-2026-10-29 01:00:58,406 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
-2026-10-29 01:00:58,408 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/chikou/DowJones30-chikou-D.csv.tabulator.html
-2026-10-29 01:00:58,431 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
-2026-10-29 01:00:58,434 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-29 01:00:58
-2026-10-29 01:00:58,434 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
-2026-10-29 01:00:58,435 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/chikou/DowJones30-chikou-W.csv.html
-2026-10-29 01:00:58,435 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
-2026-10-29 01:00:58,436 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/chikou/DowJones30-chikou-W.csv.tabulator.html
-2026-10-29 01:00:58,460 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
-2026-10-29 01:00:58,463 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-29 01:00:58
-2026-10-29 01:00:58,463 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
-2026-10-29 01:00:58,463 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/chikou/DowJones30-chikou-M.csv.html
-2026-10-29 01:00:58,463 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
-2026-10-29 01:00:58,465 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/chikou/DowJones30-chikou-M.csv.tabulator.html
-2026-10-29 01:00:58,465 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuChikouDataDJ30Aggregator.main finished in 0.11 seconds
-2026-10-29 01:00:58,475 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
-2026-10-29 01:00:58,480 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-29 01:00:58
-2026-10-29 01:00:58,480 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
-2026-10-29 01:00:58,480 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/sum/DowJones30-chikou-merged.csv.html
-2026-10-29 01:00:58,480 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
-2026-10-29 01:00:58,482 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/sum/DowJones30-chikou-merged.csv.tabulator.html
-2026-10-29 01:00:58,482 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuChikouDataDJ30MultiTFMerger.main finished in 0.02 seconds
-2026-10-29 01:00:58,482 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuKijunDataDJ30.main finished in 0.00 seconds
-2026-10-29 01:00:58,483 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuKijunDataDJ30Aggregator.main finished in 0.00 seconds
-2026-10-29 01:00:58,483 INFO cloud_signal.runners.runDJ30: Dow Jones 30 tasks completed at 2026-10-29 01:00:58 [UK] (Time elapsed: 0:00:49.986960)
-2026-10-29 01:00:58,483 INFO cloud_signal.runners._bootstrap: Workflow stage timing summary:
+2026-10-29 20:16:38,081 INFO cloud_signal.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: Multi Timeframe Cloud and TKx Signals Merged
+2026-10-29 20:16:38,083 INFO cloud_signal.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: Saved data to: output/sum/DowJones30-sum-cloud-tkx-merged.csv output/sum/DowJones30-sum-cloud-tkx-merged.csv.html
+2026-10-29 20:16:38,083 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
+2026-10-29 20:16:38,087 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-29 20:16:38
+2026-10-29 20:16:38,088 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
+2026-10-29 20:16:38,088 INFO cloud_signal.mvc.core.DataSumCloudTKxSignalMultiTimeframeMerger: generate_html output/sum/DowJones30-sum-cloud-tkx-merged.csv
+2026-10-29 20:16:38,088 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/sum/DowJones30-sum-cloud-tkx-merged.csv.html
+2026-10-29 20:16:38,088 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
+2026-10-29 20:16:38,090 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/sum/DowJones30-sum-cloud-tkx-merged.csv.tabulator.html
+2026-10-29 20:16:38,090 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuSumCloudTKxDataDJ30MultiTFMerger.main finished in 0.01 seconds
+2026-10-29 20:16:40,400 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuChikouDataDJ30.main finished in 2.31 seconds
+2026-10-29 20:16:40,422 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
+2026-10-29 20:16:40,425 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-29 20:16:40
+2026-10-29 20:16:40,425 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
+2026-10-29 20:16:40,425 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/chikou/DowJones30-chikou-1H.csv.html
+2026-10-29 20:16:40,425 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
+2026-10-29 20:16:40,427 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/chikou/DowJones30-chikou-1H.csv.tabulator.html
+2026-10-29 20:16:40,447 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
+2026-10-29 20:16:40,450 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-29 20:16:40
+2026-10-29 20:16:40,450 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
+2026-10-29 20:16:40,450 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/chikou/DowJones30-chikou-D.csv.html
+2026-10-29 20:16:40,450 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
+2026-10-29 20:16:40,451 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/chikou/DowJones30-chikou-D.csv.tabulator.html
+2026-10-29 20:16:40,471 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
+2026-10-29 20:16:40,473 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-29 20:16:40
+2026-10-29 20:16:40,473 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
+2026-10-29 20:16:40,474 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/chikou/DowJones30-chikou-W.csv.html
+2026-10-29 20:16:40,474 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
+2026-10-29 20:16:40,475 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/chikou/DowJones30-chikou-W.csv.tabulator.html
+2026-10-29 20:16:40,494 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
+2026-10-29 20:16:40,497 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-29 20:16:40
+2026-10-29 20:16:40,497 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
+2026-10-29 20:16:40,497 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/chikou/DowJones30-chikou-M.csv.html
+2026-10-29 20:16:40,497 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
+2026-10-29 20:16:40,499 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/chikou/DowJones30-chikou-M.csv.tabulator.html
+2026-10-29 20:16:40,499 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuChikouDataDJ30Aggregator.main finished in 0.10 seconds
+2026-10-29 20:16:40,508 INFO cloud_signal.mvc.html_creator: ------------- Generating Html table -------------
+2026-10-29 20:16:40,512 INFO cloud_signal.mvc.html_creator: Last updated: 2026-10-29 20:16:40
+2026-10-29 20:16:40,512 INFO cloud_signal.mvc.html_creator: HTML Last updated: .
+2026-10-29 20:16:40,512 INFO cloud_signal.mvc.html_creator: HTML data table saved at output/sum/DowJones30-chikou-merged.csv.html
+2026-10-29 20:16:40,512 INFO cloud_signal.mvc.html_creator: ------------- Generating Tabulator table -------------
+2026-10-29 20:16:40,515 INFO cloud_signal.mvc.html_creator: Tabulator data table saved at output/sum/DowJones30-chikou-merged.csv.tabulator.html
+2026-10-29 20:16:40,515 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuChikouDataDJ30MultiTFMerger.main finished in 0.02 seconds
+2026-10-29 20:16:40,515 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuKijunDataDJ30.main finished in 0.00 seconds
+2026-10-29 20:16:40,515 INFO root: Workflow stage cloud_signal.mvc.controllers.GetIchimokuKijunDataDJ30Aggregator.main finished in 0.00 seconds
+2026-10-29 20:16:40,515 INFO cloud_signal.runners.runDJ30: Dow Jones 30 tasks completed at 2026-10-29 20:16:40 [UK] (Time elapsed: 0:00:55.982360)
+2026-10-29 20:16:40,515 INFO cloud_signal.runners._bootstrap: Workflow stage timing summary:
 +----------------------------------------------------------------------------------------------+-------+------------+
 | Stage                                                                                        | Calls | Total time |
 +----------------------------------------------------------------------------------------------+-------+------------+
-| Workflow stage cloud_signal.mvc.controllers.GetDataDJ30.main                                 |     1 |      42.39s |
-| Workflow stage cloud_signal.mvc.controllers.GetIchimokuCloudDataDJ30.main                    |     1 |       2.51s |
-| Workflow stage cloud_signal.mvc.controllers.GetIchimokuTKxDataDJ30.main                      |     1 |       2.29s |
-| Workflow stage cloud_signal.mvc.controllers.GetIchimokuChikouDataDJ30.main                   |     1 |       2.20s |
-| Workflow stage cloud_signal.mvc.controllers.GetSymbolDowJones30.main                         |     1 |       0.24s |
-| Workflow stage cloud_signal.mvc.controllers.GetIchimokuChikouDataDJ30Aggregator.main         |     1 |       0.11s |
-| Workflow stage cloud_signal.mvc.controllers.GetIchimokuCloudDataDJ30Aggregator.main          |     1 |       0.09s |
-| Workflow stage cloud_signal.mvc.controllers.GetIchimokuTKxDataDJ30Aggregator.main            |     1 |       0.09s |
+| Workflow stage cloud_signal.mvc.controllers.GetDataDJ30.main                                 |     1 |      48.36s |
+| Workflow stage cloud_signal.mvc.controllers.GetIchimokuCloudDataDJ30.main                    |     1 |       2.56s |
+| Workflow stage cloud_signal.mvc.controllers.GetIchimokuChikouDataDJ30.main                   |     1 |       2.31s |
+| Workflow stage cloud_signal.mvc.controllers.GetIchimokuTKxDataDJ30.main                      |     1 |       2.25s |
+| Workflow stage cloud_signal.mvc.controllers.GetSymbolDowJones30.main                         |     1 |       0.19s |
+| Workflow stage cloud_signal.mvc.controllers.GetIchimokuChikouDataDJ30Aggregator.main         |     1 |       0.10s |
+| Workflow stage cloud_signal.mvc.controllers.GetIchimokuCloudDataDJ30Aggregator.main          |     1 |       0.08s |
+| Workflow stage cloud_signal.mvc.controllers.GetIchimokuTKxDataDJ30Aggregator.main            |     1 |       0.07s |
 | Workflow stage cloud_signal.mvc.controllers.GetIchimokuChikouDataDJ30MultiTFMerger.main      |     1 |       0.02s |
 | Workflow stage cloud_signal.mvc.controllers.GetIchimokuCloudDataDJ30MultiTFMerger.main       |     1 |       0.02s |
 | Workflow stage cloud_signal.mvc.controllers.GetIchimokuSumCloudTKxDataDJ30MultiTFMerger.main |     1 |       0.01s |
@@ -855,5 +855,5 @@ create_sum_column df.columns Index(['Symbol', 'Name', 'Close', '1H Cloud Directi
 | Workflow stage cloud_signal.mvc.controllers.GetIchimokuKijunDataDJ30.main                    |     1 |       0.00s |
 | Workflow stage cloud_signal.mvc.controllers.GetIchimokuKijunDataDJ30Aggregator.main          |     1 |       0.00s |
 +----------------------------------------------------------------------------------------------+-------+------------+
-| TOTAL                                                                                        |       |      49.99s |
+| TOTAL                                                                                        |       |      55.98s |
 +----------------------------------------------------------------------------------------------+-------+------------+
