@@ -1,4 +1,8 @@
-from cloud_signal.runners._bootstrap import ensure_repo_root, setup_runner_logging
+from cloud_signal.runners._bootstrap import (
+    ensure_repo_root,
+    setup_runner_logging,
+    timed_runner_main,
+)
 
 from cloud_signal.mvc.controllers import (
     GetDataBitfinex,
@@ -33,6 +37,7 @@ fetch_Kicker_use_datetime_format = False
 fetch_kicker = False
 
 
+@timed_runner_main
 def main(
     fetch_Bitfinex_1H=fetch_Bitfinex_1H,
     fetch_Bitfinex_4H=fetch_Bitfinex_4H,

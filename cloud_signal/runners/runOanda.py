@@ -14,6 +14,7 @@ from cloud_signal.mvc.controllers import (
 from cloud_signal.runners._bootstrap import (
     ensure_repo_root,
     setup_runner_logging,
+    timed_runner_main,
 )
 
 ensure_repo_root()
@@ -41,6 +42,7 @@ fetch_kijun_analysis = False
 fetch_kicker = False
 
 
+@timed_runner_main
 def main(
     fetch_Oanda_1H=fetch_Oanda_1H,
     fetch_Oanda_4H=fetch_Oanda_4H,

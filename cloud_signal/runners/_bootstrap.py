@@ -26,7 +26,9 @@ from cloud_signal.paths import LOG_DIR, PROJECT_ROOT
 
 _Result = TypeVar("_Result")
 _stage_timings: dict[str, tuple[int, float]] = {}
+_runner_timings: dict[str, tuple[int, float]] = {}
 _stage_timings_lock = Lock()
+_runner_timings_lock = Lock()
 _summary_registered = False
 
 
@@ -34,6 +36,26 @@ def _record_stage_time(stage: str, elapsed: float) -> None:
     with _stage_timings_lock:
         calls, total = _stage_timings.get(stage, (0, 0.0))
         _stage_timings[stage] = calls + 1, total + elapsed
+
+
+def record_runner_time(runner: str, elapsed: float) -> None:
+    with _runner_timings_lock:
+        calls, total = _runner_timings.get(runner, (0, 0.0))
+        _runner_timings[runner] = calls + 1, total + elapsed
+
+
+def timed_runner_main(function: Callable[..., _Result]) -> Callable[..., _Result]:
+    runner_name = function.__module__.rsplit(".", 1)[-1].removeprefix("run")
+
+    @wraps(function)
+    def timed(*args, **kwargs):
+        started_at = perf_counter()
+        try:
+            return function(*args, **kwargs)
+        finally:
+            record_runner_time(runner_name, perf_counter() - started_at)
+
+    return timed
 
 
 def _log_stage_summary() -> None:
@@ -44,41 +66,81 @@ def _log_stage_summary() -> None:
             key=lambda item: item[1][1],
             reverse=True,
         )
+    with _runner_timings_lock:
+        runner_timings = sorted(_runner_timings.items())
 
-    if not timings:
+    if not timings and not runner_timings:
         logger.info("Workflow stage timing summary: no timed stages recorded")
         return
 
-    stage_width = max(len("Stage"), *(len(stage) for stage, _ in timings))
-    calls_width = max(len("Calls"), 5)
-    time_width = max(len("Total time"), 10)
-    border = (
-        f"+-{'-' * stage_width}-+-{'-' * calls_width}-+-"
-        f"{'-' * time_width}-+"
-    )
-    rows = [
-        border,
-        f"| {'Stage'.ljust(stage_width)} "
-        f"| {'Calls'.rjust(calls_width)} "
-        f"| {'Total time'.rjust(time_width)} |",
-        border,
-    ]
-    total_elapsed = 0.0
-    for stage, (calls, elapsed) in timings:
-        total_elapsed += elapsed
-        rows.append(
-            f"| {stage.ljust(stage_width)} "
-            f"| {calls:>{calls_width}} "
-            f"| {elapsed:>{time_width}.2f}s |"
+    if timings:
+        stage_width = max(len("Stage"), *(len(stage) for stage, _ in timings))
+        calls_width = max(len("Calls"), 5)
+        time_width = max(len("Total time"), 10)
+        border = (
+            f"+-{'-' * stage_width}-+-{'-' * calls_width}-+-"
+            f"{'-' * time_width}-+"
         )
-    rows.append(border)
-    rows.append(
-        f"| {'TOTAL'.ljust(stage_width)} "
-        f"| {'':>{calls_width}} "
-        f"| {total_elapsed:>{time_width}.2f}s |"
-    )
-    rows.append(border)
-    logger.info("Workflow stage timing summary:\n%s", "\n".join(rows))
+        rows = [
+            border,
+            f"| {'Stage'.ljust(stage_width)} "
+            f"| {'Calls'.rjust(calls_width)} "
+            f"| {'Total time'.rjust(time_width)} |",
+            border,
+        ]
+        for stage, (calls, elapsed) in timings:
+            rows.append(
+                f"| {stage.ljust(stage_width)} "
+                f"| {calls:>{calls_width}} "
+                f"| {elapsed:>{time_width}.2f}s |"
+            )
+        rows.append(border)
+        logger.info(
+            "Workflow stage timing summary:\n%s\n"
+            "Nested stages are not additive.",
+            "\n".join(rows),
+        )
+
+    if runner_timings:
+        runner_width = max(
+            len("Runner class"),
+            *(len(runner) for runner, _ in runner_timings),
+        )
+        calls_width = max(len("Calls"), 5)
+        time_width = max(len("Total time"), 10)
+        border = (
+            f"+-{'-' * runner_width}-+-{'-' * calls_width}-+-"
+            f"{'-' * time_width}-+"
+        )
+        rows = [
+            border,
+            f"| {'Runner class'.ljust(runner_width)} "
+            f"| {'Calls'.rjust(calls_width)} "
+            f"| {'Total time'.rjust(time_width)} |",
+            border,
+        ]
+        total_elapsed = 0.0
+        for runner, (calls, elapsed) in runner_timings:
+            total_elapsed += elapsed
+            rows.append(
+                f"| {runner.ljust(runner_width)} "
+                f"| {calls:>{calls_width}} "
+                f"| {elapsed:>{time_width}.2f}s |"
+            )
+        rows.extend(
+            [
+                border,
+                f"| {'TOTAL'.ljust(runner_width)} "
+                f"| {'':>{calls_width}} "
+                f"| {total_elapsed:>{time_width}.2f}s |",
+                border,
+            ]
+        )
+        logger.info(
+            "Runner class timing summary (TOTAL is the sum of runner "
+            "execution times):\n%s",
+            "\n".join(rows),
+        )
 
 
 def _register_stage_summary() -> None:

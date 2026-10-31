@@ -3,6 +3,7 @@
 from cloud_signal.runners._bootstrap import (
     ensure_repo_root,
     setup_runner_logging,
+    timed_runner_main,
 )
 from cloud_signal.mvc.controllers import (
     GetDataKraken,
@@ -40,6 +41,7 @@ fetch_Kicker_use_datetime_format = False
 fetch_kicker = False
 
 
+@timed_runner_main
 def main(
     fetch_Kraken_1H=fetch_Kraken_1H,
     fetch_Kraken_4H=fetch_Kraken_4H,

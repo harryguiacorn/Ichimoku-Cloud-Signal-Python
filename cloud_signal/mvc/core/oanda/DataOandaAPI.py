@@ -1,15 +1,50 @@
-import requests
-import time
 import json
-import pandas as pd
 import logging
+import os
+import time
+from typing import Any
+
+import pandas as pd
+import requests
+from dotenv import load_dotenv
 
 logger = logging.getLogger(__name__)
+
+DEFAULT_API_URL = "https://api-fxpractice.oanda.com/v3"
+REQUEST_TIMEOUT_SECONDS = 30
 
 
 class DataOandaAPI:
     def __init__(self):
         self.data = None
+
+    @staticmethod
+    def _credentials() -> tuple[str, str | None]:
+        load_dotenv()
+        token = os.getenv("OANDA_ACCESS_TOKEN")
+        if not token:
+            raise RuntimeError(
+                "OANDA_ACCESS_TOKEN must be set to use the OANDA API"
+            )
+        return token, os.getenv("OANDA_ACCOUNT_ID")
+
+    @staticmethod
+    def _base_url() -> str:
+        load_dotenv()
+        return os.getenv("OANDA_API_URL", DEFAULT_API_URL).rstrip("/")
+
+    def _get_json(
+        self, url: str, params: dict[str, Any] | None = None
+    ) -> Any:
+        token, _ = self._credentials()
+        response = requests.get(
+            url,
+            headers={"Authorization": f"Bearer {token}"},
+            params=params,
+            timeout=REQUEST_TIMEOUT_SECONDS,
+        )
+        response.raise_for_status()
+        return response.json()
 
     def get_oanda_data(
         self,
@@ -17,36 +52,28 @@ class DataOandaAPI:
         count=60,
         granularity="H4",
         pricingComponent="M",
-    ) -> json:
-        # url = "https://api-fxpractice.oanda.com/v3/instruments/USD_JPY/candles?count=10&price=A&from=2016-01-01T00%3A00%3A00.000000000Z&granularity=D"
-        # url = (
-        #     "https://api-fxpractice.oanda.com/v3/accounts/101-004-21686905-001"
-        # )
+    ) -> Any:
+        url = f"{self._base_url()}/instruments/{instrument}/candles"
+        return self._get_json(
+            url,
+            params={
+                "count": count,
+                "price": pricingComponent,
+                "granularity": granularity,
+            },
+        )
 
-        url = f"https://api-fxpractice.oanda.com/v3/instruments/{instrument}/candles?{count}&price={pricingComponent}&granularity={granularity}"
-        headers = {
-            "Authorization": "Bearer 3b627083d16f29d1e31994bffbe3f229-5b8b7091a8fe4eeaac8223daebd30a94"
-        }
-        response = requests.get(url, headers=headers)
-        if response.status_code == 200:
-            return response.json()
-        else:
-            return None
+    def get_instruments(self, account_id: str | None = None) -> Any:
+        _, configured_account_id = self._credentials()
+        account_id = account_id or configured_account_id
+        if not account_id:
+            raise RuntimeError(
+                "OANDA_ACCOUNT_ID must be set to fetch account instruments"
+            )
+        url = f"{self._base_url()}/accounts/{account_id}/instruments"
+        return self._get_json(url)
 
-    def get_instruments(self):
-        url = "https://api-fxpractice.oanda.com/v3/accounts/101-004-21686905-001/instruments"
-
-        headers = {
-            "Authorization": "Bearer 3b627083d16f29d1e31994bffbe3f229-5b8b7091a8fe4eeaac8223daebd30a94"
-        }
-        response = requests.get(url, headers=headers)
-        if response.status_code == 200:
-            return response.json()
-        else:
-            return None
-
-    def save_json(self, filePath="data.json", data: json = None):
-        # Save data to a JSON file
+    def save_json(self, filePath="data.json", data: Any = None):
         with open(filePath, "w") as f:
             json.dump(data, f)
 
@@ -55,63 +82,25 @@ class DataOandaAPI:
             self.data = self.get_oanda_data()
             self.save_json()
             logger.debug("Polled data: %s", self.data)
-            time.sleep(5)  # Poll every 5 seconds
+            time.sleep(5)
 
-    def json_to_csv(self, data: json, filePath="data.csv") -> pd.DataFrame:
-        # Assuming json_string is your JSON data
-        # logger.debug(data)
-        json_data = data.copy()
-
-        # Extracting the 'candles' data
-        candles = json_data["candles"]
-
-        # logger.debug("json_to_csv candles: %s", candles)
-
-        # # Convert the candle data to a DataFrame
-        # df = pd.DataFrame(
-        #     [candle["mid"] for candle in candles],
-        #     index=pd.to_datetime(
-        #         [candle["time"] for candle in candles], utc=True
-        #     ),
-        # )
-
-        # Convert the candle data to a DataFrame with 'datetime' as a column
+    def json_to_csv(
+        self, data: dict[str, Any], filePath="data.csv"
+    ) -> pd.DataFrame:
+        candles = data["candles"]
         df = pd.DataFrame([candle["mid"] for candle in candles])
-
-        # Add the 'datetime' column
         df["Datetime"] = pd.to_datetime(
             [candle["time"] for candle in candles], utc=True
         )
-
-        # Rename the columns
         df.columns = ["Open", "High", "Low", "Close", "Datetime"]
-
-        # Reorder the columns to make 'datetime' the first column
         df = df[["Datetime", "Open", "High", "Low", "Close"]]
-
-        # # Add a column for 'Datetime' and set the index values
-        # df.insert(0, "Datetime", df.index)
-
-        # logger.debug("df.columns.values: %s", df.columns.values)
-
-        # logger.debug("df: %s", df)
-
-        # Export the DataFrame to a CSV file
         df.to_csv(filePath, index=False)
-
-        # logger.debug("json_to_csv: %s", df)
         return df
 
 
 if __name__ == "__main__":
     api = DataOandaAPI()
-    # poll_api()
     data = api.get_oanda_data()
-    # data = get_oanda_data()
     instruments = api.get_instruments()
     api.save_json("data/oanda/instruments.json", instruments)
-    logger.info(f"Instruments: {instruments}")
-
-    # api.save_json(data=data, filePath="data/oanda/")
-    # print(data)
-    # api.json_to_csv(data)
+    logger.info("Instruments: %s", instruments)

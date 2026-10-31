@@ -1,56 +1,111 @@
 name: Daily Ichimoku Scan
 
 on:
-    schedule:
-      - cron: '15 21 * * 1-5' # 21:15 UTC, Monday–Friday only
-    workflow_dispatch:      # Allows you to click a "Run Now" button manually
-
-
+  schedule:
+    - cron: "30 8 * * 1-5"
+    - cron: "30 17 * * 1-5"
+    - cron: "15 21 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      market:
+        description: Run all markets or one market independently
+        type: choice
+        required: true
+        default: all
+        options:
+          - all
+          - DJ30
+          - FTSE100
+          - FTSE250
+          - Futures
+          - CurrencyFutures
+          - HSI
+          - Nas100
+          - Oanda
+          - SPX500
+          - SPDR_ETFs
+          - Kraken
+          - Bitfinex
+          - Russell1000
+          - MajorETFs
 
 permissions:
-    contents: write         # Gives permission to save the new scan results back to the repo
+  contents: write
+
+concurrency:
+  group: cloud-signal-daily-scans
+  cancel-in-progress: false
 
 jobs:
-    build-and-run:
-      runs-on: ubuntu-latest
-
-      steps:
-      # 1. Download your code
+  scan:
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout code
         uses: actions/checkout@v5
+        with:
+          ref: master
 
-      # 2. Set up Python (CI)
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: '3.x'
+          python-version: "3.14.8"
 
-      # 3. Install your libraries (CI)
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          python -m pip install -r requirements.txt
 
-      # 4. Run your Scan (CD)
-      - name: Run Ichimoku Scanner
+      - name: Restore shared scan cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .cache/cloud_signal
+          key: cloud-signal-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            cloud-signal-${{ runner.os }}-
+
+      - name: Run scheduled or selected market scans
+        env:
+          SCAN_MARKET: ${{ inputs.market || 'all' }}
+          SCHEDULE_CRON: ${{ github.event.schedule }}
+          EVENT_NAME: ${{ github.event_name }}
         run: |
-          python main.py
-
-      # 5. Save results back to GitHub (CD)
-      - name: Commit and Push changes
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-          git status
-          git add --all
-          if git diff --staged --quiet; then
-            echo "No changes to commit"
-            exit 0
+          if [ "$EVENT_NAME" = "schedule" ]; then
+            case "$SCHEDULE_CRON" in
+              "30 8 * * 1-5")
+                python -m cloud_signal.runners.main --markets HSI
+                ;;
+              "30 17 * * 1-5")
+                python -m cloud_signal.runners.main --markets FTSE100 FTSE250 Futures CurrencyFutures Oanda Kraken
+                ;;
+              "15 21 * * 1-5")
+                python -m cloud_signal.runners.main --markets DJ30 Nas100 SPX500 SPDR_ETFs Bitfinex Russell1000 MajorETFs --send-digest
+                ;;
+              *)
+                echo "Unsupported schedule: $SCHEDULE_CRON" >&2
+                exit 1
+                ;;
+            esac
+          elif [ "$SCAN_MARKET" = "all" ]; then
+            python main.py
+          else
+            python -m cloud_signal.runners.run_market --market "$SCAN_MARKET"
           fi
 
-          git commit -m "Daily updates Github Action - Main"
-          git push origin HEAD:master
+      - name: Save shared scan cache
+        if: success()
+        uses: actions/cache/save@v4
+        with:
+          path: .cache/cloud_signal
+          key: cloud-signal-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
 
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit and push scan outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add --all
+          if git diff --staged --quiet; then
+            echo "No output changes to commit"
+            exit 0
+          fi
+          git commit -m "Daily market scan updates"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

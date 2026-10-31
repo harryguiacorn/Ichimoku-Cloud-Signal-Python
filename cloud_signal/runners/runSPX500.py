@@ -16,7 +16,11 @@ from cloud_signal.mvc.controllers import (
     GetIchimokuTKxDataSPX500MultiTFMerger,
     GetIchimokuSumCloudTKxDataSPX500MultiTFMerger,
 )
-from cloud_signal.runners._bootstrap import ensure_repo_root, setup_runner_logging
+from cloud_signal.runners._bootstrap import (
+    ensure_repo_root,
+    setup_runner_logging,
+    timed_runner_main,
+)
 
 ensure_repo_root()
 RUNNER_CLASS = ""
@@ -47,6 +51,7 @@ fetch_kicker = False
 fetch_Kicker_use_datetime_format = False
 
 
+@timed_runner_main
 def main(
     fetch_SPX500_1H=fetch_SPX500_1H,
     fetch_SPX500_D=fetch_SPX500_D,

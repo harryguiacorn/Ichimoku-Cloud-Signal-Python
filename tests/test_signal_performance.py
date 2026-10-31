@@ -1,7 +1,10 @@
 import warnings
 
+import numpy as np
 import pandas as pd
+import pytest
 
+from cloud_signal.cache import save_cached_dataframe
 from cloud_signal.mvc.core.DataChikouSignalMVC import (
     Control as ChikouSignalControl,
     Model as ChikouSignalModel,
@@ -22,6 +25,13 @@ from cloud_signal.mvc.core.DataTKxSignalMVC import (
     Model as TKxSignalModel,
     View as TKxSignalView,
 )
+
+
+@pytest.fixture(autouse=True)
+def isolate_shared_cache(tmp_path, monkeypatch):
+    monkeypatch.setenv(
+        "CLOUD_SIGNAL_CACHE_DIR", str(tmp_path / "shared-cache")
+    )
 
 
 def test_yahoo_download_refreshes_and_merges_local_cache(tmp_path, monkeypatch):
@@ -233,6 +243,170 @@ def test_market_data_cache_does_not_warn_for_mixed_datetime_formats(
     assert not captured
     assert cached["Close"].tolist() == [10, 11, 12]
     assert cached.index.is_monotonic_increasing
+
+
+def test_yahoo_data_is_shared_between_market_directories(
+    tmp_path, monkeypatch
+):
+    dates = pd.date_range("2025-01-01", periods=2, freq="D", tz="UTC")
+    downloaded = pd.DataFrame(
+        {"Close": [10.0, 11.0]}, index=dates
+    )
+    calls = []
+
+    def fake_download(**kwargs):
+        calls.append(kwargs)
+        return downloaded
+
+    monkeypatch.setattr(
+        "cloud_signal.mvc.core.DataPandasMVC.yf.download", fake_download
+    )
+    market_a = tmp_path / "market-a"
+    market_b = tmp_path / "market-b"
+    market_a.mkdir()
+    market_b.mkdir()
+    first = MarketDataModel(str(market_a), "assets.csv", "1d", "max", True)
+    second = MarketDataModel(str(market_b), "assets.csv", "1d", "max", True)
+
+    first_result = first.getLatestDataFromYahooByYFinance(
+        ["SHARED"], "max", "1d"
+    )
+    second_result = second.getLatestDataFromYahooByYFinance(
+        ["SHARED"], "max", "1d"
+    )
+
+    assert len(calls) == 1
+    pd.testing.assert_frame_equal(
+        first_result["SHARED"], second_result["SHARED"]
+    )
+    assert (market_a / "SHARED.csv").exists()
+    assert (market_b / "SHARED.csv").exists()
+
+
+def test_yahoo_download_suppresses_only_yfinance_pandas4_warnings(
+    tmp_path, monkeypatch
+):
+    dates = pd.date_range("2025-01-01", periods=2, freq="D", tz="UTC")
+    downloaded = pd.DataFrame({"Close": [10.0, 11.0]}, index=dates)
+
+    def fake_download(**kwargs):
+        warnings.warn_explicit(
+            "third-party pandas warning",
+            pd.errors.Pandas4Warning,
+            filename="/site-packages/yfinance/utils.py",
+            lineno=1,
+            module="yfinance.utils",
+        )
+        warnings.warn("project pandas warning", pd.errors.Pandas4Warning)
+        return downloaded
+
+    monkeypatch.setattr(
+        "cloud_signal.mvc.core.DataPandasMVC.yf.download", fake_download
+    )
+    model = MarketDataModel(str(tmp_path), "assets.csv", "1d", "max", True)
+
+    with warnings.catch_warnings(record=True) as captured:
+        warnings.simplefilter("always")
+        model.getLatestDataFromYahooByYFinance(["TEST"], "max", "1d")
+
+    assert len(captured) == 1
+    assert str(captured[0].message) == "project pandas warning"
+
+
+@pytest.mark.parametrize("change_kind", ["correction", "append"])
+def test_incremental_ichimoku_matches_full_calculation(
+    tmp_path, change_kind
+):
+    dates = pd.date_range("2024-01-01", periods=320, freq="D", tz="UTC")
+    close = pd.Series(
+        100 + np.sin(np.arange(len(dates)) / 7) * 5 + np.arange(len(dates)) / 20,
+        index=dates,
+    )
+    old_data = pd.DataFrame(
+        {
+            "Open": close - 0.5,
+            "High": close + 2,
+            "Low": close - 2,
+            "Close": close,
+            "Volume": np.arange(len(dates)) + 1000,
+        },
+        index=dates,
+    )
+    new_data = old_data.copy()
+    if change_kind == "correction":
+        changed_index = dates[205]
+        new_data.loc[changed_index, "Close"] += 8
+        new_data.loc[changed_index, "High"] += 8
+        new_data.loc[changed_index, "Low"] += 8
+    else:
+        changed_index = dates[-1] + pd.Timedelta(days=1)
+        last_close = new_data["Close"].iloc[-1] + 1
+        new_data.loc[changed_index] = [
+            last_close - 0.5,
+            last_close + 2,
+            last_close - 2,
+            last_close,
+            2000,
+        ]
+    model = MarketDataModel(str(tmp_path) + "/", "assets.csv", "1d", "max")
+    identity = "ichimoku:test"
+    old_result = model.calculateIchimokuData(old_data)
+    save_cached_dataframe(
+        "ichimoku",
+        identity,
+        old_data,
+        old_result,
+        "tapy-ichimoku-v1",
+    )
+    model._previous_raw_data["TEST"] = old_data
+    model._data_changed_from["TEST"] = changed_index
+
+    incremental = model._calculate_incremental_ichimoku(
+        "TEST", new_data, identity
+    )
+    full = model.calculateIchimokuData(new_data)
+
+    assert model._earliest_changed_index(old_data, new_data) == changed_index
+    assert incremental is not None
+    pd.testing.assert_frame_equal(
+        incremental, full, check_exact=False, rtol=1e-10, atol=1e-10
+    )
+
+
+def test_ichimoku_result_is_reused_for_matching_source(tmp_path, monkeypatch):
+    source = pd.DataFrame(
+        {"Close": [10.0, 11.0]},
+        index=pd.date_range("2025-01-01", periods=2, tz="UTC"),
+    )
+    expected = pd.DataFrame(
+        {"tenkan_sen": [10.0, 10.5]}, index=source.index
+    )
+    first_path = tmp_path / "market-a"
+    second_path = tmp_path / "market-b"
+    first_path.mkdir()
+    second_path.mkdir()
+    first = MarketDataModel(str(first_path), "assets.csv", "1d", "max")
+    second = MarketDataModel(str(second_path), "assets.csv", "1d", "max")
+    calculations = []
+    monkeypatch.setattr(
+        first,
+        "calculateIchimokuData",
+        lambda data: calculations.append(data) or expected,
+    )
+
+    first_result = first.createIchimokuDataTapyForSymbol("SHARED", source)
+    monkeypatch.setattr(
+        second,
+        "calculateIchimokuData",
+        lambda data: pytest.fail("matching Ichimoku cache should be reused"),
+    )
+    second_result = second.createIchimokuDataTapyForSymbol("SHARED", source)
+
+    assert len(calculations) == 1
+    pd.testing.assert_frame_equal(first_result, expected)
+    pd.testing.assert_frame_equal(second_result, expected)
+    assert (first_path / "SHARED_ichimokuTapy.csv").exists()
+    assert (second_path / "SHARED_ichimokuTapy.csv").exists()
 
 
 def test_signal_vector_calculations_keep_expected_values(tmp_path):

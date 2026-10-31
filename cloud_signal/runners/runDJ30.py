@@ -1,4 +1,8 @@
-from cloud_signal.runners._bootstrap import ensure_repo_root, setup_runner_logging
+from cloud_signal.runners._bootstrap import (
+    ensure_repo_root,
+    setup_runner_logging,
+    timed_runner_main,
+)
 
 from cloud_signal.mvc.controllers import (
     GetDataDJ30,
@@ -51,6 +55,7 @@ def __init__(self):
     pass
 
 
+@timed_runner_main
 def main(
     fetch_symbols_latest_DJ30=fetch_symbols_latest_DJ30,
     fetch_DJ30_1H=fetch_DJ30_1H,

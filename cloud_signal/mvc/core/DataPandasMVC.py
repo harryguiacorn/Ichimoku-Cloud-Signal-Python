@@ -1,5 +1,9 @@
 import datetime
+import logging
 import os
+import warnings
+from datetime import timezone
+
 import pandas as pd
 from finta import TA
 from tapy import Indicators
@@ -7,9 +11,33 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import yfinance as yf
 from cloud_signal.mvc import Util
-import logging
+from cloud_signal.cache import (
+    frame_fingerprint,
+    get_cached_dataframe,
+    get_latest_dataframe,
+    record_metric,
+    save_cached_dataframe,
+    save_latest_dataframe,
+)
 
 logger = logging.getLogger(__name__)
+
+RAW_CACHE_VERSION = "yahoo-raw-v1"
+ICHIMOKU_CACHE_VERSION = "tapy-ichimoku-v1"
+ICHIMOKU_WARMUP_BARS = 104
+ICHIMOKU_BACKWARD_SHIFT_BARS = 26
+
+
+def _download_yahoo(**kwargs):
+    with warnings.catch_warnings():
+        pandas_warning = getattr(pd.errors, "Pandas4Warning", None)
+        if pandas_warning is not None:
+            warnings.filterwarnings(
+                "ignore",
+                category=pandas_warning,
+                module=r"^yfinance(?:\.|$)",
+            )
+        return yf.download(**kwargs)
 
 
 class Model(object):
@@ -31,6 +59,8 @@ class Model(object):
         self.dataOHLC = None
         self.interval = __interval
         self.lookbackPeriod = __lookbackPeriod
+        self._data_changed_from = {}
+        self._previous_raw_data = {}
 
     @property
     def lookbackPeriod(self):
@@ -127,6 +157,8 @@ class Model(object):
         self, symbols, __lookbackPeriods, __interval
     ):
         __dict_df = {}
+        self._data_changed_from = {}
+        self._previous_raw_data = {}
         batch_size = 20
         overlap_days = {
             "1h": 7,
@@ -137,13 +169,43 @@ class Model(object):
         }.get(__interval, 14)
         caches = {}
         groups = {}
+        shared_cache_data = {}
+        cache_ttl = self._raw_cache_ttl(__interval)
         for symbol_index, symbol in enumerate(symbols):
             try:
-                cache_path = os.path.join(self.csvPath, symbol + ".csv")
-                cached_data = self._read_market_data_cache(
-                    cache_path, symbol
+                identity = self._raw_cache_identity(
+                    symbol, __interval, __lookbackPeriods
                 )
+                shared_cache = get_latest_dataframe(
+                    "raw", identity, RAW_CACHE_VERSION
+                )
+                if shared_cache is not None:
+                    cached_data, metadata = shared_cache
+                    shared_cache_data[symbol] = cached_data
+                    if self._cache_is_fresh(
+                        metadata.get("fetched_at"), cache_ttl
+                    ):
+                        data = self._trim_to_lookback(
+                            cached_data.copy(), __lookbackPeriods
+                        )
+                        __dict_df[symbol] = data
+                        record_metric("raw.rows", len(data))
+                        self._write_market_cache_if_needed(symbol, data)
+                        record_metric("raw.hit")
+                        continue
+                    record_metric("raw.stale")
+                else:
+                    record_metric("raw.miss")
+
+                cache_path = os.path.join(self.csvPath, symbol + ".csv")
+                cached_data = shared_cache_data.get(symbol)
+                if cached_data is None:
+                    cached_data = self._read_market_data_cache(
+                        cache_path, symbol
+                    )
                 caches[symbol] = cached_data
+                if cached_data is not None:
+                    self._previous_raw_data[symbol] = cached_data.copy()
                 if cached_data is None or cached_data.empty:
                     request = ("period", __lookbackPeriods)
                 else:
@@ -170,7 +232,7 @@ class Model(object):
                         request[0]: request[1],
                         "interval": __interval,
                     }
-                    downloaded = yf.download(
+                    downloaded = _download_yahoo(
                         tickers=tickers,
                         auto_adjust=True,
                         progress=False,
@@ -178,6 +240,8 @@ class Model(object):
                         group_by="ticker",
                         **request_kwargs,
                     )
+                    record_metric("yahoo.download_batches")
+                    record_metric("yahoo.download_symbols", len(tickers))
                     batch_data = self._split_yfinance_batch(downloaded, tickers)
                 except Exception:
                     logger.exception(
@@ -191,7 +255,7 @@ class Model(object):
                                 request[0]: request[1],
                                 "interval": __interval,
                             }
-                            single = yf.download(
+                            single = _download_yahoo(
                                 tickers=symbol,
                                 auto_adjust=True,
                                 progress=False,
@@ -202,6 +266,7 @@ class Model(object):
                                     single, [symbol]
                                 )[symbol]
                             )
+                            record_metric("yahoo.retry_symbols")
                         except Exception:
                             logger.exception(
                                 "Yahoo download failed for symbol %s", symbol
@@ -210,8 +275,7 @@ class Model(object):
 
                 for symbol_index, symbol in batch:
                     data = batch_data.get(symbol)
-                    cached_data = caches[symbol]
-                    __path = os.path.join(self.csvPath, symbol + ".csv")
+                    cached_data = caches.get(symbol)
                     if data is None or data.empty:
                         if cached_data is None or cached_data.empty:
                             logger.warning(
@@ -226,6 +290,11 @@ class Model(object):
                             )
                         data = data.dropna()
                         if cached_data is not None and not cached_data.empty:
+                            self._data_changed_from[symbol] = (
+                                self._earliest_changed_index(
+                                    cached_data, data
+                                )
+                            )
                             data = pd.concat([cached_data, data])
                             data = data.loc[
                                 ~data.index.duplicated(keep="last")
@@ -234,9 +303,90 @@ class Model(object):
 
                     data = self._trim_to_lookback(data, __lookbackPeriods)
                     __dict_df[symbol] = data
-                    data.to_csv(__path)
-                    logger.info("%s %s -> %s", symbol_index, symbol, __path)
+                    record_metric("raw.rows", len(data))
+                    if batch_data.get(symbol) is not None and not batch_data[
+                        symbol
+                    ].empty:
+                        save_latest_dataframe(
+                            "raw",
+                            self._raw_cache_identity(
+                                symbol, __interval, __lookbackPeriods
+                            ),
+                            data,
+                            RAW_CACHE_VERSION,
+                        )
+                    self._write_market_cache_if_needed(symbol, data)
+                    logger.debug("%s %s cache updated", symbol_index, symbol)
         return __dict_df
+
+    @staticmethod
+    def _raw_cache_identity(symbol, interval, lookback):
+        return (
+            f"yahoo:{str(symbol).strip().upper()}:"
+            f"{str(interval).strip().lower()}:"
+            f"auto-adjusted:{str(lookback).strip().lower()}"
+        )
+
+    @staticmethod
+    def _raw_cache_ttl(interval):
+        configured = os.getenv("CLOUD_SIGNAL_RAW_CACHE_TTL_SECONDS")
+        if configured:
+            return datetime.timedelta(seconds=max(0, int(configured)))
+        minutes = 15 if str(interval).lower() in {"1h", "60m"} else 360
+        return datetime.timedelta(minutes=minutes)
+
+    @staticmethod
+    def _cache_is_fresh(fetched_at, ttl):
+        if not fetched_at:
+            return False
+        try:
+            refreshed = datetime.datetime.fromisoformat(
+                fetched_at.replace("Z", "+00:00")
+            )
+        except (AttributeError, ValueError):
+            return False
+        if refreshed.tzinfo is None:
+            refreshed = refreshed.replace(tzinfo=timezone.utc)
+        return datetime.datetime.now(timezone.utc) - refreshed < ttl
+
+    def _write_market_cache_if_needed(self, symbol, data):
+        path = os.path.join(self.csvPath, symbol + ".csv")
+        if not os.path.exists(path):
+            data.to_csv(path, float_format="%.17g")
+            record_metric("raw.market_csv_writes")
+            record_metric("raw.market_csv_bytes_written", os.path.getsize(path))
+            return
+        try:
+            existing = self._read_market_data_cache(path, symbol)
+        except (OSError, ValueError, pd.errors.ParserError):
+            existing = None
+        if existing is None or frame_fingerprint(existing) != frame_fingerprint(data):
+            data.to_csv(path, float_format="%.17g")
+            record_metric("raw.market_csv_writes")
+            record_metric(
+                "raw.market_csv_bytes_written", os.path.getsize(path)
+            )
+
+    @staticmethod
+    def _earliest_changed_index(old_data, new_data):
+        if old_data is None or old_data.empty:
+            return None
+        columns = old_data.columns.intersection(new_data.columns)
+        if columns.empty:
+            return new_data.index.min()
+        common_index = old_data.index.intersection(new_data.index)
+        changed = []
+        if not common_index.empty:
+            old_values = old_data.loc[common_index, columns]
+            new_values = new_data.loc[common_index, columns]
+            differences = old_values.ne(new_values) & ~(
+                old_values.isna() & new_values.isna()
+            )
+            changed.extend(
+                differences.index[differences.any(axis=1)].tolist()
+            )
+        changed.extend(new_data.index.difference(old_data.index).tolist())
+        return min(changed) if changed else None
 
     @staticmethod
     def _split_yfinance_batch(data, symbols):
@@ -386,9 +536,78 @@ class Model(object):
         return __dict_df_ichimoku
 
     def createIchimokuDataTapyForSymbol(self, symbol, data):
-        ichimoku_data = self.calculateIchimokuData(data)
+        identity = (
+            "ichimoku:"
+            + self._raw_cache_identity(
+                symbol, self.interval, self.lookbackPeriod
+            )
+        )
+        ichimoku_data = get_cached_dataframe(
+            "ichimoku",
+            identity,
+            data,
+            ICHIMOKU_CACHE_VERSION,
+        )
+        if ichimoku_data is not None:
+            record_metric("ichimoku.hit")
+        else:
+            ichimoku_data = self._calculate_incremental_ichimoku(
+                symbol, data, identity
+            )
+            if ichimoku_data is None:
+                ichimoku_data = self.calculateIchimokuData(data)
+                record_metric("ichimoku.full_calculations")
+            else:
+                record_metric("ichimoku.incremental_calculations")
+        save_cached_dataframe(
+            "ichimoku",
+            identity,
+            data,
+            ichimoku_data,
+            ICHIMOKU_CACHE_VERSION,
+        )
         self.saveIchimokuData(symbol, ichimoku_data)
         return ichimoku_data
+
+    def _calculate_incremental_ichimoku(self, symbol, data, identity):
+        previous_source = self._previous_raw_data.get(symbol)
+        changed_from = self._data_changed_from.get(symbol)
+        if (
+            previous_source is None
+            or changed_from is None
+            or changed_from not in data.index
+        ):
+            return None
+
+        latest = get_latest_dataframe(
+            "ichimoku", identity, ICHIMOKU_CACHE_VERSION
+        )
+        if latest is None:
+            return None
+        previous_result, metadata = latest
+        if metadata.get("source_fingerprint") != frame_fingerprint(
+            previous_source
+        ):
+            return None
+
+        changed_position = data.index.get_loc(changed_from)
+        if not isinstance(changed_position, int):
+            return None
+        start_position = max(0, changed_position - ICHIMOKU_WARMUP_BARS)
+        tail = self.calculateIchimokuData(data.iloc[start_position:])
+        if start_position == 0:
+            return tail
+
+        accurate_tail_position = start_position + (
+            ICHIMOKU_WARMUP_BARS - ICHIMOKU_BACKWARD_SHIFT_BARS
+        )
+        tail_start = data.index[accurate_tail_position]
+        tail = tail.loc[tail.index >= tail_start]
+        previous_result = previous_result.loc[
+            previous_result.index < tail_start
+        ]
+        result = pd.concat([previous_result, tail]).sort_index()
+        return result.reindex(data.index)
 
     @staticmethod
     def calculateIchimokuData(data):

@@ -61,6 +61,7 @@ from cloud_signal.mvc.core.DataTKxSignalMultiTimeframeMerger import (
 from cloud_signal.runners._bootstrap import (
     ensure_repo_root,
     setup_runner_logging,
+    timed_runner_main,
     timed_stage,
 )
 
@@ -227,6 +228,7 @@ def _merge_chikou():
     ).main()
 
 
+@timed_runner_main
 def main(timeframes: Iterable[str] | None = None):
     logger.info("Major ETFs scan begins")
     selected = _select_timeframes(timeframes)

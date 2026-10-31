@@ -1,3 +1,7 @@
+import ast
+import tomllib
+from pathlib import Path
+
 from cloud_signal.runners.market_registry import (
     get_market_config,
     list_market_names,
@@ -23,6 +27,31 @@ def test_market_registry_contains_all_expected_runners():
         "Bitfinex",
     }
     assert required.issubset(names)
+
+
+def test_all_registered_runners_record_runner_time():
+    project_root = Path(__file__).resolve().parents[1]
+    with (project_root / "config" / "markets.toml").open("rb") as file:
+        markets = tomllib.load(file)["market"]
+
+    for market in markets:
+        runner_path = (
+            project_root
+            / "cloud_signal"
+            / "runners"
+            / f"{market['module']}.py"
+        )
+        tree = ast.parse(runner_path.read_text(encoding="utf-8"))
+        main = next(
+            node
+            for node in tree.body
+            if isinstance(node, ast.FunctionDef) and node.name == "main"
+        )
+        assert any(
+            isinstance(decorator, ast.Name)
+            and decorator.id == "timed_runner_main"
+            for decorator in main.decorator_list
+        ), f"{market['name']} main is missing runner timing"
 
 
 def test_get_market_config_returns_named_market_data():

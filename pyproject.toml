@@ -12,10 +12,22 @@ replit = "^3.2.4"
 Flask = "^3.1.3"
 urllib3 = "^2.6.0"
 python-dotenv = "^1.0"
+requests = ">=2.32,<3"
+pandas = ">=2.2,<4"
+finta = "*"
+tapy = "*"
+plotly = "*"
+yfinance = "*"
+pytz = "*"
+lxml = "*"
+matplotlib = "*"
+gunicorn = "*"
 
 [tool.poetry.dev-dependencies]
 debugpy = "^1.6.2"
 replit-python-lsp-server = {extras = ["yapf", "rope", "pyflakes"], version = "^1.5.9"}
+pytest = ">=8.4,<9"
+flake8 = ">=7,<8"
 
 [tool.poetry.scripts]
 cloud-signal = "cloud_signal.runners.main:main"

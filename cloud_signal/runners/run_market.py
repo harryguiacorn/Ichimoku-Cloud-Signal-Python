@@ -7,6 +7,7 @@ from collections.abc import Iterable
 from time import perf_counter
 from typing import Any
 
+from cloud_signal.cache import log_cache_metrics
 from cloud_signal.runners.market_registry import get_market_config
 
 logger = logging.getLogger(__name__)
@@ -100,11 +101,13 @@ def run_market(name: str, timeframes: Iterable[str] | None = None):
             return module.main()
         return module.main(**runtime)
     finally:
+        elapsed = perf_counter() - started_at
         logger.info(
             "Market runner %s finished in %.2f seconds",
             name,
-            perf_counter() - started_at,
+            elapsed,
         )
+        log_cache_metrics()
 
 
 if __name__ == "__main__":

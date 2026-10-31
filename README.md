@@ -53,7 +53,74 @@ Uncover market movers with ease! This application analyses data silently and gen
 
 
 
-## Steps to get it up and running ##
-- Requires Python 3.14.8 or newer.
-- Open main.py file it contains commands for creating Ichimoku signals and candlestick kicker signals for S&P 500, Dow Jones 30, Nasdaq 100, FTSE 100, FTSE 250, Futures and Currency Futures markets.
-- Comment out the commands not required to run and run this file. Note indices such as S&P 500 which has around 500 stocks therefore would take some time to download its historical data from Yahoo Finance.
+## Getting started
+
+The project requires Python 3.14.8 or newer.
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+On Windows PowerShell, activate the environment with
+`.venv\Scripts\Activate.ps1`.
+
+To run one market, use the registry-driven runner. For example:
+
+```bash
+python -m cloud_signal.runners.run_market --market SPX500
+python -m cloud_signal.runners.run_market --market MajorETFs --timeframes 1h d
+```
+
+Market names, asset lists, output locations, and timeframes are configured in
+[`config/markets.toml`](config/markets.toml). See
+[`RUNNERS.md`](RUNNERS.md) for all runner options and output details. Running
+`python main.py` starts every enabled market scan and the email digest; use it
+only when that full workflow is intended.
+
+The Yahoo Finance runners need no API credentials. For OANDA, copy
+`.env.example` to `.env` and set `OANDA_ACCESS_TOKEN`; set `OANDA_ACCOUNT_ID`
+when using the account instruments endpoint. The practice API is used by
+default. The legacy FXCM integration requires `FXCM_ACCESS_TOKEN` and the
+optional `fxcmpy` package. Never commit `.env` or put credentials in source
+code.
+
+Run the test suite with:
+
+```bash
+python -m pip install pytest
+python -m pytest -q
+```
+
+Scans that fetch large markets such as the S&P 500 can take a while because
+they download and process historical data for many symbols.
+
+## Shared cache and scheduled scans
+
+Yahoo OHLC data is cached in `.cache/cloud_signal`, independently of market
+directories. Cache entries are keyed by provider, normalized ticker, interval,
+adjustment basis, and lookback, so a market can run on its own and still reuse
+data from a prior scan. The default cache freshness is 15 minutes for hourly
+bars and 6 hours for other intervals. Override it with
+`CLOUD_SIGNAL_RAW_CACHE_TTL_SECONDS`; set `CLOUD_SIGNAL_CACHE_DIR` to use a
+different local cache directory.
+
+Ichimoku results are keyed by their source-data fingerprint and calculation
+version. When source bars change, the runner recalculates from a 104-bar
+warm-up before the earliest changed row; the retained prefix is unaffected by
+the update. Regression tests compare this incremental result with full-history
+recalculation for corrected and appended bars. Market-specific CSV outputs are
+still written for existing downstream workflows.
+
+The **Daily Ichimoku Scan** workflow is the only scheduled workflow. It runs
+the Hong Kong, UK, and remaining market groups at their existing scan times,
+one group at a time, restoring and saving a shared GitHub Actions cache. Use
+its manual **Run workflow** market selector to run one market independently
+(including `Nas100`) or select `all`.
+
+GitHub Actions caches are immutable, size-limited, and subject to eviction and
+retention limits. They provide best-effort reuse between workflow runs, not a
+durable shared database; if an entry is unavailable, the scan downloads and
+calculates it again.

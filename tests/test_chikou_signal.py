@@ -293,7 +293,7 @@ def test_scan_html_styles_wrap_headers_and_highlight_numeric_values(tmp_path):
     assert ".highlight-positive" in css_text
     assert ".highlight-negative" in css_text
     assert (
-        "font-weight: 600" in css_text[css_text.index(".highlight-neutral") :]
+        "font-weight: 600" in css_text[css_text.index(".highlight-neutral"):]
     )
 
 

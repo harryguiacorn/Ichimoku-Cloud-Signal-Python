@@ -16,7 +16,11 @@ from cloud_signal.mvc.controllers import (
     GetKickerDataFTSE250Aggregator,
     GetIchimokuSumCloudTKxDataFTSE250MultiTFMerger,
 )
-from cloud_signal.runners._bootstrap import ensure_repo_root, setup_runner_logging
+from cloud_signal.runners._bootstrap import (
+    ensure_repo_root,
+    setup_runner_logging,
+    timed_runner_main,
+)
 
 ensure_repo_root()
 RUNNER_CLASS = ""
@@ -47,6 +51,7 @@ fetch_kicker = False
 fetch_Kicker_use_datetime_format = False
 
 
+@timed_runner_main
 def main(
     fetch_symbols_latest_FTSE250=fetch_symbols_latest_FTSE250,
     fetch_FTSE250_1H=fetch_FTSE250_1H,

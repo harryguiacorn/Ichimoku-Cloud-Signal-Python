@@ -17,7 +17,11 @@ from cloud_signal.mvc.controllers import (
     GetIchimokuTKxDataSPDR_ETFSMultiTFMerger,
     GetIchimokuSumCloudTKxDataSPDR_ETFSMultiTFMerger,
 )
-from cloud_signal.runners._bootstrap import ensure_repo_root, setup_runner_logging
+from cloud_signal.runners._bootstrap import (
+    ensure_repo_root,
+    setup_runner_logging,
+    timed_runner_main,
+)
 
 ensure_repo_root()
 RUNNER_CLASS = ""
@@ -59,6 +63,7 @@ def __init__(self):
     pass
 
 
+@timed_runner_main
 def main(
     fetch_symbols_latest_SPDR_ETFS=fetch_symbols_latest_SPDR_ETFS,
     fetch_SPDR_ETFS_1H=fetch_SPDR_ETFS_1H,

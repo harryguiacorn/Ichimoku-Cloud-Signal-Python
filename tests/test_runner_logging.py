@@ -2,10 +2,13 @@ import logging
 import sys
 from types import ModuleType
 
+import cloud_signal.runners._bootstrap as runner_bootstrap
 from cloud_signal.runners._bootstrap import (
     _log_stage_summary,
     instrument_controller_mains,
+    record_runner_time,
     setup_runner_logging,
+    timed_runner_main,
     timed_stage,
 )
 
@@ -49,10 +52,46 @@ def test_stage_summary_logs_a_table(caplog):
     assert "| Total time" in summary
     assert "| market data fetch" in summary
     assert "| signal aggregation" in summary
-    total_row = next(
-        line for line in summary.splitlines() if "| TOTAL" in line
+    assert "Nested stages are not additive." in summary
+    assert "| TOTAL" not in summary
+
+
+def test_runner_timing_summary_totals_each_runner_class(
+    caplog, monkeypatch
+):
+    monkeypatch.setattr(runner_bootstrap, "_runner_timings", {})
+    record_runner_time("Nas100", 1.25)
+    record_runner_time("SPX500", 2.5)
+
+    with caplog.at_level(logging.INFO):
+        _log_stage_summary()
+
+    summary = next(
+        record.getMessage()
+        for record in caplog.records
+        if "Runner class timing summary" in record.getMessage()
     )
-    assert total_row.rstrip().endswith("s |")
+    assert "| Nas100" in summary
+    assert "| SPX500" in summary
+    assert "| TOTAL" in summary
+    assert summary.split("| TOTAL")[1].startswith(" ")
+    assert "3.75s" in summary
+
+
+def test_timed_runner_main_records_direct_runner_calls(monkeypatch):
+    monkeypatch.setattr(runner_bootstrap, "_runner_timings", {})
+    monkeypatch.setattr(
+        runner_bootstrap, "perf_counter", iter([4.0, 6.25]).__next__
+    )
+
+    def runner_main(value):
+        return value + 1
+
+    runner_main.__module__ = "cloud_signal.runners.runNas100"
+    timed_main = timed_runner_main(runner_main)
+
+    assert timed_main(2) == 3
+    assert runner_bootstrap._runner_timings == {"Nas100": (1, 2.25)}
 
 
 def test_setup_runner_logging_adds_file_when_console_handler_exists(

@@ -24,7 +24,6 @@ def test_validate_asset_list_invalid_nan(tmp_path: Path):
 
 
 def test_read_asset_list_normalizes_symbols_and_skips_invalid(tmp_path: Path):
-    from pathlib import Path
     from cloud_signal.mvc.core.DataTKxSignalMVC import Model
     import os
 

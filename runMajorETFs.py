@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import logging
-from cloud_signal.runners import runMajorETFs as _module
+from cloud_signal.runners.run_market import run_market
 
 logging.basicConfig(
     level=logging.INFO,
@@ -11,4 +11,4 @@ logger = logging.getLogger(__name__)
 
 if __name__ == "__main__":
     logger.info("Shim: launching cloud_signal.runners.runMajorETFs")
-    _module.main()
+    run_market("MajorETFs")

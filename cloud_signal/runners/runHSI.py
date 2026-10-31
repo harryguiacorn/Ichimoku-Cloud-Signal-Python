@@ -16,7 +16,11 @@ from cloud_signal.mvc.controllers import (
     # GetKickerDataHSIAggregator,
     GetIchimokuSumCloudTKxDataHSIMultiTFMerger,
 )
-from cloud_signal.runners._bootstrap import ensure_repo_root, setup_runner_logging
+from cloud_signal.runners._bootstrap import (
+    ensure_repo_root,
+    setup_runner_logging,
+    timed_runner_main,
+)
 
 ensure_repo_root()
 RUNNER_CLASS = ""
@@ -45,6 +49,7 @@ fetch_Kicker_use_datetime_format = False
 fetch_kicker = False
 
 
+@timed_runner_main
 def main(
     fetch_symbols_latest_HSI=fetch_symbols_latest_HSI,
     fetch_HSI_1H=fetch_HSI_1H,

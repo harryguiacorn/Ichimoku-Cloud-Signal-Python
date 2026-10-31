@@ -121,25 +121,15 @@ class Model(object):
     ) -> dict:
         __dict_df = {}
         for __symbol in symbols:
-            try:
-                api = DataOandaAPI()
-                data_json = api.get_oanda_data(
-                    __symbol, __lookbackPeriods, __interval
-                )
-                # print("+++++++ data_json +++++++", data_json)
-                __path_csv = self.csvPath + __symbol + ".json"
-                api.save_json(__path_csv, data_json)
-                __path_json = self.csvPath + __symbol + ".csv"
-                data_df = api.json_to_csv(data_json, __path_json)
-
-                # print("+++++++ data_df +++++++", data_df)
-                __dict_df[__symbol] = data_df
-                # print(f"{symbols.index(__symbol)} {__symbol} -> {__path}")
-            except Exception as e:
-                logger.exception(
-                    "Error getLatestDataFromOandaAPI: %s: %s", __symbol, e
-                )
-                continue
+            api = DataOandaAPI()
+            data_json = api.get_oanda_data(
+                __symbol, __lookbackPeriods, __interval
+            )
+            __path_csv = self.csvPath + __symbol + ".json"
+            api.save_json(__path_csv, data_json)
+            __path_json = self.csvPath + __symbol + ".csv"
+            data_df = api.json_to_csv(data_json, __path_json)
+            __dict_df[__symbol] = data_df
             logger.info(
                 "Download completed. Saved in: %s %s", __path_csv, __path_json
             )
