@@ -81,13 +81,13 @@ digest; use it only when that full workflow is intended.
 
 The Yahoo Finance runners need no API credentials. For OANDA, copy
 `.env.example` to `.env` and set `OANDA_ACCESS_TOKEN`; set `OANDA_ACCOUNT_ID`
-when using the account instruments endpoint. The practice API is used by
-default. The legacy FXCM integration requires `FXCM_ACCESS_TOKEN` and the
-optional `fxcmpy` package. Never commit `.env` or put credentials in source
-code.
+when using the account instruments endpoint. The live API is used by default;
+set `OANDA_API_URL=https://api-fxpractice.oanda.com/v3` to use the practice
+API. The legacy FXCM integration requires `FXCM_ACCESS_TOKEN` and the optional
+`fxcmpy` package. Never commit `.env` or put credentials in source code.
 
-GitHub Actions workflows that run OANDA also require a repository Actions
-secret named `OANDA_ACCESS_TOKEN` (Settings → Secrets and variables → Actions).
+GitHub Actions workflows that run OANDA require a repository Actions secret
+named `OANDA_ACCESS_TOKEN` (Settings → Secrets and variables → Actions).
 
 Run the test suite with:
 

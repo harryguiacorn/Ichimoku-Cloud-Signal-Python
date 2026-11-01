@@ -32,6 +32,7 @@ def test_oanda_candles_request_uses_named_parameters_and_credentials(
     monkeypatch,
 ):
     calls = []
+    assert DEFAULT_API_URL == "https://api-fxtrade.oanda.com/v3"
     monkeypatch.setenv("OANDA_ACCESS_TOKEN", "test-token")
     monkeypatch.delenv("OANDA_API_URL", raising=False)
 
@@ -88,6 +89,10 @@ def test_oanda_account_instruments_uses_configured_account_id(monkeypatch):
 
 def test_oanda_requires_credentials(monkeypatch):
     monkeypatch.delenv("OANDA_ACCESS_TOKEN", raising=False)
+    monkeypatch.setattr(
+        "cloud_signal.mvc.core.oanda.DataOandaAPI.load_dotenv",
+        lambda: False,
+    )
 
     with pytest.raises(RuntimeError, match="OANDA_ACCESS_TOKEN"):
         DataOandaAPI().get_oanda_data()

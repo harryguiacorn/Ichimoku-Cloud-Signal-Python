@@ -13,7 +13,7 @@ from cloud_signal.cache import get_cached_json, save_cached_json
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_API_URL = "https://api-fxpractice.oanda.com/v3"
+DEFAULT_API_URL = "https://api-fxtrade.oanda.com/v3"
 REQUEST_TIMEOUT_SECONDS = 30
 RAW_CACHE_TTL_SECONDS = 900
 RAW_CACHE_VERSION = "oanda-v1"
