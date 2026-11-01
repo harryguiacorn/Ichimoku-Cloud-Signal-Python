@@ -86,6 +86,9 @@ default. The legacy FXCM integration requires `FXCM_ACCESS_TOKEN` and the
 optional `fxcmpy` package. Never commit `.env` or put credentials in source
 code.
 
+GitHub Actions workflows that run OANDA also require a repository Actions
+secret named `OANDA_ACCESS_TOKEN` (Settings → Secrets and variables → Actions).
+
 Run the test suite with:
 
 ```bash

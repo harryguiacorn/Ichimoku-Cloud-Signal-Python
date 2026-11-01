@@ -68,6 +68,7 @@ jobs:
           SCAN_MARKET: ${{ inputs.market || 'all' }}
           SCHEDULE_CRON: ${{ github.event.schedule }}
           EVENT_NAME: ${{ github.event_name }}
+          OANDA_ACCESS_TOKEN: ${{ secrets.OANDA_ACCESS_TOKEN }}
         run: |
           if [ "$EVENT_NAME" = "schedule" ]; then
             case "$SCHEDULE_CRON" in

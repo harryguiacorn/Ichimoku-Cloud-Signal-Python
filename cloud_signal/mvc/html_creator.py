@@ -214,7 +214,7 @@ class TableGenerator:
           }
 
           const numericText = text.replace(/,/g, '');
-          if (/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(numericText)) {
+          if (/^[+-]?(?:\\d+(?:\\.\\d*)?|\\.\\d+)$/.test(numericText)) {
             const value = Number(numericText);
             if (value > 0) {
               cell.classList.add('highlight-positive');
@@ -232,7 +232,7 @@ class TableGenerator:
 
           const firstWrapIndex = isChikou ? 1 : 2;
           if (columnIndex >= firstWrapIndex) {
-            const parts = cleaned.split(/\s+/);
+            const parts = cleaned.split(/\\s+/);
             if (parts.length >= 2 && !['Symbol', 'Name', 'Close', 'Date'].includes(parts[0])) {
               if (/^(1H|4H|1D|1W|1M|3M|6M|1Y)/.test(parts[0])) {
                 return `${parts[0]}<br>${parts.slice(1).join(' ')}`;
@@ -511,7 +511,7 @@ class TableGenerator:
           }}
 
           const numericText = rawValue.replace(/,/g, '');
-          if (/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(numericText)) {{
+          if (/^[+-]?(?:\\d+(?:\\.\\d*)?|\\.\\d+)$/.test(numericText)) {{
             const value = Number(numericText);
             if (value > 0) element.classList.add('highlight-positive');
             else if (value < 0) element.classList.add('highlight-negative');
