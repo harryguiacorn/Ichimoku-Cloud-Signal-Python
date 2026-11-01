@@ -1,8 +1,7 @@
 import pandas as pd
-from typing import Dict
 from cloud_signal.mvc import Util
 import logging
-from cloud_signal.mvc.core._csv_utils import latest_csv_path
+from cloud_signal.mvc.core._csv_utils import read_latest_signal_data
 
 logger = logging.getLogger(__name__)
 
@@ -43,35 +42,15 @@ class Model(object):
         self.__resultDataFrame = __df
 
     def readLocalCsvData(self, symbols, __csvPath, __suffix):
-        __dict_df: Dict[str, pd.DataFrame] = {}
-        skipped_symbols = []
-        missing_files = []
-
-        for __symbol in symbols:
-            # skip empty or NaN symbols that may appear in asset lists
-            if pd.isna(__symbol):
-                skipped_symbols.append(__symbol)
-                logger.info("Skipping empty/NaN symbol in asset list")
-                continue
-
-            __symbol_str = str(__symbol)
-            try:
-                __filePath = __csvPath + __symbol_str + __suffix + ".csv"
-                __filePath = latest_csv_path(__filePath)
-                __df = pd.read_csv(__filePath)
-            except FileNotFoundError:
-                missing_files.append(__filePath)
-                logger.info(f"Error: {__filePath} not found\n")
-                continue
-            else:
-                __dict_df[__symbol_str] = __df
-
-        if skipped_symbols:
-            logger.info(f"Skipped symbols (empty/NaN): {skipped_symbols}")
-        if missing_files:
-            logger.info(f"Missing CSV files: {missing_files}")
-
-        return __dict_df
+        signal = "cloud" if __suffix == "_cloudCount" else "tkx"
+        valid_symbols = [
+            str(symbol).strip()
+            for symbol in symbols
+            if not pd.isna(symbol) and str(symbol).strip()
+        ]
+        return read_latest_signal_data(
+            valid_symbols, __csvPath, __suffix, signal
+        )
 
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)

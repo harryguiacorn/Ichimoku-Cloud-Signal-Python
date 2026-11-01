@@ -4,6 +4,11 @@ from abc import abstractclassmethod, ABC
 import logging
 
 from cloud_signal.mvc.core._csv_utils import write_latest_row
+from cloud_signal.mvc.core._signal_cache import (
+    get_cached_signal,
+    save_cached_signal,
+    signal_outputs_exist,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -97,15 +102,25 @@ class DataTKxSignal(DataOHLC):
                 # Check if "Datetime" column exists
                 if "Datetime" in __data.columns:
                     __data.index = __data.Datetime
+                    __source = __data.copy()
+                    __cached = get_cached_signal(
+                        "tkx", self.csvPath, self.symbol, __source
+                    )
                     __data["Returns"] = self.getReturn(
                         __data["Close"], __data["Close"].shift(1)
                     )
-                    __data["TKx Signal"] = self.getTKxDirection(
-                        __data["tenkan_sen"], __data["kijun_sen"]
-                    )
-                    __data["TKx Signal Count"] = self.getTKxSignalCount(
-                        __data["TKx Signal"]
-                    )
+                    if __cached is None:
+                        __data["TKx Signal"] = self.getTKxDirection(
+                            __data["tenkan_sen"], __data["kijun_sen"]
+                        )
+                        __data["TKx Signal Count"] = (
+                            self.getTKxSignalCount(__data["TKx Signal"])
+                        )
+                    else:
+                        __data["TKx Signal"] = __cached["TKx Signal"]
+                        __data["TKx Signal Count"] = __cached[
+                            "TKx Signal Count"
+                        ]
 
                     # drop chikou_span because it creates na values
                     # for 26 periods from last date
@@ -124,7 +139,19 @@ class DataTKxSignal(DataOHLC):
                         "TKx Signal Count"
                     ].astype("int64")
 
-                    self.setColumnsSaveCsv_use_datetime_format(__data)
+                    if __cached is None:
+                        save_cached_signal(
+                            "tkx",
+                            self.csvPath,
+                            self.symbol,
+                            __source,
+                            __data,
+                            ["TKx Signal", "TKx Signal Count"],
+                        )
+                    if __cached is None or not signal_outputs_exist(
+                        self.csvPath, self.symbol, "_tkxCount.csv"
+                    ):
+                        self.setColumnsSaveCsv_use_datetime_format(__data)
                     # print(__data)
         except pd.errors.EmptyDataError:
             logger.warning("CSV file is empty %s", __path)
@@ -149,15 +176,25 @@ class DataTKxSignal(DataOHLC):
 
                     # print(__data.Date)
                     __data.index = __data.Date
+                    __source = __data.copy()
+                    __cached = get_cached_signal(
+                        "tkx", self.csvPath, self.symbol, __source
+                    )
                     __data["Returns"] = self.getReturn(
                         __data["Close"], __data["Close"].shift(1)
                     )
-                    __data["TKx Signal"] = self.getTKxDirection(
-                        __data["tenkan_sen"], __data["kijun_sen"]
-                    )
-                    __data["TKx Signal Count"] = self.getTKxSignalCount(
-                        __data["TKx Signal"]
-                    )
+                    if __cached is None:
+                        __data["TKx Signal"] = self.getTKxDirection(
+                            __data["tenkan_sen"], __data["kijun_sen"]
+                        )
+                        __data["TKx Signal Count"] = (
+                            self.getTKxSignalCount(__data["TKx Signal"])
+                        )
+                    else:
+                        __data["TKx Signal"] = __cached["TKx Signal"]
+                        __data["TKx Signal Count"] = __cached[
+                            "TKx Signal Count"
+                        ]
 
                     # drop chikou_span because it creates na values
                     # for 26 periods from last date
@@ -173,43 +210,54 @@ class DataTKxSignal(DataOHLC):
                         "TKx Signal Count"
                     ].astype("int64")
 
-                    self.setColumnsSaveCsv(__data)
+                    if __cached is None:
+                        save_cached_signal(
+                            "tkx",
+                            self.csvPath,
+                            self.symbol,
+                            __source,
+                            __data,
+                            ["TKx Signal", "TKx Signal Count"],
+                        )
+                    if __cached is None or not signal_outputs_exist(
+                        self.csvPath, self.symbol, "_tkxCount.csv"
+                    ):
+                        self.setColumnsSaveCsv(__data)
         except pd.errors.EmptyDataError:
             logger.warning("CSV file is empty %s", __path)
         except FileNotFoundError:
             logger.warning("Error: %s not found", __path)
 
     def getTKxSignalCount(self, __tkxDirectionList):
-        __newList = []
-        __tkxDirectionCount = None
-        __cur_tkxDirection = None
-        for direction in __tkxDirectionList.to_numpy():
+        directions = pd.to_numeric(
+            pd.Series(__tkxDirectionList), errors="coerce"
+        ).to_numpy(dtype=float, na_value=np.nan)
+        valid = ~np.isnan(directions)
+        counts = np.zeros(len(directions), dtype=np.int64)
+        positions = np.flatnonzero(valid)
+        if positions.size == 0:
+            return counts.tolist()
 
-            # if empty data is retrived from yahoo finance
-            if pd.isna(direction):
-                # print("-----------1")
-                __tkxDirectionCount = 0
-
-            # initiate current direction
-            elif __cur_tkxDirection is None:
-                __cur_tkxDirection = direction
-                __tkxDirectionCount = 0
-                # print("-----------2", __cur_tkxDirection)
-
-            # tk crosses
-            elif direction != __cur_tkxDirection:
-                __cur_tkxDirection = direction
-                __tkxDirectionCount = 0 if __cur_tkxDirection == 0 else 1
-                # print("-----------3", __cur_tkxDirection)
-
-            # carries on counting
-            else:
-                # print("-----------4", __tkxDirectionList.iloc[__i])
-                if __cur_tkxDirection != 0:
-                    __tkxDirectionCount += 1
-
-            __newList.append(__tkxDirectionCount)
-        return __newList
+        valid_directions = directions[valid]
+        compact_positions = np.arange(valid_directions.size)
+        breaks = np.zeros(valid_directions.size, dtype=bool)
+        breaks[0] = True
+        if valid_directions.size > 1:
+            breaks[1:] = (
+                (valid_directions[1:] != valid_directions[:-1])
+                | (positions[1:] - positions[:-1] > 1)
+            )
+        starts = np.maximum.accumulate(
+            np.where(breaks, compact_positions, 0)
+        )
+        offsets = np.where(starts == 0, 0, 1)
+        valid_counts = np.where(
+            valid_directions == 0,
+            0,
+            compact_positions - starts + offsets,
+        )
+        counts[positions] = valid_counts
+        return counts.tolist()
 
     def getTKxDirection(self, __tenkan, __kijun):
         tenkan = __tenkan.to_numpy()
@@ -235,6 +283,24 @@ class DataTKxSignal(DataOHLC):
 
         data = data.copy()
         data.index = data[date_column]
+        source = data.copy()
+        cached = get_cached_signal("tkx", self.csvPath, self.symbol, source)
+        if cached is not None:
+            data["TKx Signal"] = cached["TKx Signal"]
+            data["TKx Signal Count"] = cached["TKx Signal Count"]
+            data["TKx Signal"] = data["TKx Signal"].astype("int64")
+            data["TKx Signal Count"] = data[
+                "TKx Signal Count"
+            ].astype("int64")
+            if not signal_outputs_exist(
+                self.csvPath, self.symbol, "_tkxCount.csv"
+            ):
+                if self.use_datetime_format:
+                    self.setColumnsSaveCsv_use_datetime_format(data)
+                else:
+                    self.setColumnsSaveCsv(data)
+            return data
+
         data["TKx Signal"] = self.getTKxDirection(
             data["tenkan_sen"], data["kijun_sen"]
         )
@@ -244,6 +310,14 @@ class DataTKxSignal(DataOHLC):
         data["TKx Signal"] = data["TKx Signal"].astype("int64")
         data["TKx Signal Count"] = data["TKx Signal Count"].astype(
             "int64"
+        )
+        save_cached_signal(
+            "tkx",
+            self.csvPath,
+            self.symbol,
+            source,
+            data,
+            ["TKx Signal", "TKx Signal Count"],
         )
 
         if self.use_datetime_format:

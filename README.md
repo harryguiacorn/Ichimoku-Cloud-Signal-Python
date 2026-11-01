@@ -107,6 +107,14 @@ bars and 6 hours for other intervals. Override it with
 `CLOUD_SIGNAL_RAW_CACHE_TTL_SECONDS`; set `CLOUD_SIGNAL_CACHE_DIR` to use a
 different local cache directory.
 
+OANDA, Kraken, and Bitfinex responses use the same shared cache location, keyed
+by provider, instrument, interval, and lookback. OANDA entries are fresh for
+15 minutes; Kraken and Bitfinex entries are fresh for 5 minutes. On expiration,
+the clients request candles from the last cached bar when the cached range can
+cover the gap, merge overlapping candles by timestamp, and fall back to a
+full-lookback request for larger gaps. API requests remain sequential and
+provider rate limits are not bypassed.
+
 Ichimoku results are keyed by their source-data fingerprint and calculation
 version. When source bars change, the runner recalculates from a 104-bar
 warm-up before the earliest changed row; the retained prefix is unaffected by
@@ -114,13 +122,24 @@ the update. Regression tests compare this incremental result with full-history
 recalculation for corrected and appended bars. Market-specific CSV outputs are
 still written for existing downstream workflows.
 
-The **Daily Ichimoku Scan** workflow is the only scheduled workflow. It runs
-the Hong Kong, UK, and remaining market groups at their existing scan times,
-one group at a time, restoring and saving a shared GitHub Actions cache. Use
-its manual **Run workflow** market selector to run one market independently
-(including `Nas100`) or select `all`.
+Cloud, TKx, and Chikou signals are also fingerprint-cached. Unchanged signal
+inputs reuse the derived columns across market directories and avoid rewriting
+existing full-history signal CSVs. Latest signal rows are indexed in a hidden
+`.latest_signals.sqlite3` file per data directory so aggregators can load rows
+in bulk; legacy per-symbol sidecars remain available and are used to populate
+the index when it is absent or incomplete.
+
+The scheduled workflows are `daily_scan_hk.yml`, `daily_scan_uk.yml`, and
+`daily_scan_us.yml`. Each matrix job restores the latest shared cache snapshot,
+runs one market, and saves a new uniquely keyed snapshot. The matrices are
+intentionally sequential (`max-parallel: 1`): each job gets its own temporary
+runner, so parallel jobs would restore the same starting snapshot and would
+not see one another's newly fetched data. Sequential jobs let the next market
+restore the prior market's additions, and later regional workflows can reuse
+the latest snapshot.
 
 GitHub Actions caches are immutable, size-limited, and subject to eviction and
 retention limits. They provide best-effort reuse between workflow runs, not a
 durable shared database; if an entry is unavailable, the scan downloads and
-calculates it again.
+calculates it again. `daily_scan_v1.yml` is not part of this scheduled cache
+flow.

@@ -2,10 +2,13 @@ import pandas as pd
 import requests
 import json
 import time
-from cloud_signal.mvc import Util
+from cloud_signal.cache import get_cached_json, save_cached_json
 import logging
 
 logger = logging.getLogger(__name__)
+
+RAW_CACHE_TTL_SECONDS = 300
+RAW_CACHE_VERSION = "kraken-v1"
 
 
 # Define the Model class
@@ -56,11 +59,58 @@ class Model:
         return self.df
 
     def fetch_data(self):
+        identity = json.dumps(
+            {
+                "base_url": self.base_url,
+                "instrument": self.instrument,
+                "time_frame": self.time_frame,
+                "lookback": self.lookbackPeriod,
+            },
+            sort_keys=True,
+        )
+        cached = get_cached_json(
+            "kraken_raw",
+            identity,
+            RAW_CACHE_VERSION,
+            RAW_CACHE_TTL_SECONDS,
+            allow_stale=True,
+        )
+        if cached is not None and cached[2]:
+            self.data = cached[0]
+            return True
 
-        url = self.base_url + self.endpoint
+        since = self.lookbackPeriod
+        merge_cached_rows = False
+        if cached is not None and isinstance(cached[0], list) and cached[0]:
+            try:
+                latest_timestamp = int(float(cached[0][-1][0]))
+                interval_seconds = int(self.time_frame) * 60
+                max_gap_seconds = interval_seconds * 720
+                gap_seconds = int(time.time()) - latest_timestamp
+                if gap_seconds <= max_gap_seconds:
+                    since = max(0, latest_timestamp - 1)
+                    merge_cached_rows = True
+                else:
+                    since = max(
+                        0, int(time.time()) - max_gap_seconds
+                    )
+            except (IndexError, TypeError, ValueError):
+                logger.warning(
+                    "Ignoring malformed Kraken cache for %s", self.instrument
+                )
+
+        url = (
+            self.base_url
+            + f"?pair={self.instrument}&interval={self.time_frame}"
+            + f"&since={since}"
+        )
 
         logger.info(
-            f"fetch_data: instrument={self.instrument} time_frame={self.time_frame} lookback={self.lookbackPeriod} url={url}"
+            "fetch_data: instrument=%s time_frame=%s lookback=%s url=%s",
+            self.instrument,
+            self.time_frame,
+            self.lookbackPeriod,
+            url,
         )
         payload = {}
         headers = {"Accept": "application/json"}
@@ -76,7 +126,23 @@ class Model:
 
             # Extend the data list with the candles
             # self.data.extend(candles)
-            self.data = candles["result"][self.instrument]
+            refreshed = candles["result"][self.instrument]
+            if merge_cached_rows and cached is not None:
+                by_timestamp = {
+                    row[0]: row
+                    for row in cached[0] + refreshed
+                    if isinstance(row, list) and row
+                }
+                refreshed = sorted(
+                    by_timestamp.values(), key=lambda row: float(row[0])
+                )[-720:]
+            self.data = refreshed
+            save_cached_json(
+                "kraken_raw",
+                identity,
+                self.data,
+                RAW_CACHE_VERSION,
+            )
 
             # # Update the end parameter to the timestamp of the last candle
             # self.params["end"] = candles[-1][0]

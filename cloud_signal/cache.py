@@ -48,6 +48,12 @@ def _prune_versions(directory: Path, version: str, keep: str) -> None:
             path.unlink(missing_ok=True)
 
 
+def _prune_json_versions(directory: Path, version: str, keep: str) -> None:
+    for path in directory.glob(f"{version}-*.json"):
+        if path.name != keep:
+            path.unlink(missing_ok=True)
+
+
 def _write_frame(path: Path, data: pd.DataFrame) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile(
@@ -73,6 +79,97 @@ def _write_json(path: Path, payload: dict[str, Any]) -> None:
         os.replace(temporary_path, path)
     finally:
         temporary_path.unlink(missing_ok=True)
+
+
+def get_cached_json(
+    namespace: str,
+    identity: str,
+    version: str,
+    max_age_seconds: int,
+    *,
+    allow_stale: bool = False,
+) -> tuple[Any, datetime, bool] | None:
+    directory = _identity_directory(namespace, identity)
+    metadata_path = directory / "latest.json"
+    try:
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        _record(f"{namespace}.miss")
+        return None
+    except (OSError, json.JSONDecodeError):
+        logger.warning(
+            "Ignoring unreadable cache metadata %s", metadata_path, exc_info=True
+        )
+        _record(f"{namespace}.miss")
+        return None
+
+    filename = metadata.get("file")
+    if (
+        metadata.get("version") != version
+        or not isinstance(filename, str)
+        or Path(filename).name != filename
+        or not filename.startswith(f"{version}-")
+    ):
+        _record(f"{namespace}.miss")
+        return None
+
+    try:
+        fetched_at = datetime.fromisoformat(metadata["fetched_at"])
+        if fetched_at.tzinfo is None:
+            fetched_at = fetched_at.replace(tzinfo=timezone.utc)
+        data_path = directory / filename
+        payload = json.loads(data_path.read_text(encoding="utf-8"))
+    except (KeyError, OSError, TypeError, ValueError, json.JSONDecodeError):
+        logger.warning(
+            "Ignoring unreadable cached JSON %s", metadata_path, exc_info=True
+        )
+        _record(f"{namespace}.miss")
+        return None
+
+    age = (datetime.now(timezone.utc) - fetched_at).total_seconds()
+    is_fresh = age <= max_age_seconds
+    if not is_fresh and not allow_stale:
+        _record(f"{namespace}.miss")
+        return None
+
+    _record(f"{namespace}.hit" if is_fresh else f"{namespace}.stale")
+    _record("cache.bytes_read", data_path.stat().st_size)
+    return payload, fetched_at, is_fresh
+
+
+def save_cached_json(
+    namespace: str,
+    identity: str,
+    payload: Any,
+    version: str,
+    *,
+    fetched_at: datetime | None = None,
+) -> None:
+    directory = _identity_directory(namespace, identity)
+    filename = f"{version}-{hashlib.sha256(json.dumps(payload, sort_keys=True).encode('utf-8')).hexdigest()}.json"
+    data_path = directory / filename
+    if not data_path.is_file():
+        directory.mkdir(parents=True, exist_ok=True)
+        with tempfile.NamedTemporaryFile(
+            mode="w", encoding="utf-8", suffix=".tmp", dir=directory, delete=False
+        ) as temporary:
+            temporary_path = Path(temporary.name)
+            json.dump(payload, temporary, sort_keys=True)
+        try:
+            os.replace(temporary_path, data_path)
+            _record("cache.bytes_written", data_path.stat().st_size)
+        finally:
+            temporary_path.unlink(missing_ok=True)
+    _write_json(
+        directory / "latest.json",
+        {
+            "version": version,
+            "file": filename,
+            "fetched_at": (fetched_at or datetime.now(timezone.utc)).isoformat(),
+            "updated_at": datetime.now(timezone.utc).isoformat(),
+        },
+    )
+    _prune_json_versions(directory, version, filename)
 
 
 def _read_frame(path: Path, index: pd.Index | None = None) -> pd.DataFrame | None:

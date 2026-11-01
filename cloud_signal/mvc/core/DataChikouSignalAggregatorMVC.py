@@ -2,7 +2,7 @@ import os
 
 import pandas as pd
 from cloud_signal.mvc.html_creator import TableGenerator
-from cloud_signal.mvc.core._csv_utils import latest_csv_path
+from cloud_signal.mvc.core._csv_utils import read_latest_signal_data
 
 
 class Model(object):
@@ -23,15 +23,19 @@ class Model(object):
             .str.replace("/", "", regex=False)
             .str.strip()
         )
+        latest_by_symbol = read_latest_signal_data(
+            assets["symbol"].tolist(),
+            self.csvPath,
+            "_chikouCount",
+            "chikou",
+        )
         rows = []
         date_column = "Date"
         for _, asset in assets.iterrows():
             symbol = asset["symbol"]
-            path = os.path.join(self.csvPath, f"{symbol}_chikouCount.csv")
-            path = latest_csv_path(path)
-            if not os.path.exists(path):
+            data = latest_by_symbol.get(symbol)
+            if data is None:
                 continue
-            data = pd.read_csv(path)
             if data.empty:
                 continue
             latest = data.iloc[-1]

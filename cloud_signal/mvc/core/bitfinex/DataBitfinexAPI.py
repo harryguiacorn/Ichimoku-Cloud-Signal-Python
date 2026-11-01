@@ -2,10 +2,13 @@ import pandas as pd
 import requests
 import json
 import time
-from cloud_signal.mvc import Util
 import logging
+from cloud_signal.cache import get_cached_json, save_cached_json
 
 logger = logging.getLogger(__name__)
+
+RAW_CACHE_TTL_SECONDS = 300
+RAW_CACHE_VERSION = "bitfinex-v1"
 
 
 # Define the Model class
@@ -57,9 +60,46 @@ class Model:
             f"\n--------- fetch_data --------- {self.instrument} {self.time_frame} {self.lookbackPeriod}"
         )
 
+        identity = json.dumps(
+            {
+                "base_url": self.base_url,
+                "instrument": self.instrument,
+                "time_frame": self.time_frame,
+                "lookback": self.lookbackPeriod,
+            },
+            sort_keys=True,
+        )
+        cached = get_cached_json(
+            "bitfinex_raw",
+            identity,
+            RAW_CACHE_VERSION,
+            RAW_CACHE_TTL_SECONDS,
+            allow_stale=True,
+        )
+        if cached is not None and cached[2]:
+            self.data = cached[0]
+            return True
+
+        params = dict(self.params)
+        lookback = int(self.lookbackPeriod)
+        if cached is not None and isinstance(cached[0], list) and cached[0]:
+            coverage_seconds = self._timeframe_seconds() * lookback
+            cache_age = (
+                pd.Timestamp.now(tz="UTC") - cached[1]
+            ).total_seconds()
+            timestamps = [
+                int(row[0])
+                for row in cached[0]
+                if isinstance(row, list) and row
+            ]
+            if timestamps and cache_age <= coverage_seconds:
+                params["start"] = max(timestamps) - int(
+                    self._timeframe_seconds() * 1000
+                )
+
         # Make a GET request to the API with the parameters
         self.response = requests.get(
-            self.base_url + self.endpoint, params=self.params
+            self.base_url + self.endpoint, params=params
         )
         # Check if the response status code is 200 (OK)
         if self.response.status_code == 200:
@@ -67,7 +107,24 @@ class Model:
             candles = self.response.json()
             # Extend the data list with the candles
             # self.data.extend(candles)
+            if cached is not None and isinstance(cached[0], list):
+                by_timestamp = {
+                    row[0]: row
+                    for row in cached[0] + candles
+                    if isinstance(row, list) and row
+                }
+                candles = sorted(
+                    by_timestamp.values(),
+                    key=lambda row: int(row[0]),
+                    reverse=True,
+                )[:lookback]
             self.data = candles
+            save_cached_json(
+                "bitfinex_raw",
+                identity,
+                self.data,
+                RAW_CACHE_VERSION,
+            )
 
             # # Update the end parameter to the timestamp of the last candle
             # self.params["end"] = candles[-1][0]
@@ -82,10 +139,24 @@ class Model:
                 f'Error: 429 Bitfinex API Limitation, Retry after {int(self.response.headers["Retry-After"])} secs.'
             )
             time.sleep(int(self.response.headers["Retry-After"]))
-            self.fetch_data()
+            return self.fetch_data()
         else:
             # Return False if the data is not fetched successfully
             return False
+
+    def _timeframe_seconds(self) -> int:
+        units = {
+            "m": 60,
+            "h": 3600,
+            "d": 86400,
+            "D": 86400,
+            "w": 604800,
+            "W": 604800,
+            "M": 2592000,
+        }
+        unit = self.time_frame[-1]
+        multiplier = int(self.time_frame[:-1] or "1")
+        return multiplier * units.get(unit, 3600)
 
     def save_json(self, filePath="data.json"):
         # initializing Parameters

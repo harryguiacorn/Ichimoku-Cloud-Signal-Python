@@ -5,6 +5,11 @@ import numpy as np
 import pandas as pd
 
 from cloud_signal.mvc.core._csv_utils import write_latest_row
+from cloud_signal.mvc.core._signal_cache import (
+    get_cached_signal,
+    save_cached_signal,
+    signal_outputs_exist,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -44,16 +49,39 @@ class DataChikouSignal(DataOHLC):
             return
 
         data.index = data[date_column]
-        data["Chikou Signal"] = self.getChikouSignal(
-            data["Close"], data["High"], data["Low"]
+        source = data.copy()
+        cached = get_cached_signal(
+            "chikou", self.csvPath, self.symbol, source
         )
-        data["Chikou Signal Count"], data["Chikou State"] = (
-            self.getChikouState(data["Chikou Signal"])
-        )
+        if cached is None:
+            data["Chikou Signal"] = self.getChikouSignal(
+                data["Close"], data["High"], data["Low"]
+            )
+            data["Chikou Signal Count"], data["Chikou State"] = (
+                self.getChikouState(data["Chikou Signal"])
+            )
+        else:
+            data["Chikou Signal"] = cached["Chikou Signal"]
+            data["Chikou Signal Count"] = cached["Chikou Signal Count"]
+            data["Chikou State"] = cached["Chikou State"]
         data["Chikou Signal"] = data["Chikou Signal"].astype("int64")
         data["Chikou Signal Count"] = data["Chikou Signal Count"].astype(
             "int64"
         )
+        if cached is None:
+            save_cached_signal(
+                "chikou",
+                self.csvPath,
+                self.symbol,
+                source,
+                data,
+                ["Chikou Signal", "Chikou Signal Count", "Chikou State"],
+            )
+        if cached is not None and signal_outputs_exist(
+            self.csvPath, self.symbol, output_suffix
+        ):
+            return
+
         header = [
             date_column,
             "Close",
@@ -94,6 +122,40 @@ class DataChikouSignal(DataOHLC):
             )
 
         data = data.copy()
+        data.index = data[date_column]
+        source = data.copy()
+        cached = get_cached_signal(
+            "chikou", self.csvPath, self.symbol, source
+        )
+        if cached is not None:
+            data["Chikou Signal"] = cached["Chikou Signal"]
+            data["Chikou Signal Count"] = cached["Chikou Signal Count"]
+            data["Chikou State"] = cached["Chikou State"]
+            data["Chikou Signal"] = data["Chikou Signal"].astype("int64")
+            data["Chikou Signal Count"] = data[
+                "Chikou Signal Count"
+            ].astype("int64")
+            if not signal_outputs_exist(
+                self.csvPath, self.symbol, "_chikouCount.csv"
+            ):
+                header = [
+                    date_column,
+                    "Close",
+                    "Chikou Signal",
+                    "Chikou Signal Count",
+                    "Chikou State",
+                ]
+                data.to_csv(
+                    self.csvPath + self.symbol + "_chikouCount.csv",
+                    columns=header,
+                    index=False,
+                )
+                write_latest_row(
+                    data[header],
+                    self.csvPath + self.symbol + "_chikouCount.csv",
+                )
+            return data
+
         data["Chikou Signal"] = self.getChikouSignal(
             data["Close"], data["High"], data["Low"]
         )
@@ -104,6 +166,14 @@ class DataChikouSignal(DataOHLC):
         data["Chikou Signal"] = data["Chikou Signal"].astype("int64")
         data["Chikou Signal Count"] = data["Chikou Signal Count"].astype(
             "int64"
+        )
+        save_cached_signal(
+            "chikou",
+            self.csvPath,
+            self.symbol,
+            source,
+            data,
+            ["Chikou Signal", "Chikou Signal Count", "Chikou State"],
         )
         header = [
             date_column,
@@ -123,24 +193,33 @@ class DataChikouSignal(DataOHLC):
         return data
 
     def getChikouState(self, signals):
-        counts = []
-        states = []
-        previous_direction = 0
-        periods = 0
-        for signal in signals:
-            if pd.isna(signal):
-                signal = 0
-
-            if signal in (1, -1) and signal != previous_direction:
-                previous_direction = int(signal)
-                periods = 1
-            elif previous_direction != 0:
-                periods += 1
-            else:
-                periods = 0
-
-            counts.append(periods * previous_direction)
-            states.append(self.getChikouStateLabel(previous_direction))
+        signal_series = pd.Series(signals).fillna(0)
+        active = signal_series.isin([1, -1]).to_numpy()
+        signal_values = np.where(
+            active,
+            pd.to_numeric(signal_series, errors="coerce").to_numpy(
+                dtype=float, na_value=np.nan
+            ),
+            0,
+        ).astype("int64")
+        directions = (
+            pd.Series(signal_values)
+            .where(signal_values != 0)
+            .ffill()
+            .fillna(0)
+            .to_numpy(dtype="int64")
+        )
+        positions = np.arange(len(directions))
+        previous = np.r_[0, directions[:-1]]
+        changed = (directions != 0) & (directions != previous)
+        starts = np.maximum.accumulate(np.where(changed, positions, 0))
+        periods = np.where(directions == 0, 0, positions - starts + 1)
+        counts = (periods * directions).tolist()
+        states = np.select(
+            [directions == 1, directions == -1],
+            ["above chikou", "below chikou"],
+            default="neutral chikou",
+        ).tolist()
         return counts, states
 
     def getChikouStateLabel(self, direction):

@@ -1,10 +1,7 @@
-from genericpath import isdir
-import os
 import pandas as pd
-from typing import Dict
 from cloud_signal.mvc import Util
 import logging
-from cloud_signal.mvc.core._csv_utils import latest_csv_path
+from cloud_signal.mvc.core._csv_utils import read_latest_signal_data
 
 logger = logging.getLogger(__name__)
 
@@ -45,25 +42,14 @@ class Model(object):
         self.__resultDataFrame = __df
 
     def readLocalCsvData(self, symbols, __csvPath, __suffix):
-        __dict_df: Dict[str, pd.DataFrame] = {}
-
-        for __symbol in symbols:
-            __symbol_text = str(__symbol).strip()
-            if __symbol_text == "" or __symbol_text.lower() == "nan":
-                continue
-            try:
-                __filePath = os.path.join(
-                    __csvPath, f"{__symbol_text}{__suffix}.csv"
-                )
-                __filePath = latest_csv_path(__filePath)
-                __df = pd.read_csv(__filePath)
-            except FileNotFoundError:
-                logger.info(f"Error: {__filePath} not found")
-                continue
-            else:
-                __dict_df[__symbol_text] = __df
-        # print(__dict_df)
-        return __dict_df
+        valid_symbols = [
+            str(symbol).strip()
+            for symbol in symbols
+            if str(symbol).strip() and str(symbol).strip().lower() != "nan"
+        ]
+        return read_latest_signal_data(
+            valid_symbols, __csvPath, __suffix, "tkx"
+        )
 
     def readAssetList(self, __csvPath, __colName="symbol"):
         df = pd.read_csv(__csvPath)

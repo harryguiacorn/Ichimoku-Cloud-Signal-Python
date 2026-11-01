@@ -8,6 +8,13 @@ from cloud_signal.mvc.core.oanda.DataOandaAPI import (
 )
 
 
+@pytest.fixture(autouse=True)
+def isolate_shared_cache(tmp_path, monkeypatch):
+    monkeypatch.setenv(
+        "CLOUD_SIGNAL_CACHE_DIR", str(tmp_path / "shared-cache")
+    )
+
+
 class FakeResponse:
     def __init__(self, data=None, error=None):
         self.data = data

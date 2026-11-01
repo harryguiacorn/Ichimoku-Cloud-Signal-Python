@@ -4,6 +4,11 @@ from abc import abstractclassmethod, ABC
 import logging
 
 from cloud_signal.mvc.core._csv_utils import write_latest_row
+from cloud_signal.mvc.core._signal_cache import (
+    get_cached_signal,
+    save_cached_signal,
+    signal_outputs_exist,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -107,18 +112,28 @@ class DataCloudSignal(DataOHLC):
                 # Check if "Datetime" column exists
                 if "Datetime" in __data.columns:
                     __data.index = __data.Datetime
-                    __data["Cloud Signal"] = self.getCloudDirection(
-                        __data["Close"],
-                        __data["senkou_span_a"],
-                        __data["senkou_span_b"],
+                    __source = __data.copy()
+                    __cached = get_cached_signal(
+                        "cloud", self.csvPath, self.symbol, __source
                     )
+                    if __cached is None:
+                        __data["Cloud Signal"] = self.getCloudDirection(
+                            __data["Close"],
+                            __data["senkou_span_a"],
+                            __data["senkou_span_b"],
+                        )
+                        __data["Cloud Signal Count"] = (
+                            self.getCloudSignalCount(__data["Cloud Signal"])
+                        )
+                    else:
+                        __data["Cloud Signal"] = __cached["Cloud Signal"]
+                        __data["Cloud Signal Count"] = __cached[
+                            "Cloud Signal Count"
+                        ]
 
                     # rounded to 2 decimal places
                     __data["Close"] = __data["Close"].round(2)
 
-                    __data["Cloud Signal Count"] = self.getCloudSignalCount(
-                        __data["Cloud Signal"]
-                    )
                     __data["Return"] = self.getReturn(
                         __data["Close"], __data["Cloud Signal"]
                     ).round(4)
@@ -140,7 +155,19 @@ class DataCloudSignal(DataOHLC):
                         "Cloud Signal Count"
                     ].astype("int64")
 
-                    self.setColumnsSaveCsv_use_datetime_format(__data)
+                    if __cached is None:
+                        save_cached_signal(
+                            "cloud",
+                            self.csvPath,
+                            self.symbol,
+                            __source,
+                            __data,
+                            ["Cloud Signal", "Cloud Signal Count"],
+                        )
+                    if __cached is None or not signal_outputs_exist(
+                        self.csvPath, self.symbol, "_cloudCount.csv"
+                    ):
+                        self.setColumnsSaveCsv_use_datetime_format(__data)
                     # print(__data)
         except pd.errors.EmptyDataError:
             logger.warning("CSV file is empty %s", __path)
@@ -169,18 +196,27 @@ class DataCloudSignal(DataOHLC):
 
                     # print("__path:", __path)
                     __data.index = __data.Date
-                    __data["Cloud Signal"] = self.getCloudDirection(
-                        __data["Close"],
-                        __data["senkou_span_a"],
-                        __data["senkou_span_b"],
+                    __source = __data.copy()
+                    __cached = get_cached_signal(
+                        "cloud", self.csvPath, self.symbol, __source
                     )
+                    if __cached is None:
+                        __data["Cloud Signal"] = self.getCloudDirection(
+                            __data["Close"],
+                            __data["senkou_span_a"],
+                            __data["senkou_span_b"],
+                        )
+                        __data["Cloud Signal Count"] = (
+                            self.getCloudSignalCount(__data["Cloud Signal"])
+                        )
+                    else:
+                        __data["Cloud Signal"] = __cached["Cloud Signal"]
+                        __data["Cloud Signal Count"] = __cached[
+                            "Cloud Signal Count"
+                        ]
 
                     # rounded to 2 decimal places
                     __data["Close"] = __data["Close"].round(2)
-
-                    __data["Cloud Signal Count"] = self.getCloudSignalCount(
-                        __data["Cloud Signal"]
-                    )
 
                     # __data["Return"] = self.getReturn(
                     #     __data["Close"], __data["Cloud Signal"]
@@ -205,7 +241,19 @@ class DataCloudSignal(DataOHLC):
                         "Cloud Signal Count"
                     ].astype("int64")
 
-                    self.setColumnsSaveCsv(__data)
+                    if __cached is None:
+                        save_cached_signal(
+                            "cloud",
+                            self.csvPath,
+                            self.symbol,
+                            __source,
+                            __data,
+                            ["Cloud Signal", "Cloud Signal Count"],
+                        )
+                    if __cached is None or not signal_outputs_exist(
+                        self.csvPath, self.symbol, "_cloudCount.csv"
+                    ):
+                        self.setColumnsSaveCsv(__data)
         except pd.errors.EmptyDataError:
             logger.warning("CSV file is empty: %s", __path)
         except FileNotFoundError:
@@ -223,38 +271,40 @@ class DataCloudSignal(DataOHLC):
         return pct_change
 
     def getCloudSignalCount(self, __cloudDirectionList):
-        __newList = []
-        __cloudDirectionCount = None
-        __curCloudDirection = None
-        for direction in __cloudDirectionList.to_numpy():
-            if pd.isna(direction):
-                # print(
-                #     "--------- __cloudDirectionList.iloc[__i] ---------",
-                #     __cloudDirectionList.iloc[__i],
-                # )
-                __cloudDirectionCount = direction
-            elif __curCloudDirection is None:
-                # print("--------- __curCloudDirection is None ---------")
-                __curCloudDirection = direction
-                __cloudDirectionCount = 0 if __curCloudDirection == 0 else 1
-            elif direction != __curCloudDirection:
-                # print(
-                #     "--------- not __cloudDirectionList.iloc[__i] == __curCloudDirection ---------",
-                #     direction,
-                #     __curCloudDirection,
-                # )
-                __curCloudDirection = direction
-                __cloudDirectionCount = 0 if __curCloudDirection == 0 else 1
-            elif __curCloudDirection == 0:
-                __cloudDirectionCount = 0
-            else:
-                __cloudDirectionCount += 1
-            # print(
-            #     "---------------__cloudDirectionCount------------",
-            #     __cloudDirectionCount,
-            # )
-            __newList.append(__cloudDirectionCount)
-        return __newList
+        directions = np.asarray(__cloudDirectionList)
+        valid = ~pd.isna(directions)
+        counts = np.full(len(directions), np.nan, dtype=float)
+        valid_positions = np.flatnonzero(valid)
+        valid_directions = directions[valid]
+        if valid_directions.size == 0:
+            return counts.tolist()
+
+        positions = np.arange(valid_directions.size)
+        breaks = np.ones(valid_directions.size, dtype=bool)
+        breaks[1:] = (
+            (valid_directions[1:] != valid_directions[:-1])
+            | (valid_directions[1:] == 0)
+        )
+        starts = np.maximum.accumulate(np.where(breaks, positions, 0))
+        gaps = np.zeros(valid_directions.size, dtype=bool)
+        if valid_directions.size > 1:
+            gaps[1:] = (
+                (valid_directions[1:] == valid_directions[:-1])
+                & (valid_directions[1:] != 0)
+                & ((valid_positions[1:] - valid_positions[:-1]) > 1)
+            )
+        cumulative_gaps = np.cumsum(gaps)
+        gap_counts_at_start = np.maximum.accumulate(
+            np.where(breaks, cumulative_gaps, 0)
+        )
+        nan_counts = cumulative_gaps > gap_counts_at_start
+        valid_counts = np.where(
+            valid_directions == 0,
+            0,
+            np.where(nan_counts, np.nan, positions - starts + 1),
+        )
+        counts[valid] = valid_counts
+        return counts.tolist()
 
     def getCloudDirection(self, __close, __senkou_span_a, __senkou_span_b):
         close = __close.to_numpy()
@@ -274,6 +324,29 @@ class DataCloudSignal(DataOHLC):
 
         data = data.copy()
         data.index = data[date_column]
+        source = data.copy()
+        cached = get_cached_signal(
+            "cloud", self.csvPath, self.symbol, source
+        )
+        if cached is not None:
+            data["Cloud Signal"] = cached["Cloud Signal"]
+            data["Cloud Signal Count"] = cached["Cloud Signal Count"]
+            data["Close"] = data["Close"].round(2)
+            if "chikou_span" in data.columns:
+                data.drop("chikou_span", axis=1, inplace=True)
+            data["Cloud Signal"] = data["Cloud Signal"].astype("int64")
+            data["Cloud Signal Count"] = data[
+                "Cloud Signal Count"
+            ].astype("int64")
+            if not signal_outputs_exist(
+                self.csvPath, self.symbol, "_cloudCount.csv"
+            ):
+                if self.use_datetime_format:
+                    self.setColumnsSaveCsv_use_datetime_format(data)
+                else:
+                    self.setColumnsSaveCsv(data)
+            return data
+
         data["Cloud Signal"] = self.getCloudDirection(
             data["Close"], data["senkou_span_a"], data["senkou_span_b"]
         )
@@ -284,6 +357,14 @@ class DataCloudSignal(DataOHLC):
         data["Cloud Signal"] = data["Cloud Signal"].astype("int64")
         data["Cloud Signal Count"] = data["Cloud Signal Count"].astype(
             "int64"
+        )
+        save_cached_signal(
+            "cloud",
+            self.csvPath,
+            self.symbol,
+            source,
+            data,
+            ["Cloud Signal", "Cloud Signal Count"],
         )
         if "chikou_span" in data.columns:
             data.drop("chikou_span", axis=1, inplace=True)
