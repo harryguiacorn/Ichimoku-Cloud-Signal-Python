@@ -58,27 +58,26 @@ Uncover market movers with ease! This application analyses data silently and gen
 The project requires Python 3.14.8 or newer.
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
 python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+python -m pip install poetry
+poetry install
 ```
 
-On Windows PowerShell, activate the environment with
-`.venv\Scripts\Activate.ps1`.
+Run commands in the Poetry-managed environment with `poetry run`, for example
+`poetry run python -m cloud_signal.runners.run_market --market SPX500`.
 
 To run one market, use the registry-driven runner. For example:
 
 ```bash
-python -m cloud_signal.runners.run_market --market SPX500
-python -m cloud_signal.runners.run_market --market MajorETFs --timeframes 1h d
+poetry run python -m cloud_signal.runners.run_market --market SPX500
+poetry run python -m cloud_signal.runners.run_market --market MajorETFs --timeframes 1h d
 ```
 
 Market names, asset lists, output locations, and timeframes are configured in
 [`config/markets.toml`](config/markets.toml). See
 [`RUNNERS.md`](RUNNERS.md) for all runner options and output details. Running
-`python main.py` starts every enabled market scan and the email digest; use it
-only when that full workflow is intended.
+`poetry run python main.py` starts every enabled market scan and the email
+digest; use it only when that full workflow is intended.
 
 The Yahoo Finance runners need no API credentials. For OANDA, copy
 `.env.example` to `.env` and set `OANDA_ACCESS_TOKEN`; set `OANDA_ACCOUNT_ID`
@@ -90,8 +89,7 @@ code.
 Run the test suite with:
 
 ```bash
-python -m pip install pytest
-python -m pytest -q
+poetry run python -m pytest -q
 ```
 
 Scans that fetch large markets such as the S&P 500 can take a while because
