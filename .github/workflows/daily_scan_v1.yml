@@ -56,7 +56,7 @@ jobs:
           python -m pip install -r requirements.txt
 
       - name: Restore shared scan cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: .cache/cloud_signal
           key: cloud-signal-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
@@ -93,7 +93,7 @@ jobs:
 
       - name: Save shared scan cache
         if: success()
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           path: .cache/cloud_signal
           key: cloud-signal-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
