@@ -14,6 +14,7 @@
             --line: #d5dee5;
             --accent: #006d77;
             --paper: #f4f7f8;
+            --surface: #ffffff;
         }
 
         * {
@@ -28,22 +29,22 @@
         }
 
         main {
-            width: min(520px, calc(100% - 32px));
+            width: min(1120px, calc(100% - 48px));
             margin: 0 auto;
-            padding: 48px 0 64px;
+            padding: 36px 0 52px;
         }
 
         header {
             display: flex;
             flex-wrap: wrap;
-            align-items: end;
+            align-items: center;
             justify-content: space-between;
-            gap: 24px;
-            margin-bottom: 30px;
+            gap: 12px 24px;
+            margin-bottom: 12px;
         }
 
         header > div {
-            flex: 1 0 100%;
+            flex: 1 1 300px;
         }
 
         h1 {
@@ -54,14 +55,25 @@
         }
 
         h2 {
-            margin: 42px 0 12px;
-            font-size: 1.5rem;
+            margin: 24px 0 12px;
+            font-size: 1.4rem;
             letter-spacing: 0;
+        }
+
+        .scan-section-heading {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .scan-section-heading h2 {
+            margin-bottom: 8px;
         }
 
         p {
             color: var(--muted);
-            margin: 8px 0 0;
+            margin: 6px 0 0;
             font-family: "Trebuchet MS", sans-serif;
         }
 
@@ -74,7 +86,8 @@
         .header-links {
             display: flex;
             align-items: center;
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 12px 20px;
             margin-left: auto;
             font-family: "Trebuchet MS", sans-serif;
             font-size: .9rem;
@@ -86,10 +99,28 @@
         }
 
         .tabulator {
+            width: 100%;
             border: 1px solid var(--line);
-            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--surface);
             font-family: "Trebuchet MS", sans-serif;
-            box-shadow: 0 10px 24px rgba(23, 33, 43, .06);
+            box-shadow: 0 8px 24px rgba(23, 33, 43, .08);
+        }
+
+        .scan-table-scroll {
+            max-width: 100%;
+            overflow-x: auto;
+            overscroll-behavior-x: contain;
+            scrollbar-width: thin;
+        }
+
+        .scan-table-scroll > .tabulator {
+            min-width: 600px;
+        }
+
+        .scan-scroll-cue {
+            display: none;
         }
 
         .tabulator .tabulator-header {
@@ -104,7 +135,11 @@
         }
 
         .tabulator .tabulator-header .tabulator-col .tabulator-col-title {
-            padding: 12px 10px;
+            padding: 14px 16px;
+            font-size: .82rem;
+            font-weight: 700;
+            letter-spacing: .035em;
+            text-transform: uppercase;
         }
 
         .tabulator .tabulator-header-filter input {
@@ -115,16 +150,16 @@
         }
 
         .tabulator-row .tabulator-cell {
-            padding: 11px 10px;
+            padding: 13px 16px;
             border-right: 1px solid #e7edf0;
         }
 
         .tabulator-row:nth-child(even) {
-            background: #f7fafb;
+            background: #f8fafb;
         }
 
         .tabulator-row:hover {
-            background: #dff2f1 !important;
+            background: #e8f4f3 !important;
         }
 
         .tabulator a {
@@ -140,18 +175,38 @@
 
         @media (max-width: 650px) {
             main {
-                width: min(520px, calc(100% - 20px));
-                padding-top: 28px;
+                width: min(1120px, calc(100% - 24px));
+                padding-top: 24px;
             }
 
             header {
-                display: block;
+                align-items: flex-start;
             }
 
             .header-links {
                 width: 100%;
-                justify-content: flex-end;
-                margin-top: 18px;
+                justify-content: flex-start;
+                margin: 4px 0 0;
+            }
+
+            h2 {
+                margin-top: 22px;
+            }
+
+            .tabulator .tabulator-header .tabulator-col .tabulator-col-title,
+            .tabulator-row .tabulator-cell {
+                padding-right: 10px;
+                padding-left: 10px;
+            }
+
+            .scan-scroll-cue {
+                display: block;
+                flex: 0 0 auto;
+                margin: 0 2px 8px 0;
+                color: var(--accent);
+                font-size: .72rem;
+                font-weight: 700;
+                white-space: nowrap;
             }
         }
     </style>
@@ -172,14 +227,29 @@
             </nav>
         </header>
 
-        <h2>Market Scans</h2>
-        <div id="market-scans"></div>
+        <div class="scan-section-heading">
+            <h2>Market Scans</h2>
+            <p class="scan-scroll-cue">Swipe for Chikou <span aria-hidden="true">→</span></p>
+        </div>
+        <div class="scan-table-scroll" role="region" aria-label="Market scans, scroll horizontally to see Chikou Scan" tabindex="0">
+            <div id="market-scans"></div>
+        </div>
 
-        <h2>Sector Scans</h2>
-        <div id="sector-scans"></div>
+        <div class="scan-section-heading">
+            <h2>Sector Scans</h2>
+            <p class="scan-scroll-cue">Swipe for Chikou <span aria-hidden="true">→</span></p>
+        </div>
+        <div class="scan-table-scroll" role="region" aria-label="Sector scans, scroll horizontally to see Chikou Scan" tabindex="0">
+            <div id="sector-scans"></div>
+        </div>
 
-        <h2>Major ETFs</h2>
-        <div id="major-etf-scans"></div>
+        <div class="scan-section-heading">
+            <h2>Major ETFs</h2>
+            <p class="scan-scroll-cue">Swipe for Chikou <span aria-hidden="true">→</span></p>
+        </div>
+        <div class="scan-table-scroll" role="region" aria-label="Major ETF scans, scroll horizontally to see Chikou Scan" tabindex="0">
+            <div id="major-etf-scans"></div>
+        </div>
 
         <footer></footer>
     </main>
@@ -231,12 +301,11 @@
             data,
             layout: "fitColumns",
             responsiveLayout: false,
-            pagination: true,
-            paginationSize: 25,
+            resizableColumn: false,
             columns: [
-                { title: firstColumn, field: firstColumn.toLowerCase(), headerSort: false, minWidth: 240, widthGrow: 1 },
-                { title: "Cloud Scan", field: "cloud", formatter: linkFormatter, headerSort: false, widthGrow: 2 },
-                { title: "Chikou Scan", field: "chikou", formatter: linkFormatter, headerSort: false, widthGrow: 2 }
+                { title: firstColumn, field: firstColumn.toLowerCase(), headerSort: false, resizable: false, minWidth: 220, widthGrow: 2 },
+                { title: "Cloud Scan", field: "cloud", formatter: linkFormatter, headerSort: false, resizable: false, minWidth: 150, widthGrow: 1 },
+                { title: "Chikou Scan", field: "chikou", formatter: linkFormatter, headerSort: false, resizable: false, minWidth: 150, widthGrow: 1 }
             ]
         });
         makeTable("#market-scans", marketRows, "Market");
